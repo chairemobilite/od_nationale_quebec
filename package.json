@@ -1,0 +1,52 @@
+{
+    "private": true,
+    "name": "od_nationale_quebec",
+    "version": "0.5.0",
+    "main": "index.js",
+    "author": "Chaire Mobilité",
+    "repository": "github.com/chairemobilite/od_nationale_quebec",
+    "workspaces": [
+        "evolution/transition/packages/chaire-lib-common",
+        "evolution/transition/packages/chaire-lib-backend",
+        "evolution/transition/packages/chaire-lib-frontend",
+        "evolution/packages/evolution-common",
+        "evolution/packages/evolution-backend",
+        "evolution/packages/evolution-frontend",
+        "evolution/packages/evolution-interviewer",
+        "evolution/packages/evolution-generator",
+        "survey"
+    ],
+    "scripts": {
+        "setup": "yarn workspace chaire-lib-backend run setup",
+        "setup-test": "yarn workspace chaire-lib-backend run setup-test",
+        "migrate": "yarn workspace chaire-lib-backend run migrate && yarn workspace evolution-backend run migrate",
+        "migrate-test": "yarn workspace chaire-lib-backend run migrate-test && yarn workspace evolution-backend run migrate-test",
+        "clean": "yarn workspaces run clean",
+        "cleanModules": "yarn workspace evolution-common run cleanModules && yarn workspace evolution-backend run cleanModules && yarn workspace evolution-frontend run cleanModules && yarn workspace od_nationale_quebec run cleanModules && rimraf node_modules",
+        "compile": "yarn workspaces run compile",
+        "compile:dev": "yarn wsrun compile:dev",
+        "create-user": "yarn workspace chaire-lib-backend run create-user",
+        "build:dev": "yarn workspace od_nationale_quebec run build:dev",
+        "build:prod": "yarn workspace od_nationale_quebec run build:prod",
+        "build:admin:dev": "yarn workspace od_nationale_quebec run build:admin:dev",
+        "build:admin:prod": "yarn workspace od_nationale_quebec run build:admin:prod",
+        "start": "yarn workspace od_nationale_quebec run start",
+        "start:admin": "yarn workspace od_nationale_quebec run start:admin",
+        "start:debug": "yarn workspace od_nationale_quebec run start:debug",
+        "start:tracing": "yarn workspace od_nationale_quebec run start:tracing",
+        "test": "yarn workspace od_nationale_quebec run test",
+        "test:unit": "yarn workspace od_nationale_quebec run test:unit",
+        "test:sequential": "yarn workspace od_nationale_quebec run test:sequential",
+        "test:ui": "yarn workspace od_nationale_quebec run test:ui",
+        "lint": "yarn workspace od_nationale_quebec run lint",
+        "format": "yarn workspace od_nationale_quebec run format",
+        "generate-migration": "knex migrate:make",
+        "reset-submodules": "rimraf evolution/ && git submodule update --init --recursive"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "depcheck": "^1.4.3",
+        "rimraf": "^6.0.1",
+        "wsrun": "^5.2.4"
+    }
+}
