@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [22.x]
         ev-variant: [nationale, sherbrooke, troisrivieresbecancour]
     env:
       PROJECT_CONFIG: ${{ github.workspace }}/survey/config.js
@@ -47,7 +47,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: true
+        submodules: recursive
     - name: Use latest Node.js
       uses: actions/setup-node@v4
       with:
@@ -64,7 +64,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: true
+        submodules: recursive
     - name: Use latest Node.js
       uses: actions/setup-node@v4
       with:
