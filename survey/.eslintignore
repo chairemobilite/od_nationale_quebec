@@ -11,3 +11,4 @@ configVariantSpecific.js
 webpack.config.js
 webpack.admin.config.js
 playwright-example.config.ts
+tests/

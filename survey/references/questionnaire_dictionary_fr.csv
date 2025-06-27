@@ -1,0 +1,216 @@
+""
+Section,Domicile
+Abréviation,h_
+""
+Champ,accessCode
+Type de question,Champ de texte
+Question,"Code d'accès
+Inscrit dans la lettre reçue."
+""
+Champ,acceptToBeContactedForHelp
+Type de question,Bouton radio
+Question,"Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
+Si je ne le termine pas ou si certains des renseignements fournis sont incohérents."
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,contactEmail
+Type de question,Champ de texte
+Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,Adresse courriel
+""
+Champ,phoneNumber
+Type de question,Champ de texte
+Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,"Numéro de téléphone
+Format: 123-456-7890"
+""
+Champ,h_address
+Type de question,Champ de texte
+Question,Adresse
+""
+Champ,h_city
+Type de question,Champ de texte
+Question,Ville
+""
+Champ,h_region
+Type de question,Champ de texte
+Question,Province
+""
+Champ,h_country
+Type de question,Champ de texte
+Question,Pays
+""
+Champ,h_postalCode
+Type de question,Champ de texte
+Question,Code postal
+""
+Champ,h_geography
+Type de question,Entrée inconnue
+Question,"Positionnement de votre domicile
+Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision."
+""
+Champ,hh_size
+Type de question,RadioNumber
+Question,"Personnes habitant votre domicile ou logement.
+Y compris vous-même."
+""
+Champ,hh_carNumber
+Type de question,RadioNumber
+Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
+À la disposition de votre ménage."
+""
+Champ,hh_bicycleNumber
+Type de question,RadioNumber
+Question,"Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
+Inclure seulement les vélos utilisables en bon état."
+""
+Champ,hh_electricBicycleNumber
+Type de question,RadioNumber
+Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique ?"
+""
+Champ,hh_atLeastOnePersonWithDisability
+Type de question,Bouton radio
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
+Y compris vous-même"
+Valeurs,"yes : Oui
+no : Non
+preferNotAnswer : Je préfère ne pas répondre"
+""
+""
+""
+Section,Ménage
+Abréviation,hh_
+""
+Champ,nickname
+Type de question,Champ de texte
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrevue.
+Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé."
+""
+Champ,age
+Type de question,Champ numérique
+Question,"Âge
+Pour les bébés de moins de 1 an, inscrivez ""0"""
+""
+Champ,gender
+Type de question,Bouton radio
+Conditionnel,ifAge5orMoreConditional : age >= 5
+Question,"Sexe à la naissance
+Sexe assigné à la naissance ou inscrit dans les documents légaux."
+Valeurs,"male : Homme
+female : Femme
+preferNotAnswer : Je préfère ne pas répondre"
+""
+Champ,workerType
+Type de question,Bouton radio
+Conditionnel,ifAge14orMoreConditional : age >= 14
+Question,"Travailleur
+Incluant travailleur autonome, artiste, travailleur en congé de maladie ou parental."
+Valeurs,"yesFullTime : Oui, à temps plein
+yesPartTime : Oui, à temps partiel
+no : Non"
+""
+Champ,studentType
+Type de question,Bouton radio
+Conditionnel,ifAge16OrMoreConditional : age >= 16
+Question,Étudiant{{gender:/e/·e}}
+Valeurs,"yesFullTime : Oui, à temps plein
+yesPartTime : Oui, à temps partiel
+no : Non"
+""
+Champ,schoolType
+Type de question,Bouton radio
+Conditionnel,ifAge15OrLessConditional : age <= 15 && age !== null
+Question,Établissement d'enseignement / type d'école
+Valeurs,"kindergarten (ifAge5OrLessConditional : age <= 5) : Garderie/CPE
+primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : École primaire
+secondarySchool (ifAge11OrMoreConditional : age >= 11) : École secondaire
+schoolAtHome : École à la maison
+collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / Collège / DEP / AEP
+other : Autre (spécifiez)"
+""
+Champ,occupation
+Type de question,Bouton radio
+Question,Occupation principale
+Valeurs,"fullTimeWorker : Travail à temps plein (30h et plus/semaine)
+partTimeWorker : Travail à temps partiel (moins de 30h/semaine)
+workerAndStudent : Travail et études
+fullTimeStudent : Études à temps plein
+partTimeStudent : Études à temps partiel
+retired (ifAge40OrMoreConditional : age >= 40) : À la retraite
+atHome : À la maison
+unemployed : En chômage / en recherche d'emploi
+sickOrParentalLeave : Congé de maladie ou congé parental
+longTermDisability : Invalidité de longue durée
+volunteer : Bénévole
+other : Autre
+preferNotToAnswer : Préfère ne pas répondre"
+""
+Champ,drivingLicenseOwner
+Type de question,Bouton radio
+Conditionnel,ifAge16OrMoreConditional : age >= 16
+Question,"Permis de conduire
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur·rice}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter."
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,carSharingMember
+Type de question,Bouton radio
+Conditionnel,hasDrivingLicenseConditional : drivingLicenseOwner === yes
+Question,"Membre Autopartage
+Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,hasDisability
+Type de question,Bouton radio
+Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens ?"
+Valeurs,"yes : Oui
+no : Non
+preferNotAnswer : Je préfère ne pas répondre"
+""
+Champ,workLocationType
+Type de question,Bouton radio
+Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,Est-ce que {{nickname}} a un lieu d'emploi fixe ?
+Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps
+hybrid : Oui, travail en mode hybride (télétravail et en présentiel)
+onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+onTheRoadWithoutUsualPlace : Non, travail sur la route avec départ du domicile
+remote : Non, travail à partir du domicile ou à distance"
+""
+Champ,schoolLocationType
+Type de question,Bouton radio
+Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
+Question,Est-ce que {{nickname}} a un lieu d'études fixe ?
+Valeurs,"onLocation : Oui, études au lieu fixe en présentiel en tout temps
+hybrid : Oui, études en mode hybride (télé-études et en présentiel)
+remote : Non, études à partir du domicile ou à distance"
+""
+Champ,name
+Type de question,Champ de texte
+Conditionnel,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
+""
+Champ,geography
+Type de question,Entrée inconnue
+Conditionnel,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
+""
+Champ,name
+Type de question,Champ de texte
+Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
+""
+Champ,geography
+Type de question,Entrée inconnue
+Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."

@@ -1,0 +1,153 @@
+Section: Home
+
+Access code
+Printed on the letter you received.
+
+I consent to be contacted to continue the survey.
+If I do not complete it or if some of the information provided is incoherent.
+- Yes
+- No
+
+Please enter the email or phone number to get in contact.
+
+Email address
+
+Phone number
+Format: 123-456-7890
+
+Address
+
+City
+
+Province
+
+Country
+
+Postal Code
+
+Positioning your home
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.
+
+Persons living in your home
+Including yourself.
+
+Cars, SUVs, light-duty trucks or vans, etc.
+Available to one or more members of your household.
+
+Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
+Include only usable bicycles in good condition.
+
+Among these bicycles, how many are electric bicycles (e-bikes)?
+
+Is there at least one person in your household having a permanent disability that limits their daily travel?
+Including yourself
+- Yes
+- No
+- I prefer not to answer
+
+Save and continue
+
+
+
+Section: Household
+
+Name or nickname that will allow you to identify this person for the remainder of the interview.
+Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+The name is only used to simplify the response process and will be removed from the final dataset.
+
+Age
+For babies under the age of 1, write "0"
+
+Sex at birth
+Sex assigned at birth or that which appears on legal documents.
+- Man
+- Woman
+- I prefer not to answer
+
+Worker
+Including self-employed, artist, on sick leave or parental leave.
+- Yes, full time
+- Yes, part time
+- No
+
+Student
+- Yes, full time
+- Yes, part time
+- No
+
+School type
+- Kindergarten/Childcare/CPE
+- Primary school
+- Secondary school
+- School at home
+- CEGEP / College / DEP / AEP
+- Other (specify)
+
+Main occupation
+- Employed full-time (30h and more/week)
+- Employed part-time (less than 30h/week)
+- Work and studies
+- Full-time student
+- Part-time student
+- Retired
+- At home
+- Unemployed / searching for a job
+- Sick leave or parental leave
+- Long-term disability
+- Volunteer
+- Other
+- Prefer not to answer
+
+Driver's licence
+Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits.
+- Yes
+- No
+- I don't know
+
+Carsharing member
+Subscription or pass to a carsharing service (ex. Communauto)
+- Yes
+- No
+- I don't know
+
+Permanent physical, intellectual or other disability which influences or limits their daily mobility?
+- Yes
+- No
+- I prefer not to answer
+
+Does {{nickname}} have a fixed work location?
+- Yes, always on-site at fixed location
+- Yes, hybrid work (remote and on-site)
+- Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+- No, work on the road departing from home
+- No, work from home or from elsewhere
+
+Does {{nickname}} have a fixed study location?
+- Yes, always on-site at fixed location
+- Yes, hybrid studies (remote and on-site)
+- No, remote studies from home or from elsewhere
+
+Name or address of {{nickname}}'s usual place of work
+
+Please locate the usual place of work for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
+Name or address of {{nickname}}'s school or main study location
+
+Please locate the usual place of study for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
+Save and continue
+
+
+
+Section: Survey completed
+
+Thank you for your participation!
+
+We thank you for taking the time to fill out this survey. Your answers have been recorded. You can edit your answers by clicking on any of the sections in the menu at the top of the page.
+
+
+

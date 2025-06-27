@@ -41,7 +41,8 @@
         "lint": "yarn workspace od_nationale_quebec run lint",
         "format": "yarn workspace od_nationale_quebec run format",
         "generate-migration": "knex migrate:make",
-        "reset-submodules": "rimraf evolution/ && git submodule update --init --recursive"
+        "reset-submodules": "rimraf evolution/ && git submodule update --init --recursive",
+        "generateSurvey": "yarn workspace evolution-generator run generateSurvey --config_path ../../../survey/references/generatorConfigs.yaml && yarn format"
     },
     "dependencies": {},
     "devDependencies": {

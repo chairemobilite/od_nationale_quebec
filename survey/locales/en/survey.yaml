@@ -1,0 +1,102 @@
+homepage:
+    AgreementText: I confirm that I have read the above and consent to the collection, processing,
+        and use of the personal information provided during the Survey.
+    ErrorNotAgreed: In order to start the survey, you must accept the terms of use.
+    introduction_sherbrooke: >-
+        <p class="left">The <span class="_strong">Origin-Destination Survey</span>
+        is underway and your participation is important for its success. </p><p class="left">You
+        are invited to describe your trips as well as those of the other members of your
+        household during the day that is suggested to you.</p><br/><details style="margin-bottom: 1rem"><summary class="left _strong"
+        style="cursor: pointer;">Consent for the Transmission of Personal Information</summary><ul><li>As part of the 2024 Sherbrooke
+        Origin-Destination Survey (the "Survey"), I authorize the Ministère des Transports
+        et de la Mobilité durable (MTMD), the Société de transport de Sherbrooke, and
+        the city of Sherbrooke (the "Organizations") to collect the following personal
+        information:<ul><li>Email address.</li><li>Home address.</li><li>Your household
+        profile: location, number of people, number of available vehicles, income category,
+        housing status, presence of individuals with mobility limitations due to disability.</li><li>Profile
+        of each member of your household: age, gender, whether they have a driver's licence,
+        whether they have a public transit pass, whether they subscribe to a car-sharing
+        service, occupation, where they work/study, remote work/study habits; and</li><li>Travel
+        profile of each member of your household on a specific day.</li></ul></li><li>The
+        personal information collected during the Survey enables the Organizations to
+        understand the transportation needs of the population and plan future road infrastructure
+        and public transport projects.</li><li>The personal information will be collected
+        through an online questionnaire.</li><li>Your participation in the Survey is voluntary.</li><li>The
+        categories of individuals who may have access to this personal information in
+        the course of their duties are:<ul><li>The Organizations</li><li>Recognized educational
+        institutions and research centres</li></ul></li><li>If you choose not to continue
+        with the Survey, the personal information collected up to that point will be destroyed.</li><li>Anyone
+        who has provided personal information by participating in the Survey has the right
+        to access their personal information held about them, obtain a copy, or request
+        correction of inaccurate, incomplete, ambiguous, or unlawfully collected information
+        by contacting the person responsible for information access at the Ministère des
+        Transports de la Mobilité durable at 418 646-0160, extension 23013, or by sending
+        a written request with proof of identity to <a href="mailto:lai@transports.gouv.qc.ca">lai@transports.gouv.qc.ca</a>.</li><li>Personal
+        information will be retained for a period determined by the Organizations' retention
+        schedule.</li><li>If you refuse to provide the required personal information for
+        the Survey, you will not be able to participate.</li></ul><br/><p class="left">You must also consent to this form from Polytechnique
+        Montreal: <a href="/dist/documents/C-FIC_SondageWeb_EN_EnqueteOrigineDestination2024_V2.pdf"
+        target="_blank">Information and consent form</a></p></details>
+    introduction: >-
+        <p class="left">The <span class="_strong">Origin-Destination Survey</span>
+        is underway and your participation is important for its success. </p><p class="left">You
+        are invited to describe your trips as well as those of the other members of your
+        household during the day that is suggested to you.</p><br/><details style="margin-bottom: 1rem"><summary class="left _strong"
+        style="cursor: pointer;">Consent for the Transmission of Personal Information</summary><ul><li>As part of the 2024 Origin-Destination
+        Survey (the "Survey"), I authorize the Ministère des Transports et de la Mobilité
+        durable (MTMD) to collect the following personal information:<ul><li>Email address.</li><li>Home
+        address.</li><li>Your household profile: location, number of people, number of
+        available vehicles, income category, housing status, presence of individuals with
+        mobility limitations due to disability.</li><li>Profile of each member of your
+        household: age, gender, whether they have a driver's licence, whether they have
+        a public transit pass, whether they subscribe to a car-sharing service, occupation,
+        where they work/study, remote work/study habits; and</li><li>Travel profile of
+        each member of your household on a specific day.</li></ul></li><li>The personal
+        information collected during the Survey allows the MTMD to understand the transportation
+        needs of the population and to plan future road infrastructure and public transport
+        projects.</li><li>The personal information will be collected through an online
+        questionnaire.</li><li>Your participation in the Survey is voluntary.</li><li>The
+        categories of individuals who may have access to this personal information in
+        the course of their duties are:<ul><li>MTMD.</li><li>Recognized educational institutions
+        and research centres.</li></ul></li><li>If you choose not to continue with the
+        Survey, the personal information collected up to that point will be destroyed.</li><li>Anyone
+        who has provided personal information by participating in the Survey has the right
+        to access their personal information held about them, obtain a copy, or request
+        correction of inaccurate, incomplete, ambiguous, or unlawfully collected information
+        by contacting the person responsible for information access at the Ministère des
+        Transports et de la Mobilité durable at 418 646-0160, extension 23013, or by sending
+        a written request with proof of identity to <a href="mailto:lai@transports.gouv.qc.ca">lai@transports.gouv.qc.ca</a>.</li><li>Personal
+        information will be retained for a period determined by MTMD's retention schedule.</li><li>If
+        you refuse to provide the required personal information for the Survey, you will
+        not be able to participate.</li></ul><br/><p class="left">You must also consent to this form from Polytechnique
+        Montreal: <a href="/dist/documents/C-FIC_SondageWeb_EN_EnqueteOrigineDestination2024_V2.pdf"
+        target="_blank">Information and consent form</a></p></details>
+    introductionParagraphTwo: >-
+        <p class="left">We thank you for your contribution to the planning of tomorrow's transportation!</p><br/>
+        <p class="left _strong" style="margin-bottom: 1rem;">The deadline to participate
+        is December 16th, 2024.</p><br/><p class="left"><em>For more information about the Survey,
+        please visit the following link</em>: <a href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
+        target="_blank">Enquêtes origine-destination - Transports et Mobilité durable
+        Québec (gouv.qc.ca)</a>.</em></p><p class="center _oblique" style="margin: 2rem 0;"><a
+        href="mailto:eod@transports.gouv.qc.ca" target="_blank">Contact us</a></p>
+    start: Start
+footer: >-
+    <div style="display: flex;justify-content: center;"><div style="font-size:
+    80%;max-width: 700px;margin: 15px;"><p><a href="/dist/documents/demo_information_consent_form.pdf"
+    target="_blank">Information and Consent Form</a> | <a href="mailto:mobilite@polymtl.ca?subject=Demo%20Survey"
+    target="_blank">Contact us by email</a></p></div></div>
+auth:
+    EmailSubLabel: >-
+        <br /><span class="_pale _oblique">In case of disconnection, you can enter your email again and you will 
+        receive a secured link to complete your survey</span>
+    missingUsernameOrEmail: Please provide your email address
+    authenticationFailed: Your email address or password was not found or is invalid
+    pleaseChooseAUsernameOrEnterYourEmail: To participate, please provide your email address
+    pleaseChooseAUsernameOrEnterYourEmailAndAPassword: >-
+        To register, please enter your email address, choose a password and confirm it.
+    UseAnonymousLogin: Log in anonymously
+    WhyLoginInfo: ''
+    PasswordlessHeader: ''
+    AnonymousLoginExplanation: >-
+        Note that if you proceed without an email, you won't be able to come back to the survey if your session expires.
+    Login: Confirm
