@@ -1,0 +1,216 @@
+""
+Section,Home
+Abbreviation,h_
+""
+Field,accessCode
+Question type,Text input
+Question,"Access code
+Printed on the letter you received."
+""
+Field,acceptToBeContactedForHelp
+Question type,Radio input
+Question,"I consent to be contacted to continue the survey.
+If I do not complete it or if some of the information provided is incoherent."
+Values,"yes : Yes
+no : No"
+""
+Field,contactEmail
+Question type,Text input
+Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,Email address
+""
+Field,phoneNumber
+Question type,Text input
+Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,"Phone number
+Format: 123-456-7890"
+""
+Field,h_address
+Question type,Text input
+Question,Address
+""
+Field,h_city
+Question type,Text input
+Question,City
+""
+Field,h_region
+Question type,Text input
+Question,Province
+""
+Field,h_country
+Question type,Text input
+Question,Country
+""
+Field,h_postalCode
+Question type,Text input
+Question,Postal Code
+""
+Field,h_geography
+Question type,Unknown input
+Question,"Positioning your home
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision."
+""
+Field,hh_size
+Question type,RadioNumber
+Question,"Persons living in your home
+Including yourself."
+""
+Field,hh_carNumber
+Question type,RadioNumber
+Question,"Cars, SUVs, light-duty trucks or vans, etc.
+Available to one or more members of your household."
+""
+Field,hh_bicycleNumber
+Question type,RadioNumber
+Question,"Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
+Include only usable bicycles in good condition."
+""
+Field,hh_electricBicycleNumber
+Question type,RadioNumber
+Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
+""
+Field,hh_atLeastOnePersonWithDisability
+Question type,Radio input
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"Is there at least one person in your household having a permanent disability that limits their daily travel?
+Including yourself"
+Values,"yes : Yes
+no : No
+preferNotAnswer : I prefer not to answer"
+""
+""
+""
+Section,Household
+Abbreviation,hh_
+""
+Field,nickname
+Question type,Text input
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"Name or nickname that will allow you to identify this person for the remainder of the interview.
+Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+The name is only used to simplify the response process and will be removed from the final dataset."
+""
+Field,age
+Question type,Number input
+Question,"Age
+For babies under the age of 1, write ""0"""
+""
+Field,gender
+Question type,Radio input
+Conditional,ifAge5orMoreConditional : age >= 5
+Question,"Sex at birth
+Sex assigned at birth or that which appears on legal documents."
+Values,"male : Man
+female : Woman
+preferNotAnswer : I prefer not to answer"
+""
+Field,workerType
+Question type,Radio input
+Conditional,ifAge14orMoreConditional : age >= 14
+Question,"Worker
+Including self-employed, artist, on sick leave or parental leave."
+Values,"yesFullTime : Yes, full time
+yesPartTime : Yes, part time
+no : No"
+""
+Field,studentType
+Question type,Radio input
+Conditional,ifAge16OrMoreConditional : age >= 16
+Question,Student
+Values,"yesFullTime : Yes, full time
+yesPartTime : Yes, part time
+no : No"
+""
+Field,schoolType
+Question type,Radio input
+Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
+Question,School type
+Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
+primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
+secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school
+schoolAtHome : School at home
+collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / College / DEP / AEP
+other : Other (specify)"
+""
+Field,occupation
+Question type,Radio input
+Question,Main occupation
+Values,"fullTimeWorker : Employed full-time (30h and more/week)
+partTimeWorker : Employed part-time (less than 30h/week)
+workerAndStudent : Work and studies
+fullTimeStudent : Full-time student
+partTimeStudent : Part-time student
+retired (ifAge40OrMoreConditional : age >= 40) : Retired
+atHome : At home
+unemployed : Unemployed / searching for a job
+sickOrParentalLeave : Sick leave or parental leave
+longTermDisability : Long-term disability
+volunteer : Volunteer
+other : Other
+preferNotToAnswer : Prefer not to answer"
+""
+Field,drivingLicenseOwner
+Question type,Radio input
+Conditional,ifAge16OrMoreConditional : age >= 16
+Question,"Driver's licence
+Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits."
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,carSharingMember
+Question type,Radio input
+Conditional,hasDrivingLicenseConditional : drivingLicenseOwner === yes
+Question,"Carsharing member
+Subscription or pass to a carsharing service (ex. Communauto)"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,hasDisability
+Question type,Radio input
+Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
+Values,"yes : Yes
+no : No
+preferNotAnswer : I prefer not to answer"
+""
+Field,workLocationType
+Question type,Radio input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,Does {{nickname}} have a fixed work location?
+Values,"onLocation : Yes, always on-site at fixed location
+hybrid : Yes, hybrid work (remote and on-site)
+onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+onTheRoadWithoutUsualPlace : No, work on the road departing from home
+remote : No, work from home or from elsewhere"
+""
+Field,schoolLocationType
+Question type,Radio input
+Conditional,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
+Question,Does {{nickname}} have a fixed study location?
+Values,"onLocation : Yes, always on-site at fixed location
+hybrid : Yes, hybrid studies (remote and on-site)
+remote : No, remote studies from home or from elsewhere"
+""
+Field,name
+Question type,Text input
+Conditional,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Question,Name or address of {{nickname}}'s usual place of work
+""
+Field,geography
+Question type,Unknown input
+Conditional,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Question,"Please locate the usual place of work for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."
+""
+Field,name
+Question type,Text input
+Question,Name or address of {{nickname}}'s school or main study location
+""
+Field,geography
+Question type,Unknown input
+Question,"Please locate the usual place of study for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."

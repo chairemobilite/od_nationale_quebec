@@ -1,3 +1,7 @@
 {
-    "extends": "../evolution/configs/base.eslintrc.json"
+    "extends": "../evolution/configs/base.eslintrc.json",
+    "rules": {
+        "@typescript-eslint/no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "argsIgnorePattern": "^_", "ignoreRestSiblings": false }]
+    }
 }
+  

@@ -1,0 +1,153 @@
+Section: Domicile
+
+Code d'accès
+Inscrit dans la lettre reçue.
+
+Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
+Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.
+- Oui
+- Non
+
+Veuillez saisir le courriel ou le numéro de téléphone pour vous recontacter.
+
+Adresse courriel
+
+Numéro de téléphone
+Format: 123-456-7890
+
+Adresse
+
+Ville
+
+Province
+
+Pays
+
+Code postal
+
+Positionnement de votre domicile
+Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
+
+Personnes habitant votre domicile ou logement.
+Y compris vous-même.
+
+Automobiles, VUS, camions légers ou fourgonnettes, etc.
+À la disposition de votre ménage.
+
+Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
+Inclure seulement les vélos utilisables en bon état.
+
+Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique ?
+
+Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
+Y compris vous-même
+- Oui
+- Non
+- Je préfère ne pas répondre
+
+Enregistrer et continuer
+
+
+
+Section: Ménage
+
+Nom ou surnom pour identifier cette personne pour la suite de l'entrevue.
+Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.
+
+Âge
+Pour les bébés de moins de 1 an, inscrivez "0"
+
+Sexe à la naissance
+Sexe assigné à la naissance ou inscrit dans les documents légaux.
+- Homme
+- Femme
+- Je préfère ne pas répondre
+
+Travailleur
+Incluant travailleur autonome, artiste, travailleur en congé de maladie ou parental.
+- Oui, à temps plein
+- Oui, à temps partiel
+- Non
+
+Étudiant{{gender:/e/·e}}
+- Oui, à temps plein
+- Oui, à temps partiel
+- Non
+
+Établissement d'enseignement / type d'école
+- Garderie/CPE
+- École primaire
+- École secondaire
+- École à la maison
+- CEGEP / Collège / DEP / AEP
+- Autre (spécifiez)
+
+Occupation principale
+- Travail à temps plein (30h et plus/semaine)
+- Travail à temps partiel (moins de 30h/semaine)
+- Travail et études
+- Études à temps plein
+- Études à temps partiel
+- À la retraite
+- À la maison
+- En chômage / en recherche d'emploi
+- Congé de maladie ou congé parental
+- Invalidité de longue durée
+- Bénévole
+- Autre
+- Préfère ne pas répondre
+
+Permis de conduire
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur·rice}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
+- Oui
+- Non
+- Je ne sais pas
+
+Membre Autopartage
+Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)
+- Oui
+- Non
+- Je ne sais pas
+
+Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens ?
+- Oui
+- Non
+- Je préfère ne pas répondre
+
+Est-ce que {{nickname}} a un lieu d'emploi fixe ?
+- Oui, travail au lieu fixe en présentiel en tout temps
+- Oui, travail en mode hybride (télétravail et en présentiel)
+- Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+- Non, travail sur la route avec départ du domicile
+- Non, travail à partir du domicile ou à distance
+
+Est-ce que {{nickname}} a un lieu d'études fixe ?
+- Oui, études au lieu fixe en présentiel en tout temps
+- Oui, études en mode hybride (télé-études et en présentiel)
+- Non, études à partir du domicile ou à distance
+
+Nom ou adresse du lieu habituel de travail de {{nickname}}
+
+Veuillez localiser le lieu de travail habituel de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
+
+Nom ou adresse du lieu habituel d’études de {{nickname}}
+
+Veuillez localiser le lieu habituel d’études de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
+
+Enregistrer et continuer
+
+
+
+Section: Questionnaire complété
+
+Merci pour votre participation!
+
+Nous vous remercions d'avoir pris le temps de remplir cette enquête. Vos réponses ont été enregistrées avec succès. Vous pouvez modifier vos réponses en cliquant sur les sections dans le menu ci-dessus.
+
+
+
