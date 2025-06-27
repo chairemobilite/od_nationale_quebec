@@ -81,3 +81,36 @@ jobs:
           git diff
           exit 1
         fi
+  
+  check-generator:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    - name: copy env file
+      run: cp .env.example .env
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install poetry
+      run: pipx install poetry
+    - name: Run Poetry
+      working-directory: evolution/packages/evolution-generator
+      run: poetry install
+    - name: Install
+      run: yarn
+    - name: Generate survey
+      run: yarn generateSurvey
+    - name: Check git status after survey generation
+      run: |
+        if [[ -n "$(git status --porcelain)" ]]; then
+          echo "Code changes found. Please make sure the code matches the Excel and commit changes."
+          git status
+          git diff
+          exit 1
+        fi
