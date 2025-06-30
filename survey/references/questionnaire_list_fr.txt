@@ -143,6 +143,67 @@ Enregistrer et continuer
 
 
 
+Section: Fin
+
+Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+- Locataire
+- Propriétaire
+- Autre
+- Je préfère ne pas répondre
+
+Tranche de revenu avant impôts (brut) du ménage, en 2023?
+Facultatif
+- Moins de 10 000 $
+- 10 000$ à 19 999$
+- 20 000$ à 29 999$
+- 30 000$ à 39 999$
+- 40 000$ à 49 999$
+- 50 000$ à 59 999$
+- 60 000$ à 69 999$
+- 70 000$ à 79 999$
+- 80 000$ à 89 999$
+- 90 000$ à 99 999$
+- 100 000$ à 149 999$
+- 150 000$ à 199 999$
+- 200 000 $ et plus
+- Je ne sais pas
+- Je préfère ne pas répondre
+
+Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal ?
+- Oui
+- Non
+
+Veuillez fournir l'adresse e-mail où vous pouvez être contacté pour participer à d'autres études de la Chaire Mobilité.
+
+Vos commentaires et suggestions sur le questionnaire (facultatif)
+
+L'entrevue est maintenant terminée. Merci pour votre participation et votre patience!
+
+Terminer l'entrevue sans les questions optionnelles
+
+Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
+
+Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
+
+Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+
+Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes) ?
+
+Dans quelle mesure cette enquête a-t-elle été intéressante pour vous ?
+
+Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête ?
+
+Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante) ?
+
+Avez-vous pensé, à un moment ou un autre, abandonner l'enquête ?
+- Oui
+- Non
+- Je ne sais pas
+
+Terminer l’entrevue
+
+
+
 Section: Questionnaire complété
 
 Merci pour votre participation!

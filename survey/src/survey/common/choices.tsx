@@ -326,3 +326,142 @@ export const studyLocationType: ChoiceType[] = [
         }
     }
 ];
+
+export const householdIncomeChoices: ChoiceType[] = [
+    {
+        value: '000000_009999',
+        label: {
+            fr: 'Moins de 10 000 $',
+            en: 'Less than $10,000'
+        }
+    },
+    {
+        value: '010000_019999',
+        label: {
+            fr: '10 000$ à 19 999$',
+            en: '$10,000 to $19,999'
+        }
+    },
+    {
+        value: '020000_029999',
+        label: {
+            fr: '20 000$ à 29 999$',
+            en: '$20,000 to $29,999'
+        }
+    },
+    {
+        value: '030000_039999',
+        label: {
+            fr: '30 000$ à 39 999$',
+            en: '$30,000 to $39,999'
+        }
+    },
+    {
+        value: '040000_049999',
+        label: {
+            fr: '40 000$ à 49 999$',
+            en: '$40,000 to $49,999'
+        }
+    },
+    {
+        value: '050000_059999',
+        label: {
+            fr: '50 000$ à 59 999$',
+            en: '$50,000 to $59,999'
+        }
+    },
+    {
+        value: '060000_069999',
+        label: {
+            fr: '60 000$ à 69 999$',
+            en: '$60,000 to $69,999'
+        }
+    },
+    {
+        value: '070000_079999',
+        label: {
+            fr: '70 000$ à 79 999$',
+            en: '$70,000 to $79,999'
+        }
+    },
+    {
+        value: '080000_089999',
+        label: {
+            fr: '80 000$ à 89 999$',
+            en: '$80,000 to $89,999'
+        }
+    },
+    {
+        value: '090000_099999',
+        label: {
+            fr: '90 000$ à 99 999$',
+            en: '$90,000 to $99,999'
+        }
+    },
+    {
+        value: '100000_149999',
+        label: {
+            fr: '100 000$ à 149 999$',
+            en: '$100,000 to $149,999'
+        }
+    },
+    {
+        value: '150000_199999',
+        label: {
+            fr: '150 000$ à 199 999$',
+            en: '$150,000 to $199,999'
+        }
+    },
+    {
+        value: '200000_999999',
+        label: {
+            fr: '200 000 $ et plus',
+            en: '$200,000 and more'
+        }
+    },
+    {
+        value: 'dontKnow',
+        label: {
+            fr: 'Je ne sais pas',
+            en: 'I don\'t know'
+        }
+    },
+    {
+        value: 'refusal',
+        label: {
+            fr: 'Je préfère ne pas répondre',
+            en: 'I prefer not to respond'
+        }
+    }
+];
+
+export const householdOwnershipChoices: ChoiceType[] = [
+    {
+        value: 'tenant',
+        label: {
+            fr: 'Locataire',
+            en: 'Tenant'
+        }
+    },
+    {
+        value: 'owner',
+        label: {
+            fr: 'Propriétaire',
+            en: 'Owner'
+        }
+    },
+    {
+        value: 'other',
+        label: {
+            fr: 'Autre',
+            en: 'Other'
+        }
+    },
+    {
+        value: 'preferNotToAnswer',
+        label: {
+            fr: 'Je préfère ne pas répondre',
+            en: 'I prefer not to respond'
+        }
+    }
+];

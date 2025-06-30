@@ -1,6 +1,7 @@
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
+import { TFunction } from 'i18next';
 
 // Return the validations for the geography
 export const getGeographyCustomValidation = ({ value, interview, path }) => {
@@ -37,6 +38,32 @@ export const getGeographyCustomValidation = ({ value, interview, path }) => {
                     !_isBlank(geocodingTextInput) ? `("${geocodingTextInput}")` : ''
                 } is not specific enough.</strong> Please add more information or specify the location more precisely using the map.`
             }
+        }
+    ];
+};
+
+export const householdElectricCarCountCustomValidation: ValidationFunction = (value, _customValue, interview) => {
+    const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as any;
+    const electricCarNumber = surveyHelperNew.getResponse(interview, 'household.hybridCarNumber', 0) as any;
+    return [
+        {
+            validation:
+                !_isBlank(value) &&
+                (typeof value === 'string' ? parseInt(value) : value) + electricCarNumber > carNumber,
+            errorMessage: (t: TFunction) => t('customLabel:HybridElectricExceedsTotal')
+        }
+    ];
+};
+
+export const householdHybridCarCountCustomValidation = (value, _customValue, interview) => {
+    const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as number;
+    const electricCarNumber = surveyHelperNew.getResponse(interview, 'household.electricCarNumber', 0) as number;
+    return [
+        {
+            validation:
+                !_isBlank(value) &&
+                (typeof value === 'string' ? parseInt(value) : value) + electricCarNumber > carNumber,
+            errorMessage: (t: TFunction) => t('customLabel:HybridElectricExceedsTotal')
         }
     ];
 };

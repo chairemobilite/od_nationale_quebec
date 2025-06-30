@@ -180,6 +180,59 @@ testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.u
 /* Test nextbutton widget household_save */
 testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
+/********** Tests end section **********/
+
+// Progress bar test for end section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'end', completionPercentage: 0 });
+
+/* Test radio widget householdOwnership witch choices householdOwnershipChoices */
+testHelpers.inputRadioTest({ context, path: 'household.ownership', value: '?' });
+
+/* Test select widget householdIncome witch choices householdIncomeChoices */
+
+/* Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite witch choices yesNo */
+testHelpers.inputRadioTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite', value: '?' });
+
+/* Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional */
+testHelpers.inputVisibleTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', isVisible: true });
+testHelpers.inputStringTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', value: '?' });
+
+/* Test text widget householdCommentsOnSurvey */
+testHelpers.inputStringTest({ context, path: 'commentsOnSurvey', value: '?' });
+
+/* Test infotext widget optionalIntroText */
+testHelpers.waitTextVisible({ context, text: '?' });
+
+/* Test nextbutton widget buttonCompleteInterviewWithCompleteSectionNoOptional */
+testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+/* Test radionumber widget householdHybridCarNumber with conditional householdHasCars */
+testHelpers.inputVisibleTest({ context, path: 'household.hybridCarNumber', isVisible: true });
+
+/* Test radionumber widget householdElectricCarNumber with conditional householdHasCars */
+testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
+
+/* Test range widget endDurationOfTheSurvey */
+testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 0, sliderColor: '?' });
+
+/* Test number widget endTimeSpentAnswering */
+testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '?' });
+
+/* Test range widget endInterestOfTheSurvey */
+testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 0, sliderColor: '?' });
+
+/* Test range widget endDifficultyOfTheSurvey */
+testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 0, sliderColor: '?' });
+
+/* Test range widget endBurdenOfTheSurvey */
+testHelpers.inputRangeTest({ context, path: 'burdenOfTheSurvey', value: 0, sliderColor: '?' });
+
+/* Test radio widget endConsideredAbandoningSurvey witch choices yesNoDontKnow */
+testHelpers.inputRadioTest({ context, path: 'consideredAbandoningSurvey', value: '?' });
+
+/* Test nextbutton widget buttonCompleteInterviewWithCompleteSection */
+testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
 /********** Tests completed section **********/
 
 // Progress bar test for completed section
