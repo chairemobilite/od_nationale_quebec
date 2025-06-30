@@ -5,30 +5,28 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { customPreload } from './customPreload';
 
-export const currentSectionName: string = 'household';
-const previousSectionName: SectionConfig['previousSection'] = 'home';
-const nextSectionName: SectionConfig['nextSection'] = 'end';
+export const currentSectionName: string = 'end';
+const previousSectionName: SectionConfig['previousSection'] = 'household';
+const nextSectionName: SectionConfig['nextSection'] = 'completed';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
     previousSection: previousSectionName,
     nextSection: nextSectionName,
     title: {
-        fr: 'Ménage',
-        en: 'Household'
+        fr: 'Fin',
+        en: 'End'
     },
     navMenu: {
         type: 'inNav',
         menuName: {
-            fr: 'Ménage',
-            en: 'Household'
+            fr: 'Fin',
+            en: 'End'
         }
     },
     widgets: widgetsNames,
     // Do some actions before the section is loaded
-    preload: customPreload,
     // Allow to click on the section menu
     enableConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: previousSectionName });

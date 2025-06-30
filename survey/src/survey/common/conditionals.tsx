@@ -327,3 +327,29 @@ export const acceptsToBeContactedForHelp: WidgetConditional = (interview) => {
         ]
     });
 };
+
+export const wantToParticipateInOtherSurveysChaireMobiliteConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite',
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const householdHasCars: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.carNumber',
+                comparisonOperator: '>=',
+                value: 1
+            }
+        ]
+    });
+};

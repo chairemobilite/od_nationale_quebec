@@ -143,6 +143,67 @@ Save and continue
 
 
 
+Section: End
+
+Does your household rent or own your home?
+- Tenant
+- Owner
+- Other
+- I prefer not to respond
+
+What was your household's income range before taxes (gross income), in 2023?
+Not mandatory
+- Less than $10,000
+- $10,000 to $19,999
+- $20,000 to $29,999
+- $30,000 to $39,999
+- $40,000 to $49,999
+- $50,000 to $59,999
+- $60,000 to $69,999
+- $70,000 to $79,999
+- $80,000 to $89,999
+- $90,000 to $99,999
+- $100,000 to $149,999
+- $150,000 to $199,999
+- $200,000 and more
+- I don't know
+- I prefer not to respond
+
+Would you be interested in participating in other studies conducted by the Chaire Mobilite at Polytechnique Montreal?
+- Yes
+- No
+
+Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
+
+Your comments and suggestions about the survey (optional)
+
+The next questions are optional and are added for research purposes. You can complete the interview without answering them.
+
+Complete interview without optional questions
+
+Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
+
+Among the vehicles owned by your household, how many are electric vehicles?
+
+Do you feel that the length of the survey was too short, about right, or too long?
+
+How much time do you think you spent answering this survey (in minutes)?
+
+How interesting was this survey to you?
+
+How easy or difficult was it for you to answer the questions in this survey?
+
+How burdensome (demanding) did you find this survey to be?
+
+Have you considered, at any point, to abandon the survey?
+- Yes
+- No
+- I don't know
+
+Complete interview
+
+
+
 Section: Survey completed
 
 Thank you for your participation!

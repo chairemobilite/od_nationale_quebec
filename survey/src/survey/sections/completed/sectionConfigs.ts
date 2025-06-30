@@ -8,7 +8,7 @@ import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
 
 export const currentSectionName: string = 'completed';
-const previousSectionName: SectionConfig['previousSection'] = 'household';
+const previousSectionName: SectionConfig['previousSection'] = 'end';
 const nextSectionName: SectionConfig['nextSection'] = null;
 
 // Config for the section

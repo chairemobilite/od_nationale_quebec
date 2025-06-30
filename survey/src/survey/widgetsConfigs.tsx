@@ -4,13 +4,14 @@
 
 import * as homeWidgets from './sections/home/widgets';
 import * as householdWidgets from './sections/household/widgets';
+import * as endWidgets from './sections/end/widgets';
 import * as completedWidgets from './sections/completed/widgets';
 
 // Define all the widgets
 const widgets: { [key: string]: any } = {};
 
 // Define all the sections widgets
-const sectionsWidgets = [homeWidgets, householdWidgets, completedWidgets];
+const sectionsWidgets = [homeWidgets, householdWidgets, endWidgets, completedWidgets];
 
 // Loop all sections and add their widgets to the widgets object
 sectionsWidgets.forEach((section) => {

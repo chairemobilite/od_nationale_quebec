@@ -214,3 +214,100 @@ Type de question,Entrée inconnue
 Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
+""
+""
+""
+Section,Fin
+Abréviation,e_
+""
+Champ,hh_ownership
+Type de question,Bouton radio
+Question,Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+Valeurs,"tenant : Locataire
+owner : Propriétaire
+other : Autre
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+Champ,hh_income
+Type de question,Liste déroulante
+Question,"Tranche de revenu avant impôts (brut) du ménage, en 2023?
+Facultatif"
+Valeurs,"000000_009999 : Moins de 10 000 $
+010000_019999 : 10 000$ à 19 999$
+020000_029999 : 20 000$ à 29 999$
+030000_039999 : 30 000$ à 39 999$
+040000_049999 : 40 000$ à 49 999$
+050000_059999 : 50 000$ à 59 999$
+060000_069999 : 60 000$ à 69 999$
+070000_079999 : 70 000$ à 79 999$
+080000_089999 : 80 000$ à 89 999$
+090000_099999 : 90 000$ à 99 999$
+100000_149999 : 100 000$ à 149 999$
+150000_199999 : 150 000$ à 199 999$
+200000_999999 : 200 000 $ et plus
+dontKnow : Je ne sais pas
+refusal : Je préfère ne pas répondre"
+""
+Champ,wouldLikeToParticipateInOtherSurveysChaireMobilite
+Type de question,Bouton radio
+Question,Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal ?
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
+Type de question,Champ de texte
+Conditionnel,wantToParticipateInOtherSurveysChaireMobiliteConditional : wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
+Question,Veuillez fournir l'adresse e-mail où vous pouvez être contacté pour participer à d'autres études de la Chaire Mobilité.
+""
+Champ,commentsOnSurvey
+Type de question,Zone de texte
+Question,Vos commentaires et suggestions sur le questionnaire (facultatif)
+""
+Champ,hh_hybridCarNumber
+Type de question,RadioNumber
+Conditionnel,householdHasCars : hh_carNumber >= 1
+Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?"
+""
+Champ,hh_electricCarNumber
+Type de question,RadioNumber
+Conditionnel,householdHasCars : hh_carNumber >= 1
+Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?"
+""
+Champ,durationOfSurvey
+Type de question,Curseur de plage
+Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?"
+Valeurs,"0 : Trop court
+50 : Juste comme il faut
+100 : Trop long"
+""
+Champ,timeSpentAnswering
+Type de question,Champ numérique
+Question,Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes) ?
+""
+Champ,interestOfTheSurvey
+Type de question,Curseur de plage
+Question,Dans quelle mesure cette enquête a-t-elle été intéressante pour vous ?
+Valeurs,"0 : Pas du tout
+50 : Neutre
+100 : Très intéressante"
+""
+Champ,difficultyOfTheSurvey
+Type de question,Curseur de plage
+Question,Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête ?
+Valeurs,"0 : Très facile
+50 : Modérément difficile
+100 : Très difficile"
+""
+Champ,burdenOfTheSurvey
+Type de question,Curseur de plage
+Question,Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante) ?
+Valeurs,"0 : Pas du tout
+50 : Modérément pénible
+100 : Très pénible"
+""
+Champ,consideredAbandoningSurvey
+Type de question,Bouton radio
+Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête ?"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
