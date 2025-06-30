@@ -81,7 +81,7 @@ module.exports = Object.assign({
     },
     title: {
         fr: "Enquête Nationale Origine-Destination 2025",
-        en: "2025 National Origin-Destination Survey "
+        en: "2025 National Origin-Destination Survey"
     },
     defaultLocale: "fr",
     timezone: 'America/Montreal',
