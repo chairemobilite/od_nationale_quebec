@@ -100,3 +100,5 @@ auth:
     AnonymousLoginExplanation: >-
         Note that if you proceed without an email, you won't be able to come back to the survey if your session expires.
     Login: Confirm
+visitedPlaces:
+    departurePlaceIsRequiredError: Departure location is required.

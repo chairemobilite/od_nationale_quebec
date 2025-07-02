@@ -6,10 +6,11 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
+import { householdMembersSectionComplete } from '../../common/helper';
 
 export const currentSectionName: string = 'household';
 const previousSectionName: SectionConfig['previousSection'] = 'home';
-const nextSectionName: SectionConfig['nextSection'] = 'end';
+const nextSectionName: SectionConfig['nextSection'] = 'personsTrips';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
@@ -35,7 +36,7 @@ export const sectionConfig: SectionConfig = {
     },
     // Allow to click on the section menu
     completionConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: currentSectionName });
+        return householdMembersSectionComplete(interview);
     }
 };
 

@@ -13,4 +13,5 @@ enabled_scripts:
     generate_labels: true
     generate_UI_tests: true
     generate_questionnaire_list: true
-    generate_questionnaire_dictionary: true
+    # Put it back to true when https://github.com/chairemobilite/evolution/pull/1057 is merged
+    generate_questionnaire_dictionary: false

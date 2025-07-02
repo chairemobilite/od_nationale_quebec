@@ -465,3 +465,73 @@ export const householdOwnershipChoices: ChoiceType[] = [
         }
     }
 ];
+
+export const departurePlaceOtherChoices: ChoiceType[] = [
+    {
+        value: 'otherParentHome',
+        label: {
+            fr: '**Domicile de l\'autre parent ou tuteur**',
+            en: '**Home of the other parent or guardian**'
+        },
+        conditional: conditionals.ifAge16OrLessConditional
+    },
+    {
+        value: 'workedOvernight',
+        label: {
+            fr: '**Travaillait de nuit**',
+            en: '**Worked overnight**'
+        },
+        conditional: conditionals.isWorkerConditional
+    },
+    {
+        value: 'secondaryHome',
+        label: {
+            fr: '**Résidence secondaire** (chalet ou autre)',
+            en: '**Secondary residence** (cottage or other)'
+        }
+    },
+    {
+        value: 'sleptAtFriends',
+        label: {
+            fr: 'Passait la nuit chez **ami, copine/copain ou famille**',
+            en: 'Stayed at a **friend’s, partner’s or family’s home**'
+        }
+    },
+    {
+        value: 'restaurant',
+        label: {
+            fr: 'Était à un ou revenait d\'un **restaurant ou bar**',
+            en: 'Was at or was coming back from a **restaurant or bar**'
+        }
+    },
+    {
+        value: 'hotelForWork',
+        label: {
+            fr: 'Hôtel ou autre lieu pour une **conférence / travail**',
+            en: 'Hotel or other venue for **a conference / work**'
+        },
+        conditional: conditionals.isWorkerConditional
+    },
+    {
+        value: 'hotelForVacation',
+        label: {
+            fr: 'Hôtel ou autre lieu en **vacances**',
+            en: 'Hôtel or other on **vacation**'
+        }
+    },
+    {
+        value: 'studying',
+        label: {
+            fr: '**Écoles / lieu d’études**: terminait des travaux ou y couchait',
+            en: '**School / place of study**: studied or slept there'
+        },
+        conditional: conditionals.isStudentConditional
+    },
+    {
+        value: 'other',
+        label: {
+            fr: 'Autre',
+            en: 'Other'
+        }
+    }
+];

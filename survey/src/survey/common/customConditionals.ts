@@ -1,6 +1,7 @@
-import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
+import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -67,4 +68,27 @@ export const personUsualSchoolPlaceNameCustomConditional: WidgetConditional = (i
     };
     const childrenCase = isStudentFromEnrolled(person) && person.schoolType !== 'schoolAtHome';
     return [['onLocation', 'hybrid'].includes(schoolLocationType) || childrenCase, null];
+};
+
+export const departurePlaceOtherCustomConditional: WidgetConditional = (interview, path) => {
+    const journey = odSurveyHelper.getActiveJourney({ interview });
+    if (journey === null) {
+        return [false, null];
+    }
+    const personDidTrips = (journey as any).personDidTrips;
+    const personDidTripsChangeConfirm = (journey as any).personDidTripsChangeConfirm;
+    const firstVisitedPlace = odSurveyHelper.getVisitedPlacesArray({
+        journey
+    })[0];
+    const departurePlaceOther = (journey as any).departurePlaceOther;
+    if (firstVisitedPlace && firstVisitedPlace.activity && firstVisitedPlace.activity !== 'home') {
+        // FIXME should we make sure the departurePlaceOther is one of he possible choices? We have something similar in the `onSectionEntry` of the tripsIntro section... maybe we don't need this here
+        return [false, departurePlaceOther];
+    }
+    return [
+        (_booleish(personDidTrips) || _booleish(personDidTripsChangeConfirm)) &&
+            !_isBlank((journey as any).departurePlaceIsHome) &&
+            _booleish((journey as any).departurePlaceIsHome) === false,
+        null
+    ];
 };

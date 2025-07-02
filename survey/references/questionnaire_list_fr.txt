@@ -143,6 +143,57 @@ Enregistrer et continuer
 
 
 
+Section: Sélection du membre du ménage
+
+Pour quelle personne désirez-vous poursuivre l'entrevue?
+
+Nous allons débuter avec les déplacements de {{nickname}}
+
+Sélectionner cette personne et continuer
+
+
+
+Section: Introduction aux déplacements
+
+<p class="_center _em" style="margin-bottom: 0;">Entrevue de {{nickname}}</p><p class="_center _pale">•</p>
+
+Changer de personne
+
+Nous allons débuter avec les déplacements de {{nickname}}
+
+Qui répond pour {{nickname}}?
+
+Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é.e}} le {{assignedDate}}?
+Inclure tous les déplacements, qu'ils soient pour motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.
+
+Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que ${{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
+
+Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin).
+
+<span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é.e}} chercher ou reconduire quelqu'un).
+- Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
+<span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é.e}} reconduire ou chercher quelqu'un à cet endroit.</span>
+
+Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentr{{gender:é/ée/é.e}} après 4h du matin (par ex.: travail de nuit).
+
+Où était {{nickname}} à 4h du matin?
+- Domicile de l'autre parent ou tuteur
+- Travaillait de nuit
+- Résidence secondaire (chalet ou autre)
+- Passait la nuit chez ami, copine/copain ou famille
+- Était à un ou revenait d'un restaurant ou bar
+- Hôtel ou autre lieu pour une conférence / travail
+- Hôtel ou autre lieu en vacances
+- Écoles / lieu d’études: terminait des travaux ou y couchait
+- Autre
+
+Continuer
+
+Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.
+
+
+
 Section: Fin
 
 Est-ce que votre ménage est locataire ou propriétaire de votre logement?
