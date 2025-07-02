@@ -143,6 +143,57 @@ Save and continue
 
 
 
+Section: Household member selection
+
+Who do you want to continue the interview for?
+
+We'll start with the trips made by {{nickname}}
+
+Select this person and continue
+
+
+
+Section: Trips introduction
+
+<p class="_center _em" style="margin-bottom: 0;">{{nickname}}’s interview</p><p class="_center _pale">•</p>
+
+Change person
+
+We'll start with the trips made by {{nickname}}
+
+Who is responding for {{nickname}}?
+
+Did {{nickname}} make any trips on {{assignedDate}}?
+Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.
+
+You already declared trip. Do you confirm they are erroneous and that {{person.nickname}} did not make any trips on {{formattedTripsDate}}?
+
+Please specify the places {{nickname}} went on {{assignedDate}} (include all places visited until 4 AM the following morning)
+
+<span class="_green">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- Include all places regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+<span class="_red">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
+
+Did {{nickname}} start their day at home ({{address}})?
+Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
+
+Where was {{nickname}} at 4 AM?
+- Home of the other parent or guardian
+- Worked overnight
+- Secondary residence (cottage or other)
+- Stayed at a friend’s, partner’s or family’s home
+- Was at or was coming back from a restaurant or bar
+- Hotel or other venue for a conference / work
+- Hôtel or other on vacation
+- School / place of study: studied or slept there
+- Other
+
+Continue
+
+Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential.
+
+
+
 Section: End
 
 Does your household rent or own your home?

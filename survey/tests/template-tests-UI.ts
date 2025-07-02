@@ -180,6 +180,60 @@ testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.u
 /* Test nextbutton widget household_save */
 testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
+/********** Tests tripsSelectPerson section **********/
+
+// Progress bar test for tripsSelectPerson section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'tripsSelectPerson', completionPercentage: 0 });
+
+/* Test custom widget selectPerson */
+// Implement custom test
+
+/* Test custom widget personNewPerson */
+// Implement custom test
+
+/* Test nextbutton widget buttonSelectPersonConfirm */
+testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+/********** Tests tripsIntro section **********/
+
+// Progress bar test for tripsIntro section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'tripsIntro', completionPercentage: 0 });
+
+/* Test infotext widget tripsIntroActivePersonTitle with conditional hasHouseholdSize2OrMoreConditional */
+testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
+testHelpers.waitTextVisible({ context, text: '?' });
+
+/* Test custom widget buttonSwitchPerson */
+// Implement custom test
+
+/* Test custom widget personNewPerson */
+// Implement custom test
+
+/* Test custom widget personWhoWillAnswerForThisPerson */
+// Implement custom test
+
+/* Test custom widget personDidTrips */
+// Implement custom test
+
+/* Test custom widget personDidTripsChangeConfirm */
+// Implement custom test
+
+/* Test custom widget visitedPlacesIntro */
+// Implement custom test
+
+/* Test custom widget personDeparturePlaceIsHome */
+// Implement custom test
+
+/* Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional witch choices departurePlaceOtherChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', isVisible: true });
+testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', value: '?' });
+
+/* Test nextbutton widget tripsIntro_save */
+testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+/* Test infotext widget tripsIntroOutro */
+testHelpers.waitTextVisible({ context, text: '?' });
+
 /********** Tests end section **********/
 
 // Progress bar test for end section

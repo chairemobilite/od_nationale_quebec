@@ -209,6 +209,26 @@ export const ifAge16OrMoreConditional: WidgetConditional = (interview, path) => 
     });
 };
 
+export const ifAge16OrLessConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '<=',
+                value: 16
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '!==',
+                value: 'null'
+            }
+        ]
+    });
+};
+
 export const ifAge40OrMoreConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({

@@ -217,6 +217,71 @@ You can also search for the place on the map using the ""Search location"" butto
 ""
 ""
 ""
+Section,Household member selection
+Abbreviation,ts_
+""
+Field,_activePersonId
+Question type,Unknown input
+Question,Who do you want to continue the interview for?
+""
+Field,_showNewPersonPopupButton
+Question type,Unknown input
+Question,We'll start with the trips made by {{nickname}}
+""
+""
+""
+Section,Trips introduction
+Abbreviation,ti_
+""
+Field,buttonSwitchPerson
+Question type,Unknown input
+Question,Change person
+""
+Field,_showNewPersonPopupButton
+Question type,Unknown input
+Question,We'll start with the trips made by {{nickname}}
+""
+Field,whoAnswers
+Question type,Unknown input
+Question,Who is responding for {{nickname}}?
+""
+Field,personDidTrips
+Question type,Unknown input
+Question,"Did {{nickname}} make any trips on {{assignedDate}}?
+Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
+""
+Field,personDidTripsChangeConfirm
+Question type,Unknown input
+Question,You already declared trip. Do you confirm they are erroneous and that {{person.nickname}} did not make any trips on {{formattedTripsDate}}?
+""
+Field,didTripsIntro
+Question type,Unknown input
+Question,"Please specify the places {{nickname}} went on {{assignedDate}} (include all places visited until 4 AM the following morning)
+
+<span class=""_green"">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- Include all places regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+<span class=""_red"">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>"
+""
+Field,departurePlaceIsHome
+Question type,Unknown input
+Question,"Did {{nickname}} start their day at home ({{address}})?
+Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
+Question type,Radio input
+Question,Where was {{nickname}} at 4 AM?
+Values,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Home of the other parent or guardian
+workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Worked overnight
+secondaryHome : Secondary residence (cottage or other)
+sleptAtFriends : Stayed at a friend’s, partner’s or family’s home
+restaurant : Was at or was coming back from a restaurant or bar
+hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hotel or other venue for a conference / work
+hotelForVacation : Hôtel or other on vacation
+studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
+other : Other"
+""
+""
+""
 Section,End
 Abbreviation,e_
 ""

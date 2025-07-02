@@ -217,6 +217,71 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 ""
 ""
 ""
+Section,Sélection du membre du ménage
+Abréviation,ts_
+""
+Champ,_activePersonId
+Type de question,Entrée inconnue
+Question,Pour quelle personne désirez-vous poursuivre l'entrevue?
+""
+Champ,_showNewPersonPopupButton
+Type de question,Entrée inconnue
+Question,Nous allons débuter avec les déplacements de {{nickname}}
+""
+""
+""
+Section,Introduction aux déplacements
+Abréviation,ti_
+""
+Champ,buttonSwitchPerson
+Type de question,Entrée inconnue
+Question,Changer de personne
+""
+Champ,_showNewPersonPopupButton
+Type de question,Entrée inconnue
+Question,Nous allons débuter avec les déplacements de {{nickname}}
+""
+Champ,whoAnswers
+Type de question,Entrée inconnue
+Question,Qui répond pour {{nickname}}?
+""
+Champ,personDidTrips
+Type de question,Entrée inconnue
+Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é.e}} le {{assignedDate}}?
+Inclure tous les déplacements, qu'ils soient pour motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
+""
+Champ,personDidTripsChangeConfirm
+Type de question,Entrée inconnue
+Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que ${{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
+""
+Champ,didTripsIntro
+Type de question,Entrée inconnue
+Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin).
+
+<span class=""_green"">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é.e}} chercher ou reconduire quelqu'un).
+- Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
+<span class=""_red"">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é.e}} reconduire ou chercher quelqu'un à cet endroit.</span>"
+""
+Champ,departurePlaceIsHome
+Type de question,Entrée inconnue
+Question,"Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentr{{gender:é/ée/é.e}} après 4h du matin (par ex.: travail de nuit)."
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
+Type de question,Bouton radio
+Question,Où était {{nickname}} à 4h du matin?
+Valeurs,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Domicile de l'autre parent ou tuteur
+workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Travaillait de nuit
+secondaryHome : Résidence secondaire (chalet ou autre)
+sleptAtFriends : Passait la nuit chez ami, copine/copain ou famille
+restaurant : Était à un ou revenait d'un restaurant ou bar
+hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hôtel ou autre lieu pour une conférence / travail
+hotelForVacation : Hôtel ou autre lieu en vacances
+studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
+other : Autre"
+""
+""
+""
 Section,Fin
 Abréviation,e_
 ""

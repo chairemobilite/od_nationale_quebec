@@ -119,3 +119,5 @@ auth:
         revenir dans votre questionnaire si votre session expire ou si vous changez de
         navigateur.
     Login: Confirmer
+visitedPlaces:
+    departurePlaceIsRequiredError: Le point de départ est requis.
