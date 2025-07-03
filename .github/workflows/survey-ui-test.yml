@@ -8,7 +8,7 @@ on:
   # We are not running on Pull Request, since we need the Google API Key
 
 jobs:
-  build-and-test:
+  build-and-test-ui:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -28,7 +28,7 @@ jobs:
       matrix:
         node-version: [22.x]
     env:
-      PROJECT_CONFIG: ${{ github.workspace }}/example/demo_survey/config.js
+      PROJECT_CONFIG: ${{ github.workspace }}/survey/config.js
       PG_CONNECTION_STRING_PREFIX: postgres://testuser:testpassword@localhost:5432/
       PG_DATABASE_PRODUCTION: testdb
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY_GITHUB_PUBLIC }}
@@ -57,7 +57,7 @@ jobs:
     - name: Prepare prefilled data for the tests
       run: yarn node evolution/packages/evolution-backend/lib/tasks/importPreFilledResponses.task.js --file "$(pwd)/survey/tests/preFilledDataSample.csv"
     - name: Get Playwright config
-      run: cp packages/evolution-frontend/playwright-example.config.ts example/demo_survey/playwright.config.ts
+      run: cp packages/evolution-frontend/playwright-example.config.ts survey/playwright.config.ts
     - name: Start application
       run: yarn start &
       env:
@@ -69,6 +69,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: playwright-results-${{matrix.node-version}} # This is to make sure that the results are stored in a unique name
-        path: example/demo_survey/test-results
+        path: survey/test-results
         retention-days: 2
       # End of automated UI tests
