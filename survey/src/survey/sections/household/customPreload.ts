@@ -28,7 +28,7 @@ export const customPreload: SectionConfig['preload'] = function (
     });
 
     if (householdSizeIsValid && householdSize) {
-        responsesContent['responses.household._personsCount'] = groupedObjectIds.length;
+        responsesContent['response.household._personsCount'] = groupedObjectIds.length;
         if (groupedObjectIds.length < householdSize) {
             // auto create objects according to household size:
             startAddGroupedObjects(
@@ -37,7 +37,7 @@ export const customPreload: SectionConfig['preload'] = function (
                 'household.persons',
                 null,
                 (_interview) => {
-                    responsesContent['responses.household._personsCount'] = householdSize;
+                    responsesContent['response.household._personsCount'] = householdSize;
                     startUpdateInterview(
                         { sectionShortname: currentSectionName, valuesByPath: responsesContent },
                         callback
@@ -54,7 +54,7 @@ export const customPreload: SectionConfig['preload'] = function (
             }
             if (pathsToDelete.length > 0) {
                 startRemoveGroupedObjects(pathsToDelete, (_interview) => {
-                    responsesContent['responses.household._personsCount'] =
+                    responsesContent['response.household._personsCount'] =
                         groupedObjectIds.length - pathsToDelete.length;
                     startUpdateInterview(
                         { sectionShortname: currentSectionName, valuesByPath: responsesContent },
@@ -62,19 +62,19 @@ export const customPreload: SectionConfig['preload'] = function (
                     );
                 });
             } else {
-                responsesContent['responses.household._personsCount'] = groupedObjectIds.length;
+                responsesContent['response.household._personsCount'] = groupedObjectIds.length;
                 startUpdateInterview(
                     { sectionShortname: currentSectionName, valuesByPath: responsesContent },
                     callback
                 );
             }
         } else {
-            responsesContent['responses.household._personsCount'] = groupedObjectIds.length;
+            responsesContent['response.household._personsCount'] = groupedObjectIds.length;
             startUpdateInterview({ sectionShortname: currentSectionName, valuesByPath: responsesContent }, callback);
         }
     } else {
-        responsesContent['responses._activeSection'] = 'home';
-        responsesContent['responses.household._personsCount'] = undefined;
+        responsesContent['response._activeSection'] = 'home';
+        responsesContent['response.household._personsCount'] = undefined;
         startUpdateInterview({ sectionShortname: currentSectionName, valuesByPath: responsesContent }, callback);
     }
     /** End of group related code to move to evolution */
