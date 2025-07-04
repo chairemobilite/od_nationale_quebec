@@ -16,7 +16,7 @@ export default function (interview, sectionShortname) {
         const homeInTerritory = surveyHelperNew.getResponse(interview, 'home._homeIsInTerritory', undefined);
         if (homeInTerritory === false) {
             return {
-                'responses._activeSection': 'completed'
+                'response._activeSection': 'completed'
             };
         }
     }
@@ -26,17 +26,17 @@ export default function (interview, sectionShortname) {
         const countAdults = odSurveyHelper.countAdults({ interview });
         if (countAdults === 0) {
             return {
-                'responses._activeSection': 'completed'
+                'response._activeSection': 'completed'
             };
         }
     }
 
     // Prepare the responses object with the current language, section start time, actions, and household persons count
     const responses = {
-        ['responses._language']: i18n.language, // TODO: follow language changes during the interview
-        [`responses._sections.${sectionShortname}._startedAt`]: moment().unix(),
-        // ['responses._sections._actions']: odSurveyHelper.generateSectionAction(interview, sectionShortname, 'start'),
-        ['responses.household._personsCount']: odSurveyHelper.countPersons({ interview })
+        ['response._language']: i18n.language, // TODO: follow language changes during the interview
+        [`response._sections.${sectionShortname}._startedAt`]: moment().unix(),
+        // ['response._sections._actions']: odSurveyHelper.generateSectionAction(interview, sectionShortname, 'start'),
+        ['response.household._personsCount']: odSurveyHelper.countPersons({ interview })
     };
 
     // Check if household size and persons are in sync
@@ -46,7 +46,7 @@ export default function (interview, sectionShortname) {
         if (!_isBlank(householdSize) && !_isBlank(householdPersons)) {
             const personsCount = odSurveyHelper.countPersons({ interview });
             if (personsCount !== householdSize) {
-                responses['responses.household.size'] = personsCount;
+                responses['response.household.size'] = personsCount;
             }
         }
     }
