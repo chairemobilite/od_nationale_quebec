@@ -20,7 +20,13 @@ export const tripsIntroActivePersonTitle: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'activePersonTitle',
     containsHtml: true,
-    text: (t: TFunction) => `<p class="input-text">${t('tripsIntro:activePersonTitle')}</p>`,
+    text: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = activePerson?.nickname || t('survey:noNickname');
+        return t('tripsIntro:activePersonTitle', {
+            nickname
+        });
+    },
     conditional: conditionals.hasHouseholdSize2OrMoreConditional
 };
 
@@ -67,6 +73,6 @@ export const tripsIntroOutro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'tripsIntroOutro',
     containsHtml: true,
-    text: (t: TFunction) => `<p class="input-text">${t('tripsIntro:tripsIntroOutro')}</p>`,
+    text: (t: TFunction) => t('tripsIntro:tripsIntroOutro'),
     conditional: defaultConditional
 };

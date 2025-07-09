@@ -73,7 +73,7 @@ export const optionalIntroText: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'optionalIntroText',
     containsHtml: true,
-    text: (t: TFunction) => `<p class="input-text">${t('end:optionalIntroText')}</p>`,
+    text: (t: TFunction) => t('end:optionalIntroText'),
     conditional: defaultConditional
 };
 

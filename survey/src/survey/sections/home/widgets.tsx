@@ -40,7 +40,7 @@ export const contactInformationIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'contactInformationIntro',
     containsHtml: true,
-    text: (t: TFunction) => `<p class="input-text">${t('home:contactInformationIntro')}</p>`,
+    text: (t: TFunction) => t('home:contactInformationIntro'),
     conditional: conditionals.acceptsToBeContactedForHelp
 };
 

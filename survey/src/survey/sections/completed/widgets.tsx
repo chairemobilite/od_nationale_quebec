@@ -19,6 +19,6 @@ export const completedText: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'completedText',
     containsHtml: true,
-    text: (t: TFunction) => `<p class="input-text">${t('completed:completedText')}</p>`,
+    text: (t: TFunction) => t('completed:completedText'),
     conditional: defaultConditional
 };
