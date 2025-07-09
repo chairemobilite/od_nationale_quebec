@@ -7,7 +7,7 @@ import { addGroupedObjects } from 'evolution-common/lib/utils/helpers';
 
 export const currentSectionName: string = 'visitedPlaces';
 const previousSectionName: SectionConfig['previousSection'] = 'tripsIntro';
-const nextSectionName: SectionConfig['nextSection'] = 'personsTrips';
+const nextSectionName: SectionConfig['nextSection'] = 'segments';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {

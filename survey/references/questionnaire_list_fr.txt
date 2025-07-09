@@ -231,6 +231,48 @@ Confirmer les lieux et continuer
 
 
 
+Section: Modes de transport
+
+Changer de personne
+
+Déplacements de {{nickname}} le {{assignedDate}}
+
+Carte des déplacements de {{nickname}} le {{assignedDate}}:
+
+Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
+
+Mode de transport
+
+Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u.e}} à l'arrêt/station de transport collectif?
+Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.
+
+Stationnement payant?
+- Oui
+- Non
+- Je ne sais pas
+
+Personne(s) dans le véhicule
+Conducteur ou conductrice inclus(e).
+
+Qui conduisait ?
+
+Est-ce un transport sur demande?
+- Oui, il est venu chercher {{nickname}} à son lieu de départ
+- Oui, {{nickname}} a rejoint un arrêt
+- Non
+
+Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte.
+
+Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton "Chercher le lieu à partir du nom").
+
+Confirmer ce déplacement
+
+Confirmer les lieux et continuer
+
+
+
 Section: Fin
 
 Est-ce que votre ménage est locataire ou propriétaire de votre logement?

@@ -312,6 +312,81 @@ testHelpers.inputRadioTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHous
 testHelpers.inputVisibleTest({ context, path: 'visitedPlaces.save', isVisible: true });
 // Implement custom test
 
+/********** Tests segments section **********/
+
+// Progress bar test for segments section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'segments', completionPercentage: 0 });
+
+/* Test custom widget segmentsActivePersonTitle */
+// Implement custom test
+
+/* Test custom widget segmentsButtonSwitchPerson */
+// Implement custom test
+
+/* Test custom widget segmentsPersonTripsTitle */
+// Implement custom test
+
+/* Test custom widget personVisitedPlacesMap */
+// Implement custom test
+
+/* Test custom widget personTrips */
+// Implement custom test
+
+/* Test custom widget segmentIntro */
+// Implement custom test
+
+/* Test custom widget segments */
+// Implement custom test
+
+/* Test custom widget segmentSameModeAsReverseTrip */
+// Implement custom test
+
+/* Test custom widget segmentModePre */
+// Implement custom test
+
+/* Test custom widget segmentMode */
+// Implement custom test
+
+/* Test custom widget segmentHowToBus */
+// Implement custom test
+
+/* Test radio widget segmentPaidForParking with conditional isCarDriverAndDestinationWorkCustomConditional witch choices yesNoDontKnow */
+testHelpers.inputVisibleTest({ context, path: '?.paidForParking', isVisible: true });
+testHelpers.inputRadioTest({ context, path: '?.paidForParking', value: '?' });
+
+/* Test radionumber widget segmentVehicleOccupancy with conditional isSelfDeclaredCarDriverCustomConditional */
+testHelpers.inputVisibleTest({ context, path: '?.vehicleOccupancy', isVisible: true });
+
+/* Test custom widget segmentDriver */
+// Implement custom test
+
+/* Test custom widget segmentBusLines */
+// Widget not active
+
+/* Test custom widget segmentBusLinesWarning */
+// Widget not active
+
+/* Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional witch choices onDemandChoices */
+testHelpers.inputVisibleTest({ context, path: '?.onDemandType', isVisible: true });
+testHelpers.inputRadioTest({ context, path: '?.onDemandType', value: '?' });
+
+/* Test string widget tripJunctionQueryString with conditional shouldAskTripJunctionCustomConditional */
+testHelpers.inputVisibleTest({ context, path: '?.tripJunctionQueryString', isVisible: true });
+testHelpers.inputStringTest({ context, path: '?.tripJunctionQueryString', value: '?' });
+
+/* Test custom widget tripJunctionGeography */
+// Implement custom test
+
+/* Test custom widget segmentHasNextMode */
+// Implement custom test
+
+/* Test custom widget buttonSaveTrip */
+// Implement custom test
+
+/* Test custom widget buttonConfirmNextSection with conditional lastPlaceEnteredCustomConditional */
+testHelpers.inputVisibleTest({ context, path: 'segments.save', isVisible: true });
+// Implement custom test
+
 /********** Tests end section **********/
 
 // Progress bar test for end section

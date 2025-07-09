@@ -5,6 +5,7 @@ import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { getShortcutVisitedPlaces } from './customFrontendHelper';
+import { shouldDisplayTripJunction } from './helper';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -144,4 +145,56 @@ export const alreadyVisitedPlaceCustomConditional: WidgetConditional = (intervie
     }
     const shortcuts = getShortcutVisitedPlaces(interview);
     return [(lastAction === null || lastAction === 'shortcut') && shortcuts.length > 0, null];
+};
+
+export const isCarDriverAndDestinationWorkCustomConditional: WidgetConditional = (interview, path) => {
+    const segment: any = surveyHelper.getResponse(interview, path, null, '../');
+    const modePre = segment ? segment.modePre : null;
+
+    const person = odSurveyHelper.getPerson({ interview });
+    const trip = odSurveyHelper.getActiveTrip({ interview });
+    const journey = odSurveyHelper.getActiveJourney({ interview, person });
+    const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
+    const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
+
+    return [modePre === 'carDriver' && destination.activityCategory === 'work', null];
+};
+
+const peopleCountQuestionModes = ['carDriver', 'rentalCar', 'carDriverCarsharing'];
+export const isSelfDeclaredCarDriverCustomConditional: WidgetConditional = (interview, path) => {
+    const segment: any = surveyHelper.getResponse(interview, path, null, '../');
+    // Display for respondent car drivers (exlude motorcycle)
+    if (segment.modePre !== 'carDriver') {
+        return [false, null];
+    }
+    const person = odSurveyHelper.getActivePerson({ interview });
+    return [
+        odSurveyHelper.isSelfDeclared({ interview, person }) && peopleCountQuestionModes.includes(segment.mode),
+        null
+    ];
+};
+
+export const isTransitAndNotNationaleCustomConditional: WidgetConditional = (interview, path) => {
+    const mode = surveyHelper.getResponse(interview, path, null, '../mode');
+    return [(mode === 'transitTaxi' || mode === 'transitBus') && process.env.EV_VARIANT !== 'nationale', null];
+};
+
+export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview });
+    const trip = odSurveyHelper.getActiveTrip({ interview });
+    if (trip) {
+        const journey = odSurveyHelper.getActiveJourney({ interview, person });
+        const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
+        const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
+        const activity = destination ? destination.activity : null;
+        const segments = odSurveyHelper.getSegmentsArray({ trip });
+        const currentSegment: any = surveyHelper.getResponse(interview, path, undefined, '../');
+        const segmentIndex = segments.findIndex((segment) => segment._sequence === currentSegment?._sequence);
+        if (segmentIndex === undefined || segmentIndex === 0) {
+            return [false, null];
+        }
+        const previousSegment = segments[segmentIndex - 1];
+        return [shouldDisplayTripJunction(previousSegment, currentSegment, activity), null];
+    }
+    return [false, null];
 };
