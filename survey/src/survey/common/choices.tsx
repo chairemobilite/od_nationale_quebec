@@ -4,7 +4,7 @@
 
 import { type ChoiceType } from 'evolution-common/lib/services/questionnaire/types';
 import * as conditionals from './conditionals';
-// import * as customConditionals from './customConditionals';
+import * as customConditionals from './customConditionals';
 
 export const yes: ChoiceType[] = [
     {
@@ -533,5 +533,38 @@ export const departurePlaceOtherChoices: ChoiceType[] = [
             fr: 'Autre',
             en: 'Other'
         }
+    }
+];
+
+export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
+    {
+        value: 'home',
+        label: {
+            fr: 'Domicile',
+            en: 'Home'
+        }
+    },
+    {
+        value: 'usualWorkPlace',
+        label: {
+            fr: 'Lieu de travail habituel',
+            en: 'Usual work place'
+        },
+        conditional: conditionals.onTheRoadUsualWorkplace
+    },
+    {
+        value: 'other',
+        label: {
+            fr: 'Autre lieu',
+            en: 'Other location'
+        }
+    },
+    {
+        value: 'stayedThereUntilTheNextDay',
+        label: {
+            fr: '{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain',
+            en: 'Stayed at this place until the next day'
+        },
+        conditional: customConditionals.isLastPlaceCustomConditional
     }
 ];

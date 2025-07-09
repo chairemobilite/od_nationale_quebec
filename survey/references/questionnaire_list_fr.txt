@@ -194,6 +194,43 @@ Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routie
 
 
 
+Section: Déplacements
+
+<p class="_center _em" style="margin-bottom: 0;">Entrevue de {{nickname}}</p><p class="_center _pale">•</p>
+
+Changer de personne
+
+Lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}}:
+L'ordre chronologique doit être respecté.
+
+Carte des déplacements de {{nickname}} le {{assignedDate}}:
+
+Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
+
+À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
+- Domicile
+- Lieu de travail habituel
+- Autre lieu
+- {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain
+
+Avez-vous déjà localisé ce lieu?
+Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
+- Oui
+- Non
+
+Veuillez choisir le lieu dans la liste des lieux déjà localisés:
+
+Veuillez positionner le lieu sur la carte
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.
+
+À quelle heure {{nickname}} a-t-{{gender :il/elle/iel}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+
+Confirmer
+
+Confirmer les lieux et continuer
+
+
+
 Section: Fin
 
 Est-ce que votre ménage est locataire ou propriétaire de votre logement?

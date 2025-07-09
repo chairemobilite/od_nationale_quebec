@@ -234,6 +234,84 @@ testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 /* Test infotext widget tripsIntroOutro */
 testHelpers.waitTextVisible({ context, text: '?' });
 
+/********** Tests visitedPlaces section **********/
+
+// Progress bar test for visitedPlaces section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'visitedPlaces', completionPercentage: 0 });
+
+/* Test infotext widget visitedPlacesActivePersonTitle with conditional hasHouseholdSize2OrMoreConditional */
+testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
+testHelpers.waitTextVisible({ context, text: '?' });
+
+/* Test custom widget visitedPlacesButtonSwitchPerson */
+// Implement custom test
+
+/* Test custom widget personVisitedPlacesTitle */
+// Implement custom test
+
+/* Test custom widget personVisitedPlacesMap */
+// Implement custom test
+
+/* Test custom widget personVisitedPlaces */
+// Implement custom test
+
+/* Test custom widget visitedPlaceActivityCategory */
+// Implement custom test
+
+/* Test custom widget visitedPlaceActivity */
+// Implement custom test
+
+/* Test custom widget visitedPlaceOnTheRoadDepartureType */
+// Implement custom test
+
+/* Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional witch choices onTheRoadArrivalTypeChoices */
+testHelpers.inputVisibleTest({ context, path: '?.onTheRoadArrivalType', isVisible: true });
+testHelpers.inputRadioTest({ context, path: '?.onTheRoadArrivalType', value: '?' });
+
+/* Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional witch choices yesNo */
+testHelpers.inputVisibleTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', isVisible: true });
+testHelpers.inputRadioTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', value: '?' });
+
+/* Test custom widget visitedPlaceShortcut */
+// Implement custom test
+
+/* Test custom widget visitedPlaceName */
+// Implement custom test
+
+/* Test custom widget visitedPlaceGeography */
+// Implement custom test
+
+/* Test custom widget visitedPlacePreviousPreviousDepartureTime */
+// Implement custom test
+
+/* Test custom widget visitedPlacePreviousArrivalTime */
+// Implement custom test
+
+/* Test custom widget visitedPlacePreviousDepartureTime */
+// Implement custom test
+
+/* Test custom widget visitedPlaceArrivalTime */
+// Implement custom test
+
+/* Test custom widget visitedPlaceNextPlaceCategory */
+// Implement custom test
+
+/* Test custom widget visitedPlaceDepartureTime */
+// Implement custom test
+
+/* Test custom widget buttonSaveVisitedPlace */
+// Implement custom test
+
+/* Test custom widget buttonCancelVisitedPlace */
+// Implement custom test
+
+/* Test custom widget buttonDeleteVisitedPlace */
+// Implement custom test
+
+/* Test custom widget buttonVisitedPlacesConfirmNextSection with conditional lastPlaceEnteredCustomConditional */
+testHelpers.inputVisibleTest({ context, path: 'visitedPlaces.save', isVisible: true });
+// Implement custom test
+
 /********** Tests end section **********/
 
 // Progress bar test for end section

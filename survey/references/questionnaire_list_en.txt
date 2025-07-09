@@ -194,6 +194,43 @@ Your answers will be used to assess the use and traffic of the road and public t
 
 
 
+Section: Déplacements
+
+<p class="_center _em" style="margin-bottom: 0;">{{nickname}}’s interview</p><p class="_center _pale">•</p>
+
+Change person
+
+Places {{nickname}} went on {{assignedDate}}:
+Chronological order must be respected (i.e. sequence matters).
+
+Map of {{nickname}}’s trips on {{assignedDate}}:
+
+What was the departure place of {{nickname}}’s work trip on the road?
+
+Where did {{nickname}} end {{gender:his:her:their}} work trip on the road?
+- Home
+- Usual work place
+- Other location
+- Stayed at this place until the next day
+
+Did you previously locate this place on the map?
+In {{nickname}}'s travel diary or that of another household member.
+- Yes
+- No
+
+Please select this place from the list of previously located places:
+
+Please locate this place on the map
+Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
+
+At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their}} usual work place?
+
+Confirm
+
+Confirm locations and continue
+
+
+
 Section: End
 
 Does your household rent or own your home?
