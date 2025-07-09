@@ -1,6 +1,14 @@
+import _get from 'lodash/get';
+import _isEqual from 'lodash/isEqual';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
-import { UserInterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
+import {
+    Person,
+    StartRemoveGroupedObjects,
+    StartUpdateInterview,
+    UserInterviewAttributes,
+    VisitedPlace
+} from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 
@@ -147,7 +155,7 @@ export const tripsIntroForPersonComplete = (person, interview: UserInterviewAttr
  * Evolution instead of requiring this function
  * @param person
  * @param interview
- * @returns
+ * @returns journey
  */
 export const tripDiaryAndTravelBehaviorForPersonComplete = function (person, interview: UserInterviewAttributes) {
     // FIXME Add conditions as sections are added
@@ -163,4 +171,339 @@ export const tripDiaryAndTravelBehaviorForPersonComplete = function (person, int
 export const allPersonsTripDiariesCompleted = function (interview: UserInterviewAttributes) {
     const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
     return interviewablePersons.every((person) => tripDiaryAndTravelBehaviorForPersonComplete(person, interview));
+};
+
+/**
+ * Select the next incomplete visited place
+ * TODO Parameterize the fields and conditions to check for the section in
+ * Evolution instead of requiring this function
+ * @param interview
+ * @returns
+ */
+export const selectNextIncompleteVisitedPlace = ({
+    interview,
+    visitedPlaces,
+    person
+}: {
+    interview: UserInterviewAttributes;
+    visitedPlaces: VisitedPlace[];
+    person: Person;
+}): VisitedPlace | null => {
+    const count = visitedPlaces.length;
+    const lastVisitedlaces = visitedPlaces[visitedPlaces.length - 1];
+    const lastSequence = lastVisitedlaces ? lastVisitedlaces._sequence : null;
+    for (let i = 0; i < count; i++) {
+        const visitedPlace = visitedPlaces[i];
+        const nextVisitedPlace = visitedPlaces[i + 1];
+        const geography = odSurveyHelper.getVisitedPlaceGeography({ visitedPlace, interview, person });
+
+        if (
+            _isBlank(visitedPlace.activityCategory) ||
+            _isBlank(visitedPlace.activity) ||
+            (visitedPlace._sequence === lastSequence &&
+                (visitedPlace as any).nextPlaceCategory !== 'stayedThereUntilTheNextDay') ||
+            (_isBlank(visitedPlace.arrivalTime) && visitedPlace._sequence > 1) ||
+            (_isBlank((visitedPlace as any).nextPlaceCategory) && !nextVisitedPlace) ||
+            (_isBlank(geography) && !['workOnTheRoad', 'leisureStroll'].includes(visitedPlace.activity))
+        ) {
+            return visitedPlace;
+        }
+    }
+    return null;
+};
+
+const isSchoolEnrolledTrueValues = [
+    'kindergarten',
+    'childcare',
+    'primarySchool',
+    'secondarySchool',
+    'schoolAtHome',
+    'other'
+];
+
+/**
+ * Whether the person is enrolled in school
+ * TODO Parameterize the fields and conditions to check for the section in
+ * Evolution instead of requiring this function
+ * @param person
+ * @returns
+ */
+export const isStudentFromEnrolled = (person: Person) => {
+    const schoolType = person.schoolType;
+    return !_isBlank(schoolType) && isSchoolEnrolledTrueValues.includes(schoolType);
+};
+
+/**
+ * Whether the person is a student
+ * TODO Parameterize the fields and conditions to check for the section in
+ * Evolution instead of requiring this function
+ * @param person
+ * @returns
+ */
+export const isStudent = (person: Person) => {
+    if (_isBlank(person)) {
+        return false;
+    }
+    return ['fullTimeStudent', 'partTimeStudent', 'workerAndStudent'].includes(person.occupation);
+};
+
+/**
+ * Get the number of car sharing members in the household
+ * TODO Parameterize the fields and conditions to check for the section in
+ * Evolution instead of requiring this function
+ * @param interview
+ * @returns
+ */
+export const carsharingMembersCountInHousehold = (interview: UserInterviewAttributes) => {
+    const carSharingMembers = odSurveyHelper
+        .getPersonsArray({ interview })
+        .filter((person) => (person as any).carSharingMember === 'yes');
+    return carSharingMembers.length;
+};
+
+//TODO: add attributePrefix for custom named visitedPlaces:
+export const getHouseholdVisitedAndUsualPlacesArrayAndByPersonId = function (interview) {
+    const persons = odSurveyHelper.getPersonsArray({ interview });
+    const visitedPlaces = [];
+    const visitedPlacesByPersonId = {};
+    const usualPlaces = [];
+    const usualPlacesByPersonId = {};
+    for (const person of persons) {
+        const personJourney = odSurveyHelper.getJourneysArray({ person })[0];
+        if (_isBlank(personJourney)) {
+            continue; // Skip persons without journeys
+        }
+        const personVisitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey: personJourney });
+        visitedPlaces.push(...personVisitedPlacesArray);
+        visitedPlacesByPersonId[person._uuid] = personVisitedPlacesArray;
+
+        // Get the person's usual places
+        const personUsualPlaces = [];
+        usualPlacesByPersonId[person._uuid] = personUsualPlaces;
+        if ((person as any).usualWorkPlace) {
+            personUsualPlaces.push((person as any).usualWorkPlace);
+        }
+        if ((person as any).usualSchoolPlace) {
+            personUsualPlaces.push((person as any).usualSchoolPlace);
+        }
+        usualPlaces.push(...personUsualPlaces);
+        usualPlacesByPersonId[person._uuid] = personUsualPlaces;
+    }
+    return {
+        visitedPlaces,
+        visitedPlacesByPersonId,
+        usualPlaces,
+        usualPlacesByPersonId
+    };
+};
+
+export const getShortcutVisitedPlacePerson = function (shortcutVisitedPlaceId, interview) {
+    if (!shortcutVisitedPlaceId) {
+        return null;
+    }
+    const visitedAndUsualPlacesArrayAndByPersonId = getHouseholdVisitedAndUsualPlacesArrayAndByPersonId(interview);
+    for (const personId in visitedAndUsualPlacesArrayAndByPersonId.visitedPlacesByPersonId) {
+        const personVisitedPlaces = visitedAndUsualPlacesArrayAndByPersonId.visitedPlacesByPersonId[personId];
+        for (let i = 0, count = personVisitedPlaces.length; i < count; i++) {
+            const visitedPlace = personVisitedPlaces[i];
+            if (visitedPlace && visitedPlace._uuid === shortcutVisitedPlaceId) {
+                return odSurveyHelper.getPerson({ interview, personId });
+            }
+        }
+    }
+    // It may be one of the usual places
+    for (const personId in visitedAndUsualPlacesArrayAndByPersonId.usualPlacesByPersonId) {
+        const personVisitedPlaces = visitedAndUsualPlacesArrayAndByPersonId.usualPlacesByPersonId[personId];
+        for (let i = 0, count = personVisitedPlaces.length; i < count; i++) {
+            const visitedPlace = personVisitedPlaces[i];
+            if (visitedPlace && visitedPlace._uuid === shortcutVisitedPlaceId) {
+                return odSurveyHelper.getPerson({ interview, personId });
+            }
+        }
+    }
+    return null;
+};
+
+export const getShortcutVisitedPlaceName = function (shortcutVisitedPlace, interview) {
+    if (!shortcutVisitedPlace) {
+        return null;
+    }
+    if (shortcutVisitedPlace.name) {
+        return shortcutVisitedPlace.name;
+    } else if (shortcutVisitedPlace.activity === 'home') {
+        return null;
+    } else if (shortcutVisitedPlace.activity === 'workUsual') {
+        const person: any = getShortcutVisitedPlacePerson(shortcutVisitedPlace._uuid, interview);
+        return person.usualWorkPlaceName || null;
+    } else if (shortcutVisitedPlace.activity === 'schoolUsual') {
+        const person: any = getShortcutVisitedPlacePerson(shortcutVisitedPlace._uuid, interview);
+        return person.usualSchoolPlaceName || null;
+    }
+    return null;
+};
+
+const getDurationWithHourFromSeconds = function (durationSeconds) {
+    if (_isBlank(durationSeconds) || isNaN(Number(durationSeconds))) {
+        return {
+            hour: null,
+            minute: null
+        };
+    }
+    const hour = Math.floor(durationSeconds / 3600);
+    const minute = Math.round(durationSeconds / 60) - hour * 60;
+    return {
+        hour,
+        minute
+    };
+};
+
+/**
+ * Formats a trip duration as a presentable and localized string
+ *
+ * TODO Bring to evolution
+ *
+ * @param {number} startTime trip start time: number of seconds since midnight
+ * @param {number} endTime trip end time: number of seconds since midnight
+ * @param {string} language localization language: either 'fr' or 'en'.
+ *
+ * @return {string} the formatted trip duration. Ex: <span class="_pale _oblique">(déplacement de 2 heures 5 minutes)</span>
+ */
+export const formatTripDuration = function (startTime, endTime, language) {
+    if (_isBlank(startTime) || _isBlank(endTime)) {
+        return '';
+    }
+
+    const travelTimeSeconds = startTime - endTime;
+    const travelTimeHourAndMinute = getDurationWithHourFromSeconds(travelTimeSeconds);
+    if (!_isBlank(travelTimeHourAndMinute)) {
+        const hour = travelTimeHourAndMinute.hour;
+        const minute = travelTimeHourAndMinute.minute;
+
+        // TODO: Do this localization with the i18n system properly. For now... flemme
+        if (language === 'fr') {
+            const travelTimeStr = travelTimeHourAndMinute
+                ? `${hour > 0 ? ` ${hour} heure${hour >= 2 ? 's' : ''}` : ''}${
+                    hour === 0 && minute === 0 ? ' moins de 5 minutes' : minute > 0 ? ` ${minute} minutes` : ''
+                }`
+                : '';
+            return `<br /><span class="_pale _oblique">(déplacement de${travelTimeStr})</span>`;
+        } else {
+            const travelTimeStr = travelTimeHourAndMinute
+                ? `${hour > 0 ? `${hour} h` : ''}${
+                    hour === 0 && minute === 0
+                        ? 'less than 5 min'
+                        : minute > 0
+                            ? `${hour > 0 ? ' ' : ''}${minute} min`
+                            : ''
+                }`
+                : '';
+            return `<br /><span class="_pale _oblique">(${travelTimeStr} trip)</span>`;
+        }
+    }
+};
+
+const updateVisitedPlaces = function (person, journey, visitedPlaces, includeSelectedVisitedPlaceId = true) {
+    const count = visitedPlaces.length;
+    const updateValuesByPath = {};
+    for (let i = 0; i < count; i++) {
+        const visitedPlace = visitedPlaces[i];
+        const visitedPlacePath = `household.persons.${person._uuid}.journeys.${journey._uuid}.visitedPlaces.${visitedPlace._uuid}`;
+        const nextVisitedPlace = i + 1 < count ? visitedPlaces[i + 1] : null;
+        if (
+            nextVisitedPlace &&
+            nextVisitedPlace.activity === 'home' &&
+            visitedPlace.nextPlaceCategory !== 'wentBackHome'
+        ) {
+            updateValuesByPath[`response.${visitedPlacePath}.nextPlaceCategory`] = 'wentBackHome';
+        }
+        if (
+            nextVisitedPlace &&
+            nextVisitedPlace.activity !== 'home' &&
+            visitedPlace.nextPlaceCategory === 'wentBackHome'
+        ) {
+            updateValuesByPath[`response.${visitedPlacePath}.nextPlaceCategory`] = 'visitedAnotherPlace';
+        }
+        if (
+            !nextVisitedPlace &&
+            !_isBlank(visitedPlace.nextPlaceCategory) &&
+            visitedPlace.nextPlaceCategory !== 'stayedThereUntilTheNextDay'
+        ) {
+            // we need to nullify path for the previous visited place:
+            updateValuesByPath[`response.${visitedPlacePath}.nextPlaceCategory`] = null;
+        }
+        if (i === 0 && !_isBlank(visitedPlace.arrivalTime)) {
+            updateValuesByPath[`response.${visitedPlacePath}.arrivalTime`] = null;
+        }
+        if (
+            visitedPlace.nextPlaceCategory === 'stayedThereUntilTheNextDay' &&
+            i === count - 1 &&
+            !_isBlank(visitedPlace.departureTime)
+        ) {
+            updateValuesByPath[`response.${visitedPlacePath}.departureTime`] = null;
+        }
+        if (includeSelectedVisitedPlaceId) {
+            updateValuesByPath['response._activeVisitedPlaceId'] = selectNextIncompleteVisitedPlace(visitedPlaces);
+        }
+        return updateValuesByPath;
+    }
+};
+
+/**
+ * TODO Move to Evolution, this was copy pasted from there anyway
+ * @param visitedPlacePath
+ * @param interview
+ * @param startRemoveGroupedObjects
+ * @param startUpdateInterview
+ * @returns
+ */
+export const deleteVisitedPlace = (
+    visitedPlacePath: string,
+    interview: UserInterviewAttributes,
+    startRemoveGroupedObjects: StartRemoveGroupedObjects,
+    startUpdateInterview: StartUpdateInterview
+) => {
+    const person = odSurveyHelper.getPerson({ interview });
+    const journey = odSurveyHelper.getActiveJourney({ interview });
+    if (!journey) {
+        return;
+    }
+    const visitedPlacePathsToDelete = [visitedPlacePath];
+    const visitedPlace = getResponse(interview, visitedPlacePath, null) as VisitedPlace;
+    const previousVisitedPlace = odSurveyHelper.getPreviousVisitedPlace({
+        visitedPlaceId: visitedPlace._uuid,
+        journey
+    });
+    const nextVisitedPlace = odSurveyHelper.getNextVisitedPlace({ visitedPlaceId: visitedPlace._uuid, journey });
+    if (
+        nextVisitedPlace &&
+        nextVisitedPlace.activity === 'home' &&
+        previousVisitedPlace &&
+        previousVisitedPlace.activity === 'home'
+    ) {
+        const nextVisitedPlacePath = `household.persons.${person._uuid}.journeys.${journey._uuid}.visitedPlaces.${nextVisitedPlace._uuid}`;
+        visitedPlacePathsToDelete.push(nextVisitedPlacePath);
+    }
+    // Before deleting, replace the location shortcuts by original data, the will be updated after group removal
+    const updatedValues = visitedPlacePathsToDelete
+        .map((placePath) => odSurveyHelper.replaceVisitedPlaceShortcuts({ interview, shortcutTo: placePath }))
+        .filter((updatedPaths) => updatedPaths !== undefined)
+        .reduce(
+            (previous, current) => ({
+                updatedValuesByPath: Object.assign(previous.updatedValuesByPath, current.updatedValuesByPath),
+                unsetPaths: [...previous.unsetPaths, ...current.unsetPaths]
+            }),
+            { updatedValuesByPath: {}, unsetPaths: [] }
+        );
+
+    startRemoveGroupedObjects(visitedPlacePathsToDelete, (updatedInterview) => {
+        const person = odSurveyHelper.getPerson({ interview: updatedInterview });
+        const journey = odSurveyHelper.getActiveJourney({ interview: updatedInterview, person });
+        const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
+        const updateValuesByPath = updateVisitedPlaces(person, journey, visitedPlaces, true);
+        startUpdateInterview({
+            sectionShortname: 'visitedPlaces',
+            valuesByPath: Object.assign(updatedValues.updatedValuesByPath, updateValuesByPath),
+            unsetPaths: updatedValues.unsetPaths
+        });
+    });
 };

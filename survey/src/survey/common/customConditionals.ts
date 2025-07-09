@@ -1,7 +1,10 @@
+import _get from 'lodash/get';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
-import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
+import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
+import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
+import { getShortcutVisitedPlaces } from './customFrontendHelper';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -24,11 +27,11 @@ export const hiddenWithCanadaAsDefaultValueCustomConditional: WidgetConditional 
 
 // Stay hidden and put some default value if the person is a student or a worker
 export const personOccupationCustomConditional: WidgetConditional = (interview, path) => {
-    const person: any = surveyHelperNew.getResponse(interview, path, null, '../');
-    const age: any = surveyHelperNew.getResponse(interview, path, null, '../age');
-    const workerType: any = surveyHelperNew.getResponse(interview, path, null, '../workerType');
-    const schoolType: any = surveyHelperNew.getResponse(interview, path, null, '../schoolType');
-    const studentType: any = surveyHelperNew.getResponse(interview, path, null, '../studentType');
+    const person: any = surveyHelper.getResponse(interview, path, null, '../');
+    const age: any = surveyHelper.getResponse(interview, path, null, '../age');
+    const workerType: any = surveyHelper.getResponse(interview, path, null, '../workerType');
+    const schoolType: any = surveyHelper.getResponse(interview, path, null, '../schoolType');
+    const studentType: any = surveyHelper.getResponse(interview, path, null, '../studentType');
     const isStudent: any = person.studentType === 'yesFullTime' || person.studentType === 'yesPartTime';
     const isWorker: any = person.workerType === 'yesFullTime' || person.workerType === 'yesPartTime';
 
@@ -52,7 +55,7 @@ export const personOccupationCustomConditional: WidgetConditional = (interview, 
 };
 
 export const personUsualSchoolPlaceNameCustomConditional: WidgetConditional = (interview, path) => {
-    const person: any = surveyHelperNew.getResponse(interview, path, null, '../../');
+    const person: any = surveyHelper.getResponse(interview, path, null, '../../');
     const schoolLocationType = person.schoolLocationType;
     const isSchoolEnrolledTrueValues = [
         'kindergarten',
@@ -91,4 +94,54 @@ export const departurePlaceOtherCustomConditional: WidgetConditional = (intervie
             _booleish((journey as any).departurePlaceIsHome) === false,
         null
     ];
+};
+
+export const currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview });
+    const journey = odSurveyHelper.getActiveJourney({ interview, person });
+    const visitedPlace: any = surveyHelper.getResponse(interview, path, null, '../');
+    const visitedPlaceActivity = visitedPlace.activity;
+    const nextVisitedPlace = odSurveyHelper.getNextVisitedPlace({ journey, visitedPlaceId: visitedPlace._uuid });
+    return [!nextVisitedPlace && visitedPlaceActivity === 'workOnTheRoad', null];
+};
+
+export const isLastPlaceCustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview });
+    const journey = odSurveyHelper.getActiveJourney({ interview, person });
+    const visitedPlace: any = odSurveyHelper.getActiveVisitedPlace({ interview, journey });
+    const visitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey });
+    return (
+        visitedPlacesArray.length > 1 && visitedPlacesArray[visitedPlacesArray.length - 1]._uuid === visitedPlace._uuid
+    );
+};
+
+export const alreadyVisitedPlaceCustomConditional: WidgetConditional = (interview, path) => {
+    const activity: any = surveyHelper.getResponse(interview, path, null, '../activity');
+    // Do not display if no activity
+    if (_isBlank(activity)) {
+        return [false, null];
+    }
+    // Do not display if it is an incompatible activity
+    const incompatibleActivity = [...loopActivities, 'home'].includes(activity);
+    if (incompatibleActivity) {
+        return [false, null];
+    }
+
+    // Do not display if usual place is already set
+    const person = odSurveyHelper.getPerson({ interview });
+    if (
+        (activity === 'workUsual' && (person as any).usualWorkPlace && (person as any).usualWorkPlace.geography) ||
+        (activity === 'schoolUsual' && (person as any).usualSchoolPlace && (person as any).usualSchoolPlace.geography)
+    ) {
+        return [false, null];
+    }
+
+    // Display if there are possible shortcuts
+    const geography: any = surveyHelper.getResponse(interview, path, null, '../geography');
+    let lastAction = null;
+    if (geography) {
+        lastAction = _get(geography, 'properties.lastAction', null);
+    }
+    const shortcuts = getShortcutVisitedPlaces(interview);
+    return [(lastAction === null || lastAction === 'shortcut') && shortcuts.length > 0, null];
 };

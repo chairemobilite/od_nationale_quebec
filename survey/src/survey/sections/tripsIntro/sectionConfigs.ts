@@ -6,7 +6,7 @@ import { addGroupedObjects, getResponse } from 'evolution-common/lib/utils/helpe
 
 export const currentSectionName: string = 'tripsIntro';
 const previousSectionName: SectionConfig['previousSection'] = 'tripsSelectPerson';
-const nextSectionName: SectionConfig['nextSection'] = 'personsTrips';
+const nextSectionName: SectionConfig['nextSection'] = 'visitedPlaces';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {

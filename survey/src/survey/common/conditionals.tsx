@@ -373,3 +373,17 @@ export const householdHasCars: WidgetConditional = (interview) => {
         ]
     });
 };
+
+export const onTheRoadUsualWorkplace: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.workLocationType`,
+                comparisonOperator: '===',
+                value: 'onTheRoadWithUsualPlace'
+            }
+        ]
+    });
+};

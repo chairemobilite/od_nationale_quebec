@@ -4,7 +4,7 @@
 
 import { type ChoiceType } from 'evolution-common/lib/services/questionnaire/types';
 import * as conditionals from './conditionals';
-// import * as customConditionals from './customConditionals';
+import * as customConditionals from './customConditionals';
 
 export const yes: ChoiceType[] = [
     {
@@ -470,60 +470,60 @@ export const departurePlaceOtherChoices: ChoiceType[] = [
     {
         value: 'otherParentHome',
         label: {
-            fr: '**Domicile de l\'autre parent ou tuteur**',
-            en: '**Home of the other parent or guardian**'
+            fr: '<strong>Domicile de l\'autre parent ou tuteur</strong>',
+            en: '<strong>Home of the other parent or guardian</strong>'
         },
         conditional: conditionals.ifAge16OrLessConditional
     },
     {
         value: 'workedOvernight',
         label: {
-            fr: '**Travaillait de nuit**',
-            en: '**Worked overnight**'
+            fr: '<strong>Travaillait de nuit</strong>',
+            en: '<strong>Worked overnight</strong>'
         },
         conditional: conditionals.isWorkerConditional
     },
     {
         value: 'secondaryHome',
         label: {
-            fr: '**Résidence secondaire** (chalet ou autre)',
-            en: '**Secondary residence** (cottage or other)'
+            fr: '<strong>Résidence secondaire</strong> (chalet ou autre)',
+            en: '<strong>Secondary residence</strong> (cottage or other)'
         }
     },
     {
         value: 'sleptAtFriends',
         label: {
-            fr: 'Passait la nuit chez **ami, copine/copain ou famille**',
-            en: 'Stayed at a **friend’s, partner’s or family’s home**'
+            fr: 'Passait la nuit chez <strong>ami, copine/copain ou famille</strong>',
+            en: 'Stayed at a <strong>friend’s, partner’s or family’s home</strong>'
         }
     },
     {
         value: 'restaurant',
         label: {
-            fr: 'Était à un ou revenait d\'un **restaurant ou bar**',
-            en: 'Was at or was coming back from a **restaurant or bar**'
+            fr: 'Était à un ou revenait d\'un <strong>restaurant ou bar</strong>',
+            en: 'Was at or was coming back from a <strong>restaurant or bar</strong>'
         }
     },
     {
         value: 'hotelForWork',
         label: {
-            fr: 'Hôtel ou autre lieu pour une **conférence / travail**',
-            en: 'Hotel or other venue for **a conference / work**'
+            fr: 'Hôtel ou autre lieu pour une <strong>conférence / travail</strong>',
+            en: 'Hotel or other venue for <strong>a conference / work</strong>'
         },
         conditional: conditionals.isWorkerConditional
     },
     {
         value: 'hotelForVacation',
         label: {
-            fr: 'Hôtel ou autre lieu en **vacances**',
-            en: 'Hôtel or other on **vacation**'
+            fr: 'Hôtel ou autre lieu en <strong>vacances</strong>',
+            en: 'Hôtel or other on <strong>vacation</strong>'
         }
     },
     {
         value: 'studying',
         label: {
-            fr: '**Écoles / lieu d’études**: terminait des travaux ou y couchait',
-            en: '**School / place of study**: studied or slept there'
+            fr: '<strong>Écoles / lieu d’études</strong>: terminait des travaux ou y couchait',
+            en: '<strong>School / place of study</strong>: studied or slept there'
         },
         conditional: conditionals.isStudentConditional
     },
@@ -533,5 +533,38 @@ export const departurePlaceOtherChoices: ChoiceType[] = [
             fr: 'Autre',
             en: 'Other'
         }
+    }
+];
+
+export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
+    {
+        value: 'home',
+        label: {
+            fr: 'Domicile',
+            en: 'Home'
+        }
+    },
+    {
+        value: 'usualWorkPlace',
+        label: {
+            fr: 'Lieu de travail habituel',
+            en: 'Usual work place'
+        },
+        conditional: conditionals.onTheRoadUsualWorkplace
+    },
+    {
+        value: 'other',
+        label: {
+            fr: 'Autre lieu',
+            en: 'Other location'
+        }
+    },
+    {
+        value: 'stayedThereUntilTheNextDay',
+        label: {
+            fr: '{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain',
+            en: 'Stayed at this place until the next day'
+        },
+        conditional: customConditionals.isLastPlaceCustomConditional
     }
 ];
