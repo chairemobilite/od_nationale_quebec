@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import _isEqual from 'lodash/isEqual';
+import { distance as turfDistance } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
 import {
@@ -506,4 +507,89 @@ export const deleteVisitedPlace = (
             unsetPaths: updatedValues.unsetPaths
         });
     });
+};
+
+/**
+ * Get the distance in meters between the origin and destination of a trip
+ * TODO Move to Evolution
+ */
+export const getBirdDistanceMeters = function ({ trip, visitedPlaces, person, interview }) {
+    const origin = odSurveyHelper.getOrigin({ trip, visitedPlaces });
+    const destination = odSurveyHelper.getDestination({ trip, visitedPlaces });
+    if (_isBlank(origin) || _isBlank(destination)) {
+        return null;
+    }
+    const originGeography = odSurveyHelper.getVisitedPlaceGeography({ visitedPlace: origin, interview, person });
+    const destinationGeography = odSurveyHelper.getVisitedPlaceGeography({
+        visitedPlace: destination,
+        interview,
+        person
+    });
+    if (_isBlank(originGeography) || _isBlank(destinationGeography)) {
+        return null;
+    }
+    return turfDistance(originGeography.geometry, destinationGeography.geometry, {
+        units: 'meters'
+    });
+};
+
+export const getCurrentTripBirdDistanceMeters = ({ interview }) => {
+    const person = odSurveyHelper.getActivePerson({ interview });
+    const journey = odSurveyHelper.getActiveJourney({ interview });
+    const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
+    const trip = odSurveyHelper.getActiveTrip({ interview, journey });
+    return getBirdDistanceMeters({ trip, visitedPlaces, person, interview });
+};
+
+/**
+ * TODO Move to Evolution
+ */
+export const getDrivers = ({ interview }): any => {
+    const persons = odSurveyHelper.getPersonsArray({ interview });
+    return persons.filter((person) => (person as any).drivingLicenseOwner === 'yes');
+};
+
+/**
+ * TODO Move to Evolution
+ * TODO Parameterize the modes here, this function is copy-pasted as is from 2024
+ */
+export const shouldDisplayTripJunction = (previousSegment, currentSegment, activity) => {
+    //tripJunction needed when changing from private to public modes (private modes: car driver, car passenger, moto, taxi - walking is excluded )
+    if (
+        !_isBlank(previousSegment) &&
+        (['carDriver', 'carPassenger', 'bicycle', 'taxi', 'train', 'paratransit'].includes(previousSegment.modePre) ||
+            [
+                'taxi',
+                'ferryWithCar',
+                'motorcycle',
+                'bicycle',
+                'bicycleElectric',
+                'scooterElectric',
+                'plane',
+                'other'
+            ].includes(previousSegment.mode)) &&
+        (currentSegment.modePre === 'transit' ||
+            ['ferryNoCar', 'ferryNoCar', 'train', 'intercityBus', 'taxi'].includes(currentSegment.mode))
+    ) {
+        return activity !== 'workOnTheRoad';
+    }
+    if (
+        !_isBlank(previousSegment) &&
+        (['carDriver', 'carPassenger', 'bicycle', 'taxi', 'train', 'paratransit'].includes(currentSegment.modePre) ||
+            [
+                'taxi',
+                'ferryWithCar',
+                'motorcycle',
+                'bicycle',
+                'bicycleElectric',
+                'scooterElectric',
+                'plane',
+                'other'
+            ].includes(currentSegment.mode)) &&
+        (previousSegment.modePre === 'transit' ||
+            ['transitBus', 'ferryNoCar', 'train', 'intercityBus', 'taxi'].includes(previousSegment.mode))
+    ) {
+        return activity !== 'workOnTheRoad';
+    }
+    return false;
 };

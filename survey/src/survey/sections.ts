@@ -9,6 +9,7 @@ import personsTripsConfigs from './sections/personsTrips/sectionConfigs';
 import tripsSelectPersonConfigs from './sections/tripsSelectPerson/sectionConfigs';
 import tripsIntroConfigs from './sections/tripsIntro/sectionConfigs';
 import visitedPlacesConfigs from './sections/visitedPlaces/sectionConfigs';
+import segmentsConfigs from './sections/segments/sectionConfigs';
 import endConfigs from './sections/end/sectionConfigs';
 import completedConfigs from './sections/completed/sectionConfigs';
 
@@ -20,6 +21,7 @@ const sectionsConfigs: SurveySectionsConfig = {
     tripsSelectPerson: tripsSelectPersonConfigs,
     tripsIntro: tripsIntroConfigs,
     visitedPlaces: visitedPlacesConfigs,
+    segments: segmentsConfigs,
     end: endConfigs,
     completed: completedConfigs
 };

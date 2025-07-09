@@ -568,3 +568,27 @@ export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
         conditional: customConditionals.isLastPlaceCustomConditional
     }
 ];
+
+export const onDemandChoices: ChoiceType[] = [
+    {
+        value: 'pickupAtOrigin',
+        label: {
+            fr: 'Oui, il est venu chercher {{nickname}} à son lieu de départ',
+            en: 'Yes, it picked {{nickname}} up at their departure location'
+        }
+    },
+    {
+        value: 'joinedStop',
+        label: {
+            fr: 'Oui, {{nickname}} a rejoint un arrêt',
+            en: 'Yes, {{nickname}} went to a stop'
+        }
+    },
+    {
+        value: 'no',
+        label: {
+            fr: 'Non',
+            en: 'No'
+        }
+    }
+];

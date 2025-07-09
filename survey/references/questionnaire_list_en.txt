@@ -231,6 +231,48 @@ Confirm locations and continue
 
 
 
+Section: Modes of transport
+
+Change person
+
+Trips made by {{nickname}} on {{assignedDate}}
+
+Map of {{nickname}}’s trips on {{assignedDate}}:
+
+Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
+
+Mode of transport
+
+How did {{nickname}} reach the transit stop?
+If the mode used is not present, create a first mode before the transit mode.
+
+Paid parking
+- Yes
+- No
+- I don't know
+
+Persons in the vehicle
+Including the driver.
+
+Who drove?
+
+Is this an on-demand service?
+- Yes, it picked {{nickname}} up at their departure location
+- Yes, {{nickname}} went to a stop
+- No
+
+Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map.
+
+Please locate the junction point (location where the change in mode of transport occurred).
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the name or address indicated above ("Find the place from the name" button).
+
+Confirm this trip
+
+Confirm locations and continue
+
+
+
 Section: End
 
 Does your household rent or own your home?
