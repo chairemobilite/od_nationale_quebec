@@ -29,8 +29,11 @@ onTheRoadDepartureType: >-
     Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 onTheRoadDepartureType_one: Quel endroit était le point de départ de vos déplacements
     sur la route?
-onTheRoadArrivalType: >-
-    À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements
+onTheRoadArrivalType_male: À quel endroit {{nickname}} a-t-il terminé ses déplacements
+    sur la route?
+onTheRoadArrivalType_female: À quel endroit {{nickname}} a-t-elle terminé ses déplacements
+    sur la route?
+onTheRoadArrivalType_other: À quel endroit {{nickname}} a-t-iel terminé ses déplacements
     sur la route?
 onTheRoadArrivalType_one: À quel endroit avez-vous terminé vos déplacements sur la
     route?
@@ -46,9 +49,15 @@ geography: >-
     zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous
     pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher
     le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.</span>
-_previousPreviousDepartureTime: >-
-    À quelle heure {{nickname}} a-t-{{gender :il/elle/iel}} quitté le lieu précédent
-    ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+_previousPreviousDepartureTime_male: >-
+    À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{visitedPlaceDescription}})
+    avant de se rendre à son lieu habituel de travail?
+_previousPreviousDepartureTime_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté le lieu précédent ({{visitedPlaceDescription}})
+    avant de se rendre à son lieu habituel de travail?
+_previousPreviousDepartureTime_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté le lieu précédent ({{visitedPlaceDescription}})
+    avant de se rendre à son lieu habituel de travail?
 _previousPreviousDepartureTime_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
