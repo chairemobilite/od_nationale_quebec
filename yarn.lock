@@ -271,6 +271,19 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@cap.js/server@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@cap.js/server/-/server-2.0.0.tgz#51746c5f5f85fb9051868446783e21df6fae44ea"
+  integrity sha512-CaETNf+u/+vgkzQJu3Fq3UWrd8egUFYBFLYo5Rf5j2muIVY1syqUJbwvwxLbgE5mlMmND/RUo15D/G0iKCOIYA==
+  dependencies:
+    "@types/node" "^22.14.1"
+    typescript "^5.8.3"
+
+"@cap.js/widget@^0.1.25":
+  version "0.1.25"
+  resolved "https://registry.yarnpkg.com/@cap.js/widget/-/widget-0.1.25.tgz#a8400d56cdfc74b28e5f492d13b34a9db302745b"
+  integrity sha512-OVKt1rOAzqgxuSk0j18K6KtLBwAarTn6g7kAsGXcW+DAYO++Xr32LY6sj8KS3C3gqZXkhozf50kVwmgQs7CzxA==
+
 "@carto/api-client@^0.4.4":
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/@carto/api-client/-/api-client-0.4.9.tgz#c3edd0af757315a2e1f0516cd503acc57bfced76"
@@ -1758,6 +1771,13 @@
     "@parcel/watcher-win32-arm64" "2.5.0"
     "@parcel/watcher-win32-ia32" "2.5.0"
     "@parcel/watcher-win32-x64" "2.5.0"
+
+"@pitininja/cap-react-widget@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@pitininja/cap-react-widget/-/cap-react-widget-1.1.1.tgz#2d557c5745613d2defcf271dd1dddc7ad2ebb750"
+  integrity sha512-VvuW0OimPaQBRKFDbDHXUm4r8k23fg5EQlpPUHEWPUg8NW2i/+1kgPdN43Mcbxdp9DXTUcmXMP3wLwrtVmqv6A==
+  dependencies:
+    "@cap.js/widget" "^0.1.25"
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -4043,6 +4063,13 @@
   version "14.18.63"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.63.tgz#1788fa8da838dbb5f9ea994b834278205db6ca2b"
   integrity sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ==
+
+"@types/node@^22.14.1":
+  version "22.16.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.16.3.tgz#006f83d80e6f05f65768acc77f4a57bfac1d545f"
+  integrity sha512-sr4Xz74KOUeYadexo1r8imhRtlVXcs+j3XK3TcoiYk7B1t3YRVJgtaD3cwX73NYb71pmVuMLNRhJ9XKdoDB74g==
+  dependencies:
+    undici-types "~6.21.0"
 
 "@types/nodemailer@^6.4.17":
   version "6.4.17"
