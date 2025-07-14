@@ -45,7 +45,7 @@ module.exports = Object.assign({
     askForAccessCode: true,
     isPartTwo: false,
     forgotPasswordPage: true,
-    primaryAuthMethod: 'passwordless',
+    primaryAuthMethod: 'byField',
     adminAuth: {
         localLogin: {
             allowRegistration: true,
@@ -63,6 +63,8 @@ module.exports = Object.assign({
         byField: true
     },
     separateAdminLoginPage: true,
+    surveySupportForm: true,
+    captchaComponentType: 'capjs',
     mapDefaultZoom: 10,
     mapDefaultCenter: {
         lat: 46.81289,
