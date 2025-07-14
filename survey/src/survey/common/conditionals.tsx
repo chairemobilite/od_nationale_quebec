@@ -51,6 +51,19 @@ export const hasOnePersonWithDisabilityOrHhSize1Conditional: WidgetConditional =
     });
 };
 
+export const hasHouseholdBicycleConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.bicycleNumber',
+                comparisonOperator: '>=',
+                value: 1
+            }
+        ]
+    });
+};
+
 export const ifAge3to5Conditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
