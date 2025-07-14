@@ -54,7 +54,7 @@ export const personVisitedPlacesTitle = {
     containsHtml: true,
     text: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
-        const assignedDay = getResponse(interview, 'assignedDay') as string;
+        const assignedDay = getResponse(interview, '_assignedDay') as string;
         const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
 
         return t('visitedPlaces:personVisitedPlacesTitle', {
