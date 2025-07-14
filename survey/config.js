@@ -46,6 +46,15 @@ module.exports = Object.assign({
     isPartTwo: false,
     forgotPasswordPage: true,
     primaryAuthMethod: 'passwordless',
+    adminAuth: {
+        localLogin: {
+            allowRegistration: true,
+            registerWithEmailOnly: true,
+            confirmEmail: true,
+            confirmEmailStrategy: 'confirmByAdmin',
+            forgotPasswordPage: true
+        }
+    },
     auth: {
         passwordless: false,
         anonymous: false,

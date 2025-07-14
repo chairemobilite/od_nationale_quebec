@@ -1,0 +1,51 @@
+confirmByAdminText: >
+  Hi {{name}},
+  
+  
+  A new user has requested access to the survey platform: {{usermail}}.
+  
+  
+  To confirm the user access, please click on the link below, or copy-paste the following URL {{userConfirmationUrl}}.
+  
+  
+  Thank you"
+confirmByAdminSubject: "National survey admin platform: New User Confirmation"
+confirmByUserText: >
+  Hi {{name}},
+
+
+  You have requested access to the survey platform.
+
+
+  To confirm your access, please click on the link below, or copy-paste the following URL {{userConfirmationUrl}}.
+
+
+  Thank you
+confirmByUserSubject: "National survey admin platform: New User Confirmation"
+pendingConfirmByAdminSubject: "National survey admin platform: account creation confirmation pending"
+pendingConfirmByAdminText: >
+  Hi {{name}},
+
+
+  Your access request to the survey platform will be reviewed by an administrator shortly.
+
+
+  Thank you
+resetPasswordEmailSubject: "National survey admin platform: Forgotten Password"
+resetPasswordEmailText: >
+  Hello {{name}},
+
+
+  You are receiving this email because you requested to reset the password for your account.
+
+
+  To complete this request, please click on the following link:
+
+
+  {{resetPasswordUrl}}
+
+
+  If you did not make this password reset request, please ignore this message and your password will remain unchanged.
+
+
+  Thank you
