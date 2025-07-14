@@ -1,0 +1,51 @@
+confirmByAdminText: >
+  Bonjour {{name}},
+
+
+  Un nouvel utilisateur a demandé un accès à la plateforme d'enquête: {{usermail}}.
+
+
+  Pour confirmer l'accès à cet utilisateur, veuillez cliquer sur le lien ci-dessous, ou copier-coller l'URL dans votre navigateur {{userConfirmationUrl}}.
+
+
+  Merci
+confirmByAdminSubject: "Plateforme admin de l'enquête nationale: Confirmation d'un nouvel utilisateur"
+confirmByUserText: >
+  Bonjour {{name}},
+
+
+  Vous avez demandé un accès à la plateforme d'enquête.
+
+
+  Pour confirmer votre accès, veuillez cliquer sur le lien ci-dessous, ou copier-coller l'URL dans votre navigateur {{userConfirmationUrl}}.
+
+
+  Merci
+confirmByUserSubject: "Plateforme admin de l'enquête nationale: Confirmation d'un nouvel utilisateur"
+pendingConfirmByAdminSubject: "Plateforme admin de l'enquête nationale: compte en attente de confirmation par un administrateur"
+pendingConfirmByAdminText: >
+  Bonjour {{name}},
+
+
+  Votre accès à la plateforme d'enquête doit d'abord être validé par un administrateur.
+
+
+  Merci
+resetPasswordEmailSubject: "Plateforme admin de l'enquête nationale: Mot de passe oublié"
+resetPasswordEmailText: >
+  Bonjour {{name}},
+
+
+  Vous recevez ce courriel car vous avez demandé de recréer un mot de passe pour votre compte.
+
+
+  Pour compléter la demande, veuillez cliquer sur le lien suivant:
+
+
+  {{resetPasswordUrl}}
+
+
+  Si vous n'avez pas effectué cette requête de changement de mot de passe, ignorez ce message et votre mot de passe demeurera inchangé.
+
+
+  Merci
