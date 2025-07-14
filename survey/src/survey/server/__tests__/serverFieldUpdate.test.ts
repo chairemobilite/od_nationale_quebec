@@ -1,10 +1,25 @@
 
-import updateCallbacks from '../serverFieldUpdate';
+import moment from 'moment-business-days';
+import { ObjectReadableMock } from 'stream-mock';
+import updateCallbacks, { updateAssignedDayRates } from '../serverFieldUpdate';
 import _cloneDeep from 'lodash/cloneDeep';
 import each from 'jest-each';
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
 import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
+import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
+import RandomUtils from 'chaire-lib-common/lib/utils/RandomUtils';
 import '../serverValidations'; // Make sure access code format validation is registered
+
+jest.useFakeTimers();
+
+jest.mock('evolution-backend/lib/models/interviews.db.queries', () => ({
+    getInterviewsStream: jest.fn().mockImplementation(() => new ObjectReadableMock([]))
+}));
+const getInterviewStreamMock = interviewsDbQueries.getInterviewsStream as jest.MockedFunction<typeof interviewsDbQueries.getInterviewsStream>;
+jest.mock('chaire-lib-common/lib/utils/RandomUtils', () => ({
+    randomFromDistribution: jest.fn()
+}));
+const randomMock = RandomUtils.randomFromDistribution as jest.MockedFunction<typeof RandomUtils.randomFromDistribution>;
 
 jest.mock('evolution-backend/lib/services/interviews/serverFieldUpdate', () => ({
     getPreFilledResponseByPath: jest.fn().mockResolvedValue({})
@@ -52,8 +67,7 @@ const baseInterview: InterviewAttributes = {
                 } as any
             }
         } as any,
-        previousDay: '2022-09-12',
-        previousBusinessDay: '2022-09-12',
+        _previousDay: '2022-09-12',
         _activePersonId: 'a12345'
     },
     id: 1,
@@ -130,6 +144,137 @@ describe('access code update', function () {
         const updateResult = await updateCallback(interview, '11111111');
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult).toEqual({ });
+    });
+
+});
+
+describe('test survey day assignation', function () {
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    })
+    const updateCallback = (updateCallbacks.find((callback) => callback.field === '_previousDay') as any).callback;
+
+    test('Day already assigned', async () => {
+        const interview = _cloneDeep(baseInterview);
+        interview.response._assignedDay = interview.response._previousDay;
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({});
+        expect(randomMock).not.toHaveBeenCalled();
+    });
+
+    test('No data for days, should be previous day', async () => {
+        // Prepare less than 500 interviews to be returned for the assigned day update
+        const interviews: any[] = [];
+        interviews.push({ response: { _assignedDay: '2022-09-09' } as any});
+        interviews.push({ response: { _assignedDay: '2022-09-09' } as any});
+        interviews.push({ response: { _assignedDay: '2022-09-09' } as any});
+        interviews.push({ response: { } as any});
+        getInterviewStreamMock.mockReturnValue(new ObjectReadableMock(interviews) as any);
+
+        // Update the assigned day rates
+        await updateAssignedDayRates();
+
+        // Validate call to get assigned day rates, the filter should be with a completed at data, for completed and not invalid interviews
+        expect(getInterviewStreamMock).toHaveBeenCalledTimes(1);
+        expect(getInterviewStreamMock).toHaveBeenCalledWith({ 
+            filters: { 'response._completedAt': expect.anything(), 'response._isCompleted': { value: true }, 'is_valid': { value: false, op: 'not' } },
+            select: { responseType: 'correctedIfAvailable', includeAudits: false }
+        });
+        
+        // Do the update callback with those data
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': interview.response._previousDay, '_originalAssignedDay': interview.response._previousDay });
+        expect(randomMock).not.toHaveBeenCalled();
+    });
+
+    test('No data for days, but previous days is weekend', async () => {
+        randomMock.mockReturnValue(2);
+
+        const interview = _cloneDeep(baseInterview);
+        // Previous day is sunday
+        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_assignedDay': '2022-09-09', '_originalAssignedDay': '2022-09-09' });
+        expect(randomMock).toHaveBeenCalledTimes(1);
+    });
+
+    test('Should be called with probabilities, when more than 500 days', async() => {
+        // Return 500 for previous day (monday), 100 last friday, 200 wednesday, 200 tuesday
+        const interviews: any[] = [];
+        for (let i = 0; i < 500; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-23' }});
+        };
+        for (let i = 0; i < 100; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-20' }});
+        };
+        for (let i = 0; i < 200; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-19' }});
+        };
+        for (let i = 0; i < 200; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-18' }});
+        };
+        getInterviewStreamMock.mockReturnValue(new ObjectReadableMock(interviews) as any);
+
+        // Update the assigned day rates
+        await updateAssignedDayRates();
+
+        randomMock.mockReturnValue(3);
+
+        // Use a previous day of monday
+        const interview = _cloneDeep(baseInterview);
+        interview.response._previousDay = '2024-09-23';
+        expect(await updateCallback(interview, '2024-09-23')).toEqual({ '_assignedDay': '2024-09-20', '_originalAssignedDay': '2024-09-20' });
+        expect(randomMock).toHaveBeenCalledTimes(1);
+        const randomParams = randomMock.mock.calls[0];
+        // Weekend should have 0 probability, but day before (monday) should have one
+        expect(randomParams[0][0]).toBeGreaterThan(0);
+        expect(randomParams[0][1]).toEqual(0);
+        expect(randomParams[0][2]).toEqual(0);
+        // 3 days ago should have higher probability
+        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][0]);
+        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][1]);
+        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][2]);
+        expect(randomParams[2]).toEqual((randomParams[0] as number[]).reduce((sum, current) => sum + current, 0));
+    });
+
+    test('With a holiday', async() => {
+        // Add a holiday for october 10, 2022
+        moment.updateLocale('en', {
+            holidays: ['2022-10-10'],
+            holidayFormat: 'YYYY-MM-DD' ,
+        });
+        // Return 200 for previous day (monday), 300 last friday, 200 wednesday, 200 tuesday
+        const interviews: any[] = [];
+        for (let i = 0; i < 200; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-23' }});
+        };
+        for (let i = 0; i < 300; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-20' }});
+        };
+        for (let i = 0; i < 200; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-19' }});
+        };
+        for (let i = 0; i < 200; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-18' }});
+        };
+        getInterviewStreamMock.mockReturnValue(new ObjectReadableMock(interviews) as any);
+
+        randomMock.mockReturnValue(3);
+
+        // Use a holiday as previous day
+        const interview = _cloneDeep(baseInterview);
+        interview.response._previousDay = '2022-10-10';
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': '2022-10-07', '_originalAssignedDay': '2022-10-07' });
+       
+        expect(randomMock).toHaveBeenCalledTimes(1);
+        const randomParams = randomMock.mock.calls[0];
+        // Monday, sunday and saturday should have 0 probability
+        expect(randomParams[0][0]).toEqual(0);
+        expect(randomParams[0][1]).toEqual(0);
+        expect(randomParams[0][2]).toEqual(0);
+        // 3 days ago should have higher probability
+        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][0]);
+        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][1]);
+        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][2]);
+        expect(randomParams[2]).toEqual((randomParams[0] as number[]).reduce((sum, current) => sum + current, 0));
     });
 
 });

@@ -6,6 +6,8 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
+import moment from 'moment';
 
 export const currentSectionName: string = 'home';
 const previousSectionName: SectionConfig['previousSection'] = null;
@@ -34,6 +36,13 @@ export const sectionConfig: SectionConfig = {
     // Allow to click on the section menu
     completionConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: currentSectionName });
+    },
+    onSectionEntry: function (interview, _iterationContext) {
+        const previousDay = getResponse(interview, '_previousDay');
+        if (!previousDay) {
+            return { 'response._previousDay': moment().subtract(1, 'days').format('YYYY-MM-DD') };
+        }
+        return undefined;
     }
 };
 

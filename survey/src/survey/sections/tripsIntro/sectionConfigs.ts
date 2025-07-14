@@ -31,7 +31,7 @@ export const sectionConfig: SectionConfig = {
                 1,
                 1,
                 `household.persons.${person._uuid}.journeys`,
-                [{ startDate: getResponse(interview, 'assignedDay') }]
+                [{ startDate: getResponse(interview, '_assignedDay') }]
             );
             const newJourneyKey = Object.keys(newJourneysValuesByPath).find((key) =>
                 key.startsWith(`response.household.persons.${person._uuid}.journeys.`)

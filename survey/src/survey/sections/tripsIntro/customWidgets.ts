@@ -113,7 +113,7 @@ export const personDidTrips: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        const assignedDay = getResponse(interview, 'assignedDay');
+        const assignedDay = getResponse(interview, '_assignedDay');
         const assignedDate = moment(assignedDay).locale(i18n.language).format('dddd LL');
         return t('tripsIntro:personDidTrips', {
             context: activePerson.gender,
@@ -125,7 +125,7 @@ export const personDidTrips: WidgetConfig.InputRadioType = {
     helpPopup: {
         containsHtml: true,
         title: (t: TFunction, interview) => {
-            const assignedDay = getResponse(interview, 'assignedDay');
+            const assignedDay = getResponse(interview, '_assignedDay');
             return t('customLabel:WhyThisDate');
         },
         content: (t: TFunction, interview) => t('customLabel:WhyThisDateExplanation')
@@ -169,7 +169,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
     twoColumns: false,
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
-        const tripsDate = getResponse(interview, 'assignedDay', null);
+        const tripsDate = getResponse(interview, '_assignedDay', null);
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
         return t('tripsIntro:personDidTripsChangeConfirm', {
             count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson }),
@@ -183,7 +183,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
             value: 'no',
             label: (t: TFunction, interview) => {
                 const activePerson = odSurveyHelper.getActivePerson({ interview });
-                const tripsDate = getResponse(interview, 'assignedDay', null);
+                const tripsDate = getResponse(interview, '_assignedDay', null);
                 const formattedTripsDate = getFormattedDate(tripsDate as string, {
                     withRelative: true,
                     locale: i18n.language
@@ -199,7 +199,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
             value: 'yes',
             label: (t: TFunction, interview) => {
                 const activePerson = odSurveyHelper.getActivePerson({ interview });
-                const tripsDate = getResponse(interview, 'assignedDay', null);
+                const tripsDate = getResponse(interview, '_assignedDay', null);
                 const formattedTripsDate = getFormattedDate(tripsDate as string, {
                     withRelative: true,
                     locale: i18n.language
@@ -237,7 +237,7 @@ export const visitedPlacesIntro: WidgetConfig.TextWidgetConfig = {
     text: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        const tripsDate = getResponse(interview, 'assignedDay', null);
+        const tripsDate = getResponse(interview, '_assignedDay', null);
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
         return t('tripsIntro:didTripsIntro', {
             context: activePerson.gender,
@@ -277,7 +277,7 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        const assignedDay = moment(getResponse(interview, 'assignedDay'));
+        const assignedDay = moment(getResponse(interview, '_assignedDay'));
         const dayBefore = moment(assignedDay).subtract(1, 'days');
         const homeAddress = getHomeAddressOneLine(interview);
         const dayBeforeStr = dayBefore
