@@ -64,8 +64,8 @@ Sexe assigné à la naissance ou inscrit dans les documents légaux.
 - Femme
 - Je préfère ne pas répondre
 
-Travailleur
-Incluant travailleur autonome, artiste, travailleur en congé de maladie ou parental.
+Travaill{{gender:eur/euse/eur·euse}}
+Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental.
 - Oui, à temps plein
 - Oui, à temps partiel
 - Non

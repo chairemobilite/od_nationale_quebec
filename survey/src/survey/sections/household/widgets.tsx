@@ -59,7 +59,13 @@ export const personWorkerType: WidgetConfig.InputRadioType = {
     path: 'workerType',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:workerType'),
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const personGender = activePerson?.gender;
+        return t('household:workerType', {
+            context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
+        });
+    },
     choices: choices.participationStatus,
     conditional: conditionals.ifAge14orMoreConditional,
     validations: validations.requiredValidation

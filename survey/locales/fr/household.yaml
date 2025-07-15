@@ -14,9 +14,15 @@ age_one: Votre <strong>âge</strong>
 gender: >-
     <strong>Sexe à la naissance</strong><br /><span class="_pale _oblique">Sexe assigné
     à la naissance ou inscrit dans les documents légaux.</span>
-workerType: >-
+workerType_male: >-
     <strong>Travailleur</strong><br /><span class="_pale _oblique">Incluant travailleur
     autonome, artiste, travailleur en congé de maladie ou parental.</span>
+workerType_female: >-
+    <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
+    autonome, artiste, travailleuse en congé de maladie ou parental.</span>
+workerType_other: >-
+    <strong>Travailleur·euse</strong><br /><span class="_pale _oblique">Incluant travailleur·euse
+    autonome, artiste, travailleur·euse en congé de maladie ou parental.</span>
 studentType_male: <strong>Étudiant</strong>
 studentType_female: <strong>Étudiante</strong>
 studentType_other: <strong>Étudiant·e</strong>
