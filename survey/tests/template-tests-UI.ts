@@ -83,7 +83,8 @@ testHelpers.inputStringTest({ context, path: 'home.postalCode', value: '?' });
 
 /* Test radionumber widget household_bicycleNumber */
 
-/* Test radionumber widget household_electricBicycleNumber */
+/* Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional */
+testHelpers.inputVisibleTest({ context, path: 'household.electricBicycleNumber', isVisible: true });
 
 /* Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional witch choices yesNoPreferNotAnswer */
 testHelpers.inputVisibleTest({ context, path: 'household.atLeastOnePersonWithDisability', isVisible: true });

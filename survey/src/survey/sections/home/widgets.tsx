@@ -7,6 +7,7 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
+import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 // import * as inputRange from '../../common/inputRange';
@@ -175,11 +176,10 @@ export const household_electricBicycleNumber: WidgetConfig.InputRadioNumberType 
     label: (t: TFunction) => t('home:household.electricBicycleNumber'),
     valueRange: {
         min: 0,
-        max: 5
+        max: (interview) => surveyHelper.getResponse(interview, 'household.bicycleNumber', 0) as any
     },
-    overMaxAllowed: true,
-    conditional: defaultConditional,
-    validations: validations.requiredValidation
+    conditional: conditionals.hasHouseholdBicycleConditional,
+    validations: validations.bicycleNumberValidation
 };
 
 export const household_atLeastOnePersonWithDisability: WidgetConfig.InputRadioType = {

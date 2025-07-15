@@ -11,14 +11,30 @@ segmentsIntro: >-
     Please indicate all modes of transport used for this trip (from {{originName}}
     to {{destinationName}}), in chronological order:
 segments: Mode de transport
-howToBus: >-
-    Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u.e}} à l'arrêt/station
-    de transport collectif?<br /><span class="_pale _oblique">Si le mode de déplacement
-    n'est pas présent, créer un premier mode de transport avant le transport collectif.</span>
-howToBus_one: >-
-    Comment vous êtes-vous rend{{gender :u/ue/u.e}} à l'arrêt/station de transport
-    collectif?<br /><span class="_pale _oblique">Si le mode de déplacement n'est pas
-    présent, créer un premier mode de transport avant le transport collectif.</span>
+howToBus_male: >-
+    Comment est-ce que {{nickname}} s'est rendu à l'arrêt/station de transport collectif?<br
+    /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
+    un premier mode de transport avant le transport collectif.</span>
+howToBus_female: >-
+    Comment est-ce que {{nickname}} s'est rendue à l'arrêt/station de transport collectif?<br
+    /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
+    un premier mode de transport avant le transport collectif.</span>
+howToBus_other: >-
+    Comment est-ce que {{nickname}} s'est rendu.e à l'arrêt/station de transport collectif?<br
+    /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
+    un premier mode de transport avant le transport collectif.</span>
+howToBus_male_one: >-
+    Comment vous êtes-vous rendu à l'arrêt/station de transport collectif?<br /><span
+    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
+    mode de transport avant le transport collectif.</span>
+howToBus_female_one: >-
+    Comment vous êtes-vous rendue à l'arrêt/station de transport collectif?<br /><span
+    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
+    mode de transport avant le transport collectif.</span>
+howToBus_other_one: >-
+    Comment vous êtes-vous rendu.e à l'arrêt/station de transport collectif?<br /><span
+    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
+    mode de transport avant le transport collectif.</span>
 paidForParking: Stationnement payant?
 vehicleOccupancy: >-
     Personne(s) dans le véhicule<br /><span class="_pale _oblique">Conducteur ou conductrice
@@ -45,3 +61,20 @@ junctionGeography: >-
     (bouton "Chercher le lieu à partir du nom").</span>
 trip.save: Confirmer ce déplacement
 segments.save: Confirmer les lieux et continuer
+segmentsIntroOnTheRoad: >-
+    Veuillez indiquer tous les modes de transport utilisés pour effectuer les déplacements
+    sur la route, dans l'ordre chronologique:
+segmentsIntroStroll: >-
+    Veuillez indiquer tous les modes de transport utilisés pour effectuer la promenade,
+    dans l'ordre chronologique:
+junctionGeographyRefreshGeocodingLabel: Chercher le lieu de jonction à partir du nom
+    ou de l'adresse
+driverFamily: Ami ou famille
+driverColleague: Un collègue de travail ou d'études
+driverTaxi: Chauffeur Taxi ou Uber
+driverTransitTaxi: Chauffeur Taxi collectif / transport à la demande
+driverParaTransit: Chauffeur Transport adapté
+driverCarpool: 'Chauffeur Covoiturage (ex: Amigo Express, Kangaride)'
+driverOther: Une autre personne
+driverDontKnow: Je ne sais pas
+driverFamilyMemberSeq: Personne {{sequence}}
