@@ -42,6 +42,10 @@ module.exports = (env) => {
         path.join(__dirname, 'assets')
     ];
 
+    // Get the default title from the config or use a fallback
+    const defaultLanguage = config.languages && config.languages.length > 0 ? config.languages[0] : 'fr';
+    const defaultAppTitle = config.title && config.title[defaultLanguage] ? config.title[defaultLanguage] : process.env.DEFAULT_TITLE || 'Evolution';
+
     return {
         // Controls which information to display (see https://webpack.js.org/configuration/stats/)
         stats: {
@@ -130,6 +134,7 @@ module.exports = (env) => {
                 cleanAfterEveryBuildPatterns: ['**/*', '!images/**', '!documents/**', '!*.html']
             }),
             new HtmlWebpackPlugin({
+                title: defaultAppTitle,
                 filename: path.join(`index-survey-${config.projectShortname}.html`),
                 template: path.join(publicDirectory, 'index.html')
             }),
