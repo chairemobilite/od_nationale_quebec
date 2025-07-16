@@ -56,6 +56,8 @@ jobs:
         NODE_ENV: production
     - name: Prepare prefilled data for the tests
       run: yarn node evolution/packages/evolution-backend/lib/tasks/importPreFilledResponses.task.js --file "$(pwd)/survey/tests/preFilledDataSample.csv"
+      env:
+        NODE_ENV: production
     - name: Get Playwright config
       run: cp packages/evolution-frontend/playwright-example.config.ts survey/playwright.config.ts
     - name: Start application
