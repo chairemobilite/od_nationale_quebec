@@ -273,6 +273,38 @@ Confirm locations and continue
 
 
 
+Section: Travel behavior
+
+Change person
+
+You didn't report any work trips by {{nickname}} on {{assignedDate}}.
+
+Why ?
+- Remote work / work from home
+- On strike
+- Leave (sick, personal, other)
+- No work planned
+- Other
+- I don't know
+
+Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}} ?
+
+You didn't report any school trips by {{nickname}} on {{assignedDate}}.
+
+Why ?
+- Distance learning
+- School was closed (strike)
+- Leave (sick, personal, other)
+- No classes
+- Other
+- I don't know
+
+Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}} ?
+
+Continue
+
+
+
 Section: End
 
 Does your household rent or own your home?

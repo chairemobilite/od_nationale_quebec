@@ -151,16 +151,35 @@ export const tripsIntroForPersonComplete = (person, interview: UserInterviewAttr
     );
 };
 
+export const tripsForPersonComplete = function ({
+    person,
+    interview
+}: {
+    person: Person;
+    interview: UserInterviewAttributes;
+}) {
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    // Complete if the person did not do any trips
+    if (!_isBlank((journey as any).personDidTrips) && (journey as any).personDidTrips !== 'yes') {
+        return true;
+    }
+    // Complete if there is no next trip or visited place to edit
+    const visitedPlaces = odSurveyHelper.getVisitedPlacesArray({ journey });
+    const nextPlace = selectNextIncompleteVisitedPlace({ interview, visitedPlaces, person });
+    const nextTrip = odSurveyHelper.selectNextIncompleteTrip({ journey });
+    return nextTrip === null && nextPlace === null;
+};
+
 /**
  * TODO Parameterize the fields and conditions to check for the section in
  * Evolution instead of requiring this function
  * @param person
  * @param interview
- * @returns journey
+ * @returns Whether the trip diary and travel behavior is finished
  */
 export const tripDiaryAndTravelBehaviorForPersonComplete = function (person, interview: UserInterviewAttributes) {
     // FIXME Add conditions as sections are added
-    return tripsIntroForPersonComplete(person, interview);
+    return tripsIntroForPersonComplete(person, interview) && tripsForPersonComplete({ person, interview });
 };
 
 /**

@@ -1,11 +1,13 @@
+import moment from 'moment-business-days';
 import _get from 'lodash/get';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import { WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
+import { Journey, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { getShortcutVisitedPlaces } from './customFrontendHelper';
 import { shouldDisplayTripJunction } from './helper';
+import { isStudentFromEnrolled } from './customHelpers';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -58,18 +60,7 @@ export const personOccupationCustomConditional: WidgetConditional = (interview, 
 export const personUsualSchoolPlaceNameCustomConditional: WidgetConditional = (interview, path) => {
     const person: any = surveyHelper.getResponse(interview, path, null, '../../');
     const schoolLocationType = person.schoolLocationType;
-    const isSchoolEnrolledTrueValues = [
-        'kindergarten',
-        'childcare',
-        'primarySchool',
-        'secondarySchool',
-        'schoolAtHome',
-        'other'
-    ];
-    const isStudentFromEnrolled = (person) => {
-        const schoolType = person.schoolType;
-        return !_isBlank(schoolType) && isSchoolEnrolledTrueValues.includes(schoolType);
-    };
+
     const childrenCase = isStudentFromEnrolled(person) && person.schoolType !== 'schoolAtHome';
     return [['onLocation', 'hybrid'].includes(schoolLocationType) || childrenCase, null];
 };
@@ -197,4 +188,61 @@ export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interv
         return [shouldDisplayTripJunction(previousSegment, currentSegment, activity), null];
     }
     return [false, null];
+};
+
+const getVisitedPlacesForCategory = (journey: Journey, activityCategory: string) => {
+    const visitedPlaces = odSurveyHelper.getVisitedPlacesArray({ journey });
+    return visitedPlaces.filter((visitedPlace) => visitedPlace.activityCategory === activityCategory);
+};
+
+export const shouldAskForNoWorkTripReasonCustomConditional: WidgetConditional = (interview, path) => {
+    // Ask only for full time workers
+    const person = odSurveyHelper.getPerson({ interview, path });
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    if (!person || !journey) {
+        return [false, null];
+    }
+    const workerType = person.workerType;
+    const workLocationType = person.workPlaceType;
+    const workLocationTypeIsCompatible =
+        ['onLocation', 'onTheRoadWithUsualPlace', 'onTheRoadWithoutUsualPlace'].includes(workLocationType) &&
+        workerType === 'fullTime';
+    if (!workLocationTypeIsCompatible) {
+        return [false, null];
+    }
+
+    const tripsDate = surveyHelper.getResponse(interview, '_assignedDay', null);
+    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
+    return [tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'work').length === 0, null];
+};
+
+export const shouldAskPersonNoWorkTripSpecifyCustomConditional: WidgetConditional = (interview, path) => {
+    const reason = surveyHelper.getResponse(interview, path, null, '../noWorkTripReason');
+    return [reason === 'other', null];
+};
+
+export const shouldAskForNoSchoolTripReasonCustomConditional: WidgetConditional = (interview, path) => {
+    // Ask only for full time students
+    const person = odSurveyHelper.getPerson({ interview, path });
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    if (!person || !journey) {
+        return [false, null];
+    }
+    const studentType = person.studentType;
+    const schoolPlaceType = person.schoolPlaceType;
+    const schoolPlaceIsCompatible = schoolPlaceType === 'onLocation' && studentType === 'fullTime';
+    const childrenCase = isStudentFromEnrolled(person);
+    if (!(schoolPlaceIsCompatible || childrenCase)) {
+        return [false, null];
+    }
+
+    const tripsDate = surveyHelper.getResponse(interview, '_assignedDay', null);
+    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
+
+    return [tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'school').length === 0, null];
+};
+
+export const shouldAskForNoSchoolTripSpecifyCustomConditional: WidgetConditional = (interview, path) => {
+    const reason = surveyHelper.getResponse(interview, path, null, '../noSchoolTripReason');
+    return [reason === 'other', null];
 };

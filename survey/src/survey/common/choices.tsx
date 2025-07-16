@@ -592,3 +592,69 @@ export const onDemandChoices: ChoiceType[] = [
         }
     }
 ];
+
+export const noWorkTripReasonChoices: ChoiceType[] = [
+    {
+        value: 'remoteWorkOrWorkAtHome',
+        label: {
+            fr: 'Télétravail / travail à la maison',
+            en: 'Remote work / work from home'
+        }
+    },
+    {
+        value: 'onStrike',
+        label: {
+            fr: 'En grève',
+            en: 'On strike'
+        }
+    },
+    {
+        value: 'leaveSicknessPersonalReason',
+        label: {
+            fr: 'Congé (maladie, personnel, autre)',
+            en: 'Leave (sick, personal, other)'
+        }
+    },
+    {
+        value: 'noWork',
+        label: {
+            fr: 'Pas de travail prévu',
+            en: 'No work planned'
+        }
+    },
+    ...otherWithoutSpecify,
+    ...dontKnow
+];
+
+export const noSchoolTripReasonChoices: ChoiceType[] = [
+    {
+        value: 'distanceLearning',
+        label: {
+            fr: 'Cours à distance',
+            en: 'Distance learning'
+        }
+    },
+    {
+        value: 'schoolWasClosedStrike',
+        label: {
+            fr: 'École fermée (grève)',
+            en: 'School was closed (strike)'
+        }
+    },
+    {
+        value: 'leaveSicknessPersonalReason',
+        label: {
+            fr: 'Congé (maladie, personnel, autre)',
+            en: 'Leave (sick, personal, other)'
+        }
+    },
+    {
+        value: 'noSchool',
+        label: {
+            fr: 'Pas de cours',
+            en: 'No classes'
+        }
+    },
+    ...otherWithoutSpecify,
+    ...dontKnow
+];

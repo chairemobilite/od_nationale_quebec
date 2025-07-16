@@ -388,6 +388,40 @@ testHelpers.inputStringTest({ context, path: '?.tripJunctionQueryString', value:
 testHelpers.inputVisibleTest({ context, path: 'segments.save', isVisible: true });
 // Implement custom test
 
+/********** Tests travelBehavior section **********/
+
+// Progress bar test for travelBehavior section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'travelBehavior', completionPercentage: 0 });
+
+/* Test custom widget travelBehaviorActivePersonTitle */
+// Implement custom test
+
+/* Test custom widget travelBehaviorButtonSwitchPerson */
+// Implement custom test
+
+/* Test custom widget personNoWorkTripIntro */
+// Implement custom test
+
+/* Test select widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional witch choices noWorkTripReasonChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason', isVisible: true });
+
+/* Test custom widget personNoWorkTripReasonSpecify with conditional shouldAskPersonNoWorkTripSpecifyCustomConditional */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify', isVisible: true });
+// Implement custom test
+
+/* Test custom widget personNoSchoolTripIntro */
+// Implement custom test
+
+/* Test select widget personNoSchoolTripReason with conditional shouldAskForNoSchoolTripReasonCustomConditional witch choices noSchoolTripReasonChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason', isVisible: true });
+
+/* Test custom widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripSpecifyCustomConditional */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify', isVisible: true });
+// Implement custom test
+
+/* Test nextbutton widget buttonTravelBehaviorConfirmNextSection */
+testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
 /********** Tests end section **********/
 
 // Progress bar test for end section
