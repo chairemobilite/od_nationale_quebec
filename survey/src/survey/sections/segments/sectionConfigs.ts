@@ -4,7 +4,7 @@ import { getSegmentsSectionConfig } from 'evolution-common/lib/services/question
 import { widgetsNames } from './widgetsNames';
 
 export const currentSectionName: string = 'segments';
-const nextSectionName: SectionConfig['nextSection'] = 'personsTrips';
+const nextSectionName: SectionConfig['nextSection'] = 'travelBehavior';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {

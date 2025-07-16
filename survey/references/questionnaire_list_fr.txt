@@ -273,6 +273,40 @@ Confirmer les lieux et continuer
 
 
 
+Section: Mobilité
+
+Changer de personne
+
+Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}.
+
+Pour quelle raison ?
+- Télétravail / travail à la maison
+- En grève
+- Congé (maladie, personnel, autre)
+- Pas de travail prévu
+- Autre
+- Je ne sais pas
+
+Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}} ?
+(Facultatif)
+
+Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
+
+Pour quelle raison ?
+- Cours à distance
+- École fermée (grève)
+- Congé (maladie, personnel, autre)
+- Pas de cours
+- Autre
+- Je ne sais pas
+
+Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}} ?
+(Facultatif)
+
+Continuer
+
+
+
 Section: Fin
 
 Est-ce que votre ménage est locataire ou propriétaire de votre logement?
