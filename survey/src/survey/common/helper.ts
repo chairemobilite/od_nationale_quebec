@@ -119,13 +119,13 @@ export const householdMembersSectionComplete = (interview: UserInterviewAttribut
 
 // TODO Parameterize the fields and conditions to check for the section in
 // Evolution instead of requiring this function
-const basicInfoForPersonComplete = function (person, householdSize) {
+const basicInfoForPersonComplete = function (person: Person, householdSize) {
     return !(
         _isBlank(person) ||
         _isBlank(person.age) ||
         (_isBlank(person.gender) && person.age >= 5) ||
         (householdSize > 1 && _isBlank(person.nickname)) ||
-        (_isBlank(person.drivingLicenseOwner) && person.age >= config.drivingLicenseAge)
+        (_isBlank(person.drivingLicenseOwnership) && person.age >= config.drivingLicenseAge)
     );
 };
 
@@ -565,7 +565,7 @@ export const getCurrentTripBirdDistanceMeters = ({ interview }) => {
  */
 export const getDrivers = ({ interview }): any => {
     const persons = odSurveyHelper.getPersonsArray({ interview });
-    return persons.filter((person) => (person as any).drivingLicenseOwner === 'yes');
+    return persons.filter((person) => person.drivingLicenseOwnership === 'yes');
 };
 
 /**

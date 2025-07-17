@@ -112,15 +112,15 @@ export const personOccupation: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personDrivingLicenseOwner: WidgetConfig.InputRadioType = {
+export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'drivingLicenseOwner',
+    path: 'drivingLicenseOwnership',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const personGender = activePerson?.gender;
-        return t('household:drivingLicenseOwner', {
+        return t('household:drivingLicenseOwnership', {
             context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
         });
     },
