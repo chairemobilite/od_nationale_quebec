@@ -16,9 +16,9 @@ import * as customWidgets from './customWidgets';
 // import * as customHelpPopup from '../../common/customHelpPopup';
 // import * as customValidations from '../../common/customValidations';
 
-export const travelBehaviorActivePersonTitle = customWidgets.travelBehaviorActivePersonTitle;
+export const activePersonTitle = customWidgets.activePersonTitle;
 
-export const travelBehaviorButtonSwitchPerson = customWidgets.travelBehaviorButtonSwitchPerson;
+export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
 
 export const personNoWorkTripIntro = customWidgets.personNoWorkTripIntro;
 

@@ -5,7 +5,7 @@
 import * as homeWidgets from './sections/home/widgets';
 import * as householdWidgets from './sections/household/widgets';
 import * as personsTripsWidgets from './sections/personsTrips/widgets';
-import * as tripsSelectPersonWidgets from './sections/tripsSelectPerson/widgets';
+import * as selectPersonWidgets from './sections/selectPerson/widgets';
 import * as tripsIntroWidgets from './sections/tripsIntro/widgets';
 import * as visitedPlacesWidgets from './sections/visitedPlaces/widgets';
 import * as segmentsWidgets from './sections/segments/widgets';
@@ -21,7 +21,7 @@ const sectionsWidgets = [
     homeWidgets,
     householdWidgets,
     personsTripsWidgets,
-    tripsSelectPersonWidgets,
+    selectPersonWidgets,
     tripsIntroWidgets,
     visitedPlacesWidgets,
     segmentsWidgets,

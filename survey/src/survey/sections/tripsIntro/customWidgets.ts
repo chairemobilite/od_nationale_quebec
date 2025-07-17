@@ -9,36 +9,13 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import config from 'evolution-common/lib/config/project.config';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 import { getHomeAddressOneLine } from '../../common/helper';
+import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 
-// FIXME Custom because of the confirmPopup and the custom action
-export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = {
-    type: 'button',
-    align: 'center',
-    containsHtml: true,
-    color: 'blue',
-    size: 'small',
-    hideWhenRefreshing: true,
-    label: (t: TFunction) => t('tripsIntro:buttonSwitchPerson'),
-    confirmPopup: {
-        conditional: function (interview) {
-            // FIXME The type of interview is UserInterviewAttributes and not UserRuntimeInterviewAttributes. See if this can be changed
-            return !(interview as any).allWidgetsValid;
-        },
-        content: (t: TFunction) => t('customLabel:PleaseCompleteSection'),
-        showConfirmButton: false,
-        cancelButtonColor: 'blue',
-        cancelButtonLabel: (t: TFunction) => t('main:OK')
-    },
-    conditional: function (interview, path) {
-        const persons = odSurveyHelper.getInterviewablePersonsArray({ interview });
-        return [persons.length >= 2, undefined];
-    },
-    action: function (callbacks: WidgetConfig.InterviewUpdateCallbacks) {
-        // add verification (all widgets must be valid!)
-        window.scrollTo(0, 0);
-        callbacks.startNavigate({ requestedSection: { sectionShortname: 'tripsSelectPerson' } });
-    }
-};
+const switchPersonWidgets = getSwitchPersonWidgets();
+
+export const activePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
+
+export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonWidgets.buttonSwitchPerson;
 
 // FIXME This widget is custom because of the choices, conditional and label, it is also in the tripsSelectPeron
 export const personNewPerson = {
@@ -53,7 +30,7 @@ export const personNewPerson = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson.nickname;
-        return t('tripsSelectPerson:_showNewPersonPopupButton', {
+        return t('selectPerson:_showNewPersonPopupButton', {
             nickname
         });
     },

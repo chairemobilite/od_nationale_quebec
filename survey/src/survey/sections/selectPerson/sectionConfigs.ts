@@ -4,7 +4,7 @@ import { householdMembersSectionComplete } from '../../common/helper';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 
-export const currentSectionName: string = 'tripsSelectPerson';
+export const currentSectionName: string = 'selectPerson';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
 const nextSectionName: SectionConfig['nextSection'] = 'tripsIntro';
 

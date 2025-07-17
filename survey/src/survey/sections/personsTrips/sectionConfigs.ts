@@ -38,11 +38,11 @@ export const sectionConfig: SectionConfig = {
             path: 'interviewablePersons'
         },
         order: 'random',
-        selectionSectionId: 'tripsSelectPerson',
+        selectionSectionId: 'selectPerson',
         skipSelectionInNaturalFlow: true,
         activeSurveyObjectPath: '_activePersonId',
         pathPrefix: 'person',
-        sections: ['tripsSelectPerson', 'tripsIntro', 'visitedPlaces', 'segments', 'travelBehavior'],
+        sections: ['selectPerson', 'tripsIntro', 'visitedPlaces', 'segments', 'travelBehavior'],
         isIterationValid: (interview, iterationContext) => {
             const personId = iterationContext[iterationContext.length - 1];
             const person = odSurveyHelper.getPerson({ interview, personId });

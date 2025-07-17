@@ -6,7 +6,7 @@ import { getAndValidateSurveySections, SurveySectionsConfig } from 'evolution-co
 import homeConfigs from './sections/home/sectionConfigs';
 import householdConfigs from './sections/household/sectionConfigs';
 import personsTripsConfigs from './sections/personsTrips/sectionConfigs';
-import tripsSelectPersonConfigs from './sections/tripsSelectPerson/sectionConfigs';
+import selectPersonConfigs from './sections/selectPerson/sectionConfigs';
 import tripsIntroConfigs from './sections/tripsIntro/sectionConfigs';
 import visitedPlacesConfigs from './sections/visitedPlaces/sectionConfigs';
 import segmentsConfigs from './sections/segments/sectionConfigs';
@@ -19,7 +19,7 @@ const sectionsConfigs: SurveySectionsConfig = {
     home: homeConfigs,
     household: householdConfigs,
     personsTrips: personsTripsConfigs,
-    tripsSelectPerson: tripsSelectPersonConfigs,
+    selectPerson: selectPersonConfigs,
     tripsIntro: tripsIntroConfigs,
     visitedPlaces: visitedPlacesConfigs,
     segments: segmentsConfigs,
