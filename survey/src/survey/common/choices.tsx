@@ -92,14 +92,14 @@ export const gender: ChoiceType[] = [
 
 export const participationStatus: ChoiceType[] = [
     {
-        value: 'yesFullTime',
+        value: 'fullTime',
         label: {
             fr: 'Oui, à temps plein',
             en: 'Yes, full time'
         }
     },
     {
-        value: 'yesPartTime',
+        value: 'partTime',
         label: {
             fr: 'Oui, à temps partiel',
             en: 'Yes, part time'

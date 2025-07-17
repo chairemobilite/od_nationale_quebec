@@ -30,25 +30,23 @@ export const hiddenWithCanadaAsDefaultValueCustomConditional: WidgetConditional 
 
 // Stay hidden and put some default value if the person is a student or a worker
 export const personOccupationCustomConditional: WidgetConditional = (interview, path) => {
-    const person: any = surveyHelper.getResponse(interview, path, null, '../');
+    const person = surveyHelper.getResponse(interview, path, null, '../') as Person;
     const age: any = surveyHelper.getResponse(interview, path, null, '../age');
-    const workerType: any = surveyHelper.getResponse(interview, path, null, '../workerType');
     const schoolType: any = surveyHelper.getResponse(interview, path, null, '../schoolType');
-    const studentType: any = surveyHelper.getResponse(interview, path, null, '../studentType');
-    const isStudent: any = person.studentType === 'yesFullTime' || person.studentType === 'yesPartTime';
-    const isWorker: any = person.workerType === 'yesFullTime' || person.workerType === 'yesPartTime';
+    const isStudent: boolean = person.studentType === 'fullTime' || person.studentType === 'partTime';
+    const isWorker: boolean = person.workerType === 'fullTime' || person.workerType === 'partTime';
 
-    if (_isBlank(age) || _isBlank(workerType) || _isBlank(studentType)) {
+    if (_isBlank(age) || _isBlank(person.workerType) || _isBlank(person.studentType)) {
         return [false, null];
     } else if (isStudent && isWorker) {
         return [false, 'workerAndStudent'];
-    } else if (isStudent && studentType === 'yesFullTime') {
+    } else if (isStudent && person.studentType === 'fullTime') {
         return [false, 'fullTimeStudent'];
-    } else if (isStudent && studentType === 'yesPartTime') {
+    } else if (isStudent && person.studentType === 'partTime') {
         return [false, 'partTimeStudent'];
-    } else if (isWorker && workerType === 'yesFullTime') {
+    } else if (isWorker && person.workerType === 'fullTime') {
         return [false, 'fullTimeWorker'];
-    } else if (isWorker && workerType === 'yesPartTime') {
+    } else if (isWorker && person.workerType === 'partTime') {
         return [false, 'partTimeWorker'];
     } else if (schoolType && !isSchoolEnrolledTrueValues.includes(schoolType)) {
         return [false, 'other'];
