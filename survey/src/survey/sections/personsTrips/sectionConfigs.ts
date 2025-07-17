@@ -37,8 +37,7 @@ export const sectionConfig: SectionConfig = {
             type: 'builtin',
             path: 'interviewablePersons'
         },
-        // FIXME Change for random when https://github.com/chairemobilite/evolution/issues/1064 is fixed
-        order: 'sequential',
+        order: 'random',
         selectionSectionId: 'tripsSelectPerson',
         skipSelectionInNaturalFlow: true,
         activeSurveyObjectPath: '_activePersonId',
