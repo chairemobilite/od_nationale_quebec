@@ -265,7 +265,7 @@ export const transitFareType: ChoiceType[] = [
     ...dontKnow
 ];
 
-export const workLocationType: ChoiceType[] = [
+export const workPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
         label: {
@@ -303,7 +303,7 @@ export const workLocationType: ChoiceType[] = [
     }
 ];
 
-export const studyLocationType: ChoiceType[] = [
+export const schoolPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
         label: {

@@ -33,8 +33,8 @@ transitFares: >-
 hasDisability: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
     or limits their daily mobility?
-workLocationType: Does {{nickname}} have a fixed <strong>work location</strong>?
-schoolLocationType: Does {{nickname}} have a fixed <strong>study location</strong>?
+workPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
+schoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
 usualWorkPlace.name: >-
     <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
 usualWorkPlace.geography: >-

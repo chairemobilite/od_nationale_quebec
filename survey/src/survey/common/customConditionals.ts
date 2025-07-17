@@ -1,7 +1,7 @@
 import moment from 'moment-business-days';
 import _get from 'lodash/get';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import { Journey, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
+import { Journey, Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
@@ -58,11 +58,11 @@ export const personOccupationCustomConditional: WidgetConditional = (interview, 
 };
 
 export const personUsualSchoolPlaceNameCustomConditional: WidgetConditional = (interview, path) => {
-    const person: any = surveyHelper.getResponse(interview, path, null, '../../');
-    const schoolLocationType = person.schoolLocationType;
+    const person = surveyHelper.getResponse(interview, path, null, '../../') as Person;
+    const schoolPlaceType = person.schoolPlaceType;
 
     const childrenCase = isStudentFromEnrolled(person) && person.schoolType !== 'schoolAtHome';
-    return [['onLocation', 'hybrid'].includes(schoolLocationType) || childrenCase, null];
+    return [['onLocation', 'hybrid'].includes(schoolPlaceType) || childrenCase, null];
 };
 
 export const departurePlaceOtherCustomConditional: WidgetConditional = (interview, path) => {
@@ -203,11 +203,11 @@ export const shouldAskForNoWorkTripReasonCustomConditional: WidgetConditional = 
         return [false, null];
     }
     const workerType = person.workerType;
-    const workLocationType = person.workPlaceType;
-    const workLocationTypeIsCompatible =
-        ['onLocation', 'onTheRoadWithUsualPlace', 'onTheRoadWithoutUsualPlace'].includes(workLocationType) &&
+    const workPlaceType = person.workPlaceType;
+    const workPlaceTypeIsCompatible =
+        ['onLocation', 'onTheRoadWithUsualPlace', 'onTheRoadWithoutUsualPlace'].includes(workPlaceType) &&
         workerType === 'fullTime';
-    if (!workLocationTypeIsCompatible) {
+    if (!workPlaceTypeIsCompatible) {
         return [false, null];
     }
 
