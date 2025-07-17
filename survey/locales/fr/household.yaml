@@ -28,15 +28,15 @@ studentType_female: <strong>Étudiante</strong>
 studentType_other: <strong>Étudiant·e</strong>
 schoolType: <strong>Établissement d'enseignement / type d'école</strong>
 occupation: <strong>Occupation principale</strong>
-drivingLicenseOwner_male: >-
+drivingLicenseOwnership_male: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur et probatoires, mais ne pas inclure les permis
     de cyclomoteur/scooter.</span>
-drivingLicenseOwner_female: >-
+drivingLicenseOwnership_female: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprentie conductrice et probatoires, mais ne pas inclure les permis
     de cyclomoteur/scooter.</span>
-drivingLicenseOwner_other: >-
+drivingLicenseOwnership_other: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur·rice et probatoires, mais ne pas inclure les
     permis de cyclomoteur/scooter.</span>

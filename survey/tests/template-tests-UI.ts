@@ -128,9 +128,9 @@ testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.sc
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
 
-/* Test radio widget personDrivingLicenseOwner with conditional ifAge16OrMoreConditional witch choices yesNoDontKnow */
-testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwner', isVisible: true });
-testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwner', value: '?' });
+/* Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional witch choices yesNoDontKnow */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', isVisible: true });
+testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', value: '?' });
 
 /* Test radio widget personCarSharingMember with conditional hasDrivingLicenseConditional witch choices yesNoDontKnow */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', isVisible: true });

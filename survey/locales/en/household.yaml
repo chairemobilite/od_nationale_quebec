@@ -21,7 +21,7 @@ workerType: >-
 studentType: <strong>Student</strong>
 schoolType: <strong>School type</strong>
 occupation: <strong>Main occupation</strong>
-drivingLicenseOwner: >-
+drivingLicenseOwnership: >-
     <strong>Driver's licence</strong><br /><span class="_pale _oblique">Include learner's
     and probationary permits, but do not include moped (motorized scooter and moped)
     permits.</span>

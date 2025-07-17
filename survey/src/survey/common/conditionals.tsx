@@ -262,7 +262,7 @@ export const hasDrivingLicenseConditional: WidgetConditional = (interview, path)
         interview,
         conditionals: [
             {
-                path: `household.persons.${currentPersonId}.drivingLicenseOwner`,
+                path: `household.persons.${currentPersonId}.drivingLicenseOwnership`,
                 comparisonOperator: '===',
                 value: 'yes'
             }

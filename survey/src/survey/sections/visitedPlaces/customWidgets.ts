@@ -549,10 +549,10 @@ const visitedPlaceActivityChoices = [
         label: (t: TFunction) => t('survey:visitedPlace:activities:carElectricChargingStation'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getActivePerson({ interview });
-            const drivingLicenseOwner = person ? (person as any).drivingLicenseOwner : 'dontKnow';
+            const drivingLicenseOwnership = person ? person.drivingLicenseOwnership : 'dontKnow';
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return (
-                drivingLicenseOwner === 'yes' &&
+                drivingLicenseOwnership === 'yes' &&
                 (activityCategory === 'shoppingServiceRestaurant' || activityCategory === 'other')
             );
         },

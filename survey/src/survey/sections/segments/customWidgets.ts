@@ -110,8 +110,8 @@ export const segmentModePre = {
             },
             conditional: function (interview, path) {
                 const person = odSurveyHelpers.getActivePerson({ interview });
-                const drivingLicenseOwner = person ? (person as any).drivingLicenseOwner : 'dontKnow';
-                return drivingLicenseOwner === 'yes';
+                const drivingLicenseOwnership = person ? person.drivingLicenseOwnership : 'dontKnow';
+                return drivingLicenseOwnership === 'yes';
             },
             iconPath: '/dist/images/modes_icons/carDriver.png'
         },
