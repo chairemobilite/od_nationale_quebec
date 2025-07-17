@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         node-version: [22.x]
-        ev-variant: [nationale, sherbrooke, troisrivieresbecancour]
+        ev-variant: [nationale, saguenay]
     env:
       PROJECT_CONFIG: ${{ github.workspace }}/survey/config.js
       EV_VARIANT: ${{ matrix.ev-variant }}
