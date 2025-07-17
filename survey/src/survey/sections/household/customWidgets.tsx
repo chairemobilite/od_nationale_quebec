@@ -3,12 +3,12 @@ import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
-import { GroupConfig, InputMapFindPlaceType } from 'evolution-common/lib/services/questionnaire/types';
+import { GroupConfig, InputMapFindPlaceType, Person } from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as conditionals from '../../common/conditionals';
 import { householdMembersWidgetsNames } from './widgetsNames';
 import inaccessibleZones from '../../geojson/inaccessibleZones.json';
-import * as customHelper from '../../common/customHelpers';
+import * as customConditionals from '../../common/customConditionals';
 
 // TODO: Migrate most of these widgets in Evolution Frontend, not here.
 export const householdMembers: GroupConfig = {
@@ -212,10 +212,5 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
             }
         ];
     },
-    conditional: function (interview, path) {
-        const person: any = surveyHelperNew.getResponse(interview, path, null, '../../');
-        const schoolLocationType = person.schoolLocationType;
-        const childrenCase = customHelper.isStudentFromEnrolled(person) && person.schoolType !== 'schoolAtHome';
-        return [['onLocation', 'hybrid'].includes(schoolLocationType) || childrenCase, null];
-    }
+    conditional: customConditionals.personUsualSchoolPlaceNameCustomConditional
 };

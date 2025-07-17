@@ -143,13 +143,13 @@ testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.ca
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
 
-/* Test radio widget personWorkLocationType with conditional isWorkerConditional witch choices workLocationType */
-testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workLocationType', isVisible: true });
-testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workLocationType', value: '?' });
+/* Test radio widget personWorkPlaceType with conditional isWorkerConditional witch choices workPlaceTypeChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', isVisible: true });
+testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', value: '?' });
 
-/* Test radio widget personSchoolLocationType with conditional isStudentConditional witch choices studyLocationType */
-testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolLocationType', isVisible: true });
-testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolLocationType', value: '?' });
+/* Test radio widget personSchoolPlaceType with conditional isStudentConditional witch choices schoolPlaceTypeChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', isVisible: true });
+testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', value: '?' });
 
 /* Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.name', isVisible: true });

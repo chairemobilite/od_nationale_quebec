@@ -168,36 +168,36 @@ export const personHasDisability: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personWorkLocationType: WidgetConfig.InputRadioType = {
+export const personWorkPlaceType: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'workLocationType',
+    path: 'workPlaceType',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('household:workLocationType', {
+        return t('household:workPlaceType', {
             nickname
         });
     },
-    choices: choices.workLocationType,
+    choices: choices.workPlaceTypeChoices,
     conditional: conditionals.isWorkerConditional,
     validations: validations.requiredValidation
 };
 
-export const personSchoolLocationType: WidgetConfig.InputRadioType = {
+export const personSchoolPlaceType: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'schoolLocationType',
+    path: 'schoolPlaceType',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('household:schoolLocationType', {
+        return t('household:schoolPlaceType', {
             nickname
         });
     },
-    choices: choices.studyLocationType,
+    choices: choices.schoolPlaceTypeChoices,
     conditional: conditionals.isStudentConditional,
     validations: validations.requiredValidation
 };

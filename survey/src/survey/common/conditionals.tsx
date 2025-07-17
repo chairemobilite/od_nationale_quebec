@@ -328,19 +328,19 @@ export const hasWorkingLocationConditional: WidgetConditional = (interview, path
         interview,
         conditionals: [
             {
-                path: `household.persons.${currentPersonId}.workLocationType`,
+                path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
                 value: 'onLocation'
             },
             {
                 logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workLocationType`,
+                path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
                 value: 'hybrid'
             },
             {
                 logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workLocationType`,
+                path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
                 value: 'onTheRoadWithUsualPlace'
             }
@@ -393,7 +393,7 @@ export const onTheRoadUsualWorkplace: WidgetConditional = (interview, path) => {
         interview,
         conditionals: [
             {
-                path: `household.persons.${currentPersonId}.workLocationType`,
+                path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
                 value: 'onTheRoadWithUsualPlace'
             }

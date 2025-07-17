@@ -653,7 +653,7 @@ const visitedPlaceOnTheRoadDepartureTypeChoices = [
         label: (t: TFunction, interview, path) => t('survey:visitedPlace:onTheRoadDepartureTypeChoices:usualWorkPlace'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getPerson({ interview });
-            return (person as any).workLocationType === 'onTheRoadWithUsualPlace';
+            return person.workPlaceType === 'onTheRoadWithUsualPlace';
         }
     },
     {
@@ -683,10 +683,7 @@ const visitedPlaceOnTheRoadDepartureTypeChoices = [
             return (
                 'home' !== previousVisitedPlace.activityCategory &&
                 previousVisitedPlace.activity !== 'workOnTheRoad' &&
-                !(
-                    previousVisitedPlace.activity === 'workUsual' &&
-                    (person as any).workLocationType === 'onTheRoadWithUsualPlace'
-                )
+                !(previousVisitedPlace.activity === 'workUsual' && person.workPlaceType === 'onTheRoadWithUsualPlace')
             );
         }
     }
