@@ -210,7 +210,7 @@ export const personOccupation: ChoiceType[] = [
         }
     },
     {
-        value: 'sickOrParentalLeave',
+        value: 'parentalOrSickLeave',
         label: {
             fr: 'Congé de maladie ou congé parental',
             en: 'Sick leave or parental leave'
