@@ -16,21 +16,9 @@ import * as customWidgets from './customWidgets';
 // import * as customHelpPopup from '../../common/customHelpPopup';
 // import * as customValidations from '../../common/customValidations';
 
-export const visitedPlacesActivePersonTitle: WidgetConfig.TextWidgetConfig = {
-    ...defaultInputBase.infoTextBase,
-    path: 'activePersonTitle',
-    containsHtml: true,
-    text: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('visitedPlaces:activePersonTitle', {
-            nickname
-        });
-    },
-    conditional: conditionals.hasHouseholdSize2OrMoreConditional
-};
+export const activePersonTitle = customWidgets.activePersonTitle;
 
-export const visitedPlacesButtonSwitchPerson = customWidgets.visitedPlacesButtonSwitchPerson;
+export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
 
 export const personVisitedPlacesTitle = customWidgets.personVisitedPlacesTitle;
 

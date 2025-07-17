@@ -11,17 +11,9 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 
 const switchPersonWidgets = getSwitchPersonWidgets();
 
-export const travelBehaviorActivePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
+export const activePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
 
-export const travelBehaviorButtonSwitchPerson: WidgetConfig.ButtonWidgetConfig = {
-    ...switchPersonWidgets.buttonSwitchPerson,
-    action: function (callbacks: WidgetConfig.InterviewUpdateCallbacks) {
-        // FIXME Not using the one from evolution-common because the select person section name is different!
-        // add verification (all widgets must be valid!)
-        window.scrollTo(0, 0);
-        callbacks.startNavigate({ requestedSection: { sectionShortname: 'tripsSelectPerson' } });
-    }
-};
+export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonWidgets.buttonSwitchPerson;
 
 export const personNoWorkTripIntro: WidgetConfig.TextWidgetConfig = {
     type: 'text',

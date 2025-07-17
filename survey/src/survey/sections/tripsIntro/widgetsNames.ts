@@ -5,7 +5,7 @@
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 
 export const widgetsNames: SectionConfig['widgets'] = [
-    'tripsIntroActivePersonTitle',
+    'activePersonTitle',
     'buttonSwitchPerson',
     'personNewPerson',
     'personWhoWillAnswerForThisPerson',

@@ -16,9 +16,9 @@ import * as customWidgets from './customWidgets';
 // import * as customHelpPopup from '../../common/customHelpPopup';
 // import * as customValidations from '../../common/customValidations';
 
-export const segmentsActivePersonTitle = customWidgets.segmentsActivePersonTitle;
+export const activePersonTitle = customWidgets.activePersonTitle;
 
-export const segmentsButtonSwitchPerson = customWidgets.segmentsButtonSwitchPerson;
+export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
 
 export const segmentsPersonTripsTitle = customWidgets.segmentsPersonTripsTitle;
 

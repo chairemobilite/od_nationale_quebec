@@ -5,7 +5,7 @@ import { householdMembersSectionComplete, tripsIntroForPersonComplete } from '..
 import { addGroupedObjects, getResponse } from 'evolution-common/lib/utils/helpers';
 
 export const currentSectionName: string = 'tripsIntro';
-const previousSectionName: SectionConfig['previousSection'] = 'tripsSelectPerson';
+const previousSectionName: SectionConfig['previousSection'] = 'selectPerson';
 const nextSectionName: SectionConfig['nextSection'] = 'visitedPlaces';
 
 // Config for the section

@@ -7,7 +7,6 @@ import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import { buttonSwitchPerson } from '../tripsIntro/customWidgets';
 import { TFunction } from 'i18next';
 import {
     addGroupedObjects,
@@ -41,8 +40,14 @@ import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { getShortcutVisitedPlaces } from '../../common/customFrontendHelper';
 import { buttonNextBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { personVisitedPlacesWidgetsNames } from './widgetsNames';
+import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 
-export const visitedPlacesButtonSwitchPerson: WidgetConfig.ButtonWidgetConfig = buttonSwitchPerson;
+const switchPersonWidgets = getSwitchPersonWidgets();
+
+export const activePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
+
+export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonWidgets.buttonSwitchPerson;
+
 // FIXME Allow to configure the earliest and latest time
 const MIN_SECONDS_SINCE_MIDNIGHT = 4 * 60 * 60; // 4 AM
 const MAX_SECONDS_SINCE_MIDNIGHT = 24 * 60 * 60 + MIN_SECONDS_SINCE_MIDNIGHT; // 4 AM the next day

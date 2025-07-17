@@ -17,7 +17,7 @@ export const selectPerson: WidgetConfig.InputRadioType = {
     inputType: 'radio',
     datatype: 'string',
     containsHtml: true,
-    label: (t: TFunction) => t('tripsSelectPerson:_activePersonId'),
+    label: (t: TFunction) => t('selectPerson:_activePersonId'),
     choices: function (interview) {
         const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
         return interviewablePersons.map((person, index) => {
@@ -68,7 +68,7 @@ export const personNewPerson = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson.nickname;
-        return t('tripsSelectPerson:_showNewPersonPopupButton', {
+        return t('selectPerson:_showNewPersonPopupButton', {
             nickname
         });
     },

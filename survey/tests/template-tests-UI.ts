@@ -181,10 +181,10 @@ testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.u
 /* Test nextbutton widget household_save */
 testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
-/********** Tests tripsSelectPerson section **********/
+/********** Tests selectPerson section **********/
 
-// Progress bar test for tripsSelectPerson section
-testHelpers.sectionProgressBarTest({ context, sectionName: 'tripsSelectPerson', completionPercentage: 0 });
+// Progress bar test for selectPerson section
+testHelpers.sectionProgressBarTest({ context, sectionName: 'selectPerson', completionPercentage: 0 });
 
 /* Test custom widget selectPerson */
 // Implement custom test
@@ -200,9 +200,9 @@ testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 // Progress bar test for tripsIntro section
 testHelpers.sectionProgressBarTest({ context, sectionName: 'tripsIntro', completionPercentage: 0 });
 
-/* Test infotext widget tripsIntroActivePersonTitle with conditional hasHouseholdSize2OrMoreConditional */
+/* Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional */
 testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-testHelpers.waitTextVisible({ context, text: '?' });
+// Implement custom test
 
 /* Test custom widget buttonSwitchPerson */
 // Implement custom test
@@ -240,11 +240,11 @@ testHelpers.waitTextVisible({ context, text: '?' });
 // Progress bar test for visitedPlaces section
 testHelpers.sectionProgressBarTest({ context, sectionName: 'visitedPlaces', completionPercentage: 0 });
 
-/* Test infotext widget visitedPlacesActivePersonTitle with conditional hasHouseholdSize2OrMoreConditional */
+/* Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional */
 testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-testHelpers.waitTextVisible({ context, text: '?' });
+// Implement custom test
 
-/* Test custom widget visitedPlacesButtonSwitchPerson */
+/* Test custom widget buttonSwitchPerson */
 // Implement custom test
 
 /* Test custom widget personVisitedPlacesTitle */
@@ -318,10 +318,10 @@ testHelpers.inputVisibleTest({ context, path: 'visitedPlaces.save', isVisible: t
 // Progress bar test for segments section
 testHelpers.sectionProgressBarTest({ context, sectionName: 'segments', completionPercentage: 0 });
 
-/* Test custom widget segmentsActivePersonTitle */
+/* Test custom widget activePersonTitle */
 // Implement custom test
 
-/* Test custom widget segmentsButtonSwitchPerson */
+/* Test custom widget buttonSwitchPerson */
 // Implement custom test
 
 /* Test custom widget segmentsPersonTripsTitle */
@@ -393,10 +393,10 @@ testHelpers.inputVisibleTest({ context, path: 'segments.save', isVisible: true }
 // Progress bar test for travelBehavior section
 testHelpers.sectionProgressBarTest({ context, sectionName: 'travelBehavior', completionPercentage: 0 });
 
-/* Test custom widget travelBehaviorActivePersonTitle */
+/* Test custom widget activePersonTitle */
 // Implement custom test
 
-/* Test custom widget travelBehaviorButtonSwitchPerson */
+/* Test custom widget buttonSwitchPerson */
 // Implement custom test
 
 /* Test custom widget personNoWorkTripIntro */
