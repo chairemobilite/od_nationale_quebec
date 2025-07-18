@@ -61,5 +61,211 @@ _previousPreviousDepartureTime_other: >-
 _previousPreviousDepartureTime_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
+arrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:'
+arrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:'
+arrivalTime_other: '{{nickname}} est arrivé.e {{atPlace}} à:'
+arrivalTime_male_one: 'Vous êtes arrivé {{atPlace}} à:'
+arrivalTime_female_one: 'Vous êtes arrivée {{atPlace}} à:'
+arrivalTime_other_one: 'Vous êtes arrivé.e {{atPlace}} à:'
+nextPlaceCategory_male: >-
+    Après avoir été {{atPlace}}, {{nickname}} est…<br /><span class="_pale _oblique">Si
+    {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer
+    pour l'enquête qu'il y est resté jusqu'au lendemain et de sélectionner la réponse
+    adaptée.</span>
+nextPlaceCategory_female: >-
+    Après avoir été {{atPlace}}, {{nickname}} est…<br /><span class="_pale _oblique">Si
+    {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer
+    pour l'enquête qu'elle y est restée jusqu'au lendemain et de sélectionner la réponse
+    adaptée.</span>
+nextPlaceCategory_other: >-
+    Après avoir été {{atPlace}}, {{nickname}} est…<br /><span class="_pale _oblique">Si
+    {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer
+    pour l'enquête qu'iel y est resté.e jusqu'au lendemain et de sélectionner la réponse
+    adaptée.</span>
+nextPlaceCategory_male_one: >-
+    Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si {{nickname}}
+    a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
+    qu'il y est resté jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
+nextPlaceCategory_female_one: >-
+    Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si {{nickname}}
+    a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
+    qu'elle y est restée jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
+nextPlaceCategory_other_one: >-
+    Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si {{nickname}}
+    a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
+    qu'iel y est resté.e jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
+departureTime: '{{nickname}} a quitté {{place}} à:'
+departureTime_one: 'Vous avez quitté {{place}} à:'
 visitedPlacesSave: Confirmer
 visitedPlaces.save: Confirmer les lieux et continuer
+PreviousDepartureTime_male: >-
+    À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+PreviousDepartureTime_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+PreviousDepartureTime_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+PreviousDepartureTime_one: >-
+    À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+PreviousDepartureTime_home_workUsual_male: À quelle heure {{nickname}} a-t-il quitté
+    le domicile pour aller au travail?
+PreviousDepartureTime_home_workUsual_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté le domicile pour aller au travail?
+PreviousDepartureTime_home_workUsual_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté le domicile pour aller au travail?
+PreviousDepartureTime_home_workUsual_one: À quelle heure avez-vous quitté le domicile
+    pour aller au travail?
+PreviousDepartureTime_home_schoolUsual_male: >-
+    À quelle heure {{nickname}} a-t-il quitté le domicile pour aller au lieu d'études/école?
+PreviousDepartureTime_home_schoolUsual_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté le domicile pour aller au lieu d'études/école?
+PreviousDepartureTime_home_schoolUsual_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté le domicile pour aller au lieu d'études/école?
+PreviousDepartureTime_home_schoolUsual_one: >-
+    À quelle heure avez-vous quitté le domicile pour aller au lieu d'études/école?
+PreviousDepartureTime_home_other_male: >-
+    À quelle heure {{nickname}} a-t-il quitté le domicile pour aller à cet endroit
+    ({{visitedPlaceDescription}})?
+PreviousDepartureTime_home_other_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté le domicile pour aller à cet endroit
+    ({{visitedPlaceDescription}})?
+PreviousDepartureTime_home_other_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté le domicile pour aller à cet endroit
+    ({{visitedPlaceDescription}})?
+PreviousDepartureTime_home_other_one: >-
+    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?
+PreviousDepartureTime_home_workOnTheRoad_male: >-
+    À quelle heure {{nickname}} a-t-il quitté le domicile avant de débuter ses déplacements
+    sur la route?
+PreviousDepartureTime_home_workOnTheRoad_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté le domicile avant de débuter ses déplacements
+    sur la route?
+PreviousDepartureTime_home_workOnTheRoad_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté le domicile avant de débuter ses déplacements
+    sur la route?
+PreviousDepartureTime_home_workOnTheRoad_one: >-
+    À quelle heure avez-vous quitté le domicile avant de débuter vos déplacements
+    sur la route?
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male: >-
+    À quelle heure {{nickname}} a-t-il quitté son lieu de travail habituel avant de
+    débuter ses déplacements sur la route?
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female: >-
+    À quelle heure {{nickname}} a-t-elle quitté son lieu de travail habituel avant
+    de débuter ses déplacements sur la route?
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad_other: >-
+    À quelle heure {{nickname}} a-t-iel quitté son lieu de travail habituel avant
+    de débuter ses déplacements sur la route?
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad_one: >-
+    À quelle heure avez-vous quitté votre lieu de travail habituel avant de débuter
+    vos déplacements sur la route?
+Activity: 'Spécifier :'
+ActivityCategoryFirstLocation: Activité principale au lieu de départ de la journée
+ActivityCategoryAfterHome: >-
+    Activité principale au premier lieu visité dans la journée après avoir quitté
+    le domicile
+ActivityCategory: Activité principale à ce lieu
+VisitedPlaceSequence: Lieu {{count}}
+VisitedPlaceSequence_one: Lieu de départ de la journée
+ConfirmDeleteVisitedPlace: Confirmez-vous que vous voulez retirer ce lieu?
+LocationNameAddress: Nom ou adresse du lieu
+LocationNameAddressExample_workUsual: Édifice du Phare, CPE les petits génies
+LocationNameAddressExample_workUsual_onTheRoadOften: Centre de distribution Rivières,
+    Resto St-Hubert Alma
+LocationNameAddressExample_workNotUsual: Palais des congrès de Montréal, Le Co-work
+    du lac Long
+LocationNameAddressExample_schoolUsual: École Marguerite-Bourgeoys, Collège CDI Québec,
+    UQAR
+LocationNameAddressExample_schoolNotUsual: Bibliothèque à Livre ouvert, École de musique
+    Dorémi
+LocationNameAddressExample_shopping: Centre d’achat Le Carrefour, Provigo St-Félicien,
+    IKEA Boucherville
+LocationNameAddressExample_restaurant: Normandin de Lévis, Snack bar chez Raymond,
+    Resto Subway de Rawdon
+LocationNameAddressExample_dropSomeone: Gare d’autocar, Aréna des Collines, École
+    des Pionniers
+LocationNameAddressExample_fetchSomeone: Gare d’autocar, Aréna des Collines, École
+    des Pionniers
+LocationNameAddressExample_leisureArtsMusicCulture: Cinéma des chutes, Théâtre de
+    Verdure, Musée national des petits pots Masson
+LocationNameAddressExample_leisureSports: Nautilus St-Georges, Escalade La Grimpe,
+    Parc de la Rose
+LocationNameAddressExample_leisureTourism: Camping Ste-Madeleine, Paris France, Hôtel
+    Days Inn St-Flavien
+LocationNameAddressExample_leisureStroll: Parc au bord de l’eau, Petit train du nord,
+    Stroll de la Montagne
+LocationNameAddressExample_visiting: Addresse de la personne visitée, Coin des Rossignols
+    et de l’Étang
+LocationNameAddressExample_medical: >-
+    Clinique Médicale des Marguerites, Hôpital régional de Rimouski, CLSC des Rivières
+LocationNameAddressExample_service: Coiffure Dans le Vent, Caisse Desjardins de Limoilou
+LocationNameAddressExample_worship: Église Saint-Nicéphore, Mosquée de la Capitale,
+    Synagogue Maison Chabad
+LocationNameAddressExample_secondaryHome: Adresse de la résidence secondaire, nom
+    du chalet
+LocationNameAddressExample_schoolNotStudent: Institut Linguistique, École de conduite
+    Tecnic
+_previousPreviousDepartureTimeHomeToUsualWorkplace: >-
+    {{nickname}} a quitté le domicile pour aller à son lieu habituel de travail à?
+_previousPreviousDepartureTimeHomeToUsualWorkplace_one: Vous avez quitté le domicile
+    pour aller à votre lieu habituel de travail à?
+_previousArrivalTimeDepartureTypeHome_male: >-
+    À quelle heure {{nickname}} est-il arrivé au domicile avant de débuter ses déplacements
+    sur la route?
+_previousArrivalTimeDepartureTypeHome_female: >-
+    À quelle heure {{nickname}} est-elle arrivée au domicile avant de débuter ses
+    déplacements sur la route?
+_previousArrivalTimeDepartureTypeHome_other: >-
+    À quelle heure {{nickname}} est-iel arrivé.e au domicile avant de débuter ses
+    déplacements sur la route?
+_previousArrivalTimeDepartureTypeHome_male_one: >-
+    À quelle heure êtes-vous arrivé au domicile avant de débuter vos déplacements
+    sur la route?
+_previousArrivalTimeDepartureTypeHome_female_one: >-
+    À quelle heure êtes-vous arrivée au domicile avant de débuter vos déplacements
+    sur la route?
+_previousArrivalTimeDepartureTypeHome_other_one: >-
+    À quelle heure êtes-vous arrivé.e au domicile avant de débuter vos déplacements
+    sur la route?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_male: >-
+    À quelle heure {{nickname}} est-il arrivé à son lieu de travail habituel avant
+    de débuter ses déplacements sur la route?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_female: >-
+    À quelle heure {{nickname}} est-elle arrivée à son lieu de travail habituel avant
+    de débuter ses déplacements sur la route?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_other: >-
+    À quelle heure {{nickname}} est-iel arrivé.e à son lieu de travail habituel avant
+    de débuter ses déplacements sur la route?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_male_one: >-
+    À quelle heure êtes-vous arrivé à votre lieu de travail habituel avant de débuter
+    vos déplacements sur la route?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_female_one: >-
+    À quelle heure êtes-vous arrivée à votre lieu de travail habituel avant de débuter
+    vos déplacements sur la route?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_other_one: >-
+    À quelle heure êtes-vous arrivé.e à votre lieu de travail habituel avant de débuter
+    vos déplacements sur la route?
+_previousArrivalTimeDepartureTypeOther_male: >-
+    À quelle heure {{nickname}} est-il arrivé au lieu précédent (${visitedPlaceDescription})
+    avant de débuter ses déplacements sur la route?
+_previousArrivalTimeDepartureTypeOther_female: >-
+    À quelle heure {{nickname}} est-elle arrivée au lieu précédent (${visitedPlaceDescription})
+    avant de débuter ses déplacements sur la route?
+_previousArrivalTimeDepartureTypeOther_other: >-
+    À quelle heure {{nickname}} est-iel arrivé.e au lieu précédent (${visitedPlaceDescription})
+    avant de débuter ses déplacements sur la route?
+_previousArrivalTimeDepartureTypeOther_male_one: >-
+    À quelle heure êtes-vous arrivé au le lieu précédent ({{visitedPlaceDescription}})
+    avant de débuter vos déplacements sur la route?
+_previousArrivalTimeDepartureTypeOther_female_one: >-
+    À quelle heure êtes-vous arrivée au le lieu précédent ({{visitedPlaceDescription}})
+    avant de débuter vos déplacements sur la route?
+_previousArrivalTimeDepartureTypeOther_other_one: >-
+    À quelle heure êtes-vous arrivé.e au le lieu précédent ({{visitedPlaceDescription}})
+    avant de débuter vos déplacements sur la route?
+arrivalTimeOnTheRoad: '{{nickname}} a commencé ses déplacements sur la route à: '
+arrivalTimeOnTheRoad_one: 'Vous avez commencé vos déplacements sur la route à:'
+arrivalTimeStroll: '{{nickname}} a commencé sa promenade à:'
+arrivalTimeStroll_one: 'Vous avez commencé votre promenade à: '
+departureTimeStroll: '{{nickname}} a terminé sa promenade à:'
+departureTimeStroll_one: 'Vous avez terminé votre promenade à:'
+departureTimeOnTheRoad: '{{nickname}} a terminé ses déplacements sur la route à:'
+departureTimeOnTheRoad_one: 'Vous avez terminé vos déplacements sur la route à:'

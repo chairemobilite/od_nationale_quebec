@@ -265,6 +265,7 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
             .toLocaleDateString(i18n.language, { weekday: 'long', month: 'long', day: 'numeric' });
 
         return t('tripsIntro:departurePlaceIsHome', {
+            context: activePerson.gender,
             nickname,
             dayOne: dayBeforeStr,
             dayTwo: assignedDayStr,

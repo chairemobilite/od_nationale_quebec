@@ -225,6 +225,13 @@ Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois local
 
 À quelle heure {{nickname}} a-t-{{gender :il/elle/iel}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 
+{{nickname}} est arriv{{gender :é/ée/é.e}} {{atPlace}} à:
+
+Après avoir été {{atPlace}}, {{nickname}} est…
+Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel}} y est rest{{gender :é/ée/é.e}} jusqu'au lendemain et de sélectionner la réponse adaptée.
+
+{{nickname}} a quitté {{place}} à:
+
 Confirmer
 
 Confirmer les lieux et continuer

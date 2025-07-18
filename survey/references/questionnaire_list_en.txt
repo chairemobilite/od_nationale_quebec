@@ -225,6 +225,13 @@ Pan, zoom and click on map. Once a pin icon has been dropped, you will be able t
 
 At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their}} usual work place?
 
+{{nickname}} arrived {{atPlace}} at:
+
+After being {{atPlace}}, {{nickname}}…
+If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
+
+{{nickname}} left {{place}} at:
+
 Confirm
 
 Confirm locations and continue

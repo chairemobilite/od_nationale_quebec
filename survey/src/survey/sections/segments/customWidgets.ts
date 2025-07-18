@@ -745,11 +745,11 @@ export const segmentDriver = {
                 choices: [
                     {
                         value: 'familyMember',
-                        label: (t: TFunction) => t('segments:QuiAuVolantAmiFamille')
+                        label: (t: TFunction) => t('segments:driverFamily')
                     },
                     {
                         value: 'colleague',
-                        label: (t: TFunction) => t('segments:QuiAuVolantCollegue')
+                        label: (t: TFunction) => t('segments:driverColleague')
                     }
                 ]
             },
@@ -759,15 +759,15 @@ export const segmentDriver = {
                 choices: [
                     {
                         value: 'taxiDriver',
-                        label: (t: TFunction) => t('segments:QuiAuVolantTaxi')
+                        label: (t: TFunction) => t('segments:driverTaxi')
                     },
                     {
                         value: 'transitTaxiDriver',
-                        label: (t: TFunction) => t('segments:QuiAuVolantTransitTaxi')
+                        label: (t: TFunction) => t('segments:driverTransitTaxi')
                     },
                     {
                         value: 'paratransit',
-                        label: (t: TFunction) => t('segments:QuiAuVolantParaTransit'),
+                        label: (t: TFunction) => t('segments:driverParaTransit'),
                         conditional: function (interview, path) {
                             // paratransit can be used by an accompanying person too, so show this mode for any household with at least one person with disability:
                             return (
@@ -778,15 +778,15 @@ export const segmentDriver = {
                     },
                     {
                         value: 'covoiturage',
-                        label: (t: TFunction) => t('segments:QuiAuVolantCovoiturage')
+                        label: (t: TFunction) => t('segments:driverCarpool')
                     },
                     {
                         value: 'other',
-                        label: (t: TFunction) => t('segments:QuiAuVolantAutre')
+                        label: (t: TFunction) => t('segments:driverOther')
                     },
                     {
                         value: 'dontKnow',
-                        label: (t: TFunction) => t('segments:QuiAuVolantSaisPas'),
+                        label: (t: TFunction) => t('segments:driverDontKnow'),
                         conditional: function (interview, path) {
                             return !odSurveyHelpers.getCountOrSelfDeclared({ interview, person });
                         }
@@ -804,7 +804,7 @@ export const segmentDriver = {
                     value: driver._uuid,
                     label: !_isBlank(driver.nickname)
                         ? driver.nickname
-                        : (t: TFunction) => t('segments:QuiAuVolantMembre', { sequence: driver['_sequence'] })
+                        : (t: TFunction) => t('segments:driverFamilyMemberSeq', { sequence: driver['_sequence'] })
                 });
             }
         }

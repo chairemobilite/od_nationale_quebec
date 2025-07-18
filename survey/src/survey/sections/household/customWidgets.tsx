@@ -47,10 +47,8 @@ export const householdMembers: GroupConfig = {
     showGroupedObjectAddButton: function (interview, path) {
         return true;
     },
-    groupedObjectAddButtonLabel: {
-        fr: 'Ajouter une personne manquante',
-        en: 'Add a missing person'
-    },
+    groupedObjectAddButtonLabel: (t: TFunction) => t('household:addGroupedObject'),
+    groupedObjectDeleteButtonLabel: (t: TFunction) => t('household:deleteThisGroupedObject'),
     addButtonSize: 'small',
     widgets: householdMembersWidgetsNames
 };
