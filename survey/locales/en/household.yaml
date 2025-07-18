@@ -73,3 +73,5 @@ travelToStudyDays: >-
 remoteStudyDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>study remotely</strong>?
 household.save: Save and continue
+addGroupedObject: Add a missing person
+deleteThisGroupedObject: Delete this person

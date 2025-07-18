@@ -97,8 +97,7 @@ export const personVisitedPlaces: WidgetConfig.GroupConfig = {
         }
     },
     name: (t: TFunction, groupedObject: unknown, sequence: number) => {
-        const locationStr = sequence === 1 ? 'Lieu de départ de la journée' : `Lieu ${sequence}`;
-        return `${t('customLabel:visitedPlaceSequence', { count: sequence })} ${
+        return `${t('visitedPlaces:VisitedPlaceSequence', { count: sequence })} ${
             (groupedObject as any).name
                 ? `• **${(groupedObject as any).name}**`
                 : (groupedObject as any).activity
@@ -108,7 +107,7 @@ export const personVisitedPlaces: WidgetConfig.GroupConfig = {
     },
     showGroupedObjectDeleteButton: false,
     deleteConfirmPopup: {
-        content: (t: TFunction) => t('customLabel:confirmDeleteVisitedPlace')
+        content: (t: TFunction) => t('visitedPlaces:ConfirmDeleteVisitedPlace')
     },
     showGroupedObjectAddButton: true,
     addButtonLocation: 'both',
@@ -131,16 +130,16 @@ export const visitedPlaceActivityCategory: WidgetConfig.InputRadioType = {
         const firstVisitedPlace = visitedPlacesArray[0];
         const secondVisitedPlace = visitedPlacesArray[1];
         if (firstVisitedPlace && firstVisitedPlace._uuid === activeVisitedPlace._uuid) {
-            return t('customLabel:ActivityCategoryFirstLocation');
+            return t('visitedPlaces:ActivityCategoryFirstLocation');
         } else if (
             firstVisitedPlace &&
             secondVisitedPlace &&
             firstVisitedPlace.activity === 'home' &&
             secondVisitedPlace._uuid === activeVisitedPlace._uuid
         ) {
-            return t('customLabel:ActivityCategoryAfterHome');
+            return t('visitedPlaces:ActivityCategoryAfterHome');
         } else {
-            return t('customLabel:ActivityCategory');
+            return t('visitedPlaces:ActivityCategory');
         }
     },
     choices: [
@@ -611,7 +610,7 @@ export const visitedPlaceActivity: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
         const nickname = person.nickname;
-        return t('visitedPlaces:LieuActivitePreciser', {
+        return t('visitedPlaces:Activity', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
@@ -704,7 +703,7 @@ export const visitedPlaceOnTheRoadDepartureType: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getPerson({ interview });
         const nickname = person.nickname;
-        return t('visitedPlaces:LieuDepartSurLaRoute', {
+        return t('visitedPlaces:onTheRoadDepartureType', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
@@ -815,7 +814,7 @@ export const visitedPlaceName: WidgetConfig.InputStringType = {
         if (_booleish((person as any).workOnTheRoad) === true && activity === 'workUsual') {
             activity = 'workUsual_onTheRoadOften'; // Special case for this one. See CSV questionnaire
         }
-        const key = 'customLabel:visitedPlaces:LocationNameAddressExample_' + activity;
+        const key = 'visitedPlaces:LocationNameAddressExample_' + activity;
 
         const examples = t(key, { context: process.env.EV_VARIANT });
         const helpText =
@@ -823,7 +822,7 @@ export const visitedPlaceName: WidgetConfig.InputStringType = {
                 ? `<span class="_pale _oblique">(${t('survey:forExampleAbbreviation')}: ${examples})</span>`
                 : '';
         return (
-            t('customLabel:visitedPlaces:LocationNameAddress', {
+            t('visitedPlaces:LocationNameAddress', {
                 nickname,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             }) +
@@ -1231,7 +1230,7 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
         const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
 
         if (previousVisitedPlace.activity === 'home' && onTheRoadDepartureType === 'usualWorkPlace') {
-            return t('customLabel:visitedPlaces:_previousPreviousDepartureTimeHomeToUsualWorkplace', {
+            return t('visitedPlaces:_previousPreviousDepartureTimeHomeToUsualWorkplace', {
                 context: person.gender,
                 nickname: person.nickname,
                 visitedPlaceDescription,
@@ -1409,21 +1408,21 @@ export const visitedPlacePreviousArrivalTime: WidgetConfig.InputTimeType = {
         const onTheRoadDepartureType = (activeVisitedPlace as any).onTheRoadDepartureType;
         const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
         if (onTheRoadDepartureType === 'home') {
-            return t('customLabel:visitedPlaces:_previousArrivalTimeDepartureTypeHome', {
+            return t('visitedPlaces:_previousArrivalTimeDepartureTypeHome', {
                 context: person.gender,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
         } else if (onTheRoadDepartureType === 'usualWorkPlace') {
-            return t('customLabel:visitedPlaces:_previousArrivalTimeDepartureTypeUsualWorkPlace', {
+            return t('visitedPlaces:_previousArrivalTimeDepartureTypeUsualWorkPlace', {
                 context: person.gender,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
         } else {
-            return t('customLabel:visitedPlaces:_previousArrivalTimeDepartureTypeOther', {
+            return t('visitedPlaces:_previousArrivalTimeDepartureTypeOther', {
                 context: person.gender,
                 nickname: person.nickname,
                 visitedPlaceDescription,
@@ -1589,21 +1588,21 @@ export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
         const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
         const previousVisitedPlaceDescription = getVisitedPlaceDescription(previousVisitedPlace, false, false);
 
-        let key = 'customLabel:visitedPlaces:PreviousDepartureTime';
+        let key = 'visitedPlaces:PreviousDepartureTime';
         if (previousVisitedPlace.activity === 'home' && activeVisitedPlace.activity === 'workUsual') {
-            key = 'customLabel:visitedPlaces:PreviousDepartureTime_home_workUsual';
+            key = 'visitedPlaces:PreviousDepartureTime_home_workUsual';
         } else if (previousVisitedPlace.activity === 'home' && activeVisitedPlace.activity === 'schoolUsual') {
-            key = 'customLabel:visitedPlaces:PreviousDepartureTime_home_schoolUsual';
+            key = 'visitedPlaces:PreviousDepartureTime_home_schoolUsual';
         } else if (
             previousVisitedPlace.activity === 'home' &&
             previousVisitedPlace._sequence === 1 &&
             !loopActivities.includes(activeVisitedPlace.activity)
         ) {
-            key = 'customLabel:visitedPlaces:PreviousDepartureTime_home_other';
+            key = 'visitedPlaces:PreviousDepartureTime_home_other';
         } else if (previousVisitedPlace.activity === 'home' && activeVisitedPlace.activity === 'workOnTheRoad') {
-            key = 'customLabel:visitedPlaces:PreviousDepartureTime_home_workOnTheRoad';
+            key = 'visitedPlaces:PreviousDepartureTime_home_workOnTheRoad';
         } else if (onTheRoadDepartureType === 'usualWorkPlace' && activeVisitedPlace.activity === 'workOnTheRoad') {
-            key = 'customLabel:visitedPlaces:PreviousDepartureTime_usualWorkPlace_workOnTheRoad';
+            key = 'visitedPlaces:PreviousDepartureTime_usualWorkPlace_workOnTheRoad';
         }
         return t(key, {
             context: person.gender,
@@ -1814,20 +1813,20 @@ export const visitedPlaceArrivalTime: WidgetConfig.InputTimeType = {
             );
         }
 
-        let key = 'customLabel:visitedPlaces:ArrivalTime';
+        let key = 'visitedPlaces:arrivalTime';
         if (activeVisitedPlace && activeVisitedPlace.activity === 'workOnTheRoad') {
-            key = 'customLabel:visitedPlaces:ArrivalTimeOnTheRoad';
+            key = 'visitedPlaces:arrivalTimeOnTheRoad';
         } else if (activeVisitedPlace && activeVisitedPlace.activity === 'leisureStroll') {
-            key = 'customLabel:visitedPlaces:ArrivalTimeStroll';
+            key = 'visitedPlaces:arrivalTimeStroll';
         }
-        const lieu = !_isBlank(visitedPlaceName)
+        const place = !_isBlank(visitedPlaceName)
             ? t('survey:atThisPlace', { placeName: visitedPlaceName })
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
         return (
             t(key, {
                 context: person.gender,
                 nickname: person.nickname,
-                aulieu: lieu,
+                atPlace: place,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             }) + durationText
         );
@@ -1847,13 +1846,13 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
         const journey = odSurveyHelpers.getActiveJourney({ interview });
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
         const visitedPlaceName = activeVisitedPlace?.name;
-        const lieu = !_isBlank(visitedPlaceName)
+        const atPlace = !_isBlank(visitedPlaceName)
             ? t('survey:atPlace', { placeName: visitedPlaceName })
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
-        return t('visitedPlaces:NextPlaceCategory', {
+        return t('visitedPlaces:nextPlaceCategory', {
             context: person.gender,
             nickname: person.nickname,
-            lieu,
+            atPlace,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
     },
@@ -2085,7 +2084,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
         }
         if (visitedPlace.activity === 'workOnTheRoad') {
             return (
-                t('customLabel:visitedPlaces:DepartureTimeOnTheRoad', {
+                t('visitedPlaces:departureTimeOnTheRoad', {
                     context: person.gender,
                     nickname: person.nickname,
                     count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -2093,7 +2092,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
             );
         } else if (visitedPlace.activity === 'leisureStroll') {
             return (
-                t('customLabel:visitedPlaces:DepartureTimeStroll', {
+                t('visitedPlaces:departureTimeStroll', {
                     context: person.gender,
                     nickname: person.nickname,
                     count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -2102,17 +2101,17 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
         }
 
         const visitedPlaceName = visitedPlace.name;
-        const lieu =
+        const place =
             visitedPlace.activity === 'home' || visitedPlace.activityCategory === 'home'
                 ? t('survey:theHome')
                 : !_isBlank(visitedPlaceName)
                     ? t('survey:place', { placeName: visitedPlaceName })
                     : t('survey:thisPlace', { context: visitedPlace.activity });
-        return t('customLabel:visitedPlaces:DepartureTime', {
+        return t('visitedPlaces:departureTime', {
             context: person.gender,
             nickname: person.nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person }),
-            lieu
+            place: place
         });
     }
 };
