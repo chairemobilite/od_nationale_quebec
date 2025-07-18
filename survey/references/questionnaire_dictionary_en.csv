@@ -67,6 +67,7 @@ Include only usable bicycles in good condition."
 ""
 Field,hh_electricBicycleNumber
 Question type,RadioNumber
+Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 ""
 Field,hh_atLeastOnePersonWithDisability
@@ -279,6 +280,180 @@ hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation 
 hotelForVacation : Hôtel or other on vacation
 studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
 other : Other"
+""
+""
+""
+Section,Déplacements
+Abbreviation,vp_
+""
+Field,buttonSwitchPerson
+Question type,Unknown input
+Question,Change person
+""
+Field,personVisitedPlacesTitle
+Question type,Unknown input
+Question,"Places {{nickname}} went on {{assignedDate}}:
+Chronological order must be respected (i.e. sequence matters)."
+""
+Field,visitedPlacesMap
+Question type,Unknown input
+Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+""
+Field,onTheRoadDepartureType
+Question type,Unknown input
+Question,What was the departure place of {{nickname}}’s work trip on the road?
+""
+Field,onTheRoadArrivalType
+Question type,Radio input
+Question,Where did {{nickname}} end {{gender:his:her:their}} work trip on the road?
+Values,"home : Home
+usualWorkPlace (onTheRoadUsualWorkplace : workLocationType === onTheRoadWithUsualPlace) : Usual work place
+other : Other location
+stayedThereUntilTheNextDay : Stayed at this place until the next day"
+""
+Field,alreadyVisitedBySelfOrAnotherHouseholdMember
+Question type,Radio input
+Question,"Did you previously locate this place on the map?
+In {{nickname}}'s travel diary or that of another household member."
+Values,"yes : Yes
+no : No"
+""
+Field,shortcut
+Question type,Unknown input
+Question,Please select this place from the list of previously located places:
+""
+Field,geography
+Question type,Unknown input
+Question,"Please locate this place on the map
+Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below."
+""
+Field,_previousPreviousDepartureTime
+Question type,Unknown input
+Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their}} usual work place?
+""
+Field,visitedPlacesSave
+Question type,Unknown input
+Question,Confirm
+""
+Field,vp_save
+Question type,Unknown input
+Question,Confirm locations and continue
+""
+""
+""
+Section,Modes of transport
+Abbreviation,s_
+""
+Field,buttonSwitchPerson
+Question type,Unknown input
+Question,Change person
+""
+Field,personTripsTitle
+Question type,Unknown input
+Question,Trips made by {{nickname}} on {{assignedDate}}
+""
+Field,segmentsMap
+Question type,Unknown input
+Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+""
+Field,segmentsIntro
+Question type,Unknown input
+Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:"
+""
+Field,segments
+Question type,Unknown input
+Question,Mode of transport
+""
+Field,howToBus
+Question type,Unknown input
+Question,"How did {{nickname}} reach the transit stop?
+If the mode used is not present, create a first mode before the transit mode."
+""
+Field,paidForParking
+Question type,Radio input
+Question,Paid parking
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,vehicleOccupancy
+Question type,RadioNumber
+Question,"Persons in the vehicle
+Including the driver."
+""
+Field,driver
+Question type,Unknown input
+Question,Who drove?
+""
+Field,onDemandType
+Question type,Radio input
+Question,Is this an on-demand service?
+Values,"pickupAtOrigin : Yes, it picked {{nickname}} up at their departure location
+joinedStop : Yes, {{nickname}} went to a stop
+no : No"
+""
+Field,tripJunctionQueryString
+Question type,Text input
+Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map."
+""
+Field,junctionGeography
+Question type,Unknown input
+Question,"Please locate the junction point (location where the change in mode of transport occurred).
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button)."
+""
+Field,save
+Question type,Unknown input
+Question,Confirm this trip
+""
+Field,s_save
+Question type,Unknown input
+Question,Confirm locations and continue
+""
+""
+""
+Section,Travel behavior
+Abbreviation,tb_
+""
+Field,buttonSwitchPerson
+Question type,Unknown input
+Question,Change person
+""
+Field,personNoWorkTripIntro
+Question type,Unknown input
+Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}.
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
+Question type,Select input
+Question,Why ?
+Values,"remoteWorkOrWorkAtHome : Remote work / work from home
+onStrike : On strike
+leaveSicknessPersonalReason : Leave (sick, personal, other)
+noWork : No work planned
+other : Other
+dontKnow : I don't know"
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
+Question type,Unknown input
+Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}} ?
+""
+Field,personNoSchoolTripIntro
+Question type,Unknown input
+Question,You didn't report any school trips by {{nickname}} on {{assignedDate}}.
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
+Question type,Select input
+Question,Why ?
+Values,"distanceLearning : Distance learning
+schoolWasClosedStrike : School was closed (strike)
+leaveSicknessPersonalReason : Leave (sick, personal, other)
+noSchool : No classes
+other : Other
+dontKnow : I don't know"
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
+Question type,Unknown input
+Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}} ?
 ""
 ""
 ""
