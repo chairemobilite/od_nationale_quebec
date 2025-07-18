@@ -67,6 +67,7 @@ Inclure seulement les vélos utilisables en bon état."
 ""
 Champ,hh_electricBicycleNumber
 Type de question,RadioNumber
+Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique ?"
 ""
 Champ,hh_atLeastOnePersonWithDisability
@@ -107,8 +108,8 @@ preferNotAnswer : Je préfère ne pas répondre"
 Champ,workerType
 Type de question,Bouton radio
 Conditionnel,ifAge14orMoreConditional : age >= 14
-Question,"Travailleur
-Incluant travailleur autonome, artiste, travailleur en congé de maladie ou parental."
+Question,"Travaill{{gender:eur/euse/eur·euse}}
+Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental."
 Valeurs,"yesFullTime : Oui, à temps plein
 yesPartTime : Oui, à temps partiel
 no : Non"
@@ -279,6 +280,182 @@ hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation 
 hotelForVacation : Hôtel ou autre lieu en vacances
 studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
 other : Autre"
+""
+""
+""
+Section,Déplacements
+Abréviation,vp_
+""
+Champ,buttonSwitchPerson
+Type de question,Entrée inconnue
+Question,Changer de personne
+""
+Champ,personVisitedPlacesTitle
+Type de question,Entrée inconnue
+Question,"Lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}}:
+L'ordre chronologique doit être respecté."
+""
+Champ,visitedPlacesMap
+Type de question,Entrée inconnue
+Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
+""
+Champ,onTheRoadDepartureType
+Type de question,Entrée inconnue
+Question,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
+""
+Champ,onTheRoadArrivalType
+Type de question,Bouton radio
+Question,À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
+Valeurs,"home : Domicile
+usualWorkPlace (onTheRoadUsualWorkplace : workLocationType === onTheRoadWithUsualPlace) : Lieu de travail habituel
+other : Autre lieu
+stayedThereUntilTheNextDay : {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain"
+""
+Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
+Type de question,Bouton radio
+Question,"Avez-vous déjà localisé ce lieu?
+Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage."
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,shortcut
+Type de question,Entrée inconnue
+Question,Veuillez choisir le lieu dans la liste des lieux déjà localisés:
+""
+Champ,geography
+Type de question,Entrée inconnue
+Question,"Veuillez positionner le lieu sur la carte
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous."
+""
+Champ,_previousPreviousDepartureTime
+Type de question,Entrée inconnue
+Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+""
+Champ,visitedPlacesSave
+Type de question,Entrée inconnue
+Question,Confirmer
+""
+Champ,vp_save
+Type de question,Entrée inconnue
+Question,Confirmer les lieux et continuer
+""
+""
+""
+Section,Modes de transport
+Abréviation,s_
+""
+Champ,buttonSwitchPerson
+Type de question,Entrée inconnue
+Question,Changer de personne
+""
+Champ,personTripsTitle
+Type de question,Entrée inconnue
+Question,Déplacements de {{nickname}} le {{assignedDate}}
+""
+Champ,segmentsMap
+Type de question,Entrée inconnue
+Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
+""
+Champ,segmentsIntro
+Type de question,Entrée inconnue
+Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:"
+""
+Champ,segments
+Type de question,Entrée inconnue
+Question,Mode de transport
+""
+Champ,howToBus
+Type de question,Entrée inconnue
+Question,"Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u.e}} à l'arrêt/station de transport collectif?
+Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif."
+""
+Champ,paidForParking
+Type de question,Bouton radio
+Question,Stationnement payant?
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,vehicleOccupancy
+Type de question,RadioNumber
+Question,"Personne(s) dans le véhicule
+Conducteur ou conductrice inclus(e)."
+""
+Champ,driver
+Type de question,Entrée inconnue
+Question,Qui conduisait ?
+""
+Champ,onDemandType
+Type de question,Bouton radio
+Question,Est-ce un transport sur demande?
+Valeurs,"pickupAtOrigin : Oui, il est venu chercher {{nickname}} à son lieu de départ
+joinedStop : Oui, {{nickname}} a rejoint un arrêt
+no : Non"
+""
+Champ,tripJunctionQueryString
+Type de question,Champ de texte
+Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte."
+""
+Champ,junctionGeography
+Type de question,Entrée inconnue
+Question,"Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"")."
+""
+Champ,save
+Type de question,Entrée inconnue
+Question,Confirmer ce déplacement
+""
+Champ,s_save
+Type de question,Entrée inconnue
+Question,Confirmer les lieux et continuer
+""
+""
+""
+Section,Mobilité
+Abréviation,tb_
+""
+Champ,buttonSwitchPerson
+Type de question,Entrée inconnue
+Question,Changer de personne
+""
+Champ,personNoWorkTripIntro
+Type de question,Entrée inconnue
+Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}.
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
+Type de question,Liste déroulante
+Question,Pour quelle raison ?
+Valeurs,"remoteWorkOrWorkAtHome : Télétravail / travail à la maison
+onStrike : En grève
+leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
+noWork : Pas de travail prévu
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
+Type de question,Entrée inconnue
+Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}} ?
+(Facultatif)"
+""
+Champ,personNoSchoolTripIntro
+Type de question,Entrée inconnue
+Question,Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
+Type de question,Liste déroulante
+Question,Pour quelle raison ?
+Valeurs,"distanceLearning : Cours à distance
+schoolWasClosedStrike : École fermée (grève)
+leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
+noSchool : Pas de cours
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
+Type de question,Entrée inconnue
+Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}} ?
+(Facultatif)"
 ""
 ""
 ""
