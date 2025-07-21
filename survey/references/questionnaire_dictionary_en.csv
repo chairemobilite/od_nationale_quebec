@@ -110,16 +110,16 @@ Question type,Radio input
 Conditional,ifAge14orMoreConditional : age >= 14
 Question,"Worker
 Including self-employed, artist, on sick leave or parental leave."
-Values,"yesFullTime : Yes, full time
-yesPartTime : Yes, part time
+Values,"fullTime : Yes, full time
+partTime : Yes, part time
 no : No"
 ""
 Field,studentType
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16
 Question,Student
-Values,"yesFullTime : Yes, full time
-yesPartTime : Yes, part time
+Values,"fullTime : Yes, full time
+partTime : Yes, part time
 no : No"
 ""
 Field,schoolType
@@ -144,13 +144,13 @@ partTimeStudent : Part-time student
 retired (ifAge40OrMoreConditional : age >= 40) : Retired
 atHome : At home
 unemployed : Unemployed / searching for a job
-sickOrParentalLeave : Sick leave or parental leave
+parentalOrSickLeave : Sick leave or parental leave
 longTermDisability : Long-term disability
 volunteer : Volunteer
 other : Other
 preferNotToAnswer : Prefer not to answer"
 ""
-Field,drivingLicenseOwner
+Field,drivingLicenseOwnership
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16
 Question,"Driver's licence
@@ -161,7 +161,7 @@ dontKnow : I don't know"
 ""
 Field,carSharingMember
 Question type,Radio input
-Conditional,hasDrivingLicenseConditional : drivingLicenseOwner === yes
+Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
 Question,"Carsharing member
 Subscription or pass to a carsharing service (ex. Communauto)"
 Values,"yes : Yes
@@ -176,7 +176,7 @@ Values,"yes : Yes
 no : No
 preferNotAnswer : I prefer not to answer"
 ""
-Field,workLocationType
+Field,workPlaceType
 Question type,Radio input
 Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
 Question,Does {{nickname}} have a fixed work location?
@@ -186,7 +186,7 @@ onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location 
 onTheRoadWithoutUsualPlace : No, work on the road departing from home
 remote : No, work from home or from elsewhere"
 ""
-Field,schoolLocationType
+Field,schoolPlaceType
 Question type,Radio input
 Conditional,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
 Question,Does {{nickname}} have a fixed study location?
@@ -196,12 +196,12 @@ remote : No, remote studies from home or from elsewhere"
 ""
 Field,name
 Question type,Text input
-Conditional,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
 Question,Name or address of {{nickname}}'s usual place of work
 ""
 Field,geography
 Question type,Unknown input
-Conditional,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
 Question,"Please locate the usual place of work for {{nickname}}.
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the ""Search location"" button."
@@ -219,7 +219,7 @@ You can also search for the place on the map using the ""Search location"" butto
 ""
 ""
 Section,Household member selection
-Abbreviation,ts_
+Abbreviation,sp_
 ""
 Field,_activePersonId
 Question type,Unknown input
@@ -233,6 +233,11 @@ Question,We'll start with the trips made by {{nickname}}
 ""
 Section,Trips introduction
 Abbreviation,ti_
+""
+Field,activePersonTitle
+Question type,Unknown input
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
 ""
 Field,buttonSwitchPerson
 Question type,Unknown input
@@ -286,6 +291,11 @@ other : Other"
 Section,Déplacements
 Abbreviation,vp_
 ""
+Field,activePersonTitle
+Question type,Unknown input
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
+""
 Field,buttonSwitchPerson
 Question type,Unknown input
 Question,Change person
@@ -307,7 +317,7 @@ Field,onTheRoadArrivalType
 Question type,Radio input
 Question,Where did {{nickname}} end {{gender:his:her:their}} work trip on the road?
 Values,"home : Home
-usualWorkPlace (onTheRoadUsualWorkplace : workLocationType === onTheRoadWithUsualPlace) : Usual work place
+usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Usual work place
 other : Other location
 stayedThereUntilTheNextDay : Stayed at this place until the next day"
 ""
@@ -330,6 +340,19 @@ Pan, zoom and click on map. Once a pin icon has been dropped, you will be able t
 Field,_previousPreviousDepartureTime
 Question type,Unknown input
 Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their}} usual work place?
+""
+Field,arrivalTime
+Question type,Unknown input
+Question,{{nickname}} arrived {{atPlace}} at:
+""
+Field,nextPlaceCategory
+Question type,Unknown input
+Question,"After being {{atPlace}}, {{nickname}}…
+If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
+""
+Field,departureTime
+Question type,Unknown input
+Question,{{nickname}} left {{place}} at:
 ""
 Field,visitedPlacesSave
 Question type,Unknown input
