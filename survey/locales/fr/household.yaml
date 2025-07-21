@@ -20,12 +20,12 @@ workerType_male: >-
 workerType_female: >-
     <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
     autonome, artiste, travailleuse en congé de maladie ou parental.</span>
-workerType_other: >-
+workerType: >-
     <strong>Travailleur·euse</strong><br /><span class="_pale _oblique">Incluant travailleur·euse
     autonome, artiste, travailleur·euse en congé de maladie ou parental.</span>
 studentType_male: <strong>Étudiant</strong>
 studentType_female: <strong>Étudiante</strong>
-studentType_other: <strong>Étudiant·e</strong>
+studentType: <strong>Étudiant·e</strong>
 schoolType: <strong>Établissement d'enseignement / type d'école</strong>
 occupation: <strong>Occupation principale</strong>
 drivingLicenseOwnership_male: >-
@@ -36,7 +36,7 @@ drivingLicenseOwnership_female: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprentie conductrice et probatoires, mais ne pas inclure les permis
     de cyclomoteur/scooter.</span>
-drivingLicenseOwnership_other: >-
+drivingLicenseOwnership: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur·rice et probatoires, mais ne pas inclure les
     permis de cyclomoteur/scooter.</span>
@@ -90,7 +90,7 @@ travelToWorkDays_female: >-
     Durant la dernière <strong>semaine</strong>, quand est-ce que {{nickname}} s'est
     <strong>déplacée</strong> pour le <strong>travail</strong> ?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
-travelToWorkDays_other: >-
+travelToWorkDays: >-
     Durant la dernière <strong>semaine</strong>, quand est-ce que {{nickname}} s'est
     <strong>déplacé·e</strong> pour le <strong>travail</strong> ?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
@@ -105,7 +105,7 @@ travelToStudyDays_female: >-
     Durant la <strong>dernière semaine</strong>, est-ce que {{nickname}} s'est <strong>déplacée</strong>
     pour les <strong>études</strong>.<br /><span class="_pale _oblique">Pour se rendre
     à l'établissement d'enseignement ou pour toute autre raison concernant les études.</span>
-travelToStudyDays_other: >-
+travelToStudyDays: >-
     Durant la <strong>dernière semaine</strong>, est-ce que {{nickname}} s'est <strong>déplacé·e</strong>
     pour les <strong>études</strong>.<br /><span class="_pale _oblique">Pour se rendre
     à l'établissement d'enseignement ou pour toute autre raison concernant les études.</span>

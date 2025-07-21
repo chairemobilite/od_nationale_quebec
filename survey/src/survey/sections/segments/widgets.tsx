@@ -9,12 +9,8 @@ import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
-// import * as conditionals from '../../common/conditionals';
-// import * as inputRange from '../../common/inputRange';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
-// import * as customHelpPopup from '../../common/customHelpPopup';
-// import * as customValidations from '../../common/customValidations';
 
 export const activePersonTitle = customWidgets.activePersonTitle;
 

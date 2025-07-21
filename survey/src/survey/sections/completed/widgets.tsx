@@ -7,13 +7,6 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-// import * as choices from '../../common/choices';
-// import * as conditionals from '../../common/conditionals';
-// import * as inputRange from '../../common/inputRange';
-// import * as customConditionals from '../../common/customConditionals';
-// import * as customWidgets from './customWidgets';
-// import * as customHelpPopup from '../../common/customHelpPopup';
-// import * as customValidations from '../../common/customValidations';
 
 export const completedText: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
