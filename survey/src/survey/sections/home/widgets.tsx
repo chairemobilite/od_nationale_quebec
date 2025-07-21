@@ -114,6 +114,7 @@ export const home_postalCode: WidgetConfig.InputStringType = {
     path: 'home.postalCode',
     twoColumns: false,
     containsHtml: true,
+    inputFilter: formatters.canadianPostalCodeFormatter,
     label: (t: TFunction) => t('home:home.postalCode'),
     conditional: defaultConditional,
     validations: validations.postalCodeValidation

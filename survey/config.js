@@ -60,7 +60,9 @@ module.exports = Object.assign({
         anonymous: false,
         google: false,
         facebook: false,
-        byField: true
+        byField: {
+            postalCodeField: 'home_postalCode'
+        }
     },
     separateAdminLoginPage: true,
     surveySupportForm: true,
