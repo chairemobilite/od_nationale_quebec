@@ -99,7 +99,7 @@ describe('access code update', function () {
         const updateResult = await updateCallback(interview, '1111-1111');
 
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
-        expect(updateResult).toEqual({ ...prefillData, accessCodeConfirmed: true });
+        expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
         
     });
 
@@ -112,7 +112,7 @@ describe('access code update', function () {
 
         const updateResult = await updateCallback(interview, accessCode);
         expect(preFilledMock).toHaveBeenCalledWith(expected, interview);
-        expect(updateResult).toEqual({ accessCode: expected, accessCodeConfirmed: true });
+        expect(updateResult).toEqual({ accessCode: expected, _accessCodeConfirmed: true });
     });
 
     test('undefined access code', async() => {
@@ -131,7 +131,7 @@ describe('access code update', function () {
 
     test('already confirmed access code', async() => {
         const interview = _cloneDeep(baseInterview);
-        interview.response.accessCodeConfirmed = true;
+        interview.response._accessCodeConfirmed = true;
 
         expect(await updateCallback(interview, '1111-1111')).toEqual({ });
         expect(preFilledMock).not.toHaveBeenCalled();

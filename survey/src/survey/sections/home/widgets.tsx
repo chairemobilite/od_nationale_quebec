@@ -10,6 +10,7 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
+import * as formatters from 'evolution-common/lib/utils/formatters';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customHelpPopup from '../../common/customHelpPopup';
@@ -19,8 +20,9 @@ export const accessCode: WidgetConfig.InputStringType = {
     path: 'accessCode',
     twoColumns: false,
     containsHtml: true,
+    inputFilter: formatters.eightDigitsAccessCodeFormatter,
     label: (t: TFunction) => t('home:accessCode'),
-    conditional: defaultConditional,
+    conditional: customConditionals.accessCodeIsSetCustomConditional,
     validations: validations.requiredValidation
 };
 

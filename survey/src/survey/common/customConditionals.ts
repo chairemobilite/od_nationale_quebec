@@ -244,3 +244,10 @@ export const shouldAskForNoSchoolTripSpecifyCustomConditional: WidgetConditional
     const reason = surveyHelper.getResponse(interview, path, null, '../noSchoolTripReason');
     return [reason === 'other', null];
 };
+
+export const accessCodeIsSetCustomConditional: WidgetConditional = (interview, path) => {
+    // Do not show the access code if it is set and confirmed, but keep its value, to avoid the participant changing its value
+    const accessCodeConfirmed = surveyHelper.getResponse(interview, '_accessCodeConfirmed', false);
+    const accessCode = surveyHelper.getResponse(interview, path, null);
+    return [!accessCodeConfirmed, accessCode];
+};

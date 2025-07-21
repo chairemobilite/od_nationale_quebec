@@ -39,7 +39,8 @@ surveyTestHelpers.startAndLoginAnonymously({ context, title: '?', hasUser: false
 // Progress bar test for home section
 testHelpers.sectionProgressBarTest({ context, sectionName: 'home', completionPercentage: 0 });
 
-/* Test string widget accessCode */
+/* Test string widget accessCode with conditional accessCodeIsSetCustomConditional */
+testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: true });
 testHelpers.inputStringTest({ context, path: 'accessCode', value: '?' });
 
 /* Test radio widget acceptToBeContactedForHelp with choices yesNo */

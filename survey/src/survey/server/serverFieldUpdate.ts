@@ -5,7 +5,7 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
 import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
-import { formatAccessCode } from '../common/helper';
+import { eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -153,13 +153,14 @@ export default [
         field: 'accessCode',
         callback: async (interview, value) => {
             try {
-                const properlyFormattedAccessCode = typeof value === 'string' ? formatAccessCode(value) : value;
+                const properlyFormattedAccessCode =
+                    typeof value === 'string' ? eightDigitsAccessCodeFormatter(value) : value;
                 // Only valid access codes should be processed
                 if (_isBlank(value) || !validateAccessCode(properlyFormattedAccessCode)) {
                     return {};
                 }
                 // To avoid multiple changes to the access code, we check if it has already been confirmed, if so, simply return.
-                const accessCodeConfirmed = getResponse(interview, 'accessCodeConfirmed', false);
+                const accessCodeConfirmed = getResponse(interview, '_accessCodeConfirmed', false);
                 if (accessCodeConfirmed) {
                     return {};
                 }
@@ -170,7 +171,7 @@ export default [
                     prefilledResponses['accessCode'] = properlyFormattedAccessCode;
                 }
                 // Set the access code as confirmed
-                prefilledResponses['accessCodeConfirmed'] = true;
+                prefilledResponses['_accessCodeConfirmed'] = true;
                 return prefilledResponses;
             } catch (error) {
                 console.error('error getting server update fields for accessCode', error);
