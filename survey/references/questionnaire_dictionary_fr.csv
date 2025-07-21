@@ -110,16 +110,16 @@ Type de question,Bouton radio
 Conditionnel,ifAge14orMoreConditional : age >= 14
 Question,"Travaill{{gender:eur/euse/eur·euse}}
 Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental."
-Valeurs,"yesFullTime : Oui, à temps plein
-yesPartTime : Oui, à temps partiel
+Valeurs,"fullTime : Oui, à temps plein
+partTime : Oui, à temps partiel
 no : Non"
 ""
 Champ,studentType
 Type de question,Bouton radio
 Conditionnel,ifAge16OrMoreConditional : age >= 16
 Question,Étudiant{{gender:/e/·e}}
-Valeurs,"yesFullTime : Oui, à temps plein
-yesPartTime : Oui, à temps partiel
+Valeurs,"fullTime : Oui, à temps plein
+partTime : Oui, à temps partiel
 no : Non"
 ""
 Champ,schoolType
@@ -144,13 +144,13 @@ partTimeStudent : Études à temps partiel
 retired (ifAge40OrMoreConditional : age >= 40) : À la retraite
 atHome : À la maison
 unemployed : En chômage / en recherche d'emploi
-sickOrParentalLeave : Congé de maladie ou congé parental
+parentalOrSickLeave : Congé de maladie ou congé parental
 longTermDisability : Invalidité de longue durée
 volunteer : Bénévole
 other : Autre
 preferNotToAnswer : Préfère ne pas répondre"
 ""
-Champ,drivingLicenseOwner
+Champ,drivingLicenseOwnership
 Type de question,Bouton radio
 Conditionnel,ifAge16OrMoreConditional : age >= 16
 Question,"Permis de conduire
@@ -161,7 +161,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,carSharingMember
 Type de question,Bouton radio
-Conditionnel,hasDrivingLicenseConditional : drivingLicenseOwner === yes
+Conditionnel,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
 Question,"Membre Autopartage
 Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)"
 Valeurs,"yes : Oui
@@ -176,7 +176,7 @@ Valeurs,"yes : Oui
 no : Non
 preferNotAnswer : Je préfère ne pas répondre"
 ""
-Champ,workLocationType
+Champ,workPlaceType
 Type de question,Bouton radio
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
 Question,Est-ce que {{nickname}} a un lieu d'emploi fixe ?
@@ -186,7 +186,7 @@ onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe 
 onTheRoadWithoutUsualPlace : Non, travail sur la route avec départ du domicile
 remote : Non, travail à partir du domicile ou à distance"
 ""
-Champ,schoolLocationType
+Champ,schoolPlaceType
 Type de question,Bouton radio
 Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
 Question,Est-ce que {{nickname}} a un lieu d'études fixe ?
@@ -196,12 +196,12 @@ remote : Non, études à partir du domicile ou à distance"
 ""
 Champ,name
 Type de question,Champ de texte
-Conditionnel,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
 Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 ""
 Champ,geography
 Type de question,Entrée inconnue
-Conditionnel,hasWorkingLocationConditional : workLocationType === onLocation || workLocationType === hybrid || workLocationType === onTheRoadWithUsualPlace
+Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
 Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
@@ -219,7 +219,7 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 ""
 ""
 Section,Sélection du membre du ménage
-Abréviation,ts_
+Abréviation,sp_
 ""
 Champ,_activePersonId
 Type de question,Entrée inconnue
@@ -233,6 +233,11 @@ Question,Nous allons débuter avec les déplacements de {{nickname}}
 ""
 Section,Introduction aux déplacements
 Abréviation,ti_
+""
+Champ,activePersonTitle
+Type de question,Entrée inconnue
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de {{nickname}}</p><p class=""_center _pale"">•</p>"
 ""
 Champ,buttonSwitchPerson
 Type de question,Entrée inconnue
@@ -286,6 +291,11 @@ other : Autre"
 Section,Déplacements
 Abréviation,vp_
 ""
+Champ,activePersonTitle
+Type de question,Entrée inconnue
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de {{nickname}}</p><p class=""_center _pale"">•</p>"
+""
 Champ,buttonSwitchPerson
 Type de question,Entrée inconnue
 Question,Changer de personne
@@ -307,7 +317,7 @@ Champ,onTheRoadArrivalType
 Type de question,Bouton radio
 Question,À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
 Valeurs,"home : Domicile
-usualWorkPlace (onTheRoadUsualWorkplace : workLocationType === onTheRoadWithUsualPlace) : Lieu de travail habituel
+usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Lieu de travail habituel
 other : Autre lieu
 stayedThereUntilTheNextDay : {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain"
 ""
@@ -330,6 +340,19 @@ Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois local
 Champ,_previousPreviousDepartureTime
 Type de question,Entrée inconnue
 Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+""
+Champ,arrivalTime
+Type de question,Entrée inconnue
+Question,{{nickname}} est arriv{{gender :é/ée/é.e}} {{atPlace}} à:
+""
+Champ,nextPlaceCategory
+Type de question,Entrée inconnue
+Question,"Après avoir été {{atPlace}}, {{nickname}} est…
+Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel}} y est rest{{gender :é/ée/é.e}} jusqu'au lendemain et de sélectionner la réponse adaptée."
+""
+Champ,departureTime
+Type de question,Entrée inconnue
+Question,{{nickname}} a quitté {{place}} à:
 ""
 Champ,visitedPlacesSave
 Type de question,Entrée inconnue
