@@ -178,5 +178,28 @@ export default [
                 return {};
             }
         }
+    },
+    {
+        field: '_interviewFinished',
+        callback: async (interview, value) => {
+            try {
+                if (value !== true) {
+                    // Ignore all values but true
+                    return {};
+                }
+                // Set the interview as completed if it is set for the first time
+                const isInterviewCompleted = getResponse(interview, '_isCompleted', false);
+                if (!isInterviewCompleted) {
+                    return {
+                        _isCompleted: true,
+                        _completedAt: Math.ceil(Date.now() / 1000) // Set the completedAt timestamp to now
+                    };
+                }
+                return {};
+            } catch (error) {
+                console.error('error attempting to set the interview as completed', error);
+                return {};
+            }
+        }
     }
 ];
