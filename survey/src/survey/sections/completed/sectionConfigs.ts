@@ -20,6 +20,10 @@ export const sectionConfig: SectionConfig = {
         fr: 'Questionnaire complété',
         en: 'Survey completed'
     },
+    navMenu: {
+        type: 'hidden',
+        parentSection: previousSectionName
+    },
     widgets: widgetsNames,
     // Do some actions before the section is loaded
     preload: customPreload,
