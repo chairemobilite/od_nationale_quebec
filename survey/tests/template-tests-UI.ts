@@ -42,7 +42,7 @@ testHelpers.sectionProgressBarTest({ context, sectionName: 'home', completionPer
 /* Test string widget accessCode */
 testHelpers.inputStringTest({ context, path: 'accessCode', value: '?' });
 
-/* Test radio widget acceptToBeContactedForHelp witch choices yesNo */
+/* Test radio widget acceptToBeContactedForHelp with choices yesNo */
 testHelpers.inputRadioTest({ context, path: 'acceptToBeContactedForHelp', value: '?' });
 
 /* Test infotext widget contactInformationIntro with conditional acceptsToBeContactedForHelp */
@@ -86,7 +86,7 @@ testHelpers.inputStringTest({ context, path: 'home.postalCode', value: '?' });
 /* Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional */
 testHelpers.inputVisibleTest({ context, path: 'household.electricBicycleNumber', isVisible: true });
 
-/* Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional witch choices yesNoPreferNotAnswer */
+/* Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional with choices yesNoPreferNotAnswer */
 testHelpers.inputVisibleTest({ context, path: 'household.atLeastOnePersonWithDisability', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.atLeastOnePersonWithDisability', value: '?' });
 
@@ -108,46 +108,46 @@ testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.n
 /* Test number widget personAge */
 testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.age', value: '?' });
 
-/* Test radio widget personGender with conditional ifAge5orMoreConditional witch choices gender */
+/* Test radio widget personGender with conditional ifAge5orMoreConditional with choices gender */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.gender', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.gender', value: '?' });
 
-/* Test radio widget personWorkerType with conditional ifAge14orMoreConditional witch choices participationStatus */
+/* Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatus */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerType', value: '?' });
 
-/* Test radio widget personStudentType with conditional ifAge16OrMoreConditional witch choices participationStatus */
+/* Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatus */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.studentType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.studentType', value: '?' });
 
-/* Test radio widget personSchoolType with conditional ifAge15OrLessConditional witch choices schoolType */
+/* Test radio widget personSchoolType with conditional ifAge15OrLessConditional with choices schoolType */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolType', value: '?' });
 
-/* Test radio widget personOccupation with conditional personOccupationCustomConditional witch choices personOccupation */
+/* Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
 
-/* Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional witch choices yesNoDontKnow */
+/* Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', value: '?' });
 
-/* Test radio widget personCarSharingMember with conditional hasDrivingLicenseConditional witch choices yesNoDontKnow */
+/* Test radio widget personCarSharingMember with conditional hasDrivingLicenseConditional with choices yesNoDontKnow */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', value: '?' });
 
-/* Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional witch choices transitFareType */
+/* Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional with choices transitFareType */
 // Widget not active
 
-/* Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional witch choices yesNoPreferNotAnswer */
+/* Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotAnswer */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
 
-/* Test radio widget personWorkPlaceType with conditional isWorkerConditional witch choices workPlaceTypeChoices */
+/* Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', value: '?' });
 
-/* Test radio widget personSchoolPlaceType with conditional isStudentConditional witch choices schoolPlaceTypeChoices */
+/* Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', value: '?' });
 
@@ -166,16 +166,16 @@ testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.u
 /* Test custom widget personUsualSchoolPlaceGeography */
 // Implement custom test
 
-/* Test checkbox widget personTravelToWorkDays witch choices yesNoDontKnow */
+/* Test checkbox widget personTravelToWorkDays with choices yesNoDontKnow */
 // Widget not active
 
-/* Test checkbox widget personRemoteWorkDays witch choices yesNoDontKnow */
+/* Test checkbox widget personRemoteWorkDays with choices yesNoDontKnow */
 // Widget not active
 
-/* Test checkbox widget personTravelToStudyDays witch choices yesNoDontKnow */
+/* Test checkbox widget personTravelToStudyDays with choices yesNoDontKnow */
 // Widget not active
 
-/* Test checkbox widget personRemoteStudyDays witch choices yesNoDontKnow */
+/* Test checkbox widget personRemoteStudyDays with choices yesNoDontKnow */
 // Widget not active
 
 /* Test nextbutton widget household_save */
@@ -225,7 +225,7 @@ testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: tr
 /* Test custom widget personDeparturePlaceIsHome */
 // Implement custom test
 
-/* Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional witch choices departurePlaceOtherChoices */
+/* Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', value: '?' });
 
@@ -265,11 +265,11 @@ testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: tr
 /* Test custom widget visitedPlaceOnTheRoadDepartureType */
 // Implement custom test
 
-/* Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional witch choices onTheRoadArrivalTypeChoices */
+/* Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeChoices */
 testHelpers.inputVisibleTest({ context, path: '?.onTheRoadArrivalType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: '?.onTheRoadArrivalType', value: '?' });
 
-/* Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional witch choices yesNo */
+/* Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo */
 testHelpers.inputVisibleTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', isVisible: true });
 testHelpers.inputRadioTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', value: '?' });
 
@@ -351,7 +351,7 @@ testHelpers.sectionProgressBarTest({ context, sectionName: 'segments', completio
 /* Test custom widget segmentHowToBus */
 // Implement custom test
 
-/* Test radio widget segmentPaidForParking with conditional isCarDriverAndDestinationWorkCustomConditional witch choices yesNoDontKnow */
+/* Test radio widget segmentPaidForParking with conditional isCarDriverAndDestinationWorkCustomConditional with choices yesNoDontKnow */
 testHelpers.inputVisibleTest({ context, path: '?.paidForParking', isVisible: true });
 testHelpers.inputRadioTest({ context, path: '?.paidForParking', value: '?' });
 
@@ -367,7 +367,7 @@ testHelpers.inputVisibleTest({ context, path: '?.vehicleOccupancy', isVisible: t
 /* Test custom widget segmentBusLinesWarning */
 // Widget not active
 
-/* Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional witch choices onDemandChoices */
+/* Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandChoices */
 testHelpers.inputVisibleTest({ context, path: '?.onDemandType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: '?.onDemandType', value: '?' });
 
@@ -402,7 +402,7 @@ testHelpers.sectionProgressBarTest({ context, sectionName: 'travelBehavior', com
 /* Test custom widget personNoWorkTripIntro */
 // Implement custom test
 
-/* Test select widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional witch choices noWorkTripReasonChoices */
+/* Test select widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional with choices noWorkTripReasonChoices */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason', isVisible: true });
 
 /* Test custom widget personNoWorkTripReasonSpecify with conditional shouldAskPersonNoWorkTripSpecifyCustomConditional */
@@ -412,7 +412,7 @@ testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonI
 /* Test custom widget personNoSchoolTripIntro */
 // Implement custom test
 
-/* Test select widget personNoSchoolTripReason with conditional shouldAskForNoSchoolTripReasonCustomConditional witch choices noSchoolTripReasonChoices */
+/* Test select widget personNoSchoolTripReason with conditional shouldAskForNoSchoolTripReasonCustomConditional with choices noSchoolTripReasonChoices */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason', isVisible: true });
 
 /* Test custom widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripSpecifyCustomConditional */
@@ -427,12 +427,12 @@ testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 // Progress bar test for end section
 testHelpers.sectionProgressBarTest({ context, sectionName: 'end', completionPercentage: 0 });
 
-/* Test radio widget householdOwnership witch choices householdOwnershipChoices */
+/* Test radio widget householdOwnership with choices householdOwnershipChoices */
 testHelpers.inputRadioTest({ context, path: 'household.ownership', value: '?' });
 
-/* Test select widget householdIncome witch choices householdIncomeChoices */
+/* Test select widget householdIncome with choices householdIncomeChoices */
 
-/* Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite witch choices yesNo */
+/* Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo */
 testHelpers.inputRadioTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite', value: '?' });
 
 /* Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional */
@@ -469,7 +469,7 @@ testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 0, s
 /* Test range widget endBurdenOfTheSurvey */
 testHelpers.inputRangeTest({ context, path: 'burdenOfTheSurvey', value: 0, sliderColor: '?' });
 
-/* Test radio widget endConsideredAbandoningSurvey witch choices yesNoDontKnow */
+/* Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow */
 testHelpers.inputRadioTest({ context, path: 'consideredAbandoningSurvey', value: '?' });
 
 /* Test nextbutton widget buttonCompleteInterviewWithCompleteSection */

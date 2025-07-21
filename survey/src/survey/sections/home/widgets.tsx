@@ -10,11 +10,9 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
-// import * as inputRange from '../../common/inputRange';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customHelpPopup from '../../common/customHelpPopup';
-// import * as customValidations from '../../common/customValidations';
 
 export const accessCode: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,

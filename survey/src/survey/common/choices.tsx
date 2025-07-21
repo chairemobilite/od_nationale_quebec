@@ -157,35 +157,40 @@ export const personOccupation: ChoiceType[] = [
         label: {
             fr: 'Travail à temps plein (30h et plus/semaine)',
             en: 'Employed full-time (30h and more/week)'
-        }
+        },
+        hidden: true
     },
     {
         value: 'partTimeWorker',
         label: {
             fr: 'Travail à temps partiel (moins de 30h/semaine)',
             en: 'Employed part-time (less than 30h/week)'
-        }
+        },
+        hidden: true
     },
     {
         value: 'workerAndStudent',
         label: {
             fr: 'Travail et études',
             en: 'Work and studies'
-        }
+        },
+        hidden: true
     },
     {
         value: 'fullTimeStudent',
         label: {
             fr: 'Études à temps plein',
             en: 'Full-time student'
-        }
+        },
+        hidden: true
     },
     {
         value: 'partTimeStudent',
         label: {
             fr: 'Études à temps partiel',
             en: 'Part-time student'
-        }
+        },
+        hidden: true
     },
     {
         value: 'retired',

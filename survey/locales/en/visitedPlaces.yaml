@@ -17,10 +17,9 @@ visitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
 onTheRoadDepartureType: What was the departure place of {{nickname}}’s work trip on
     the road?
 onTheRoadDepartureType_one: Where did you start your work trip on the road?
-onTheRoadArrivalType_male: Where did {{nickname}} end  work trip on the road?
-onTheRoadArrivalType_female: Where did {{nickname}} end his:her:their work trip on
-    the road?
-onTheRoadArrivalType_other: Where did {{nickname}} end  work trip on the road?
+onTheRoadArrivalType_male: Where did {{nickname}} end his work trip on the road?
+onTheRoadArrivalType_female: Where did {{nickname}} end her work trip on the road?
+onTheRoadArrivalType: Where did {{nickname}} end their work trip on the road?
 onTheRoadArrivalType_one: Where did you end your work trip on the road activity?
 alreadyVisitedBySelfOrAnotherHouseholdMember: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
@@ -40,7 +39,7 @@ _previousPreviousDepartureTime_male: >-
 _previousPreviousDepartureTime_female: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to her usual work place?
-_previousPreviousDepartureTime_other: >-
+_previousPreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to their usual work place?
 _previousPreviousDepartureTime_one: >-
@@ -82,7 +81,7 @@ PreviousDepartureTime_home_workOnTheRoad_male: >-
     At what time did {{nickname}} leave home before starting his on the road trips?
 PreviousDepartureTime_home_workOnTheRoad_female: >-
     At what time did {{nickname}} leave home before starting her on the road trips?
-PreviousDepartureTime_home_workOnTheRoad_other: >-
+PreviousDepartureTime_home_workOnTheRoad: >-
     At what time did {{nickname}} leave home before starting their on the road trips?
 PreviousDepartureTime_home_workOnTheRoad_one: At what time did you leave home before
     starting your on the road trips?
@@ -92,7 +91,7 @@ PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male: >-
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female: >-
     t what time did {{nickname}} leave her usual work place before starting her on
     the road trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad_other: >-
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad: >-
     t what time did {{nickname}} leave their usual work place before starting their
     on the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_one: >-
@@ -144,15 +143,15 @@ _previousPreviousDepartureTimeHomeToUsualWorkplace_male: '{{nickname}} left home
     go to his usual work place?'
 _previousPreviousDepartureTimeHomeToUsualWorkplace_female: '{{nickname}} left home
     to go to her usual work place?'
-_previousPreviousDepartureTimeHomeToUsualWorkplace_other: '{{nickname}} left home
-    to go to their usual work place?'
+_previousPreviousDepartureTimeHomeToUsualWorkplace: '{{nickname}} left home to go
+    to their usual work place?'
 _previousPreviousDepartureTimeHomeToUsualWorkplace_one: You left home to go to your
     usual work place at?
 _previousArrivalTimeDepartureTypeHome_male: >-
     At what time did {{nickname}} arrive home before starting his on the road trips?
 _previousArrivalTimeDepartureTypeHome_female: >-
     At what time did {{nickname}} arrive home before starting her on the road trips?
-_previousArrivalTimeDepartureTypeHome_other: >-
+_previousArrivalTimeDepartureTypeHome: >-
     At what time did {{nickname}} arrive home before starting their on the road trips?
 _previousArrivalTimeDepartureTypeHome_one: At what time did you arrive home before
     starting your on the road trips?
@@ -162,7 +161,7 @@ _previousArrivalTimeDepartureTypeUsualWorkPlace_male: >-
 _previousArrivalTimeDepartureTypeUsualWorkPlace_female: >-
     At what time did {{nickname}} arrive at his usual work place before starting her
     on the road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace_other: >-
+_previousArrivalTimeDepartureTypeUsualWorkPlace: >-
     At what time did {{nickname}} arrive at his usual work place before starting their
     on the road trips?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_one: >-
@@ -174,7 +173,7 @@ _previousArrivalTimeDepartureTypeOther_male: >-
 _previousArrivalTimeDepartureTypeOther_female: >-
     At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
     before starting her on the road trips?
-_previousArrivalTimeDepartureTypeOther_other: >-
+_previousArrivalTimeDepartureTypeOther: >-
     At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
     before starting their on the road trips?
 _previousArrivalTimeDepartureTypeOther_one: >-

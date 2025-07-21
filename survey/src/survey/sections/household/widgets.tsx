@@ -10,11 +10,8 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
-// import * as inputRange from '../../common/inputRange';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
-// import * as customHelpPopup from '../../common/customHelpPopup';
-// import * as customValidations from '../../common/customValidations';
 
 export const householdMembers = customWidgets.householdMembers;
 
@@ -61,9 +58,8 @@ export const personWorkerType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const personGender = activePerson?.gender;
         return t('household:workerType', {
-            context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
+            context: activePerson?.gender
         });
     },
     choices: choices.participationStatus,
@@ -78,9 +74,8 @@ export const personStudentType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const personGender = activePerson?.gender;
         return t('household:studentType', {
-            context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
+            context: activePerson?.gender
         });
     },
     choices: choices.participationStatus,
@@ -119,9 +114,8 @@ export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const personGender = activePerson?.gender;
         return t('household:drivingLicenseOwnership', {
-            context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
+            context: activePerson?.gender
         });
     },
     choices: choices.yesNoDontKnow,
@@ -246,10 +240,9 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        const personGender = activePerson?.gender;
         return t('household:travelToWorkDays', {
             nickname,
-            context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
+            context: activePerson?.gender
         });
     },
     choices: choices.yesNoDontKnow,
@@ -282,10 +275,9 @@ export const personTravelToStudyDays: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        const personGender = activePerson?.gender;
         return t('household:travelToStudyDays', {
             nickname,
-            context: personGender === 'male' || personGender === 'female' ? personGender : 'other'
+            context: activePerson?.gender
         });
     },
     choices: choices.yesNoDontKnow,

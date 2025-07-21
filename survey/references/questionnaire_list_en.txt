@@ -207,7 +207,7 @@ Map of {{nickname}}’s trips on {{assignedDate}}:
 
 What was the departure place of {{nickname}}’s work trip on the road?
 
-Where did {{nickname}} end {{gender:his:her:their}} work trip on the road?
+Where did {{nickname}} end {{gender:his/her/their}} work trip on the road?
 - Home
 - Usual work place
 - Other location
