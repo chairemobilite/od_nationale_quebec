@@ -278,3 +278,29 @@ describe('test survey day assignation', function () {
     });
 
 });
+
+describe('test complete survey', function () {
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    })
+    const updateCallback = (updateCallbacks.find((callback) => callback.field === '_interviewFinished') as any).callback;
+
+    test('_interviewFinished is not `true`', async () => {
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, 'somestring')).toEqual({});
+    });
+
+    test('Interview not set as completed', async () => {
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, true)).toEqual({ '_isCompleted': true, '_completedAt': expect.any(Number) });
+    });
+
+    test('Interview already set as completed', async () => {
+        const interview = _cloneDeep(baseInterview);
+        interview.response._isCompleted = true;
+        interview.response._completedAt = 1234567890; // Arbitrary timestamp
+        expect(await updateCallback(interview, true)).toEqual({});
+    });
+
+});

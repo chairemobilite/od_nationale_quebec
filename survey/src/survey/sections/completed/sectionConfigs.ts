@@ -6,6 +6,7 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
 
 export const currentSectionName: string = 'completed';
 const previousSectionName: SectionConfig['previousSection'] = 'end';
@@ -29,6 +30,14 @@ export const sectionConfig: SectionConfig = {
     // Allow to click on the section menu
     completionConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: currentSectionName });
+    },
+    onSectionEntry: function (interview) {
+        const isCompleted = getResponse(interview, '_isCompleted', false);
+        if (!isCompleted) {
+            // If the survey is not completed, we set the _interviewFinished response to true to tell the server to complete the survey
+            // FIXME This is a temporary fix, to make sure the server completes the survey with server timestamp, until it is done automatically by evolution when https://github.com/chairemobilite/evolution/issues/1026 is fixed
+            return { 'response._interviewFinished': true };
+        }
     }
 };
 
