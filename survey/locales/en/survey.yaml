@@ -232,6 +232,3 @@ thisPlace_workUsual: work
 theHome: home
 ConfirmDeleteLocation: Do you confirm that you want to remove this location?
 DeleteLocation: Delete this location
-person:
-    dayScheduleFor: Day schedule for
-    yourDaySchedule: Your day schedule

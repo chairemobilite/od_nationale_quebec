@@ -258,6 +258,3 @@ thisPlace_workUsual: le travail
 theHome: le domicile
 ConfirmDeleteLocation: Confirmez-vous que vous voulez retirer ce lieu?
 DeleteLocation: Supprimer ce lieu
-person:
-    dayScheduleFor: Horaire de la journée de
-    yourDaySchedule: Votre horaire de la journée
