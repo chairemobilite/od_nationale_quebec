@@ -220,12 +220,6 @@ visitedPlace:
         pour vous rapprocher davantage, puis précisez la localisation en
         déplaçant l'icône.
     locationIsRequiredError: Le positionnement du lieu est requis.
-    nextPlaceRadioChoices:
-        stayedHomeUntilTheNextDay: Resté{{suffixE}} au domicile jusqu'au lendemain
-        stayedThereUntilTheNextDay: Resté{{suffixE}} à cet endroit jusqu'au lendemain
-        visitedAnotherPlace: Allé{{suffixE}} ou arrété{{suffixE}} à un autre endroit
-        visitedAnotherPlace_one: Allé{{suffixE}} ou arrété{{suffixE}} à un autre endroit
-        wentBackHome: Retourné{{suffixE}} au domicile directement ({{address}})
     onTheRoadArrivalTypeChoices:
         home: Domicile
         other: Autre lieu

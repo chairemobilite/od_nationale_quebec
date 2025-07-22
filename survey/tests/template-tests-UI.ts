@@ -271,7 +271,7 @@ testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: tr
 /* Test custom widget visitedPlaceOnTheRoadDepartureType */
 // Implement custom test
 
-/* Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeChoices */
+/* Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeCustomChoices */
 testHelpers.inputVisibleTest({ context, path: '?.onTheRoadArrivalType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: '?.onTheRoadArrivalType', value: '?' });
 
@@ -373,7 +373,7 @@ testHelpers.inputVisibleTest({ context, path: '?.vehicleOccupancy', isVisible: t
 /* Test custom widget segmentBusLinesWarning */
 // Widget not active
 
-/* Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandChoices */
+/* Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandCustomChoices */
 testHelpers.inputVisibleTest({ context, path: '?.onDemandType', isVisible: true });
 testHelpers.inputRadioTest({ context, path: '?.onDemandType', value: '?' });
 

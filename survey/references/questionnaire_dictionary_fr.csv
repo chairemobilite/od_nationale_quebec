@@ -347,10 +347,6 @@ Question,Quel endroit était le point de départ des déplacements sur la route 
 Champ,onTheRoadArrivalType
 Type de question,Bouton radio
 Question,À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
-Valeurs,"home : Domicile
-usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Lieu de travail habituel
-other : Autre lieu
-stayedThereUntilTheNextDay : {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain"
 ""
 Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
 Type de question,Bouton radio
@@ -442,9 +438,6 @@ Question,Qui conduisait ?
 Champ,onDemandType
 Type de question,Bouton radio
 Question,Est-ce un transport sur demande?
-Valeurs,"pickupAtOrigin : Oui, il est venu chercher {{nickname}} à son lieu de départ
-joinedStop : Oui, {{nickname}} a rejoint un arrêt
-no : Non"
 ""
 Champ,tripJunctionQueryString
 Type de question,Champ de texte

@@ -57,3 +57,7 @@ driverCarpool: 'Carsharing driver (ex: Amigo Express, Kangaride)'
 driverOther: Another person
 driverDontKnow: I don't know
 driverFamilyMemberSeq: Person {{sequence}}
+onDemandChoicesPickupAtOrigin: Yes, it picked {{nickname}} up at their departure location
+onDemandChoicesPickupAtOrigin_one: Yes, it picked me up at my departure location
+onDemandChoicesJoinedStop: Yes, {{nickname}} went to a stop
+onDemandChoicesJoinedStop_one: Yes, I went to a stop

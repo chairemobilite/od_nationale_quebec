@@ -11,6 +11,7 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import * as choices from '../../common/choices';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
+import * as customChoices from './customChoices';
 
 export const activePersonTitle = customWidgets.activePersonTitle;
 
@@ -72,7 +73,7 @@ export const segmentOnDemandType: WidgetConfig.InputRadioType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('segments:onDemandType'),
-    choices: choices.onDemandChoices,
+    choices: customChoices.onDemandCustomChoices,
     conditional: customConditionals.isTransitAndNotNationaleCustomConditional,
     validations: validations.requiredValidation
 };

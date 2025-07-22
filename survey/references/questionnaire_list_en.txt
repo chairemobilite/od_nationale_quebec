@@ -228,10 +228,7 @@ Map of {{nickname}}’s trips on {{assignedDate}}:
 What was the departure place of {{nickname}}’s work trip on the road?
 
 Where did {{nickname}} end {{gender:his/her/their}} work trip on the road?
-- Home
-- Usual work place
-- Other location
-- Stayed at this place until the next day
+
 
 Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member.
@@ -284,9 +281,7 @@ Including the driver.
 Who drove?
 
 Is this an on-demand service?
-- Yes, it picked {{nickname}} up at their departure location
-- Yes, {{nickname}} went to a stop
-- No
+
 
 Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map.
 

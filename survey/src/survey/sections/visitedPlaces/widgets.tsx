@@ -12,6 +12,7 @@ import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
+import * as customChoices from './customChoices';
 
 export const activePersonTitle = customWidgets.activePersonTitle;
 
@@ -44,7 +45,7 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
             count: countPersons
         });
     },
-    choices: choices.onTheRoadArrivalTypeChoices,
+    choices: customChoices.onTheRoadArrivalTypeCustomChoices,
     conditional: customConditionals.currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional,
     validations: validations.requiredValidation
 };

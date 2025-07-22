@@ -1860,9 +1860,11 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
         {
             value: 'wentBackHome',
             label: (t: TFunction, interview, path) => {
+                const person = odSurveyHelpers.getActivePerson({ interview });
                 const homeAddress = getHomeAddressOneLine(interview);
-                return t('survey:visitedPlace:nextPlaceRadioChoices:wentBackHome', {
-                    address: homeAddress
+                return t('visitedPlaces:nextPlaceRadioChoices.wentBackHome', {
+                    address: homeAddress,
+                    context: person?.gender
                 });
             },
             conditional: function (interview) {
@@ -1873,17 +1875,27 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
         },
         {
             value: 'visitedAnotherPlace',
-            label: (t: TFunction) => t('survey:visitedPlace:nextPlaceRadioChoices:visitedAnotherPlace')
+            label: (t: TFunction, interview) => {
+                const person = odSurveyHelpers.getActivePerson({ interview });
+                return t('visitedPlaces:nextPlaceRadioChoices.visitedAnotherPlace', {
+                    context: person?.gender
+                });
+            }
         },
         {
             value: 'stayedThereUntilTheNextDay',
             label: (t: TFunction, interview, path) => {
+                const person = odSurveyHelpers.getActivePerson({ interview });
                 const journey = odSurveyHelpers.getActiveJourney({ interview });
                 const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
                 if (activeVisitedPlace.activityCategory === 'home') {
-                    return t('survey:visitedPlace:nextPlaceRadioChoices:stayedHomeUntilTheNextDay');
+                    return t('visitedPlaces:nextPlaceRadioChoices.stayedHomeUntilTheNextDay', {
+                        context: person?.gender
+                    });
                 } else {
-                    return t('survey:visitedPlace:nextPlaceRadioChoices:stayedThereUntilTheNextDay');
+                    return t('visitedPlaces:nextPlaceRadioChoices.stayedThereUntilTheNextDay', {
+                        context: person?.gender
+                    });
                 }
             },
             conditional: function (interview) {

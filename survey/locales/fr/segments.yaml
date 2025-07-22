@@ -78,3 +78,8 @@ driverCarpool: 'Chauffeur Covoiturage (ex: Amigo Express, Kangaride)'
 driverOther: Une autre personne
 driverDontKnow: Je ne sais pas
 driverFamilyMemberSeq: Personne {{sequence}}
+onDemandChoicesPickupAtOrigin: Oui, il est venu chercher {{nickname}} à son lieu de
+    départ
+onDemandChoicesPickupAtOrigin_one: Oui, il est venu me chercher à mon lieu de départ
+onDemandChoicesJoinedStop: Oui, {{nickname}} a rejoint un arrêt
+onDemandChoicesJoinedStop_one: Oui, j'ai rejoint un arrêt

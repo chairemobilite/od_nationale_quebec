@@ -347,10 +347,6 @@ Question,What was the departure place of {{nickname}}’s work trip on the road?
 Field,onTheRoadArrivalType
 Question type,Radio input
 Question,Where did {{nickname}} end {{gender:his/her/their}} work trip on the road?
-Values,"home : Home
-usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Usual work place
-other : Other location
-stayedThereUntilTheNextDay : Stayed at this place until the next day"
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Radio input
@@ -442,9 +438,6 @@ Question,Who drove?
 Field,onDemandType
 Question type,Radio input
 Question,Is this an on-demand service?
-Values,"pickupAtOrigin : Yes, it picked {{nickname}} up at their departure location
-joinedStop : Yes, {{nickname}} went to a stop
-no : No"
 ""
 Field,tripJunctionQueryString
 Question type,Text input
