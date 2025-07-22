@@ -56,9 +56,9 @@ export const dontKnow: ChoiceType[] = [
     }
 ];
 
-export const preferNotAnswer: ChoiceType[] = [
+export const preferNotToAnswer: ChoiceType[] = [
     {
-        value: 'preferNotAnswer',
+        value: 'preferNotToAnswer',
         label: {
             fr: 'Je préfère ne pas répondre',
             en: 'I prefer not to answer'
@@ -70,7 +70,7 @@ export const yesNo: ChoiceType[] = [...yes, ...no];
 
 export const yesNoDontKnow: ChoiceType[] = [...yesNo, ...dontKnow];
 
-export const yesNoPreferNotAnswer: ChoiceType[] = [...yes, ...no, ...preferNotAnswer];
+export const yesNoPreferNotToAnswer: ChoiceType[] = [...yes, ...no, ...preferNotToAnswer];
 
 export const gender: ChoiceType[] = [
     {
@@ -87,7 +87,7 @@ export const gender: ChoiceType[] = [
             en: 'Woman'
         }
     },
-    ...preferNotAnswer
+    ...preferNotToAnswer
 ];
 
 export const participationStatus: ChoiceType[] = [

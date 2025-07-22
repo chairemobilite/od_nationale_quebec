@@ -1,5 +1,6 @@
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
+import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
 import { TFunction } from 'i18next';
 
@@ -67,3 +68,50 @@ export const householdHybridCarCountCustomValidation = (value, _customValue, int
         }
     ];
 };
+
+export const transitFareCustomValidation = (value, customValue, interview, path, customPath, user) => [
+    ...requiredValidation(value, customValue, interview, path, customPath, user),
+    {
+        validation: !_isBlank(value) && value.length && value.length > 1 && value.includes('dontKnow'),
+        errorMessage: (t) => t('household:errors.selectDontKnowWhenNoOtherChoiceSelected')
+    },
+    {
+        validation: !_isBlank(value) && value.length && value.length > 1 && value.includes('no'),
+        errorMessage: (t) => t('household:errors.selectNoWhenNoOtherChoiceSelected')
+    }
+];
+
+const oneOrMoreAndPreferNotToAnswerValidation = (value) => [
+    {
+        validation: _isBlank(value) || !value.length || value.length < 1,
+        errorMessage: (t) => t('household:errors.selectOneOrMoreAnswer')
+    },
+    {
+        validation: !_isBlank(value) && value.length > 1 && value.includes('preferNotToAnswer'),
+        errorMessage: (t) => t('household:errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected')
+    }
+];
+
+export const travelToPlaceCustomValidation = (value) => [
+    ...oneOrMoreAndPreferNotToAnswerValidation(value),
+    {
+        validation: !_isBlank(value) && value.length > 1 && value.includes('no'),
+        errorMessage: (t) => t('household:errors.selectNoTravelWhenNoOtherChoiceSelected')
+    }
+];
+
+export const remoteWorkDaysCustomValidation = (value) => [
+    ...oneOrMoreAndPreferNotToAnswerValidation(value),
+    {
+        validation: !_isBlank(value) && value.length > 1 && value.includes('no'),
+        errorMessage: (t) => t('household:errors.selectNoRemoteWorkWhenNoOtherChoiceSelected')
+    }
+];
+
+export const remoteStudyDaysCustomValidation = (value) => [
+    ...oneOrMoreAndPreferNotToAnswerValidation(value),
+    {
+        validation: !_isBlank(value) && value.length > 1 && value.includes('no'),
+        errorMessage: (t) => t('household:errors.selectNoRemoteStudyWhenNoOtherChoiceSelected')
+    }
+];

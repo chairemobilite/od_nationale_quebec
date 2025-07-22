@@ -87,7 +87,7 @@ testHelpers.inputStringTest({ context, path: 'home.postalCode', value: '?' });
 /* Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional */
 testHelpers.inputVisibleTest({ context, path: 'household.electricBicycleNumber', isVisible: true });
 
-/* Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional with choices yesNoPreferNotAnswer */
+/* Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional with choices yesNoPreferNotToAnswer */
 testHelpers.inputVisibleTest({ context, path: 'household.atLeastOnePersonWithDisability', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.atLeastOnePersonWithDisability', value: '?' });
 
@@ -138,9 +138,10 @@ testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', value: '?' });
 
 /* Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional with choices transitFareType */
-// Widget not active
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitFares', isVisible: true });
+testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitFares', values: ['?'] });
 
-/* Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotAnswer */
+/* Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer */
 testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
 testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
 
@@ -167,17 +168,21 @@ testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.u
 /* Test custom widget personUsualSchoolPlaceGeography */
 // Implement custom test
 
-/* Test checkbox widget personTravelToWorkDays with choices yesNoDontKnow */
-// Widget not active
+/* Test checkbox widget personTravelToWorkDays with conditional personTravelToWorkDaysConditional with choices lastWeekTravelToWorkDaysCustomChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', isVisible: true });
+testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', values: ['?'] });
 
-/* Test checkbox widget personRemoteWorkDays with choices yesNoDontKnow */
-// Widget not active
+/* Test checkbox widget personRemoteWorkDays with conditional personRemoteWorkDaysConditional with choices lastWeekRemoteWorkDaysCustomChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', isVisible: true });
+testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', values: ['?'] });
 
-/* Test checkbox widget personTravelToStudyDays with choices yesNoDontKnow */
-// Widget not active
+/* Test checkbox widget personTravelToStudyDays with conditional personTravelToStudyDaysConditional with choices lastWeekTravelToStudyDaysCustomChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToStudyDays', isVisible: true });
+testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.travelToStudyDays', values: ['?'] });
 
-/* Test checkbox widget personRemoteStudyDays with choices yesNoDontKnow */
-// Widget not active
+/* Test checkbox widget personRemoteStudyDays with conditional personRemoteStudyDaysConditional with choices lastWeekRemoteStudyDaysCustomChoices */
+testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.remoteStudyDays', isVisible: true });
+testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteStudyDays', values: ['?'] });
 
 /* Test nextbutton widget household_save */
 testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });

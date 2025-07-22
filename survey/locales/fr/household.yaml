@@ -94,24 +94,67 @@ travelToWorkDays: >-
     Durant la dernière <strong>semaine</strong>, quand est-ce que {{nickname}} s'est
     <strong>déplacé·e</strong> pour le <strong>travail</strong> ?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
+travelToWorkDays_male_one: >-
+    Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacé</strong>
+    pour le <strong>travail</strong> ?
+travelToWorkDays_female_one: >-
+    Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacée</strong>
+    pour le <strong>travail</strong> ?
+travelToWorkDays_one: >-
+    Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
+    pour le <strong>travail</strong> ?
 remoteWorkDays: >-
     Durant la <strong>dernière semaine</strong>, quand est-ce que {{nickname}} a travaillé
     en <strong>télé-travail</strong> ?
+remoteWorkDays_one: >-
+    Durant la <strong>dernière semaine</strong>, quand avez-vous travaillé en <strong>télé-travail</strong>
+    ?
 travelToStudyDays_male: >-
-    Durant la <strong>dernière semaine</strong>, est-ce que {{nickname}} s'est <strong>déplacé</strong>
-    pour les <strong>études</strong>.<br /><span class="_pale _oblique">Pour se rendre
-    à l'établissement d'enseignement ou pour toute autre raison concernant les études.</span>
+    Durant la <strong>dernière semaine</strong>, quand est-ce que {{nickname}} s'est
+    <strong>déplacé</strong> pour les <strong>études</strong>.<br /><span class="_pale
+    _oblique">Pour se rendre à l'établissement d'enseignement ou pour toute autre
+    raison concernant les études.</span>
 travelToStudyDays_female: >-
-    Durant la <strong>dernière semaine</strong>, est-ce que {{nickname}} s'est <strong>déplacée</strong>
+    Durant la <strong>dernière semaine</strong>, quand est-ce que {{nickname}} s'est
+    <strong>déplacée</strong> pour les <strong>études</strong>.<br /><span class="_pale
+    _oblique">Pour se rendre à l'établissement d'enseignement ou pour toute autre
+    raison concernant les études.</span>
+travelToStudyDays: >-
+    Durant la <strong>dernière semaine</strong>, quand est-ce que {{nickname}} s'est
+    <strong>déplacé·e</strong> pour les <strong>études</strong>.<br /><span class="_pale
+    _oblique">Pour se rendre à l'établissement d'enseignement ou pour toute autre
+    raison concernant les études.</span>
+travelToStudyDays_male_one: >-
+    Durant la <strong>dernière semaine</strong>, quand vous êtes-vous <strong>déplacé</strong>
     pour les <strong>études</strong>.<br /><span class="_pale _oblique">Pour se rendre
     à l'établissement d'enseignement ou pour toute autre raison concernant les études.</span>
-travelToStudyDays: >-
-    Durant la <strong>dernière semaine</strong>, est-ce que {{nickname}} s'est <strong>déplacé·e</strong>
+travelToStudyDays_female_one: >-
+    Durant la <strong>dernière semaine</strong>, quand vous êtes-vous <strong>déplacée</strong>
+    pour les <strong>études</strong>.<br /><span class="_pale _oblique">Pour se rendre
+    à l'établissement d'enseignement ou pour toute autre raison concernant les études.</span>
+travelToStudyDays_one: >-
+    Durant la <strong>dernière semaine</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
     pour les <strong>études</strong>.<br /><span class="_pale _oblique">Pour se rendre
     à l'établissement d'enseignement ou pour toute autre raison concernant les études.</span>
 remoteStudyDays: >-
     Durant la <strong>dernière semaine</strong>, quand est-ce que {{nickname}} a étudié
     en <strong>télé-études</strong> ?
+remoteStudyDays_one: >-
+    Durant la <strong>dernière semaine</strong>, quand avez-vous étudié en <strong>télé-études</strong>
+    ?
 household.save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne
+errors.selectDontKnowWhenNoOtherChoiceSelected: >-
+    Sélectionnez "Je ne sais pas" seulement si aucun autre choix n'est sélectionné.
+errors.selectNoWhenNoOtherChoiceSelected: Sélectionnez "Non" seulement si aucun autre
+    choix n'est sélectionné.
+errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected: >-
+    Sélectionnez "Préfère ne pas répondre" seulement si aucun autre choix n'est sélectionné.
+errors.selectNoTravelWhenNoOtherChoiceSelected: >-
+    Sélectionnez "Pas de déplacement" seulement si aucun autre choix n'est sélectionné.
+errors.selectOneOrMoreAnswer: Sélectionnez une ou des réponses.
+errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: >-
+    Sélectionnez "Pas de télé-travail" seulement si aucun autre choix n'est sélectionné.
+errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: >-
+    Sélectionnez "Pas de télé-études" seulement si aucun autre choix n'est sélectionné.

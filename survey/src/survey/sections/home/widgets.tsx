@@ -189,7 +189,7 @@ export const household_atLeastOnePersonWithDisability: WidgetConfig.InputRadioTy
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('home:household.atLeastOnePersonWithDisability'),
-    choices: choices.yesNoPreferNotAnswer,
+    choices: choices.yesNoPreferNotToAnswer,
     conditional: conditionals.hasHouseholdSize2OrMoreConditional,
     validations: validations.requiredValidation
 };

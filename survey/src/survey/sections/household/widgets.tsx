@@ -12,6 +12,8 @@ import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
+import * as customChoices from './customChoices';
+import * as customValidations from '../../common/customValidations';
 
 export const householdMembers = customWidgets.householdMembers;
 
@@ -148,7 +150,7 @@ export const personTransitFares: WidgetConfig.InputCheckboxType = {
     },
     choices: choices.transitFareType,
     conditional: conditionals.ifAge6OrMoreConditional,
-    validations: validations.requiredValidation
+    validations: customValidations.transitFareCustomValidation
 };
 
 export const personHasDisability: WidgetConfig.InputRadioType = {
@@ -157,7 +159,7 @@ export const personHasDisability: WidgetConfig.InputRadioType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('household:hasDisability'),
-    choices: choices.yesNoPreferNotAnswer,
+    choices: choices.yesNoPreferNotToAnswer,
     conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
     validations: validations.requiredValidation
 };
@@ -240,14 +242,16 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:travelToWorkDays', {
             nickname,
-            context: activePerson?.gender
+            context: activePerson?.gender,
+            count: countPersons
         });
     },
-    choices: choices.yesNoDontKnow,
-    conditional: defaultConditional,
-    validations: validations.requiredValidation
+    choices: customChoices.lastWeekTravelToWorkDaysCustomChoices,
+    conditional: conditionals.personTravelToWorkDaysConditional,
+    validations: customValidations.travelToPlaceCustomValidation
 };
 
 export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
@@ -258,13 +262,15 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:remoteWorkDays', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
-    choices: choices.yesNoDontKnow,
-    conditional: defaultConditional,
-    validations: validations.requiredValidation
+    choices: customChoices.lastWeekRemoteWorkDaysCustomChoices,
+    conditional: conditionals.personRemoteWorkDaysConditional,
+    validations: customValidations.remoteWorkDaysCustomValidation
 };
 
 export const personTravelToStudyDays: WidgetConfig.InputCheckboxType = {
@@ -275,14 +281,16 @@ export const personTravelToStudyDays: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:travelToStudyDays', {
             nickname,
-            context: activePerson?.gender
+            context: activePerson?.gender,
+            count: countPersons
         });
     },
-    choices: choices.yesNoDontKnow,
-    conditional: defaultConditional,
-    validations: validations.requiredValidation
+    choices: customChoices.lastWeekTravelToStudyDaysCustomChoices,
+    conditional: conditionals.personTravelToStudyDaysConditional,
+    validations: customValidations.travelToPlaceCustomValidation
 };
 
 export const personRemoteStudyDays: WidgetConfig.InputCheckboxType = {
@@ -293,13 +301,15 @@ export const personRemoteStudyDays: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:remoteStudyDays', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
-    choices: choices.yesNoDontKnow,
-    conditional: defaultConditional,
-    validations: validations.requiredValidation
+    choices: customChoices.lastWeekRemoteStudyDaysCustomChoices,
+    conditional: conditionals.personRemoteStudyDaysConditional,
+    validations: customValidations.remoteStudyDaysCustomValidation
 };
 
 export const household_save: WidgetConfig.ButtonWidgetConfig = {
