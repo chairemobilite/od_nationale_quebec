@@ -110,6 +110,12 @@ Subscription or pass to a carsharing service (ex. Communauto)
 - No
 - I don't know
 
+Does {{nickname}} currently have a valid transit fare, pass or ticket?
+- No
+- Monthly or annual pass
+- Individual tickets or rides
+- I don't know
+
 Permanent physical, intellectual or other disability which influences or limits their daily mobility?
 - Yes
 - No
@@ -138,6 +144,20 @@ Name or address of {{nickname}}'s school or main study location
 Please locate the usual place of study for {{nickname}}.
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the "Search location" button.
+
+During the last week, when did {{nickname}} travel for work?
+To get to or for any other reason concerning work.
+
+
+During the last week, when did {{nickname}} work remotely?
+
+
+During the last week, did {{nickname}} travel for their <strong>studies</strong>?
+To get to or for any other reason concerning his studies.
+
+
+During the last week, when did {{nickname}} study remotely?
+
 
 Save and continue
 

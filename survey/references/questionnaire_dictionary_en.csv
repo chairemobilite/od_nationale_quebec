@@ -77,7 +77,7 @@ Question,"Is there at least one person in your household having a permanent disa
 Including yourself"
 Values,"yes : Yes
 no : No
-preferNotAnswer : I prefer not to answer"
+preferNotToAnswer : I prefer not to answer"
 ""
 ""
 ""
@@ -103,7 +103,7 @@ Question,"Sex at birth
 Sex assigned at birth or that which appears on legal documents."
 Values,"male : Man
 female : Woman
-preferNotAnswer : I prefer not to answer"
+preferNotToAnswer : I prefer not to answer"
 ""
 Field,workerType
 Question type,Radio input
@@ -168,13 +168,22 @@ Values,"yes : Yes
 no : No
 dontKnow : I don't know"
 ""
+Field,transitFares
+Question type,Checkbox input
+Conditional,ifAge6OrMoreConditional : age >= 6
+Question,"Does {{nickname}} currently have a valid transit fare, pass or ticket?"
+Values,"no : No
+transitPass : Monthly or annual pass
+tickets : Individual tickets or rides
+dontKnow : I don't know"
+""
 Field,hasDisability
 Question type,Radio input
 Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
 Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
 Values,"yes : Yes
 no : No
-preferNotAnswer : I prefer not to answer"
+preferNotToAnswer : I prefer not to answer"
 ""
 Field,workPlaceType
 Question type,Radio input
@@ -215,6 +224,28 @@ Question type,Unknown input
 Question,"Please locate the usual place of study for {{nickname}}.
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the ""Search location"" button."
+""
+Field,travelToWorkDays
+Question type,Checkbox input
+Conditional,personTravelToWorkDaysConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
+Question,"During the last week, when did {{nickname}} travel for work?
+To get to or for any other reason concerning work."
+""
+Field,remoteWorkDays
+Question type,Checkbox input
+Conditional,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Question,"During the last week, when did {{nickname}} work remotely?"
+""
+Field,travelToStudyDays
+Question type,Checkbox input
+Conditional,personTravelToStudyDaysConditional : schoolPlaceType === onLocation || schoolPlaceType === hybrid
+Question,"During the last week, did {{nickname}} travel for their <strong>studies</strong>?
+To get to or for any other reason concerning his studies."
+""
+Field,remoteStudyDays
+Question type,Checkbox input
+Conditional,personRemoteStudyDaysConditional : schoolPlaceType === remote || schoolPlaceType === hybrid
+Question,"During the last week, when did {{nickname}} study remotely?"
 ""
 ""
 ""

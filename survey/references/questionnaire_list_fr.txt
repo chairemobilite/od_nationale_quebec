@@ -110,6 +110,12 @@ Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)
 - Non
 - Je ne sais pas
 
+Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide ?
+- Non
+- Passe ou titre mensuel ou annuel
+- Titres ou billets individuels
+- Je ne sais pas
+
 Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens ?
 - Oui
 - Non
@@ -138,6 +144,20 @@ Nom ou adresse du lieu habituel d’études de {{nickname}}
 Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
+
+Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail ?
+Pour se rendre au travail ou toute autre raison concernant le travail.
+
+
+Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail ?
+
+
+Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour les études.
+Pour se rendre à l'établissement d'enseignement ou pour toute autre raison concernant les études.
+
+
+Durant la dernière semaine, quand est-ce que {{nickname}} a étudié en télé-études ?
+
 
 Enregistrer et continuer
 

@@ -77,7 +77,7 @@ Question,"Y a-t-il au moins une personne dans votre ménage avec une incapacité
 Y compris vous-même"
 Valeurs,"yes : Oui
 no : Non
-preferNotAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Je préfère ne pas répondre"
 ""
 ""
 ""
@@ -103,7 +103,7 @@ Question,"Sexe à la naissance
 Sexe assigné à la naissance ou inscrit dans les documents légaux."
 Valeurs,"male : Homme
 female : Femme
-preferNotAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,workerType
 Type de question,Bouton radio
@@ -168,13 +168,22 @@ Valeurs,"yes : Oui
 no : Non
 dontKnow : Je ne sais pas"
 ""
+Champ,transitFares
+Type de question,Case à cocher
+Conditionnel,ifAge6OrMoreConditional : age >= 6
+Question,Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide ?
+Valeurs,"no : Non
+transitPass : Passe ou titre mensuel ou annuel
+tickets : Titres ou billets individuels
+dontKnow : Je ne sais pas"
+""
 Champ,hasDisability
 Type de question,Bouton radio
 Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
 Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens ?"
 Valeurs,"yes : Oui
 no : Non
-preferNotAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,workPlaceType
 Type de question,Bouton radio
@@ -215,6 +224,28 @@ Type de question,Entrée inconnue
 Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
+""
+Champ,travelToWorkDays
+Type de question,Case à cocher
+Conditionnel,personTravelToWorkDaysConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
+Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail ?
+Pour se rendre au travail ou toute autre raison concernant le travail."
+""
+Champ,remoteWorkDays
+Type de question,Case à cocher
+Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail ?"
+""
+Champ,travelToStudyDays
+Type de question,Case à cocher
+Conditionnel,personTravelToStudyDaysConditional : schoolPlaceType === onLocation || schoolPlaceType === hybrid
+Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour les études.
+Pour se rendre à l'établissement d'enseignement ou pour toute autre raison concernant les études."
+""
+Champ,remoteStudyDays
+Type de question,Case à cocher
+Conditionnel,personRemoteStudyDaysConditional : schoolPlaceType === remote || schoolPlaceType === hybrid
+Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a étudié en télé-études ?"
 ""
 ""
 ""

@@ -16,16 +16,16 @@ export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personOccupation',
     'personDrivingLicenseOwnership',
     'personCarSharingMember',
-    // 'personTransitFares',
+    'personTransitFares',
     'personHasDisability',
     'personWorkPlaceType',
     'personSchoolPlaceType',
     'personUsualWorkPlaceName',
     'personUsualWorkPlaceGeography',
     'personUsualSchoolPlaceName',
-    'personUsualSchoolPlaceGeography'
-    // 'personTravelToWorkDays',
-    // 'personRemoteWorkDays',
-    // 'personTravelToStudyDays',
-    // 'personRemoteStudyDays'
+    'personUsualSchoolPlaceGeography',
+    'personTravelToWorkDays',
+    'personRemoteWorkDays',
+    'personTravelToStudyDays',
+    'personRemoteStudyDays'
 ];
