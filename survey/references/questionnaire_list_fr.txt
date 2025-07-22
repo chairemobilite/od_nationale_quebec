@@ -228,10 +228,7 @@ Carte des déplacements de {{nickname}} le {{assignedDate}}:
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
 À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
-- Domicile
-- Lieu de travail habituel
-- Autre lieu
-- {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain
+
 
 Avez-vous déjà localisé ce lieu?
 Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
@@ -284,9 +281,7 @@ Conducteur ou conductrice inclus(e).
 Qui conduisait ?
 
 Est-ce un transport sur demande?
-- Oui, il est venu chercher {{nickname}} à son lieu de départ
-- Oui, {{nickname}} a rejoint un arrêt
-- Non
+
 
 Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte.
 

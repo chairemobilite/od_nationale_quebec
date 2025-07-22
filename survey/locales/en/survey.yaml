@@ -196,12 +196,6 @@ visitedPlace:
         Location is not precise enough. Please use the + zoom and drag the icon
         marker to confirm the precise location.
     locationIsRequiredError: Location is required.
-    nextPlaceRadioChoices:
-        stayedHomeUntilTheNextDay: Stayed home until the next day
-        stayedThereUntilTheNextDay: Stayed at this place until the next day
-        visitedAnotherPlace: Went or stopped elsewhere
-        visitedAnotherPlace_one: Went or stopped elsewhere
-        wentBackHome: Returned home directly ({{address}})
     onTheRoadArrivalTypeChoices:
         home: Home
         other: Other location

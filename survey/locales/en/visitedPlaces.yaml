@@ -187,3 +187,19 @@ departureTimeStroll: '{{nickname}} finished their stroll at:'
 departureTimeStroll_one: 'You finished your stroll at:'
 departureTimeOnTheRoad: '{{nickname}} finished their work on the road at:'
 departureTimeOnTheRoad_one: 'You finished your work on the road at:'
+onTheRoadArrivalTypeHome: Home
+onTheRoadArrivalTypeUsualWorkPlace: Usual work place
+onTheRoadArrivalTypeOther: Other location
+onTheRoadArrivalTypeStayedThereUntilTheNextDay_male: '{{nickname}} completed his work
+    on the road trips after 4AM the next day'
+onTheRoadArrivalTypeStayedThereUntilTheNextDay_female: '{{nickname}} completed her
+    work on the road trips after 4AM the next day'
+onTheRoadArrivalTypeStayedThereUntilTheNextDay: '{{nickname}} completed their work
+    on the road trips after 4AM the next day'
+onTheRoadArrivalTypeStayedThereUntilTheNextDay_one: I completed my work on the road
+    trips after 4AM the next day
+nextPlaceRadioChoices.stayedHomeUntilTheNextDay: Stayed home until the next day
+nextPlaceRadioChoices.stayedThereUntilTheNextDay: Stayed at this place until the next
+    day
+nextPlaceRadioChoices.visitedAnotherPlace: Went or stopped elsewhere
+nextPlaceRadioChoices.wentBackHome: Returned home directly ({{address}})
