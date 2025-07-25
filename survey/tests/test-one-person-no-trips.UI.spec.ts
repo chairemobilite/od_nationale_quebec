@@ -36,6 +36,9 @@ surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
 /********** Tests home section **********/
 commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 1 });
 
+/********** Tests household section **********/
+commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });
+
 // FIXME Implement the rest of the test
 
 // TODO: Logout and log back in with same credentials, shoud log in directly
