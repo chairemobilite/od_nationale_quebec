@@ -16,7 +16,8 @@ export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
 };
 
 // Generate a random access code in the format 0123-4567
-export const generateRandomAccessCode = () => `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`;
+export const generateRandomAccessCode = () =>
+    `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`;
 
 /********** Tests home section **********/
 export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
@@ -90,4 +91,172 @@ export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestP
 
     // Verify the home navigation is completed
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'completed', isDisabled: false });
+};
+
+/********** Tests household section **********/
+export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+    // Verify the household navigation is active
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'household',
+        buttonStatus: 'active',
+        isDisabled: false
+    });
+
+    // Test custom widget householdMembers
+    testHelpers.waitTextVisible({ context, text: 'Household members' });
+
+    // Test string widget personNickname with conditional hasHouseholdSize2OrMoreConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (householdSize === 1) {
+        testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.nickname', isVisible: false });
+    } else {
+        testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.nickname', value: 'Martha' });
+    }
+
+    // Test number widget personAge
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.age', value: '30' });
+
+    // Test radio widget personGender with conditional ifAge5orMoreConditional with choices gender
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.gender', value: 'female' });
+
+    // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatus
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerType', value: 'fullTime' });
+
+    // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatus
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.studentType', value: 'partTime' });
+
+    // Test radio widget personSchoolType with conditional ifAge15OrLessConditional with choices schoolType
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolType', isVisible: false });
+
+    // Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: false });
+
+    // Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'household.persons.${personId[0]}.drivingLicenseOwnership',
+        value: 'yes'
+    });
+
+    // Test radio widget personCarSharingMember with conditional hasDrivingLicenseConditional with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', value: 'yes' });
+
+    // Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional with choices transitFareType
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputCheckboxTest({
+        context,
+        path: 'household.persons.${personId[0]}.transitFares',
+        values: ['transitPass']
+    });
+
+    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (householdSize === 1) {
+        testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: 'no' });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${personId[0]}.hasDisability',
+            isVisible: false
+        });
+    }
+
+    // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', value: 'hybrid' });
+
+    // Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', value: 'hybrid' });
+
+    // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputStringTest({
+        context,
+        path: 'household.persons.${personId[0]}.usualWorkPlace.name',
+        value: 'Bombardier'
+    });
+
+    // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputMapFindPlaceTest({
+        context,
+        path: 'household.persons.${personId[0]}.usualWorkPlace.geography'
+    });
+
+    // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputStringTest({
+        context,
+        path: 'household.persons.${personId[0]}.usualSchoolPlace.name',
+        value: 'Université de Montréal, Campus de la Montagne'
+    });
+
+    // Test custom widget personUsualSchoolPlaceGeography
+    testHelpers.inputMapFindPlaceTest({
+        context,
+        path: 'household.persons.${personId[0]}.usualSchoolPlace.geography'
+    });
+
+    // Test checkbox widget personTravelToWorkDays with conditional personTravelToWorkDaysConditional with choices lastWeekTravelToWorkDaysCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputCheckboxTest({
+        context,
+        path: 'household.persons.${personId[0]}.travelToWorkDays',
+        values: ['no']
+    });
+
+    // Test checkbox widget personRemoteWorkDays with conditional personRemoteWorkDaysConditional with choices lastWeekRemoteWorkDaysCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', values: ['no'] });
+
+    // Test checkbox widget personTravelToStudyDays with conditional personTravelToStudyDaysConditional with choices lastWeekTravelToStudyDaysCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputCheckboxTest({
+        context,
+        path: 'household.persons.${personId[0]}.travelToStudyDays',
+        values: ['no']
+    });
+
+    // Test checkbox widget personRemoteStudyDays with conditional personRemoteStudyDaysConditional with choices lastWeekRemoteStudyDaysCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputCheckboxTest({
+        context,
+        path: 'household.persons.${personId[0]}.remoteStudyDays',
+        values: ['no']
+    });
+
+    // Test nextbutton widget household_save
+    testHelpers.inputNextButtonTest({ context, text: 'Save and continue', nextPageUrl: '/survey/tripsIntro' });
+
+    // Verify the household navigation is completed
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'household',
+        buttonStatus: 'completed',
+        isDisabled: false
+    });
 };
