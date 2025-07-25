@@ -2,6 +2,7 @@ import { test } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';
 import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
+import * as commonUITestsHelpers from './common-UI-tests-helpers';
 
 const context = {
     page: null as any,
@@ -19,15 +20,21 @@ test.beforeAll(async ({ browser }) => {
 });
 
 /********** Start the survey **********/
+// Start the survey with access code and postal code, the combination does not exist
+const postalCode = 'G1R 5H2';
+// Generate a random access code in the format 0123-4567
+const accessCode = commonUITestsHelpers.generateRandomAccessCode();
 
-// Start the survey with email
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
     title: 'Enquête Nationale Origine-Destination 2025',
-    accessCode: '1234-1111',
-    postalCode: 'G1R 5H1',
-    expectedToExist: true,
+    accessCode: accessCode,
+    postalCode: postalCode,
+    expectedToExist: false,
     nextPageUrl: 'survey/home'
 });
+
+/********** Tests home section **********/
+commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 2 });
 
 // FIXME Implement the rest of the test
