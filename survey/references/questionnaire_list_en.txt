@@ -363,7 +363,7 @@ Your comments and suggestions about the survey (optional)
 
 The next questions are optional and are added for research purposes. You can complete the interview without answering them.
 
-Complete interview without optional questions
+Skip optional questions and complete
 
 Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
 
@@ -384,7 +384,7 @@ Have you considered, at any point, to abandon the survey?
 - No
 - I don't know
 
-Complete interview
+Complete the interview
 
 
 

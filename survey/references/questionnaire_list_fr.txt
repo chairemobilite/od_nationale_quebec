@@ -365,7 +365,7 @@ Vos commentaires et suggestions sur le questionnaire (facultatif)
 
 L'entrevue est maintenant terminée. Merci pour votre participation et votre patience!
 
-Terminer l'entrevue sans les questions optionnelles
+Ignorer les questions facultatives et terminer
 
 Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 

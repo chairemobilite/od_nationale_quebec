@@ -17,8 +17,8 @@ commentsOnSurvey: >-
     Vos <strong>commentaires et suggestions</strong> sur le questionnaire (facultatif)
 optionalIntroText: >-
     L'entrevue est maintenant terminée. Merci pour votre participation et votre patience!
-buttonCompleteInterviewWithCompleteSectionNoOptional: Terminer l'entrevue sans les
-    questions optionnelles
+buttonCompleteInterviewWithCompleteSectionNoOptional: Ignorer les questions facultatives
+    et terminer
 household.hybridCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
     hybrides rechargeables</strong>?

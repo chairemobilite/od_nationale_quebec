@@ -15,9 +15,9 @@ export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
     householdSize?: number;
 };
 
-// Generate a random access code in the format 0123-4567
+// Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
 export const generateRandomAccessCode = () =>
-    `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    `${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
 
 /********** Tests home section **********/
 export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
@@ -258,5 +258,150 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
         buttonText: 'household',
         buttonStatus: 'completed',
         isDisabled: false
+    });
+};
+
+/********** Tests tripsIntro section **********/
+export const fillTripsintroSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+    // Verify the tripsIntro navigation is active
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'trips',
+        buttonStatus: 'active',
+        isDisabled: false
+    });
+
+    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+    // Implement custom test
+
+    // TODO: Test custom widget buttonSwitchPerson
+    // Implement custom test
+
+    // TODO: Test custom widget personNewPerson
+    // Implement custom test
+
+    // TODO: Test custom widget personWhoWillAnswerForThisPerson
+    // Implement custom test
+
+    // Test custom widget personDidTrips
+    testHelpers.inputRadioTest({
+        context,
+        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.personDidTrips',
+        value: 'no'
+    });
+
+    // TODO: Test custom widget personDidTripsChangeConfirm
+    // Implement custom test
+
+    // TODO: Test custom widget visitedPlacesIntro
+    // Implement custom test
+
+    // TODO: Test custom widget personDeparturePlaceIsHome
+    // Implement custom test
+
+    // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({
+        context,
+        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
+        isVisible: false
+    });
+
+    // Test infotext widget tripsIntroOutro
+    testHelpers.waitTextVisible({
+        context,
+        text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential.'
+    });
+
+    // Test nextbutton widget tripsIntro_save
+    testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/end' });
+
+    // Verify the tripsIntro navigation is completed
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'trips',
+        buttonStatus: 'completed',
+        isDisabled: false
+    });
+};
+
+/********** Tests end section **********/
+export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+    // Verify the end navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'active', isDisabled: false });
+
+    // Test radio widget householdOwnership with choices householdOwnershipChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: 'tenant' });
+
+    // Test select widget householdIncome with choices householdIncomeChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputSelectTest({ context, path: 'household.income', value: '100000_149999' });
+
+    // Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite', value: 'yes' });
+
+    // Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputStringTest({
+        context,
+        path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
+        value: 'test@example.com'
+    });
+
+    // Test text widget householdCommentsOnSurvey
+    testHelpers.inputStringTest({ context, path: 'commentsOnSurvey', value: 'Test' });
+
+    // Test infotext widget optionalIntroText
+    testHelpers.waitTextVisible({
+        context,
+        text: 'The next questions are optional and are added for research purposes. You can complete the interview without answering them.'
+    });
+
+    // Test radionumber widget householdHybridCarNumber with conditional householdHasCars
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.hybridCarNumber', value: '1' });
+
+    // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.electricCarNumber', value: '1' });
+
+    // Test range widget endDurationOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 70, sliderColor: 'blue' });
+
+    // Test number widget endTimeSpentAnswering
+    testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '15' });
+
+    // Test range widget endInterestOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 75, sliderColor: 'red-yellow-green' });
+
+    // Test range widget endDifficultyOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 40, sliderColor: 'green-yellow-red' });
+
+    // Test range widget endBurdenOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'burdenOfTheSurvey', value: 30, sliderColor: 'green-yellow-red' });
+
+    // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'consideredAbandoningSurvey', value: 'no' });
+
+    // Test nextbutton widget buttonCompleteInterviewWithCompleteSection
+    testHelpers.inputNextButtonTest({ context, text: 'Complete the interview', nextPageUrl: '/survey/completed' });
+
+    // Verify the end navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'completed', isDisabled: false });
+};
+
+/********** Tests completed section **********/
+export const fillCompletedSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+    // Test infotext widget completedText
+    testHelpers.waitTextVisible({ context, text: 'Thank you for your participation!' });
+    testHelpers.waitTextVisible({
+        context,
+        text: 'We thank you for taking the time to fill out this survey. Your answers have been recorded. You can edit your answers by clicking on any of the sections in the menu at the top of the page.'
     });
 };

@@ -20,7 +20,8 @@ test.beforeAll(async ({ browser }) => {
 });
 
 /********** Start the survey **********/
-// Start the survey with access code and postal code, the combination does not exist
+// Start the survey using an access code and postal code combination that does not exist in the database.
+// The survey should still start a new interview with these credentials.
 const postalCode = 'G1R 5H2';
 // Generate a random access code in the format 0123-4567
 const accessCode = commonUITestsHelpers.generateRandomAccessCode();
