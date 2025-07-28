@@ -17,8 +17,8 @@ commentsOnSurvey: Your <strong>comments and suggestions</strong> about the surve
 optionalIntroText: >-
     The next questions are optional and are added for research purposes. You can complete
     the interview without answering them.
-buttonCompleteInterviewWithCompleteSectionNoOptional: Complete interview without optional
-    questions
+buttonCompleteInterviewWithCompleteSectionNoOptional: Skip optional questions and
+    complete
 household.hybridCarNumber: >-
     Among the vehicles owned by your household, how many are <strong>plug-in hybrid
     vehicles</strong>?
@@ -38,4 +38,4 @@ burdenOfTheSurvey: How <strong>burdensome (demanding)</strong> did you find this
     to be?
 consideredAbandoningSurvey: Have you considered, at any point, to <strong>abandon
     the survey</strong>?
-buttonCompleteInterviewWithCompleteSection: Complete interview
+buttonCompleteInterviewWithCompleteSection: Complete the interview
