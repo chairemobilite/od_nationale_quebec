@@ -29,13 +29,29 @@ const accessCode = commonUITestsHelpers.generateRandomAccessCode();
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
     title: 'Enquête Nationale Origine-Destination 2025',
-    accessCode: accessCode,
-    postalCode: postalCode,
+    accessCode,
+    postalCode,
     expectedToExist: false,
     nextPageUrl: 'survey/home'
 });
 
 /********** Tests home section **********/
 commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 2 });
+
+/********** Tests household section **********/
+commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 2 });
+
+/********** Tests selectPerson section **********/
+// TODO: Understand why this section is skipped for household size 2
+// commonUITestsHelpers.fillSelectPersonSectionTests({ context, householdSize: 2 });
+
+/********** Tests tripsIntro section **********/
+commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2 });
+
+/********** Tests end section **********/
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
+
+/********** Tests completed section **********/
+commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 2 });
 
 // FIXME Implement the rest of the test
