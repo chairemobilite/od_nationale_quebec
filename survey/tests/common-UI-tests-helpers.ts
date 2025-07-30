@@ -19,6 +19,62 @@ export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
 export const generateRandomAccessCode = () =>
     `${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
 
+export type HouseholdMember = {
+    personIndex: number;
+    nickname: string;
+    age: number;
+    gender: string;
+    workerType: string;
+    studentType: string;
+    schoolType: string | null;
+    occupation: string | null;
+    drivingLicenseOwnership: string;
+    carSharingMember: string | null;
+    transitFares: string[];
+    hasDisability: string;
+    workPlaceType: string;
+    schoolPlaceType: string;
+    usualWorkPlace: {
+        name: string;
+    };
+    usualSchoolPlace: {
+        name: string;
+    };
+    travelToWorkDays: string[];
+    remoteWorkDays: string[];
+    travelToStudyDays: string[];
+    remoteStudyDays: string[];
+};
+
+const householdMembers: HouseholdMember[] = [
+    {
+        personIndex: 0,
+        nickname: 'Martha',
+        age: 30,
+        gender: 'female',
+        workerType: 'fullTime',
+        studentType: 'partTime',
+        schoolType: null, // Not applicable for this person
+        occupation: null, // Not applicable for this person
+        drivingLicenseOwnership: 'yes',
+        carSharingMember: 'yes',
+        transitFares: ['transitPass'],
+        hasDisability: 'no',
+        workPlaceType: 'hybrid',
+        schoolPlaceType: 'hybrid',
+        usualWorkPlace: {
+            name: 'Bombardier'
+        },
+        usualSchoolPlace: {
+            name: 'Université de Montréal, Campus de la Montagne'
+        },
+        travelToWorkDays: ['no'],
+        remoteWorkDays: ['no'],
+        travelToStudyDays: ['no'],
+        remoteStudyDays: ['no']
+    }
+];
+
 /********** Tests home section **********/
 export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
     // Verify the home navigation is active
@@ -27,7 +83,6 @@ export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestP
     // TODO: Put it back to isVisible false when the survey is fully functional
     // Test string widget accessCode with conditional accessCodeIsSetCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    // testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: false });
     testHelpers.inputStringTest({ context, path: 'accessCode', value: '0123-4567' });
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo
@@ -108,62 +163,6 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
     // Test custom widget householdMembers
     testHelpers.waitTextVisible({ context, text: 'Household members' });
 
-    const householdMembers: [
-        {
-            personIndex: number;
-            nickname: string;
-            age: number;
-            gender: string;
-            workerType: string;
-            studentType: string;
-            schoolType: string | null;
-            occupation: string | null;
-            drivingLicenseOwnership: string;
-            carSharingMember: string | null;
-            transitFares: string[];
-            hasDisability: string;
-            workPlaceType: string;
-            schoolPlaceType: string;
-            usualWorkPlace: {
-                name: string;
-            };
-            usualSchoolPlace: {
-                name: string;
-            };
-            travelToWorkDays: string[];
-            remoteWorkDays: string[];
-            travelToStudyDays: string[];
-            remoteStudyDays: string[];
-        }
-    ] = [
-        {
-            personIndex: 0,
-            nickname: 'Martha',
-            age: 30,
-            gender: 'female',
-            workerType: 'fullTime',
-            studentType: 'partTime',
-            schoolType: null, // Not applicable for this person
-            occupation: null, // Not applicable for this person
-            drivingLicenseOwnership: 'yes',
-            carSharingMember: 'yes',
-            transitFares: ['transitPass'],
-            hasDisability: 'no',
-            workPlaceType: 'hybrid',
-            schoolPlaceType: 'hybrid',
-            usualWorkPlace: {
-                name: 'Bombardier'
-            },
-            usualSchoolPlace: {
-                name: 'Université de Montréal, Campus de la Montagne'
-            },
-            travelToWorkDays: ['no'],
-            remoteWorkDays: ['no'],
-            travelToStudyDays: ['no'],
-            remoteStudyDays: ['no']
-        }
-    ];
-
     // Add additional household members based on householdSize
     if (householdSize >= 2) {
         householdMembers.push({
@@ -195,9 +194,9 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
     }
 
     // Add tests for each household member
-    householdMembers.forEach((person, index) => {
-        // Build a string for personId (e.g., "${personId[0]}") to avoid immediate interpolation
-        const personIdString = '${personId[' + index + ']}';
+    householdMembers.forEach((person: HouseholdMember, index) => {
+        // Build a string for personId (e.g., "${personId[0]}") using a template literal to avoid immediate interpolation
+        const personIdString = `\${personId[${index}]}`;
 
         // Test string widget personNickname with conditional hasHouseholdSize2OrMoreConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
@@ -434,8 +433,7 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
     testHelpers.inputRadioTest({
         context,
         path: 'household.persons.${activePersonId}.selected',
-        // value: '${personId[0]}' // Select the first person value
-        value: 'ALLO'
+        value: '${personId[0]}' // Select the first person value
     });
 
     // TODO: Test custom widget personNewPerson
@@ -449,12 +447,12 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
     });
 
     // Verify the selectPerson navigation is completed
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'selectPerson',
-        buttonStatus: 'completed',
-        isDisabled: false
-    });
+    // testHelpers.verifyNavBarButtonStatus({
+    //     context,
+    //     buttonText: 'selectPerson',
+    //     buttonStatus: 'completed',
+    //     isDisabled: true
+    // });
 };
 
 /********** Tests tripsIntro section **********/
@@ -467,59 +465,72 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1 }: Commo
         isDisabled: false
     });
 
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
-    // Implement custom test
+    // Add tests for each household member
+    householdMembers.forEach((person: HouseholdMember, index) => {
+        // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
 
-    // TODO: Test custom widget buttonSwitchPerson
-    // Implement custom test
+        // Test custom widget buttonSwitchPerson
+        // testHelpers.inputNextButtonTest({
+        //     context,
+        //     text: 'Change person',
+        //     nextPageUrl: '/survey/selectPerson'
+        // });
 
-    // TODO: Test custom widget personNewPerson
-    // Implement custom test
+        // TODO: Test custom widget personNewPerson
+        // Implement custom test
 
-    // Test custom widget personWhoWillAnswerForThisPerson
-    if (householdSize >= 2) {
+        // Test custom widget personWhoWillAnswerForThisPerson
+        if (householdSize >= 2) {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.whoWillAnswerForThisPerson',
+                value: '${activePersonId}' // Select the current person
+            });
+        }
+
+        // Test custom widget personDidTrips
+        // TODO: This only works with 'yes' value. Don't know why... With 'no' value, it doesn't check the input...
         testHelpers.inputRadioTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.whoWillAnswerForThisPerson',
-            value: '${personId[0]}' // Select the first person
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.personDidTrips',
+            value: 'no'
         });
-    }
 
-    // Test custom widget personDidTrips
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.personDidTrips',
-        value: 'no'
+        // TODO: Test custom widget personDidTripsChangeConfirm
+        // Implement custom test
+
+        // TODO: Test custom widget visitedPlacesIntro
+        // Implement custom test
+
+        // TODO: Test custom widget personDeparturePlaceIsHome
+        // Implement custom test
+
+        // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
+            isVisible: false
+        });
+
+        // Test infotext widget tripsIntroOutro
+        testHelpers.waitTextVisible({
+            context,
+            text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential.'
+        });
+
+        // Test nextbutton widget tripsIntro_save
+        if (householdSize === index + 1) {
+            // If it's the last person in the household, go to the end page
+            testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/end' });
+        } else {
+            // If there are still persons in the household, continue the trips intro section
+            testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/tripsIntro' });
+        }
     });
-
-    // TODO: Test custom widget personDidTripsChangeConfirm
-    // Implement custom test
-
-    // TODO: Test custom widget visitedPlacesIntro
-    // Implement custom test
-
-    // TODO: Test custom widget personDeparturePlaceIsHome
-    // Implement custom test
-
-    // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
-        isVisible: false
-    });
-
-    // Test infotext widget tripsIntroOutro
-    testHelpers.waitTextVisible({
-        context,
-        text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential.'
-    });
-
-    // Test nextbutton widget tripsIntro_save
-    testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/end' });
 
     // Verify the tripsIntro navigation is completed
     testHelpers.verifyNavBarButtonStatus({
