@@ -98,6 +98,11 @@ Occupation principale
 - Autre
 - Préfère ne pas répondre
 
+Avant d’être en congé, est-ce que {{nickname}} travaillait ?
+- Oui, à temps plein
+- Oui, à temps partiel
+- Non
+
 Permis de conduire
 Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur·rice}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
 - Oui

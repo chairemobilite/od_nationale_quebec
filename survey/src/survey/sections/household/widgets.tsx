@@ -109,6 +109,25 @@ export const personOccupation: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
+export const personWorkerTypeBeforeLeave: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'workerTypeBeforeLeave',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:workerTypeBeforeLeave', {
+            nickname,
+            count: countPersons
+        });
+    },
+    choices: choices.participationStatus,
+    conditional: conditionals.parentalOrSickLeaveConditional,
+    validations: validations.requiredValidation
+};
+
 export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'drivingLicenseOwnership',

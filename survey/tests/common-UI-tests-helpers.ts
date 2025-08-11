@@ -28,6 +28,7 @@ export type HouseholdMember = {
     studentType: string;
     schoolType: string | null;
     occupation: string | null;
+    workerTypeBeforeLeave: string | null;
     drivingLicenseOwnership: string;
     carSharingMember: string | null;
     transitFares: string[];
@@ -56,6 +57,7 @@ const householdMembers: HouseholdMember[] = [
         studentType: 'partTime',
         schoolType: null, // Not applicable for this person
         occupation: null, // Not applicable for this person
+        workerTypeBeforeLeave: null, // Not applicable for this person
         drivingLicenseOwnership: 'yes',
         carSharingMember: 'yes',
         transitFares: ['transitPass'],
@@ -174,6 +176,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             studentType: 'fullTime',
             schoolType: null, // Not applicable for this person
             occupation: null, // Not applicable for this person
+            workerTypeBeforeLeave: null, // Not applicable for this person
             drivingLicenseOwnership: 'no',
             carSharingMember: null, // Not applicable for this person
             transitFares: ['transitPass'],
@@ -268,6 +271,16 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
                 path: `household.persons.${personIdString}.occupation`,
                 isVisible: false
             });
+        }
+
+        // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatus
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (person.occupation !== 'parentalOrSickLeave') {
+            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, isVisible: false });
+        } else {
+            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, isVisible: true });
+            testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, value: person.workerTypeBeforeLeave! });
         }
 
         // Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow

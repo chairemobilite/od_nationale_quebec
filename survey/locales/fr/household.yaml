@@ -28,6 +28,10 @@ studentType_female: <strong>Étudiante</strong>
 studentType: <strong>Étudiant·e</strong>
 schoolType: <strong>Établissement d'enseignement / type d'école</strong>
 occupation: <strong>Occupation principale</strong>
+workerTypeBeforeLeave: >-
+    <strong>Avant d’être en congé</strong>, est-ce que {{nickname}} travaillait ?
+workerTypeBeforeLeave_one: <strong>Avant d’être en congé</strong>, est-ce que vous
+    travailliez ?
 drivingLicenseOwnership_male: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur et probatoires, mais ne pas inclure les permis
