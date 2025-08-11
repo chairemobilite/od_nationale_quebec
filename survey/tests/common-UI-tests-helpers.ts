@@ -82,10 +82,9 @@ export const fillHomeSectionTests = ({ context, householdSize = 1, addressIsFill
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
 
-    // TODO: Put it back to isVisible false when the survey is fully functional
     // Test string widget accessCode with conditional accessCodeIsSetCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputStringTest({ context, path: 'accessCode', value: '0123-4567' });
+    testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: false });
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */

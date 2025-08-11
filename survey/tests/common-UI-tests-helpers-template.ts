@@ -47,7 +47,9 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
     // Progress bar test for home section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'home', completionPercentage: 0 });
 
-    // Test string widget accessCode
+    // Test string widget accessCode with conditional accessCodeIsSetCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'accessCode', value: '?' });
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo

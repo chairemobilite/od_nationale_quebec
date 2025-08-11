@@ -22,7 +22,7 @@ export const accessCode: WidgetConfig.InputStringType = {
     containsHtml: true,
     inputFilter: formatters.eightDigitsAccessCodeFormatter,
     label: (t: TFunction) => t('home:accessCode'),
-    conditional: defaultConditional,
+    conditional: customConditionals.accessCodeIsSetCustomConditional,
     validations: validations.requiredValidation
 };
 
