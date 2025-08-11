@@ -492,3 +492,17 @@ export const personRemoteWorkDaysConditional: WidgetConditional = (interview, pa
         ]
     });
 };
+
+export const parentalOrSickLeaveConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'parentalOrSickLeave'
+            }
+        ]
+    });
+};

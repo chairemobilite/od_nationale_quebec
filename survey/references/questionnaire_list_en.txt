@@ -98,6 +98,11 @@ Main occupation
 - Other
 - Prefer not to answer
 
+Before being on leave, did {{nickname}} work ?
+- Yes, full time
+- Yes, part time
+- No
+
 Driver's licence
 Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits.
 - Yes

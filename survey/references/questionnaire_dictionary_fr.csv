@@ -150,6 +150,14 @@ volunteer : Bénévole
 other : Autre
 preferNotToAnswer : Préfère ne pas répondre"
 ""
+Champ,workerTypeBeforeLeave
+Type de question,Bouton radio
+Conditionnel,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
+Question,"Avant d’être en congé, est-ce que {{nickname}} travaillait ?"
+Valeurs,"fullTime : Oui, à temps plein
+partTime : Oui, à temps partiel
+no : Non"
+""
 Champ,drivingLicenseOwnership
 Type de question,Bouton radio
 Conditionnel,ifAge16OrMoreConditional : age >= 16

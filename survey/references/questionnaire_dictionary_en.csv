@@ -150,6 +150,14 @@ volunteer : Volunteer
 other : Other
 preferNotToAnswer : Prefer not to answer"
 ""
+Field,workerTypeBeforeLeave
+Question type,Radio input
+Conditional,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
+Question,"Before being on leave, did {{nickname}} work ?"
+Values,"fullTime : Yes, full time
+partTime : Yes, part time
+no : No"
+""
 Field,drivingLicenseOwnership
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16
