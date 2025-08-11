@@ -122,6 +122,16 @@ Il est aussi possible d'exécuter les tests UI. Ces tests automatisés vérifien
 
 Pour faciliter cette étape, un fichier `tasks.json` est fourni pour les utilisateurs de VSCode : il permet de lancer rapidement un terminal de développement avec la tâche `Start Dev Terminal`, qui démarre le client et le serveur dans le bon environnement.
 
+Les tests Playwright utilisent une connexion aux enquêtes via l'authentification par codes d'accès et codes postaux. Ces codes doivent d'abord être importés dans la BD pour permettre un login direct, sans CAPTCHA, avec des adresses pré-remplies. Chaque test UI utilise une paire code d'accès/code postal différent. Pour ajouter un test, il suffit d'ajouter une ligne au fichier de [codes d'accès pré-remplis](survey/tests/preFilledDataSample.csv) avec le code d'accès désiré. Pour faciliter le traitement des données de test, tous les tests UI ont un code d'accès qui débute par `7357` (test).
+
+Pour importer les données à pré-remplir, exécuter la commande suivante, avec le chemin absolu vers le fichier csv contenant les données:
+
+```bash
+yarn node evolution/packages/evolution-backend/lib/tasks/importPreFilledResponses.task.js --file "$(pwd)/survey/tests/preFilledDataSample.csv"
+```
+
+Pour nettoyer les données locales avant de rouler les tests UI, sans toucher aux autres entrevues manuelles, exécuter la tâche `yarn reset:test:ui`. Cette commande supprimera tous les participants dont le code d'accès débute par `7357-`. Assurez-vous d’être connecté à une base de données de développement; ne jamais exécuter cette commande sur une base de production.
+
 Avant d'exécuter les tests UI, assurez-vous également d'utiliser le bon fichier de configuration Playwright. Par défaut, copiez le fichier d'exemple fourni :
 
 ```bash
