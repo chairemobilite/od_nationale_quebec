@@ -43,11 +43,11 @@ commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 2 });
 // TODO: Understand why this section is skipped for household size 2
 // commonUITestsHelpers.fillSelectPersonSectionTests({ context, householdSize: 2 });
 
-// /********** Tests tripsIntro section **********/
-// commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2 });
+/********** Tests tripsIntro section **********/
+commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2 });
 
-// /********** Tests end section **********/
-// commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
+/********** Tests end section **********/
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
 
-// /********** Tests completed section **********/
-// commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 2 });
+/********** Tests completed section **********/
+commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 2 });
