@@ -523,7 +523,6 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1 }: Commo
         }
 
         // Test custom widget personDidTrips
-        // TODO: This only works with 'yes' value. Don't know why... With 'no' value, it doesn't check the input...
         testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.personDidTrips',
