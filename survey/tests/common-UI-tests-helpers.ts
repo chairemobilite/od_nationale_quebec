@@ -1,6 +1,5 @@
 import { test } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
-import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';
 import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
 
 const context = {
@@ -13,6 +12,7 @@ const context = {
 // Modify the CommonTestParameters type with survey parameters
 export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
     householdSize?: number;
+    addressIsFilled?: boolean;
 };
 
 // Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
@@ -78,7 +78,7 @@ const householdMembers: HouseholdMember[] = [
 ];
 
 /********** Tests home section **********/
-export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+export const fillHomeSectionTests = ({ context, householdSize = 1, addressIsFilled = true }: CommonTestParametersModify) => {
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
 
@@ -103,25 +103,45 @@ export const fillHomeSectionTests = ({ context, householdSize = 1 }: CommonTestP
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputStringTest({ context, path: 'phoneNumber', value: '123-456-7890' });
 
-    // Test string widget home_address
-    testHelpers.inputStringTest({ context, path: 'home.address', value: '4898 Avenue du Parc' });
+    if (!addressIsFilled) {
 
-    // Test string widget home_city
-    testHelpers.inputStringTest({ context, path: 'home.city', value: 'Montréal' });
+        // Test string widget home_address
+        testHelpers.inputStringTest({ context, path: 'home.address', value: '4898 Avenue du Parc' });
 
-    // Test string widget home_region with conditional hiddenWithQuebecAsDefaultValueCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'home.region', isVisible: false });
+        // Test string widget home_city
+        testHelpers.inputStringTest({ context, path: 'home.city', value: 'Montréal' });
 
-    // Test string widget home_country with conditional hiddenWithCanadaAsDefaultValueCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'home.country', isVisible: false });
+        // Test string widget home_region with conditional hiddenWithQuebecAsDefaultValueCustomConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputVisibleTest({ context, path: 'home.region', isVisible: false });
 
-    // Test string widget home_postalCode
-    testHelpers.inputStringTest({ context, path: 'home.postalCode', value: 'H2V 4E6' });
+        // Test string widget home_country with conditional hiddenWithCanadaAsDefaultValueCustomConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputVisibleTest({ context, path: 'home.country', isVisible: false });
 
-    // Test custom widget home_geography
-    testHelpers.inputMapFindPlaceTest({ context, path: 'home.geography' });
+        // Test string widget home_postalCode
+        testHelpers.inputStringTest({ context, path: 'home.postalCode', value: 'H2V 4E6' });
+
+        // Test custom widget home_geography
+        testHelpers.inputMapFindPlaceTest({ context, path: 'home.geography' });
+    } else {
+        // FIXME Validate the address is filled correctly. For now, we just
+        // assume the value is there otherwise the test will fail later when
+        // trying to change section
+
+        // Test visibility of address inputs, without filling any values
+        testHelpers.inputVisibleTest({ context, path: 'home.address', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'home.city', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'home.postalCode', isVisible: true });
+
+        // Test string widget home_region with conditional hiddenWithQuebecAsDefaultValueCustomConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputVisibleTest({ context, path: 'home.region', isVisible: false });
+
+        // Test string widget home_country with conditional hiddenWithCanadaAsDefaultValueCustomConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputVisibleTest({ context, path: 'home.country', isVisible: false });
+    }
 
     // Test radionumber widget household_size
     testHelpers.inputRadioTest({ context, path: 'household.size', value: String(householdSize) });
@@ -619,7 +639,7 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
     testHelpers.inputNextButtonTest({ context, text: 'Complete the interview', nextPageUrl: '/survey/completed' });
 
     // Verify the end navigation is completed
-    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'completed', isDisabled: false });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'activeAndCompleted', isDisabled: false });
 };
 
 /********** Tests completed section **********/

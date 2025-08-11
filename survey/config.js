@@ -57,7 +57,7 @@ module.exports = Object.assign({
     },
     auth: {
         passwordless: false,
-        anonymous: true,
+        anonymous: false,
         google: false,
         facebook: false,
         byField: {
