@@ -39,6 +39,9 @@ jobs:
         submodules: recursive
     - name: copy env file
       run: cp .env.example .env
+    - name: display env variables
+      # This is to display the environment variables in the log, so that we can debug if something goes wrong
+      run: env
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
