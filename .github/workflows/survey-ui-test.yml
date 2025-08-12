@@ -31,7 +31,7 @@ jobs:
       PROJECT_CONFIG: ${{ github.workspace }}/survey/config.js
       PG_CONNECTION_STRING_PREFIX: postgres://testuser:testpassword@localhost:5432/
       PG_DATABASE_PRODUCTION: testdb
-      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY_GITHUB_PUBLIC }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       CI: true ## This is to make sure that the tests run in CI mode
     steps:
     - uses: actions/checkout@v4
@@ -39,9 +39,6 @@ jobs:
         submodules: recursive
     - name: copy env file
       run: cp .env.example .env
-    - name: display env variables
-      # This is to display the environment variables in the log, so that we can debug if something goes wrong
-      run: env
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
