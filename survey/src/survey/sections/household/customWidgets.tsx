@@ -9,6 +9,7 @@ import * as conditionals from '../../common/conditionals';
 import { householdMembersWidgetsNames } from './widgetsNames';
 import inaccessibleZones from '../../geojson/inaccessibleZones.json';
 import * as customConditionals from '../../common/customConditionals';
+import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
 
 // TODO: Migrate most of these widgets in Evolution Frontend, not here.
 export const householdMembers: GroupConfig = {
@@ -76,11 +77,11 @@ export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
         });
     },
     icon: {
-        url: '/dist/images/activities_icons/workUsual_marker.svg',
+        url: getActivityMarkerIcon('workUsual'),
         size: [70, 70]
     },
     placesIcon: {
-        url: (interview, path) => '/dist/images/activities_icons/default_marker.svg',
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_fill.svg',
         size: [70, 70]
     },
     defaultCenter: function (interview, path) {
@@ -156,11 +157,11 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
         });
     },
     icon: {
-        url: '/dist/images/activities_icons/schoolUsual_marker.svg',
+        url: getActivityMarkerIcon('schoolUsual'),
         size: [70, 70]
     },
     placesIcon: {
-        url: (interview, path) => '/dist/images/activities_icons/default_marker.svg',
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_fill.svg',
         size: [70, 70]
     },
     defaultCenter: function (interview, path) {
