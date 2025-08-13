@@ -21,6 +21,10 @@ import {
 } from 'evolution-frontend/lib/services/display/frontendHelper';
 import { getPersonVisitedPlacesMapConfig } from 'evolution-common/lib/services/questionnaire/sections/common/widgetPersonVisitedPlacesMap';
 import {
+    getActivityIcon,
+    getActivityMarkerIcon
+} from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
+import {
     isStudent,
     isStudentFromEnrolled,
     carsharingMembersCountInHousehold,
@@ -146,7 +150,7 @@ export const visitedPlaceActivityCategory: WidgetConfig.InputRadioType = {
         {
             value: 'home',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:home'),
-            iconPath: '/dist/images/activities_icons/home_round.svg',
+            iconPath: getActivityIcon('home'),
             conditional: function (interview, path) {
                 // hide if previous visited place is home:
                 const person = odSurveyHelpers.getPerson({ interview });
@@ -171,7 +175,7 @@ export const visitedPlaceActivityCategory: WidgetConfig.InputRadioType = {
         {
             value: 'work',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:work'),
-            iconPath: '/dist/images/activities_icons/workUsual_round.svg',
+            iconPath: getActivityIcon('work'),
             conditional: function (interview, path) {
                 // hide if younger than 15:
                 const person = odSurveyHelpers.getPerson({ interview });
@@ -213,27 +217,27 @@ export const visitedPlaceActivityCategory: WidgetConfig.InputRadioType = {
                         isStudentFromEnrolled(person))
                 );
             },
-            iconPath: '/dist/images/activities_icons/schoolUsual_round.svg'
+            iconPath: getActivityIcon('school')
         },
         {
             value: 'shoppingServiceRestaurant',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:shoppingServiceRestaurant'),
-            iconPath: '/dist/images/activities_icons/shopping_round.svg'
+            iconPath: getActivityIcon('shoppingServiceRestaurant')
         },
         {
             value: 'dropFetchSomeone',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:dropFetchSomeone'),
-            iconPath: '/dist/images/activities_icons/dropSomeone_round.svg'
+            iconPath: getActivityIcon('dropFetchSomeone')
         },
         {
             value: 'leisure',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:leisure'),
-            iconPath: '/dist/images/activities_icons/leisure_round.svg'
+            iconPath: getActivityIcon('leisure')
         },
         {
             value: 'otherParentHome',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:otherParentHome'),
-            iconPath: '/dist/images/activities_icons/otherParentHome_round.svg',
+            iconPath: getActivityIcon('otherParentHome'),
             conditional: function (interview, path) {
                 // hide if previous visited place is home:
                 const person = odSurveyHelpers.getPerson({ interview });
@@ -259,7 +263,7 @@ export const visitedPlaceActivityCategory: WidgetConfig.InputRadioType = {
         {
             value: 'other',
             label: (t: TFunction) => t('survey:visitedPlace:activityCategories:other'),
-            iconPath: '/dist/images/activities_icons/other_round.svg'
+            iconPath: getActivityIcon('other')
         }
     ],
     validations: function (value) {
@@ -284,7 +288,7 @@ const visitedPlaceActivityChoices = [
     {
         value: 'workUsual',
         label: (t: TFunction) => t('survey:visitedPlace:activities:workUsual'),
-        iconPath: '/dist/images/activities_icons/workUsual_round.svg',
+        iconPath: getActivityIcon('workUsual'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getActivePerson({ interview });
             const journey = odSurveyHelpers.getActiveJourney({ interview });
@@ -324,7 +328,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'work';
         },
-        iconPath: '/dist/images/activities_icons/workNotUsual_round.svg'
+        iconPath: getActivityIcon('workNotUsual')
     },
     {
         value: 'workOnTheRoad',
@@ -333,7 +337,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'work';
         },
-        iconPath: '/dist/images/activities_icons/workOnTheRoad_round.svg'
+        iconPath: getActivityIcon('workOnTheRoad')
     },
     {
         value: 'schoolUsual',
@@ -375,7 +379,7 @@ const visitedPlaceActivityChoices = [
                 (!nextVisitedPlace || (nextVisitedPlace && nextVisitedPlace.activity !== 'schoolUsual'))
             );
         },
-        iconPath: '/dist/images/activities_icons/schoolUsual_round.svg'
+        iconPath: getActivityIcon('schoolUsual')
     },
     {
         value: 'schoolNotUsual',
@@ -384,7 +388,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'school';
         },
-        iconPath: '/dist/images/activities_icons/schoolNotUsual_round.svg'
+        iconPath: getActivityIcon('schoolNotUsual')
     },
     {
         value: 'shopping',
@@ -393,7 +397,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'shoppingServiceRestaurant';
         },
-        iconPath: '/dist/images/activities_icons/shopping_round.svg'
+        iconPath: getActivityIcon('shopping')
     },
     {
         value: 'restaurant',
@@ -406,7 +410,7 @@ const visitedPlaceActivityChoices = [
                 activityCategory === 'other'
             );
         },
-        iconPath: '/dist/images/activities_icons/restaurant_round.svg'
+        iconPath: getActivityIcon('restaurant')
     },
     {
         value: 'service',
@@ -415,7 +419,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'shoppingServiceRestaurant' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/service_round.svg'
+        iconPath: getActivityIcon('service')
     },
     {
         value: 'dropSomeone',
@@ -424,7 +428,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'dropFetchSomeone' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/dropSomeone_round.svg'
+        iconPath: getActivityIcon('dropSomeone')
     },
     {
         value: 'fetchSomeone',
@@ -433,7 +437,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'dropFetchSomeone' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/fetchSomeone_round.svg'
+        iconPath: getActivityIcon('fetchSomeone')
     },
     {
         value: 'accompanySomeone', // added in PR merged on 2023/09/11, added some days later in the production questionnaire
@@ -442,7 +446,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'other' || activityCategory === 'dropFetchSomeone';
         },
-        iconPath: '/dist/images/activities_icons/accompanySomeone_round.svg'
+        iconPath: getActivityIcon('accompanySomeone')
     },
     {
         value: 'leisureStroll',
@@ -451,7 +455,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'leisure' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/leisureStroll_round.svg'
+        iconPath: getActivityIcon('leisureStroll')
     },
     {
         value: 'leisureSports',
@@ -460,7 +464,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'leisure';
         },
-        iconPath: '/dist/images/activities_icons/leisureSports_round.svg'
+        iconPath: getActivityIcon('leisureSports')
     },
     {
         value: 'leisureArtsMusicCulture',
@@ -469,7 +473,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'leisure';
         },
-        iconPath: '/dist/images/activities_icons/leisure_round.svg'
+        iconPath: getActivityIcon('leisureArtsMusicCulture')
     },
     {
         value: 'leisureTourism',
@@ -478,7 +482,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'leisure';
         },
-        iconPath: '/dist/images/activities_icons/leisureTourism_round.svg'
+        iconPath: getActivityIcon('leisureTourism')
     },
     {
         value: 'visiting',
@@ -487,7 +491,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'leisure' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/visiting_round.svg'
+        iconPath: getActivityIcon('visiting')
     },
     {
         value: 'medical',
@@ -496,7 +500,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'shoppingServiceRestaurant' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/medical_round.svg'
+        iconPath: getActivityIcon('medical')
     },
     {
         value: 'veterinarian',
@@ -505,7 +509,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'shoppingServiceRestaurant' || activityCategory === 'other';
         },
-        iconPath: '/dist/images/activities_icons/veterinarian_round.svg'
+        iconPath: getActivityIcon('veterinarian')
     },
     {
         value: 'worship',
@@ -518,7 +522,7 @@ const visitedPlaceActivityChoices = [
                 activityCategory === 'shoppingServiceRestaurant'
             );
         },
-        iconPath: '/dist/images/activities_icons/worship_round.svg'
+        iconPath: getActivityIcon('worship')
     },
     {
         value: 'volunteering',
@@ -527,7 +531,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'other' || activityCategory === 'work' || activityCategory === 'leisure';
         },
-        iconPath: '/dist/images/activities_icons/volunteering_round.svg'
+        iconPath: getActivityIcon('volunteering')
     },
     {
         value: 'secondaryHome',
@@ -536,7 +540,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'other' || activityCategory === 'leisure';
         },
-        iconPath: '/dist/images/activities_icons/secondaryHome_round.svg'
+        iconPath: getActivityIcon('secondaryHome')
     },
     {
         value: 'schoolNotStudent',
@@ -546,7 +550,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'other' && !isStudent(person) && person.age && person.age >= 16;
         },
-        iconPath: '/dist/images/activities_icons/schoolNotUsual_round.svg'
+        iconPath: getActivityIcon('schoolNotStudent')
     },
     {
         value: 'carElectricChargingStation',
@@ -560,7 +564,7 @@ const visitedPlaceActivityChoices = [
                 (activityCategory === 'shoppingServiceRestaurant' || activityCategory === 'other')
             );
         },
-        iconPath: '/dist/images/activities_icons/carElectricChargingStation_round.svg'
+        iconPath: getActivityIcon('carElectricChargingStation')
     },
     {
         value: 'carsharingStation',
@@ -573,7 +577,7 @@ const visitedPlaceActivityChoices = [
                 (activityCategory === 'shoppingServiceRestaurant' || activityCategory === 'other')
             );
         },
-        iconPath: '/dist/images/activities_icons/carsharingStation_round.svg'
+        iconPath: getActivityIcon('carsharingStation')
     },
     {
         value: 'pickClassifiedPurchase',
@@ -582,7 +586,7 @@ const visitedPlaceActivityChoices = [
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
             return activityCategory === 'other' || activityCategory === 'shoppingServiceRestaurant';
         },
-        iconPath: '/dist/images/activities_icons/pickClassifiedPurchase_round.svg'
+        iconPath: getActivityIcon('pickClassifiedPurchase')
     },
     {
         value: 'other',
@@ -596,7 +600,7 @@ const visitedPlaceActivityChoices = [
                 activityCategory === 'leisure'
             );
         },
-        iconPath: '/dist/images/activities_icons/other_round.svg'
+        iconPath: getActivityIcon('other')
     }
 ];
 
@@ -920,12 +924,12 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
         url: function (interview, path) {
             const activity: any = getResponse(interview, path, null, '../activity');
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
-            return `/dist/images/activities_icons/${activity || activityCategory || 'default'}_marker.svg`;
+            return getActivityMarkerIcon(activity || activityCategory);
         },
         size: [70, 70]
     },
     placesIcon: {
-        url: (interview, path) => '/dist/images/activities_icons/default_marker.svg',
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_fill.svg',
         size: [70, 70]
     },
     defaultCenter: function (interview, path) {

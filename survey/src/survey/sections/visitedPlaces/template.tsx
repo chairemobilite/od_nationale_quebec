@@ -34,6 +34,7 @@ import {
 import { selectNextIncompleteVisitedPlace } from '../../common/helper';
 import { GroupConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { getActivityIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
 
 const percentLengthOfOneSecond = 100.0 / (28 * 3600);
 
@@ -184,7 +185,7 @@ export const VisitedPlacesSection: React.FC<SectionProps> = (props: SectionProps
                 >
                     <div className="survey-visited-places-schedule-visited-place-icon">
                         <img
-                            src={`/dist/images/activities_icons/${visitedPlace.activity}_plain.svg`}
+                            src={getActivityIcon(visitedPlace.activity)}
                             style={{ height: '2em' }}
                             alt={
                                 visitedPlace.activity
@@ -284,7 +285,7 @@ export const VisitedPlacesSection: React.FC<SectionProps> = (props: SectionProps
                     {visitedPlace._sequence}.{' '}
                     {activity && (
                         <img
-                            src={`/dist/images/activities_icons/${activity}_marker.svg`}
+                            src={getActivityIcon(activity)}
                             style={{ height: '4rem' }}
                             alt={activity ? t(`survey:visitedPlace:activities:${activity}`) : ''}
                         />

@@ -5,6 +5,7 @@ import * as inputTypes from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
 import * as customValidations from '../../common/customValidations';
 import { defaultInvalidGeocodingResultTypes } from '../../common/customGeoData';
+import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
 
 export const home_geography: inputTypes.InputMapFindPlaceType = {
     ...defaultInputBase.inputMapFindPlaceBase,
@@ -13,7 +14,7 @@ export const home_geography: inputTypes.InputMapFindPlaceType = {
         return t('home:home.geography');
     },
     icon: {
-        url: '/dist/images/activities_icons/home_marker.svg',
+        url: getActivityMarkerIcon('home'),
         size: [70, 70]
     },
     geocodingQueryString: (interview) => {
