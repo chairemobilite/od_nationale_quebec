@@ -103,6 +103,16 @@ Before being on leave, did {{nickname}} work ?
 - Yes, part time
 - No
 
+Highest level of educational attainment
+When in doubt, choose the level which seems to match best
+- No certificate, diploma or degree
+- High school (secondary) diploma or equivalency certificate
+- Apprenticeship or trades certificate or diploma
+- College, CEGEP or other non-university certificate or diploma
+- University certificate or diploma below bachelor level
+- Bachelor's degree or higher
+- I prefer not to answer
+
 Driver's licence
 Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits.
 - Yes

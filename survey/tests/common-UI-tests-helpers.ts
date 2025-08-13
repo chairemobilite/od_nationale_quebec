@@ -29,6 +29,7 @@ export type HouseholdMember = {
     schoolType: string | null;
     occupation: string | null;
     workerTypeBeforeLeave: string | null;
+    educationalAttainment: string | null;
     drivingLicenseOwnership: string;
     carSharingMember: string | null;
     transitFares: string[];
@@ -58,6 +59,7 @@ const householdMembers: HouseholdMember[] = [
         schoolType: null, // Not applicable for this person
         occupation: null, // Not applicable for this person
         workerTypeBeforeLeave: null, // Not applicable for this person
+        educationalAttainment: 'postSecondaryNonTertiaryEducation',
         drivingLicenseOwnership: 'yes',
         carSharingMember: 'yes',
         transitFares: ['transitPass'],
@@ -196,6 +198,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             schoolType: null, // Not applicable for this person
             occupation: null, // Not applicable for this person
             workerTypeBeforeLeave: null, // Not applicable for this person
+            educationalAttainment: 'bachelorOrHigher',
             drivingLicenseOwnership: 'no',
             carSharingMember: null, // Not applicable for this person
             transitFares: ['transitPass'],
@@ -302,6 +305,15 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, value: person.workerTypeBeforeLeave! });
         }
 
+        // Test radio widget personEducationalAttainment with conditional ifAge15OrMoreConditional with choices educationalAttainment
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (person.age >= 15) {
+            testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.educationalAttainment`, value: person.educationalAttainment! });
+        } else {
+            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.educationalAttainment`, isVisible: false });
+        }
+        
         // Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */

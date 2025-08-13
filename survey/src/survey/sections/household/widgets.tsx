@@ -128,6 +128,17 @@ export const personWorkerTypeBeforeLeave: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
+export const personEducationalAttainment: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'educationalAttainment',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:educationalAttainment'),
+    choices: choices.educationalAttainment,
+    conditional: conditionals.ifAge15OrMoreConditional,
+    validations: validations.requiredValidation
+};
+
 export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'drivingLicenseOwnership',

@@ -103,6 +103,16 @@ Avant d’être en congé, est-ce que {{nickname}} travaillait ?
 - Oui, à temps partiel
 - Non
 
+Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours.
+- Aucun certificat, diplôme ou degré
+- Diplôme d'études secondaires ou attestation d'équivalence
+- Diplôme d'apprenti ou d'une école de métiers
+- Diplôme d'un cégep ou collège
+- Certificat ou diplôme universitaire inférieur au baccalauréat
+- Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+- Je préfère ne pas répondre
+
 Permis de conduire
 Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur·rice}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
 - Oui

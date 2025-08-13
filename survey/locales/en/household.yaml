@@ -23,6 +23,9 @@ schoolType: <strong>School type</strong>
 occupation: <strong>Main occupation</strong>
 workerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}} work ?
 workerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work ?
+educationalAttainment: >-
+    Highest level of <strong>educational attainment</strong><br /><span class="_pale
+    _oblique">When in doubt, choose the level which seems to match best</span>
 drivingLicenseOwnership: >-
     <strong>Driver's licence</strong><br /><span class="_pale _oblique">Include learner's
     and probationary permits, but do not include moped (motorized scooter and moped)
