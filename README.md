@@ -130,7 +130,7 @@ Pour importer les données à pré-remplir, exécuter la commande suivante, avec
 yarn node evolution/packages/evolution-backend/lib/tasks/importPreFilledResponses.task.js --file "$(pwd)/survey/tests/preFilledDataSample.csv"
 ```
 
-Pour nettoyer les données locales avant de rouler les tests UI, sans toucher aux autres entrevues manuelles, exécuter la tâche `yarn reset:test:ui`. Cette commande supprimera tous les participants dont le code d'accès débute par `7357-`. Assurez-vous d’être connecté à une base de données de développement; ne jamais exécuter cette commande sur une base de production.
+Suite à chaque test, un hook `afterAll` supprimera le participant (et toutes les données associées). Pour conserver le données de test pour fins de débogage, il est possible de commenter ce hook dans chaque test. Pour nettoyer les données locales manuellement avant de rouler les tests UI, sans toucher aux autres entrevues manuelles, exécuter la tâche `yarn reset:test:ui`. Cette commande supprimera tous les participants dont le code d'accès débute par `7357-`. Assurez-vous d’être connecté à une base de données de développement; ne jamais exécuter cette commande sur une base de production.
 
 Avant d'exécuter les tests UI, assurez-vous également d'utiliser le bon fichier de configuration Playwright. Par défaut, copiez le fichier d'exemple fourni :
 

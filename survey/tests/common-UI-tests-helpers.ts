@@ -1,4 +1,5 @@
 import { test } from '@playwright/test';
+import knex from 'chaire-lib-backend/lib/config/shared/db.config';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
 
@@ -8,6 +9,16 @@ const context = {
     title: '',
     widgetTestCounters: {}
 };
+
+// Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
+export const deleteParticipantInterview = async (accessCode: string) => {
+    try {
+        // Delete the participant interview with the access code
+        await knex('sv_participants').del().whereILike('username', `${accessCode}-%`);
+    } catch (error) {
+        console.error(`Error deleting participant with access code ${accessCode}`, error);
+    }
+}
 
 // Modify the CommonTestParameters type with survey parameters
 export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
