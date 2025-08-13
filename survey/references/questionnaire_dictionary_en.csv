@@ -158,6 +158,19 @@ Values,"fullTime : Yes, full time
 partTime : Yes, part time
 no : No"
 ""
+Field,educationalAttainment
+Question type,Radio input
+Conditional,ifAge15OrMoreConditional : age >= 15
+Question,"Highest level of educational attainment
+When in doubt, choose the level which seems to match best"
+Values,"noneOrPrimaryEducation : No certificate, diploma or degree
+secondaryEducation : High school (secondary) diploma or equivalency certificate
+postSecondaryNonTertiaryEducation : Apprenticeship or trades certificate or diploma
+shortCycleTertiaryEducation : College, CEGEP or other non-university certificate or diploma
+diplomaBelowBachelor : University certificate or diploma below bachelor level
+bachelorOrHigher : Bachelor's degree or higher
+preferNotToAnswer : I prefer not to answer"
+""
 Field,drivingLicenseOwnership
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16

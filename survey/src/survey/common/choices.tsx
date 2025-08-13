@@ -663,3 +663,49 @@ export const noSchoolTripReasonChoices: ChoiceType[] = [
     ...otherWithoutSpecify,
     ...dontKnow
 ];
+
+export const educationalAttainment: ChoiceType[] = [
+    {
+        value: 'noneOrPrimaryEducation',
+        label: {
+            fr: 'Aucun certificat, diplôme ou degré',
+            en: 'No certificate, diploma or degree'
+        }
+    },
+    {
+        value: 'secondaryEducation',
+        label: {
+            fr: 'Diplôme d\'études secondaires ou attestation d\'équivalence',
+            en: 'High school (secondary) diploma or equivalency certificate'
+        }
+    },
+    {
+        value: 'postSecondaryNonTertiaryEducation',
+        label: {
+            fr: 'Diplôme d\'apprenti ou d\'une école de métiers',
+            en: 'Apprenticeship or trades certificate or diploma'
+        }
+    },
+    {
+        value: 'shortCycleTertiaryEducation',
+        label: {
+            fr: 'Diplôme d\'un cégep ou collège',
+            en: 'College, CEGEP or other non-university certificate or diploma'
+        }
+    },
+    {
+        value: 'diplomaBelowBachelor',
+        label: {
+            fr: 'Certificat ou diplôme universitaire inférieur au baccalauréat',
+            en: 'University certificate or diploma below bachelor level'
+        }
+    },
+    {
+        value: 'bachelorOrHigher',
+        label: {
+            fr: 'Certificat ou diplôme universitaire niveau baccalauréat ou supérieur',
+            en: 'Bachelor\'s degree or higher'
+        }
+    },
+    ...preferNotToAnswer
+];

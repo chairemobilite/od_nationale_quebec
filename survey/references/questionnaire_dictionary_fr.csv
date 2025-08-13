@@ -158,6 +158,19 @@ Valeurs,"fullTime : Oui, à temps plein
 partTime : Oui, à temps partiel
 no : Non"
 ""
+Champ,educationalAttainment
+Type de question,Bouton radio
+Conditionnel,ifAge15OrMoreConditional : age >= 15
+Question,"Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours."
+Valeurs,"noneOrPrimaryEducation : Aucun certificat, diplôme ou degré
+secondaryEducation : Diplôme d'études secondaires ou attestation d'équivalence
+postSecondaryNonTertiaryEducation : Diplôme d'apprenti ou d'une école de métiers
+shortCycleTertiaryEducation : Diplôme d'un cégep ou collège
+diplomaBelowBachelor : Certificat ou diplôme universitaire inférieur au baccalauréat
+bachelorOrHigher : Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+preferNotToAnswer : Je préfère ne pas répondre"
+""
 Champ,drivingLicenseOwnership
 Type de question,Bouton radio
 Conditionnel,ifAge16OrMoreConditional : age >= 16

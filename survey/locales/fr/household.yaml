@@ -32,6 +32,10 @@ workerTypeBeforeLeave: >-
     <strong>Avant d’être en congé</strong>, est-ce que {{nickname}} travaillait ?
 workerTypeBeforeLeave_one: <strong>Avant d’être en congé</strong>, est-ce que vous
     travailliez ?
+educationalAttainment: >-
+    Plus haut <strong>niveau de scolarité</strong><br /><span class="_pale _oblique">En
+    cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de
+    votre parcours.</span>
 drivingLicenseOwnership_male: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur et probatoires, mais ne pas inclure les permis
