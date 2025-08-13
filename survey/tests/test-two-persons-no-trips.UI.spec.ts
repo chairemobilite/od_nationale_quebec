@@ -11,6 +11,10 @@ const context = {
     widgetTestCounters: {}
 };
 
+// Survey credentials
+const postalCode = 'G5A 1E7';
+const accessCode = '7357-1114';
+
 // Configure the tests to run in serial mode (one after the other)
 test.describe.configure({ mode: 'serial' });
 
@@ -19,11 +23,13 @@ test.beforeAll(async ({ browser }) => {
     context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
 });
 
+test.afterAll(async() => {
+    // Delete the participant after the test
+    await commonUITestsHelpers.deleteParticipantInterview(accessCode);
+});
+
 /********** Start the survey **********/
-// Start the survey using an access code and postal code combination that does not exist in the database.
-// The survey should still start a new interview with these credentials.
-const postalCode = 'G5A 1E7';
-const accessCode = '7357-1114';
+// Start the survey using an access code and postal code combination
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
     title: 'Enquête Nationale Origine-Destination 2025',
