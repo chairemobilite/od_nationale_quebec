@@ -280,7 +280,7 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
         });
     },
     choices: customChoices.lastWeekTravelToWorkDaysCustomChoices,
-    conditional: conditionals.personTravelToWorkDaysConditional,
+    conditional: conditionals.isWorkerConditional,
     validations: customValidations.travelToPlaceCustomValidation
 };
 

@@ -248,7 +248,7 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 ""
 Champ,travelToWorkDays
 Type de question,Case à cocher
-Conditionnel,personTravelToWorkDaysConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
+Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
 Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail ?
 Pour se rendre au travail ou toute autre raison concernant le travail."
 ""

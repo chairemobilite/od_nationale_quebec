@@ -231,7 +231,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test custom widget personUsualSchoolPlaceGeography
     // Implement custom test
 
-    // Test checkbox widget personTravelToWorkDays with conditional personTravelToWorkDaysConditional with choices lastWeekTravelToWorkDaysCustomChoices
+    // Test checkbox widget personTravelToWorkDays with conditional isWorkerConditional with choices lastWeekTravelToWorkDaysCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', isVisible: true });
