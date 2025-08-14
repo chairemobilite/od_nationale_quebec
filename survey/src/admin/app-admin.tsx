@@ -10,7 +10,7 @@ import appConfig, { EvolutionApplicationConfiguration } from 'evolution-frontend
 import VisitedPlaceSection from '../survey/sections/visitedPlaces/template';
 
 import surveySections from '../survey/sections';
-import * as widgetsConfig from '../survey/widgetsConfigs';
+import { widgets as widgetsConfig } from '../survey/widgetsConfigs';
 
 setApplicationConfiguration<EvolutionApplicationConfiguration>({
     sections: surveySections,
