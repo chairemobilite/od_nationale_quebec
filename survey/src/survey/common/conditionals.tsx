@@ -441,38 +441,6 @@ export const personRemoteStudyDaysConditional: WidgetConditional = (interview, p
     });
 };
 
-export const personTravelToWorkDaysConditional: WidgetConditional = (interview, path) => {
-    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
-    return checkConditionals({
-        interview,
-        conditionals: [
-            {
-                path: `household.persons.${currentPersonId}.workPlaceType`,
-                comparisonOperator: '===',
-                value: 'onLocation'
-            },
-            {
-                logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workPlaceType`,
-                comparisonOperator: '===',
-                value: 'hybrid'
-            },
-            {
-                logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workPlaceType`,
-                comparisonOperator: '===',
-                value: 'onTheRoadWithUsualPlace'
-            },
-            {
-                logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workPlaceType`,
-                comparisonOperator: '===',
-                value: 'onTheRoadWithoutUsualPlace'
-            }
-        ]
-    });
-};
-
 export const personRemoteWorkDaysConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({

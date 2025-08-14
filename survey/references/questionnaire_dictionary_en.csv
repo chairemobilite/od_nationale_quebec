@@ -248,7 +248,7 @@ You can also search for the place on the map using the ""Search location"" butto
 ""
 Field,travelToWorkDays
 Question type,Checkbox input
-Conditional,personTravelToWorkDaysConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
 Question,"During the last week, when did {{nickname}} travel for work?
 To get to or for any other reason concerning work."
 ""
