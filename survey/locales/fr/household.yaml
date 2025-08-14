@@ -66,6 +66,12 @@ hasDisability: >-
     <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
     qui influence ou limite ses déplacements quotidiens ?
 workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe ?
+workPlaceTypeBeforeLeave: >-
+    <strong>Avant d’être en congé</strong>, est-ce que {{nickname}} avait un <strong>lieu
+    d'emploi</strong> fixe ?
+workPlaceTypeBeforeLeave_one: >-
+    <strong>Avant d’être en congé</strong>, aviez-vous un <strong>lieu d'emploi</strong>
+    fixe ?
 schoolPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'études</strong> fixe
     ?
 usualWorkPlace.name: >-
@@ -190,3 +196,25 @@ errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: >-
     Sélectionnez "Pas de télé-travail" seulement si aucun autre choix n'est sélectionné.
 errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: >-
     Sélectionnez "Pas de télé-études" seulement si aucun autre choix n'est sélectionné.
+workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
+    en présentiel en tout temps
+workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en
+    présentiel en tout temps
+workPlaceBeforeLeaveTypeChoicesHybrid: Oui, {{nickname}} travaillait en mode hybride
+    (télétravail et en présentiel)
+workPlaceBeforeLeaveTypeChoicesHybrid_one: Oui, je travaillais en mode hybride (télétravail
+    et en présentiel)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace: >-
+    Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage,
+    bureau, poste, restaurant, etc.)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
+    Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau,
+    poste, restaurant, etc.)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: Non, {{nickname}} travaillait
+    sur la route avec départ du domicile
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: Non, je travaillais
+    sur la route avec départ du domicile
+workPlaceBeforeLeaveTypeChoicesRemote: Non, {{nickname}} travaillait à partir du domicile
+    ou à distance
+workPlaceBeforeLeaveTypeChoicesRemote_one: Non, je travaillais à partir du domicile
+    ou à distance

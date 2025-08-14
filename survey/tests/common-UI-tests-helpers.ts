@@ -45,8 +45,9 @@ export type HouseholdMember = {
     carSharingMember: string | null;
     transitFares: string[];
     hasDisability: string;
-    workPlaceType: string;
-    schoolPlaceType: string;
+    workPlaceType: string | null;
+    workPlaceTypeBeforeLeave: string | null;
+    schoolPlaceType: string | null;
     usualWorkPlace: {
         name: string;
     };
@@ -76,6 +77,7 @@ const householdMembers: HouseholdMember[] = [
         transitFares: ['transitPass'],
         hasDisability: 'no',
         workPlaceType: 'hybrid',
+        workPlaceTypeBeforeLeave: null,
         schoolPlaceType: 'hybrid',
         usualWorkPlace: {
             name: 'Bombardier'
@@ -215,6 +217,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             transitFares: ['transitPass'],
             hasDisability: 'yes',
             workPlaceType: 'hybrid',
+            workPlaceTypeBeforeLeave: null,
             schoolPlaceType: 'hybrid',
             usualWorkPlace: {
                 name: 'Bombardier'
@@ -369,23 +372,42 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             value: person.hasDisability
         });
 
+        
+
         // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputRadioTest({
-            context,
-            path: `household.persons.${personIdString}.workPlaceType`,
-            value: person.workPlaceType
-        });
+        if (person.workPlaceType === null) {
+            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workPlaceType`, isVisible: false });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.workPlaceType`,
+                value: person.workPlaceType
+            });
+        }
+        
+        // Test radio widget personWorkPlaceTypeBeforeLeave with conditional wasWorkerBeforeLeaveConditional with choices workPlaceBeforeLeaveTypeChoices
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (person.workPlaceTypeBeforeLeave === null) {
+            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`, isVisible: false });
+        } else {
+            testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`, value: person.workPlaceTypeBeforeLeave });
+        }
 
         // Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputRadioTest({
-            context,
-            path: `household.persons.${personIdString}.schoolPlaceType`,
-            value: person.schoolPlaceType
-        });
+        if (person.schoolPlaceType === null) {
+            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.schoolPlaceType`, isVisible: false });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.schoolPlaceType`,
+                value: person.schoolPlaceType
+            });
+        } 
 
         // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
         /* @link file://./../src/survey/common/conditionals.tsx */

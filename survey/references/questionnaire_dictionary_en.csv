@@ -216,6 +216,11 @@ onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location 
 onTheRoadWithoutUsualPlace : No, work on the road departing from home
 remote : No, work from home or from elsewhere"
 ""
+Field,workPlaceTypeBeforeLeave
+Question type,Radio input
+Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime workerTypeBeforeLeave === partTime
+Question,"Before being on leave, did {{nickname}} have a fixed work location?"
+""
 Field,schoolPlaceType
 Question type,Radio input
 Conditional,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
@@ -226,12 +231,12 @@ remote : No, remote studies from home or from elsewhere"
 ""
 Field,name
 Question type,Text input
-Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
+Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,Name or address of {{nickname}}'s usual place of work
 ""
 Field,geography
 Question type,Unknown input
-Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
+Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,"Please locate the usual place of work for {{nickname}}.
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the ""Search location"" button."

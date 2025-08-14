@@ -143,6 +143,9 @@ Est-ce que {{nickname}} a un lieu d'emploi fixe ?
 - Non, travail sur la route avec départ du domicile
 - Non, travail à partir du domicile ou à distance
 
+Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe ?
+
+
 Est-ce que {{nickname}} a un lieu d'études fixe ?
 - Oui, études au lieu fixe en présentiel en tout temps
 - Oui, études en mode hybride (télé-études et en présentiel)
