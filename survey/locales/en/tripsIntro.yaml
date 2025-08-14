@@ -35,7 +35,7 @@ didTripsIntro: >-
     transfer locations</strong> (bus stops, train stations, terminals, parking lots,
     etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
 didTripsIntro_one: >-
-    Please specify the<strong>places you went on {{assignedDate}}</strong> (include
+    Please specify the <strong>places you went on {{assignedDate}}</strong> (include
     all places visited until 4 AM the following morning).<br /><br /><span class="_green">-
     <strong>Include short stops and errands</strong> (gas station, daycare/school,
     convenience store or any place where you picked someone up or dropped someone
