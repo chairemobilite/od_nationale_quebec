@@ -28,7 +28,7 @@
     "format": "prettier-eslint ./**/*.{ts,tsx} --write",
     "lint": "eslint .",
     "unimported": "npx unimported",
-    "test:ui": "LOCALE_DIR=$(pwd)/locales npx playwright test",
+    "test:ui": "LOCALE_DIR=$(pwd)/locales TRANSITION_DOTENV='../.env' npx playwright test",
     "reset:test:ui": "yarn node lib/tasks/removeUiTestParticipants.js"
   },
   "browser": {
