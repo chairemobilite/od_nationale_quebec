@@ -511,7 +511,10 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
 };
 
 /********** Tests tripsIntro section **********/
-export const fillTripsintroSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+type TripsIntroTestParameters = CommonTestParametersModify & {
+    expectPopup?: boolean;
+};
+export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectPopup = false }: TripsIntroTestParameters) => {
     // Verify the tripsIntro navigation is active
     testHelpers.verifyNavBarButtonStatus({
         context,
@@ -534,7 +537,13 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1 }: Commo
         // });
 
         // TODO: Test custom widget personNewPerson
-        // Implement custom test
+        if (expectPopup) {
+            testHelpers.inputPopupButtonTest({
+                context,
+                text: 'Continue',
+                popupText: /We will ask you to specify .* trips.The order of the interviewed persons was randomly selected.Continue/
+            });
+        }
 
         // Test custom widget personWhoWillAnswerForThisPerson
         if (householdSize >= 2) {

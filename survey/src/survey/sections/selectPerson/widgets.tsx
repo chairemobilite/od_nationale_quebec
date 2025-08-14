@@ -7,12 +7,9 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as customWidgets from './customWidgets';
 
 export const selectPerson = customWidgets.selectPerson;
-
-export const personNewPerson = customWidgets.personNewPerson;
 
 export const buttonSelectPersonConfirm: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,

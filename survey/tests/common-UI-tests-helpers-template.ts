@@ -273,9 +273,6 @@ export const fillSelectpersonSectionTests = ({ context, householdSize }: CommonT
     // Test custom widget selectPerson
     // Implement custom test
 
-    // Test custom widget personNewPerson
-    // Implement custom test
-
     // Test nextbutton widget buttonSelectPersonConfirm
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 

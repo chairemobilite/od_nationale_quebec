@@ -277,10 +277,6 @@ Field,_activePersonId
 Question type,Unknown input
 Question,Who do you want to continue the interview for?
 ""
-Field,_showNewPersonPopupButton
-Question type,Unknown input
-Question,We'll start with the trips made by {{nickname}}
-""
 ""
 ""
 Section,Trips introduction
@@ -297,7 +293,9 @@ Question,Change person
 ""
 Field,_showNewPersonPopupButton
 Question type,Unknown input
-Question,We'll start with the trips made by {{nickname}}
+Question,"We will ask you to specify {{nickname}}’s trips.
+
+The order of the interviewed persons was randomly selected."
 ""
 Field,whoAnswers
 Question type,Unknown input

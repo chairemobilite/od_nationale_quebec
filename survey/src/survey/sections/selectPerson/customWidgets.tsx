@@ -54,34 +54,3 @@ export const selectPerson: WidgetConfig.InputRadioType = {
         ];
     }
 };
-
-// FIXME This widget is custom because of the choices, conditional and label
-export const personNewPerson = {
-    type: 'question',
-    inputType: 'button',
-    path: '_showNewPersonPopupButton',
-    align: 'center',
-    datatype: 'boolean',
-    twoColumns: false,
-    isModal: true,
-    containsHtml: true,
-    label: (t: TFunction, interview) => {
-        const activePerson = odSurveyHelper.getActivePerson({ interview });
-        const nickname = activePerson.nickname;
-        return t('selectPerson:_showNewPersonPopupButton', {
-            nickname
-        });
-    },
-    choices: [
-        {
-            value: true,
-            label: (t: TFunction) => t('customLabel:Continue'),
-            color: 'green'
-        }
-    ],
-    conditional: function (interview, path) {
-        const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
-        const showPopup = getResponse(interview, '_showNewPersonPopup', false);
-        return [interviewablePersons.length > 1 && showPopup === true, undefined];
-    }
-};

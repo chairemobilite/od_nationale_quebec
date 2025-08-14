@@ -3,5 +3,4 @@
 # Any changes made to this file will be overwritten.
 
 _activePersonId: Who do you want to continue the interview for?
-_showNewPersonPopupButton: We'll start with the trips made by {{nickname}}
 buttonSelectPersonConfirm: Select this person and continue

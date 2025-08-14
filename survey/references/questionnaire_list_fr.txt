@@ -182,8 +182,6 @@ Section: Sélection du membre du ménage
 
 Pour quelle personne désirez-vous poursuivre l'entrevue?
 
-Nous allons débuter avec les déplacements de {{nickname}}
-
 Sélectionner cette personne et continuer
 
 
@@ -194,7 +192,9 @@ Section: Introduction aux déplacements
 
 Changer de personne
 
-Nous allons débuter avec les déplacements de {{nickname}}
+Nous allons vous demander de spécifier les déplacements de {{nickname}}.
+
+L’ordre des personnes interviewées est aléatoire.
 
 Qui répond pour {{nickname}}?
 
