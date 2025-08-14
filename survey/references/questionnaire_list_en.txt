@@ -143,6 +143,9 @@ Does {{nickname}} have a fixed work location?
 - No, work on the road departing from home
 - No, work from home or from elsewhere
 
+Before being on leave, did {{nickname}} have a fixed work location?
+
+
 Does {{nickname}} have a fixed study location?
 - Yes, always on-site at fixed location
 - Yes, hybrid studies (remote and on-site)

@@ -216,6 +216,11 @@ onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe 
 onTheRoadWithoutUsualPlace : Non, travail sur la route avec départ du domicile
 remote : Non, travail à partir du domicile ou à distance"
 ""
+Champ,workPlaceTypeBeforeLeave
+Type de question,Bouton radio
+Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime workerTypeBeforeLeave === partTime
+Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe ?"
+""
 Champ,schoolPlaceType
 Type de question,Bouton radio
 Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
@@ -226,12 +231,12 @@ remote : Non, études à partir du domicile ou à distance"
 ""
 Champ,name
 Type de question,Champ de texte
-Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
+Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 ""
 Champ,geography
 Type de question,Entrée inconnue
-Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace
+Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."

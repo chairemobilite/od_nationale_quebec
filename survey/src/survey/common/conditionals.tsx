@@ -343,6 +343,24 @@ export const hasWorkingLocationConditional: WidgetConditional = (interview, path
                 path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
                 value: 'onTheRoadWithUsualPlace'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.workPlaceTypeBeforeLeave`,
+                comparisonOperator: '===',
+                value: 'onLocation'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.workPlaceTypeBeforeLeave`,
+                comparisonOperator: '===',
+                value: 'hybrid'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.workPlaceTypeBeforeLeave`,
+                comparisonOperator: '===',
+                value: 'onTheRoadWithUsualPlace'
             }
         ]
     });
@@ -470,6 +488,25 @@ export const parentalOrSickLeaveConditional: WidgetConditional = (interview, pat
                 path: `household.persons.${currentPersonId}.occupation`,
                 comparisonOperator: '===',
                 value: 'parentalOrSickLeave'
+            }
+        ]
+    });
+};
+
+export const wasWorkerBeforeLeaveConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.workerTypeBeforeLeave`,
+                comparisonOperator: '===',
+                value: 'fullTime'
+            },
+            {
+                path: `household.persons.${currentPersonId}.workerTypeBeforeLeave`,
+                comparisonOperator: '===',
+                value: 'partTime'
             }
         ]
     });

@@ -709,3 +709,41 @@ export const educationalAttainment: ChoiceType[] = [
     },
     ...preferNotToAnswer
 ];
+
+export const workPlaceBeforeLeaveTypeChoices: ChoiceType[] = [
+    {
+        value: 'onLocation',
+        label: {
+            fr: 'Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps',
+            en: 'Yes, {{nickname}} worked always on-site at fixed location'
+        }
+    },
+    {
+        value: 'hybrid',
+        label: {
+            fr: 'Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)',
+            en: 'Yes, {{nickname}} did hybrid work (remote and on-site)'
+        }
+    },
+    {
+        value: 'onTheRoadWithUsualPlace',
+        label: {
+            fr: 'Oui, {{nickname}} travaillait sur la route avec départ d\'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)',
+            en: 'Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)'
+        }
+    },
+    {
+        value: 'onTheRoadWithoutUsualPlace',
+        label: {
+            fr: 'Non, {{nickname}} travaillait sur la route avec départ du domicile',
+            en: 'No, {{nickname}} worked on the road departing from home'
+        }
+    },
+    {
+        value: 'remote',
+        label: {
+            fr: 'Non, {{nickname}} travaillait à partir du domicile ou à distance',
+            en: 'No, {{nickname}} worked from home or from elsewhere'
+        }
+    }
+];

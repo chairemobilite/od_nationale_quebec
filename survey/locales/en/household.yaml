@@ -39,6 +39,11 @@ hasDisability: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
     or limits their daily mobility?
 workPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
+workPlaceTypeBeforeLeave: >-
+    <strong>Before being on leave</strong>, did {{nickname}} have a fixed <strong>work
+    location</strong>?
+workPlaceTypeBeforeLeave_one: >-
+    <strong>Before being on leave</strong>, did you have a fixed <strong>work location</strong>?
 schoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
 usualWorkPlace.name: >-
     <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
@@ -104,3 +109,22 @@ errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: Select "No remote work" only
     no other choice is selected.
 errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only
     if no other choice is selected.
+workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
+    at fixed location
+workPlaceBeforeLeaveTypeChoicesOnLocation_one: Yes, I worked always on-site at fixed
+    location
+workPlaceBeforeLeaveTypeChoicesHybrid: Yes, {{nickname}} did hybrid work (remote and
+    on-site)
+workPlaceBeforeLeaveTypeChoicesHybrid_one: Yes, I did hybrid work (remote and on-site)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace: >-
+    Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage,
+    office, station, restaurant, etc.)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
+    Yes, I worked on the road departing from a fixed location (ex: garage, office,
+    station, restaurant, etc.)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: No, {{nickname}} worked
+    on the road departing from home
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: No, I worked on the
+    road departing from home
+workPlaceBeforeLeaveTypeChoicesRemote: No, {{nickname}} worked from home or from elsewhere
+workPlaceBeforeLeaveTypeChoicesRemote_one: No, I worked from home or from elsewhere
