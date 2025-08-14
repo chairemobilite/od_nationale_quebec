@@ -174,8 +174,10 @@ export const personTransitFares: WidgetConfig.InputCheckboxType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:transitFares', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
     choices: choices.transitFareType,
@@ -202,8 +204,10 @@ export const personWorkPlaceType: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:workPlaceType', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
     choices: choices.workPlaceTypeChoices,
@@ -238,8 +242,10 @@ export const personSchoolPlaceType: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:schoolPlaceType', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
     choices: choices.schoolPlaceTypeChoices,
@@ -255,8 +261,10 @@ export const personUsualWorkPlaceName: WidgetConfig.InputStringType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:usualWorkPlace.name', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
     conditional: conditionals.hasWorkingLocationConditional,
@@ -273,8 +281,10 @@ export const personUsualSchoolPlaceName: WidgetConfig.InputStringType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:usualSchoolPlace.name', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
     conditional: customConditionals.personUsualSchoolPlaceNameCustomConditional,
