@@ -62,10 +62,14 @@ carSharingMember: >-
 transitFares: >-
     Est-ce que {{nickname}} détient présentement <strong>un laissez-passer ou un abonnement</strong>
     de transport en commun valide ?
+transitFares_one: >-
+    Détenez-vous présentement <strong>un laissez-passer ou un abonnement</strong>
+    de transport en commun valide ?
 hasDisability: >-
     <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
     qui influence ou limite ses déplacements quotidiens ?
 workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe ?
+workPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe ?
 workPlaceTypeBeforeLeave: >-
     <strong>Avant d’être en congé</strong>, est-ce que {{nickname}} avait un <strong>lieu
     d'emploi</strong> fixe ?
@@ -74,9 +78,12 @@ workPlaceTypeBeforeLeave_one: >-
     fixe ?
 schoolPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'études</strong> fixe
     ?
+schoolPlaceType_one: Avez-vous a un <strong>lieu d'études</strong> fixe ?
 usualWorkPlace.name: >-
     <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong> de
     {{nickname}}
+usualWorkPlace.name_one: >-
+    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel de travail</strong>
 usualWorkPlace.geography: >-
     Veuillez localiser le <strong>lieu de travail habituel</strong> de {{nickname}}.<br
     /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
@@ -92,6 +99,8 @@ usualWorkPlace.geography_one: >-
 usualSchoolPlace.name: >-
     <strong>Nom ou adresse</strong> du <strong>lieu habituel d’études</strong> de
     {{nickname}}
+usualSchoolPlace.name_one: >-
+    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel d’études</strong>
 usualSchoolPlace.geography: >-
     Veuillez localiser le <strong>lieu habituel d’études</strong> de {{nickname}}.<br
     /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour

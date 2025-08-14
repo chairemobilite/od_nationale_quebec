@@ -35,18 +35,23 @@ carSharingMember: >-
     or pass to a carsharing service (ex. Communauto)</span>
 transitFares: >-
     Does {{nickname}} currently have a valid transit <strong>fare, pass or ticket</strong>?
+transitFares_one: Do you currently have a valid transit <strong>fare, pass or ticket</strong>?
 hasDisability: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
     or limits their daily mobility?
 workPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
+workPlaceType_one: Do you have a fixed <strong>work location</strong>?
 workPlaceTypeBeforeLeave: >-
     <strong>Before being on leave</strong>, did {{nickname}} have a fixed <strong>work
     location</strong>?
 workPlaceTypeBeforeLeave_one: >-
     <strong>Before being on leave</strong>, did you have a fixed <strong>work location</strong>?
 schoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
+schoolPlaceType_one: Do you have a fixed <strong>study location</strong>?
 usualWorkPlace.name: >-
     <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
+usualWorkPlace.name_one: >-
+    <strong>Name or address</strong> of your <strong>usual place of work</strong>
 usualWorkPlace.geography: >-
     Please locate the <strong>usual place of work</strong> for {{nickname}}.<br /><span
     class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
@@ -60,6 +65,8 @@ usualWorkPlace.geography_one: >-
 usualSchoolPlace.name: >-
     <strong>Name or address</strong> of {{nickname}}'s school or <strong>main study
     location</strong>
+usualSchoolPlace.name_one: >-
+    <strong>Name or address</strong> of your school or <strong>main study location</strong>
 usualSchoolPlace.geography: >-
     Please locate the <strong>usual place of study</strong> for {{nickname}}.<br /><span
     class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
