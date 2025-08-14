@@ -6,7 +6,9 @@ activePersonTitle: >-
     <p class="_center _em" style="margin-bottom: 0;">Entrevue de <strong>{{nickname}}</strong></p><p
     class="_center _pale">•</p>
 buttonSwitchPerson: Changer de personne
-_showNewPersonPopupButton: Nous allons débuter avec les déplacements de {{nickname}}
+_showNewPersonPopupButton: >-
+    Nous allons vous demander de spécifier les déplacements de <strong>{{nickname}}</strong>.<br
+    /><br />L’ordre des personnes interviewées est aléatoire.
 whoAnswers: Qui répond pour {{nickname}}?
 personDidTrips_male: >-
     Est-ce que {{nickname}} s'est déplacé le {{assignedDate}}?<br /><span class="_pale

@@ -21,7 +21,7 @@ export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonW
 export const personNewPerson = {
     type: 'question',
     inputType: 'button',
-    path: '_showNewPersonPopupButton',
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}._showNewPersonPopupButton',
     align: 'center',
     datatype: 'boolean',
     twoColumns: false,
@@ -30,21 +30,38 @@ export const personNewPerson = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson.nickname;
-        return t('selectPerson:_showNewPersonPopupButton', {
+        return t('tripsIntro:_showNewPersonPopupButton', {
             nickname
         });
     },
     choices: [
         {
-            value: true,
+            value: false,
             label: (t: TFunction) => t('customLabel:Continue'),
             color: 'green'
+        },
+        {
+            // Keep this hidden `true` value so that the value is not reset when it is intialized to true (label and color do not matter)
+            value: true,
+            hidden: true
         }
     ],
     conditional: function (interview, path) {
         const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
-        const showPopup = getResponse(interview, '_showNewPersonPopup', false);
-        return [interviewablePersons.length > 1 && showPopup === true, undefined];
+        const previousSections = getResponse(interview, '_sections._actions', []) as {
+            section: string;
+        }[];
+        // The last action is the start of this section, look at the before last section action and see if the section is `selectPerson`
+        const manuallySelectedPerson =
+            previousSections.length >= 2
+                ? previousSections[previousSections.length - 2]['section'] === 'selectPerson'
+                : false;
+        const showPopup = getResponse(interview, path, true) as boolean;
+
+        // Show the popup if there are more than one interviewablePerson and
+        // that person was not manually selected and the popup question is still
+        // set to be displayed
+        return [interviewablePersons.length > 1 && !manuallySelectedPerson && showPopup === true, false];
     }
 };
 

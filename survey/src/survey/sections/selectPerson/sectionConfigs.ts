@@ -26,7 +26,6 @@ export const sectionConfig: SectionConfig = {
         const activePersonId = getResponse(interview, '_activePersonId');
         return !_isBlank(activePersonId);
     }
-    // FIXME In od_nationale_2024 and previous, there was a _showNewPersonPopup logic in this section's preload. Figure out the specs for the appearance of this popup and handle it here.
 };
 
 export default sectionConfig;

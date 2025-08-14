@@ -24,6 +24,7 @@ export const sectionConfig: SectionConfig = {
         }) as any;
         // Validate the journey exists
         const journeys = odSurveyHelper.getJourneysArray({ person });
+
         // If the person has no journeys, we need to initialize a journey for them and make it the active one
         if (journeys.length === 0) {
             const newJourneysValuesByPath = addGroupedObjects(
@@ -31,7 +32,8 @@ export const sectionConfig: SectionConfig = {
                 1,
                 1,
                 `household.persons.${person._uuid}.journeys`,
-                [{ startDate: getResponse(interview, '_assignedDay') }]
+                // Set the new person popup flag, the corresponding widget will determine if it needs to be displayed for this context
+                [{ startDate: getResponse(interview, '_assignedDay'), _showNewPersonPopupButton: true }]
             );
             const newJourneyKey = Object.keys(newJourneysValuesByPath).find((key) =>
                 key.startsWith(`response.household.persons.${person._uuid}.journeys.`)

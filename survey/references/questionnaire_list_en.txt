@@ -182,8 +182,6 @@ Section: Household member selection
 
 Who do you want to continue the interview for?
 
-We'll start with the trips made by {{nickname}}
-
 Select this person and continue
 
 
@@ -194,7 +192,9 @@ Section: Trips introduction
 
 Change person
 
-We'll start with the trips made by {{nickname}}
+We will ask you to specify {{nickname}}’s trips.
+
+The order of the interviewed persons was randomly selected.
 
 Who is responding for {{nickname}}?
 

@@ -277,10 +277,6 @@ Champ,_activePersonId
 Type de question,Entrée inconnue
 Question,Pour quelle personne désirez-vous poursuivre l'entrevue?
 ""
-Champ,_showNewPersonPopupButton
-Type de question,Entrée inconnue
-Question,Nous allons débuter avec les déplacements de {{nickname}}
-""
 ""
 ""
 Section,Introduction aux déplacements
@@ -297,7 +293,9 @@ Question,Changer de personne
 ""
 Champ,_showNewPersonPopupButton
 Type de question,Entrée inconnue
-Question,Nous allons débuter avec les déplacements de {{nickname}}
+Question,"Nous allons vous demander de spécifier les déplacements de {{nickname}}.
+
+L’ordre des personnes interviewées est aléatoire."
 ""
 Champ,whoAnswers
 Type de question,Entrée inconnue

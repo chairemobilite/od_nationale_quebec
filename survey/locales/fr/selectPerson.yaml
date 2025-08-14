@@ -3,5 +3,4 @@
 # Any changes made to this file will be overwritten.
 
 _activePersonId: Pour quelle personne désirez-vous poursuivre l'entrevue?
-_showNewPersonPopupButton: Nous allons débuter avec les déplacements de {{nickname}}
 buttonSelectPersonConfirm: Sélectionner cette personne et continuer

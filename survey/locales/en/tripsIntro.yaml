@@ -6,7 +6,9 @@ activePersonTitle: >-
     <p class="_center _em" style="margin-bottom: 0;"><strong>{{nickname}}</strong>’s
     interview</p><p class="_center _pale">•</p>
 buttonSwitchPerson: Change person
-_showNewPersonPopupButton: We'll start with the trips made by {{nickname}}
+_showNewPersonPopupButton: >-
+    We will ask you to specify <strong>{{nickname}}</strong>’s trips.<br /><br />The
+    order of the interviewed persons was randomly selected.
 whoAnswers: Who is responding for {{nickname}}?
 personDidTrips: >-
     Did {{nickname}} make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
