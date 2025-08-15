@@ -5,7 +5,10 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
 import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
+import participantsDbQueries from 'evolution-backend/lib/models/participants.db.queries';
 import { eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
+import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
+import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -95,6 +98,41 @@ try {
     console.error('Error at first calculation of assigned day rates: ', error);
 }
 
+// Use the postal code validation to validate the postal code
+// FIXME We can't use the postal code validation from the widget directly here because it's in a .tsx file and the `checkValidation` function from which this functionw as copy-pasted also is in the evolution-frontend package, so we can't use it in the backend.
+const validatePostalCode = (postalCode: string, interview: InterviewAttributes): boolean => {
+    const validationsGroup = postalCodeValidation(postalCode, undefined, interview, 'home.postalCode');
+    for (let i = 0; i < validationsGroup.length; i++) {
+        if (validationsGroup[i].validation === true) {
+            return false;
+        }
+    }
+    return true;
+};
+// Get the postal code from the participant username. If the username does not have a "accessCode-postalCode" pattern, it will return undefined.
+const getPostalCodeFromParticipant = async (interview: InterviewAttributes): Promise<string | undefined> => {
+    const participant = await participantsDbQueries.getById(interview.participant_id);
+    if (!participant) {
+        return undefined;
+    }
+    // The postal code is the last part of the username, after the second '-'
+    const postalCode = participant.username.split('-', 3).slice(-1)[0];
+    if (_isBlank(postalCode)) {
+        return undefined;
+    }
+    // The login form already checked the format and the validity of the postal
+    // code, so if it's valid, we can return it. If it's invalid, it's a
+    // participant username that does not contain a postal code and that
+    // happened to use a similar pattern, we return undefined so it falls in the
+    // default case. This is really custom to this specific survey where byField
+    // is the only auth method and some interviews may be started by
+    // interviewers. Not to be copied lightly to other surveys.
+    if (!_isBlank(postalCode) && validatePostalCode(postalCode, interview)) {
+        return postalCode;
+    }
+    return undefined;
+};
+
 export default [
     {
         field: '_previousDay',
@@ -151,7 +189,7 @@ export default [
     },
     {
         field: 'accessCode',
-        callback: async (interview, value) => {
+        callback: async (interview: InterviewAttributes, value) => {
             try {
                 const properlyFormattedAccessCode =
                     typeof value === 'string' ? eightDigitsAccessCodeFormatter(value) : value;
@@ -166,7 +204,24 @@ export default [
                 }
 
                 // Get prefilled responses for this access code
-                const prefilledResponses = await getPrefilledForAccessCode(properlyFormattedAccessCode, interview);
+                const prefilledResponsesForAccessCode = await getPrefilledForAccessCode(
+                    properlyFormattedAccessCode,
+                    interview
+                );
+
+                // Do not prefill answers if the postal code is not the same as the one used in this survey
+                const postalCode = await getPostalCodeFromParticipant(interview);
+                const prefilledResponses =
+                    postalCode !== undefined &&
+                    prefilledResponsesForAccessCode['home.postalCode'] &&
+                    prefilledResponsesForAccessCode['home.postalCode'] !== postalCode
+                        ? {
+                            _postalCodeMismatch: true,
+                            _userPostalCode: postalCode,
+                            _prefilledPostalCode: prefilledResponsesForAccessCode['home.postalCode']
+                        }
+                        : prefilledResponsesForAccessCode;
+
                 if (properlyFormattedAccessCode !== value) {
                     prefilledResponses['accessCode'] = properlyFormattedAccessCode;
                 }
