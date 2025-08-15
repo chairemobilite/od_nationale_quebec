@@ -1,0 +1,89 @@
+import { test } from '@playwright/test';
+import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
+import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';
+import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
+import * as commonUITestsHelpers from './common-UI-tests-helpers';
+
+const context = {
+    page: null as any,
+    objectDetector: new SurveyObjectDetector(),
+    title: '',
+    widgetTestCounters: {}
+};
+
+// Configure the tests to run in serial mode (one after the other)
+test.describe.configure({ mode: 'serial' });
+
+// Initialize the test page and add it to the context
+test.beforeAll(async ({ browser }) => {
+    context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
+});
+
+// Define the visited places for this test scenario
+const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
+    {
+        activityCategory: 'shoppingServiceRestaurant',
+        activity: 'shopping',
+        onTheRoadDepartureType: null,
+        onTheRoadArrivalType: null,
+        alreadyVisitedBySelfOrAnotherHouseholdMember: 'no',
+        shortcut: null,
+        name: 'Carrefour Laval Sports Expert',
+        _previousPreviousDepartureTime: null,
+        _previousArrivalTime: null,
+        _previousDepartureTime: 32400, // 9:00 AM
+        arrivalTime: 34200, // 9:30 AM
+        nextPlaceCategory: 'wentBackHome',
+        departureTime: 39600 // 11:00 AM
+    },
+    {
+        activityCategory: null,
+        activity: null,
+        onTheRoadDepartureType: null,
+        onTheRoadArrivalType: null,
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null,
+        shortcut: null,
+        name: null,
+        _previousPreviousDepartureTime: null,
+        _previousArrivalTime: null,
+        _previousDepartureTime: null,
+        arrivalTime: 41400, // 11:30 AM
+        nextPlaceCategory: 'stayedThereUntilTheNextDay',
+        departureTime: null
+    }
+];
+
+/********** Start the survey **********/
+// Start the survey using an access code and postal code combination that does not exist in the database.
+// The survey should still start a new interview with these credentials.
+const postalCode = 'G1R 5H1';
+const accessCode = '7357-1112';
+surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
+    context,
+    title: 'Enquête Nationale Origine-Destination 2025',
+    accessCode,
+    postalCode,
+    expectedToExist: true,
+    nextPageUrl: 'survey/home'
+});
+
+/********** Tests home section **********/
+commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 1 });
+
+/********** Tests household section **********/
+commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });
+
+/********** Tests tripsIntro section **********/
+commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 1, hasTrips: true, expectPopup: false });
+
+/********** Tests visited places section **********/
+commonUITestsHelpers.fillVisitedplacesSectionTests({ context, householdSize: 1, visitedPlaces });
+
+/********** Tests segments section **********/
+// commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1 });
+
+// /********** Tests end section **********/
+// commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
+
+// /********** Tests completed section **********/
+// commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });

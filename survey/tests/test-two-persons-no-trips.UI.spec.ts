@@ -50,7 +50,7 @@ commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 2 });
 // commonUITestsHelpers.fillSelectPersonSectionTests({ context, householdSize: 2 });
 
 /********** Tests tripsIntro section **********/
-commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2, expectPopup: true });
+commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2, hasTrips: false, expectPopup: true });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
