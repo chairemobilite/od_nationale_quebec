@@ -19,6 +19,10 @@ howToBus_female: >-
     Comment est-ce que {{nickname}} s'est rendue à l'arrêt/station de transport collectif?<br
     /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
     un premier mode de transport avant le transport collectif.</span>
+howToBus_custom: >-
+    Comment est-ce que {{nickname}} s'est rendu.e à l'arrêt/station de transport collectif?<br
+    /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
+    un premier mode de transport avant le transport collectif.</span>
 howToBus: >-
     Comment est-ce que {{nickname}} s'est rendu.e à l'arrêt/station de transport collectif?<br
     /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
@@ -29,6 +33,10 @@ howToBus_male_one: >-
     mode de transport avant le transport collectif.</span>
 howToBus_female_one: >-
     Comment vous êtes-vous rendue à l'arrêt/station de transport collectif?<br /><span
+    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
+    mode de transport avant le transport collectif.</span>
+howToBus_custom_one: >-
+    Comment vous êtes-vous rendu.e à l'arrêt/station de transport collectif?<br /><span
     class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
     mode de transport avant le transport collectif.</span>
 howToBus_one: >-

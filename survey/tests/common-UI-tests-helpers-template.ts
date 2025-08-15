@@ -39,7 +39,7 @@ surveyTestHelpers.startAndLoginWithEmail({
 // Start the survey without email
 surveyTestHelpers.startAndLoginAnonymously({ context, title: '?', hasUser: false });
 
-/********** Tests home section **********/
+/********** Tests Home section **********/
 export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
@@ -116,7 +116,7 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'completed', isDisabled: false });
 };
 
-/********** Tests household section **********/
+/********** Tests Household section **********/
 export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the household navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'household', buttonStatus: 'active', isDisabled: false });
@@ -262,7 +262,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'household', buttonStatus: 'completed', isDisabled: false });
 };
 
-/********** Tests selectPerson section **********/
+/********** Tests Selectperson section **********/
 export const fillSelectpersonSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the selectPerson navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'selectPerson', buttonStatus: 'active', isDisabled: false });
@@ -283,7 +283,7 @@ export const fillSelectpersonSectionTests = ({ context, householdSize }: CommonT
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'selectPerson', buttonStatus: 'completed', isDisabled: false });
 };
 
-/********** Tests tripsIntro section **********/
+/********** Tests Tripsintro section **********/
 export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the tripsIntro navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'tripsIntro', buttonStatus: 'active', isDisabled: false });
@@ -333,7 +333,7 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     testHelpers.waitTextVisible({ context, text: '?' });
 };
 
-/********** Tests visitedPlaces section **********/
+/********** Tests Visitedplaces section **********/
 export const fillVisitedplacesSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the visitedPlaces navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'visitedPlaces', buttonStatus: 'active', isDisabled: false });
@@ -421,7 +421,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
     // Implement custom test
 };
 
-/********** Tests segments section **********/
+/********** Tests Segments section **********/
 export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the segments navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'segments', buttonStatus: 'active', isDisabled: false });
@@ -507,7 +507,7 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     // Implement custom test
 };
 
-/********** Tests travelBehavior section **********/
+/********** Tests Travelbehavior section **********/
 export const fillTravelbehaviorSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the travelBehavior navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'travelBehavior', buttonStatus: 'active', isDisabled: false });
@@ -554,7 +554,7 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'travelBehavior', buttonStatus: 'completed', isDisabled: false });
 };
 
-/********** Tests end section **********/
+/********** Tests End section **********/
 export const fillEndSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the end navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'active', isDisabled: false });
@@ -624,7 +624,7 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'completed', isDisabled: false });
 };
 
-/********** Tests completed section **********/
+/********** Tests Completed section **********/
 export const fillCompletedSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the completed navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'completed', buttonStatus: 'active', isDisabled: false });
