@@ -60,8 +60,8 @@ For babies under the age of 1, write "0"
 
 Sex at birth
 Sex assigned at birth or that which appears on legal documents.
-- Man
 - Woman
+- Man
 - I prefer not to answer
 
 Worker
