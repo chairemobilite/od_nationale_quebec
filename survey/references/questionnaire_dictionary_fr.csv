@@ -101,8 +101,8 @@ Type de question,Bouton radio
 Conditionnel,ifAge5orMoreConditional : age >= 5
 Question,"Sexe à la naissance
 Sexe assigné à la naissance ou inscrit dans les documents légaux."
-Valeurs,"male : Homme
-female : Femme
+Valeurs,"female : Femme
+male : Homme
 preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,workerType

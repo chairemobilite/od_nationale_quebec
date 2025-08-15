@@ -74,17 +74,17 @@ export const yesNoPreferNotToAnswer: ChoiceType[] = [...yes, ...no, ...preferNot
 
 export const gender: ChoiceType[] = [
     {
-        value: 'male',
-        label: {
-            fr: 'Homme',
-            en: 'Man'
-        }
-    },
-    {
         value: 'female',
         label: {
             fr: 'Femme',
             en: 'Woman'
+        }
+    },
+    {
+        value: 'male',
+        label: {
+            fr: 'Homme',
+            en: 'Man'
         }
     },
     ...preferNotToAnswer
