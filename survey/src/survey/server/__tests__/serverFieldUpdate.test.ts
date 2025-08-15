@@ -7,6 +7,7 @@ import each from 'jest-each';
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
 import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
+import participantsDbQueries from 'evolution-backend/lib/models/participants.db.queries';
 import RandomUtils from 'chaire-lib-common/lib/utils/RandomUtils';
 import '../serverValidations'; // Make sure access code format validation is registered
 
@@ -16,6 +17,11 @@ jest.mock('evolution-backend/lib/models/interviews.db.queries', () => ({
     getInterviewsStream: jest.fn().mockImplementation(() => new ObjectReadableMock([]))
 }));
 const getInterviewStreamMock = interviewsDbQueries.getInterviewsStream as jest.MockedFunction<typeof interviewsDbQueries.getInterviewsStream>;
+jest.mock('evolution-backend/lib/models/participants.db.queries', () => ({
+    getById: jest.fn().mockResolvedValue({ username: '1111-1111-H1A 1A1' })
+}));
+const getParticipantByIdMock = participantsDbQueries.getById as jest.MockedFunction<typeof participantsDbQueries.getById>;
+
 jest.mock('chaire-lib-common/lib/utils/RandomUtils', () => ({
     randomFromDistribution: jest.fn()
 }));
@@ -85,7 +91,7 @@ beforeEach(() => {
 describe('access code update', function () {
     const updateCallback = (updateCallbacks.find((callback) => callback.field === 'accessCode') as any).callback;
     
-    test('properly formatted access code, with data', async () => {
+    test('properly formatted access code, with data, postal code match', async () => {
         const interview = _cloneDeep(baseInterview);
 
         // Prepare data to return
@@ -100,7 +106,68 @@ describe('access code update', function () {
 
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
-        
+        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
+    });
+
+    test('properly formatted access code, with data, but postal code mismatch', async () => {
+        const interview = _cloneDeep(baseInterview);
+
+        // Prepare data to return
+        const prefillData = {
+            'home.address': '123 Main St',
+            'home.city': 'Montreal',
+            'home.postalCode': 'H0H 0H0',
+            'home._addressIsPrefilled': true
+        }
+        preFilledMock.mockResolvedValueOnce(prefillData);
+        const updateResult = await updateCallback(interview, '1111-1111');
+
+        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
+        expect(updateResult).toEqual({ 
+            _accessCodeConfirmed: true,
+            _postalCodeMismatch: true,
+            _userPostalCode: 'H1A 1A1',
+            _prefilledPostalCode: prefillData['home.postalCode']
+        });
+        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
+    });
+
+    test('properly formatted access code, with data, but with a participant without postal code', async () => {
+        const interview = _cloneDeep(baseInterview);
+
+        // Prepare data to return
+        const prefillData = {
+            'home.address': '123 Main St',
+            'home.city': 'Montreal',
+            'home.postalCode': 'H0H 0H0',
+            'home._addressIsPrefilled': true
+        }
+        preFilledMock.mockResolvedValueOnce(prefillData);
+        getParticipantByIdMock.mockResolvedValueOnce({ username: 'phoneInterview1234314231', id: 1 });
+        const updateResult = await updateCallback(interview, '1111-1111');
+
+        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
+        expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
+        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
+    });
+
+    test('properly formatted access code, with data, but with a participant with username with same pattern', async () => {
+        const interview = _cloneDeep(baseInterview);
+
+        // Prepare data to return
+        const prefillData = {
+            'home.address': '123 Main St',
+            'home.city': 'Montreal',
+            'home.postalCode': 'H0H 0H0',
+            'home._addressIsPrefilled': true
+        }
+        preFilledMock.mockResolvedValueOnce(prefillData);
+        getParticipantByIdMock.mockResolvedValueOnce({ username: '1111-1111-nota  postal code', id: 1 });
+        const updateResult = await updateCallback(interview, '1111-1111');
+
+        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
+        expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
+        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
     });
 
     each([
