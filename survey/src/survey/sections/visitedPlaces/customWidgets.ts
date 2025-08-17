@@ -748,7 +748,7 @@ export const visitedPlaceShortcut: WidgetConfig.InputSelectType = {
     label: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getPerson({ interview });
         const nickname = person.nickname;
-        return t('visitedPlaces:LieuDejaLocaliseLequel', {
+        return t('visitedPlaces:shortcut', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
