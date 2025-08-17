@@ -127,7 +127,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test custom widget householdMembers
     // Implement custom test
 
-    // Test string widget personNickname with conditional hasHouseholdSize2OrMoreConditional
+    // Test string widget personNickname with conditional hasPersonCount2OrMoreCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.nickname', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.nickname', value: '?' });

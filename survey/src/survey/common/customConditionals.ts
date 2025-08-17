@@ -251,3 +251,13 @@ export const accessCodeIsSetCustomConditional: WidgetConditional = (interview, p
     const accessCode = surveyHelper.getResponse(interview, path, null);
     return [!accessCodeConfirmed, accessCode];
 };
+
+// FIXME This conditional is used instead of the non custom
+// `hasHouseholdSize2OrMoreConditional` because the person count can change in
+// the household section without changing the household size. When
+// https://github.com/chairemobilite/evolution/issues/1132 is fixed and this
+// survey correctly updated, this custom conditional won't be necessary
+export const hasPersonCount2OrMoreCustomConditional: WidgetConditional = (interview, path) => {
+    const personCount = odSurveyHelper.countPersons({ interview });
+    return [personCount >= 2, null];
+};

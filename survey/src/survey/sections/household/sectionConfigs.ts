@@ -7,6 +7,8 @@ import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types
 import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
 import { householdMembersSectionComplete } from '../../common/helper';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
+import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 
 export const currentSectionName: string = 'household';
 const previousSectionName: SectionConfig['previousSection'] = 'home';
@@ -37,6 +39,18 @@ export const sectionConfig: SectionConfig = {
     // Allow to click on the section menu
     completionConditional: function (interview) {
         return householdMembersSectionComplete(interview);
+    },
+    onSectionExit: (interview, iterationContext) => {
+        const personsCount = odSurveyHelper.countPersons({ interview });
+        const householdSize = getResponse(interview, 'household.size', null);
+
+        // Make the household size match the number of household members in this section
+        if (householdSize !== personsCount) {
+            return {
+                ['response.household.size']: personsCount
+            };
+        }
+        return undefined;
     }
 };
 

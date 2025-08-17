@@ -77,7 +77,8 @@ export const homeSectionComplete = (interview: UserInterviewAttributes): boolean
 };
 
 /**
- * Return whether the household members section should be considered as completed
+ * Return whether the household members section should be considered as
+ * completed
  *
  * TODO Parameterize the fields and conditions to check for the section in
  * Evolution instead of requiring this function
@@ -90,7 +91,14 @@ export const householdMembersSectionComplete = (interview: UserInterviewAttribut
     }
     const household = odSurveyHelper.getHousehold({ interview });
     const personCount = odSurveyHelper.countPersons({ interview });
-    if (household.size !== personCount) {
+    // FIXME If household size is less than person count, that's ok, we have
+    // manually decremented, the participant should have gone to fix it in the
+    // household section, if he did not and went directly to the trips (because
+    // he already entered data further in the interview), we keep it as is. The
+    // check used to be with !== but that prevent from completing the household
+    // section when a member was manually added. Return to !==  when
+    // https://github.com/chairemobilite/evolution/issues/1132 is fixed
+    if (household.size > personCount) {
         return false;
     }
     const persons = odSurveyHelper.getPersonsArray({ interview });
