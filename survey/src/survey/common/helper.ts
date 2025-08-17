@@ -281,10 +281,10 @@ export const getHouseholdVisitedAndUsualPlacesArrayAndByPersonId = function (int
         const personUsualPlaces = [];
         usualPlacesByPersonId[person._uuid] = personUsualPlaces;
         if ((person as any).usualWorkPlace) {
-            personUsualPlaces.push((person as any).usualWorkPlace);
+            personUsualPlaces.push({ ...(person as any).usualWorkPlace, activity: 'workUsual' });
         }
         if ((person as any).usualSchoolPlace) {
-            personUsualPlaces.push((person as any).usualSchoolPlace);
+            personUsualPlaces.push({ ...(person as any).usualSchoolPlace, activity: 'schoolUsual' });
         }
         usualPlaces.push(...personUsualPlaces);
         usualPlacesByPersonId[person._uuid] = personUsualPlaces;
