@@ -571,7 +571,7 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
         if (householdSize >= 2) {
             testHelpers.inputRadioTest({
                 context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.whoWillAnswerForThisPerson',
+                path: 'household.persons.${activePersonId}.whoWillAnswerForThisPerson',
                 value: '${activePersonId}' // Select the current person
             });
         }

@@ -68,7 +68,7 @@ export const personNewPerson = {
 // FIXME Custom because of the choices
 export const personWhoWillAnswerForThisPerson: WidgetConfig.InputRadioType = {
     type: 'question',
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.whoWillAnswerForThisPerson',
+    path: 'household.persons.{_activePersonId}.whoWillAnswerForThisPerson',
     inputType: 'radio',
     datatype: 'string',
     twoColumns: false,
