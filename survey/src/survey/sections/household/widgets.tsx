@@ -23,7 +23,7 @@ export const personNickname: WidgetConfig.InputStringType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('household:nickname'),
-    conditional: conditionals.hasHouseholdSize2OrMoreConditional,
+    conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
     validations: validations.requiredValidation
 };
 

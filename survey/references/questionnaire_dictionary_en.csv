@@ -86,7 +86,6 @@ Abbreviation,hh_
 ""
 Field,nickname
 Question type,Text input
-Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
 Question,"Name or nickname that will allow you to identify this person for the remainder of the interview.
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
