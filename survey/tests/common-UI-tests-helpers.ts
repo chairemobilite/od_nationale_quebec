@@ -1,14 +1,5 @@
-import { test } from '@playwright/test';
 import knex from 'chaire-lib-backend/lib/config/shared/db.config';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
-import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
-
-const context = {
-    page: null as any,
-    objectDetector: new SurveyObjectDetector(),
-    title: '',
-    widgetTestCounters: {}
-};
 
 // Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
 export const deleteParticipantInterview = async (accessCode: string) => {
@@ -18,7 +9,7 @@ export const deleteParticipantInterview = async (accessCode: string) => {
     } catch (error) {
         console.error(`Error deleting participant with access code ${accessCode}`, error);
     }
-}
+};
 
 // Modify the CommonTestParameters type with survey parameters
 export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
@@ -60,6 +51,7 @@ export type HouseholdMember = {
     remoteStudyDays: string[];
 };
 
+// TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
 const householdMembers: HouseholdMember[] = [
     {
         personIndex: 0,
@@ -68,9 +60,9 @@ const householdMembers: HouseholdMember[] = [
         gender: 'female',
         workerType: 'fullTime',
         studentType: 'partTime',
-        schoolType: null, // Not applicable for this person
-        occupation: null, // Not applicable for this person
-        workerTypeBeforeLeave: null, // Not applicable for this person
+        schoolType: null, // Question won't show.
+        occupation: null, // Question won't show.
+        workerTypeBeforeLeave: null, // Question won't show.
         educationalAttainment: 'postSecondaryNonTertiaryEducation',
         drivingLicenseOwnership: 'yes',
         carSharingMember: 'yes',
@@ -92,8 +84,28 @@ const householdMembers: HouseholdMember[] = [
     }
 ];
 
+export type VisitedPlace = {
+    activityCategory: string | null;
+    activity: string | null;
+    onTheRoadDepartureType: string | null;
+    onTheRoadArrivalType: string | null;
+    alreadyVisitedBySelfOrAnotherHouseholdMember: string | null;
+    shortcut: string | null;
+    name: string | null;
+    _previousPreviousDepartureTime: number | null;
+    _previousArrivalTime: number | null;
+    _previousDepartureTime: number | null;
+    arrivalTime: number;
+    nextPlaceCategory: string | null;
+    departureTime: number | null;
+};
+
 /********** Tests home section **********/
-export const fillHomeSectionTests = ({ context, householdSize = 1, addressIsFilled = true }: CommonTestParametersModify) => {
+export const fillHomeSectionTests = ({
+    context,
+    householdSize = 1,
+    addressIsFilled = true
+}: CommonTestParametersModify) => {
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
 
@@ -118,7 +130,6 @@ export const fillHomeSectionTests = ({ context, householdSize = 1, addressIsFill
     testHelpers.inputStringTest({ context, path: 'phoneNumber', value: '123-456-7890' });
 
     if (!addressIsFilled) {
-
         // Test string widget home_address
         testHelpers.inputStringTest({ context, path: 'home.address', value: '4898 Avenue du Parc' });
 
@@ -208,12 +219,12 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             gender: 'male',
             workerType: 'partTime',
             studentType: 'fullTime',
-            schoolType: null, // Not applicable for this person
-            occupation: null, // Not applicable for this person
-            workerTypeBeforeLeave: null, // Not applicable for this person
+            schoolType: null, // Question won't show.
+            occupation: null, // Question won't show.
+            workerTypeBeforeLeave: null, // Question won't show.
             educationalAttainment: 'bachelorOrHigher',
             drivingLicenseOwnership: 'no',
-            carSharingMember: null, // Not applicable for this person
+            carSharingMember: null, // Question won't show.
             transitFares: ['transitPass'],
             hasDisability: 'yes',
             workPlaceType: 'hybrid',
@@ -313,21 +324,41 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.occupation !== 'parentalOrSickLeave') {
-            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, isVisible: false });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.workerTypeBeforeLeave`,
+                isVisible: false
+            });
         } else {
-            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, isVisible: true });
-            testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.workerTypeBeforeLeave`, value: person.workerTypeBeforeLeave! });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.workerTypeBeforeLeave`,
+                isVisible: true
+            });
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.workerTypeBeforeLeave`,
+                value: person.workerTypeBeforeLeave!
+            });
         }
 
         // Test radio widget personEducationalAttainment with conditional ifAge15OrMoreConditional with choices educationalAttainment
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.age >= 15) {
-            testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.educationalAttainment`, value: person.educationalAttainment! });
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.educationalAttainment`,
+                value: person.educationalAttainment!
+            });
         } else {
-            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.educationalAttainment`, isVisible: false });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.educationalAttainment`,
+                isVisible: false
+            });
         }
-        
+
         // Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
@@ -372,13 +403,15 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             value: person.hasDisability
         });
 
-        
-
         // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.workPlaceType === null) {
-            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workPlaceType`, isVisible: false });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.workPlaceType`,
+                isVisible: false
+            });
         } else {
             testHelpers.inputRadioTest({
                 context,
@@ -386,28 +419,40 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
                 value: person.workPlaceType
             });
         }
-        
+
         // Test radio widget personWorkPlaceTypeBeforeLeave with conditional wasWorkerBeforeLeaveConditional with choices workPlaceBeforeLeaveTypeChoices
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.workPlaceTypeBeforeLeave === null) {
-            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`, isVisible: false });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`,
+                isVisible: false
+            });
         } else {
-            testHelpers.inputRadioTest({ context, path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`, value: person.workPlaceTypeBeforeLeave });
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`,
+                value: person.workPlaceTypeBeforeLeave
+            });
         }
 
         // Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.schoolPlaceType === null) {
-            testHelpers.inputVisibleTest({ context, path: `household.persons.${personIdString}.schoolPlaceType`, isVisible: false });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.schoolPlaceType`,
+                isVisible: false
+            });
         } else {
             testHelpers.inputRadioTest({
                 context,
                 path: `household.persons.${personIdString}.schoolPlaceType`,
                 value: person.schoolPlaceType
             });
-        } 
+        }
 
         // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
@@ -533,10 +578,16 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
 };
 
 /********** Tests tripsIntro section **********/
-type TripsIntroTestParameters = CommonTestParametersModify & {
+export type TripsIntroTestParameters = CommonTestParametersModify & {
+    hasTrips: boolean;
     expectPopup?: boolean;
 };
-export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectPopup = false }: TripsIntroTestParameters) => {
+export const fillTripsintroSectionTests = ({
+    context,
+    householdSize = 1,
+    hasTrips,
+    expectPopup = false
+}: TripsIntroTestParameters) => {
     // Verify the tripsIntro navigation is active
     testHelpers.verifyNavBarButtonStatus({
         context,
@@ -549,7 +600,9 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
     householdMembers.forEach((person: HouseholdMember, index) => {
         // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+        if (householdSize === 1) {
+            testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+        }
 
         // Test custom widget buttonSwitchPerson
         // testHelpers.inputNextButtonTest({
@@ -563,7 +616,8 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
             testHelpers.inputPopupButtonTest({
                 context,
                 text: 'Continue',
-                popupText: /We will ask you to specify .* trips.The order of the interviewed persons was randomly selected.Continue/
+                popupText:
+                    /We will ask you to specify .* trips.The order of the interviewed persons was randomly selected.Continue/
             });
         }
 
@@ -580,7 +634,7 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
         testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.personDidTrips',
-            value: 'no'
+            value: hasTrips ? 'yes' : 'no'
         });
 
         // TODO: Test custom widget personDidTripsChangeConfirm
@@ -589,8 +643,20 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
         // TODO: Test custom widget visitedPlacesIntro
         // Implement custom test
 
-        // TODO: Test custom widget personDeparturePlaceIsHome
-        // Implement custom test
+        // Test custom widget personDeparturePlaceIsHome
+        if (hasTrips) {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceIsHome',
+                value: 'yes'
+            });
+        } else {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceIsHome',
+                isVisible: false
+            });
+        }
 
         // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
         /* @link file://./../src/survey/common/conditionals.tsx */
@@ -609,8 +675,12 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
 
         // Test nextbutton widget tripsIntro_save
         if (householdSize === index + 1) {
-            // If it's the last person in the household, go to the end page
-            testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/end' });
+            // If it's the last person in the household, go to the end page except if there are trips
+            testHelpers.inputNextButtonTest({
+                context,
+                text: 'Continue',
+                nextPageUrl: hasTrips ? '/survey/visitedPlaces' : '/survey/end'
+            });
         } else {
             // If there are still persons in the household, continue the trips intro section
             testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/tripsIntro' });
@@ -621,9 +691,240 @@ export const fillTripsintroSectionTests = ({ context, householdSize = 1, expectP
     testHelpers.verifyNavBarButtonStatus({
         context,
         buttonText: 'trips',
-        buttonStatus: 'completed',
+        buttonStatus: hasTrips ? 'active' : 'completed', // Trips section is still active if there are trips
         isDisabled: false
     });
+};
+
+// TODO: We should use interviewablePersonCount and not householdSize
+// TODO: Because we can only get visited places of interviawablePerson.
+/********** Tests visitedPlaces section **********/
+export const fillVisitedplacesSectionTests = ({
+    context,
+    householdSize = 1,
+    visitedPlaces
+}: CommonTestParametersModify & { visitedPlaces: VisitedPlace[] }) => {
+    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (householdSize === 1) {
+        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+    }
+
+    // Test custom widget buttonSwitchPerson
+    // Implement custom test
+
+    // Test custom widget personVisitedPlacesTitle
+    if (householdSize === 1) {
+        testHelpers.waitTextVisible({ context, text: 'Places you went on' });
+    } else {
+        testHelpers.waitTextVisible({ context, text: `Places ${householdMembers[0].nickname} went on` });
+    }
+
+    // Test custom widget personVisitedPlaces
+    // Implement custom test
+
+    // Test custom widget personVisitedPlacesMap
+    // Implement custom test
+
+    // Add tests for each visited places
+    visitedPlaces.forEach((place: VisitedPlace, index) => {
+        fillOneVisitedPlace({ context, place }); // Fill a visited place from start to confirmation
+    });
+
+    // Test custom widget buttonCancelVisitedPlace
+    // Implement custom test
+
+    // Test custom widget buttonDeleteVisitedPlace
+    // Implement custom test
+
+    // Test custom widget buttonVisitedPlacesConfirmNextSection with conditional lastPlaceEnteredCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputNextButtonTest({
+        context,
+        text: 'Confirm locations and continue',
+        nextPageUrl: '/survey/segments'
+    });
+};
+
+// Fill a visited place from start to confirmation
+const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedPlace }) => {
+    // Test custom widget visitedPlaceActivityCategory
+    if (place.activityCategory === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+            value: place.activityCategory
+        });
+    }
+
+    // Test custom widget visitedPlaceActivity
+    if (place.activity === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
+            value: place.activity
+        });
+    }
+
+    // Test custom widget visitedPlaceOnTheRoadDepartureType
+    if (place.onTheRoadDepartureType === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadDepartureType',
+            isVisible: false
+        });
+    }
+
+    // Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (place.onTheRoadArrivalType === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadArrivalType',
+            isVisible: false
+        });
+    }
+
+    // Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (place.alreadyVisitedBySelfOrAnotherHouseholdMember === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.alreadyVisitedBySelfOrAnotherHouseholdMember',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.alreadyVisitedBySelfOrAnotherHouseholdMember',
+            value: place.alreadyVisitedBySelfOrAnotherHouseholdMember
+        });
+    }
+
+    // Test custom widget visitedPlaceShortcut
+    if (place.shortcut === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.shortcut',
+            isVisible: false
+        });
+    }
+
+    // Test custom widget visitedPlaceName
+    if (place.name === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.name',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.name',
+            value: place.name
+        });
+    }
+
+    // Test custom widget visitedPlaceGeography
+    if (place.name === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.geography',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputMapFindPlaceTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.geography'
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousPreviousDepartureTime
+    if (place._previousPreviousDepartureTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousPreviousDepartureTime',
+            isVisible: false
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousArrivalTime
+    if (place._previousArrivalTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousArrivalTime',
+            isVisible: false
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousDepartureTime
+    if (place._previousDepartureTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousDepartureTime',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousDepartureTime',
+            value: String(place._previousDepartureTime)
+        });
+    }
+
+    // Test custom widget visitedPlaceArrivalTime
+    testHelpers.inputSelectTest({
+        context,
+        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.arrivalTime',
+        value: String(place.arrivalTime)
+    });
+
+    // Test custom widget visitedPlaceNextPlaceCategory
+    if (place.nextPlaceCategory === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
+            value: place.nextPlaceCategory
+        });
+    }
+
+    // Test custom widget visitedPlaceDepartureTime
+    if (place.departureTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.departureTime',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.departureTime',
+            value: String(place.departureTime)
+        });
+    }
+
+    // Test custom widget buttonSaveVisitedPlace
+    testHelpers.inputNextButtonTest({ context, text: 'Confirm', nextPageUrl: '/survey/visitedPlaces' });
 };
 
 /********** Tests end section **********/
@@ -691,7 +992,12 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
     testHelpers.inputNextButtonTest({ context, text: 'Complete the interview', nextPageUrl: '/survey/completed' });
 
     // Verify the end navigation is completed
-    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'activeAndCompleted', isDisabled: false });
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'end',
+        buttonStatus: 'activeAndCompleted',
+        isDisabled: false
+    });
 };
 
 /********** Tests completed section **********/

@@ -12,4 +12,5 @@ webpack.config.js
 webpack.admin.config.js
 playwright-example.config.ts
 playwright.config.ts
-tests/
+# TODO: Remove tests/common-UI-tests-helpers-template.ts from this ignore list once all lint errors in that file are resolved.
+tests/common-UI-tests-helpers-template.ts 

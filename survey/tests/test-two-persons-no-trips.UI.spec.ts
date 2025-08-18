@@ -1,3 +1,4 @@
+// eslint-disable-next-line n/no-extraneous-import
 import { test } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';
@@ -23,7 +24,7 @@ test.beforeAll(async ({ browser }) => {
     context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
 });
 
-test.afterAll(async() => {
+test.afterAll(async () => {
     // Delete the participant after the test
     await commonUITestsHelpers.deleteParticipantInterview(accessCode);
 });
@@ -50,7 +51,7 @@ commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 2 });
 // commonUITestsHelpers.fillSelectPersonSectionTests({ context, householdSize: 2 });
 
 /********** Tests tripsIntro section **********/
-commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2, expectPopup: true });
+commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 2, hasTrips: false, expectPopup: true });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
