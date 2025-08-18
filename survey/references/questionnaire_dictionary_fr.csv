@@ -537,6 +537,54 @@ Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué 
 ""
 ""
 ""
+Section,Déplacements longue distance
+Abréviation,ld_
+""
+Champ,hh_madeLongDistanceTripsInLastYear
+Type de question,Bouton radio
+Question,"Au cours des 12 derniers mois, vous ou l’un des membres de votre ménage a-t-il effectué au moins un déplacement qui a franchi les limites de cette zone grise autour de votre domicile?"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,hh_longDistanceTripsSeptemberDecember
+Type de question,Curseur de plage
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de septembre à décembre 2024?
+Valeurs,"0 : Jamais
+5 : Une fois par mois
+10 : Plusieurs fois par semaine"
+""
+Champ,hh_longDistanceTripsJanuaryApril
+Type de question,Curseur de plage
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de janvier à avril 2025?
+Valeurs,"0 : Jamais
+5 : Une fois par mois
+10 : Plusieurs fois par semaine"
+""
+Champ,hh_longDistanceTripsMayAugust
+Type de question,Curseur de plage
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de mai à août 2025?
+Valeurs,"0 : Jamais
+5 : Une fois par mois
+10 : Plusieurs fois par semaine"
+""
+Champ,hh_wouldLikeToParticipateToLongDistanceSurvey
+Type de question,Bouton radio
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,Seriez-vous intéressés à être recontactés pour une enquête plus approfondie sur les déplacements interurbains?
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,hh_wouldLikeToParticipateToLongDistanceSurveyContactEmail
+Type de question,Champ de texte
+Conditionnel,wantToParticipateInLongDistanceSurveyConditional : hh_wouldLikeToParticipateToLongDistanceSurvey === yes
+Question,Veuillez fournir l'adresse e-mail où vous pouvez être contacté pour participer à une enquête sur les déplacements interurbains
+""
+""
+""
 Section,Fin
 Abréviation,e_
 ""

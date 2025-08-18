@@ -11,6 +11,7 @@ import tripsIntroConfigs from './sections/tripsIntro/sectionConfigs';
 import visitedPlacesConfigs from './sections/visitedPlaces/sectionConfigs';
 import segmentsConfigs from './sections/segments/sectionConfigs';
 import travelBehaviorConfigs from './sections/travelBehavior/sectionConfigs';
+import longDistanceConfigs from './sections/longDistance/sectionConfigs';
 import endConfigs from './sections/end/sectionConfigs';
 import completedConfigs from './sections/completed/sectionConfigs';
 
@@ -24,6 +25,7 @@ const sectionsConfigs: SurveySectionsConfig = {
     visitedPlaces: visitedPlacesConfigs,
     segments: segmentsConfigs,
     travelBehavior: travelBehaviorConfigs,
+    longDistance: longDistanceConfigs,
     end: endConfigs,
     completed: completedConfigs
 };

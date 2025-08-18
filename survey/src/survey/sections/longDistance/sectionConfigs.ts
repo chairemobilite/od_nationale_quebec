@@ -5,11 +5,12 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
+import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
-export const currentSectionName: string = 'end';
-const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
-const nextSectionName: SectionConfig['nextSection'] = 'completed';
+export const currentSectionName: string = 'longDistance';
+const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
+const nextSectionName: SectionConfig['nextSection'] = 'end';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
@@ -20,17 +21,20 @@ export const sectionConfig: SectionConfig = {
         en: 'End'
     },
     navMenu: {
-        type: 'hidden',
-        parentSection: previousSectionName
+        type: 'inNav',
+        menuName: {
+            fr: 'Fin',
+            en: 'End'
+        }
     },
     widgets: widgetsNames,
     // Allow to click on the section menu
     enableConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: previousSectionName });
+        return allPersonsTripDiariesCompleted(interview);
     },
-    // Allow to click on the section menu
+    // Allow to click on the section menu, completed when the 'end' child section is completed
     completionConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: currentSectionName });
+        return isSectionCompleted({ interview, sectionName: nextSectionName });
     },
     onSectionEntry: updateHouseholdSizeFromPersonCount
 };

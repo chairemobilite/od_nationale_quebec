@@ -340,6 +340,29 @@ Continuer
 
 
 
+Section: Déplacements longue distance
+
+Au cours des 12 derniers mois, vous ou l’un des membres de votre ménage a-t-il effectué au moins un déplacement qui a franchi les limites de cette zone grise autour de votre domicile?
+- Oui
+- Non
+- Je ne sais pas
+
+À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de septembre à décembre 2024?
+
+À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de janvier à avril 2025?
+
+À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de mai à août 2025?
+
+Seriez-vous intéressés à être recontactés pour une enquête plus approfondie sur les déplacements interurbains?
+- Oui
+- Non
+
+Veuillez fournir l'adresse e-mail où vous pouvez être contacté pour participer à une enquête sur les déplacements interurbains
+
+Continuer
+
+
+
 Section: Fin
 
 Est-ce que votre ménage est locataire ou propriétaire de votre logement?

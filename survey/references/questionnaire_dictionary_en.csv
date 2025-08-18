@@ -535,6 +535,54 @@ Question,Please specify the reason why {{nickname}} made no trip for school on {
 ""
 ""
 ""
+Section,Long distance trips
+Abbreviation,ld_
+""
+Field,hh_madeLongDistanceTripsInLastYear
+Question type,Radio input
+Question,"In the last 12 months, did you or a member of your household make any trips beyond the limits of the grey zone around your home?"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,hh_longDistanceTripsSeptemberDecember
+Question type,Range input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,At what frequency did you or a member of your household make long distance trips from September to December 2024?
+Values,"0 : Never
+5 : Once a month
+10 : Many times a week"
+""
+Field,hh_longDistanceTripsJanuaryApril
+Question type,Range input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,At what frequency did you or a member of your household make long distance trips from January to April 2025?
+Values,"0 : Never
+5 : Once a month
+10 : Many times a week"
+""
+Field,hh_longDistanceTripsMayAugust
+Question type,Range input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,At what frequency did you or a member of your household make long distance trips from May to August 2025?
+Values,"0 : Never
+5 : Once a month
+10 : Many times a week"
+""
+Field,hh_wouldLikeToParticipateToLongDistanceSurvey
+Question type,Radio input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,Would you be interested in being contacted again for a more in-depth survey on interurban travel?
+Values,"yes : Yes
+no : No"
+""
+Field,hh_wouldLikeToParticipateToLongDistanceSurveyContactEmail
+Question type,Text input
+Conditional,wantToParticipateInLongDistanceSurveyConditional : hh_wouldLikeToParticipateToLongDistanceSurvey === yes
+Question,Please provide the email address where you can be reached to participate in a survey on interurban travel
+""
+""
+""
 Section,End
 Abbreviation,e_
 ""
