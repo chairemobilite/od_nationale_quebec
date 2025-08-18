@@ -170,13 +170,6 @@ Pour se rendre au travail ou toute autre raison concernant le travail.
 Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail ?
 
 
-Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour les études.
-Pour se rendre à l'établissement d'enseignement ou pour toute autre raison concernant les études.
-
-
-Durant la dernière semaine, quand est-ce que {{nickname}} a étudié en télé-études ?
-
-
 Enregistrer et continuer
 
 

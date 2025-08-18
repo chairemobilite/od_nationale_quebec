@@ -67,28 +67,6 @@ export const lastWeekRemoteWorkDaysCustomChoices = (interview) => [
     },
     ...preferNotToAnswer
 ];
-export const lastWeekTravelToStudyDaysCustomChoices = (interview) => [
-    ...getDayChoices(interview),
-    {
-        value: 'no',
-        label: {
-            fr: 'Pas de déplacement pour les études cette semaine.',
-            en: 'No travel for studies this week.'
-        }
-    },
-    ...preferNotToAnswer
-];
-export const lastWeekRemoteStudyDaysCustomChoices = (interview) => [
-    ...getDayChoices(interview),
-    {
-        value: 'no',
-        label: {
-            fr: 'Pas de télé-études cette semaine.',
-            en: 'No remote studies this week.'
-        }
-    },
-    ...preferNotToAnswer
-];
 
 // FIXME This is copied from the `workPlaceBeforeLeaveTypeChoices` type in
 // choices.tsx. It was copied from there because the choices contain the nickname

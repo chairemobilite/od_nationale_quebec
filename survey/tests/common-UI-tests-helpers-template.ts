@@ -249,18 +249,6 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', isVisible: true });
     testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', values: ['?'] });
 
-    // Test checkbox widget personTravelToStudyDays with conditional personTravelToStudyDaysConditional with choices lastWeekTravelToStudyDaysCustomChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToStudyDays', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.travelToStudyDays', values: ['?'] });
-
-    // Test checkbox widget personRemoteStudyDays with conditional personRemoteStudyDaysConditional with choices lastWeekRemoteStudyDaysCustomChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.remoteStudyDays', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteStudyDays', values: ['?'] });
-
     // Test nextbutton widget household_save
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
