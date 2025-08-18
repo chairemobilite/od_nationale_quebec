@@ -459,6 +459,15 @@ Field,driver
 Question type,Unknown input
 Question,Who drove?
 ""
+Field,busLines
+Question type,Unknown input
+Question,"Bus line(s) taken (in chronological order)
+For each line, begin by typing the number or name, then select it from the results shown."
+""
+Field,busLinesWarning
+Question type,Unknown input
+Question,Some bus line(s) seem invalid for this trip. Please validate the lines.
+""
 Field,onDemandType
 Question type,Radio input
 Conditional,isTransitAndNotNationaleCustomConditional

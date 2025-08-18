@@ -459,6 +459,15 @@ Champ,driver
 Type de question,Entrée inconnue
 Question,Qui conduisait ?
 ""
+Champ,busLines
+Type de question,Entrée inconnue
+Question,"Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
+Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats."
+""
+Champ,busLinesWarning
+Type de question,Entrée inconnue
+Question,Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.
+""
 Champ,onDemandType
 Type de question,Bouton radio
 Conditionnel,isTransitAndNotNationaleCustomConditional
