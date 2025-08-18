@@ -60,7 +60,7 @@ export const getShortcutVisitedPlaces = (interview) => {
         const person = odSurveyHelper.getPerson({ interview, personId });
         const personVisitedPlaces = visitedAndUsualPlacesArrayAndByPersonId.visitedPlacesByPersonId[personId];
         for (let i = 0, count = personVisitedPlaces.length; i < count; i++) {
-            const visitedPlace = personVisitedPlaces[i];
+            const visitedPlace = personVisitedPlaces[i].visitedPlace;
 
             // Ignore places that are already shortcuts or usual places
             if (
@@ -88,7 +88,7 @@ export const getShortcutVisitedPlaces = (interview) => {
             ) {
                 shortcutsOrderedByPerson.push({
                     personNickname: person.nickname,
-                    visitedPlaceId: `household.persons.${personId}.visitedPlaces.${visitedPlace._uuid}`,
+                    visitedPlaceId: `household.persons.${personId}.journeys.${personVisitedPlaces[i].journey._uuid}.visitedPlaces.${visitedPlace._uuid}`,
                     description: visitedPlaceDescription
                 });
             }
