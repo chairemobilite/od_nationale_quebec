@@ -3,6 +3,7 @@ import { widgetsNames } from './widgetsNames';
 import { householdMembersSectionComplete } from '../../common/helper';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'selectPerson';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
@@ -25,7 +26,8 @@ export const sectionConfig: SectionConfig = {
         // Completed if there is an active person ID set
         const activePersonId = getResponse(interview, '_activePersonId');
         return !_isBlank(activePersonId);
-    }
+    },
+    onSectionEntry: updateHouseholdSizeFromPersonCount
 };
 
 export default sectionConfig;
