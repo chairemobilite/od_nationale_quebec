@@ -47,8 +47,6 @@ export type HouseholdMember = {
     };
     travelToWorkDays: string[];
     remoteWorkDays: string[];
-    travelToStudyDays: string[];
-    remoteStudyDays: string[];
 };
 
 // TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
@@ -78,9 +76,7 @@ const householdMembers: HouseholdMember[] = [
             name: 'Université de Montréal, Campus de la Montagne'
         },
         travelToWorkDays: ['no'],
-        remoteWorkDays: ['no'],
-        travelToStudyDays: ['no'],
-        remoteStudyDays: ['no']
+        remoteWorkDays: ['no']
     }
 ];
 
@@ -237,9 +233,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
                 name: 'Université de Montréal, Campus de la Montagne'
             },
             travelToWorkDays: ['no'],
-            remoteWorkDays: ['no'],
-            travelToStudyDays: ['no'],
-            remoteStudyDays: ['no']
+            remoteWorkDays: ['no']
         });
     }
 
@@ -499,24 +493,6 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             context,
             path: `household.persons.${personIdString}.remoteWorkDays`,
             values: person.remoteWorkDays
-        });
-
-        // Test checkbox widget personTravelToStudyDays with conditional personTravelToStudyDaysConditional with choices lastWeekTravelToStudyDaysCustomChoices
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputCheckboxTest({
-            context,
-            path: `household.persons.${personIdString}.travelToStudyDays`,
-            values: person.travelToStudyDays
-        });
-
-        // Test checkbox widget personRemoteStudyDays with conditional personRemoteStudyDaysConditional with choices lastWeekRemoteStudyDaysCustomChoices
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputCheckboxTest({
-            context,
-            path: `household.persons.${personIdString}.remoteStudyDays`,
-            values: person.remoteStudyDays
         });
     });
 

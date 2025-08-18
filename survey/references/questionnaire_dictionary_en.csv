@@ -267,17 +267,6 @@ Question type,Checkbox input
 Conditional,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
 Question,"During the last week, when did {{nickname}} work remotely?"
 ""
-Field,travelToStudyDays
-Question type,Checkbox input
-Conditional,personTravelToStudyDaysConditional : schoolPlaceType === onLocation || schoolPlaceType === hybrid
-Question,"During the last week, did {{nickname}} travel for their <strong>studies</strong>?
-To get to or for any other reason concerning his studies."
-""
-Field,remoteStudyDays
-Question type,Checkbox input
-Conditional,personRemoteStudyDaysConditional : schoolPlaceType === remote || schoolPlaceType === hybrid
-Question,"During the last week, when did {{nickname}} study remotely?"
-""
 ""
 ""
 Section,Household member selection

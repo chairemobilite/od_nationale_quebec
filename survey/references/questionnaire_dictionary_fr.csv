@@ -267,17 +267,6 @@ Type de question,Case à cocher
 Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
 Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail ?"
 ""
-Champ,travelToStudyDays
-Type de question,Case à cocher
-Conditionnel,personTravelToStudyDaysConditional : schoolPlaceType === onLocation || schoolPlaceType === hybrid
-Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour les études.
-Pour se rendre à l'établissement d'enseignement ou pour toute autre raison concernant les études."
-""
-Champ,remoteStudyDays
-Type de question,Case à cocher
-Conditionnel,personRemoteStudyDaysConditional : schoolPlaceType === remote || schoolPlaceType === hybrid
-Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a étudié en télé-études ?"
-""
 ""
 ""
 Section,Sélection du membre du ménage

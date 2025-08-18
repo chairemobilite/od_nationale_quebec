@@ -170,13 +170,6 @@ To get to or for any other reason concerning work.
 During the last week, when did {{nickname}} work remotely?
 
 
-During the last week, did {{nickname}} travel for their <strong>studies</strong>?
-To get to or for any other reason concerning his studies.
-
-
-During the last week, when did {{nickname}} study remotely?
-
-
 Save and continue
 
 

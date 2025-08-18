@@ -89,18 +89,6 @@ remoteWorkDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>work remotely</strong>?
 remoteWorkDays_one: >-
     During the <strong>last week</strong>, when did you <strong>work remotely</strong>?
-travelToStudyDays: >-
-    During the <strong>last week</strong>, did {{nickname}} <strong>travel</strong>
-    for their <strong>studies</strong>?<br /><span class="_pale _oblique">To get to
-    or for any other reason concerning his studies.</span>
-travelToStudyDays_one: >-
-    During the <strong>last week</strong>, when did {{nickname}} <strong>travel</strong>
-    for their <strong>studies</strong>?<br /><span class="_pale _oblique">To get to
-    or for any other reason concerning his studies.</span>
-remoteStudyDays: >-
-    During the <strong>last week</strong>, when did {{nickname}} <strong>study remotely</strong>?
-remoteStudyDays_one: >-
-    During the <strong>last week</strong>, when did you <strong>study remotely</strong>?
 household.save: Save and continue
 addGroupedObject: Add a missing person
 deleteThisGroupedObject: Delete this person

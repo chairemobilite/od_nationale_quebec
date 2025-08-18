@@ -107,11 +107,3 @@ export const remoteWorkDaysCustomValidation = (value) => [
         errorMessage: (t) => t('household:errors.selectNoRemoteWorkWhenNoOtherChoiceSelected')
     }
 ];
-
-export const remoteStudyDaysCustomValidation = (value) => [
-    ...oneOrMoreAndPreferNotToAnswerValidation(value),
-    {
-        validation: !_isBlank(value) && value.length > 1 && value.includes('no'),
-        errorMessage: (t) => t('household:errors.selectNoRemoteStudyWhenNoOtherChoiceSelected')
-    }
-];
