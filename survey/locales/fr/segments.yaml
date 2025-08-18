@@ -83,3 +83,8 @@ onDemandChoicesPickupAtOrigin: Oui, il est venu chercher {{nickname}} à son lie
 onDemandChoicesPickupAtOrigin_one: Oui, il est venu me chercher à mon lieu de départ
 onDemandChoicesJoinedStop: Oui, {{nickname}} a rejoint un arrêt
 onDemandChoicesJoinedStop_one: Oui, j'ai rejoint un arrêt
+busLinesOther: Autre(s) ligne(s) de bus
+busLinesDontKnow: Ligne(s) inconnue(s)
+busLinesAreCorrect: Les lignes de bus sont correctes
+busLinesWarningRequired: >-
+    Veuillez valider les lignes de bus ou confirmer que ce sont les bonnes lignes.

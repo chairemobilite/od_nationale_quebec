@@ -291,6 +291,11 @@ Including the driver.
 
 Who drove?
 
+Bus line(s) taken (in chronological order)
+For each line, begin by typing the number or name, then select it from the results shown.
+
+Some bus line(s) seem invalid for this trip. Please validate the lines.
+
 Is this an on-demand service?
 
 

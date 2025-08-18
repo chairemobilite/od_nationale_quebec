@@ -467,10 +467,10 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     // Implement custom test
 
     // Test custom widget segmentBusLines
-    // Widget not active
+    // Implement custom test
 
     // Test custom widget segmentBusLinesWarning
-    // Widget not active
+    // Implement custom test
 
     // Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

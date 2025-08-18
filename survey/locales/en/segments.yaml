@@ -61,3 +61,7 @@ onDemandChoicesPickupAtOrigin: Yes, it picked {{nickname}} up at their departure
 onDemandChoicesPickupAtOrigin_one: Yes, it picked me up at my departure location
 onDemandChoicesJoinedStop: Yes, {{nickname}} went to a stop
 onDemandChoicesJoinedStop_one: Yes, I went to a stop
+busLinesOther: Other bus line(s)
+busLinesDontKnow: Unknown line(s)
+busLinesAreCorrect: Bus lines are correct
+busLinesWarningRequired: Please validate the bus lines or confirm that lines are correct.

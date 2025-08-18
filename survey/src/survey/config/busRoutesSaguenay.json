@@ -1,0 +1,635 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "10 Notre-Dame du Saguenay",
+          "slug": "stsaguenay_10_notre-dame-du-saguenay",
+          "agencyId": "STSaguenay",
+          "shortname": "10",
+          "sortableName": "00010STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "100S Dom. Racine AM/PM - Terminus Chicoutimi",
+          "slug": "stsaguenay_100s_dom-racine-am-pm-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "100S",
+          "sortableName": "0100SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "103S Chicoutimi - Jonquière",
+          "slug": "stsaguenay_103s_chicoutimi-jonquiere",
+          "agencyId": "STSaguenay",
+          "shortname": "103S",
+          "sortableName": "0103SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "105 Chicoutimi / La Baie via boul. St-Jean-Baptiste",
+          "slug": "stsaguenay_105_chicoutimi-la-baie-via-boul-st-jean-baptiste",
+          "agencyId": "STSaguenay",
+          "shortname": "105",
+          "sortableName": "00105STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "106 Chicoutimi / La Baie via Base de Bagotville",
+          "slug": "stsaguenay_106_chicoutimi-la-baie-via-base-de-bagotville",
+          "agencyId": "STSaguenay",
+          "shortname": "106",
+          "sortableName": "00106STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "11 Quartier St-Paul",
+          "slug": "stsaguenay_11_quartier-st-paul",
+          "agencyId": "STSaguenay",
+          "shortname": "11",
+          "sortableName": "00011STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "112S Dom. Racine - Terminus Chicoutimi",
+          "slug": "stsaguenay_112s_dom-racine-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "112S",
+          "sortableName": "0112SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "12 Rivière du Moulin",
+          "slug": "stsaguenay_12_riviere-du-moulin",
+          "agencyId": "STSaguenay",
+          "shortname": "12",
+          "sortableName": "00012STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "13 Rangs St-Martin / St-Joseph",
+          "slug": "stsaguenay_13_rangs-st-martin-st-joseph",
+          "agencyId": "STSaguenay",
+          "shortname": "13",
+          "sortableName": "00013STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "14 Quartiers Coopérative / Écrivains",
+          "slug": "stsaguenay_14_quartiers-cooperative-ecrivains",
+          "agencyId": "STSaguenay",
+          "shortname": "14",
+          "sortableName": "00014STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "15 Quartiers Oiseaux / Plateau Saguenéens",
+          "slug": "stsaguenay_15_quartiers-oiseaux-plateau-sagueneens",
+          "agencyId": "STSaguenay",
+          "shortname": "15",
+          "sortableName": "00015STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "16 Côte Réserve",
+          "slug": "stsaguenay_16_cote-reserve",
+          "agencyId": "STSaguenay",
+          "shortname": "16",
+          "sortableName": "00016STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "175 Corridor d'Écomobilité Saguenay",
+          "slug": "stsaguenay_175_corridor-d-ecomobilite-saguenay",
+          "agencyId": "STSaguenay",
+          "shortname": "175",
+          "sortableName": "00175STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "1H X - Voyage 0 minutes pour double HLP",
+          "slug": "stsaguenay_1h_x-voyage-0-minutes-pour-double-hlp",
+          "agencyId": "STSaguenay",
+          "shortname": "1H",
+          "sortableName": "0001HSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "1M Montée chauffeur - Term. Chic",
+          "slug": "stsaguenay_1m_montee-chauffeur-term-chic",
+          "agencyId": "STSaguenay",
+          "shortname": "1M",
+          "sortableName": "0001MSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "2 Chicoutimi / Jonquière via boul. Royaume",
+          "slug": "stsaguenay_2_chicoutimi-jonquiere-via-boul-royaume",
+          "agencyId": "STSaguenay",
+          "shortname": "2",
+          "sortableName": "00002STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "20 Quartier Sainte-Claire",
+          "slug": "stsaguenay_20_quartier-sainte-claire",
+          "agencyId": "STSaguenay",
+          "shortname": "20",
+          "sortableName": "00020STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "200S Séminaire - Quartier des Oiseaux",
+          "slug": "stsaguenay_200s_seminaire-quartier-des-oiseaux",
+          "agencyId": "STSaguenay",
+          "shortname": "200S",
+          "sortableName": "0200SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "201S Séminaire - Arvida",
+          "slug": "stsaguenay_201s_seminaire-arvida",
+          "agencyId": "STSaguenay",
+          "shortname": "201S",
+          "sortableName": "0201SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "202S Séminaire - Faubourg Sagamie",
+          "slug": "stsaguenay_202s_seminaire-faubourg-sagamie",
+          "agencyId": "STSaguenay",
+          "shortname": "202S",
+          "sortableName": "0202SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "203S Séminaire - Terminus Chicoutimi",
+          "slug": "stsaguenay_203s_seminaire-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "203S",
+          "sortableName": "0203SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "204S Séminaire - Quartier des Écrivains",
+          "slug": "stsaguenay_204s_seminaire-quartier-des-ecrivains",
+          "agencyId": "STSaguenay",
+          "shortname": "204S",
+          "sortableName": "0204SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "208S Séminaire - Laterrière",
+          "slug": "stsaguenay_208s_seminaire-laterriere",
+          "agencyId": "STSaguenay",
+          "shortname": "208S",
+          "sortableName": "0208SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "21 Boul. Ste-Geneviève/Élie",
+          "slug": "stsaguenay_21_boul-ste-genevieve-elie",
+          "agencyId": "STSaguenay",
+          "shortname": "21",
+          "sortableName": "00021STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "210S Séminaire - Terminus Jonquière via Petite France",
+          "slug": "stsaguenay_210s_seminaire-terminus-jonquiere-via-petite-france",
+          "agencyId": "STSaguenay",
+          "shortname": "210S",
+          "sortableName": "0210SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "216S Séminaire - UQAC / Terminus Chicoutimi",
+          "slug": "stsaguenay_216s_seminaire-uqac-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "216S",
+          "sortableName": "0216SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "219S Term. Jonq - Séminaire",
+          "slug": "stsaguenay_219s_term-jonq-seminaire",
+          "agencyId": "STSaguenay",
+          "shortname": "219S",
+          "sortableName": "0219SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "22 Quartier Vanier",
+          "slug": "stsaguenay_22_quartier-vanier",
+          "agencyId": "STSaguenay",
+          "shortname": "22",
+          "sortableName": "00022STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "24 Quartier St-Luc",
+          "slug": "stsaguenay_24_quartier-st-luc",
+          "agencyId": "STSaguenay",
+          "shortname": "24",
+          "sortableName": "00024STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "25 Secteur Valin",
+          "slug": "stsaguenay_25_secteur-valin",
+          "agencyId": "STSaguenay",
+          "shortname": "25",
+          "sortableName": "00025STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "26 St-Fulgence",
+          "slug": "stsaguenay_26_st-fulgence",
+          "agencyId": "STSaguenay",
+          "shortname": "26",
+          "sortableName": "00026STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "27 St-Honoré",
+          "slug": "stsaguenay_27_st-honore",
+          "agencyId": "STSaguenay",
+          "shortname": "27",
+          "sortableName": "00027STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "28 CQFA - Cégep Chicoutimi",
+          "slug": "stsaguenay_28_cqfa-cegep-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "28",
+          "sortableName": "00028STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "2M Montée chauffeur - Term. Jonq",
+          "slug": "stsaguenay_2m_montee-chauffeur-term-jonq",
+          "agencyId": "STSaguenay",
+          "shortname": "2M",
+          "sortableName": "0002MSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "30 René-Lévesque / St-Hubert",
+          "slug": "stsaguenay_30_rene-levesque-st-hubert",
+          "agencyId": "STSaguenay",
+          "shortname": "30",
+          "sortableName": "00030STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "300S Charles-Gravel - Terminus Chicoutimi",
+          "slug": "stsaguenay_300s_charles-gravel-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "300S",
+          "sortableName": "0300SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "33 Quartiers des Peintres et St-Georges",
+          "slug": "stsaguenay_33_quartiers-des-peintres-et-st-georges",
+          "agencyId": "STSaguenay",
+          "shortname": "33",
+          "sortableName": "00033STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "35 Quartiers St-Raphaël et Petite-France",
+          "slug": "stsaguenay_35_quartiers-st-raphael-et-petite-france",
+          "agencyId": "STSaguenay",
+          "shortname": "35",
+          "sortableName": "00035STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "36 Cépal",
+          "slug": "stsaguenay_36_cepal",
+          "agencyId": "STSaguenay",
+          "shortname": "36",
+          "sortableName": "00036STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "38 Quartier St-Philippe et plateau Deschênes",
+          "slug": "stsaguenay_38_quartier-st-philippe-et-plateau-deschenes",
+          "agencyId": "STSaguenay",
+          "shortname": "38",
+          "sortableName": "00038STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "39 Faubourg Sagamie / Terminus Ste-Thérèse",
+          "slug": "stsaguenay_39_faubourg-sagamie-terminus-ste-therese",
+          "agencyId": "STSaguenay",
+          "shortname": "39",
+          "sortableName": "00039STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "3S Navette Hopital - Chicoutimi / Stationnement ENAP",
+          "slug": "stsaguenay_3s_navette-hopital-chicoutimi-stationnement-enap",
+          "agencyId": "STSaguenay",
+          "shortname": "3S",
+          "sortableName": "0003SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "40S Laure-Conan - Terminus Chicoutimi",
+          "slug": "stsaguenay_40s_laure-conan-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "40S",
+          "sortableName": "0040SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "42S Laure-Conan - Terminus Chicoutimi",
+          "slug": "stsaguenay_42s_laure-conan-terminus-chicoutimi",
+          "agencyId": "STSaguenay",
+          "shortname": "42S",
+          "sortableName": "0042SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "5 Chicoutimi / La Baie via boul. St-Jean-Baptiste",
+          "slug": "stsaguenay_5_chicoutimi-la-baie-via-boul-st-jean-baptiste",
+          "agencyId": "STSaguenay",
+          "shortname": "5",
+          "sortableName": "00005STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "50 Quartier des Érables",
+          "slug": "stsaguenay_50_quartier-des-erables",
+          "agencyId": "STSaguenay",
+          "shortname": "50",
+          "sortableName": "00050STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "51 École des Grandes-Marées",
+          "slug": "stsaguenay_51_ecole-des-grandes-marees",
+          "agencyId": "STSaguenay",
+          "shortname": "51",
+          "sortableName": "00051STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "52 Mont Bélu",
+          "slug": "stsaguenay_52_mont-belu",
+          "agencyId": "STSaguenay",
+          "shortname": "52",
+          "sortableName": "00052STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "6 Chicoutimi / La Baie via Base de Bagotville",
+          "slug": "stsaguenay_6_chicoutimi-la-baie-via-base-de-bagotville",
+          "agencyId": "STSaguenay",
+          "shortname": "6",
+          "sortableName": "00006STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "60 Portage des Roches Nord",
+          "slug": "stsaguenay_60_portage-des-roches-nord",
+          "agencyId": "STSaguenay",
+          "shortname": "60",
+          "sortableName": "00060STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "62 Portage des Roches Sud",
+          "slug": "stsaguenay_62_portage-des-roches-sud",
+          "agencyId": "STSaguenay",
+          "shortname": "62",
+          "sortableName": "00062STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "64 chemin St-Isidore / rang St-Paul",
+          "slug": "stsaguenay_64_chemin-st-isidore-rang-st-paul",
+          "agencyId": "STSaguenay",
+          "shortname": "64",
+          "sortableName": "00064STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "65 Term. Chic / Shipshaw",
+          "slug": "stsaguenay_65_term-chic-shipshaw",
+          "agencyId": "STSaguenay",
+          "shortname": "65",
+          "sortableName": "00065STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "67 Term. Jonq / Shipshaw",
+          "slug": "stsaguenay_67_term-jonq-shipshaw",
+          "agencyId": "STSaguenay",
+          "shortname": "67",
+          "sortableName": "00067STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "68 St-Ambroise",
+          "slug": "stsaguenay_68_st-ambroise",
+          "agencyId": "STSaguenay",
+          "shortname": "68",
+          "sortableName": "00068STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "71S Station du Royaume vers  Laure-Conan / D. Racine / Oasis / Lafontaine",
+          "slug": "stsaguenay_71s_station-du-royaume-vers-laure-conan-d-racine-oasis-lafontaine",
+          "agencyId": "STSaguenay",
+          "shortname": "71S",
+          "sortableName": "0071SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "72S Station du Royaume ers Séminaire / UQAC / Cégep",
+          "slug": "stsaguenay_72s_station-du-royaume-ers-seminaire-uqac-cegep",
+          "agencyId": "STSaguenay",
+          "shortname": "72S",
+          "sortableName": "0072SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "74S Quartier Bois-Vins",
+          "slug": "stsaguenay_74s_quartier-bois-vins",
+          "agencyId": "STSaguenay",
+          "shortname": "74S",
+          "sortableName": "0074SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "75S Station du Royaume vers Lafontaine",
+          "slug": "stsaguenay_75s_station-du-royaume-vers-lafontaine",
+          "agencyId": "STSaguenay",
+          "shortname": "75S",
+          "sortableName": "0075SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "8 Faubourg Sagamie / UQAC",
+          "slug": "stsaguenay_8_faubourg-sagamie-uqac",
+          "agencyId": "STSaguenay",
+          "shortname": "8",
+          "sortableName": "00008STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "80S Laterrière sur demande",
+          "slug": "stsaguenay_80s_laterriere-sur-demande",
+          "agencyId": "STSaguenay",
+          "shortname": "80S",
+          "sortableName": "0080SSTSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "821 Ste-Geneviève / Ste-Claire",
+          "slug": "stsaguenay_821_ste-genevieve-ste-claire",
+          "agencyId": "STSaguenay",
+          "shortname": "821",
+          "sortableName": "00821STSaguenay"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "824 Vanier / St-Luc",
+          "slug": "stsaguenay_824_vanier-st-luc",
+          "agencyId": "STSaguenay",
+          "shortname": "824",
+          "sortableName": "00824STSaguenay"
+        }
+      }
+    ]
+  }
