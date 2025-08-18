@@ -24,32 +24,32 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
         activity: 'shopping',
-        onTheRoadDepartureType: null,
-        onTheRoadArrivalType: null,
+        onTheRoadDepartureType: null, // Question won't show.
+        onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: 'no',
-        shortcut: null,
+        shortcut: null, // Question won't show.
         name: 'Carrefour Laval Sports Expert',
-        _previousPreviousDepartureTime: null,
-        _previousArrivalTime: null,
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM
         arrivalTime: 34200, // 9:30 AM
         nextPlaceCategory: 'wentBackHome',
         departureTime: 39600 // 11:00 AM
     },
     {
-        activityCategory: null,
-        activity: null,
-        onTheRoadDepartureType: null,
-        onTheRoadArrivalType: null,
-        alreadyVisitedBySelfOrAnotherHouseholdMember: null,
-        shortcut: null,
-        name: null,
-        _previousPreviousDepartureTime: null,
-        _previousArrivalTime: null,
-        _previousDepartureTime: null,
+        activityCategory: null, // Question won't show.
+        activity: null, // Question won't show.
+        onTheRoadDepartureType: null, // Question won't show.
+        onTheRoadArrivalType: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
+        shortcut: null, // Question won't show.
+        name: null, // Question won't show.
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
+        _previousDepartureTime: null, // Question won't show.
         arrivalTime: 41400, // 11:30 AM
         nextPlaceCategory: 'stayedThereUntilTheNextDay',
-        departureTime: null
+        departureTime: null // Question won't show.
     }
 ];
 

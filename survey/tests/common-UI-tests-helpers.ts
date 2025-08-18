@@ -24,7 +24,6 @@ export const deleteParticipantInterview = async (accessCode: string) => {
 export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
     householdSize?: number;
     addressIsFilled?: boolean;
-    hasTrips?: boolean;
 };
 
 // Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
@@ -69,9 +68,9 @@ const householdMembers: HouseholdMember[] = [
         gender: 'female',
         workerType: 'fullTime',
         studentType: 'partTime',
-        schoolType: null, // Not applicable for this person
-        occupation: null, // Not applicable for this person
-        workerTypeBeforeLeave: null, // Not applicable for this person
+        schoolType: null, // Question won't show.
+        occupation: null, // Question won't show.
+        workerTypeBeforeLeave: null, // Question won't show.
         educationalAttainment: 'postSecondaryNonTertiaryEducation',
         drivingLicenseOwnership: 'yes',
         carSharingMember: 'yes',
@@ -228,12 +227,12 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             gender: 'male',
             workerType: 'partTime',
             studentType: 'fullTime',
-            schoolType: null, // Not applicable for this person
-            occupation: null, // Not applicable for this person
-            workerTypeBeforeLeave: null, // Not applicable for this person
+            schoolType: null, // Question won't show.
+            occupation: null, // Question won't show.
+            workerTypeBeforeLeave: null, // Question won't show.
             educationalAttainment: 'bachelorOrHigher',
             drivingLicenseOwnership: 'no',
-            carSharingMember: null, // Not applicable for this person
+            carSharingMember: null, // Question won't show.
             transitFares: ['transitPass'],
             hasDisability: 'yes',
             workPlaceType: 'hybrid',
@@ -588,6 +587,7 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
 
 /********** Tests tripsIntro section **********/
 export type TripsIntroTestParameters = CommonTestParametersModify & {
+    hasTrips?: boolean;
     expectPopup?: boolean;
 };
 export const fillTripsintroSectionTests = ({

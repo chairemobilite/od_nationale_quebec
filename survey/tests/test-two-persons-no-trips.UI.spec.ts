@@ -23,7 +23,7 @@ test.beforeAll(async ({ browser }) => {
     context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
 });
 
-test.afterAll(async() => {
+test.afterAll(async () => {
     // Delete the participant after the test
     await commonUITestsHelpers.deleteParticipantInterview(accessCode);
 });
