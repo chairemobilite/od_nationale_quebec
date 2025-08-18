@@ -4,6 +4,7 @@ import { distance as turfDistance } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
 import {
+    Journey,
     Person,
     StartRemoveGroupedObjects,
     StartUpdateInterview,
@@ -262,20 +263,30 @@ export const carsharingMembersCountInHousehold = (interview: UserInterviewAttrib
 };
 
 //TODO: add attributePrefix for custom named visitedPlaces:
-export const getHouseholdVisitedAndUsualPlacesArrayAndByPersonId = function (interview) {
+type VisitedPlacesArrayByPersonId = {
+    visitedPlaces: { visitedPlace: VisitedPlace; journey: Journey }[];
+    visitedPlacesByPersonId: { [personId: string]: { visitedPlace: VisitedPlace; journey: Journey }[] };
+    usualPlaces: VisitedPlace[];
+    usualPlacesByPersonId: { [personId: string]: VisitedPlace[] };
+};
+export const getHouseholdVisitedAndUsualPlacesArrayAndByPersonId = function (interview): VisitedPlacesArrayByPersonId {
     const persons = odSurveyHelper.getPersonsArray({ interview });
-    const visitedPlaces = [];
-    const visitedPlacesByPersonId = {};
-    const usualPlaces = [];
-    const usualPlacesByPersonId = {};
+    const visitedPlaces: VisitedPlacesArrayByPersonId['visitedPlaces'] = [];
+    const visitedPlacesByPersonId: VisitedPlacesArrayByPersonId['visitedPlacesByPersonId'] = {};
+    const usualPlaces: VisitedPlacesArrayByPersonId['usualPlaces'] = [];
+    const usualPlacesByPersonId: VisitedPlacesArrayByPersonId['usualPlacesByPersonId'] = {};
     for (const person of persons) {
         const personJourney = odSurveyHelper.getJourneysArray({ person })[0];
         if (_isBlank(personJourney)) {
             continue; // Skip persons without journeys
         }
         const personVisitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey: personJourney });
-        visitedPlaces.push(...personVisitedPlacesArray);
-        visitedPlacesByPersonId[person._uuid] = personVisitedPlacesArray;
+        const visitedPlacesWithJourney = personVisitedPlacesArray.map((visitedPlace) => ({
+            visitedPlace,
+            journey: personJourney
+        }));
+        visitedPlaces.push(...visitedPlacesWithJourney);
+        visitedPlacesByPersonId[person._uuid] = visitedPlacesWithJourney;
 
         // Get the person's usual places
         const personUsualPlaces = [];
@@ -303,10 +314,10 @@ export const getShortcutVisitedPlacePerson = function (shortcutVisitedPlaceId, i
     }
     const visitedAndUsualPlacesArrayAndByPersonId = getHouseholdVisitedAndUsualPlacesArrayAndByPersonId(interview);
     for (const personId in visitedAndUsualPlacesArrayAndByPersonId.visitedPlacesByPersonId) {
-        const personVisitedPlaces = visitedAndUsualPlacesArrayAndByPersonId.visitedPlacesByPersonId[personId];
-        for (let i = 0, count = personVisitedPlaces.length; i < count; i++) {
-            const visitedPlace = personVisitedPlaces[i];
-            if (visitedPlace && visitedPlace._uuid === shortcutVisitedPlaceId) {
+        const personVisitedPlacesAndJourney = visitedAndUsualPlacesArrayAndByPersonId.visitedPlacesByPersonId[personId];
+        for (let i = 0, count = personVisitedPlacesAndJourney.length; i < count; i++) {
+            const visitedPlace = personVisitedPlacesAndJourney[i];
+            if (visitedPlace && visitedPlace.visitedPlace._uuid === shortcutVisitedPlaceId) {
                 return odSurveyHelper.getPerson({ interview, personId });
             }
         }
