@@ -119,12 +119,7 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
 /********** Tests Household section **********/
 export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the household navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'household',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'household', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for household section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'household', completionPercentage: 0 });
@@ -173,45 +168,25 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatus
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.workerTypeBeforeLeave',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerTypeBeforeLeave', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerTypeBeforeLeave', value: '?' });
 
     // Test radio widget personEducationalAttainment with conditional ifAge15OrMoreConditional with choices educationalAttainment
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.educationalAttainment',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', value: '?' });
 
     // Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.drivingLicenseOwnership',
-        isVisible: true
-    });
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.persons.${personId[0]}.drivingLicenseOwnership',
-        value: '?'
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', value: '?' });
 
     // Test radio widget personCarSharingMember with conditional hasDrivingLicenseConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.carSharingMember',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', value: '?' });
 
     // Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional with choices transitFareType
@@ -235,57 +210,29 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test radio widget personWorkPlaceTypeBeforeLeave with conditional wasWorkerBeforeLeaveConditional with choices workPlaceBeforeLeaveTypeCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave',
-        isVisible: true
-    });
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave',
-        value: '?'
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave', value: '?' });
 
     // Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.schoolPlaceType',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', value: '?' });
 
     // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.usualWorkPlace.name',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.name', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.name', value: '?' });
 
     // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.usualWorkPlace.geography',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.geography', isVisible: true });
     // Implement custom test
 
     // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.usualSchoolPlace.name',
-        isVisible: true
-    });
-    testHelpers.inputStringTest({
-        context,
-        path: 'household.persons.${personId[0]}.usualSchoolPlace.name',
-        value: '?'
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualSchoolPlace.name', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.usualSchoolPlace.name', value: '?' });
 
     // Test custom widget personUsualSchoolPlaceGeography
     // Implement custom test
@@ -293,16 +240,8 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test checkbox widget personTravelToWorkDays with conditional isWorkerConditional with choices lastWeekTravelToWorkDaysCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.travelToWorkDays',
-        isVisible: true
-    });
-    testHelpers.inputCheckboxTest({
-        context,
-        path: 'household.persons.${personId[0]}.travelToWorkDays',
-        values: ['?']
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', values: ['?'] });
 
     // Test checkbox widget personRemoteWorkDays with conditional personRemoteWorkDaysConditional with choices lastWeekRemoteWorkDaysCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -313,48 +252,26 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test checkbox widget personTravelToStudyDays with conditional personTravelToStudyDaysConditional with choices lastWeekTravelToStudyDaysCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.travelToStudyDays',
-        isVisible: true
-    });
-    testHelpers.inputCheckboxTest({
-        context,
-        path: 'household.persons.${personId[0]}.travelToStudyDays',
-        values: ['?']
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToStudyDays', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.travelToStudyDays', values: ['?'] });
 
     // Test checkbox widget personRemoteStudyDays with conditional personRemoteStudyDaysConditional with choices lastWeekRemoteStudyDaysCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${personId[0]}.remoteStudyDays',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.remoteStudyDays', isVisible: true });
     testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteStudyDays', values: ['?'] });
 
     // Test nextbutton widget household_save
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
     // Verify the household navigation is completed
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'household',
-        buttonStatus: 'completed',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'household', buttonStatus: 'completed', isDisabled: false });
 };
 
 /********** Tests Selectperson section **********/
 export const fillSelectpersonSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the selectPerson navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'selectPerson',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'selectPerson', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for selectPerson section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'selectPerson', completionPercentage: 0 });
@@ -366,23 +283,13 @@ export const fillSelectpersonSectionTests = ({ context, householdSize }: CommonT
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
     // Verify the selectPerson navigation is completed
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'selectPerson',
-        buttonStatus: 'completed',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'selectPerson', buttonStatus: 'completed', isDisabled: false });
 };
 
 /********** Tests Tripsintro section **********/
 export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the tripsIntro navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'tripsIntro',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'tripsIntro', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for tripsIntro section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'tripsIntro', completionPercentage: 0 });
@@ -416,27 +323,14 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther',
-        isVisible: true
-    });
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther',
-        value: '?'
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', value: '?' });
 
     // Test nextbutton widget tripsIntro_save
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
     // Verify the tripsIntro navigation is completed
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'tripsIntro',
-        buttonStatus: 'completed',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'tripsIntro', buttonStatus: 'completed', isDisabled: false });
 
     // Test infotext widget tripsIntroOutro
     testHelpers.waitTextVisible({ context, text: '?' });
@@ -445,12 +339,7 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
 /********** Tests Visitedplaces section **********/
 export const fillVisitedplacesSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the visitedPlaces navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'visitedPlaces',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'visitedPlaces', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for visitedPlaces section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'visitedPlaces', completionPercentage: 0 });
@@ -538,12 +427,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 /********** Tests Segments section **********/
 export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the segments navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'segments',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'segments', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for segments section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'segments', completionPercentage: 0 });
@@ -629,12 +513,7 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
 /********** Tests Travelbehavior section **********/
 export const fillTravelbehaviorSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the travelBehavior navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'travelBehavior',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'travelBehavior', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for travelBehavior section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'travelBehavior', completionPercentage: 0 });
@@ -651,19 +530,11 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     // Test select widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional with choices noWorkTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason', isVisible: true });
 
     // Test custom widget personNoWorkTripReasonSpecify with conditional shouldAskPersonNoWorkTripSpecifyCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify', isVisible: true });
     // Implement custom test
 
     // Test custom widget personNoSchoolTripIntro
@@ -672,31 +543,18 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     // Test select widget personNoSchoolTripReason with conditional shouldAskForNoSchoolTripReasonCustomConditional with choices noSchoolTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason', isVisible: true });
 
     // Test custom widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripSpecifyCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify',
-        isVisible: true
-    });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify', isVisible: true });
     // Implement custom test
 
     // Test nextbutton widget buttonTravelBehaviorConfirmNextSection
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
     // Verify the travelBehavior navigation is completed
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'travelBehavior',
-        buttonStatus: 'completed',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'travelBehavior', buttonStatus: 'completed', isDisabled: false });
 };
 
 /********** Tests End section **********/
@@ -720,16 +578,8 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
 
     // Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
-        isVisible: true
-    });
-    testHelpers.inputStringTest({
-        context,
-        path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
-        value: '?'
-    });
+    testHelpers.inputVisibleTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', value: '?' });
 
     // Test text widget householdCommentsOnSurvey
     testHelpers.inputStringTest({ context, path: 'commentsOnSurvey', value: '?' });
@@ -780,12 +630,7 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
 /********** Tests Completed section **********/
 export const fillCompletedSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the completed navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'completed',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'completed', buttonStatus: 'active', isDisabled: false });
 
     // Progress bar test for completed section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'completed', completionPercentage: 0 });

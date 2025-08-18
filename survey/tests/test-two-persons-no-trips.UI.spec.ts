@@ -1,3 +1,4 @@
+// eslint-disable-next-line n/no-extraneous-import
 import { test } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';

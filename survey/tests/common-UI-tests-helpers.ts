@@ -1,14 +1,5 @@
-import { test } from '@playwright/test';
 import knex from 'chaire-lib-backend/lib/config/shared/db.config';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
-import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
-
-const context = {
-    page: null as any,
-    objectDetector: new SurveyObjectDetector(),
-    title: '',
-    widgetTestCounters: {}
-};
 
 // Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
 export const deleteParticipantInterview = async (accessCode: string) => {
