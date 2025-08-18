@@ -94,6 +94,12 @@ commonUITestsHelpers.fillVisitedPlacesSectionTests({ context, householdSize: 1, 
 /********** Tests segments section **********/
 // commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1 });
 
+// TODO See if we need any travelBehavior section tests.
+
+/********** Tests longDistance section **********/
+// No long distance trips
+//commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
+
 // /********** Tests end section **********/
 // commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 

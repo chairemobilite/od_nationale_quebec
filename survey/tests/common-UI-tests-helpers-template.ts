@@ -545,6 +545,54 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'travelBehavior', buttonStatus: 'completed', isDisabled: false });
 };
 
+/********** Tests Longdistance section **********/
+export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the longDistance navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'longDistance', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for longDistance section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'longDistance', completionPercentage: 0 });
+
+    // Test radio widget householdMadeLongDistanceTripsInLastYear with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.madeLongDistanceTripsInLastYear', value: '?' });
+
+    // Test custom widget householdLongDistanceIntroMap
+    // Implement custom test
+
+    // Test range widget householdLongDistanceTripsSeptemberDecember with conditional madeLongDistanceTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsSeptemberDecember', isVisible: true });
+    testHelpers.inputRangeTest({ context, path: 'household.longDistanceTripsSeptemberDecember', value: 0, sliderColor: '?' });
+
+    // Test range widget householdLongDistanceTripsJanuaryApril with conditional madeLongDistanceTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsJanuaryApril', isVisible: true });
+    testHelpers.inputRangeTest({ context, path: 'household.longDistanceTripsJanuaryApril', value: 0, sliderColor: '?' });
+
+    // Test range widget householdLongDistanceTripsMayAugust with conditional madeLongDistanceTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsMayAugust', isVisible: true });
+    testHelpers.inputRangeTest({ context, path: 'household.longDistanceTripsMayAugust', value: 0, sliderColor: '?' });
+
+    // Test radio widget wouldLikeToParticipateToLongDistanceSurvey with conditional madeLongDistanceTripsConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.wouldLikeToParticipateToLongDistanceSurvey', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.wouldLikeToParticipateToLongDistanceSurvey', value: '?' });
+
+    // Test string widget wouldLikeToParticipateToLongDistanceSurveyContactEmail with conditional wantToParticipateInLongDistanceSurveyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.wouldLikeToParticipateToLongDistanceSurveyContactEmail', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.wouldLikeToParticipateToLongDistanceSurveyContactEmail', value: '?' });
+
+    // Test nextbutton widget buttonCompleteLongDistanceSection
+    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+    // Verify the longDistance navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'longDistance', buttonStatus: 'completed', isDisabled: false });
+};
+
 /********** Tests End section **********/
 export const fillEndSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the end navigation is active

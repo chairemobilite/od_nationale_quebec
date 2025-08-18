@@ -110,6 +110,24 @@ export const defaultTravelBehavior: TravelBehavior = {
     noSchoolTripReasonSpecify: null
 };
 
+export type LongDistanceSection = {
+    madeLongDistanceTrips: 'yes' | 'no' | 'dontKnow';
+    frequencySeptemberDecember: number | null;
+    frequencyJanuaryApril: number | null;
+    frequencyMayAugust: number | null;
+    wantToParticipateInSurvey: string | null;
+    wantToParticipateInSurveyEmail: string | null;
+};
+
+export const defaultLongDistance: LongDistanceSection = {
+    madeLongDistanceTrips: 'no',
+    frequencySeptemberDecember: null,
+    frequencyJanuaryApril: null,
+    frequencyMayAugust: null,
+    wantToParticipateInSurvey: null,
+    wantToParticipateInSurveyEmail: null
+};
+
 /********** Tests home section **********/
 export const fillHomeSectionTests = ({
     context,
@@ -995,16 +1013,117 @@ export const fillTravelBehaviorSectionTests = ({
         });
     }
 
-    // Test nextbutton widget tripsIntro_save
+    // Test nextbutton widget
     testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: `/survey/${expectedNextSection}` });
 
-    // Verify the tripsIntro navigation is completed
+    // Verify the travel behavior navigation is completed if next section is longDistance
     testHelpers.verifyNavBarButtonStatus({
         context,
         buttonText: 'trips',
-        buttonStatus: expectedNextSection === 'end' ? 'completed' : 'active', // Trips section is still active if the next section is not 'end'
+        buttonStatus: expectedNextSection === 'longDistance' ? 'completed' : 'active', // Trips section is still active if the next section is not 'end'
         isDisabled: false
     });
+};
+
+/********** Tests Longdistance section **********/
+export type LongDistanceTestParameters = CommonTestParametersModify & {
+    longDistanceSection?: LongDistanceSection;
+};
+export const fillLongDistanceSectionTests = ({
+    context,
+    longDistanceSection = defaultLongDistance
+}: LongDistanceTestParameters) => {
+    const hasTrips = longDistanceSection.madeLongDistanceTrips === 'yes';
+
+    // Test radio widget householdMadeLongDistanceTripsInLastYear with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'household.madeLongDistanceTripsInLastYear',
+        value: longDistanceSection.madeLongDistanceTrips
+    });
+
+    // Test range widget householdLongDistanceTripsSeptemberDecember with conditional madeLongDistanceTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (hasTrips) {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'household.longDistanceTripsSeptemberDecember',
+            value: longDistanceSection.frequencySeptemberDecember!,
+            sliderColor: 'blue'
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.longDistanceTripsSeptemberDecember',
+            isVisible: false
+        });
+    }
+
+    // Test range widget householdLongDistanceTripsJanuaryApril with conditional madeLongDistanceTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (hasTrips) {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'household.longDistanceTripsJanuaryApril',
+            value: longDistanceSection.frequencyJanuaryApril!,
+            sliderColor: 'blue'
+        });
+    } else {
+        testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsJanuaryApril', isVisible: false });
+    }
+
+    // Test range widget householdLongDistanceTripsMayAugust with conditional madeLongDistanceTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (hasTrips) {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'household.longDistanceTripsMayAugust',
+            value: longDistanceSection.frequencyMayAugust!,
+            sliderColor: 'blue'
+        });
+    } else {
+        testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsMayAugust', isVisible: false });
+    }
+
+    // Test radio widget wouldLikeToParticipateToLongDistanceSurvey with conditional madeLongDistanceTripsConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (hasTrips) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.wouldLikeToParticipateToLongDistanceSurvey',
+            value: longDistanceSection.wantToParticipateInSurvey!
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.wouldLikeToParticipateToLongDistanceSurvey',
+            isVisible: false
+        });
+    }
+
+    // Test string widget wouldLikeToParticipateToLongDistanceSurveyContactEmail with conditional wantToParticipateInLongDistanceSurveyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (longDistanceSection.wantToParticipateInSurvey === 'yes') {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.wouldLikeToParticipateToLongDistanceSurveyContactEmail',
+            value: longDistanceSection.wantToParticipateInSurveyEmail!
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.wouldLikeToParticipateToLongDistanceSurveyContactEmail',
+            isVisible: false
+        });
+    }
+
+    // Test nextbutton widget buttonCompleteLongDistanceSection
+    testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/end' });
+
+    // Verify the longDistance navigation is still active as we need the `end` section completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'End', buttonStatus: 'active', isDisabled: false });
 };
 
 /********** Tests end section **********/

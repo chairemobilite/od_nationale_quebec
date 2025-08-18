@@ -4,7 +4,7 @@ import { householdMembersSectionComplete, tripDiaryAndTravelBehaviorForPersonCom
 
 export const currentSectionName: string = 'personsTrips';
 const previousSectionName: SectionConfig['previousSection'] = 'household';
-const nextSectionName: SectionConfig['nextSection'] = 'end';
+const nextSectionName: SectionConfig['nextSection'] = 'longDistance';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {

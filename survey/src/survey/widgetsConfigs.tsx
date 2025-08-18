@@ -10,6 +10,7 @@ import * as tripsIntroWidgets from './sections/tripsIntro/widgets';
 import * as visitedPlacesWidgets from './sections/visitedPlaces/widgets';
 import * as segmentsWidgets from './sections/segments/widgets';
 import * as travelBehaviorWidgets from './sections/travelBehavior/widgets';
+import * as longDistanceWidgets from './sections/longDistance/widgets';
 import * as endWidgets from './sections/end/widgets';
 import * as completedWidgets from './sections/completed/widgets';
 
@@ -26,6 +27,7 @@ const sectionsWidgets = [
     visitedPlacesWidgets,
     segmentsWidgets,
     travelBehaviorWidgets,
+    longDistanceWidgets,
     endWidgets,
     completedWidgets
 ];

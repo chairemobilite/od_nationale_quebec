@@ -60,7 +60,16 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehavior);
 travelBehavior.noWorkTripReason = 'noWork';
 travelBehavior.noSchoolTripReason = 'distanceLearning';
-commonUITestsHelpers.fillTravelBehaviorSectionTests({ context, householdSize: 1, nextSection: 'end', travelBehavior });
+commonUITestsHelpers.fillTravelBehaviorSectionTests({
+    context,
+    householdSize: 1,
+    nextSection: 'longDistance',
+    travelBehavior
+});
+
+/********** Tests longDistance section **********/
+// No long distance trips
+commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });

@@ -471,3 +471,29 @@ export const wasWorkerBeforeLeaveConditional: WidgetConditional = (interview, pa
         ]
     });
 };
+
+export const wantToParticipateInLongDistanceSurveyConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.wouldLikeToParticipateToLongDistanceSurvey',
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const madeLongDistanceTripsConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.madeLongDistanceTripsInLastYear',
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};

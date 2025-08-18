@@ -13,6 +13,7 @@ import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 export const currentSectionName: string = 'completed';
 const previousSectionName: SectionConfig['previousSection'] = 'end';
 const nextSectionName: SectionConfig['nextSection'] = null;
+const parentSection = 'longDistance';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
@@ -24,7 +25,7 @@ export const sectionConfig: SectionConfig = {
     },
     navMenu: {
         type: 'hidden',
-        parentSection: previousSectionName
+        parentSection: parentSection
     },
     widgets: widgetsNames,
     // Do some actions before the section is loaded

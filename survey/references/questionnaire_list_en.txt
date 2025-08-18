@@ -338,6 +338,29 @@ Continue
 
 
 
+Section: Long distance trips
+
+In the last 12 months, did you or a member of your household make any trips beyond the limits of the grey zone around your home?
+- Yes
+- No
+- I don't know
+
+At what frequency did you or a member of your household make long distance trips from September to December 2024?
+
+At what frequency did you or a member of your household make long distance trips from January to April 2025?
+
+At what frequency did you or a member of your household make long distance trips from May to August 2025?
+
+Would you be interested in being contacted again for a more in-depth survey on interurban travel?
+- Yes
+- No
+
+Please provide the email address where you can be reached to participate in a survey on interurban travel
+
+Continue
+
+
+
 Section: End
 
 Does your household rent or own your home?

@@ -91,9 +91,21 @@ const travelBehaviorP2 = {
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 1,
-    nextSection: 'end',
+    nextSection: 'longDistance',
     travelBehavior: travelBehaviorP2
 });
+
+/********** Tests longDistance section **********/
+// No long distance trips
+const longDistance: commonUITestsHelpers.LongDistanceSection = {
+    madeLongDistanceTrips: 'yes' as const,
+    frequencyJanuaryApril: 3,
+    frequencyMayAugust: 9,
+    frequencySeptemberDecember: 0,
+    wantToParticipateInSurvey: 'yes',
+    wantToParticipateInSurveyEmail: 'test@test.org'
+};
+commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1, longDistanceSection: longDistance });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
