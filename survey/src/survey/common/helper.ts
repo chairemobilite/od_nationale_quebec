@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import _isEqual from 'lodash/isEqual';
+import moment from 'moment-business-days';
 import { distance as turfDistance } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
@@ -159,6 +160,92 @@ export const tripsForPersonComplete = function ({
     return nextTrip === null && nextPlace === null;
 };
 
+const getVisitedPlacesForCategory = (journey: Journey, activityCategory: string) => {
+    const visitedPlaces = odSurveyHelper.getVisitedPlacesArray({ journey });
+    return visitedPlaces.filter((visitedPlace) => visitedPlace.activityCategory === activityCategory);
+};
+
+export const shouldAskForNoWorkTripReason = ({
+    person,
+    interview
+}: {
+    person: Person;
+    interview: UserInterviewAttributes;
+}) => {
+    // Ask only for all workers with fixed location
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    if (!person || !journey) {
+        return false;
+    }
+    const workerType = person.workerType;
+    const workPlaceType = person.workPlaceType;
+    const workPlaceTypeIsCompatible =
+        ['onLocation', 'onTheRoadWithUsualPlace', 'onTheRoadWithoutUsualPlace', 'hybrid'].includes(workPlaceType) &&
+        ['fullTime', 'partTime'].includes(workerType);
+    if (!workPlaceTypeIsCompatible) {
+        return false;
+    }
+
+    const tripsDate = getResponse(interview, '_assignedDay', null);
+    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
+    return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'work').length === 0;
+};
+
+export const shouldAskForNoSchoolTripReason = ({
+    person,
+    interview
+}: {
+    person: Person;
+    interview: UserInterviewAttributes;
+}) => {
+    // Ask only for full time students
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    if (!person || !journey) {
+        return false;
+    }
+    const studentType = person.studentType;
+    const schoolPlaceType = person.schoolPlaceType;
+    const schoolPlaceIsCompatible =
+        ['onLocation', 'hybrid'].includes(schoolPlaceType) && ['fullTime', 'partTime'].includes(studentType);
+    const childrenCase = isStudentFromEnrolled(person);
+    if (!(schoolPlaceIsCompatible || childrenCase)) {
+        return false;
+    }
+
+    const tripsDate = getResponse(interview, '_assignedDay', null);
+    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
+
+    return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'school').length === 0;
+};
+
+const travelBehaviorForPersonComplete = function ({
+    person,
+    interview
+}: {
+    person: Person;
+    interview: UserInterviewAttributes;
+}) {
+    // If the person is a child, we consider the travel behavior section as complete
+    if (person && typeof person.age === 'number' && person.age < 5) {
+        return true;
+    }
+    // If the person is not a student or worker, we consider the travel behavior section as complete
+    if (person && !isStudent(person) && !isWorker(person)) {
+        return true;
+    }
+    // Make sure the no trip reasons are answered if required
+    const shouldAskNoSchoolTrip = shouldAskForNoSchoolTripReason({ person, interview });
+    const shouldAskNoWorkTrip = shouldAskForNoWorkTripReason({ person, interview });
+    if (!shouldAskNoSchoolTrip && !shouldAskNoWorkTrip) {
+        return true;
+    }
+    const journey = odSurveyHelper.getJourneysArray({ person })[0] as any;
+    return (
+        (!shouldAskNoSchoolTrip || typeof journey.noSchoolTripReason === 'string') &&
+        (!shouldAskNoWorkTrip || typeof journey.noWorkTripReason === 'string')
+    );
+};
+
 /**
  * TODO Parameterize the fields and conditions to check for the section in
  * Evolution instead of requiring this function
@@ -168,7 +255,11 @@ export const tripsForPersonComplete = function ({
  */
 export const tripDiaryAndTravelBehaviorForPersonComplete = function (person, interview: UserInterviewAttributes) {
     // FIXME Add conditions as sections are added
-    return tripsIntroForPersonComplete(person, interview) && tripsForPersonComplete({ person, interview });
+    return (
+        tripsIntroForPersonComplete(person, interview) &&
+        tripsForPersonComplete({ person, interview }) &&
+        travelBehaviorForPersonComplete({ person, interview })
+    );
 };
 
 /**
@@ -254,6 +345,18 @@ export const isStudent = (person: Person) => {
         return false;
     }
     return ['fullTimeStudent', 'partTimeStudent', 'workerAndStudent'].includes(person.occupation);
+};
+
+/**
+ * Whether the person is a worker
+ * @param person
+ * @returns
+ */
+export const isWorker = (person: Person) => {
+    if (_isBlank(person)) {
+        return false;
+    }
+    return ['fullTimeWorker', 'partTimeWorker', 'workerAndStudent'].includes(person.occupation);
 };
 
 /**

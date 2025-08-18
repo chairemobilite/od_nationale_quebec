@@ -1,5 +1,6 @@
 // eslint-disable-next-line n/no-extraneous-import
 import { test } from '@playwright/test';
+import _cloneDeep from 'lodash/cloneDeep';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';
 import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
@@ -47,7 +48,19 @@ commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 1 });
 commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });
 
 /********** Tests tripsIntro section **********/
-commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 1, hasTrips: false, expectPopup: false });
+commonUITestsHelpers.fillTripsintroSectionTests({
+    context,
+    householdSize: 1,
+    hasTrips: false,
+    expectPopup: false,
+    expectedNextSection: 'travelBehavior'
+});
+
+/********** Tests travelBehavior section **********/
+const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehavior);
+travelBehavior.noWorkTripReason = 'noWork';
+travelBehavior.noSchoolTripReason = 'distanceLearning';
+commonUITestsHelpers.fillTravelBehaviorSectionTests({ context, householdSize: 1, nextSection: 'end', travelBehavior });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
