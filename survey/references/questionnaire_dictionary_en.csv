@@ -4,6 +4,7 @@ Abbreviation,h_
 ""
 Field,accessCode
 Question type,Text input
+Conditional,accessCodeIsSetCustomConditional
 Question,"Access code
 Printed on the letter you received."
 ""
@@ -35,10 +36,12 @@ Question,City
 ""
 Field,h_region
 Question type,Text input
+Conditional,hiddenWithQuebecAsDefaultValueCustomConditional
 Question,Province
 ""
 Field,h_country
 Question type,Text input
+Conditional,hiddenWithCanadaAsDefaultValueCustomConditional
 Question,Country
 ""
 Field,h_postalCode
@@ -86,6 +89,7 @@ Abbreviation,hh_
 ""
 Field,nickname
 Question type,Text input
+Conditional,hasPersonCount2OrMoreCustomConditional
 Question,"Name or nickname that will allow you to identify this person for the remainder of the interview.
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
@@ -134,6 +138,7 @@ other : Other (specify)"
 ""
 Field,occupation
 Question type,Radio input
+Conditional,personOccupationCustomConditional
 Question,Main occupation
 Values,"fullTimeWorker : Employed full-time (30h and more/week)
 partTimeWorker : Employed part-time (less than 30h/week)
@@ -242,6 +247,7 @@ You can also search for the place on the map using the ""Search location"" butto
 ""
 Field,name
 Question type,Text input
+Conditional,personUsualSchoolPlaceNameCustomConditional
 Question,Name or address of {{nickname}}'s school or main study location
 ""
 Field,geography
@@ -329,6 +335,7 @@ Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
 Question type,Radio input
+Conditional,departurePlaceOtherCustomConditional
 Question,Where was {{nickname}} at 4 AM?
 Values,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Home of the other parent or guardian
 workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Worked overnight
@@ -369,10 +376,12 @@ Question,What was the departure place of {{nickname}}’s work trip on the road?
 ""
 Field,onTheRoadArrivalType
 Question type,Radio input
+Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
 Question,Where did {{nickname}} end {{gender:his/her/their}} work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Radio input
+Conditional,alreadyVisitedPlaceCustomConditional
 Question,"Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member."
 Values,"yes : Yes
@@ -410,6 +419,7 @@ Question,Confirm
 ""
 Field,vp_save
 Question type,Unknown input
+Conditional,lastPlaceEnteredCustomConditional
 Question,Confirm locations and continue
 ""
 ""
@@ -444,6 +454,7 @@ If the mode used is not present, create a first mode before the transit mode."
 ""
 Field,paidForParking
 Question type,Radio input
+Conditional,isCarDriverAndDestinationWorkCustomConditional
 Question,Paid parking
 Values,"yes : Yes
 no : No
@@ -451,6 +462,7 @@ dontKnow : I don't know"
 ""
 Field,vehicleOccupancy
 Question type,RadioNumber
+Conditional,isSelfDeclaredCarDriverCustomConditional
 Question,"Persons in the vehicle
 Including the driver."
 ""
@@ -460,10 +472,12 @@ Question,Who drove?
 ""
 Field,onDemandType
 Question type,Radio input
+Conditional,isTransitAndNotNationaleCustomConditional
 Question,Is this an on-demand service?
 ""
 Field,tripJunctionQueryString
 Question type,Text input
+Conditional,shouldAskTripJunctionCustomConditional
 Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map."
 ""
 Field,junctionGeography
@@ -478,6 +492,7 @@ Question,Confirm this trip
 ""
 Field,s_save
 Question type,Unknown input
+Conditional,lastPlaceEnteredCustomConditional
 Question,Confirm locations and continue
 ""
 ""
@@ -495,6 +510,7 @@ Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}.
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
 Question type,Select input
+Conditional,shouldAskForNoWorkTripReasonCustomConditional
 Question,Why ?
 Values,"remoteWorkOrWorkAtHome : Remote work / work from home
 onStrike : On strike
@@ -505,6 +521,7 @@ dontKnow : I don't know"
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
 Question type,Unknown input
+Conditional,shouldAskPersonNoWorkTripSpecifyCustomConditional
 Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}} ?
 ""
 Field,personNoSchoolTripIntro
@@ -513,6 +530,7 @@ Question,You didn't report any school trips by {{nickname}} on {{assignedDate}}.
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Question type,Select input
+Conditional,shouldAskForNoSchoolTripReasonCustomConditional
 Question,Why ?
 Values,"distanceLearning : Distance learning
 schoolWasClosedStrike : School was closed (strike)
@@ -523,6 +541,7 @@ dontKnow : I don't know"
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
 Question type,Unknown input
+Conditional,shouldAskForNoSchoolTripSpecifyCustomConditional
 Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}} ?
 ""
 ""

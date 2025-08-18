@@ -4,6 +4,7 @@ Abréviation,h_
 ""
 Champ,accessCode
 Type de question,Champ de texte
+Conditionnel,accessCodeIsSetCustomConditional
 Question,"Code d'accès
 Inscrit dans la lettre reçue."
 ""
@@ -35,10 +36,12 @@ Question,Ville
 ""
 Champ,h_region
 Type de question,Champ de texte
+Conditionnel,hiddenWithQuebecAsDefaultValueCustomConditional
 Question,Province
 ""
 Champ,h_country
 Type de question,Champ de texte
+Conditionnel,hiddenWithCanadaAsDefaultValueCustomConditional
 Question,Pays
 ""
 Champ,h_postalCode
@@ -86,6 +89,7 @@ Abréviation,hh_
 ""
 Champ,nickname
 Type de question,Champ de texte
+Conditionnel,hasPersonCount2OrMoreCustomConditional
 Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrevue.
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé."
@@ -134,6 +138,7 @@ other : Autre (spécifiez)"
 ""
 Champ,occupation
 Type de question,Bouton radio
+Conditionnel,personOccupationCustomConditional
 Question,Occupation principale
 Valeurs,"fullTimeWorker : Travail à temps plein (30h et plus/semaine)
 partTimeWorker : Travail à temps partiel (moins de 30h/semaine)
@@ -242,6 +247,7 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 ""
 Champ,name
 Type de question,Champ de texte
+Conditionnel,personUsualSchoolPlaceNameCustomConditional
 Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
 ""
 Champ,geography
@@ -329,6 +335,7 @@ Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
 Type de question,Bouton radio
+Conditionnel,departurePlaceOtherCustomConditional
 Question,Où était {{nickname}} à 4h du matin?
 Valeurs,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Domicile de l'autre parent ou tuteur
 workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Travaillait de nuit
@@ -369,10 +376,12 @@ Question,Quel endroit était le point de départ des déplacements sur la route 
 ""
 Champ,onTheRoadArrivalType
 Type de question,Bouton radio
+Conditionnel,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
 Question,À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
 ""
 Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
 Type de question,Bouton radio
+Conditionnel,alreadyVisitedPlaceCustomConditional
 Question,"Avez-vous déjà localisé ce lieu?
 Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage."
 Valeurs,"yes : Oui
@@ -410,6 +419,7 @@ Question,Confirmer
 ""
 Champ,vp_save
 Type de question,Entrée inconnue
+Conditionnel,lastPlaceEnteredCustomConditional
 Question,Confirmer les lieux et continuer
 ""
 ""
@@ -444,6 +454,7 @@ Si le mode de déplacement n'est pas présent, créer un premier mode de transpo
 ""
 Champ,paidForParking
 Type de question,Bouton radio
+Conditionnel,isCarDriverAndDestinationWorkCustomConditional
 Question,Stationnement payant?
 Valeurs,"yes : Oui
 no : Non
@@ -451,6 +462,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,vehicleOccupancy
 Type de question,RadioNumber
+Conditionnel,isSelfDeclaredCarDriverCustomConditional
 Question,"Personne(s) dans le véhicule
 Conducteur ou conductrice inclus(e)."
 ""
@@ -460,10 +472,12 @@ Question,Qui conduisait ?
 ""
 Champ,onDemandType
 Type de question,Bouton radio
+Conditionnel,isTransitAndNotNationaleCustomConditional
 Question,Est-ce un transport sur demande?
 ""
 Champ,tripJunctionQueryString
 Type de question,Champ de texte
+Conditionnel,shouldAskTripJunctionCustomConditional
 Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte."
 ""
 Champ,junctionGeography
@@ -478,6 +492,7 @@ Question,Confirmer ce déplacement
 ""
 Champ,s_save
 Type de question,Entrée inconnue
+Conditionnel,lastPlaceEnteredCustomConditional
 Question,Confirmer les lieux et continuer
 ""
 ""
@@ -495,6 +510,7 @@ Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nicknam
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
 Type de question,Liste déroulante
+Conditionnel,shouldAskForNoWorkTripReasonCustomConditional
 Question,Pour quelle raison ?
 Valeurs,"remoteWorkOrWorkAtHome : Télétravail / travail à la maison
 onStrike : En grève
@@ -505,6 +521,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
 Type de question,Entrée inconnue
+Conditionnel,shouldAskPersonNoWorkTripSpecifyCustomConditional
 Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}} ?
 (Facultatif)"
 ""
@@ -514,6 +531,7 @@ Question,Vous n'avez déclaré aucun déplacement pour les études pour {{nickna
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Type de question,Liste déroulante
+Conditionnel,shouldAskForNoSchoolTripReasonCustomConditional
 Question,Pour quelle raison ?
 Valeurs,"distanceLearning : Cours à distance
 schoolWasClosedStrike : École fermée (grève)
@@ -524,6 +542,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
 Type de question,Entrée inconnue
+Conditionnel,shouldAskForNoSchoolTripSpecifyCustomConditional
 Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}} ?
 (Facultatif)"
 ""

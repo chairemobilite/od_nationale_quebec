@@ -42,7 +42,7 @@ import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import inaccessibleZones from '../../geojson/inaccessibleZones.json';
 import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { getShortcutVisitedPlaces } from '../../common/customFrontendHelper';
-import { buttonNextBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
+import { buttonNextBase, inputTimeBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { personVisitedPlacesWidgetsNames } from './widgetsNames';
 import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 
@@ -1087,9 +1087,8 @@ const getSuffixTimes = (interview, timeField = 'arrivalTime') => {
 };
 
 export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeType = {
-    type: 'question',
+    ...inputTimeBase,
     path: '_previousPreviousDepartureTime',
-    inputType: 'time',
     twoColumns: false,
     containsHtml: true,
     addHourSeparators: true,
@@ -1256,9 +1255,8 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
 };
 
 export const visitedPlacePreviousArrivalTime: WidgetConfig.InputTimeType = {
-    type: 'question',
+    ...inputTimeBase,
     path: '_previousArrivalTime',
-    inputType: 'time',
     twoColumns: false,
     containsHtml: true,
     addHourSeparators: true,
@@ -1437,9 +1435,8 @@ export const visitedPlacePreviousArrivalTime: WidgetConfig.InputTimeType = {
 };
 
 export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
-    type: 'question',
+    ...inputTimeBase,
     path: '_previousDepartureTime',
-    inputType: 'time',
     twoColumns: false,
     containsHtml: true,
     addHourSeparators: true,
@@ -1619,9 +1616,8 @@ export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
 };
 
 export const visitedPlaceArrivalTime: WidgetConfig.InputTimeType = {
-    type: 'question',
+    ...inputTimeBase,
     path: 'arrivalTime',
-    inputType: 'time',
     twoColumns: false,
     containsHtml: true,
     addHourSeparators: true,
@@ -1955,9 +1951,8 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
 };
 
 export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
-    type: 'question',
+    ...inputTimeBase,
     path: 'departureTime',
-    inputType: 'time',
     twoColumns: false,
     containsHtml: true,
     addHourSeparators: true,
