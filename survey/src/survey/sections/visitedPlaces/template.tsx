@@ -219,10 +219,14 @@ export const VisitedPlacesSection: React.FC<SectionProps> = (props: SectionProps
                 <div className="survey-visited-places-schedule-person-container" key={personForSchedule._uuid}>
                     {
                         <p className={personForSchedule._uuid === person._uuid ? ' _orange' : ''}>
-                            {t('survey:person:dayScheduleFor', {
-                                nickname: personForSchedule.nickname,
-                                count: interviewablePersons.length
-                            })}
+                            <span
+                                dangerouslySetInnerHTML={{
+                                    __html: t('survey:person:dayScheduleFor', {
+                                        nickname: personForSchedule.nickname,
+                                        count: interviewablePersons.length
+                                    })
+                                }}
+                            />
                         </p>
                     }
                     <div className="survey-visited-places-schedule-person">{personVisitedPlacesSchedules}</div>
