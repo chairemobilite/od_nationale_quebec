@@ -19,6 +19,11 @@ test.beforeAll(async ({ browser }) => {
     context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
 });
 
+test.afterAll(async () => {
+    // Delete the participant after the test
+    await commonUITestsHelpers.deleteParticipantInterview(accessCode);
+});
+
 // Define the visited places for this test scenario
 const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     {
@@ -28,7 +33,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: 'no',
         shortcut: null, // Question won't show.
-        name: 'Carrefour Laval Sports Expert',
+        name: 'Sports Expert place Ste-Foy',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM

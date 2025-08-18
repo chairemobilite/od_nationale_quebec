@@ -60,6 +60,7 @@ export type HouseholdMember = {
     remoteStudyDays: string[];
 };
 
+// TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
 const householdMembers: HouseholdMember[] = [
     {
         personIndex: 0,
@@ -587,13 +588,13 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
 
 /********** Tests tripsIntro section **********/
 export type TripsIntroTestParameters = CommonTestParametersModify & {
-    hasTrips?: boolean;
+    hasTrips: boolean;
     expectPopup?: boolean;
 };
 export const fillTripsintroSectionTests = ({
     context,
     householdSize = 1,
-    hasTrips = false,
+    hasTrips,
     expectPopup = false
 }: TripsIntroTestParameters) => {
     // Verify the tripsIntro navigation is active
@@ -608,7 +609,9 @@ export const fillTripsintroSectionTests = ({
     householdMembers.forEach((person: HouseholdMember, index) => {
         // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+        if (householdSize === 1) {
+            testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+        }
 
         // Test custom widget buttonSwitchPerson
         // testHelpers.inputNextButtonTest({
@@ -702,6 +705,8 @@ export const fillTripsintroSectionTests = ({
     });
 };
 
+// TODO: We should use interviewablePersonCount and not householdSize
+// TODO: Because we can only get visited places of interviawablePerson.
 /********** Tests visitedPlaces section **********/
 export const fillVisitedplacesSectionTests = ({
     context,
@@ -710,7 +715,9 @@ export const fillVisitedplacesSectionTests = ({
 }: CommonTestParametersModify & { visitedPlaces: VisitedPlace[] }) => {
     // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+    if (householdSize === 1) {
+        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+    }
 
     // Test custom widget buttonSwitchPerson
     // Implement custom test
@@ -730,183 +737,7 @@ export const fillVisitedplacesSectionTests = ({
 
     // Add tests for each visited places
     visitedPlaces.forEach((place: VisitedPlace, index) => {
-        // Test custom widget visitedPlaceActivityCategory
-        if (place.activityCategory === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
-                value: place.activityCategory
-            });
-        }
-
-        // Test custom widget visitedPlaceActivity
-        if (place.activity === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
-                value: place.activity
-            });
-        }
-
-        // Test custom widget visitedPlaceOnTheRoadDepartureType
-        if (place.onTheRoadDepartureType === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadDepartureType',
-                isVisible: false
-            });
-        }
-
-        // Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeCustomChoices
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        if (place.onTheRoadArrivalType === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadArrivalType',
-                isVisible: false
-            });
-        }
-
-        // Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        if (place.alreadyVisitedBySelfOrAnotherHouseholdMember === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.alreadyVisitedBySelfOrAnotherHouseholdMember',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.alreadyVisitedBySelfOrAnotherHouseholdMember',
-                value: place.alreadyVisitedBySelfOrAnotherHouseholdMember
-            });
-        }
-
-        // Test custom widget visitedPlaceShortcut
-        if (place.shortcut === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.shortcut',
-                isVisible: false
-            });
-        }
-
-        // Test custom widget visitedPlaceName
-        if (place.name === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.name',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputStringTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.name',
-                value: place.name
-            });
-        }
-
-        // Test custom widget visitedPlaceGeography
-        if (place.name === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.geography',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputMapFindPlaceTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.geography'
-            });
-        }
-
-        // Test custom widget visitedPlacePreviousPreviousDepartureTime
-        if (place._previousPreviousDepartureTime === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousPreviousDepartureTime',
-                isVisible: false
-            });
-        }
-
-        // Test custom widget visitedPlacePreviousArrivalTime
-        if (place._previousArrivalTime === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousArrivalTime',
-                isVisible: false
-            });
-        }
-
-        // Test custom widget visitedPlacePreviousDepartureTime
-        if (place._previousDepartureTime === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousDepartureTime',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputSelectTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousDepartureTime',
-                value: String(place._previousDepartureTime)
-            });
-        }
-
-        // Test custom widget visitedPlaceArrivalTime
-        testHelpers.inputSelectTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.arrivalTime',
-            value: String(place.arrivalTime)
-        });
-
-        // Test custom widget visitedPlaceNextPlaceCategory
-        if (place.nextPlaceCategory === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
-                value: place.nextPlaceCategory
-            });
-        }
-
-        // Test custom widget visitedPlaceDepartureTime
-        if (place.departureTime === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.departureTime',
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputSelectTest({
-                context,
-                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.departureTime',
-                value: String(place.departureTime)
-            });
-        }
-
-        // Test custom widget buttonSaveVisitedPlace
-        testHelpers.inputNextButtonTest({ context, text: 'Confirm', nextPageUrl: '/survey/visitedPlaces' });
+        fillOneVisitedPlace({ context, place }); // Fill a visited place from start to confirmation
     });
 
     // Test custom widget buttonCancelVisitedPlace
@@ -922,6 +753,187 @@ export const fillVisitedplacesSectionTests = ({
         text: 'Confirm locations and continue',
         nextPageUrl: '/survey/segments'
     });
+};
+
+// Fill a visited place from start to confirmation
+const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedPlace }) => {
+    // Test custom widget visitedPlaceActivityCategory
+    if (place.activityCategory === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+            value: place.activityCategory
+        });
+    }
+
+    // Test custom widget visitedPlaceActivity
+    if (place.activity === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
+            value: place.activity
+        });
+    }
+
+    // Test custom widget visitedPlaceOnTheRoadDepartureType
+    if (place.onTheRoadDepartureType === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadDepartureType',
+            isVisible: false
+        });
+    }
+
+    // Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (place.onTheRoadArrivalType === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadArrivalType',
+            isVisible: false
+        });
+    }
+
+    // Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (place.alreadyVisitedBySelfOrAnotherHouseholdMember === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.alreadyVisitedBySelfOrAnotherHouseholdMember',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.alreadyVisitedBySelfOrAnotherHouseholdMember',
+            value: place.alreadyVisitedBySelfOrAnotherHouseholdMember
+        });
+    }
+
+    // Test custom widget visitedPlaceShortcut
+    if (place.shortcut === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.shortcut',
+            isVisible: false
+        });
+    }
+
+    // Test custom widget visitedPlaceName
+    if (place.name === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.name',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.name',
+            value: place.name
+        });
+    }
+
+    // Test custom widget visitedPlaceGeography
+    if (place.name === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.geography',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputMapFindPlaceTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.geography'
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousPreviousDepartureTime
+    if (place._previousPreviousDepartureTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousPreviousDepartureTime',
+            isVisible: false
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousArrivalTime
+    if (place._previousArrivalTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousArrivalTime',
+            isVisible: false
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousDepartureTime
+    if (place._previousDepartureTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousDepartureTime',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousDepartureTime',
+            value: String(place._previousDepartureTime)
+        });
+    }
+
+    // Test custom widget visitedPlaceArrivalTime
+    testHelpers.inputSelectTest({
+        context,
+        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.arrivalTime',
+        value: String(place.arrivalTime)
+    });
+
+    // Test custom widget visitedPlaceNextPlaceCategory
+    if (place.nextPlaceCategory === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
+            value: place.nextPlaceCategory
+        });
+    }
+
+    // Test custom widget visitedPlaceDepartureTime
+    if (place.departureTime === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.departureTime',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.departureTime',
+            value: String(place.departureTime)
+        });
+    }
+
+    // Test custom widget buttonSaveVisitedPlace
+    testHelpers.inputNextButtonTest({ context, text: 'Confirm', nextPageUrl: '/survey/visitedPlaces' });
 };
 
 /********** Tests end section **********/
