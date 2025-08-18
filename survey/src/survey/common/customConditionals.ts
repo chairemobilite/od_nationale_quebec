@@ -1,4 +1,3 @@
-import moment from 'moment-business-days';
 import _get from 'lodash/get';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { Journey, Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
@@ -6,7 +5,7 @@ import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { getShortcutVisitedPlaces } from './customFrontendHelper';
-import { shouldDisplayTripJunction } from './helper';
+import { shouldAskForNoSchoolTripReason, shouldAskForNoWorkTripReason, shouldDisplayTripJunction } from './helper';
 import { isStudentFromEnrolled } from './customHelpers';
 
 const isSchoolEnrolledTrueValues = [
@@ -188,30 +187,9 @@ export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interv
     return [false, null];
 };
 
-const getVisitedPlacesForCategory = (journey: Journey, activityCategory: string) => {
-    const visitedPlaces = odSurveyHelper.getVisitedPlacesArray({ journey });
-    return visitedPlaces.filter((visitedPlace) => visitedPlace.activityCategory === activityCategory);
-};
-
 export const shouldAskForNoWorkTripReasonCustomConditional: WidgetConditional = (interview, path) => {
-    // Ask only for full time workers
     const person = odSurveyHelper.getPerson({ interview, path });
-    const journey = odSurveyHelper.getJourneysArray({ person })[0];
-    if (!person || !journey) {
-        return [false, null];
-    }
-    const workerType = person.workerType;
-    const workPlaceType = person.workPlaceType;
-    const workPlaceTypeIsCompatible =
-        ['onLocation', 'onTheRoadWithUsualPlace', 'onTheRoadWithoutUsualPlace'].includes(workPlaceType) &&
-        workerType === 'fullTime';
-    if (!workPlaceTypeIsCompatible) {
-        return [false, null];
-    }
-
-    const tripsDate = surveyHelper.getResponse(interview, '_assignedDay', null);
-    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
-    return [tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'work').length === 0, null];
+    return [shouldAskForNoWorkTripReason({ interview, person }), null];
 };
 
 export const shouldAskPersonNoWorkTripSpecifyCustomConditional: WidgetConditional = (interview, path) => {
@@ -220,24 +198,8 @@ export const shouldAskPersonNoWorkTripSpecifyCustomConditional: WidgetConditiona
 };
 
 export const shouldAskForNoSchoolTripReasonCustomConditional: WidgetConditional = (interview, path) => {
-    // Ask only for full time students
     const person = odSurveyHelper.getPerson({ interview, path });
-    const journey = odSurveyHelper.getJourneysArray({ person })[0];
-    if (!person || !journey) {
-        return [false, null];
-    }
-    const studentType = person.studentType;
-    const schoolPlaceType = person.schoolPlaceType;
-    const schoolPlaceIsCompatible = schoolPlaceType === 'onLocation' && studentType === 'fullTime';
-    const childrenCase = isStudentFromEnrolled(person);
-    if (!(schoolPlaceIsCompatible || childrenCase)) {
-        return [false, null];
-    }
-
-    const tripsDate = surveyHelper.getResponse(interview, '_assignedDay', null);
-    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
-
-    return [tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'school').length === 0, null];
+    return [shouldAskForNoSchoolTripReason({ interview, person }), null];
 };
 
 export const shouldAskForNoSchoolTripSpecifyCustomConditional: WidgetConditional = (interview, path) => {

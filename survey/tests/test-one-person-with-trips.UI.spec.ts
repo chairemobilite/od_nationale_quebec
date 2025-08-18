@@ -80,10 +80,16 @@ commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 1 });
 commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });
 
 /********** Tests tripsIntro section **********/
-commonUITestsHelpers.fillTripsintroSectionTests({ context, householdSize: 1, hasTrips: true, expectPopup: false });
+commonUITestsHelpers.fillTripsintroSectionTests({
+    context,
+    householdSize: 1,
+    hasTrips: true,
+    expectPopup: false,
+    expectedNextSection: 'visitedPlaces'
+});
 
 /********** Tests visited places section **********/
-commonUITestsHelpers.fillVisitedplacesSectionTests({ context, householdSize: 1, visitedPlaces });
+commonUITestsHelpers.fillVisitedPlacesSectionTests({ context, householdSize: 1, visitedPlaces });
 
 /********** Tests segments section **********/
 // commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1 });
