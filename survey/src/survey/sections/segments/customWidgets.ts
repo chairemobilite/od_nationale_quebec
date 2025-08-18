@@ -1,8 +1,4 @@
 import _get from 'lodash/get';
-import _truncate from 'lodash/truncate';
-import _max from 'lodash/max';
-import _min from 'lodash/min';
-import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
@@ -10,19 +6,12 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 import { getPersonsTripsTitleWidgetConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetPersonTripsTitle';
 import { TFunction } from 'i18next';
-import {
-    addGroupedObjects,
-    formatGeocodingQueryStringFromMultipleFields,
-    getPath,
-    getResponse
-} from 'evolution-common/lib/utils/helpers';
+import { formatGeocodingQueryStringFromMultipleFields, getResponse } from 'evolution-common/lib/utils/helpers';
 import {
     getFormattedDate,
-    getVisitedPlaceDescription,
     validateButtonAction,
     validateButtonActionWithCompleteSection
 } from 'evolution-frontend/lib/services/display/frontendHelper';
-import { getPersonVisitedPlacesMapConfig } from 'evolution-common/lib/services/questionnaire/sections/common/widgetPersonVisitedPlacesMap';
 import { getPersonsTripsGroupConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/groupPersonTrips';
 import { getTripSegmentsIntro } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetTripSegmentsIntro';
 import { getSegmentsGroupConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/groupSegments';
@@ -38,28 +27,13 @@ import {
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 import {
     isStudent,
-    isStudentFromEnrolled,
     carsharingMembersCountInHousehold,
-    getShortcutVisitedPlaceName,
-    getShortcutVisitedPlacePerson,
-    formatTripDuration,
-    getHomeAddressOneLine,
-    selectNextIncompleteVisitedPlace,
-    deleteVisitedPlace,
-    getBirdDistanceMeters,
     getCurrentTripBirdDistanceMeters,
     getDrivers,
     shouldDisplayTripJunction
 } from '../../common/helper';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import i18n from 'evolution-frontend/lib/config/i18n.config';
-import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
-// FIXME Find a way to parameterize the inaccessible zones
-import inaccessibleZones from '../../geojson/inaccessibleZones.json';
-import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { getShortcutVisitedPlaces } from '../../common/customFrontendHelper';
-import { buttonNextBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
-import { isLastPlaceCustomConditional } from '../../common/customConditionals';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { personVisitedPlacesMap as visitedPlacesMap } from '../visitedPlaces/customWidgets';
 import { personTripsWidgetsNames, segmentsWidgetsNames } from './widgetsNames';
 import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
