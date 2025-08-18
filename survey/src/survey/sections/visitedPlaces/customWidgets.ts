@@ -853,7 +853,7 @@ export const visitedPlaceName: WidgetConfig.InputStringType = {
         return [
             !_isBlank(activity) &&
                 ![...loopActivities, 'home'].includes(activity) &&
-                visitedPlaceAlreadyVisited !== true,
+                visitedPlaceAlreadyVisited !== 'yes',
             null
         ];
     },
