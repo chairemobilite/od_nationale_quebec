@@ -2,11 +2,13 @@
 // The Evolution Generator is used to automate the creation of consistent, reliable code.
 // Any changes made to this file will be overwritten.
 
+import _merge from 'lodash/merge';
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'completed';
 const previousSectionName: SectionConfig['previousSection'] = 'end';
@@ -36,12 +38,15 @@ export const sectionConfig: SectionConfig = {
         return isSectionCompleted({ interview, sectionName: currentSectionName });
     },
     onSectionEntry: function (interview) {
+        const needUpdateHouseholdSize = updateHouseholdSizeFromPersonCount(interview);
         const isCompleted = getResponse(interview, '_isCompleted', false);
         if (!isCompleted) {
             // If the survey is not completed, we set the _interviewFinished response to true to tell the server to complete the survey
             // FIXME This is a temporary fix, to make sure the server completes the survey with server timestamp, until it is done automatically by evolution when https://github.com/chairemobilite/evolution/issues/1026 is fixed
-            return { 'response._interviewFinished': true };
+            const updatedValues = { 'response._interviewFinished': true };
+            return needUpdateHouseholdSize ? _merge(updatedValues, needUpdateHouseholdSize) : updatedValues;
         }
+        return needUpdateHouseholdSize;
     }
 };
 

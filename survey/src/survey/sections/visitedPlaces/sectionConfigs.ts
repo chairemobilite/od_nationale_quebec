@@ -1,9 +1,11 @@
 // This file was manually generated for this section
+import _merge from 'lodash/merge';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { householdMembersSectionComplete, selectNextIncompleteVisitedPlace } from '../../common/helper';
 import { addGroupedObjects } from 'evolution-common/lib/utils/helpers';
+import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'visitedPlaces';
 const previousSectionName: SectionConfig['previousSection'] = 'tripsIntro';
@@ -20,6 +22,7 @@ export const sectionConfig: SectionConfig = {
     widgets: widgetsNames,
     template: 'visitedPlaces',
     onSectionEntry: function (interview, iterationContext) {
+        const needUpdateHouseholdSizeValues = updateHouseholdSizeFromPersonCount(interview);
         const person = odSurveyHelper.getPerson({
             interview,
             personId: iterationContext[iterationContext.length - 1]
@@ -31,7 +34,7 @@ export const sectionConfig: SectionConfig = {
         if (journey === undefined) {
             // This shouldn't happen, but log anyway, just in case
             console.error('No journey found for person:', person._uuid);
-            return {};
+            return needUpdateHouseholdSizeValues;
         }
 
         const updatedValuesByPath = {};
@@ -127,7 +130,9 @@ export const sectionConfig: SectionConfig = {
                 : null;
         }
 
-        return updatedValuesByPath;
+        return needUpdateHouseholdSizeValues
+            ? _merge(needUpdateHouseholdSizeValues, updatedValuesByPath)
+            : updatedValuesByPath;
     },
     enableConditional: function (interview) {
         return householdMembersSectionComplete(interview);

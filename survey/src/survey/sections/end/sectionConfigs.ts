@@ -6,6 +6,7 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
+import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'end';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
@@ -34,7 +35,8 @@ export const sectionConfig: SectionConfig = {
     // Allow to click on the section menu
     completionConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: currentSectionName });
-    }
+    },
+    onSectionEntry: updateHouseholdSizeFromPersonCount
 };
 
 export default sectionConfig;

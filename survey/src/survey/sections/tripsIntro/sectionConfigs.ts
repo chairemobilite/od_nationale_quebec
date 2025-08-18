@@ -1,8 +1,10 @@
+import _merge from 'lodash/merge';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { householdMembersSectionComplete, tripsIntroForPersonComplete } from '../../common/helper';
 import { addGroupedObjects, getResponse } from 'evolution-common/lib/utils/helpers';
+import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'tripsIntro';
 const previousSectionName: SectionConfig['previousSection'] = 'selectPerson';
@@ -18,6 +20,7 @@ export const sectionConfig: SectionConfig = {
     },
     widgets: widgetsNames,
     onSectionEntry: function (interview, iterationContext) {
+        const needUpdateHouseholdSizeValues = updateHouseholdSizeFromPersonCount(interview);
         const person = odSurveyHelper.getPerson({
             interview,
             personId: iterationContext[iterationContext.length - 1]
@@ -41,7 +44,9 @@ export const sectionConfig: SectionConfig = {
             // From the newJourneyKey, get the journey UUID as the rest of the string after the last dot
             const journeyUuid = newJourneyKey.split('.').pop();
             newJourneysValuesByPath['response._activeJourneyId'] = journeyUuid;
-            return newJourneysValuesByPath;
+            return needUpdateHouseholdSizeValues
+                ? _merge(needUpdateHouseholdSizeValues, newJourneysValuesByPath)
+                : newJourneysValuesByPath;
         }
 
         // If the person has journeys, we need to make sure the active journey is set
@@ -83,7 +88,9 @@ export const sectionConfig: SectionConfig = {
                 }
             }
         }
-        return responseToUpdate;
+        return needUpdateHouseholdSizeValues
+            ? _merge(needUpdateHouseholdSizeValues, responseToUpdate)
+            : responseToUpdate;
     },
     enableConditional: function (interview) {
         const person = odSurveyHelper.getPerson({ interview });
