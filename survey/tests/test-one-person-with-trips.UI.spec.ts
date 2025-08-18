@@ -37,10 +37,10 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         name: 'Sports Expert place Ste-Foy',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
-        _previousDepartureTime: 32400, // 9:00 AM
-        arrivalTime: 34200, // 9:30 AM
+        _previousDepartureTime: null, // Question won't show.
+        arrivalTime: null, // Question won't show.
         nextPlaceCategory: 'wentBackHome',
-        departureTime: 39600 // 11:00 AM
+        departureTime: null // Question won't show.
     },
     {
         activityCategory: null, // Question won't show.
@@ -56,6 +56,40 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         arrivalTime: 41400, // 11:30 AM
         nextPlaceCategory: 'stayedThereUntilTheNextDay',
         departureTime: null // Question won't show.
+    }
+];
+
+// Define the segments for this test scenario
+const segments: commonUITestsHelpers.Segment[] = [
+    {
+        segmentIndex: 0,
+        sameModeAsReverseTrip: null, // Question won't show.
+        modePre: 'taxi',
+        mode: null, // Question won't show.
+        howToBus: null, // Question won't show.
+        paidForParking: null, // Question won't show.
+        vehicleOccupancy: null, // Question won't show.
+        driver: null, // Question won't show.
+        busLines: null, // Question won't show.
+        busLinesWarning: null, // Question won't show.
+        onDemandType: null, // Question won't show.
+        tripJunctionQueryString: null, // Question won't show.
+        hasNextMode: false
+    },
+    {
+        segmentIndex: 0,
+        sameModeAsReverseTrip: null, // Question won't show.
+        modePre: 'bicycle',
+        mode: 'bicycle',
+        howToBus: null, // Question won't show.
+        paidForParking: null, // Question won't show.
+        vehicleOccupancy: null, // Question won't show.
+        driver: null, // Question won't show.
+        busLines: null, // Question won't show.
+        busLinesWarning: null, // Question won't show.
+        onDemandType: null, // Question won't show.
+        tripJunctionQueryString: null, // Question won't show.
+        hasNextMode: false
     }
 ];
 
@@ -92,7 +126,7 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 commonUITestsHelpers.fillVisitedPlacesSectionTests({ context, householdSize: 1, visitedPlaces });
 
 /********** Tests segments section **********/
-// commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1, segments, expectedNextSection: 'end' });
 
 // TODO See if we need any travelBehavior section tests.
 
@@ -100,8 +134,8 @@ commonUITestsHelpers.fillVisitedPlacesSectionTests({ context, householdSize: 1, 
 // No long distance trips
 //commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
 
-// /********** Tests end section **********/
-// commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
+/********** Tests end section **********/
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 
-// /********** Tests completed section **********/
-// commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
+/********** Tests completed section **********/
+commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
