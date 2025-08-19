@@ -1,5 +1,6 @@
 
 import moment from 'moment-business-days';
+import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { ObjectReadableMock } from 'stream-mock';
 import updateCallbacks, { updateAssignedDayRates } from '../serverFieldUpdate';
 import _cloneDeep from 'lodash/cloneDeep';
@@ -9,6 +10,7 @@ import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
 import participantsDbQueries from 'evolution-backend/lib/models/participants.db.queries';
 import RandomUtils from 'chaire-lib-common/lib/utils/RandomUtils';
+import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 import '../serverValidations'; // Make sure access code format validation is registered
 
 jest.useFakeTimers();
@@ -31,6 +33,10 @@ jest.mock('evolution-backend/lib/services/interviews/serverFieldUpdate', () => (
     getPreFilledResponseByPath: jest.fn().mockResolvedValue({})
 }));
 const preFilledMock = getPreFilledResponseByPath as jest.MockedFunction<typeof getPreFilledResponseByPath>;
+jest.mock('evolution-backend/lib/services/routing', () => ({
+    getTransitSummary: jest.fn()
+}));
+const summaryMock = getTransitSummary as jest.MockedFunction<typeof getTransitSummary>;
 
 const baseInterview: InterviewAttributes = {
     response: {
@@ -42,30 +48,36 @@ const baseInterview: InterviewAttributes = {
                     age: 56,
                     gender: 'female',
                     occupation: 'fullTimeStudent',
-                    visitedPlaces: {
-                        p1: {
-                            geography: { type: 'Feature', geometry: { type: 'Point', coordinates: [-73.1, 45.1] }, properties: { lastAction: 'shortcut' }},
-                            activity: 'service',
-                            arrivalTime: 42900,
-                            departureTime: 45000,
-                            nextPlaceCategory: 'visitedAnotherPlace'
-                        } as any,
-                        p2: {
-                            geography: { type: 'Feature', geometry: { type: 'Point', coordinates: [-73.3, 45.0] }, properties: { lastAction: 'shortcut' }},
-                            activity: 'service',
-                            arrivalTime: 46800,
-                            departureTime: 54000,
-                            nextPlaceCategory: 'visitedAnotherPlace'
-                        } as any
-                    },
-                    trips: {
-                        t1: {
-                            _originVisitedPlaceUuid: 'p1',
-                            _destinationVisitedPlaceUuid: 'p2',
-                            segments: {
-                                s1: {
-                                    _sequence: 1,
-                                    mode: 'transitBus'
+                    journeys: {
+                        j1: {
+                            _sequence: 1,
+                            _uuid: 'j1',
+                            visitedPlaces: {
+                                p1: {
+                                    geography: { type: 'Feature', geometry: { type: 'Point', coordinates: [-73.1, 45.1] }, properties: { lastAction: 'shortcut' }},
+                                    activity: 'service',
+                                    arrivalTime: 42900,
+                                    departureTime: 45000,
+                                    nextPlaceCategory: 'visitedAnotherPlace'
+                                } as any,
+                                p2: {
+                                    geography: { type: 'Feature', geometry: { type: 'Point', coordinates: [-73.3, 45.0] }, properties: { lastAction: 'shortcut' }},
+                                    activity: 'service',
+                                    arrivalTime: 46800,
+                                    departureTime: 54000,
+                                    nextPlaceCategory: 'visitedAnotherPlace'
+                                } as any
+                            },
+                            trips: {
+                                t1: {
+                                    _originVisitedPlaceUuid: 'p1',
+                                    _destinationVisitedPlaceUuid: 'p2',
+                                    segments: {
+                                        s1: {
+                                            _sequence: 1,
+                                            mode: 'transitBus'
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -368,6 +380,174 @@ describe('test complete survey', function () {
         interview.response._isCompleted = true;
         interview.response._completedAt = 1234567890; // Arbitrary timestamp
         expect(await updateCallback(interview, true)).toEqual({});
+    });
+
+});
+
+describe('test transit summary generation', function () {
+    const updateCallback = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined) as any).callback;
+    const registerUpdateOperationMock = jest.fn();
+    
+    beforeEach(() => {
+        jest.clearAllMocks();
+        config.trRoutingScenarios = {
+            SE: 'ScenarioDeSemaine',
+            SA: 'ScenarioDuSamedi',
+            DI: 'ScenarioDuDimanche'
+        };
+    });
+
+    test('Non transit mode', async () => {
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, 'carPassenger', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Transit data', async () => {
+        const response = {
+            status: 'success' as const,
+            nbRoutes: 1,
+            lines: [
+                {
+                    lineUuid: 'luuid',
+                    lineShortname: 'lsn',
+                    lineLongname: 'lln',
+                    agencyUuid: 'auuid',
+                    agencyAcronym: 'aa',
+                    agencyName: 'an',
+                    alternativeCount: 1
+                }
+            ],
+            source: 'unitTest'
+        };
+        const interview = _cloneDeep(baseInterview);
+        summaryMock.mockResolvedValue(response);
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ });
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+            opName: `transitSummary-73.145.1-73.345`,
+            opUniqueId: 1,
+            operation: expect.anything()});
+        const { operation } = registerUpdateOperationMock.mock.calls[0][0];
+        const operationResult = await(operation(() => false));
+        expect(operationResult).toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: response });
+        expect(summaryMock).toHaveBeenCalledWith(expect.objectContaining({
+            origin: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p1.geography,
+            destination: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p2.geography,
+            departureSecondsSinceMidnight: 45000,
+            transitScenario: 'ScenarioDeSemaine'
+        }));
+    });
+
+    test('No routing found, expect undefined', async () => {
+        const response = {
+            status: 'no_routing_found' as const,
+            source: 'unitTest'
+        };
+        const interview = _cloneDeep(baseInterview);
+        summaryMock.mockResolvedValue(response);
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ });
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+            opName: `transitSummary-73.145.1-73.345`,
+            opUniqueId: 1,
+            operation: expect.anything()});
+        const { operation } = registerUpdateOperationMock.mock.calls[0][0];
+        const operationResult = await(operation(() => false));
+        expect(operationResult).toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
+        expect(summaryMock).toHaveBeenCalledWith(expect.objectContaining({
+            origin: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p1.geography,
+            destination: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p2.geography,
+            departureSecondsSinceMidnight: 45000,
+            transitScenario: 'ScenarioDeSemaine'
+        }));
+    });
+
+    test('exception in summary, expect undefined', async () => {
+        const interview = _cloneDeep(baseInterview);
+        summaryMock.mockRejectedValueOnce('Error');
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ });
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+            opName: `transitSummary-73.145.1-73.345`,
+            opUniqueId: 1,
+            operation: expect.anything()});
+        const { operation } = registerUpdateOperationMock.mock.calls[0][0];
+        const operationResult = await(operation(() => false));
+        expect(operationResult).toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
+        expect(summaryMock).toHaveBeenCalledWith(expect.objectContaining({
+            origin: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p1.geography,
+            destination: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p2.geography,
+            departureSecondsSinceMidnight: 45000,
+            transitScenario: 'ScenarioDeSemaine'
+        }));
+    });
+
+    test('undefined `registerUpdateOperation`, expect promise to be waited upon', async () => {
+        const response = {
+            status: 'success' as const,
+            nbRoutes: 1,
+            lines: [
+                {
+                    lineUuid: 'luuid',
+                    lineShortname: 'lsn',
+                    lineLongname: 'lln',
+                    agencyUuid: 'auuid',
+                    agencyAcronym: 'aa',
+                    agencyName: 'an',
+                    alternativeCount: 1
+                }
+            ],
+            source: 'unitTest'
+        };
+        const interview = _cloneDeep(baseInterview);
+        summaryMock.mockResolvedValue(response);
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', undefined))
+            .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: response });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+        expect(summaryMock).toHaveBeenCalledWith(expect.objectContaining({
+            origin: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p1.geography,
+            destination: (baseInterview.response.household as any).persons.a12345.journeys.j1.visitedPlaces.p2.geography,
+            departureSecondsSinceMidnight: 45000,
+            transitScenario: 'ScenarioDeSemaine'
+        }));
+    });
+
+    test('exception in function, expect undefined', async () => {
+        const interview = _cloneDeep(baseInterview);
+        // Override the implementation of registerUpdateOperationMock to throw an error
+        registerUpdateOperationMock.mockImplementationOnce(() => {
+            throw new Error('Error in registerUpdateOperation');
+        });
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+            opName: `transitSummary-73.145.1-73.345`,
+            opUniqueId: 1,
+            operation: expect.anything()});
+    });
+
+    test('Undefined person', async () => {
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345111.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Undefined trip', async () => {
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t2.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Transit data, but no scenarios specified in config', async () => {
+        config.trRoutingScenarios = undefined;
+        const interview = _cloneDeep(baseInterview);
+        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();
     });
 
 });

@@ -1,7 +1,8 @@
 import moment from 'moment-business-days';
 import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { validateAccessCode } from 'evolution-backend/lib/services/accessCode';
-import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { getPath, getResponse } from 'evolution-common/lib/utils/helpers';
+import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
 import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
@@ -9,6 +10,8 @@ import participantsDbQueries from 'evolution-backend/lib/models/participants.db.
 import { eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
 import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
+import config from 'chaire-lib-common/lib/config/shared/project.config';
+import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -254,6 +257,112 @@ export default [
             } catch (error) {
                 console.error('error attempting to set the interview as completed', error);
                 return {};
+            }
+        }
+    },
+    {
+        field: { regex: 'household.persons.*.journeys.*.trips.*.segments.*.modePre' },
+        runOnValidatedData: true,
+        callback: async (interview, value, path, registerUpdateOperation) => {
+            const resultPath = getPath(path, '../trRoutingResult');
+            const defaultResponse = { [resultPath]: undefined };
+            // If using a public transit mode, retrieve results from trRouting
+            if (!['transit'].includes(value) || config.trRoutingScenarios === undefined) {
+                return defaultResponse;
+            }
+            try {
+                // Extract IDs from the path
+                const pathParts = path.split('.');
+                const personId = pathParts[2];
+                const journeyId = pathParts[4];
+                const tripId = pathParts[6];
+
+                const person = odSurveyHelpers.getPerson({ interview, personId });
+                const journey = person ? odSurveyHelpers.getJourneys({ person })[journeyId] : undefined;
+                const visitedPlaces = journey ? odSurveyHelpers.getVisitedPlaces({ journey }) : null;
+                const trip = journey ? odSurveyHelpers.getTrips({ journey })[tripId] || null : null;
+                const householdTripsDate = getResponse(interview, assignedDayPath);
+                if (visitedPlaces === null || person === null || trip === null || householdTripsDate === null) {
+                    return defaultResponse;
+                }
+
+                // Find the scenario for the appropriate week day
+                const weekDay = moment(householdTripsDate).day();
+                const scenario =
+                    weekDay === 0
+                        ? config.trRoutingScenarios.DI
+                        : weekDay === 6
+                            ? config.trRoutingScenarios.SA
+                            : config.trRoutingScenarios.SE;
+                if (scenario === undefined) {
+                    return defaultResponse;
+                }
+
+                // Get geography of places
+                const origin = odSurveyHelpers.getOrigin({ trip, visitedPlaces });
+                const destination = odSurveyHelpers.getDestination({ trip, visitedPlaces });
+                const originGeography = origin
+                    ? odSurveyHelpers.getVisitedPlaceGeography({
+                        visitedPlace: origin,
+                        person,
+                        interview
+                    })
+                    : null;
+                const destinationGeography = destination
+                    ? odSurveyHelpers.getVisitedPlaceGeography({
+                        visitedPlace: destination,
+                        person,
+                        interview
+                    })
+                    : null;
+                const timeOfTrip = origin?.departureTime;
+
+                if (originGeography === null || destinationGeography === null || typeof timeOfTrip !== 'number') {
+                    return defaultResponse;
+                }
+
+                const executeTransitSummaryPromise = async () => {
+                    try {
+                        const summaryResponse = await getTransitSummary({
+                            origin: originGeography,
+                            destination: destinationGeography,
+                            transitScenario: scenario,
+                            departureSecondsSinceMidnight: timeOfTrip,
+                            departureDateString: householdTripsDate,
+                            minWaitingTime: 180,
+                            maxAccessTravelTime: 20 * 60,
+                            maxEgressTravelTime: 20 * 60,
+                            maxTransferTravelTime: 20 * 60,
+                            maxTravelTime: 180 * 60,
+                            maxFirstWaitingTime: 20 * 60
+                        } as any);
+                        if (summaryResponse.status !== 'success') {
+                            console.log('Error getting summary: ', JSON.stringify(summaryResponse));
+                        }
+                        return { [resultPath]: summaryResponse.status === 'success' ? summaryResponse : undefined };
+                    } catch (error) {
+                        console.error('Error getting transit summary:', error);
+                        return { [resultPath]: undefined };
+                    }
+                };
+
+                if (typeof registerUpdateOperation !== 'function') {
+                    // If registerUpdateOperation is not provided, execute the promise directly, that would be in the validation interface, they can wait
+                    return await executeTransitSummaryPromise();
+                } else {
+                    // Execute the operation in the backend so the result may be ready when needed, but without blocking the call
+                    registerUpdateOperation({
+                        opName: `transitSummary${originGeography.geometry.coordinates[0]}${originGeography.geometry.coordinates[1]}${destinationGeography.geometry.coordinates[0]}${destinationGeography.geometry.coordinates[1]}`,
+                        opUniqueId: 1,
+                        operation: async (_isCancelled: () => boolean) => {
+                            return await executeTransitSummaryPromise();
+                        }
+                    });
+                    return {};
+                }
+            } catch (error) {
+                console.log('Error occurred while getting summary for transit mode:', error);
+                return defaultResponse;
             }
         }
     }

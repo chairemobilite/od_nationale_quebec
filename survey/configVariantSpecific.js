@@ -1,11 +1,10 @@
 module.exports = {
     saguenay: {
-        // FIXME Need to setup Transition scenarios for Saguenay
-        /*trRoutingScenarios: {
-            SE: 'scenario uuid for week days',
-            SA: 'scenario uuid for saturday',
-            DI: 'scenario uuid for sunday'
-        }, */
+        trRoutingScenarios: {
+            SE: 'd91ee21a-4b53-40e0-ac7b-5837e0820b3c',
+            SA: '0d3d4cec-142f-4a93-9f66-7b54c5111441',
+            DI: 'c3ba9975-ae39-46f3-8501-46a6e8db673d'
+        },
         mapDefaultCenter: {
             lat: 48.42877420,
             lon: -71.0620784
