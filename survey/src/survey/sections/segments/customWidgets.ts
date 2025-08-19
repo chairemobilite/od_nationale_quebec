@@ -533,10 +533,10 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const person = odSurveyHelpers.getActivePerson({ interview });
             // paratransit can be used by an accompanying person too, so show this mode for any household with at least one person with disability:
             return (
-                (['transit', 'other', 'carPassenger', 'paratransit'].includes(modePre) &&
-                    person &&
-                    odSurveyHelpers.personMayHaveDisability({ person })) ||
-                odSurveyHelpers.householdMayHaveDisability({ interview })
+                ['transit', 'other', 'carPassenger', 'paratransit'].includes(modePre) &&
+                person &&
+                (odSurveyHelpers.personMayHaveDisability({ person }) ||
+                    odSurveyHelpers.householdMayHaveDisability({ interview }))
             );
         },
         iconPath: getModeIcon('paratransit')
