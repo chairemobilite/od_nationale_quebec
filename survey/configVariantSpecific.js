@@ -7,8 +7,8 @@ module.exports = {
             DI: 'scenario uuid for sunday'
         }, */
         mapDefaultCenter: {
-            lat: 48.397538,
-            lon: -71.20195
+            lat: 48.42877420,
+            lon: -71.0620784
         },
         mapMaxGeocodingResultsBounds: [{
             lat: 48.685988478,
