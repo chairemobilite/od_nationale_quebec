@@ -92,6 +92,39 @@ export const sectionConfig: SectionConfig = {
             ? _merge(needUpdateHouseholdSizeValues, responseToUpdate)
             : responseToUpdate;
     },
+    onSectionExit: (interview, iterationContext) => {
+        // Update the person visited places if there was a change
+        const person = odSurveyHelper.getPerson({
+            interview,
+            personId: iterationContext[iterationContext.length - 1]
+        }) as any;
+        // Validate the journey exists
+        const journey = odSurveyHelper.getJourneysArray({ person })[0];
+        if (journey === undefined) {
+            // This shouldn't happen, but log anyway, just in case
+            console.error('No journey found for person:', person._uuid);
+            return undefined;
+        }
+        const personDidTrips = (journey as any).personDidTrips;
+        const personDidTripsChangeConfirm = (journey as any).personDidTripsChangeConfirm;
+        if (personDidTrips === 'no' && personDidTripsChangeConfirm === 'yes') {
+            // If the person did not make any trips, but then confirmed they actually did, reset the personDidTrips to yes
+            return {
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTrips`]: 'yes',
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsChangeConfirm`]:
+                    undefined
+            };
+        } else if (personDidTrips === 'no' && personDidTripsChangeConfirm === 'no') {
+            // If the person confirms they did not make any trips, we need to remove the journeys and visited places
+            return {
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.visitedPlaces`]: undefined,
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.trips`]: undefined,
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsChangeConfirm`]:
+                    undefined
+            };
+        }
+        return undefined;
+    },
     enableConditional: function (interview) {
         const person = odSurveyHelper.getPerson({ interview });
         return householdMembersSectionComplete(interview);
