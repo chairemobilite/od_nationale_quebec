@@ -62,6 +62,7 @@ import { buttonNextBase } from 'evolution-frontend/lib/components/inputs/default
 import { isLastPlaceCustomConditional } from '../../common/customConditionals';
 import { personVisitedPlacesMap as visitedPlacesMap } from '../visitedPlaces/customWidgets';
 import { personTripsWidgetsNames, segmentsWidgetsNames } from './widgetsNames';
+import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
 
 const switchPersonWidgets = getSwitchPersonWidgets();
 
@@ -104,7 +105,7 @@ export const segmentModePre = {
                 const drivingLicenseOwnership = person ? person.drivingLicenseOwnership : 'dontKnow';
                 return drivingLicenseOwnership === 'yes';
             },
-            iconPath: '/dist/images/modes_icons/carDriver.png'
+            iconPath: getModeIcon('carDriver')
         },
         {
             value: 'carPassenger',
@@ -112,7 +113,7 @@ export const segmentModePre = {
                 fr: '<strong>Passager</strong> (voiture/moto/scooter)',
                 en: '<strong>Passenger (car/motorcycle/moped)</strong>'
             },
-            iconPath: '/dist/images/modes_icons/carPassenger.png'
+            iconPath: getModeIcon('carPassenger')
         },
         {
             value: 'walk',
@@ -120,7 +121,7 @@ export const segmentModePre = {
                 fr: '<strong>Marche</strong>',
                 en: '<strong>Walking</strong>'
             },
-            iconPath: '/dist/images/modes_icons/walk.png'
+            iconPath: getModeIcon('walk')
         },
         {
             value: 'wheelchair',
@@ -132,7 +133,7 @@ export const segmentModePre = {
                 const person = odSurveyHelpers.getActivePerson({ interview });
                 return person && odSurveyHelpers.personMayHaveDisability({ person });
             },
-            iconPath: '/dist/images/modes_icons/wheelchair.png'
+            iconPath: getModeIcon('wheelchair')
         },
         {
             value: 'mobilityScooter',
@@ -144,7 +145,7 @@ export const segmentModePre = {
                 const person = odSurveyHelpers.getActivePerson({ interview });
                 return person && odSurveyHelpers.personMayHaveDisability({ person });
             },
-            iconPath: '/dist/images/modes_icons/mobilityScooter.png'
+            iconPath: getModeIcon('mobilityScooter')
         },
         {
             value: 'paratransit',
@@ -152,7 +153,7 @@ export const segmentModePre = {
                 fr: '<strong>Transport adapté</strong>',
                 en: '<strong>Paratransit</strong>'
             },
-            iconPath: '/dist/images/modes_icons/paratransit.png',
+            iconPath: getModeIcon('paratransit'),
             conditional: function (interview, path) {
                 const person = odSurveyHelpers.getActivePerson({ interview });
                 // paratransit can be used by an accompanying person too, so show this mode for any household with at least one person with disability:
@@ -168,7 +169,7 @@ export const segmentModePre = {
                 fr: '<strong>Vélo</strong> ou <strong> vélo électrique</strong>',
                 en: '<strong>Bicycle</strong> or <strong>electric bicycle</strong>'
             },
-            iconPath: '/dist/images/modes_icons/bicycle.png'
+            iconPath: getModeIcon('bicycle')
         },
         {
             value: 'transit',
@@ -176,7 +177,7 @@ export const segmentModePre = {
                 fr: '<strong>Transport collectif</strong>',
                 en: '<strong>Public transit</strong>'
             },
-            iconPath: '/dist/images/modes_icons/bus.png'
+            iconPath: getModeIcon('transitBus')
         },
         {
             value: 'taxi',
@@ -184,7 +185,7 @@ export const segmentModePre = {
                 fr: '<strong>Taxi</strong> ou équivalent (ex. Uber)',
                 en: '<strong>Taxi</strong> or equivalent (eg. Uber)'
             },
-            iconPath: '/dist/images/modes_icons/taxi.png'
+            iconPath: getModeIcon('taxi')
         },
         {
             value: 'ferry',
@@ -192,7 +193,7 @@ export const segmentModePre = {
                 fr: '<strong>Traversier</strong>',
                 en: '<strong>Ferry</strong>'
             },
-            iconPath: '/dist/images/modes_icons/ferry.png'
+            iconPath: getModeIcon('transitFerry')
         },
         {
             value: 'other',
@@ -200,7 +201,7 @@ export const segmentModePre = {
                 fr: '<strong>Autre</strong>',
                 en: '<strong>Other</strong>'
             },
-            iconPath: '/dist/images/modes_icons/other.png'
+            iconPath: getModeIcon('other')
         },
         {
             value: 'dontKnow',
@@ -208,7 +209,7 @@ export const segmentModePre = {
                 fr: '<strong>Je ne sais pas</strong> / Préfère ne pas répondre',
                 en: '<strong>I don\'t know</strong> / Prefer not to answer'
             },
-            iconPath: '/dist/images/modes_icons/dontKnow.png'
+            iconPath: getModeIcon('dontKnow')
         }
     ]
 };
@@ -225,7 +226,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'bicycle';
         },
-        iconPath: '/dist/images/modes_icons/bicycle.png'
+        iconPath: getModeIcon('bicycle')
     },
     {
         value: 'bicycleElectric',
@@ -239,7 +240,11 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const person = odSurveyHelpers.getActivePerson({ interview });
             return modePre === 'bicycle' && person && !_isBlank(person.age) && person.age >= 14;
         },
-        iconPath: '/dist/images/modes_icons/bicycleElectric.png'
+        // FIXME In Evolution, the bicycleElectric mode was meant to be an extra
+        // question, with `bicycle` as mode and use the `BicycleType` to answer
+        // the new question. In this survey, it is still a mode, so we manually
+        // set the icon path for it.
+        iconPath: '/dist/icons/modes/bicycle/bicycle_without_rider_electric.svg'
     },
     {
         value: 'scooterElectric',
@@ -255,7 +260,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
                 (modePre === 'bicycle' || modePre === 'other') && person && !_isBlank(person.age) && person.age >= 14
             );
         },
-        iconPath: '/dist/images/modes_icons/scooterElectric.png'
+        iconPath: getModeIcon('scooterElectric')
     },
     {
         value: 'mobilityScooter',
@@ -268,7 +273,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'mobilityScooter' || modePre === 'other';
         },
-        iconPath: '/dist/images/modes_icons/mobilityScooter.png'
+        iconPath: getModeIcon('mobilityScooter')
     },
     {
         value: 'wheelchair',
@@ -281,7 +286,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'wheelchair';
         },
-        iconPath: '/dist/images/modes_icons/wheelchair.png'
+        iconPath: getModeIcon('wheelchair')
     },
     {
         value: 'transitBus',
@@ -294,7 +299,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'transit';
         },
-        iconPath: '/dist/images/modes_icons/bus.png'
+        iconPath: getModeIcon('transitBus')
     },
     {
         value: 'transitSubway',
@@ -307,7 +312,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'transit';
         },
-        iconPath: '/dist/images/modes_icons/subway.png'
+        iconPath: getModeIcon('transitRRT')
     },
     {
         value: 'transitREM',
@@ -320,7 +325,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'transit';
         },
-        iconPath: '/dist/images/modes_icons/train.png'
+        iconPath: getModeIcon('transitLRT')
     },
     {
         value: 'transitRail',
@@ -333,7 +338,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'transit';
         },
-        iconPath: '/dist/images/modes_icons/train.png'
+        iconPath: getModeIcon('transitRegionalRail')
     },
     {
         value: 'transitTram',
@@ -346,7 +351,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'transit';
         },
-        iconPath: '/dist/images/modes_icons/tram.png'
+        iconPath: getModeIcon('transitStreetCar')
     },
     {
         value: 'transitTaxi',
@@ -359,7 +364,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'other' || modePre === 'transit';
         },
-        iconPath: '/dist/images/modes_icons/taxi.png'
+        iconPath: getModeIcon('transitTaxi')
     },
     {
         value: 'intercityBus',
@@ -375,7 +380,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
                 ['transit', 'other'].includes(modePre) && (_isBlank(tripDistanceMeters) || tripDistanceMeters >= 50000)
             );
         },
-        iconPath: '/dist/images/modes_icons/intercityBus.png'
+        iconPath: getModeIcon('intercityBus')
     },
     {
         value: 'schoolBus',
@@ -393,7 +398,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
                 ((person.age && person.age <= 15) || isStudent(person))
             );
         },
-        iconPath: '/dist/images/modes_icons/schoolBus.png'
+        iconPath: getModeIcon('schoolBus')
     },
     {
         value: 'busOther',
@@ -406,7 +411,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'transit' || modePre === 'other';
         },
-        iconPath: '/dist/images/modes_icons/bus.png'
+        iconPath: getModeIcon('otherBus')
     },
     {
         value: 'carDriver',
@@ -419,7 +424,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'carDriver';
         },
-        iconPath: '/dist/images/modes_icons/carDriver.png'
+        iconPath: getModeIcon('carDriver')
     },
     {
         value: 'carDriverCarsharing',
@@ -433,7 +438,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const carsharingMembersCount = carsharingMembersCountInHousehold(interview);
             return modePre === 'carDriver' && carsharingMembersCount > 0;
         },
-        iconPath: '/dist/images/modes_icons/carDriver.png'
+        iconPath: getModeIcon('carDriver')
     },
     {
         value: 'rentalCar',
@@ -446,7 +451,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'carDriver';
         },
-        iconPath: '/dist/images/modes_icons/carDriver.png'
+        iconPath: getModeIcon('carDriver')
     },
     {
         value: 'motorcycle',
@@ -459,7 +464,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'carDriver' || modePre === 'other';
         },
-        iconPath: '/dist/images/modes_icons/motorcycle.png'
+        iconPath: getModeIcon('motorcycle')
     },
     {
         value: 'ferryNoCar',
@@ -472,7 +477,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'other' || modePre === 'transit' || modePre === 'ferry';
         },
-        iconPath: '/dist/images/modes_icons/ferryNoCar.png'
+        iconPath: getModeIcon('transitFerry')
     },
     {
         value: 'ferryWithCar',
@@ -485,7 +490,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'other' || modePre === 'transit' || modePre === 'ferry';
         },
-        iconPath: '/dist/images/modes_icons/ferryWithCar.png'
+        iconPath: getModeIcon('ferryWithCar')
     },
     {
         value: 'intercityRail',
@@ -501,7 +506,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
                 ['transit', 'other'].includes(modePre) && (_isBlank(tripDistanceMeters) || tripDistanceMeters >= 50000)
             );
         },
-        iconPath: '/dist/images/modes_icons/train.png'
+        iconPath: getModeIcon('intercityTrain')
     },
     {
         value: 'carPassenger',
@@ -514,7 +519,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'carPassenger';
         },
-        iconPath: '/dist/images/modes_icons/carPassenger.png'
+        iconPath: getModeIcon('carPassenger')
     },
     {
         value: 'paratransit',
@@ -534,7 +539,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
                 odSurveyHelpers.householdMayHaveDisability({ interview })
             );
         },
-        iconPath: '/dist/images/modes_icons/paratransit.png'
+        iconPath: getModeIcon('paratransit')
     },
     {
         value: 'plane',
@@ -548,7 +553,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'other' && (_isBlank(tripDistanceMeters) || tripDistanceMeters >= 50000);
         },
-        iconPath: '/dist/images/modes_icons/plane.png'
+        iconPath: getModeIcon('plane')
     },
     {
         value: 'other',
@@ -561,7 +566,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             const modePre = segment ? segment.modePre : null;
             return modePre === 'other';
         },
-        iconPath: '/dist/images/modes_icons/other.png'
+        iconPath: getModeIcon('other')
     }
 ];
 
@@ -610,7 +615,7 @@ const howToBusChoices = [
             fr: '<strong>Marche</strong>',
             en: '<strong>Walking</strong>'
         },
-        iconPath: '/dist/images/modes_icons/walk.png'
+        iconPath: getModeIcon('walk')
     },
     {
         value: 'bicycle',
@@ -618,7 +623,7 @@ const howToBusChoices = [
             fr: '<strong>Vélo</strong>',
             en: '<strong>Bicycle</strong>'
         },
-        iconPath: '/dist/images/modes_icons/bicycle.png'
+        iconPath: getModeIcon('bicycle')
     },
     {
         value: 'bicycleElectric',
@@ -626,7 +631,8 @@ const howToBusChoices = [
             fr: '<strong>Vélo électrique</strong>',
             en: '<strong>E-Bike</strong> (electric bicycle)'
         },
-        iconPath: '/dist/images/modes_icons/bicycleElectric.png'
+        // FIXME bicycleElectric is not a mode (see comment in segmentModeChoices), use a function when bicycle type is available in Evolution
+        iconPath: '/dist/icons/modes/bicycle/bicycle_without_rider_electric.svg'
     },
     {
         value: 'scooterElectric',
@@ -634,7 +640,7 @@ const howToBusChoices = [
             fr: '<strong>Trottinette électrique</strong>',
             en: '<strong>E-Scooter</strong> (electric scooter)'
         },
-        iconPath: '/dist/images/modes_icons/scooterElectric.png'
+        iconPath: getModeIcon('scooterElectric')
     },
     {
         value: 'wheelchair',
@@ -642,7 +648,7 @@ const howToBusChoices = [
             fr: '<strong>Chaise roulante</strong>',
             en: '<strong>Wheelchair</strong>'
         },
-        iconPath: '/dist/images/modes_icons/wheelchair.png',
+        iconPath: getModeIcon('wheelchair'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getActivePerson({ interview });
             return person && odSurveyHelpers.personMayHaveDisability({ person });
@@ -654,7 +660,7 @@ const howToBusChoices = [
             fr: '<strong>Quadriporteur/Triporteur</strong>',
             en: '<strong>Mobility scooter</strong>'
         },
-        iconPath: '/dist/images/modes_icons/mobilityScooter.png',
+        iconPath: getModeIcon('mobilityScooter'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getActivePerson({ interview });
             return person && odSurveyHelpers.personMayHaveDisability({ person });
@@ -666,7 +672,7 @@ const howToBusChoices = [
             fr: '<strong>Transport adapté</strong>',
             en: '<strong>Paratransit</strong>'
         },
-        iconPath: '/dist/images/modes_icons/paratransit.png',
+        iconPath: getModeIcon('paratransit'),
         conditional: function (interview, path) {
             const segment: any = getResponse(interview, path, null, '../');
             const mode = segment ? segment.mode : null;
