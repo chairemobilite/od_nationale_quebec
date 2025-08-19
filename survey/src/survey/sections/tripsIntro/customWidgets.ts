@@ -169,7 +169,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
             count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson }),
             nickname: activePerson.nickname,
             context: activePerson.gender,
-            assignedDate: formattedTripsDate
+            formattedTripsDate
         });
     },
     choices: [
@@ -211,7 +211,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
         if (activeJourney === null) {
             return [false, null];
         }
-        const personDidTrips = getResponse(interview, '../personDidTrips', null);
+        const personDidTrips = getResponse(interview, path, null, '../personDidTrips');
         const visitedPlaces = odSurveyHelper.getVisitedPlacesArray({
             journey: activeJourney
         });

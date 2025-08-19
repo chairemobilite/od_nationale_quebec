@@ -155,7 +155,11 @@ export const sectionConfig: SectionConfig = {
             personId: iterationContext[iterationContext.length - 1]
         }) as any;
         const journey = person ? odSurveyHelper.getJourneysArray({ person })[0] : undefined;
-        return journey && (journey as any).personDidTrips === 'yes';
+        // Visible if either the person says has trips or has confirmed she still have trips (the value will be reset later on tripsIntro exit)
+        return (
+            journey &&
+            ((journey as any).personDidTrips === 'yes' || (journey as any).personDidTripsChangeConfirm === 'yes')
+        );
     }
 };
 
