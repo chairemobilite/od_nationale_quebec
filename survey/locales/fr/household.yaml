@@ -54,24 +54,23 @@ carSharingMember: >-
     ou laissez-passer à un service d'autopartage (ex. Communauto)</span>
 transitFares: >-
     Est-ce que {{nickname}} détient présentement <strong>un laissez-passer ou un abonnement</strong>
-    de transport en commun valide ?
+    de transport en commun valide?
 transitFares_one: >-
     Détenez-vous présentement <strong>un laissez-passer ou un abonnement</strong>
-    de transport en commun valide ?
+    de transport en commun valide?
 hasDisability: >-
     <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
-    qui influence ou limite ses déplacements quotidiens ?
-workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe ?
-workPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe ?
+    qui influence ou limite ses déplacements quotidiens?
+workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe?
+workPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe?
 workPlaceTypeBeforeLeave: >-
     <strong>Avant d’être en congé</strong>, est-ce que {{nickname}} avait un <strong>lieu
-    d'emploi</strong> fixe ?
+    d'emploi</strong> fixe?
 workPlaceTypeBeforeLeave_one: >-
     <strong>Avant d’être en congé</strong>, aviez-vous un <strong>lieu d'emploi</strong>
-    fixe ?
-schoolPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'études</strong> fixe
-    ?
-schoolPlaceType_one: Avez-vous a un <strong>lieu d'études</strong> fixe ?
+    fixe?
+schoolPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'études</strong> fixe?
+schoolPlaceType_one: Avez-vous a un <strong>lieu d'études</strong> fixe?
 usualWorkPlace.name: >-
     <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong> de
     {{nickname}}
@@ -108,31 +107,30 @@ usualSchoolPlace.geography_one: >-
     le lieu").</span>
 travelToWorkDays: >-
     Durant la dernière <strong>semaine</strong>, quand est-ce que {{nickname}} s'est
-    <strong>déplacé·e</strong> pour le <strong>travail</strong> ?<br /><span class="_pale
+    <strong>déplacé·e</strong> pour le <strong>travail</strong>?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_male: >-
     Durant la dernière <strong>semaine</strong>, quand est-ce que {{nickname}} s'est
-    <strong>déplacé</strong> pour le <strong>travail</strong> ?<br /><span class="_pale
+    <strong>déplacé</strong> pour le <strong>travail</strong>?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_female: >-
     Durant la dernière <strong>semaine</strong>, quand est-ce que {{nickname}} s'est
-    <strong>déplacée</strong> pour le <strong>travail</strong> ?<br /><span class="_pale
+    <strong>déplacée</strong> pour le <strong>travail</strong>?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_one: >-
     Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
-    pour le <strong>travail</strong> ?
+    pour le <strong>travail</strong>?
 travelToWorkDays_male_one: >-
     Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacé</strong>
-    pour le <strong>travail</strong> ?
+    pour le <strong>travail</strong>?
 travelToWorkDays_female_one: >-
     Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacée</strong>
-    pour le <strong>travail</strong> ?
+    pour le <strong>travail</strong>?
 remoteWorkDays: >-
     Durant la <strong>dernière semaine</strong>, quand est-ce que {{nickname}} a travaillé
-    en <strong>télé-travail</strong> ?
+    en <strong>télé-travail</strong>?
 remoteWorkDays_one: >-
-    Durant la <strong>dernière semaine</strong>, quand avez-vous travaillé en <strong>télé-travail</strong>
-    ?
+    Durant la <strong>dernière semaine</strong>, quand avez-vous travaillé en <strong>télé-travail</strong>?
 household.save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne
