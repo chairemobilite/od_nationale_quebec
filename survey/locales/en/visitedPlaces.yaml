@@ -53,10 +53,9 @@ nextPlaceCategory: >-
     of the survey that they stayed there until the next day and select the appropriate
     answer.</span>
 nextPlaceCategory_one: >-
-    After being {{atPlace}}, you…<br /><span class="_pale _oblique">If {{nickname}}
-    left this place after 4 AM the following day, please consider for the purposes
-    of the survey that they stayed there until the next day and select the appropriate
-    answer.</span>
+    After being {{atPlace}}, you…<br /><span class="_pale _oblique">If you left this
+    place after 4 AM the following day, please consider for the purposes of the survey
+    that you stayed there until the next day and select the appropriate answer.</span>
 departureTime: '{{nickname}} left {{place}} at:'
 departureTime_one: 'You left {{place}} at:'
 visitedPlacesSave: Confirm
