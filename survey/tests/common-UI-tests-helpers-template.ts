@@ -305,7 +305,7 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     // Test custom widget personDidTrips
     // Implement custom test
 
-    // Test custom widget personDidTripsChangeConfirm
+    // Test custom widget personDidTripsConfirm
     // Implement custom test
 
     // Test custom widget visitedPlacesIntro

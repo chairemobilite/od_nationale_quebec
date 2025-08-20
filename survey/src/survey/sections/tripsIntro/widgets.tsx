@@ -23,7 +23,7 @@ export const personWhoWillAnswerForThisPerson = customWidgets.personWhoWillAnswe
 
 export const personDidTrips = customWidgets.personDidTrips;
 
-export const personDidTripsChangeConfirm = customWidgets.personDidTripsChangeConfirm;
+export const personDidTripsConfirm = customWidgets.personDidTripsConfirm;
 
 export const visitedPlacesIntro = customWidgets.visitedPlacesIntro;
 

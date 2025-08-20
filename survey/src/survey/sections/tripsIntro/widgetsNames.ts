@@ -10,7 +10,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'personNewPerson',
     'personWhoWillAnswerForThisPerson',
     'personDidTrips',
-    'personDidTripsChangeConfirm',
+    'personDidTripsConfirm',
     'visitedPlacesIntro',
     'personDeparturePlaceIsHome',
     'personDeparturePlaceOther',

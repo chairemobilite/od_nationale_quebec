@@ -203,7 +203,7 @@ Qui répond pour {{nickname}}?
 Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é.e}} le {{assignedDate}}?
 Inclure tous les déplacements, qu'ils soient pour motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.
 
-Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que ${{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
+Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
 
 Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin).
 
