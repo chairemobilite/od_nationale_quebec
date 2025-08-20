@@ -155,9 +155,9 @@ export const personDidTrips: WidgetConfig.InputRadioType = {
 };
 
 // FIXME Custom because of the labels with date and other placeholders, as well as the choices labels
-export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
+export const personDidTripsConfirm: WidgetConfig.InputRadioType = {
     type: 'question',
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsChangeConfirm',
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm',
     inputType: 'radio',
     datatype: 'string',
     twoColumns: false,
@@ -165,7 +165,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const tripsDate = getResponse(interview, '_assignedDay', null);
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
-        return t('tripsIntro:personDidTripsChangeConfirm', {
+        return t('tripsIntro:personDidTripsConfirm', {
             count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson }),
             nickname: activePerson.nickname,
             context: activePerson.gender,
@@ -182,7 +182,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
                     withRelative: true,
                     locale: i18n.language
                 });
-                return t('customLabel:personDidTripsChangeConfirmChoiceNo', {
+                return t('tripsIntro:personDidTripsConfirmChoiceNo', {
                     count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson }),
                     nickname: activePerson.nickname,
                     assignedDate: formattedTripsDate
@@ -198,7 +198,7 @@ export const personDidTripsChangeConfirm: WidgetConfig.InputRadioType = {
                     withRelative: true,
                     locale: i18n.language
                 });
-                return t('customLabel:personDidTripsChangeConfirmChoiceYes', {
+                return t('tripsIntro:personDidTripsConfirmChoiceYes', {
                     count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson }),
                     nickname: activePerson.nickname,
                     assignedDate: formattedTripsDate
@@ -243,7 +243,7 @@ export const visitedPlacesIntro: WidgetConfig.TextWidgetConfig = {
     conditional: function (interview, path) {
         const journey = odSurveyHelper.getActiveJourney({ interview });
         return [
-            _booleish((journey as any).personDidTrips) || _booleish((journey as any).personDidTripsChangeConfirm),
+            _booleish((journey as any).personDidTrips) || _booleish((journey as any).personDidTripsConfirm),
             undefined
         ];
     }
@@ -295,10 +295,10 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
         const departurePlaceIsHome = getResponse(interview, path, null);
         const firstVisitedPlace = odSurveyHelper.getVisitedPlacesArray({ journey })[0];
         const personDidTrips = (journey as any).personDidTrips;
-        const personDidTripsChangeConfirm = (journey as any).personDidTripsChangeConfirm;
+        const personDidTripsConfirm = (journey as any).personDidTripsConfirm;
         if (
             _booleish(personDidTrips) !== true ||
-            (_isBlank(personDidTrips) && _booleish(personDidTripsChangeConfirm) === false)
+            (_isBlank(personDidTrips) && _booleish(personDidTripsConfirm) === false)
         ) {
             return [false, null];
         } else if (firstVisitedPlace && (firstVisitedPlace.activity || firstVisitedPlace.activityCategory)) {

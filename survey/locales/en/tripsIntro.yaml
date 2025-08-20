@@ -18,10 +18,10 @@ personDidTrips_one: >-
     Did you make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
     all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
     work, or to pick up or drop someone off.</span>
-personDidTripsChangeConfirm: >-
+personDidTripsConfirm: >-
     You already declared trip. Do you confirm they are erroneous and that {{person.nickname}}
     did not make any trips on {{formattedTripsDate}}?
-personDidTripsChangeConfirm_one: >-
+personDidTripsConfirm_one: >-
     You already declared trips. Do you confirm they are erroneous and that you did
     not make any trips on {{formattedTripsDate}}?
 didTripsIntro: >-
@@ -61,3 +61,7 @@ tripsIntro.save: Continue
 tripsIntroOutro: >-
     <span class="_pale _oblique">Your answers will be used to assess the use and traffic
     of the road and public transit networks and will remain entirely confidential.</span>
+personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trip on {{assignedDate}}'
+personDidTripsConfirmChoiceNo_one: I did not make any trip on {{assignedDate}}
+personDidTripsConfirmChoiceYes: '{{nickname}} did make at least one trip on {{assignedDate}}'
+personDidTripsConfirmChoiceYes_one: I did make at least one trip on {{assignedDate}}

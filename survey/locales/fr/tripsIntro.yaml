@@ -37,16 +37,16 @@ personDidTrips_female_one: >-
     Vous êtes-vous déplacée le {{assignedDate}}?<br /><span class="_pale _oblique">Inclure
     tous les déplacements, qu'ils soient pour motifs personnels (achats, sorties,
     loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
-personDidTripsChangeConfirm: >-
+personDidTripsConfirm: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
-    que ${{nickname}} ne s'est pas déplacé.e le {{formattedTripsDate}}?
-personDidTripsChangeConfirm_male: >-
+    que {{nickname}} ne s'est pas déplacé.e le {{formattedTripsDate}}?
+personDidTripsConfirm_male: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
-    que ${{nickname}} ne s'est pas déplacé le {{formattedTripsDate}}?
-personDidTripsChangeConfirm_female: >-
+    que {{nickname}} ne s'est pas déplacé le {{formattedTripsDate}}?
+personDidTripsConfirm_female: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
-    que ${{nickname}} ne s'est pas déplacée le {{formattedTripsDate}}?
-personDidTripsChangeConfirm_one: >-
+    que {{nickname}} ne s'est pas déplacée le {{formattedTripsDate}}?
+personDidTripsConfirm_one: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
     que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?
 didTripsIntro: >-
@@ -153,3 +153,8 @@ tripsIntro.save: Continuer
 tripsIntroOutro: >-
     <span class="_pale _oblique">Vos réponses serviront à évaluer l'usage et l'achalandage
     des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.</span>
+personDidTripsConfirmChoiceNo: "{{nickname}} n'a effectué aucun déplacement le {{assignedDate}}"
+personDidTripsConfirmChoiceNo_one: Je n'ai effectué aucun déplacement le {{assignedDate}}
+personDidTripsConfirmChoiceYes: '{{nickname}} a effectué au moins un déplacement le
+    {{assignedDate}}'
+personDidTripsConfirmChoiceYes_one: J'ai effectué au moins un déplacement le {{assignedDate}}

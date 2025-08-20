@@ -28,7 +28,3 @@ WhyThisDateExplanation: >-
     résumé, avec un grand nombre de réponses pour des jours attribués de manière
     aléatoire, l'agrégé des données devrait tendre vers une modélisation
     réaliste d'un jour moyen pour l'ensemble de la population recensée.</p>
-personDidTripsChangeConfirmChoiceNo: '{{nickname}} n''a effectué aucun déplacement le {{assignedDate}}'
-personDidTripsChangeConfirmChoiceNo_one: 'Je n''ai effectué aucun déplacement le {{assignedDate}}'
-personDidTripsChangeConfirmChoiceYes: '{{nickname}} a effectué au moins un déplacement le {{assignedDate}}'
-personDidTripsChangeConfirmChoiceYes_one: 'J''ai effectué au moins un déplacement le {{assignedDate}}'

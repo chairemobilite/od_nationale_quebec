@@ -314,7 +314,7 @@ Question type,Unknown input
 Question,"Did {{nickname}} make any trips on {{assignedDate}}?
 Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
 ""
-Field,personDidTripsChangeConfirm
+Field,personDidTripsConfirm
 Question type,Unknown input
 Question,You already declared trip. Do you confirm they are erroneous and that {{person.nickname}} did not make any trips on {{formattedTripsDate}}?
 ""

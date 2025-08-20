@@ -68,7 +68,7 @@ export const departurePlaceOtherCustomConditional: WidgetConditional = (intervie
         return [false, null];
     }
     const personDidTrips = (journey as any).personDidTrips;
-    const personDidTripsChangeConfirm = (journey as any).personDidTripsChangeConfirm;
+    const personDidTripsConfirm = (journey as any).personDidTripsConfirm;
     const firstVisitedPlace = odSurveyHelper.getVisitedPlacesArray({
         journey
     })[0];
@@ -78,7 +78,7 @@ export const departurePlaceOtherCustomConditional: WidgetConditional = (intervie
         return [false, departurePlaceOther];
     }
     return [
-        (_booleish(personDidTrips) || _booleish(personDidTripsChangeConfirm)) &&
+        (_booleish(personDidTrips) || _booleish(personDidTripsConfirm)) &&
             !_isBlank((journey as any).departurePlaceIsHome) &&
             _booleish((journey as any).departurePlaceIsHome) === false,
         null

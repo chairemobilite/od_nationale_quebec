@@ -29,7 +29,3 @@ WhyThisDateExplanation: >-
     summary, with a large number of responses for days randomly assigned, the
     aggregate of all responses should accurately reflect an average day of
     travel for the population surveyed.</p>
-personDidTripsChangeConfirmChoiceNo: '{{nickname}} did not make any trip on {{assignedDate}}'
-personDidTripsChangeConfirmChoiceNo_one: 'I did not make any trip on {{assignedDate}}'
-personDidTripsChangeConfirmChoiceYes: '{{nickname}} did make at least one trip on {{assignedDate}}'
-personDidTripsChangeConfirmChoiceYes_one: 'I did make at least one trip on {{assignedDate}}'

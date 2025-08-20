@@ -106,20 +106,20 @@ export const sectionConfig: SectionConfig = {
             return undefined;
         }
         const personDidTrips = (journey as any).personDidTrips;
-        const personDidTripsChangeConfirm = (journey as any).personDidTripsChangeConfirm;
-        if (personDidTrips === 'no' && personDidTripsChangeConfirm === 'yes') {
+        const personDidTripsConfirm = (journey as any).personDidTripsConfirm;
+        if (personDidTrips === 'no' && personDidTripsConfirm === 'yes') {
             // If the person did not make any trips, but then confirmed they actually did, reset the personDidTrips to yes
             return {
                 [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTrips`]: 'yes',
-                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsChangeConfirm`]:
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsConfirm`]:
                     undefined
             };
-        } else if (personDidTrips === 'no' && personDidTripsChangeConfirm === 'no') {
+        } else if (personDidTrips === 'no' && personDidTripsConfirm === 'no') {
             // If the person confirms they did not make any trips, we need to remove the journeys and visited places
             return {
                 [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.visitedPlaces`]: undefined,
                 [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.trips`]: undefined,
-                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsChangeConfirm`]:
+                [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsConfirm`]:
                     undefined
             };
         }

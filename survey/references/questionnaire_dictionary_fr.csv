@@ -314,9 +314,9 @@ Type de question,Entrée inconnue
 Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é.e}} le {{assignedDate}}?
 Inclure tous les déplacements, qu'ils soient pour motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
 ""
-Champ,personDidTripsChangeConfirm
+Champ,personDidTripsConfirm
 Type de question,Entrée inconnue
-Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que ${{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
+Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
 ""
 Champ,didTripsIntro
 Type de question,Entrée inconnue
