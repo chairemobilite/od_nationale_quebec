@@ -107,3 +107,14 @@ export const remoteWorkDaysCustomValidation = (value) => [
         errorMessage: (t) => t('household:errors.selectNoRemoteWorkWhenNoOtherChoiceSelected')
     }
 ];
+
+// FIXME Cannot use the builtin `inputRangeValidation` as the validation implies the field is required. This is for optional range inputs.
+export const rangeOptionalOrValidCustomValidation = (value) => {
+    return [
+        {
+            // Check if the value is set and less than 0
+            validation: !_isBlank(value) && !(Number(value) >= 0),
+            errorMessage: (t) => t('end:errors.inputRangeMustBePositiveOrZero')
+        }
+    ];
+};

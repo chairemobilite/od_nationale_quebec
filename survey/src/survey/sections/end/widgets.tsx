@@ -116,7 +116,7 @@ export const endDurationOfTheSurvey: WidgetConfig.InputRangeType = {
     containsHtml: true,
     label: (t: TFunction) => t('end:durationOfSurvey'),
     conditional: defaultConditional,
-    validations: validations.optionalValidation
+    validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
 export const endTimeSpentAnswering: WidgetConfig.InputStringType = {
@@ -137,7 +137,7 @@ export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {
     containsHtml: true,
     label: (t: TFunction) => t('end:interestOfTheSurvey'),
     conditional: defaultConditional,
-    validations: validations.optionalValidation
+    validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
 export const endDifficultyOfTheSurvey: WidgetConfig.InputRangeType = {
@@ -148,7 +148,7 @@ export const endDifficultyOfTheSurvey: WidgetConfig.InputRangeType = {
     containsHtml: true,
     label: (t: TFunction) => t('end:difficultyOfTheSurvey'),
     conditional: defaultConditional,
-    validations: validations.optionalValidation
+    validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
 export const endBurdenOfTheSurvey: WidgetConfig.InputRangeType = {
@@ -159,7 +159,7 @@ export const endBurdenOfTheSurvey: WidgetConfig.InputRangeType = {
     containsHtml: true,
     label: (t: TFunction) => t('end:burdenOfTheSurvey'),
     conditional: defaultConditional,
-    validations: validations.optionalValidation
+    validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
 export const endConsideredAbandoningSurvey: WidgetConfig.InputRadioType = {
