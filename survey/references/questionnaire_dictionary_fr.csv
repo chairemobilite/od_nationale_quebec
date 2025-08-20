@@ -108,6 +108,15 @@ Valeurs,"female : Femme
 male : Homme
 preferNotToAnswer : Je préfère ne pas répondre"
 ""
+Champ,gender
+Type de question,Bouton radio
+Conditionnel,displayGenderIfSexAtBirthPreferNotAnswerCustomConditional
+Question,Je préfère donner le genre
+Valeurs,"female : Femme
+male : Homme
+custom : Cette personne s’identifie comme:
+preferNotToAnswer : Je préfère ne pas répondre"
+""
 Champ,workerType
 Type de question,Bouton radio
 Conditionnel,ifAge14orMoreConditional : age >= 14

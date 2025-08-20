@@ -108,6 +108,15 @@ Values,"female : Woman
 male : Man
 preferNotToAnswer : I prefer not to answer"
 ""
+Field,gender
+Question type,Radio input
+Conditional,displayGenderIfSexAtBirthPreferNotAnswerCustomConditional
+Question,I prefer to give the gender
+Values,"female : Woman
+male : Man
+custom : This person identifies herself as:
+preferNotToAnswer : I prefer not to answer"
+""
 Field,workerType
 Question type,Radio input
 Conditional,ifAge14orMoreConditional : age >= 14
