@@ -178,13 +178,13 @@ module.exports = (env) => {
             new CopyWebpackPlugin({
                 patterns: [
                     {
-                        context: path.join(__dirname, '..', 'node_modules', 'chaire-lib-frontend', 'lib', 'assets'),
+                        context: path.join(__dirname, '..', 'node_modules', 'chaire-lib-frontend', 'assets'),
                         from: "**/*",
                         to: "",
                         noErrorOnMissing: true
                     },
                     {
-                        context: path.join(__dirname, '..', 'node_modules', 'evolution-frontend', 'lib', 'assets'),
+                        context: path.join(__dirname, '..', 'node_modules', 'evolution-frontend', 'assets'),
                         from: '**/*',
                         to: '',
                         noErrorOnMissing: true
