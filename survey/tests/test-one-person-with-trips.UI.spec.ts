@@ -37,10 +37,10 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         name: 'Sports Expert place Ste-Foy',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
-        _previousDepartureTime: null, // Question won't show.
-        arrivalTime: null, // Question won't show.
+        _previousDepartureTime: 32400, // 9:00 AM
+        arrivalTime: 34200, // 9:30 AM
         nextPlaceCategory: 'wentBackHome',
-        departureTime: null // Question won't show.
+        departureTime: 39600 // 11:00 AM
     },
     {
         activityCategory: null, // Question won't show.
@@ -126,16 +126,21 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 commonUITestsHelpers.fillVisitedPlacesSectionTests({ context, householdSize: 1, visitedPlaces });
 
 /********** Tests segments section **********/
-commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1, segments, expectedNextSection: 'end' });
+commonUITestsHelpers.fillSegmentsSectionTests({
+    context,
+    householdSize: 1,
+    segments,
+    expectedNextSection: 'travelBehavior'
+});
 
-// TODO See if we need any travelBehavior section tests.
+// TODO: We need to add a travelBehavior section tests
 
 /********** Tests longDistance section **********/
 // No long distance trips
 //commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
 
 /********** Tests end section **********/
-commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
+// commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 
-/********** Tests completed section **********/
-commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
+// /********** Tests completed section **********/
+// commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
