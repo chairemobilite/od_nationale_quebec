@@ -71,7 +71,7 @@ Inclure seulement les vélos utilisables en bon état."
 Champ,hh_electricBicycleNumber
 Type de question,RadioNumber
 Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
-Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique ?"
+Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?"
 ""
 Champ,hh_atLeastOnePersonWithDisability
 Type de question,Bouton radio
@@ -205,7 +205,7 @@ dontKnow : Je ne sais pas"
 Champ,transitFares
 Type de question,Case à cocher
 Conditionnel,ifAge6OrMoreConditional : age >= 6
-Question,Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide ?
+Question,Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?
 Valeurs,"no : Non
 transitPass : Passe ou titre mensuel ou annuel
 tickets : Titres ou billets individuels
@@ -214,7 +214,7 @@ dontKnow : Je ne sais pas"
 Champ,hasDisability
 Type de question,Bouton radio
 Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
-Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens ?"
+Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?"
 Valeurs,"yes : Oui
 no : Non
 preferNotToAnswer : Je préfère ne pas répondre"
@@ -222,7 +222,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 Champ,workPlaceType
 Type de question,Bouton radio
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,Est-ce que {{nickname}} a un lieu d'emploi fixe ?
+Question,Est-ce que {{nickname}} a un lieu d'emploi fixe?
 Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps
 hybrid : Oui, travail en mode hybride (télétravail et en présentiel)
 onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
@@ -232,12 +232,12 @@ remote : Non, travail à partir du domicile ou à distance"
 Champ,workPlaceTypeBeforeLeave
 Type de question,Bouton radio
 Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime workerTypeBeforeLeave === partTime
-Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe ?"
+Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?"
 ""
 Champ,schoolPlaceType
 Type de question,Bouton radio
 Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
-Question,Est-ce que {{nickname}} a un lieu d'études fixe ?
+Question,Est-ce que {{nickname}} a un lieu d'études fixe?
 Valeurs,"onLocation : Oui, études au lieu fixe en présentiel en tout temps
 hybrid : Oui, études en mode hybride (télé-études et en présentiel)
 remote : Non, études à partir du domicile ou à distance"
@@ -268,13 +268,13 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 Champ,travelToWorkDays
 Type de question,Case à cocher
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail ?
+Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail."
 ""
 Champ,remoteWorkDays
 Type de question,Case à cocher
 Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
-Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail ?"
+Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail?"
 ""
 ""
 ""
@@ -636,7 +636,7 @@ refusal : Je préfère ne pas répondre"
 ""
 Champ,wouldLikeToParticipateInOtherSurveysChaireMobilite
 Type de question,Bouton radio
-Question,Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal ?
+Question,Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal?
 Valeurs,"yes : Oui
 no : Non"
 ""
@@ -668,7 +668,7 @@ Valeurs,"0 : Trop court
 ""
 Champ,timeSpentAnswering
 Type de question,Champ numérique
-Question,Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes) ?
+Question,Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
 ""
 Champ,interestOfTheSurvey
 Type de question,Curseur de plage
@@ -679,7 +679,7 @@ Valeurs,"0 : Pas du tout
 ""
 Champ,difficultyOfTheSurvey
 Type de question,Curseur de plage
-Question,Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête ?
+Question,Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
 Valeurs,"0 : Très facile
 50 : Modérément difficile
 100 : Très difficile"
@@ -693,7 +693,7 @@ Valeurs,"0 : Pas du tout
 ""
 Champ,consideredAbandoningSurvey
 Type de question,Bouton radio
-Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête ?"
+Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?"
 Valeurs,"yes : Oui
 no : Non
 dontKnow : Je ne sais pas"

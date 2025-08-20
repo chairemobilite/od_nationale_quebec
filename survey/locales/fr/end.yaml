@@ -9,7 +9,7 @@ household.income: >-
     _oblique">Facultatif</span>
 wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
     Seriez-vous intéressés à <strong>participer à d'autres études</strong> menées
-    par la <strong>Chaire Mobilité de Polytechnique Montréal</strong> ?
+    par la <strong>Chaire Mobilité de Polytechnique Montréal</strong>?
 wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
     Veuillez fournir l'<strong>adresse e-mail</strong> où vous pouvez être contacté
     pour participer à d'autres études de la Chaire Mobilité.
@@ -30,16 +30,15 @@ durationOfSurvey: >-
     longue</strong>?
 timeSpentAnswering: >-
     Combien de <strong>temps</strong> pensez-vous avoir passé <strong>à répondre</strong>
-    à cette enquête (<strong>en minutes</strong>) ?
+    à cette enquête (<strong>en minutes</strong>)?
 interestOfTheSurvey: >-
     Dans quelle mesure cette enquête a-t-elle été <strong>intéressante</strong> pour
     vous ?
 difficultyOfTheSurvey: >-
     Dans quelle mesure vous a-t-il été <strong>facile</strong> ou <strong>difficile</strong>
-    de répondre aux questions de cette enquête ?
+    de répondre aux questions de cette enquête?
 burdenOfTheSurvey: >-
     Dans quelle mesure avez-vous trouvé cette enquête <strong>pénible (exigeante)</strong> ?
 consideredAbandoningSurvey: >-
-    Avez-vous pensé, à un moment ou un autre, <strong>abandonner l'enquête</strong>
-    ?
+    Avez-vous pensé, à un moment ou un autre, <strong>abandonner l'enquête</strong>?
 buttonCompleteInterviewWithCompleteSection: Terminer l’entrevue

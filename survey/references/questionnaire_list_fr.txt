@@ -37,7 +37,7 @@ Automobiles, VUS, camions légers ou fourgonnettes, etc.
 Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
 Inclure seulement les vélos utilisables en bon état.
 
-Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique ?
+Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?
 
 Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
 Y compris vous-même
@@ -131,28 +131,28 @@ Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)
 - Non
 - Je ne sais pas
 
-Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide ?
+Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?
 - Non
 - Passe ou titre mensuel ou annuel
 - Titres ou billets individuels
 - Je ne sais pas
 
-Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens ?
+Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?
 - Oui
 - Non
 - Je préfère ne pas répondre
 
-Est-ce que {{nickname}} a un lieu d'emploi fixe ?
+Est-ce que {{nickname}} a un lieu d'emploi fixe?
 - Oui, travail au lieu fixe en présentiel en tout temps
 - Oui, travail en mode hybride (télétravail et en présentiel)
 - Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
 - Non, travail sur la route avec départ du domicile
 - Non, travail à partir du domicile ou à distance
 
-Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe ?
+Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?
 
 
-Est-ce que {{nickname}} a un lieu d'études fixe ?
+Est-ce que {{nickname}} a un lieu d'études fixe?
 - Oui, études au lieu fixe en présentiel en tout temps
 - Oui, études en mode hybride (télé-études et en présentiel)
 - Non, études à partir du domicile ou à distance
@@ -169,11 +169,11 @@ Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
 
-Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail ?
+Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
 
-Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail ?
+Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail?
 
 
 Enregistrer et continuer
@@ -400,7 +400,7 @@ Facultatif
 - Je ne sais pas
 - Je préfère ne pas répondre
 
-Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal ?
+Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal?
 - Oui
 - Non
 
@@ -418,15 +418,15 @@ Parmi les véhicules possédés par votre ménage, combien sont des véhicules �
 
 Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
 
-Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes) ?
+Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
 
 Dans quelle mesure cette enquête a-t-elle été intéressante pour vous ?
 
-Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête ?
+Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
 
 Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante) ?
 
-Avez-vous pensé, à un moment ou un autre, abandonner l'enquête ?
+Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
 - Oui
 - Non
 - Je ne sais pas
