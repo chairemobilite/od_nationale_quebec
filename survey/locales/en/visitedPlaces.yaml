@@ -85,13 +85,13 @@ PreviousDepartureTime_home_workOnTheRoad_female: >-
 PreviousDepartureTime_home_workOnTheRoad_one: At what time did you leave home before
     starting your on the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad: >-
-    t what time did {{nickname}} leave their usual work place before starting their
+    At what time did {{nickname}} leave their usual work place before starting their
     on the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male: >-
-    t what time did {{nickname}} leave his usual work place before starting his on
+    At what time did {{nickname}} leave his usual work place before starting his on
     the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female: >-
-    t what time did {{nickname}} leave her usual work place before starting her on
+    At what time did {{nickname}} leave her usual work place before starting her on
     the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_one: >-
     At what time did you leave your usual work place before starting your on the road
@@ -155,13 +155,13 @@ _previousArrivalTimeDepartureTypeHome_female: >-
 _previousArrivalTimeDepartureTypeHome_one: At what time did you arrive home before
     starting your on the road trips?
 _previousArrivalTimeDepartureTypeUsualWorkPlace: >-
-    At what time did {{nickname}} arrive at his usual work place before starting their
-    on the road trips?
+    At what time did {{nickname}} arrive at their usual work place before starting
+    their on the road trips?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_male: >-
     At what time did {{nickname}} arrive at his usual work place before starting his
     on the road trips?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_female: >-
-    At what time did {{nickname}} arrive at his usual work place before starting her
+    At what time did {{nickname}} arrive at her usual work place before starting her
     on the road trips?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_one: >-
     At what time did you arrive at your usual work place before starting your on the

@@ -70,7 +70,7 @@ workPlaceTypeBeforeLeave_one: >-
     <strong>Avant d’être en congé</strong>, aviez-vous un <strong>lieu d'emploi</strong>
     fixe?
 schoolPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'études</strong> fixe?
-schoolPlaceType_one: Avez-vous a un <strong>lieu d'études</strong> fixe?
+schoolPlaceType_one: Avez-vous un <strong>lieu d'études</strong> fixe?
 usualWorkPlace.name: >-
     <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong> de
     {{nickname}}
