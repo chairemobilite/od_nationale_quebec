@@ -67,7 +67,7 @@ Sexe assigné à la naissance ou inscrit dans les documents légaux.
 Je préfère donner le genre
 - Femme
 - Homme
-- Cette personne s’identifie comme:
+- Cette personne s'identifie comme:
 - Je préfère ne pas répondre
 
 Travaill{{gender:eur/euse/eur·euse}}
@@ -169,11 +169,11 @@ Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
 
-Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail?
+Durant la dernière semaine, quand {{nickname}} s'est-{{gender:il/elle/iel/"il/elle"}} déplacé{{gender:/e/·e}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
 
-Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail?
+Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/"il/elle"}} fait du télé-travail?
 
 
 Enregistrer et continuer
@@ -280,7 +280,7 @@ Déplacements de {{nickname}} le {{assignedDate}}
 
 Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
-Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} à {{destinationName}}), dans l'ordre chronologique:
+Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
 
 Mode de transport
 

@@ -337,6 +337,7 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:remoteWorkDays', {
             nickname,
+            context: activePerson?.gender,
             count: countPersons
         });
     },

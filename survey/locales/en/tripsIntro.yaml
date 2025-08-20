@@ -19,7 +19,7 @@ personDidTrips_one: >-
     all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
     work, or to pick up or drop someone off.</span>
 personDidTripsConfirm: >-
-    You already declared trip. Do you confirm they are erroneous and that {{person.nickname}}
+    You already declared trip. Do you confirm they are erroneous and that {{nickname}}
     did not make any trips on {{formattedTripsDate}}?
 personDidTripsConfirm_one: >-
     You already declared trips. Do you confirm they are erroneous and that you did

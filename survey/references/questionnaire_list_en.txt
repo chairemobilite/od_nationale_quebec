@@ -67,7 +67,7 @@ Sex assigned at birth or that which appears on legal documents.
 I prefer to give the gender
 - Woman
 - Man
-- This person identifies herself as:
+- This person identifies  as:
 - I prefer not to answer
 
 Worker
@@ -203,7 +203,7 @@ Who is responding for {{nickname}}?
 Did {{nickname}} make any trips on {{assignedDate}}?
 Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.
 
-You already declared trip. Do you confirm they are erroneous and that {{person.nickname}} did not make any trips on {{formattedTripsDate}}?
+You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?
 
 Please specify the places {{nickname}} went on {{assignedDate}} (include all places visited until 4 AM the following morning)
 
