@@ -8,7 +8,7 @@ confirmByAdminText: >
   To confirm the user access, please click on the link below, or copy-paste the following URL {{userConfirmationUrl}}.
   
   
-  Thank you"
+  Thank you
 confirmByAdminSubject: "National survey admin platform: New User Confirmation"
 confirmByUserText: >
   Hi {{name}},

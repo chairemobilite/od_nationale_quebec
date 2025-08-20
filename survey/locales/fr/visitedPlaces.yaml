@@ -288,13 +288,13 @@ _previousArrivalTimeDepartureTypeOther_custom: >-
     À quelle heure {{nickname}} est-iel arrivé.e au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_one: >-
-    À quelle heure êtes-vous arrivé.e au le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure êtes-vous arrivé.e au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_male_one: >-
-    À quelle heure êtes-vous arrivé au le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure êtes-vous arrivé au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_female_one: >-
-    À quelle heure êtes-vous arrivée au le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure êtes-vous arrivée au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter vos déplacements sur la route?
 arrivalTimeOnTheRoad: '{{nickname}} a commencé ses déplacements sur la route à: '
 arrivalTimeOnTheRoad_one: 'Vous avez commencé vos déplacements sur la route à:'
@@ -320,9 +320,9 @@ nextPlaceRadioChoices.stayedThereUntilTheNextDay_male: Resté à cet endroit jus
     lendemain
 nextPlaceRadioChoices.stayedThereUntilTheNextDay_female: Restée à cet endroit jusqu'au
     lendemain
-nextPlaceRadioChoices.visitedAnotherPlace: Allé.e ou arrété.e à un autre endroit
-nextPlaceRadioChoices.visitedAnotherPlace_male: Allé ou arrété à un autre endroit
-nextPlaceRadioChoices.visitedAnotherPlace_female: Allée ou arrétée à un autre endroit
+nextPlaceRadioChoices.visitedAnotherPlace: Allé.e ou arrêté.e à un autre endroit
+nextPlaceRadioChoices.visitedAnotherPlace_male: Allé ou arrêté à un autre endroit
+nextPlaceRadioChoices.visitedAnotherPlace_female: Allée ou arrêtée à un autre endroit
 nextPlaceRadioChoices.wentBackHome: Retourné.e au domicile directement ({{address}})
 nextPlaceRadioChoices.wentBackHome_male: Retourné au domicile directement ({{address}})
 nextPlaceRadioChoices.wentBackHome_female: Retournée au domicile directement ({{address}})

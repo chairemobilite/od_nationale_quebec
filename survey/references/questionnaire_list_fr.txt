@@ -280,7 +280,7 @@ Déplacements de {{nickname}} le {{assignedDate}}
 
 Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
-Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
+Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} à {{destinationName}}), dans l'ordre chronologique:
 
 Mode de transport
 
@@ -368,7 +368,7 @@ Seriez-vous intéressés à être recontactés pour une enquête plus approfondi
 - Oui
 - Non
 
-Veuillez fournir l'adresse e-mail où vous pouvez être contacté pour participer à une enquête sur les déplacements interurbains
+Veuillez fournir une adresse courriel de contact pour participer à une enquête sur les déplacements interurbains
 
 Continuer
 
@@ -404,7 +404,7 @@ Seriez-vous intéressés à participer à d'autres études menées par la Chaire
 - Oui
 - Non
 
-Veuillez fournir l'adresse e-mail où vous pouvez être contacté pour participer à d'autres études de la Chaire Mobilité.
+Veuillez fournir une adresse courriel de contact pour participer à d'autres études de la Chaire Mobilité.
 
 Vos commentaires et suggestions sur le questionnaire (facultatif)
 
