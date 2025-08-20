@@ -366,7 +366,7 @@ Question,Quel endroit était le point de départ des déplacements sur la route 
 Champ,onTheRoadArrivalType
 Type de question,Bouton radio
 Conditionnel,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
-Question,À quel endroit {{nickname}} a-t-{{gender :il/elle/iel}} terminé ses déplacements sur la route?
+Question,"À quel endroit {{nickname}} a-t-{{gender :il/elle/iel/""il/elle""}} terminé ses déplacements sur la route?"
 ""
 Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
 Type de question,Bouton radio
@@ -387,7 +387,7 @@ Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois local
 ""
 Champ,_previousPreviousDepartureTime
 Type de question,Entrée inconnue
-Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+Question,"À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/""il/elle""}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?"
 ""
 Champ,arrivalTime
 Type de question,Entrée inconnue
@@ -396,7 +396,7 @@ Question,{{nickname}} est arriv{{gender :é/ée/é.e}} {{atPlace}} à:
 Champ,nextPlaceCategory
 Type de question,Entrée inconnue
 Question,"Après avoir été {{atPlace}}, {{nickname}} est…
-Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel}} y est rest{{gender :é/ée/é.e}} jusqu'au lendemain et de sélectionner la réponse adaptée."
+Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/""il/elle""}} y est rest{{gender :é/ée/é.e}} jusqu'au lendemain et de sélectionner la réponse adaptée."
 ""
 Champ,departureTime
 Type de question,Entrée inconnue
