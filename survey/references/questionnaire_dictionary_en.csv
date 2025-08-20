@@ -114,7 +114,7 @@ Conditional,displayGenderIfSexAtBirthPreferNotAnswerCustomConditional
 Question,I prefer to give the gender
 Values,"female : Woman
 male : Man
-custom : This person identifies herself as:
+custom : This person identifies  as:
 preferNotToAnswer : I prefer not to answer"
 ""
 Field,workerType
@@ -316,7 +316,7 @@ Include all trips, whether for personal reasons (shopping, outings, leisure, etc
 ""
 Field,personDidTripsConfirm
 Question type,Unknown input
-Question,You already declared trip. Do you confirm they are erroneous and that {{person.nickname}} did not make any trips on {{formattedTripsDate}}?
+Question,You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?
 ""
 Field,didTripsIntro
 Question type,Unknown input

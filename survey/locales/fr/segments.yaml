@@ -9,7 +9,7 @@ segmentsMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le {{assi
 segmentsMap_one: 'Carte de vos déplacements le {{assignedDate}}:'
 segmentsIntro: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement
-    (de {{originName}} à {{destinationName}}), dans l'ordre chronologique:
+    (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
 segments: Mode de transport
 howToBus: >-
     Comment est-ce que {{nickname}} s'est rendu.e à l'arrêt/station de transport collectif?<br

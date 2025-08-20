@@ -114,7 +114,7 @@ Conditionnel,displayGenderIfSexAtBirthPreferNotAnswerCustomConditional
 Question,Je préfère donner le genre
 Valeurs,"female : Femme
 male : Homme
-custom : Cette personne s’identifie comme:
+custom : Cette personne s'identifie comme:
 preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,workerType
@@ -268,13 +268,13 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 Champ,travelToWorkDays
 Type de question,Case à cocher
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,"Durant la dernière semaine, quand est-ce que {{nickname}} s'est déplacé{{gender:/e/·e}} pour le travail?
+Question,"Durant la dernière semaine, quand {{nickname}} s'est-{{gender:il/elle/iel/""il/elle""}} déplacé{{gender:/e/·e}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail."
 ""
 Champ,remoteWorkDays
 Type de question,Case à cocher
 Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
-Question,"Durant la dernière semaine, quand est-ce que {{nickname}} a travaillé en télé-travail?"
+Question,"Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/""il/elle""}} fait du télé-travail?"
 ""
 ""
 ""
@@ -439,7 +439,7 @@ Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
 ""
 Champ,segmentsIntro
 Type de question,Entrée inconnue
-Question,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} à {{destinationName}}), dans l'ordre chronologique:"
+Question,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:"
 ""
 Champ,segments
 Type de question,Entrée inconnue

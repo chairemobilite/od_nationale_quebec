@@ -108,8 +108,8 @@ export const maleFemaleCustomPreferNotToAnswer: ChoiceType[] = [
     {
         value: 'custom',
         label: {
-            fr: 'Cette personne s’identifie comme:',
-            en: 'This person identifies herself as:'
+            fr: 'Cette personne s\'identifie comme:',
+            en: 'This person identifies  as:'
         }
     },
     ...preferNotToAnswer
