@@ -39,3 +39,4 @@ burdenOfTheSurvey: How <strong>burdensome (demanding)</strong> did you find this
 consideredAbandoningSurvey: Have you considered, at any point, to <strong>abandon
     the survey</strong>?
 buttonCompleteInterviewWithCompleteSection: Complete the interview
+errors.inputRangeMustBePositiveOrZero: This answer must be a minimum value of 0.

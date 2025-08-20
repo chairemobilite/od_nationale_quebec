@@ -42,3 +42,5 @@ burdenOfTheSurvey: >-
 consideredAbandoningSurvey: >-
     Avez-vous pensé, à un moment ou un autre, <strong>abandonner l'enquête</strong>?
 buttonCompleteInterviewWithCompleteSection: Terminer l’entrevue
+errors.inputRangeMustBePositiveOrZero: Cette réponse doit être d'une valeur minimum
+    de 0.
