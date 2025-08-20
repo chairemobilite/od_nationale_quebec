@@ -11,7 +11,7 @@ age: >-
     <strong>Âge</strong><br /><span class="_pale _oblique">Pour les bébés de moins
     de 1 an, inscrivez "0"</span>
 age_one: Votre <strong>âge</strong>
-gender: >-
+sexAssignedAtBirth: >-
     <strong>Sexe à la naissance</strong><br /><span class="_pale _oblique">Sexe assigné
     à la naissance ou inscrit dans les documents légaux.</span>
 workerType: >-

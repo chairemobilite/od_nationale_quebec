@@ -99,7 +99,7 @@ Question type,Number input
 Question,"Age
 For babies under the age of 1, write ""0"""
 ""
-Field,gender
+Field,sexAssignedAtBirth
 Question type,Radio input
 Conditional,ifAge5orMoreConditional : age >= 5
 Question,"Sex at birth

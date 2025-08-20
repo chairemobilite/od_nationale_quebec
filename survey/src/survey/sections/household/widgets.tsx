@@ -42,13 +42,13 @@ export const personAge: WidgetConfig.InputStringType = {
     validations: validations.ageValidation
 };
 
-export const personGender: WidgetConfig.InputRadioType = {
+export const personSexAssignedAtBirth: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'gender',
+    path: 'sexAssignedAtBirth',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:gender'),
-    choices: choices.gender,
+    label: (t: TFunction) => t('household:sexAssignedAtBirth'),
+    choices: choices.maleFemalePreferNotAnswer,
     conditional: conditionals.ifAge5orMoreConditional,
     validations: validations.requiredValidation
 };

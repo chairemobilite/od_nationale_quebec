@@ -25,7 +25,7 @@ export type HouseholdMember = {
     personIndex: number;
     nickname: string;
     age: number;
-    gender: string;
+    sexAssignedAtBirth: string;
     workerType: string;
     studentType: string;
     schoolType: string | null;
@@ -55,7 +55,7 @@ const householdMembers: HouseholdMember[] = [
         personIndex: 0,
         nickname: 'Martha',
         age: 30,
-        gender: 'female',
+        sexAssignedAtBirth: 'female',
         workerType: 'fullTime',
         studentType: 'partTime',
         schoolType: null, // Question won't show.
@@ -244,7 +244,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             personIndex: 1,
             nickname: 'John',
             age: 35,
-            gender: 'male',
+            sexAssignedAtBirth: 'male',
             workerType: 'partTime',
             studentType: 'fullTime',
             schoolType: null, // Question won't show.
@@ -297,13 +297,13 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             value: person.age.toString()
         });
 
-        // Test radio widget personGender with conditional ifAge5orMoreConditional with choices gender
+        // Test radio widget personSexAssignedAtBirth with conditional ifAge5orMoreConditional with choices maleFemalePreferNotAnswer
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         testHelpers.inputRadioTest({
             context,
-            path: `household.persons.${personIdString}.gender`,
-            value: person.gender
+            path: `household.persons.${personIdString}.sexAssignedAtBirth`,
+            value: person.sexAssignedAtBirth
         });
 
         // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatus

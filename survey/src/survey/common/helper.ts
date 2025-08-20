@@ -113,7 +113,7 @@ const basicInfoForPersonComplete = function (person: Person, householdSize) {
     return !(
         _isBlank(person) ||
         _isBlank(person.age) ||
-        (_isBlank(person.gender) && person.age >= 5) ||
+        (_isBlank((person as any).sexAssignedAtBirth) && person.age >= 5) ||
         (householdSize > 1 && _isBlank(person.nickname)) ||
         (_isBlank(person.drivingLicenseOwnership) && person.age >= config.drivingLicenseAge)
     );
