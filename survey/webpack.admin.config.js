@@ -130,7 +130,7 @@ module.exports = (env) => {
       new CleanWebpackPlugin({
         dry: !isProduction,
         verbose: true,
-        cleanAfterEveryBuildPatterns: ['**/*', '!images/**', '!documents/**', '!*.html'],
+        cleanAfterEveryBuildPatterns: ['**/*', '!images/**', '!icons/**', '!documents/**', '!*.html'],
       }),
       new HtmlWebpackPlugin({
         title: defaultAppTitle,
