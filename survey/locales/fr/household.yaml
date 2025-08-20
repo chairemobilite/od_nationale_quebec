@@ -14,6 +14,7 @@ age_one: Votre <strong>âge</strong>
 sexAssignedAtBirth: >-
     <strong>Sexe à la naissance</strong><br /><span class="_pale _oblique">Sexe assigné
     à la naissance ou inscrit dans les documents légaux.</span>
+gender: Je préfère donner le <strong>genre</strong>
 workerType: >-
     <strong>Travailleur·euse</strong><br /><span class="_pale _oblique">Incluant travailleur·euse
     autonome, artiste, travailleur·euse en congé de maladie ou parental.</span>

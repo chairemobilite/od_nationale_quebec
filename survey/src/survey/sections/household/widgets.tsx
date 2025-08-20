@@ -53,6 +53,19 @@ export const personSexAssignedAtBirth: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
+export const personGender: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'gender',
+    twoColumns: false,
+    containsHtml: true,
+    customPath: 'genderCustom',
+    customChoice: 'custom',
+    label: (t: TFunction) => t('household:gender'),
+    choices: choices.maleFemaleCustomPreferNotToAnswer,
+    conditional: customConditionals.displayGenderIfSexAtBirthPreferNotAnswerCustomConditional,
+    validations: validations.requiredValidation
+};
+
 export const personWorkerType: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'workerType',

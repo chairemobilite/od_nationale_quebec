@@ -10,6 +10,7 @@ export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personNickname',
     'personAge',
     'personSexAssignedAtBirth',
+    'personGender',
     'personWorkerType',
     'personStudentType',
     'personSchoolType',

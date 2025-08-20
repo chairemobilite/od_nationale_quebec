@@ -64,6 +64,12 @@ Sex assigned at birth or that which appears on legal documents.
 - Man
 - I prefer not to answer
 
+I prefer to give the gender
+- Woman
+- Man
+- This person identifies herself as:
+- I prefer not to answer
+
 Worker
 Including self-employed, artist, on sick leave or parental leave.
 - Yes, full time

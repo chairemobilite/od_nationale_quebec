@@ -90,6 +90,31 @@ export const maleFemalePreferNotAnswer: ChoiceType[] = [
     ...preferNotToAnswer
 ];
 
+export const maleFemaleCustomPreferNotToAnswer: ChoiceType[] = [
+    {
+        value: 'female',
+        label: {
+            fr: 'Femme',
+            en: 'Woman'
+        }
+    },
+    {
+        value: 'male',
+        label: {
+            fr: 'Homme',
+            en: 'Man'
+        }
+    },
+    {
+        value: 'custom',
+        label: {
+            fr: 'Cette personne s’identifie comme:',
+            en: 'This person identifies herself as:'
+        }
+    },
+    ...preferNotToAnswer
+];
+
 export const participationStatus: ChoiceType[] = [
     {
         value: 'fullTime',

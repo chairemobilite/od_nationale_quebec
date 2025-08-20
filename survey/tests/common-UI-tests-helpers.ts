@@ -26,6 +26,8 @@ export type HouseholdMember = {
     nickname: string;
     age: number;
     sexAssignedAtBirth: string;
+    gender: string | null;
+    genderCustom: string | null;
     workerType: string;
     studentType: string;
     schoolType: string | null;
@@ -56,6 +58,8 @@ const householdMembers: HouseholdMember[] = [
         nickname: 'Martha',
         age: 30,
         sexAssignedAtBirth: 'female',
+        gender: null,
+        genderCustom: null,
         workerType: 'fullTime',
         studentType: 'partTime',
         schoolType: null, // Question won't show.
@@ -245,6 +249,8 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             nickname: 'John',
             age: 35,
             sexAssignedAtBirth: 'male',
+            gender: null,
+            genderCustom: null,
             workerType: 'partTime',
             studentType: 'fullTime',
             schoolType: null, // Question won't show.
@@ -305,6 +311,23 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             path: `household.persons.${personIdString}.sexAssignedAtBirth`,
             value: person.sexAssignedAtBirth
         });
+
+        // Test radio widget personGender with conditional displayGenderIfSexAtBirthPreferNotAnswerCustomConditional with choices maleFemaleCustomPreferNotToAnswer
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (person.gender === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.gender`,
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.gender`,
+                value: person.gender
+            });
+        }
 
         // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatus
         /* @link file://./../src/survey/common/conditionals.tsx */

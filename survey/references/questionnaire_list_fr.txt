@@ -64,6 +64,12 @@ Sexe assigné à la naissance ou inscrit dans les documents légaux.
 - Homme
 - Je préfère ne pas répondre
 
+Je préfère donner le genre
+- Femme
+- Homme
+- Cette personne s’identifie comme:
+- Je préfère ne pas répondre
+
 Travaill{{gender:eur/euse/eur·euse}}
 Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental.
 - Oui, à temps plein
