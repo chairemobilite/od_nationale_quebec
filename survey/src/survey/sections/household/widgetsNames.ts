@@ -9,7 +9,7 @@ export const widgetsNames: SectionConfig['widgets'] = ['householdMembers', 'hous
 export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personNickname',
     'personAge',
-    'personGender',
+    'personSexAssignedAtBirth',
     'personWorkerType',
     'personStudentType',
     'personSchoolType',

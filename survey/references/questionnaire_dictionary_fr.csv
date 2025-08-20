@@ -99,7 +99,7 @@ Type de question,Champ numérique
 Question,"Âge
 Pour les bébés de moins de 1 an, inscrivez ""0"""
 ""
-Champ,gender
+Champ,sexAssignedAtBirth
 Type de question,Bouton radio
 Conditionnel,ifAge5orMoreConditional : age >= 5
 Question,"Sexe à la naissance

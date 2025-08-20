@@ -12,7 +12,7 @@ age: >-
     <strong>Age</strong><br /><span class="_pale _oblique">For babies under the age
     of 1, write "0"</span>
 age_one: Your <strong>age</strong>
-gender: >-
+sexAssignedAtBirth: >-
     <strong>Sex at birth</strong><br /><span class="_pale _oblique">Sex assigned at
     birth or that which appears on legal documents.</span>
 workerType: >-
