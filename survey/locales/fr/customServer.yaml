@@ -22,7 +22,7 @@ confirmByUserText: >
 
   Merci
 confirmByUserSubject: "Plateforme admin de l'enquête nationale: Confirmation d'un nouvel utilisateur"
-pendingConfirmByAdminSubject: "Plateforme admin de l'enquête nationale: compte en attente de confirmation par un administrateur"
+pendingConfirmByAdminSubject: "Plateforme admin de l'enquête nationale: Compte en attente de confirmation par un administrateur"
 pendingConfirmByAdminText: >
   Bonjour {{name}},
 
@@ -49,3 +49,9 @@ resetPasswordEmailText: >
 
 
   Merci
+confirmedByAdminEmailSubject: "Plateforme admin de l'enquête nationale: Compte confirmé"
+confirmedByAdminEmailText: >
+  Bonjour {{name}},
+
+
+  Votre accès à la plateforme d'enquête Evolution a été confirmé. Vous pouvez maintenant utiliser votre compte.
