@@ -2,7 +2,57 @@ import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
 import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
+import { phoneValidation, emailValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import { TFunction } from 'i18next';
+
+// Check if email or phone number is provided
+const emailOrPhoneNumberRequiredValidation = ({ contactEmail, phoneNumber }) => {
+    return [
+        {
+            validation: _isBlank(contactEmail) && _isBlank(phoneNumber),
+            errorMessage: {
+                fr: 'L\'adresse courriel ou le numéro de téléphone est requis.',
+                en: 'Email address or phone number is required.'
+            }
+        }
+    ];
+};
+
+// Return the email validation (with email or phone number required).
+// Cannot use the builtin `emailValidation` as the validation implies the field is required.
+export const emailOptionalCustomValidation: ValidationFunction = (value, customValue, interview, path) => {
+    const contactEmail = value;
+    const phoneNumber = surveyHelperNew.getResponse(interview, 'phoneNumber', null);
+    const emailOrPhoneNumberRequired = emailOrPhoneNumberRequiredValidation({ contactEmail, phoneNumber }); // Check if email or phone number is provided
+
+    // Validate email format
+    const emailValidationMessages = [
+        {
+            validation:
+                !_isBlank(value) &&
+                !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+                    String(value)
+                ),
+            errorMessage: {
+                fr: 'Le courriel est invalide.',
+                en: 'Email is invalid'
+            }
+        }
+    ];
+
+    return [...emailOrPhoneNumberRequired, ...emailValidationMessages];
+};
+
+// Return the phone validation (with email or phone number required).
+// Cannot use the builtin `phoneValidation` as the validation doesn't check the contact email.
+export const phoneOptionalCustomValidation: ValidationFunction = (value, customValue, interview, path) => {
+    const contactEmail = surveyHelperNew.getResponse(interview, 'contactEmail', null);
+    const phoneNumber = value;
+    const phoneValidationMessages = phoneValidation(value, customValue, interview, path); // Get the phone validation messages
+    const emailOrPhoneNumberRequired = emailOrPhoneNumberRequiredValidation({ contactEmail, phoneNumber }); // Check if email or phone number is provided
+
+    return [...emailOrPhoneNumberRequired, ...phoneValidationMessages];
+};
 
 // Return the validations for the geography
 export const getGeographyCustomValidation = ({ value, interview, path }) => {
