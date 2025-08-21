@@ -131,7 +131,7 @@ module.exports = (env) => {
             new CleanWebpackPlugin({
                 dry: !isProduction,
                 verbose: true,
-                cleanAfterEveryBuildPatterns: ['**/*', '!images/**', '!icons/**', '!documents/**', '!*.html']
+                cleanAfterEveryBuildPatterns: ['**/*', '!images/**', '!icons/**', '!documents/**', '!*.html', '!assets/**']
             }),
             new HtmlWebpackPlugin({
                 title: defaultAppTitle,
@@ -190,11 +190,17 @@ module.exports = (env) => {
                         noErrorOnMissing: true
                     },
                     {
+                        context: path.join(__dirname, 'lib', 'assets'),
+                        from: '**/*',
+                        to: '',
+                        noErrorOnMissing: true
+                    },
+                    {
                         context: path.join(__dirname, 'assets'),
                         from: '**/*',
                         to: '',
                         noErrorOnMissing: true
-                    }
+                    },
                 ]
             })
         ],
