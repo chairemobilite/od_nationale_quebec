@@ -59,6 +59,40 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     }
 ];
 
+// Define the segments for this test scenario
+const segments: commonUITestsHelpers.Segment[] = [
+    {
+        segmentIndex: 0,
+        sameModeAsReverseTrip: null, // Question won't show.
+        modePre: 'taxi',
+        mode: null, // Question won't show.
+        howToBus: null, // Question won't show.
+        paidForParking: null, // Question won't show.
+        vehicleOccupancy: null, // Question won't show.
+        driver: null, // Question won't show.
+        busLines: null, // Question won't show.
+        busLinesWarning: null, // Question won't show.
+        onDemandType: null, // Question won't show.
+        tripJunctionQueryString: null, // Question won't show.
+        hasNextMode: false
+    },
+    {
+        segmentIndex: 0,
+        sameModeAsReverseTrip: null, // Question won't show.
+        modePre: 'bicycle',
+        mode: 'bicycle',
+        howToBus: null, // Question won't show.
+        paidForParking: null, // Question won't show.
+        vehicleOccupancy: null, // Question won't show.
+        driver: null, // Question won't show.
+        busLines: null, // Question won't show.
+        busLinesWarning: null, // Question won't show.
+        onDemandType: null, // Question won't show.
+        tripJunctionQueryString: null, // Question won't show.
+        hasNextMode: false
+    }
+];
+
 /********** Start the survey **********/
 // Start the survey using an access code and postal code combination that does not exist in the database.
 // The survey should still start a new interview with these credentials.
@@ -92,15 +126,20 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 commonUITestsHelpers.fillVisitedPlacesSectionTests({ context, householdSize: 1, visitedPlaces });
 
 /********** Tests segments section **********/
-// commonUITestsHelpers.fillSegmentsSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillSegmentsSectionTests({
+    context,
+    householdSize: 1,
+    segments,
+    expectedNextSection: 'travelBehavior'
+});
 
-// TODO See if we need any travelBehavior section tests.
+// TODO: We need to add a travelBehavior section tests
 
 /********** Tests longDistance section **********/
 // No long distance trips
 //commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
 
-// /********** Tests end section **********/
+/********** Tests end section **********/
 // commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 
 // /********** Tests completed section **********/
