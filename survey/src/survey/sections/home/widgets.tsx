@@ -14,6 +14,7 @@ import * as formatters from 'evolution-common/lib/utils/formatters';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customHelpPopup from '../../common/customHelpPopup';
+import * as customValidations from '../../common/customValidations';
 
 export const accessCode: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
@@ -52,7 +53,7 @@ export const contactEmail: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction) => t('home:contactEmail'),
     conditional: conditionals.acceptsToBeContactedForHelp,
-    validations: validations.emailValidation
+    validations: customValidations.emailOptionalCustomValidation
 };
 
 export const phoneNumber: WidgetConfig.InputStringType = {
@@ -63,7 +64,7 @@ export const phoneNumber: WidgetConfig.InputStringType = {
     joinWith: 'contactEmail',
     label: (t: TFunction) => t('home:phoneNumber'),
     conditional: conditionals.acceptsToBeContactedForHelp,
-    validations: validations.phoneValidation
+    validations: customValidations.phoneOptionalCustomValidation
 };
 
 export const home_address: WidgetConfig.InputStringType = {
