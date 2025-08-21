@@ -212,7 +212,7 @@ Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:
 <span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é.e}} reconduire ou chercher quelqu'un à cet endroit.</span>
 
 Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
-Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentr{{gender:é/ée/é.e}} après 4h du matin (par ex.: travail de nuit).
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(-e)}} après 4h du matin (par ex.: travail de nuit).
 
 Où était {{nickname}} à 4h du matin?
 - Domicile de l'autre parent ou tuteur

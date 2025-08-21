@@ -118,7 +118,7 @@ didTripsIntro_female_one: >-
 departurePlaceIsHome: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si {{nickname}} n'a pas
-    dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré.e après
+    dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré(-e) après
     4h du matin (par ex.: travail de nuit).</span>
 departurePlaceIsHome_male: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
@@ -133,17 +133,17 @@ departurePlaceIsHome_female: >-
 departurePlaceIsHome_one: >-
     Avez-vous <strong>commencé votre journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si vous n'avez pas dormi
-    au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentréé.e après 4h du
-    matin (par ex.: travail de nuit).</span>
+    au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentré(-e) après 4h
+    du matin (par ex.: travail de nuit).</span>
 departurePlaceIsHome_male_one: >-
     Avez-vous <strong>commencé votre journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si vous n'avez pas dormi
-    au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentréé après 4h du
-    matin (par ex.: travail de nuit).</span>
+    au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentré après 4h du matin
+    (par ex.: travail de nuit).</span>
 departurePlaceIsHome_female_one: >-
     Avez-vous <strong>commencé votre journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si vous n'avez pas dormi
-    au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentréée après 4h du
+    au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentrée après 4h du
     matin (par ex.: travail de nuit).</span>
 household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther: Où
     était {{nickname}} à 4h du matin?
