@@ -61,6 +61,9 @@ transitFares_one: >-
 hasDisability: >-
     <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
     qui influence ou limite ses déplacements quotidiens?
+hasDisability_one: >-
+    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
+    qui influence ou limite vos déplacements quotidiens?
 workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe?
 workPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe?
 workPlaceTypeBeforeLeave: >-

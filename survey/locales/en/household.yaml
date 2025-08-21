@@ -40,6 +40,9 @@ transitFares_one: Do you currently have a valid transit <strong>fare, pass or ti
 hasDisability: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
     or limits their daily mobility?
+hasDisability_one: >-
+    <strong>Permanent physical, intellectual or other disability</strong> which influences
+    or limits your daily mobility?
 workPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
 workPlaceType_one: Do you have a fixed <strong>work location</strong>?
 workPlaceTypeBeforeLeave: >-
