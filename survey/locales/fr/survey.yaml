@@ -154,6 +154,7 @@ auth:
         votre questionnaire si votre session expire ou si vous changez de
         navigateur.
     Login: Confirmer
+    AuthMainIntroduction: ''
 visitedPlace:
     departurePlaceIsRequiredError: Le point de départ est requis.
     activities:
