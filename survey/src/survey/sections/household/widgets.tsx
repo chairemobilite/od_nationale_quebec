@@ -77,7 +77,7 @@ export const personWorkerType: WidgetConfig.InputRadioType = {
             context: activePerson?.gender
         });
     },
-    choices: choices.participationStatus,
+    choices: choices.participationStatusWorker,
     conditional: conditionals.ifAge14orMoreConditional,
     validations: validations.requiredValidation
 };
@@ -93,7 +93,7 @@ export const personStudentType: WidgetConfig.InputRadioType = {
             context: activePerson?.gender
         });
     },
-    choices: choices.participationStatus,
+    choices: choices.participationStatusStudent,
     conditional: conditionals.ifAge16OrMoreConditional,
     validations: validations.requiredValidation
 };
@@ -136,7 +136,7 @@ export const personWorkerTypeBeforeLeave: WidgetConfig.InputRadioType = {
             count: countPersons
         });
     },
-    choices: choices.participationStatus,
+    choices: choices.participationStatusWorker,
     conditional: conditionals.parentalOrSickLeaveConditional,
     validations: validations.requiredValidation
 };

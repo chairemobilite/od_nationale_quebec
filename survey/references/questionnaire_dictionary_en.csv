@@ -122,8 +122,8 @@ Question type,Radio input
 Conditional,ifAge14orMoreConditional : age >= 14
 Question,"Worker
 Including self-employed, artist, on sick leave or parental leave."
-Values,"fullTime : Yes, full time
-partTime : Yes, part time
+Values,"fullTime : Yes, full time (30h and more/week)
+partTime : Yes, part time (less than 30h/week)
 no : No"
 ""
 Field,studentType
@@ -167,8 +167,8 @@ Field,workerTypeBeforeLeave
 Question type,Radio input
 Conditional,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
 Question,"Before being on leave, did {{nickname}} work ?"
-Values,"fullTime : Yes, full time
-partTime : Yes, part time
+Values,"fullTime : Yes, full time (30h and more/week)
+partTime : Yes, part time (less than 30h/week)
 no : No"
 ""
 Field,educationalAttainment

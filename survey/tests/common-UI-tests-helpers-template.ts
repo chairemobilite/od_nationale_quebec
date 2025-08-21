@@ -147,13 +147,13 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.gender', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.gender', value: '?' });
 
-    // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatus
+    // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatusWorker
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerType', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerType', value: '?' });
 
-    // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatus
+    // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatusStudent
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.studentType', isVisible: true });
@@ -171,7 +171,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
 
-    // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatus
+    // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatusWorker
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerTypeBeforeLeave', isVisible: true });
