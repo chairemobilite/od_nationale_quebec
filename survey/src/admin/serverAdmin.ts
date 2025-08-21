@@ -11,13 +11,15 @@ import { setProjectConfig } from 'evolution-backend/lib/config/projectConfig';
 import { registerTranslationDir, addTranslationNamespace } from 'chaire-lib-backend/lib/config/i18next';
 import serverUpdateCallbacks from '../survey/server/serverFieldUpdate';
 import serverValidations from '../survey/server/serverValidations';
+import roleDefinitions from './server/roleDefinitions';
 
 // TODO Add validation list filter if necessary
 
 const configureServer = () => {
     setProjectConfig({
         serverUpdateCallbacks,
-        serverValidations
+        serverValidations,
+        roleDefinitions
     });
 };
 
