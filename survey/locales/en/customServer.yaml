@@ -22,7 +22,7 @@ confirmByUserText: >
 
   Thank you
 confirmByUserSubject: "National survey admin platform: New User Confirmation"
-pendingConfirmByAdminSubject: "National survey admin platform: account creation confirmation pending"
+pendingConfirmByAdminSubject: "National survey admin platform: Account creation confirmation pending"
 pendingConfirmByAdminText: >
   Hi {{name}},
 
@@ -49,3 +49,9 @@ resetPasswordEmailText: >
 
 
   Thank you
+confirmedByAdminEmailSubject: "National survey admin platform: Account confirmed"
+confirmedByAdminEmailText: >
+  Hello {{name}},
+
+
+  Your access request to the survey platform has been confirmed. You can now use your account.
