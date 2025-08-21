@@ -68,7 +68,7 @@ export const personVisitedPlacesTitle = {
 
         return t('visitedPlaces:personVisitedPlacesTitle', {
             nickname: person.nickname,
-            context: person.gender,
+            context: person?.gender || person?.sexAssignedAtBirth,
             assignedDate,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
@@ -1227,7 +1227,7 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
 
         if (previousVisitedPlace.activity === 'home' && onTheRoadDepartureType === 'usualWorkPlace') {
             return t('visitedPlaces:_previousPreviousDepartureTimeHomeToUsualWorkplace', {
-                context: person.gender,
+                context: person?.gender || person?.sexAssignedAtBirth,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -1238,7 +1238,7 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
             onTheRoadDepartureType === 'usualWorkPlace'
         ) {
             return t('visitedPlaces:_previousPreviousDepartureTime', {
-                context: person.gender,
+                context: person?.gender || person?.sexAssignedAtBirth,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -1397,21 +1397,21 @@ export const visitedPlacePreviousArrivalTime: WidgetConfig.InputTimeType = {
         const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
         if (onTheRoadDepartureType === 'home') {
             return t('visitedPlaces:_previousArrivalTimeDepartureTypeHome', {
-                context: person.gender,
+                context: person?.gender || person?.sexAssignedAtBirth,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
         } else if (onTheRoadDepartureType === 'usualWorkPlace') {
             return t('visitedPlaces:_previousArrivalTimeDepartureTypeUsualWorkPlace', {
-                context: person.gender,
+                context: person?.gender || person?.sexAssignedAtBirth,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
         } else {
             return t('visitedPlaces:_previousArrivalTimeDepartureTypeOther', {
-                context: person.gender,
+                context: person?.gender || person?.sexAssignedAtBirth,
                 nickname: person.nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -1585,7 +1585,7 @@ export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
             key = 'visitedPlaces:PreviousDepartureTime_usualWorkPlace_workOnTheRoad';
         }
         return t(key, {
-            context: person.gender,
+            context: person?.gender || person?.sexAssignedAtBirth,
             nickname: person.nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person }),
             previousVisitedPlaceDescription,
@@ -1796,7 +1796,7 @@ export const visitedPlaceArrivalTime: WidgetConfig.InputTimeType = {
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
         return (
             t(key, {
-                context: person.gender,
+                context: person?.gender || person?.sexAssignedAtBirth,
                 nickname: person.nickname,
                 atPlace: place,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -1822,7 +1822,7 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
             ? t('survey:atPlace', { placeName: visitedPlaceName })
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
         return t('visitedPlaces:nextPlaceCategory', {
-            context: person.gender,
+            context: person?.gender || person?.sexAssignedAtBirth,
             nickname: person.nickname,
             atPlace,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -1836,7 +1836,7 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
                 const homeAddress = getHomeAddressOneLine(interview);
                 return t('visitedPlaces:nextPlaceRadioChoices.wentBackHome', {
                     address: homeAddress,
-                    context: person?.gender
+                    context: person?.gender || person?.sexAssignedAtBirth
                 });
             },
             conditional: function (interview) {
@@ -1850,7 +1850,7 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
             label: (t: TFunction, interview) => {
                 const person = odSurveyHelpers.getActivePerson({ interview });
                 return t('visitedPlaces:nextPlaceRadioChoices.visitedAnotherPlace', {
-                    context: person?.gender
+                    context: person?.gender || person?.sexAssignedAtBirth
                 });
             }
         },
@@ -1862,11 +1862,11 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
                 const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
                 if (activeVisitedPlace.activityCategory === 'home') {
                     return t('visitedPlaces:nextPlaceRadioChoices.stayedHomeUntilTheNextDay', {
-                        context: person?.gender
+                        context: person?.gender || person?.sexAssignedAtBirth
                     });
                 } else {
                     return t('visitedPlaces:nextPlaceRadioChoices.stayedThereUntilTheNextDay', {
-                        context: person?.gender
+                        context: person?.gender || person?.sexAssignedAtBirth
                     });
                 }
             },
@@ -2068,7 +2068,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
         if (visitedPlace.activity === 'workOnTheRoad') {
             return (
                 t('visitedPlaces:departureTimeOnTheRoad', {
-                    context: person.gender,
+                    context: person?.gender || person?.sexAssignedAtBirth,
                     nickname: person.nickname,
                     count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
                 }) + durationText
@@ -2076,7 +2076,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
         } else if (visitedPlace.activity === 'leisureStroll') {
             return (
                 t('visitedPlaces:departureTimeStroll', {
-                    context: person.gender,
+                    context: person?.gender || person?.sexAssignedAtBirth,
                     nickname: person.nickname,
                     count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
                 }) + durationText
@@ -2091,7 +2091,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
                     ? t('survey:place', { placeName: visitedPlaceName })
                     : t('survey:thisPlace', { context: visitedPlace.activity });
         return t('visitedPlaces:departureTime', {
-            context: person.gender,
+            context: person?.gender || person?.sexAssignedAtBirth,
             nickname: person.nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person }),
             place: place

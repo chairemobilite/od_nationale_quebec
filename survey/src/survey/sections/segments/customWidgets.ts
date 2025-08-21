@@ -736,7 +736,7 @@ export const segmentHowToBus: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
         return t('segments:howToBus', {
-            context: person.gender,
+            context: person?.gender || person?.sexAssignedAtBirth,
             nickname: person.nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
@@ -775,7 +775,7 @@ export const segmentDriver = {
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
         return t('segments:driver', {
-            context: person.gender,
+            context: person?.gender || person?.sexAssignedAtBirth,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
     },
