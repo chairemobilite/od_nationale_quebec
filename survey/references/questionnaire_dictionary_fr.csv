@@ -329,7 +329,7 @@ Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est al
 Champ,departurePlaceIsHome
 Type de question,Entrée inconnue
 Question,"Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
-Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentr{{gender:é/ée/é.e}} après 4h du matin (par ex.: travail de nuit)."
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(-e)}} après 4h du matin (par ex.: travail de nuit)."
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
 Type de question,Bouton radio
