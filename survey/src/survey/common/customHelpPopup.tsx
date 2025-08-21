@@ -1,8 +1,10 @@
 import moment from 'moment';
 import { TFunction } from 'i18next';
-import { HelpPopup } from 'evolution-common/lib/services/questionnaire/types';
+import { ButtonWidgetConfig, HelpPopup } from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import i18n from 'chaire-lib-frontend/lib/config/i18n.config';
+import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
+import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 // import { countPersons, getPersonsObject, selfResponseAge } from '../helperFunctions/helper';
 
 export const cityHelpPopup: HelpPopup = {
@@ -69,5 +71,39 @@ export const householdCarNumberHelpPopup: HelpPopup = {
 * ~~Do not include stowed vehicles or collection vehicles used rarely~~
 `;
         }
+    }
+};
+
+export const validateHouseholdAgesHelpPopup: ButtonWidgetConfig['confirmPopup'] = {
+    content: {
+        // FIXME Use `t` function instead, put those strings in the Excel file
+        fr: function (interview, path) {
+            const householdSize = odSurveyHelpers.countPersons({ interview });
+            if (householdSize === 1) {
+                return 'Vous devez avoir au moins 16 ans pour répondre à ce questionnaire.';
+            }
+            return 'Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre à ce questionnaire. Veuillez vérifier les âges.';
+        },
+        en: function (interview, path) {
+            const householdSize = odSurveyHelpers.countPersons({ interview });
+            if (householdSize === 1) {
+                return 'You must be at least 16 years old to respond to this survey.';
+            }
+            return 'At least one member of your household must be 16 years old or older to respond to this survey. Please verify ages.';
+        }
+    },
+    showConfirmButton: false,
+    cancelButtonColor: 'blue',
+    cancelButtonLabel: {
+        fr: 'OK',
+        en: 'OK'
+    },
+    conditional: function (interview) {
+        const persons = odSurveyHelpers.getPersonsArray({ interview });
+        const allPersonsHaveAge = persons.find((person) => _isBlank(person.age)) === undefined;
+        // FIXME Why 16? In the config, we have selfResponseMinimumAge, interviewableAge, adultAge, drivingLicenseAge Can we use one of those instead?
+        const atLeastOnePersonOlderThan16 =
+            persons.find((person) => !_isBlank(person.age) && person.age >= 16) !== undefined;
+        return allPersonsHaveAge && !atLeastOnePersonOlderThan16;
     }
 };
