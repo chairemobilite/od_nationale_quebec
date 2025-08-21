@@ -17,7 +17,7 @@ phoneNumber: >-
     <strong>Numéro de téléphone</strong><br /><span class="_pale _oblique">Format:
     123-456-7890</span>
 home.address: <strong>Adresse</strong>
-home.city: <strong>Ville</strong>
+home.city: <strong>Ville</strong> ou <strong>municipalité</strong>
 home.region: <strong>Province</strong>
 home.country: <strong>Pays</strong>
 home.postalCode: <strong>Code postal</strong>

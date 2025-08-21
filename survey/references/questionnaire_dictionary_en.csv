@@ -32,7 +32,7 @@ Question,Address
 ""
 Field,h_city
 Question type,Text input
-Question,City
+Question,City or municipality
 ""
 Field,h_region
 Question type,Text input

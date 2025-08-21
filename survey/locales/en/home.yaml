@@ -15,7 +15,7 @@ contactEmail: <strong>Email address</strong>
 phoneNumber: >-
     <strong>Phone number</strong><br /><span class="_pale _oblique">Format: 123-456-7890</span>
 home.address: <strong>Address</strong>
-home.city: <strong>City</strong>
+home.city: <strong>City</strong> or <strong>municipality</strong>
 home.region: <strong>Province</strong>
 home.country: <strong>Country</strong>
 home.postalCode: <strong>Postal Code</strong>

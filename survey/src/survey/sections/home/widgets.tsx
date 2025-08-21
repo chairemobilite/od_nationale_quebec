@@ -82,7 +82,6 @@ export const home_city: WidgetConfig.InputStringType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('home:home.city'),
-    helpPopup: customHelpPopup.cityHelpPopup,
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
