@@ -560,6 +560,45 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
             return modePre === 'other';
         },
         iconPath: getModeIcon('other')
+    },
+    {
+        value: 'walk',
+        label: {
+            fr: '<strong>Marche</strong>',
+            en: '<strong>Walking</strong>'
+        },
+        conditional: function (interview, path) {
+            const segment: any = getResponse(interview, path, null, '../');
+            const modePre = segment ? segment.modePre : null;
+            return modePre === 'walk';
+        },
+        iconPath: getModeIcon('walk')
+    },
+    {
+        value: 'taxi',
+        label: {
+            fr: '<strong>Taxi</strong> ou équivalent (ex. Uber)',
+            en: '<strong>Taxi</strong> or equivalent (eg. Uber)'
+        },
+        conditional: function (interview, path) {
+            const segment: any = getResponse(interview, path, null, '../');
+            const modePre = segment ? segment.modePre : null;
+            return modePre === 'taxi';
+        },
+        iconPath: getModeIcon('taxi')
+    },
+    {
+        value: 'dontKnow',
+        label: {
+            fr: '<strong>Je ne sais pas</strong> / Préfère ne pas répondre',
+            en: '<strong>I don\'t know</strong> / Prefer not to answer'
+        },
+        conditional: function (interview, path) {
+            const segment: any = getResponse(interview, path, null, '../');
+            const modePre = segment ? segment.modePre : null;
+            return modePre === 'dontKnow';
+        },
+        iconPath: getModeIcon('dontKnow')
     }
 ];
 
@@ -595,6 +634,11 @@ export const segmentMode = {
         // Check if there is more than one choice available for this trip
         const modes = segmentModeChoices.filter((choice) => choice.conditional(interview, path) === true);
         if (modes.length === 1 || modes.length === 0) {
+            if (modes.length === 0) {
+                console.warn(
+                    `No mode available for modePre '${modePre}' in segmentModeChoices. That may break icon display and eventual choice validation.`
+                );
+            }
             return [false, modes[0] ? modes[0].value : modePre];
         }
         return [true, null];
