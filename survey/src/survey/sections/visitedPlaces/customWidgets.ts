@@ -1093,14 +1093,7 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
     containsHtml: true,
     addHourSeparators: true,
     minuteStep: 5,
-    validations: function (value, customValue, interview, path, customPath) {
-        return [
-            {
-                validation: _isBlank(value),
-                errorMessage: (t: TFunction) => t('survey:ResponseIsRequiredError')
-            }
-        ];
-    },
+    validations: validations.requiredValidation,
     conditional: function (interview, path) {
         const journey = odSurveyHelpers.getActiveJourney({ interview });
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
@@ -1261,14 +1254,7 @@ export const visitedPlacePreviousArrivalTime: WidgetConfig.InputTimeType = {
     containsHtml: true,
     addHourSeparators: true,
     minuteStep: 5,
-    validations: function (value, customValue, interview, path, customPath) {
-        return [
-            {
-                validation: _isBlank(value),
-                errorMessage: (t: TFunction) => t('survey:ResponseIsRequiredError')
-            }
-        ];
-    },
+    validations: validations.requiredValidation,
     conditional: function (interview, path) {
         const journey = odSurveyHelpers.getActiveJourney({ interview });
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
@@ -1440,14 +1426,7 @@ export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
     twoColumns: false,
     containsHtml: true,
     addHourSeparators: true,
-    validations: function (value, customValue, interview, path, customPath) {
-        return [
-            {
-                validation: _isBlank(value),
-                errorMessage: (t: TFunction) => t('survey:ResponseIsRequiredError')
-            }
-        ];
-    },
+    validations: validations.requiredValidation,
     minuteStep: (interview, path) => {
         const journey = odSurveyHelpers.getActiveJourney({ interview });
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
@@ -1622,14 +1601,7 @@ export const visitedPlaceArrivalTime: WidgetConfig.InputTimeType = {
     containsHtml: true,
     addHourSeparators: true,
     minuteStep: 5,
-    validations: function (value, customValue, interview, path, customPath) {
-        return [
-            {
-                validation: _isBlank(value),
-                errorMessage: (t: TFunction) => t('survey:ResponseIsRequiredError')
-            }
-        ];
-    },
+    validations: validations.requiredValidation,
     conditional: function (interview, path) {
         const journey = odSurveyHelpers.getActiveJourney({ interview });
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
