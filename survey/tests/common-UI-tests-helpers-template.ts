@@ -127,13 +127,19 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test custom widget householdMembers
     // Implement custom test
 
+    // Test number widget personAge
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.age', value: '?' });
+
     // Test string widget personNickname with conditional hasPersonCount2OrMoreCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.nickname', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.nickname', value: '?' });
 
-    // Test number widget personAge
-    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.age', value: '?' });
+    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
 
     // Test radio widget personSexAssignedAtBirth with conditional ifAge5orMoreConditional with choices maleFemalePreferNotAnswer
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -200,12 +206,6 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitFares', isVisible: true });
     testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitFares', values: ['?'] });
-
-    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
 
     // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

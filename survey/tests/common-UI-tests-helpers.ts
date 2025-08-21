@@ -37,7 +37,7 @@ export type HouseholdMember = {
     drivingLicenseOwnership: string;
     carSharingMember: string | null;
     transitFares: string[];
-    hasDisability: string;
+    hasDisability: string | null;
     workPlaceType: string | null;
     workPlaceTypeBeforeLeave: string | null;
     schoolPlaceType: string | null;
@@ -296,6 +296,13 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
         // Build a string for personId (e.g., "${personId[0]}") using a template literal to avoid immediate interpolation
         const personIdString = `\${personId[${index}]}`;
 
+        // Test number widget personAge
+        testHelpers.inputStringTest({
+            context,
+            path: `household.persons.${personIdString}.age`,
+            value: person.age.toString()
+        });
+
         // Test string widget personNickname with conditional hasHouseholdSize2OrMoreConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
         if (householdSize === 1) {
@@ -312,12 +319,22 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             });
         }
 
-        // Test number widget personAge
-        testHelpers.inputStringTest({
-            context,
-            path: `household.persons.${personIdString}.age`,
-            value: person.age.toString()
-        });
+        // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (person.hasDisability === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.hasDisability`,
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.hasDisability`,
+                value: person.hasDisability
+            });
+        }
 
         // Test radio widget personSexAssignedAtBirth with conditional ifAge5orMoreConditional with choices maleFemalePreferNotAnswer
         /* @link file://./../src/survey/common/conditionals.tsx */
@@ -457,15 +474,6 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             context,
             path: `household.persons.${personIdString}.transitFares`,
             values: person.transitFares
-        });
-
-        // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputRadioTest({
-            context,
-            path: `household.persons.${personIdString}.hasDisability`,
-            value: person.hasDisability
         });
 
         // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices

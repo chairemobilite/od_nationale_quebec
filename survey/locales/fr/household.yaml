@@ -2,15 +2,21 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
+age: >-
+    <strong>Âge</strong><br /><span class="_pale _oblique">Pour les bébés de moins
+    de 1 an, inscrivez "0"</span>
+age_one: Votre <strong>âge</strong>
 nickname: >-
     <strong>Nom ou surnom</strong> pour identifier cette personne pour la suite de
     l'entrevue.<br /><span class="_pale _oblique">Peut être un surnom, des initiales,
     ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').<br
     />Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.</span>
-age: >-
-    <strong>Âge</strong><br /><span class="_pale _oblique">Pour les bébés de moins
-    de 1 an, inscrivez "0"</span>
-age_one: Votre <strong>âge</strong>
+hasDisability: >-
+    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
+    qui influence ou limite ses déplacements quotidiens?
+hasDisability_one: >-
+    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
+    qui influence ou limite vos déplacements quotidiens?
 sexAssignedAtBirth: >-
     <strong>Sexe à la naissance</strong><br /><span class="_pale _oblique">Sexe assigné
     à la naissance ou inscrit dans les documents légaux.</span>
@@ -58,12 +64,6 @@ transitFares: >-
 transitFares_one: >-
     Détenez-vous présentement <strong>un laissez-passer ou un abonnement</strong>
     de transport en commun valide?
-hasDisability: >-
-    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
-    qui influence ou limite ses déplacements quotidiens?
-hasDisability_one: >-
-    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
-    qui influence ou limite vos déplacements quotidiens?
 workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe?
 workPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe?
 workPlaceTypeBeforeLeave: >-

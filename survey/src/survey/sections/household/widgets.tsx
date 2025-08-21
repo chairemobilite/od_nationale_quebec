@@ -17,16 +17,6 @@ import * as customValidations from '../../common/customValidations';
 
 export const householdMembers = customWidgets.householdMembers;
 
-export const personNickname: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'nickname',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:nickname'),
-    conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
-    validations: validations.requiredValidation
-};
-
 export const personAge: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputNumberBase,
     path: 'age',
@@ -40,6 +30,32 @@ export const personAge: WidgetConfig.InputStringType = {
     },
     conditional: defaultConditional,
     validations: validations.ageValidation
+};
+
+export const personNickname: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'nickname',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:nickname'),
+    conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
+    validations: validations.requiredValidation
+};
+
+export const personHasDisability: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'hasDisability',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:hasDisability', {
+            count: countPersons
+        });
+    },
+    choices: choices.yesNoPreferNotToAnswer,
+    conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
+    validations: validations.requiredValidation
 };
 
 export const personSexAssignedAtBirth: WidgetConfig.InputRadioType = {
@@ -196,22 +212,6 @@ export const personTransitFares: WidgetConfig.InputCheckboxType = {
     choices: choices.transitFareType,
     conditional: conditionals.ifAge6OrMoreConditional,
     validations: customValidations.transitFareCustomValidation
-};
-
-export const personHasDisability: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'hasDisability',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:hasDisability', {
-            count: countPersons
-        });
-    },
-    choices: choices.yesNoPreferNotToAnswer,
-    conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
-    validations: validations.requiredValidation
 };
 
 export const personWorkPlaceType: WidgetConfig.InputRadioType = {
