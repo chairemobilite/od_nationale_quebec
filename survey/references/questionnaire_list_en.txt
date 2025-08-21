@@ -51,12 +51,17 @@ Save and continue
 
 Section: Household
 
+Age
+For babies under the age of 1, write "0"
+
 Name or nickname that will allow you to identify this person for the remainder of the interview.
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset.
 
-Age
-For babies under the age of 1, write "0"
+Permanent physical, intellectual or other disability which influences or limits their daily mobility?
+- Yes
+- No
+- I prefer not to answer
 
 Sex at birth
 Sex assigned at birth or that which appears on legal documents.
@@ -136,11 +141,6 @@ Does {{nickname}} currently have a valid transit fare, pass or ticket?
 - Monthly or annual pass
 - Individual tickets or rides
 - I don't know
-
-Permanent physical, intellectual or other disability which influences or limits their daily mobility?
-- Yes
-- No
-- I prefer not to answer
 
 Does {{nickname}} have a fixed work location?
 - Yes, always on-site at fixed location

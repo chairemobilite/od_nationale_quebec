@@ -87,6 +87,11 @@ preferNotToAnswer : I prefer not to answer"
 Section,Household
 Abbreviation,hh_
 ""
+Field,age
+Question type,Number input
+Question,"Age
+For babies under the age of 1, write ""0"""
+""
 Field,nickname
 Question type,Text input
 Conditional,hasPersonCount2OrMoreCustomConditional
@@ -94,10 +99,13 @@ Question,"Name or nickname that will allow you to identify this person for the r
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
 ""
-Field,age
-Question type,Number input
-Question,"Age
-For babies under the age of 1, write ""0"""
+Field,hasDisability
+Question type,Radio input
+Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
+Values,"yes : Yes
+no : No
+preferNotToAnswer : I prefer not to answer"
 ""
 Field,sexAssignedAtBirth
 Question type,Radio input
@@ -210,14 +218,6 @@ Values,"no : No
 transitPass : Monthly or annual pass
 tickets : Individual tickets or rides
 dontKnow : I don't know"
-""
-Field,hasDisability
-Question type,Radio input
-Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
-Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
-Values,"yes : Yes
-no : No
-preferNotToAnswer : I prefer not to answer"
 ""
 Field,workPlaceType
 Question type,Radio input

@@ -51,12 +51,17 @@ Enregistrer et continuer
 
 Section: Ménage
 
+Âge
+Pour les bébés de moins de 1 an, inscrivez "0"
+
 Nom ou surnom pour identifier cette personne pour la suite de l'entrevue.
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.
 
-Âge
-Pour les bébés de moins de 1 an, inscrivez "0"
+Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?
+- Oui
+- Non
+- Je préfère ne pas répondre
 
 Sexe à la naissance
 Sexe assigné à la naissance ou inscrit dans les documents légaux.
@@ -136,11 +141,6 @@ Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnemen
 - Passe ou titre mensuel ou annuel
 - Titres ou billets individuels
 - Je ne sais pas
-
-Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?
-- Oui
-- Non
-- Je préfère ne pas répondre
 
 Est-ce que {{nickname}} a un lieu d'emploi fixe?
 - Oui, travail au lieu fixe en présentiel en tout temps

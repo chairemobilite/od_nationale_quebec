@@ -87,6 +87,11 @@ preferNotToAnswer : Je préfère ne pas répondre"
 Section,Ménage
 Abréviation,hh_
 ""
+Champ,age
+Type de question,Champ numérique
+Question,"Âge
+Pour les bébés de moins de 1 an, inscrivez ""0"""
+""
 Champ,nickname
 Type de question,Champ de texte
 Conditionnel,hasPersonCount2OrMoreCustomConditional
@@ -94,10 +99,13 @@ Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrev
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé."
 ""
-Champ,age
-Type de question,Champ numérique
-Question,"Âge
-Pour les bébés de moins de 1 an, inscrivez ""0"""
+Champ,hasDisability
+Type de question,Bouton radio
+Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?"
+Valeurs,"yes : Oui
+no : Non
+preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,sexAssignedAtBirth
 Type de question,Bouton radio
@@ -210,14 +218,6 @@ Valeurs,"no : Non
 transitPass : Passe ou titre mensuel ou annuel
 tickets : Titres ou billets individuels
 dontKnow : Je ne sais pas"
-""
-Champ,hasDisability
-Type de question,Bouton radio
-Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
-Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?"
-Valeurs,"yes : Oui
-no : Non
-preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,workPlaceType
 Type de question,Bouton radio
