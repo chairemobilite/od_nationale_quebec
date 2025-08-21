@@ -203,7 +203,12 @@ export const personHasDisability: WidgetConfig.InputRadioType = {
     path: 'hasDisability',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:hasDisability'),
+    label: (t: TFunction, interview, path) => {
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:hasDisability', {
+            count: countPersons
+        });
+    },
     choices: choices.yesNoPreferNotToAnswer,
     conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
     validations: validations.requiredValidation
