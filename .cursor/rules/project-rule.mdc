@@ -1,0 +1,201 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# AI Context Prompt for OD Nationale Quebec Survey Project
+
+## Project Overview
+
+You are working with the **OD Nationale Quebec Survey Project**, a travel survey application built using the Evolution survey platform with Transition transit planning capabilities. This is a fork/implementation of a national origin-destination survey for Quebec, Canada, designed to collect travel behavior data from participants.
+
+## Repository Structure and Relationships
+
+### Main Repository: `od_nationale_quebec`
+- **Purpose**: Survey-specific implementation and configuration
+- **Language**: Primarily TypeScript/JavaScript with some Python utilities
+- **Key Dependencies**: Uses Evolution and Transition as Git submodules
+
+### Submodules Architecture
+
+#### 1. Evolution Submodule (`evolution/`)
+- **Location**: `/evolution/` (Git submodule from https://github.com/chairemobilite/evolution)
+- **Purpose**: Core survey platform framework providing the web application infrastructure
+- **Key Components**:
+  - `packages/evolution-frontend/`: React-based frontend components and UI framework
+  - `packages/evolution-backend/`: Node.js/Express backend services and API
+  - `packages/evolution-common/`: Shared types, utilities, and business logic
+  - `packages/evolution-interviewer/`: Interview management tools
+  - `packages/evolution-generator/`: Python-based survey generation tools
+  - `example/`: Demo applications showing platform usage
+  - `locales/`: Base internationalization files
+
+#### 2. Transition Submodule (`evolution/transition/`)
+- **Location**: `/evolution/transition/` (Git submodule from https://github.com/chairemobilite/transition)
+- **Purpose**: Transit planning and modeling capabilities
+- **Key Components**:
+  - `packages/chaire-lib-backend/`: Backend services for transit data
+  - `packages/chaire-lib-frontend/`: Frontend components for transit visualization
+  - `packages/chaire-lib-common/`: Shared transit utilities and types
+  - `packages/transition-backend/`: Core transit routing and planning services
+  - `packages/transition-frontend/`: Transit-specific UI components
+  - `packages/transition-common/`: Common transit modeling functionality
+
+## Project-Specific Files and Structure
+
+### Survey Implementation (`survey/`)
+- **Main Configuration**: `survey/config.js` - Core survey settings and parameters
+- **Variant Configuration**: `survey/configVariantSpecific.js` - Region-specific settings (saguenay, nationale)
+- **Package Definition**: `survey/package.json` - Dependencies and build scripts
+- **Source Code**: `survey/src/`
+  - `survey/src/survey/sections/` - Survey sections (home, household, personsTrips, etc.)
+  - `survey/src/survey/sections.ts` - Generated section definitions
+  - `survey/src/survey/widgetsConfigs.tsx` - UI widget configurations
+  - `survey/src/admin/` - Administrative interface components
+  - `survey/src/styles/` - Custom styling (SCSS files)
+
+### Localization (`survey/locales/`)
+- **English**: `survey/locales/en/` - All English translations (.yaml files)
+- **French**: `survey/locales/fr/` - All French translations (.yaml files)
+- **Structure**: Organized by feature (completed, customLabel, household, segments, etc.)
+
+### Reference Data (`survey/references/`)
+- **Generator Config**: `generatorConfigs.yaml` - Survey generation configuration
+- **Survey Design**: `OD_nationale_quebec_2025.xlsx` - Excel-based survey definition
+- **Dictionaries**: CSV files with survey metadata and translations
+
+### Testing (`survey/tests/`)
+- **UI Tests**: Playwright-based end-to-end testing
+- **Test Data**: `preFilledDataSample.csv` - Sample data for testing
+- **Helpers**: Common testing utilities and functions
+
+## Key Configuration Files
+
+### Environment Configuration
+- **Template**: `.env.example` - Environment variable template
+- **Database**: PostgreSQL connection strings and settings
+- **APIs**: Google Maps API keys, authentication secrets
+- **Email**: SMTP configuration for notifications
+
+### Build Configuration
+- **Webpack**: Survey-specific webpack configurations for dev/prod builds
+- **TypeScript**: `tsconfig.json` files for compilation settings
+- **Jest**: Test configuration for unit and integration tests
+- **Playwright**: UI test configuration
+
+## Yarn Workspaces Structure
+
+The project uses Yarn workspaces to manage the monorepo:
+
+```json
+"workspaces": [
+    "evolution/transition/packages/chaire-lib-common",
+    "evolution/transition/packages/chaire-lib-backend", 
+    "evolution/transition/packages/chaire-lib-frontend",
+    "evolution/packages/evolution-common",
+    "evolution/packages/evolution-backend",
+    "evolution/packages/evolution-frontend",
+    "evolution/packages/evolution-interviewer",
+    "evolution/packages/evolution-generator",
+    "survey"
+]
+```
+
+## Development Workflow
+
+### Setup Commands (from root directory)
+```bash
+# Initialize submodules
+git submodule init && git submodule update --init --recursive
+
+# Install dependencies
+yarn install
+
+# Compile TypeScript
+yarn compile
+
+# Setup database
+yarn setup && yarn migrate
+
+# Create admin user
+yarn create-user --username admin --email admin@example.org --password MyPassword --admin
+```
+
+### Build and Run Commands
+```bash
+# Build participant app
+yarn build:dev  # or yarn build:prod
+
+# Build admin app  
+yarn build:admin:dev  # or yarn build:admin:prod
+
+# Start servers
+yarn start              # Participant app on port 8080
+yarn start:admin        # Admin app on port 8082
+```
+
+### Testing Commands
+```bash
+yarn test              # Unit tests
+yarn test:ui           # UI tests (requires running servers)
+```
+
+## Survey Generator
+
+The project uses Evolution-Generator (Python) to automatically generate survey code from Excel specifications:
+
+- **Configuration**: `survey/references/generatorConfigs.yaml`
+- **Source Excel**: `survey/references/OD_nationale_quebec_2025.xlsx`
+- **Generated Files**: Survey sections, widgets, and configurations are auto-generated
+- **Command**: `yarn generateSurvey`
+
+## Key Technologies
+
+- **Frontend**: React 19, TypeScript, SCSS, i18next
+- **Backend**: Node.js, Express, PostgreSQL
+- **Build Tools**: Webpack, Yarn Workspaces
+- **Testing**: Jest (unit), Playwright (UI)
+- **Maps**: Google Maps API integration
+- **Transit**: Transition routing engine
+- **Authentication**: Multiple methods (email, access codes, OAuth)
+
+## Multi-Language Support
+
+- **Languages**: French (default) and English
+- **Locales**: fr-CA, en-CA
+- **Structure**: YAML files for survey content, JSON for UI elements
+- **Detection**: URL-based language detection
+
+## Survey Variants
+
+The survey supports multiple regional variants:
+- **saguenay**: Saguenay region configuration
+- **nationale**: National Quebec configuration
+
+Each variant has specific:
+- Map boundaries and default centers
+- Transit routing scenarios
+- Title translations
+- Regional parameters
+
+## Important Notes for AI Assistance
+
+1. **Generated Code**: Many files in `survey/src/survey/sections/` and `survey/src/survey/common/` are auto-generated from Excel. Check file headers before editing.
+
+2. **Submodule Updates**: When updating, always run:
+   ```bash
+   git pull origin main
+   yarn reset-submodules
+   yarn && yarn compile && yarn migrate
+   ```
+
+3. **UI Testing**: Tests require imported access codes in database. Use codes starting with "7357" for testing.
+
+4. **Database**: Always use development database for testing. Production commands should never be run locally.
+
+5. **Internationalization**: All user-facing text should be in locale files, not hardcoded in components.
+
+6. **Transit Integration**: Routing capabilities come from Transition submodule - routing scenarios are configured per variant.
+
+When providing assistance, consider the multi-layered architecture (survey → evolution → transition) and understand that functionality may be implemented at different levels of this stack.
