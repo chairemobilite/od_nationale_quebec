@@ -40,9 +40,15 @@ export const selectPerson: WidgetConfig.InputRadioType = {
                 let icon = faPortrait;
                 if (person.age < 15) {
                     icon = faChild;
-                } else if (person.gender === 'male') {
+                } else if (
+                    person.gender === 'male' ||
+                    (_isBlank(person.gender) && person.sexAssignedAtBirth === 'male')
+                ) {
                     icon = faMale;
-                } else if (person.gender === 'female') {
+                } else if (
+                    person.gender === 'female' ||
+                    (_isBlank(person.gender) && person.sexAssignedAtBirth === 'female')
+                ) {
                     icon = faFemale;
                 }
                 return {

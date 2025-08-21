@@ -110,7 +110,7 @@ export const personDidTrips: WidgetConfig.InputRadioType = {
         const assignedDay = getResponse(interview, '_assignedDay');
         const assignedDate = moment(assignedDay).locale(i18n.language).format('dddd LL');
         return t('tripsIntro:personDidTrips', {
-            context: activePerson.gender,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             nickname,
             assignedDate,
             count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson })
@@ -167,8 +167,8 @@ export const personDidTripsConfirm: WidgetConfig.InputRadioType = {
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
         return t('tripsIntro:personDidTripsConfirm', {
             count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson }),
-            nickname: activePerson.nickname,
-            context: activePerson.gender,
+            nickname: activePerson?.nickname || t('survey:noNickname'),
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             formattedTripsDate
         });
     },
@@ -234,7 +234,7 @@ export const visitedPlacesIntro: WidgetConfig.TextWidgetConfig = {
         const tripsDate = getResponse(interview, '_assignedDay', null);
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
         return t('tripsIntro:didTripsIntro', {
-            context: activePerson.gender,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             nickname,
             assignedDate: formattedTripsDate,
             count: odSurveyHelper.getCountOrSelfDeclared({ interview, person: activePerson })
@@ -282,7 +282,7 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
             .toLocaleDateString(i18n.language, { weekday: 'long', month: 'long', day: 'numeric' });
 
         return t('tripsIntro:departurePlaceIsHome', {
-            context: activePerson.gender,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             nickname,
             dayOne: dayBeforeStr,
             dayTwo: assignedDayStr,
