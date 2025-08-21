@@ -72,8 +72,8 @@ I prefer to give the gender
 
 Worker
 Including self-employed, artist, on sick leave or parental leave.
-- Yes, full time
-- Yes, part time
+- Yes, full time (30h and more/week)
+- Yes, part time (less than 30h/week)
 - No
 
 Student
@@ -105,8 +105,8 @@ Main occupation
 - Prefer not to answer
 
 Before being on leave, did {{nickname}} work ?
-- Yes, full time
-- Yes, part time
+- Yes, full time (30h and more/week)
+- Yes, part time (less than 30h/week)
 - No
 
 Highest level of educational attainment

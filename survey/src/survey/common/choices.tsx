@@ -115,7 +115,25 @@ export const maleFemaleCustomPreferNotToAnswer: ChoiceType[] = [
     ...preferNotToAnswer
 ];
 
-export const participationStatus: ChoiceType[] = [
+export const participationStatusWorker: ChoiceType[] = [
+    {
+        value: 'fullTime',
+        label: {
+            fr: 'Oui, à temps plein (moins de 30h/semaine)',
+            en: 'Yes, full time (30h and more/week)'
+        }
+    },
+    {
+        value: 'partTime',
+        label: {
+            fr: 'Oui, à temps partiel (30h et plus/semaine)',
+            en: 'Yes, part time (less than 30h/week)'
+        }
+    },
+    ...no
+];
+
+export const participationStatusStudent: ChoiceType[] = [
     {
         value: 'fullTime',
         label: {

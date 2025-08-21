@@ -345,7 +345,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             });
         }
 
-        // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatus
+        // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatusWorker
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         testHelpers.inputRadioTest({
@@ -354,7 +354,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             value: person.workerType
         });
 
-        // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatus
+        // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatusStudent
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         testHelpers.inputRadioTest({
@@ -385,7 +385,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             });
         }
 
-        // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatus
+        // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatusWorker
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.occupation !== 'parentalOrSickLeave') {
