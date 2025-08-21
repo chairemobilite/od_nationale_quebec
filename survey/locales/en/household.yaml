@@ -108,6 +108,11 @@ errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: Select "No remote work" only
     no other choice is selected.
 errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only
     if no other choice is selected.
+popup.validateHouseholdAgesHelp: >-
+    At least one member of your household must be <strong>16 years old</strong> or
+    older to respond to this survey. Please verify ages.
+popup.validateHouseholdAgesHelp_one: >-
+    You must be at least <strong>16 years old</strong> to respond to this survey.
 workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
     at fixed location
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Yes, I worked always on-site at fixed
