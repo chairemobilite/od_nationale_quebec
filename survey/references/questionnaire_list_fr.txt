@@ -17,7 +17,7 @@ Format: 123-456-7890
 
 Adresse
 
-Ville
+Ville ou municipalité
 
 Province
 

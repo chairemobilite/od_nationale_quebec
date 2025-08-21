@@ -32,7 +32,7 @@ Question,Adresse
 ""
 Champ,h_city
 Type de question,Champ de texte
-Question,Ville
+Question,Ville ou municipalité
 ""
 Champ,h_region
 Type de question,Champ de texte
