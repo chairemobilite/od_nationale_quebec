@@ -186,7 +186,7 @@ export const VisitedPlacesSection: React.FC<SectionProps> = (props: SectionProps
                     <div className="survey-visited-places-schedule-visited-place-icon">
                         <img
                             src={getActivityIcon(visitedPlace.activity)}
-                            style={{ height: '2em' }}
+                            style={{ height: '1.8em', padding: '0.1em' }}
                             alt={
                                 visitedPlace.activity
                                     ? t(`survey:visitedPlace:activities:${visitedPlace.activity}`)
@@ -288,11 +288,13 @@ export const VisitedPlacesSection: React.FC<SectionProps> = (props: SectionProps
                 <span className="survey-visited-place-item-element survey-visited-place-item-sequence-and-icon">
                     {visitedPlace._sequence}.{' '}
                     {activity && (
-                        <img
-                            src={getActivityIcon(activity)}
-                            style={{ height: '4rem' }}
-                            alt={activity ? t(`survey:visitedPlace:activities:${activity}`) : ''}
-                        />
+                        <div className="survey-visited-place-item-icon-container">
+                            <img
+                                src={getActivityIcon(activity)}
+                                style={{ height: '3rem' }}
+                                alt={activity ? t(`survey:visitedPlace:activities:${activity}`) : ''}
+                            />
+                        </div>
                     )}
                 </span>
                 <span className="survey-visited-place-item-element survey-visited-place-item-description text-box-ellipsis">

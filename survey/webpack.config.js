@@ -190,6 +190,13 @@ module.exports = (env) => {
                         noErrorOnMissing: true
                     },
                     {
+                        context: path.join(__dirname, 'lib', 'assets'),
+                        from: '**/*',
+                        to: '',
+                        noErrorOnMissing: true,
+                        force: true
+                    },
+                    {
                         context: path.join(__dirname, 'assets'),
                         from: '**/*',
                         to: '',
