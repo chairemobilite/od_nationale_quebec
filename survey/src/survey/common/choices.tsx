@@ -119,14 +119,14 @@ export const participationStatusWorker: ChoiceType[] = [
     {
         value: 'fullTime',
         label: {
-            fr: 'Oui, à temps plein (moins de 30h/semaine)',
+            fr: 'Oui, à temps plein (30h et plus/semaine)',
             en: 'Yes, full time (30h and more/week)'
         }
     },
     {
         value: 'partTime',
         label: {
-            fr: 'Oui, à temps partiel (30h et plus/semaine)',
+            fr: 'Oui, à temps partiel (moins de 30h/semaine)',
             en: 'Yes, part time (less than 30h/week)'
         }
     },

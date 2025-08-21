@@ -130,8 +130,8 @@ Type de question,Bouton radio
 Conditionnel,ifAge14orMoreConditional : age >= 14
 Question,"Travaill{{gender:eur/euse/eur·euse}}
 Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental."
-Valeurs,"fullTime : Oui, à temps plein (moins de 30h/semaine)
-partTime : Oui, à temps partiel (30h et plus/semaine)
+Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
+partTime : Oui, à temps partiel (moins de 30h/semaine)
 no : Non"
 ""
 Champ,studentType
@@ -175,8 +175,8 @@ Champ,workerTypeBeforeLeave
 Type de question,Bouton radio
 Conditionnel,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
 Question,"Avant d’être en congé, est-ce que {{nickname}} travaillait ?"
-Valeurs,"fullTime : Oui, à temps plein (moins de 30h/semaine)
-partTime : Oui, à temps partiel (30h et plus/semaine)
+Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
+partTime : Oui, à temps partiel (moins de 30h/semaine)
 no : Non"
 ""
 Champ,educationalAttainment

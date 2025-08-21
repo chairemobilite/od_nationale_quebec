@@ -77,8 +77,8 @@ Je préfère donner le genre
 
 Travaill{{gender:eur/euse/eur·euse}}
 Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental.
-- Oui, à temps plein (moins de 30h/semaine)
-- Oui, à temps partiel (30h et plus/semaine)
+- Oui, à temps plein (30h et plus/semaine)
+- Oui, à temps partiel (moins de 30h/semaine)
 - Non
 
 Étudiant{{gender:/e/·e}}
@@ -110,8 +110,8 @@ Occupation principale
 - Préfère ne pas répondre
 
 Avant d’être en congé, est-ce que {{nickname}} travaillait ?
-- Oui, à temps plein (moins de 30h/semaine)
-- Oui, à temps partiel (30h et plus/semaine)
+- Oui, à temps plein (30h et plus/semaine)
+- Oui, à temps partiel (moins de 30h/semaine)
 - Non
 
 Plus haut niveau de scolarité
