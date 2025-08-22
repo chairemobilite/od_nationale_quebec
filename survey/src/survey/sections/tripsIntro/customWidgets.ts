@@ -161,6 +161,7 @@ export const personDidTripsConfirm: WidgetConfig.InputRadioType = {
     inputType: 'radio',
     datatype: 'string',
     twoColumns: false,
+    sameLine: false,
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const tripsDate = getResponse(interview, '_assignedDay', null);
