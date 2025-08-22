@@ -223,11 +223,3 @@ export const hasPersonCount2OrMoreCustomConditional: WidgetConditional = (interv
     const personCount = odSurveyHelper.countPersons({ interview });
     return [personCount >= 2, null];
 };
-
-export const displayGenderIfSexAtBirthPreferNotAnswerCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview, path });
-    const sexAssignedAtBirth = person ? (person as any).sexAssignedAtBirth : null;
-    // Display if sexAssignedAtBirth is set to 'preferNotToAnswer', otherwise, set to sexAssignedAtBirth so we have a value for gendered labels
-    // FIXME Technically it is not correct to assume sexAssignedAtBirth is the same as gender for labels, it may not be the case, but for modelling purposes, the sexAssignedAtBirth should be used, but Evolution uses gender for personnalized labels
-    return [sexAssignedAtBirth === 'preferNotToAnswer', sexAssignedAtBirth];
-};

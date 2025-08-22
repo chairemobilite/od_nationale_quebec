@@ -64,6 +64,20 @@ export const hasHouseholdBicycleConditional: WidgetConditional = (interview) => 
     });
 };
 
+export const hasPreferNotToAnswerToSexAssignedConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.sexAssignedAtBirth`,
+                comparisonOperator: '===',
+                value: 'preferNoToAnswer'
+            }
+        ]
+    });
+};
+
 export const ifAge3to5Conditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({

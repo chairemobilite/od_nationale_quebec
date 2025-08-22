@@ -118,7 +118,7 @@ preferNotToAnswer : I prefer not to answer"
 ""
 Field,gender
 Question type,Radio input
-Conditional,displayGenderIfSexAtBirthPreferNotAnswerCustomConditional
+Conditional,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNoToAnswer
 Question,I prefer to give the gender
 Values,"female : Woman
 male : Man

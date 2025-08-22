@@ -147,7 +147,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.sexAssignedAtBirth', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.sexAssignedAtBirth', value: '?' });
 
-    // Test radio widget personGender with conditional displayGenderIfSexAtBirthPreferNotAnswerCustomConditional with choices maleFemaleCustomPreferNotToAnswer
+    // Test radio widget personGender with conditional hasPreferNotToAnswerToSexAssignedConditional with choices maleFemaleCustomPreferNotToAnswer
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.gender', isVisible: true });
