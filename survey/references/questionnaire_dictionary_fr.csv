@@ -143,7 +143,7 @@ partTime : Oui, à temps partiel
 no : Non"
 ""
 Champ,schoolType
-Type de question,Bouton radio
+Type de question,Entrée inconnue
 Conditionnel,ifAge15OrLessConditional : age <= 15 && age !== null
 Question,Établissement d'enseignement / type d'école
 Valeurs,"kindergarten (ifAge5OrLessConditional : age <= 5) : Garderie/CPE

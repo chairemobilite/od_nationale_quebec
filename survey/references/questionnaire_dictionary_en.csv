@@ -143,7 +143,7 @@ partTime : Yes, part time
 no : No"
 ""
 Field,schoolType
-Question type,Radio input
+Question type,Unknown input
 Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
 Question,School type
 Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE

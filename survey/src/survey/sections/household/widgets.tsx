@@ -115,18 +115,7 @@ export const personStudentType: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personSchoolType: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'schoolType',
-    twoColumns: false,
-    containsHtml: true,
-    customPath: 'schoolTypeOther',
-    customChoice: 'other',
-    label: (t: TFunction) => t('household:schoolType'),
-    choices: choices.schoolType,
-    conditional: conditionals.ifAge15OrLessConditional,
-    validations: validations.requiredValidation
-};
+export const personSchoolType = customWidgets.personSchoolType;
 
 export const personOccupation: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,

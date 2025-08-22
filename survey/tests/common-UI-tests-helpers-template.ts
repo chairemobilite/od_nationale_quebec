@@ -165,11 +165,11 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.studentType', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.studentType', value: '?' });
 
-    // Test radio widget personSchoolType with conditional ifAge15OrLessConditional with choices schoolType
+    // Test custom widget personSchoolType with conditional ifAge15OrLessConditional with choices schoolType
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolType', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolType', value: '?' });
+    // Implement custom test
 
     // Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation
     /* @link file://./../src/survey/common/conditionals.tsx */
