@@ -97,3 +97,6 @@ originalTranslation/.~lock.LibellesQuestions.csv#
 **/playwright-report/
 **/test-results/
 **/playwright.config.ts
+
+# Ignore this Excel lock file
+.~lock.OD_nationale_quebec_2025.xlsx#

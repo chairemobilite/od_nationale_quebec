@@ -78,7 +78,7 @@ export const personGender: WidgetConfig.InputRadioType = {
     customChoice: 'custom',
     label: (t: TFunction) => t('household:gender'),
     choices: choices.maleFemaleCustomPreferNotToAnswer,
-    conditional: customConditionals.displayGenderIfSexAtBirthPreferNotAnswerCustomConditional,
+    conditional: conditionals.hasPreferNotToAnswerToSexAssignedConditional,
     validations: validations.requiredValidation
 };
 
