@@ -146,11 +146,19 @@ commonUITestsHelpers.fillTravelBehaviorSectionTests({
 });
 
 /********** Tests longDistance section **********/
-// No long distance trips
-commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
+// With long distance trips
+const longDistance: commonUITestsHelpers.LongDistanceSection = {
+    madeLongDistanceTrips: 'yes',
+    frequencySeptemberDecember: '00_00',
+    frequencyJanuaryApril: '01_03',
+    frequencyMayAugust: '04_12',
+    wantToParticipateInSurvey: 'yes',
+    wantToParticipateInSurveyEmail: 'test@test.org'
+};
+commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1, longDistanceSection: longDistance });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 
-// /********** Tests completed section **********/
+/********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });

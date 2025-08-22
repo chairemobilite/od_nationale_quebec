@@ -3,31 +3,32 @@
 # Any changes made to this file will be overwritten.
 
 household.madeLongDistanceTripsInLastYear: >-
-    Au cours des <strong>12 derniers mois</strong>, vous ou l’un des membres de votre
-    ménage a-t-il effectué au moins un déplacement qui <strong>a franchi les limites
-    de cette zone grise</strong> autour de votre domicile?
+    Au cours des <strong>12 derniers mois</strong>, est-ce que vous ou un des membres
+    de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel
+    de travail ou d’études, qui <strong>a franchi les limites de cette zone grise</strong>
+    (plus de 40 km du domicile)?
 household.madeLongDistanceTripsInLastYear_one: >-
     Au cours des <strong>12 derniers mois</strong>, avez-vous effectué au moins un
-    déplacement qui a <strong>franchi les limites de cette zone grise</strong> autour
-    de votre domicile?
+    déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui <strong>a
+    franchi les limites de cette zone grise</strong> (plus de 40 km du domicile)?
 household.longDistanceTripsSeptemberDecember: >-
-    À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des
-    déplacements longue distance de <strong>septembre à décembre 2024</strong>?
+    À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des
+    déplacements longue distance (plus de 40 km) de <strong>septembre à décembre 2024</strong>?
 household.longDistanceTripsSeptemberDecember_one: >-
-    À quelle fréquence avez-vous effectué des déplacements longue distance de <strong>septembre
-    à décembre 2024</strong>?
+    À quelle fréquence avez-vous effectué des déplacements longue distance (plus de
+    40 km) de <strong>septembre à décembre 2024</strong>?
 household.longDistanceTripsJanuaryApril: >-
-    À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des
-    déplacements longue distance de <strong>janvier à avril 2025</strong>?
+    À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des
+    déplacements longue distance (plus de 40 km) de <strong>janvier à avril 2025</strong>?
 household.longDistanceTripsJanuaryApril_one: >-
-    À quelle fréquence avez-vous effectué des déplacements longue distance de <strong>janvier
-    à avril 2025</strong>?
+    À quelle fréquence avez-vous effectué des déplacements longue distance (plus de
+    40 km) de <strong>janvier à avril 2025</strong>?
 household.longDistanceTripsMayAugust: >-
-    À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des
-    déplacements longue distance de <strong>mai à août 2025</strong>?
+    À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des
+    déplacements longue distance (plus de 40 km) de <strong>mai à août 2025</strong>?
 household.longDistanceTripsMayAugust_one: >-
-    À quelle fréquence avez-vous effectué des déplacements longue distance de <strong>mai
-    à août 2025</strong>?
+    À quelle fréquence avez-vous effectué des déplacements longue distance (plus de
+    40 km) de <strong>mai à août 2025</strong>?
 household.wouldLikeToParticipateToLongDistanceSurvey: >-
     Seriez-vous intéressés à <strong>être recontactés</strong> pour une enquête plus
     approfondie sur les <strong>déplacements interurbains</strong>?

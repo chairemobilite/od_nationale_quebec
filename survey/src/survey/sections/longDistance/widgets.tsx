@@ -10,7 +10,6 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
-import * as inputRange from '../../common/inputRange';
 import * as customWidgets from './customWidgets';
 
 export const householdMadeLongDistanceTripsInLastYear: WidgetConfig.InputRadioType = {
@@ -24,16 +23,15 @@ export const householdMadeLongDistanceTripsInLastYear: WidgetConfig.InputRadioTy
             count: countPersons
         });
     },
-    choices: choices.yesNoDontKnow,
+    choices: choices.yesNeverDontKnow,
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
 
 export const householdLongDistanceIntroMap = customWidgets.householdLongDistanceIntroMap;
 
-export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRangeType = {
-    ...defaultInputBase.inputRangeBase,
-    ...inputRange.sliderLongDistanceTripFrequency,
+export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
     path: 'household.longDistanceTripsSeptemberDecember',
     twoColumns: false,
     containsHtml: true,
@@ -43,13 +41,13 @@ export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRang
             count: countPersons
         });
     },
+    choices: choices.longDistanceFrequencyChoices,
     conditional: conditionals.madeLongDistanceTripsConditional,
     validations: validations.requiredValidation
 };
 
-export const householdLongDistanceTripsJanuaryApril: WidgetConfig.InputRangeType = {
-    ...defaultInputBase.inputRangeBase,
-    ...inputRange.sliderLongDistanceTripFrequency,
+export const householdLongDistanceTripsJanuaryApril: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
     path: 'household.longDistanceTripsJanuaryApril',
     twoColumns: false,
     containsHtml: true,
@@ -59,13 +57,13 @@ export const householdLongDistanceTripsJanuaryApril: WidgetConfig.InputRangeType
             count: countPersons
         });
     },
+    choices: choices.longDistanceFrequencyChoices,
     conditional: conditionals.madeLongDistanceTripsConditional,
     validations: validations.requiredValidation
 };
 
-export const householdLongDistanceTripsMayAugust: WidgetConfig.InputRangeType = {
-    ...defaultInputBase.inputRangeBase,
-    ...inputRange.sliderLongDistanceTripFrequency,
+export const householdLongDistanceTripsMayAugust: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
     path: 'household.longDistanceTripsMayAugust',
     twoColumns: false,
     containsHtml: true,
@@ -75,6 +73,7 @@ export const householdLongDistanceTripsMayAugust: WidgetConfig.InputRangeType = 
             count: countPersons
         });
     },
+    choices: choices.longDistanceFrequencyChoices,
     conditional: conditionals.madeLongDistanceTripsConditional,
     validations: validations.requiredValidation
 };

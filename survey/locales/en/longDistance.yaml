@@ -4,29 +4,30 @@
 
 household.madeLongDistanceTripsInLastYear: >-
     In the <strong>last 12 months</strong>, did you or a member of your household
-    make any trips <strong>beyond the limits of the grey zone</strong> around your
-    home?
+    make any trips other than to your usual place of work or study, <strong>beyond
+    the limits of the grey area</strong> (more than 40 km from home)?
 household.madeLongDistanceTripsInLastYear_one: >-
-    In the <strong>last 12 months</strong>, did you make any trips <strong>beyond
-    the limits of the grey zone</strong> around your home?
+    In the <strong>last 12 months</strong>, did you make any trips other than to your
+    usual place of work or study, <strong>beyond the limits of the grey area</strong>(more
+    than 40 km from home)?
 household.longDistanceTripsSeptemberDecember: >-
-    At what frequency did you or a member of your household make long distance trips
-    from <strong>September to December 2024</strong>?
+    How often did you or a member of your household make long-distance trips (more
+    than 40 km) between <strong>September and December 2024</strong>?
 household.longDistanceTripsSeptemberDecember_one: >-
-    At what frequency did you make long distance trips from <strong>September to December
-    2024</strong>?
+    How often did you make long-distance trips (more than 40 km) between <strong>September
+    and December 2024</strong>?
 household.longDistanceTripsJanuaryApril: >-
-    At what frequency did you or a member of your household make long distance trips
-    from <strong>January to April 2025</strong>?
+    How often did you or a member of your household make long-distance trips (more
+    than 40 km) between <strong>January and April 2025</strong>?
 household.longDistanceTripsJanuaryApril_one: >-
-    At what frequency did you make long distance trips from <strong>January to April
-    2025</strong>?
+    How often did you make long-distance trips (more than 40 km) between <strong>January
+    and April 2025</strong>?
 household.longDistanceTripsMayAugust: >-
-    At what frequency did you or a member of your household make long distance trips
-    from <strong>May to August 2025</strong>?
+    How often did you or a member of your household make long-distance trips (more
+    than 40 km) between <strong>May and August 2025</strong>?
 household.longDistanceTripsMayAugust_one: >-
-    At what frequency did you make long distance trips from <strong>May to August
-    2025</strong>?
+    How often did you make long-distance trips (more than 40 km) between <strong>May
+    and August 2025</strong>?
 household.wouldLikeToParticipateToLongDistanceSurvey: >-
     Would you be interested in <strong>being contacted again</strong> for a more in-depth
     survey on <strong>interurban travel</strong>?

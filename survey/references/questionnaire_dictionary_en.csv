@@ -558,34 +558,37 @@ Abbreviation,ld_
 ""
 Field,hh_madeLongDistanceTripsInLastYear
 Question type,Radio input
-Question,"In the last 12 months, did you or a member of your household make any trips beyond the limits of the grey zone around your home?"
+Question,"In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?"
 Values,"yes : Yes
-no : No
+never : Never
 dontKnow : I don't know"
 ""
 Field,hh_longDistanceTripsSeptemberDecember
-Question type,Range input
+Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,At what frequency did you or a member of your household make long distance trips from September to December 2024?
-Values,"0 : Never
-5 : Once a month
-10 : Many times a week"
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?
+Values,"00_00 : Never (0)
+01_03 : A few times during the period (1 to 3)
+04_12 : A few times a month (4 to 12)
+13_99 : One to several times a week (13 or more)"
 ""
 Field,hh_longDistanceTripsJanuaryApril
-Question type,Range input
+Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,At what frequency did you or a member of your household make long distance trips from January to April 2025?
-Values,"0 : Never
-5 : Once a month
-10 : Many times a week"
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2025?
+Values,"00_00 : Never (0)
+01_03 : A few times during the period (1 to 3)
+04_12 : A few times a month (4 to 12)
+13_99 : One to several times a week (13 or more)"
 ""
 Field,hh_longDistanceTripsMayAugust
-Question type,Range input
+Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,At what frequency did you or a member of your household make long distance trips from May to August 2025?
-Values,"0 : Never
-5 : Once a month
-10 : Many times a week"
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2025?
+Values,"00_00 : Never (0)
+01_03 : A few times during the period (1 to 3)
+04_12 : A few times a month (4 to 12)
+13_99 : One to several times a week (13 or more)"
 ""
 Field,hh_wouldLikeToParticipateToLongDistanceSurvey
 Question type,Radio input
