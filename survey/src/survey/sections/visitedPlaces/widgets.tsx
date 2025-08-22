@@ -41,7 +41,7 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('visitedPlaces:onTheRoadArrivalType', {
             nickname,
-            context: activePerson?.gender,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             count: countPersons
         });
     },

@@ -175,7 +175,7 @@ export const fillHomeSectionTests = ({
 
     // Test string widget phoneNumber with conditional acceptsToBeContactedForHelp
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputStringTest({ context, path: 'phoneNumber', value: '123-456-7890' });
+    testHelpers.inputStringTest({ context, path: 'phoneNumber', value: '438-456-7890' });
 
     if (!addressIsFilled) {
         // Test string widget home_address
