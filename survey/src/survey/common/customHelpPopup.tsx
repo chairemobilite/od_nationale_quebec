@@ -75,22 +75,11 @@ export const householdCarNumberHelpPopup: HelpPopup = {
 };
 
 export const validateHouseholdAgesHelpPopup: ButtonWidgetConfig['confirmPopup'] = {
-    content: {
-        // FIXME Use `t` function instead, put those strings in the Excel file
-        fr: function (interview, path) {
-            const householdSize = odSurveyHelpers.countPersons({ interview });
-            if (householdSize === 1) {
-                return 'Vous devez avoir au moins 16 ans pour répondre à ce questionnaire.';
-            }
-            return 'Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre à ce questionnaire. Veuillez vérifier les âges.';
-        },
-        en: function (interview, path) {
-            const householdSize = odSurveyHelpers.countPersons({ interview });
-            if (householdSize === 1) {
-                return 'You must be at least 16 years old to respond to this survey.';
-            }
-            return 'At least one member of your household must be 16 years old or older to respond to this survey. Please verify ages.';
-        }
+    content: (t: TFunction, interview, path) => {
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:popup.validateHouseholdAgesHelp', {
+            count: countPersons
+        });
     },
     showConfirmButton: false,
     cancelButtonColor: 'blue',
