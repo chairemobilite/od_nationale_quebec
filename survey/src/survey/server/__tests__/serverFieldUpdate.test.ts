@@ -100,7 +100,13 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe('access code update', function () {
+describe('access code update', () => {
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        config.postalCodeRegion = 'quebec';
+    });
+
     const updateCallback = (updateCallbacks.find((callback) => callback.field === 'accessCode') as any).callback;
     
     test('properly formatted access code, with data, postal code match', async () => {

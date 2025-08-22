@@ -91,7 +91,7 @@ export const personWorkerType: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         return t('household:workerType', {
-            context: activePerson?.gender
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
     choices: choices.participationStatusWorker,
@@ -107,7 +107,7 @@ export const personStudentType: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         return t('household:studentType', {
-            context: activePerson?.gender
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
     choices: choices.participationStatusStudent,
@@ -166,7 +166,7 @@ export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         return t('household:drivingLicenseOwnership', {
-            context: activePerson?.gender
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
     choices: choices.yesNoDontKnow,
@@ -312,7 +312,7 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:travelToWorkDays', {
             nickname,
-            context: activePerson?.gender,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             count: countPersons
         });
     },
@@ -332,7 +332,7 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:remoteWorkDays', {
             nickname,
-            context: activePerson?.gender,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             count: countPersons
         });
     },
