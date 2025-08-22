@@ -1,5 +1,6 @@
 // eslint-disable-next-line n/no-extraneous-import
 import { test } from '@playwright/test';
+import _cloneDeep from 'lodash/cloneDeep';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 import * as surveyTestHelpers from 'evolution-frontend/tests/ui-testing/surveyTestHelpers';
 import { SurveyObjectDetector } from 'evolution-frontend/tests/ui-testing/SurveyObjectDetectors';
@@ -133,14 +134,23 @@ commonUITestsHelpers.fillSegmentsSectionTests({
     expectedNextSection: 'travelBehavior'
 });
 
-// TODO: We need to add a travelBehavior section tests
+/********** Tests travelBehavior section **********/
+const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehavior);
+travelBehavior.noWorkTripReason = 'noWork';
+travelBehavior.noSchoolTripReason = 'distanceLearning';
+commonUITestsHelpers.fillTravelBehaviorSectionTests({
+    context,
+    householdSize: 1,
+    nextSection: 'longDistance',
+    travelBehavior
+});
 
 /********** Tests longDistance section **********/
 // No long distance trips
-//commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
 
 /********** Tests end section **********/
-// commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 
 // /********** Tests completed section **********/
-// commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
