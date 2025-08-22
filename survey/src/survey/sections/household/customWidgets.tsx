@@ -3,13 +3,16 @@ import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
-import { GroupConfig, InputMapFindPlaceType, Person } from 'evolution-common/lib/services/questionnaire/types';
+import { GroupConfig, InputMapFindPlaceType, InputRadioType } from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
+import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
+import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
+import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import * as conditionals from '../../common/conditionals';
 import { householdMembersWidgetsNames } from './widgetsNames';
 import inaccessibleZones from '../../geojson/inaccessibleZones.json';
 import * as customConditionals from '../../common/customConditionals';
-import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
+import * as choices from '../../common/choices';
 
 // TODO: Migrate most of these widgets in Evolution Frontend, not here.
 export const householdMembers: GroupConfig = {
@@ -52,6 +55,19 @@ export const householdMembers: GroupConfig = {
     groupedObjectDeleteButtonLabel: (t: TFunction) => t('household:deleteThisGroupedObject'),
     addButtonSize: 'small',
     widgets: householdMembersWidgetsNames
+};
+
+export const personSchoolType: InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'schoolType',
+    twoColumns: false,
+    containsHtml: true,
+    customPath: 'schoolTypeOther',
+    customChoice: 'other',
+    label: (t: TFunction) => t('household:schoolType'),
+    choices: choices.schoolType,
+    conditional: conditionals.ifAge15OrLessConditional,
+    validations: validations.requiredValidation
 };
 
 export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
