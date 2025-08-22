@@ -81,8 +81,12 @@ export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
         size: [70, 70]
     },
     placesIcon: {
-        url: (interview, path) => '/dist/icons/interface/markers/marker_round_fill.svg',
-        size: [70, 70]
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle.svg',
+        size: [35, 35]
+    },
+    selectedIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle_selected.svg',
+        size: [35, 35]
     },
     defaultCenter: function (interview, path) {
         const homeCoordinates: any = surveyHelperNew.getResponse(
@@ -161,8 +165,12 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
         size: [70, 70]
     },
     placesIcon: {
-        url: (interview, path) => '/dist/icons/interface/markers/marker_round_fill.svg',
-        size: [70, 70]
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle.svg',
+        size: [35, 35]
+    },
+    selectedIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle_selected.svg',
+        size: [35, 35]
     },
     defaultCenter: function (interview, path) {
         const homeCoordinates: any = surveyHelperNew.getResponse(
