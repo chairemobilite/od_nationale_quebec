@@ -13,6 +13,7 @@ import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customChoices from './customChoices';
+import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customValidations from '../../common/customValidations';
 
 export const householdMembers = customWidgets.householdMembers;
@@ -354,5 +355,6 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
 export const household_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'household.save',
+    confirmPopup: customHelpPopup.validateHouseholdAgesHelpPopup,
     label: (t: TFunction) => t('household:household.save')
 };

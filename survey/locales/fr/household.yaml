@@ -164,10 +164,10 @@ errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: >-
 errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: >-
     Sélectionnez "Pas de télé-études" seulement si aucun autre choix n'est sélectionné.
 popup.validateHouseholdAgesHelp: >-
-    Au moins un membre de votre ménage doit avoir <strong>16 ans</strong> ou plus
-    pour répondre à ce questionnaire. Veuillez vérifier les âges.
-popup.validateHouseholdAgesHelp_one: >-
-    Vous devez avoir au moins <strong>16 ans</strong> pour répondre à ce questionnaire.
+    Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre à ce
+    questionnaire. Veuillez vérifier les âges.
+popup.validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
+    à ce questionnaire.
 workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
     en présentiel en tout temps
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en
