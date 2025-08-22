@@ -112,7 +112,10 @@ homepage:
         suivante: <a
         href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
         target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</p></details>
+        durable Québec (gouv.qc.ca)</a>.</p><p class="left">Vous devez également
+        consentir à ce formulaire de Polytechnique Montréal: <a
+        href="/dist/documents/od_nationale_saguenay_2025_consent_poly_fr.pdf"
+        target="_blank">Information de consentement</a></p></details>
     introductionParagraphTwo: >-
         <p class="left">Nous vous remercions pour votre contribution à la
         planification du transport de demain!</p><br/><p class="left _strong"
@@ -130,7 +133,7 @@ homepage:
 footer: >-
     <div style="display: flex;justify-content: center;"><div style="font-size:
     80%;max-width: 700px;margin: 15px;"><p><a
-    href="/dist/documents/demo_information_consent_form.pdf"
+    href="/dist/documents/od_nationale_saguenay_2025_consent_poly_fr.pdf"
     target="_blank">Information de consentement</a>&nbsp;| <a
     href="mailto:EOD@transports.gouv.qc.ca?subject=Enquête%20Origine-Destination"
     target="_blank">Nous joindre par courriel</a></p></div></div>
