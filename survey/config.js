@@ -24,8 +24,8 @@ module.exports = Object.assign({
     projectShortname: `od_${survey}_2025`,
     projectDirectory: `${__dirname}/runtime`,
     logoPaths: {
-        fr: `/dist/images/logo_od_${survey}_2025_fr.png`,
-        en: `/dist/images/logo_od_${survey}_2025_en.png`
+        fr: `/dist/images/logo_od_${survey}_2025_fr.svg`,
+        en: `/dist/images/logo_od_${survey}_2025_en.svg`
     },
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
