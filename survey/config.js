@@ -64,6 +64,7 @@ module.exports = Object.assign({
             postalCodeField: 'home_postalCode'
         }
     },
+    postalCodeRegion: 'quebec',
     separateAdminLoginPage: true,
     surveySupportForm: true,
     captchaComponentType: 'capjs',
