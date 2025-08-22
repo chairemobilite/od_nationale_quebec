@@ -560,34 +560,37 @@ Abréviation,ld_
 ""
 Champ,hh_madeLongDistanceTripsInLastYear
 Type de question,Bouton radio
-Question,"Au cours des 12 derniers mois, vous ou l’un des membres de votre ménage a-t-il effectué au moins un déplacement qui a franchi les limites de cette zone grise autour de votre domicile?"
+Question,"Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?"
 Valeurs,"yes : Oui
-no : Non
+never : Jamais
 dontKnow : Je ne sais pas"
 ""
 Champ,hh_longDistanceTripsSeptemberDecember
-Type de question,Curseur de plage
+Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de septembre à décembre 2024?
-Valeurs,"0 : Jamais
-5 : Une fois par mois
-10 : Plusieurs fois par semaine"
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+Valeurs,"00_00 : Jamais (0)
+01_03 : Quelques fois durant la période (1 à 3)
+04_12 : Quelques fois par mois (4 à 12)
+13_99 : Une à plusieurs fois par semaine (13 ou plus)"
 ""
 Champ,hh_longDistanceTripsJanuaryApril
-Type de question,Curseur de plage
+Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de janvier à avril 2025?
-Valeurs,"0 : Jamais
-5 : Une fois par mois
-10 : Plusieurs fois par semaine"
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+Valeurs,"00_00 : Jamais (0)
+01_03 : Quelques fois durant la période (1 à 3)
+04_12 : Quelques fois par mois (4 à 12)
+13_99 : Une à plusieurs fois par semaine (13 ou plus)"
 ""
 Champ,hh_longDistanceTripsMayAugust
-Type de question,Curseur de plage
+Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de mai à août 2025?
-Valeurs,"0 : Jamais
-5 : Une fois par mois
-10 : Plusieurs fois par semaine"
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+Valeurs,"00_00 : Jamais (0)
+01_03 : Quelques fois durant la période (1 à 3)
+04_12 : Quelques fois par mois (4 à 12)
+13_99 : Une à plusieurs fois par semaine (13 ou plus)"
 ""
 Champ,hh_wouldLikeToParticipateToLongDistanceSurvey
 Type de question,Bouton radio

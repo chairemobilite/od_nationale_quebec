@@ -559,27 +559,30 @@ export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonT
     // Progress bar test for longDistance section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'longDistance', completionPercentage: 0 });
 
-    // Test radio widget householdMadeLongDistanceTripsInLastYear with choices yesNoDontKnow
+    // Test radio widget householdMadeLongDistanceTripsInLastYear with choices yesNeverDontKnow
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputRadioTest({ context, path: 'household.madeLongDistanceTripsInLastYear', value: '?' });
 
     // Test custom widget householdLongDistanceIntroMap
     // Implement custom test
 
-    // Test range widget householdLongDistanceTripsSeptemberDecember with conditional madeLongDistanceTripsConditional
+    // Test radio widget householdLongDistanceTripsSeptemberDecember with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsSeptemberDecember', isVisible: true });
-    testHelpers.inputRangeTest({ context, path: 'household.longDistanceTripsSeptemberDecember', value: 0, sliderColor: '?' });
+    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsSeptemberDecember', value: '?' });
 
-    // Test range widget householdLongDistanceTripsJanuaryApril with conditional madeLongDistanceTripsConditional
+    // Test radio widget householdLongDistanceTripsJanuaryApril with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsJanuaryApril', isVisible: true });
-    testHelpers.inputRangeTest({ context, path: 'household.longDistanceTripsJanuaryApril', value: 0, sliderColor: '?' });
+    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsJanuaryApril', value: '?' });
 
-    // Test range widget householdLongDistanceTripsMayAugust with conditional madeLongDistanceTripsConditional
+    // Test radio widget householdLongDistanceTripsMayAugust with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsMayAugust', isVisible: true });
-    testHelpers.inputRangeTest({ context, path: 'household.longDistanceTripsMayAugust', value: 0, sliderColor: '?' });
+    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsMayAugust', value: '?' });
 
     // Test radio widget wouldLikeToParticipateToLongDistanceSurvey with conditional madeLongDistanceTripsConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */

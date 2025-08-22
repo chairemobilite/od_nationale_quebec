@@ -72,6 +72,18 @@ export const yesNoDontKnow: ChoiceType[] = [...yesNo, ...dontKnow];
 
 export const yesNoPreferNotToAnswer: ChoiceType[] = [...yes, ...no, ...preferNotToAnswer];
 
+export const yesNeverDontKnow: ChoiceType[] = [
+    ...yes,
+    {
+        value: 'never',
+        label: {
+            fr: 'Jamais',
+            en: 'Never'
+        }
+    },
+    ...dontKnow
+];
+
 export const maleFemalePreferNotAnswer: ChoiceType[] = [
     {
         value: 'female',
@@ -371,6 +383,37 @@ export const schoolPlaceTypeChoices: ChoiceType[] = [
         label: {
             fr: 'Non, études à partir du domicile ou à distance',
             en: 'No, remote studies from home or from elsewhere'
+        }
+    }
+];
+
+export const longDistanceFrequencyChoices: ChoiceType[] = [
+    {
+        value: '00_00',
+        label: {
+            fr: 'Jamais (0)',
+            en: 'Never (0)'
+        }
+    },
+    {
+        value: '01_03',
+        label: {
+            fr: 'Quelques fois durant la période (1 à 3)',
+            en: 'A few times during the period (1 to 3)'
+        }
+    },
+    {
+        value: '04_12',
+        label: {
+            fr: 'Quelques fois par mois (4 à 12)',
+            en: 'A few times a month (4 to 12)'
+        }
+    },
+    {
+        value: '13_99',
+        label: {
+            fr: 'Une à plusieurs fois par semaine (13 ou plus)',
+            en: 'One to several times a week (13 or more)'
         }
     }
 ];

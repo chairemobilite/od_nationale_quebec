@@ -353,16 +353,28 @@ Continuer
 
 Section: Déplacements longue distance
 
-Au cours des 12 derniers mois, vous ou l’un des membres de votre ménage a-t-il effectué au moins un déplacement qui a franchi les limites de cette zone grise autour de votre domicile?
+Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?
 - Oui
-- Non
+- Jamais
 - Je ne sais pas
 
-À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de septembre à décembre 2024?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+- Jamais (0)
+- Quelques fois durant la période (1 à 3)
+- Quelques fois par mois (4 à 12)
+- Une à plusieurs fois par semaine (13 ou plus)
 
-À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de janvier à avril 2025?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+- Jamais (0)
+- Quelques fois durant la période (1 à 3)
+- Quelques fois par mois (4 à 12)
+- Une à plusieurs fois par semaine (13 ou plus)
 
-À quelle fréquence vous ou l’un des membres de votre ménage a-t-il effectué des déplacements longue distance de mai à août 2025?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+- Jamais (0)
+- Quelques fois durant la période (1 à 3)
+- Quelques fois par mois (4 à 12)
+- Une à plusieurs fois par semaine (13 ou plus)
 
 Seriez-vous intéressés à être recontactés pour une enquête plus approfondie sur les déplacements interurbains?
 - Oui

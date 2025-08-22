@@ -107,29 +107,3 @@ export const sliderNotAtAllToVeryBurdensome: Pick<
     },
     trackClassName: 'input-slider-green-yellow-red'
 };
-
-export const sliderLongDistanceTripFrequency: Pick<
-    InputRangeType,
-    'labels' | 'minValue' | 'maxValue' | 'formatLabel' | 'trackClassName'
-> = {
-    labels: [
-        {
-            fr: 'Jamais',
-            en: 'Never'
-        },
-        {
-            fr: 'Une fois par mois',
-            en: 'Once a month'
-        },
-        {
-            fr: 'Plusieurs fois par semaine',
-            en: 'Many times a week'
-        }
-    ],
-    minValue: -1,
-    maxValue: 10,
-    formatLabel: (value, language) => {
-        return value < 0 ? '' : `${value} ${language === 'fr' ? '/10' : language === 'en' ? '/10' : ''}`;
-    },
-    trackClassName: 'input-slider-blue'
-};

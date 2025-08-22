@@ -66,7 +66,7 @@ travelBehaviorP1.noWorkTripReason = 'noWork';
 travelBehaviorP1.noSchoolTripReason = 'distanceLearning';
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
-    householdSize: 1,
+    householdSize: 2,
     nextSection: 'tripsIntro',
     travelBehavior: travelBehaviorP1
 });
@@ -90,22 +90,14 @@ const travelBehaviorP2 = {
 };
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
-    householdSize: 1,
+    householdSize: 2,
     nextSection: 'longDistance',
     travelBehavior: travelBehaviorP2
 });
 
 /********** Tests longDistance section **********/
 // No long distance trips
-const longDistance: commonUITestsHelpers.LongDistanceSection = {
-    madeLongDistanceTrips: 'yes' as const,
-    frequencyJanuaryApril: 3,
-    frequencyMayAugust: 9,
-    frequencySeptemberDecember: 0,
-    wantToParticipateInSurvey: 'yes',
-    wantToParticipateInSurveyEmail: 'test@test.org'
-};
-commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1, longDistanceSection: longDistance });
+commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 2 });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
