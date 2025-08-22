@@ -65,8 +65,8 @@ Permanent physical, intellectual or other disability which influences or limits 
 
 Sex at birth
 Sex assigned at birth or that which appears on legal documents.
-- Woman
-- Man
+- Female
+- Male
 - I prefer not to answer
 
 I prefer to give the gender

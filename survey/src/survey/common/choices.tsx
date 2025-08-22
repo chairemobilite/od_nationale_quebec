@@ -77,14 +77,14 @@ export const maleFemalePreferNotAnswer: ChoiceType[] = [
         value: 'female',
         label: {
             fr: 'Femme',
-            en: 'Woman'
+            en: 'Female'
         }
     },
     {
         value: 'male',
         label: {
             fr: 'Homme',
-            en: 'Man'
+            en: 'Male'
         }
     },
     ...preferNotToAnswer

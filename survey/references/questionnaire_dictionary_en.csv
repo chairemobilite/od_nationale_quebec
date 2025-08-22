@@ -112,8 +112,8 @@ Question type,Radio input
 Conditional,ifAge5orMoreConditional : age >= 5
 Question,"Sex at birth
 Sex assigned at birth or that which appears on legal documents."
-Values,"female : Woman
-male : Man
+Values,"female : Female
+male : Male
 preferNotToAnswer : I prefer not to answer"
 ""
 Field,gender
