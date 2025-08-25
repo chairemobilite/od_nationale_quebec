@@ -8,7 +8,7 @@ If I do not complete it or if some of the information provided is incoherent.
 - Yes
 - No
 
-Please enter the email or phone number to get in contact.
+Please enter the email or phone number to get in contact
 
 Email address
 
@@ -54,7 +54,7 @@ Section: Household
 Age
 For babies under the age of 1, write "0"
 
-Name or nickname that will allow you to identify this person for the remainder of the interview.
+Name or nickname that will allow you to identify this person for the remainder of the interview
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset.
 
@@ -110,7 +110,7 @@ Main occupation
 - Other
 - Prefer not to answer
 
-Before being on leave, did {{nickname}} work ?
+Before being on leave, did {{nickname}} work?
 - Yes, full time (30h and more/week)
 - Yes, part time (less than 30h/week)
 - No
@@ -160,7 +160,7 @@ Does {{nickname}} have a fixed study location?
 
 Name or address of {{nickname}}'s usual place of work
 
-Please locate the usual place of work for {{nickname}}.
+Please locate the usual place of work for {{nickname}}
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the "Search location" button.
 
@@ -228,7 +228,7 @@ Where was {{nickname}} at 4 AM?
 
 Continue
 
-Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential.
+Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential
 
 
 
@@ -306,7 +306,7 @@ Some bus line(s) seem invalid for this trip. Please validate the lines.
 Is this an on-demand service?
 
 
-Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map.
+Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map
 
 Please locate the junction point (location where the change in mode of transport occurred).
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
@@ -322,9 +322,9 @@ Section: Travel behavior
 
 Change person
 
-You didn't report any work trips by {{nickname}} on {{assignedDate}}.
+You didn't report any work trips by {{nickname}} on {{assignedDate}}
 
-Why ?
+Why?
 - Remote work / work from home
 - On strike
 - Leave (sick, personal, other)
@@ -332,11 +332,11 @@ Why ?
 - Other
 - I don't know
 
-Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}} ?
+Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
 
 You didn't report any school trips by {{nickname}} on {{assignedDate}}.
 
-Why ?
+Why?
 - Distance learning
 - School was closed (strike)
 - Leave (sick, personal, other)
@@ -344,7 +344,7 @@ Why ?
 - Other
 - I don't know
 
-Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}} ?
+Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
 
 Continue
 

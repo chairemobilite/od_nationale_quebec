@@ -51,41 +51,41 @@ personDidTripsConfirm_one: >-
     que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?
 didTripsIntro: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé.e le {{assignedDate}}
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin).<br /><br /><span
-    class="_green">- <strong>Inclure même les petits arrêts</strong> (station-service,
-    garderie/école, dépanneur ou tout lieu où {{nickname}} est allé.e chercher ou
-    reconduire quelqu'un).<br />- <strong>Inclure tous les lieux</strong> peu importe
-    les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport
-    collectif, taxi, avion, bateau, etc.).</span><br /><span class="_red">- <strong>Ne
-    pas inclure les lieux de transfert</strong> en cours de déplacement (arrêts de
-    bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est allé.e
-    reconduire ou chercher quelqu'un à cet endroit.</span>
+    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
+    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
+    dépanneur ou tout lieu où {{nickname}} est allé.e chercher ou reconduire quelqu'un).<br
+    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
+    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
+    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
+    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
+    lieux de stationnement, etc.) sauf si {{nickname}} est allé.e reconduire ou chercher
+    quelqu'un à cet endroit.</span>
 didTripsIntro_male: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé le {{assignedDate}}
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin).<br /><br /><span
-    class="_green">- <strong>Inclure même les petits arrêts</strong> (station-service,
-    garderie/école, dépanneur ou tout lieu où {{nickname}} est allé chercher ou reconduire
-    quelqu'un).<br />- <strong>Inclure tous les lieux</strong> peu importe les modes
-    de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif,
-    taxi, avion, bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure
-    les lieux de transfert</strong> en cours de déplacement (arrêts de bus, gares,
-    terminus, lieux de stationnement, etc.) sauf si {{nickname}} est allé reconduire
-    ou chercher quelqu'un à cet endroit.</span>
+    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
+    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
+    dépanneur ou tout lieu où {{nickname}} est allé chercher ou reconduire quelqu'un).<br
+    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
+    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
+    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
+    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
+    lieux de stationnement, etc.) sauf si {{nickname}} est allé reconduire ou chercher
+    quelqu'un à cet endroit.</span>
 didTripsIntro_female: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allée le {{assignedDate}}
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin).<br /><br /><span
-    class="_green">- <strong>Inclure même les petits arrêts</strong> (station-service,
-    garderie/école, dépanneur ou tout lieu où {{nickname}} est allée chercher ou reconduire
-    quelqu'un).<br />- <strong>Inclure tous les lieux</strong> peu importe les modes
-    de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif,
-    taxi, avion, bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure
-    les lieux de transfert</strong> en cours de déplacement (arrêts de bus, gares,
-    terminus, lieux de stationnement, etc.) sauf si {{nickname}} est allée reconduire
-    ou chercher quelqu'un à cet endroit.</span>
+    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
+    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
+    dépanneur ou tout lieu où {{nickname}} est allée chercher ou reconduire quelqu'un).<br
+    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
+    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
+    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
+    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
+    lieux de stationnement, etc.) sauf si {{nickname}} est allée reconduire ou chercher
+    quelqu'un à cet endroit.</span>
 didTripsIntro_one: >-
     Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allé.e le
     {{assignedDate}}</strong> (inclure les lieux visités jusqu'à 4:00 le lendemain
-    matin).<br /><br /><span class="_green">- <strong>Inclure même les petits arrêts</strong>
+    matin)<br /><br /><span class="_green">- <strong>Inclure même les petits arrêts</strong>
     (station-service, garderie/école, dépanneur ou tout lieu où vous êtes allé.e chercher
     ou reconduire quelqu'un).<br />- <strong>Inclure tous les lieux</strong> peu importe
     les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport
@@ -95,26 +95,26 @@ didTripsIntro_one: >-
     ou chercher quelqu'un à cet endroit.</span>
 didTripsIntro_male_one: >-
     Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allé le {{assignedDate}}</strong>
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin).<br /><br /><span
-    class="_green">- <strong>Inclure même les petits arrêts</strong> (station-service,
-    garderie/école, dépanneur ou tout lieu où vous êtes allé chercher ou reconduire
-    quelqu'un).<br />- <strong>Inclure tous les lieux</strong> peu importe les modes
-    de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif,
-    taxi, avion, bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure
-    les lieux de transfert</strong> en cours de déplacement (arrêts de bus, gares,
-    terminus, lieux de stationnement, etc.) sauf si vous êtes allé reconduire ou chercher
-    quelqu'un à cet endroit.</span>
+    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
+    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
+    dépanneur ou tout lieu où vous êtes allé chercher ou reconduire quelqu'un).<br
+    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
+    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
+    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
+    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
+    lieux de stationnement, etc.) sauf si vous êtes allé reconduire ou chercher quelqu'un
+    à cet endroit.</span>
 didTripsIntro_female_one: >-
     Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allée le {{assignedDate}}</strong>
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin).<br /><br /><span
-    class="_green">- <strong>Inclure même les petits arrêts</strong> (station-service,
-    garderie/école, dépanneur ou tout lieu où vous êtes allée chercher ou reconduire
-    quelqu'un).<br />- <strong>Inclure tous les lieux</strong> peu importe les modes
-    de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif,
-    taxi, avion, bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure
-    les lieux de transfert</strong> en cours de déplacement (arrêts de bus, gares,
-    terminus, lieux de stationnement, etc.) sauf si vous êtes allée reconduire ou
-    chercher quelqu'un à cet endroit.</span>
+    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
+    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
+    dépanneur ou tout lieu où vous êtes allée chercher ou reconduire quelqu'un).<br
+    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
+    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
+    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
+    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
+    lieux de stationnement, etc.) sauf si vous êtes allée reconduire ou chercher quelqu'un
+    à cet endroit.</span>
 departurePlaceIsHome: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si {{nickname}} n'a pas
@@ -152,7 +152,7 @@ household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOt
 tripsIntro.save: Continuer
 tripsIntroOutro: >-
     <span class="_pale _oblique">Vos réponses serviront à évaluer l'usage et l'achalandage
-    des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.</span>
+    des réseaux routiers et de transport collectif et demeureront entièrement confidentielles</span>
 personDidTripsConfirmChoiceNo: "{{nickname}} n'a effectué aucun déplacement le {{assignedDate}}"
 personDidTripsConfirmChoiceNo_one: Je n'ai effectué aucun déplacement le {{assignedDate}}
 personDidTripsConfirmChoiceYes: '{{nickname}} a effectué au moins un déplacement le

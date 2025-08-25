@@ -95,7 +95,7 @@ For babies under the age of 1, write ""0"""
 Field,nickname
 Question type,Text input
 Conditional,hasPersonCount2OrMoreCustomConditional
-Question,"Name or nickname that will allow you to identify this person for the remainder of the interview.
+Question,"Name or nickname that will allow you to identify this person for the remainder of the interview
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
 ""
@@ -175,7 +175,7 @@ preferNotToAnswer : Prefer not to answer"
 Field,workerTypeBeforeLeave
 Question type,Radio input
 Conditional,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
-Question,"Before being on leave, did {{nickname}} work ?"
+Question,"Before being on leave, did {{nickname}} work?"
 Values,"fullTime : Yes, full time (30h and more/week)
 partTime : Yes, part time (less than 30h/week)
 no : No"
@@ -251,7 +251,7 @@ Question,Name or address of {{nickname}}'s usual place of work
 Field,geography
 Question type,Unknown input
 Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
-Question,"Please locate the usual place of work for {{nickname}}.
+Question,"Please locate the usual place of work for {{nickname}}
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the ""Search location"" button."
 ""
@@ -486,7 +486,7 @@ Question,Is this an on-demand service?
 Field,tripJunctionQueryString
 Question type,Text input
 Conditional,shouldAskTripJunctionCustomConditional
-Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map."
+Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map"
 ""
 Field,junctionGeography
 Question type,Unknown input
@@ -514,12 +514,12 @@ Question,Change person
 ""
 Field,personNoWorkTripIntro
 Question type,Unknown input
-Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}.
+Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
 Question type,Select input
 Conditional,shouldAskForNoWorkTripReasonCustomConditional
-Question,Why ?
+Question,Why?
 Values,"remoteWorkOrWorkAtHome : Remote work / work from home
 onStrike : On strike
 leaveSicknessPersonalReason : Leave (sick, personal, other)
@@ -530,7 +530,7 @@ dontKnow : I don't know"
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
 Question type,Unknown input
 Conditional,shouldAskPersonNoWorkTripSpecifyCustomConditional
-Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}} ?
+Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
 ""
 Field,personNoSchoolTripIntro
 Question type,Unknown input
@@ -539,7 +539,7 @@ Question,You didn't report any school trips by {{nickname}} on {{assignedDate}}.
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Question type,Select input
 Conditional,shouldAskForNoSchoolTripReasonCustomConditional
-Question,Why ?
+Question,Why?
 Values,"distanceLearning : Distance learning
 schoolWasClosedStrike : School was closed (strike)
 leaveSicknessPersonalReason : Leave (sick, personal, other)
@@ -550,7 +550,7 @@ dontKnow : I don't know"
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
 Question type,Unknown input
 Conditional,shouldAskForNoSchoolTripSpecifyCustomConditional
-Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}} ?
+Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
 ""
 ""
 ""

@@ -8,7 +8,7 @@ age: >-
 age_one: Your <strong>age</strong>
 nickname: >-
     <strong>Name or nickname</strong> that will allow you to identify this person
-    for the remainder of the interview.<br /><span class="_pale _oblique">Can be a
+    for the remainder of the interview<br /><span class="_pale _oblique">Can be a
     nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').<br
     />The name is only used to simplify the response process and will be removed from
     the final dataset.</span>
@@ -28,8 +28,8 @@ workerType: >-
 studentType: <strong>Student</strong>
 schoolType: <strong>School type</strong>
 occupation: <strong>Main occupation</strong>
-workerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}} work ?
-workerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work ?
+workerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}} work?
+workerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work?
 educationalAttainment: >-
     Highest level of <strong>educational attainment</strong><br /><span class="_pale
     _oblique">When in doubt, choose the level which seems to match best</span>
@@ -57,7 +57,7 @@ usualWorkPlace.name: >-
 usualWorkPlace.name_one: >-
     <strong>Name or address</strong> of your <strong>usual place of work</strong>
 usualWorkPlace.geography: >-
-    Please locate the <strong>usual place of work</strong> for {{nickname}}.<br /><span
+    Please locate the <strong>usual place of work</strong> for {{nickname}}<br /><span
     class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
     Once located, you can move the marker for greater precision.<br />You can also
     search for the place on the map using the "Search location" button.</span>
