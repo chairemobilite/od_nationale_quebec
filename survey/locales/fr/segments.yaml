@@ -51,7 +51,7 @@ onDemandType: Est-ce un transport sur demande?
 tripJunctionQueryString: >-
     Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de
     transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la
-    carte.
+    carte
 junctionGeography: >-
     Veuillez localiser <strong>le point de jonction</strong> (lieu où s'est effectué
     le changement de mode de transport):<br /><span class="_pale _oblique">Naviguez,

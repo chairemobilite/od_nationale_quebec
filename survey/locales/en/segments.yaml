@@ -31,7 +31,7 @@ onDemandType: Is this an on-demand service?
 tripJunctionQueryString: >-
     Please specify the address or the name of the location where the change in mode
     of transport occurred (terminal, transit stop, parking lot, etc.) or click directly
-    on map.
+    on map
 junctionGeography: >-
     Please locate the <strong>junction point</strong> (location where the change in
     mode of transport occurred).<br /><span class="_pale _oblique">Navigate, zoom,

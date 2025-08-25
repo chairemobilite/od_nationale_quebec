@@ -54,7 +54,7 @@ Section: Ménage
 Âge
 Pour les bébés de moins de 1 an, inscrivez "0"
 
-Nom ou surnom pour identifier cette personne pour la suite de l'entrevue.
+Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.
 
@@ -110,7 +110,7 @@ Occupation principale
 - Autre
 - Préfère ne pas répondre
 
-Avant d’être en congé, est-ce que {{nickname}} travaillait ?
+Avant d’être en congé, est-ce que {{nickname}} travaillait?
 - Oui, à temps plein (30h et plus/semaine)
 - Oui, à temps partiel (moins de 30h/semaine)
 - Non
@@ -160,7 +160,7 @@ Est-ce que {{nickname}} a un lieu d'études fixe?
 
 Nom ou adresse du lieu habituel de travail de {{nickname}}
 
-Veuillez localiser le lieu de travail habituel de {{nickname}}.
+Veuillez localiser le lieu de travail habituel de {{nickname}}
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
 
@@ -206,7 +206,7 @@ Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats
 
 Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
 
-Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin).
+Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
 
 <span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é.e}} chercher ou reconduire quelqu'un).
 - Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
@@ -228,7 +228,7 @@ Où était {{nickname}} à 4h du matin?
 
 Continuer
 
-Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.
+Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles
 
 
 
@@ -306,7 +306,7 @@ Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heu
 Est-ce un transport sur demande?
 
 
-Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte.
+Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte
 
 Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
@@ -322,9 +322,9 @@ Section: Mobilité
 
 Changer de personne
 
-Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}.
+Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
 
-Pour quelle raison ?
+Pour quelle raison?
 - Télétravail / travail à la maison
 - En grève
 - Congé (maladie, personnel, autre)
@@ -332,12 +332,12 @@ Pour quelle raison ?
 - Autre
 - Je ne sais pas
 
-Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}} ?
+Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
 (Facultatif)
 
 Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
 
-Pour quelle raison ?
+Pour quelle raison?
 - Cours à distance
 - École fermée (grève)
 - Congé (maladie, personnel, autre)
@@ -345,7 +345,7 @@ Pour quelle raison ?
 - Autre
 - Je ne sais pas
 
-Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}} ?
+Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
 (Facultatif)
 
 Continuer
@@ -433,11 +433,11 @@ Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop lon
 
 Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
 
-Dans quelle mesure cette enquête a-t-elle été intéressante pour vous ?
+Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
 
 Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
 
-Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante) ?
+Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
 
 Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
 - Oui

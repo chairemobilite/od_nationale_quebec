@@ -95,7 +95,7 @@ Pour les bébés de moins de 1 an, inscrivez ""0"""
 Champ,nickname
 Type de question,Champ de texte
 Conditionnel,hasPersonCount2OrMoreCustomConditional
-Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrevue.
+Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé."
 ""
@@ -175,7 +175,7 @@ preferNotToAnswer : Préfère ne pas répondre"
 Champ,workerTypeBeforeLeave
 Type de question,Bouton radio
 Conditionnel,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
-Question,"Avant d’être en congé, est-ce que {{nickname}} travaillait ?"
+Question,"Avant d’être en congé, est-ce que {{nickname}} travaillait?"
 Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
 partTime : Oui, à temps partiel (moins de 30h/semaine)
 no : Non"
@@ -251,7 +251,7 @@ Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 Champ,geography
 Type de question,Entrée inconnue
 Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
-Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}.
+Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
 ""
@@ -321,7 +321,7 @@ Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils son
 ""
 Champ,didTripsIntro
 Type de question,Entrée inconnue
-Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin).
+Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
 
 <span class=""_green"">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é.e}} chercher ou reconduire quelqu'un).
 - Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
@@ -486,7 +486,7 @@ Question,Est-ce un transport sur demande?
 Champ,tripJunctionQueryString
 Type de question,Champ de texte
 Conditionnel,shouldAskTripJunctionCustomConditional
-Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte."
+Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte"
 ""
 Champ,junctionGeography
 Type de question,Entrée inconnue
@@ -514,12 +514,12 @@ Question,Changer de personne
 ""
 Champ,personNoWorkTripIntro
 Type de question,Entrée inconnue
-Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}.
+Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
 Type de question,Liste déroulante
 Conditionnel,shouldAskForNoWorkTripReasonCustomConditional
-Question,Pour quelle raison ?
+Question,Pour quelle raison?
 Valeurs,"remoteWorkOrWorkAtHome : Télétravail / travail à la maison
 onStrike : En grève
 leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
@@ -530,7 +530,7 @@ dontKnow : Je ne sais pas"
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
 Type de question,Entrée inconnue
 Conditionnel,shouldAskPersonNoWorkTripSpecifyCustomConditional
-Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}} ?
+Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
 (Facultatif)"
 ""
 Champ,personNoSchoolTripIntro
@@ -540,7 +540,7 @@ Question,Vous n'avez déclaré aucun déplacement pour les études pour {{nickna
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Type de question,Liste déroulante
 Conditionnel,shouldAskForNoSchoolTripReasonCustomConditional
-Question,Pour quelle raison ?
+Question,Pour quelle raison?
 Valeurs,"distanceLearning : Cours à distance
 schoolWasClosedStrike : École fermée (grève)
 leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
@@ -551,7 +551,7 @@ dontKnow : Je ne sais pas"
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
 Type de question,Entrée inconnue
 Conditionnel,shouldAskForNoSchoolTripSpecifyCustomConditional
-Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}} ?
+Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
 (Facultatif)"
 ""
 ""
@@ -676,7 +676,7 @@ Question,Combien de temps pensez-vous avoir passé à répondre à cette enquêt
 ""
 Champ,interestOfTheSurvey
 Type de question,Curseur de plage
-Question,Dans quelle mesure cette enquête a-t-elle été intéressante pour vous ?
+Question,Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
 Valeurs,"0 : Pas du tout
 50 : Neutre
 100 : Très intéressante"
@@ -690,7 +690,7 @@ Valeurs,"0 : Très facile
 ""
 Champ,burdenOfTheSurvey
 Type de question,Curseur de plage
-Question,Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante) ?
+Question,Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
 Valeurs,"0 : Pas du tout
 50 : Modérément pénible
 100 : Très pénible"

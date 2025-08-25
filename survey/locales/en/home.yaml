@@ -10,7 +10,7 @@ acceptToBeContactedForHelp: >-
     class="_pale _oblique">If I do not complete it or if some of the information provided
     is incoherent.</span>
 contactInformationIntro: Please enter the email <strong>or</strong> phone number to
-    get in contact.
+    get in contact
 contactEmail: <strong>Email address</strong>
 phoneNumber: >-
     <strong>Phone number</strong><br /><span class="_pale _oblique">Format: 123-456-7890</span>

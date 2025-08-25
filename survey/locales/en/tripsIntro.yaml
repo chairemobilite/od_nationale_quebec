@@ -36,7 +36,7 @@ didTripsIntro: >-
     etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
 didTripsIntro_one: >-
     Please specify the <strong>places you went on {{assignedDate}}</strong> (include
-    all places visited until 4 AM the following morning).<br /><br /><span class="_green">-
+    all places visited until 4 AM the following morning)<br /><br /><span class="_green">-
     <strong>Include short stops and errands</strong> (gas station, daycare/school,
     convenience store or any place where you picked someone up or dropped someone
     off).<br />- <strong>Include all places</strong> regardless of the mode of transport
@@ -60,7 +60,7 @@ household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOt
 tripsIntro.save: Continue
 tripsIntroOutro: >-
     <span class="_pale _oblique">Your answers will be used to assess the use and traffic
-    of the road and public transit networks and will remain entirely confidential.</span>
+    of the road and public transit networks and will remain entirely confidential</span>
 personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trip on {{assignedDate}}'
 personDidTripsConfirmChoiceNo_one: I did not make any trip on {{assignedDate}}
 personDidTripsConfirmChoiceYes: '{{nickname}} did make at least one trip on {{assignedDate}}'
