@@ -695,7 +695,7 @@ Values,"0 : Not at all
 ""
 Field,consideredAbandoningSurvey
 Question type,Radio input
-Question,"Have you considered, at any point, to abandon the survey?"
+Question,"Have you considered, at any point, abandoning the survey?"
 Values,"yes : Yes
 no : No
 dontKnow : I don't know"

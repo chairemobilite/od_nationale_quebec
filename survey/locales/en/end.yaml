@@ -36,7 +36,7 @@ difficultyOfTheSurvey: >-
     the questions in this survey?
 burdenOfTheSurvey: How <strong>burdensome (demanding)</strong> did you find this survey
     to be?
-consideredAbandoningSurvey: Have you considered, at any point, to <strong>abandon
+consideredAbandoningSurvey: Have you considered, at any point, <strong>abandoning
     the survey</strong>?
 buttonCompleteInterviewWithCompleteSection: Complete the interview
 errors.inputRangeMustBePositiveOrZero: Make sure your slider button is inside the
