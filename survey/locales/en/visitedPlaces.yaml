@@ -21,6 +21,8 @@ onTheRoadArrivalType: Where did {{nickname}} end their work trip on the road?
 onTheRoadArrivalType_male: Where did {{nickname}} end his work trip on the road?
 onTheRoadArrivalType_female: Where did {{nickname}} end her work trip on the road?
 onTheRoadArrivalType_one: Where did you end your work trip on the road activity?
+onTheRoadArrivalType_male_one: Where did you end your work trip on the road activity?
+onTheRoadArrivalType_female_one: Where did you end your work trip on the road activity?
 alreadyVisitedBySelfOrAnotherHouseholdMember: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     {{nickname}}'s travel diary or that of another household member.</span>
@@ -43,6 +45,12 @@ _previousPreviousDepartureTime_female: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to her usual work place?
 _previousPreviousDepartureTime_one: >-
+    At what time did you leave the previous location ({{visitedPlaceDescription}})
+    before going to your usual work place?
+_previousPreviousDepartureTime_male_one: >-
+    At what time did you leave the previous location ({{visitedPlaceDescription}})
+    before going to your usual work place?
+_previousPreviousDepartureTime_female_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
 arrivalTime: '{{nickname}} arrived {{atPlace}} at:'
@@ -84,6 +92,10 @@ PreviousDepartureTime_home_workOnTheRoad_female: >-
     At what time did {{nickname}} leave home before starting her on the road trips?
 PreviousDepartureTime_home_workOnTheRoad_one: At what time did you leave home before
     starting your on the road trips?
+PreviousDepartureTime_home_workOnTheRoad_male_one: At what time did you leave home
+    before starting your on the road trips?
+PreviousDepartureTime_home_workOnTheRoad_female_one: At what time did you leave home
+    before starting your on the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad: >-
     At what time did {{nickname}} leave their usual work place before starting their
     on the road trips?
@@ -94,6 +106,12 @@ PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female: >-
     At what time did {{nickname}} leave her usual work place before starting her on
     the road trips?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_one: >-
+    At what time did you leave your usual work place before starting your on the road
+    trips?
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male_one: >-
+    At what time did you leave your usual work place before starting your on the road
+    trips?
+PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female_one: >-
     At what time did you leave your usual work place before starting your on the road
     trips?
 Activity: 'Specify :'
@@ -146,6 +164,10 @@ _previousPreviousDepartureTimeHomeToUsualWorkplace_female: '{{nickname}} left ho
     to go to her usual work place?'
 _previousPreviousDepartureTimeHomeToUsualWorkplace_one: You left home to go to your
     usual work place at?
+_previousPreviousDepartureTimeHomeToUsualWorkplace_male_one: You left home to go to
+    your usual work place at?
+_previousPreviousDepartureTimeHomeToUsualWorkplace_female_one: You left home to go
+    to your usual work place at?
 _previousArrivalTimeDepartureTypeHome: >-
     At what time did {{nickname}} arrive home before starting their on the road trips?
 _previousArrivalTimeDepartureTypeHome_male: >-
@@ -154,6 +176,10 @@ _previousArrivalTimeDepartureTypeHome_female: >-
     At what time did {{nickname}} arrive home before starting her on the road trips?
 _previousArrivalTimeDepartureTypeHome_one: At what time did you arrive home before
     starting your on the road trips?
+_previousArrivalTimeDepartureTypeHome_male_one: At what time did you arrive home before
+    starting your on the road trips?
+_previousArrivalTimeDepartureTypeHome_female_one: At what time did you arrive home
+    before starting your on the road trips?
 _previousArrivalTimeDepartureTypeUsualWorkPlace: >-
     At what time did {{nickname}} arrive at their usual work place before starting
     their on the road trips?
@@ -166,6 +192,12 @@ _previousArrivalTimeDepartureTypeUsualWorkPlace_female: >-
 _previousArrivalTimeDepartureTypeUsualWorkPlace_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_male_one: >-
+    At what time did you arrive at your usual work place before starting your on the
+    road trips?
+_previousArrivalTimeDepartureTypeUsualWorkPlace_female_one: >-
+    At what time did you arrive at your usual work place before starting your on the
+    road trips?
 _previousArrivalTimeDepartureTypeOther: >-
     At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
     before starting their on the road trips?
@@ -176,6 +208,12 @@ _previousArrivalTimeDepartureTypeOther_female: >-
     At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
     before starting her on the road trips?
 _previousArrivalTimeDepartureTypeOther_one: >-
+    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
+    before starting your on the road trips?
+_previousArrivalTimeDepartureTypeOther_male_one: >-
+    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
+    before starting your on the road trips?
+_previousArrivalTimeDepartureTypeOther_female_one: >-
     At what time did you arrive at the previous location ({{visitedPlaceDescription}})
     before starting your on the road trips?
 arrivalTimeOnTheRoad: '{{nickname}} started their work trip on the road at:'
@@ -197,6 +235,10 @@ onTheRoadArrivalTypeStayedThereUntilTheNextDay_female: '{{nickname}} completed h
     work on the road trips after 4AM the next day'
 onTheRoadArrivalTypeStayedThereUntilTheNextDay_one: I completed my work on the road
     trips after 4AM the next day
+onTheRoadArrivalTypeStayedThereUntilTheNextDay_male_one: I completed my work on the
+    road trips after 4AM the next day
+onTheRoadArrivalTypeStayedThereUntilTheNextDay_female_one: I completed my work on
+    the road trips after 4AM the next day
 nextPlaceRadioChoices.stayedHomeUntilTheNextDay: Stayed home until the next day
 nextPlaceRadioChoices.stayedThereUntilTheNextDay: Stayed at this place until the next
     day

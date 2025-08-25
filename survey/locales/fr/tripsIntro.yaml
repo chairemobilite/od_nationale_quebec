@@ -49,6 +49,12 @@ personDidTripsConfirm_female: >-
 personDidTripsConfirm_one: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
     que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?
+personDidTripsConfirm_male_one: >-
+    Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
+    que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?
+personDidTripsConfirm_female_one: >-
+    Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
+    que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?
 didTripsIntro: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé.e le {{assignedDate}}
     (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
