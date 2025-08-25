@@ -281,7 +281,7 @@ export default [
                 const journey = person ? odSurveyHelpers.getJourneys({ person })[journeyId] : undefined;
                 const visitedPlaces = journey ? odSurveyHelpers.getVisitedPlaces({ journey }) : null;
                 const trip = journey ? odSurveyHelpers.getTrips({ journey })[tripId] || null : null;
-                const householdTripsDate = getResponse(interview, assignedDayPath);
+                const householdTripsDate = getResponse(interview, assignedDayPath, null);
                 if (visitedPlaces === null || person === null || trip === null || householdTripsDate === null) {
                     return defaultResponse;
                 }

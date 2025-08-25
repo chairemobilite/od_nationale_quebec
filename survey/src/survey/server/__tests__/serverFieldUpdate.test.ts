@@ -393,9 +393,13 @@ describe('test complete survey', function () {
 describe('test transit summary generation', function () {
     const updateCallback = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined) as any).callback;
     const registerUpdateOperationMock = jest.fn();
-    
+    let interview = _cloneDeep(baseInterview);;
+
     beforeEach(() => {
         jest.clearAllMocks();
+        // Make sure the assigned day is set
+        interview = _cloneDeep(baseInterview);
+        interview.response._assignedDay = '2022-09-26'; // A monday
         config.trRoutingScenarios = {
             SE: 'ScenarioDeSemaine',
             SA: 'ScenarioDuSamedi',
@@ -404,7 +408,6 @@ describe('test transit summary generation', function () {
     });
 
     test('Non transit mode', async () => {
-        const interview = _cloneDeep(baseInterview);
         expect(await updateCallback(interview, 'carPassenger', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
@@ -427,7 +430,6 @@ describe('test transit summary generation', function () {
             ],
             source: 'unitTest'
         };
-        const interview = _cloneDeep(baseInterview);
         summaryMock.mockResolvedValue(response);
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
@@ -451,7 +453,6 @@ describe('test transit summary generation', function () {
             status: 'no_routing_found' as const,
             source: 'unitTest'
         };
-        const interview = _cloneDeep(baseInterview);
         summaryMock.mockResolvedValue(response);
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
@@ -471,7 +472,6 @@ describe('test transit summary generation', function () {
     });
 
     test('exception in summary, expect undefined', async () => {
-        const interview = _cloneDeep(baseInterview);
         summaryMock.mockRejectedValueOnce('Error');
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
@@ -507,7 +507,6 @@ describe('test transit summary generation', function () {
             ],
             source: 'unitTest'
         };
-        const interview = _cloneDeep(baseInterview);
         summaryMock.mockResolvedValue(response);
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', undefined))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: response });
@@ -521,7 +520,6 @@ describe('test transit summary generation', function () {
     });
 
     test('exception in function, expect undefined', async () => {
-        const interview = _cloneDeep(baseInterview);
         // Override the implementation of registerUpdateOperationMock to throw an error
         registerUpdateOperationMock.mockImplementationOnce(() => {
             throw new Error('Error in registerUpdateOperation');
@@ -535,14 +533,12 @@ describe('test transit summary generation', function () {
     });
 
     test('Undefined person', async () => {
-        const interview = _cloneDeep(baseInterview);
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345111.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
     });
 
     test('Undefined trip', async () => {
-        const interview = _cloneDeep(baseInterview);
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t2.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
@@ -550,7 +546,6 @@ describe('test transit summary generation', function () {
 
     test('Transit data, but no scenarios specified in config', async () => {
         config.trRoutingScenarios = undefined;
-        const interview = _cloneDeep(baseInterview);
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
