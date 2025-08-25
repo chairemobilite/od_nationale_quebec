@@ -437,7 +437,7 @@ How easy or difficult was it for you to answer the questions in this survey?
 
 How burdensome (demanding) did you find this survey to be?
 
-Have you considered, at any point, to abandon the survey?
+Have you considered, at any point, abandoning the survey?
 - Yes
 - No
 - I don't know
