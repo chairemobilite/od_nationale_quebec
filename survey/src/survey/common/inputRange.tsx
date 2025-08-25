@@ -27,7 +27,7 @@ export const sliderTooShortToTooLong: Pick<
     formatLabel: (value, language) => {
         return value < 0 ? '' : `${value} ${language === 'fr' ? '%' : language === 'en' ? '%' : ''}`;
     },
-    trackClassName: 'input-slider-blue'
+    trackClassName: 'input-slider-green-yellow-red'
 };
 
 export const sliderNotAtAllToVeryInteresting: Pick<
