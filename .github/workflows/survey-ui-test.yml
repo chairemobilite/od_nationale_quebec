@@ -4,7 +4,7 @@ name: Survey UI Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 2025 ]
   # We are not running on Pull Request, since we need the Google API Key
   schedule:
     # Run daily tests to catch issues that could arise on a specific day
