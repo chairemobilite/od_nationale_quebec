@@ -149,7 +149,8 @@ Question,Établissement d'enseignement / type d'école
 Valeurs,"kindergarten (ifAge5OrLessConditional : age <= 5) : Garderie/CPE
 primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : École primaire
 secondarySchool (ifAge11OrMoreConditional : age >= 11) : École secondaire
-schoolAtHome : École à la maison
+schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : École à la maison
+atHome (ifAge5OrLessConditional : age <= 5) : À la maison
 collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / Collège / DEP / AEP
 other : Autre (spécifiez)"
 ""

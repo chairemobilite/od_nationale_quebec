@@ -91,6 +91,7 @@ School type
 - Primary school
 - Secondary school
 - School at home
+- At home
 - CEGEP / College / DEP / AEP
 - Other (specify)
 

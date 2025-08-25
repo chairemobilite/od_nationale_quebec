@@ -193,7 +193,16 @@ export const schoolType: ChoiceType[] = [
         label: {
             fr: 'École à la maison',
             en: 'School at home'
-        }
+        },
+        conditional: conditionals.ifAge4to15Conditional
+    },
+    {
+        value: 'atHome',
+        label: {
+            fr: 'À la maison',
+            en: 'At home'
+        },
+        conditional: conditionals.ifAge5OrLessConditional
     },
     {
         value: 'collegeCegepDepAep',

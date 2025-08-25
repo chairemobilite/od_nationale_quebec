@@ -91,6 +91,7 @@ Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gend
 - École primaire
 - École secondaire
 - École à la maison
+- À la maison
 - CEGEP / Collège / DEP / AEP
 - Autre (spécifiez)
 
