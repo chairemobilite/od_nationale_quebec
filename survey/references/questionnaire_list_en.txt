@@ -137,7 +137,7 @@ Subscription or pass to a carsharing service (ex. Communauto)
 - No
 - I don't know
 
-Does {{nickname}} currently have a valid transit fare, pass or ticket?
+Does {{nickname}} currently have a valid transit pass or ticket?
 - No
 - Monthly or annual pass
 - Individual tickets or rides

@@ -58,10 +58,10 @@ drivingLicenseOwnership_female: >-
 carSharingMember: >-
     Membre <strong>Autopartage</strong><br /><span class="_pale _oblique">Abonnement
     ou laissez-passer à un service d'autopartage (ex. Communauto)</span>
-transitFares: >-
+transitPasses: >-
     Est-ce que {{nickname}} détient présentement <strong>un laissez-passer ou un abonnement</strong>
     de transport en commun valide?
-transitFares_one: >-
+transitPasses_one: >-
     Détenez-vous présentement <strong>un laissez-passer ou un abonnement</strong>
     de transport en commun valide?
 workPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe?

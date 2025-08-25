@@ -211,7 +211,7 @@ Valeurs,"yes : Oui
 no : Non
 dontKnow : Je ne sais pas"
 ""
-Champ,transitFares
+Champ,transitPasses
 Type de question,Case à cocher
 Conditionnel,ifAge6OrMoreConditional : age >= 6
 Question,Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?

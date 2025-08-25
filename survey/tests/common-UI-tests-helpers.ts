@@ -467,12 +467,12 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             });
         }
 
-        // Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional with choices transitFareType
+        // Test checkbox widget personTransitPasses with conditional ifAge6OrMoreConditional with choices transitFareType
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         testHelpers.inputCheckboxTest({
             context,
-            path: `household.persons.${personIdString}.transitFares`,
+            path: `household.persons.${personIdString}.transitPasses`,
             values: person.transitFares
         });
 
