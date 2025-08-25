@@ -36,7 +36,7 @@ export type HouseholdMember = {
     educationalAttainment: string | null;
     drivingLicenseOwnership: string;
     carSharingMember: string | null;
-    transitFares: string[];
+    transitPasses: string[];
     hasDisability: string | null;
     workPlaceType: string | null;
     workPlaceTypeBeforeLeave: string | null;
@@ -84,7 +84,7 @@ const householdMembers: HouseholdMember[] = [
         educationalAttainment: 'postSecondaryNonTertiaryEducation',
         drivingLicenseOwnership: 'yes',
         carSharingMember: 'yes',
-        transitFares: ['transitPass'],
+        transitPasses: ['transitPass'],
         hasDisability: 'no',
         workPlaceType: 'hybrid',
         workPlaceTypeBeforeLeave: null,
@@ -275,7 +275,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             educationalAttainment: 'bachelorOrHigher',
             drivingLicenseOwnership: 'no',
             carSharingMember: null, // Question won't show.
-            transitFares: ['transitPass'],
+            transitPasses: ['transitPass'],
             hasDisability: 'yes',
             workPlaceType: 'hybrid',
             workPlaceTypeBeforeLeave: null,
@@ -473,7 +473,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
         testHelpers.inputCheckboxTest({
             context,
             path: `household.persons.${personIdString}.transitPasses`,
-            values: person.transitFares
+            values: person.transitPasses
         });
 
         // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
