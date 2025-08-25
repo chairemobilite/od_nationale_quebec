@@ -167,7 +167,7 @@ export const fillHomeSectionTests = ({
 
     // Test infotext widget contactInformationIntro with conditional acceptsToBeContactedForHelp
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.waitTextVisible({ context, text: 'Please enter the email or phone number to get in contact.' });
+    testHelpers.waitTextVisible({ context, text: 'Please enter the email or phone number to get in contact' });
 
     // Test string widget contactEmail with conditional acceptsToBeContactedForHelp
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -726,7 +726,7 @@ export const fillTripsintroSectionTests = ({
     // Test infotext widget tripsIntroOutro
     testHelpers.waitTextVisible({
         context,
-        text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential.'
+        text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential'
     });
 
     // Test nextbutton widget tripsIntro_save
@@ -1483,7 +1483,7 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
     testHelpers.inputRadioTest({ context, path: 'household.electricCarNumber', value: '1' });
 
     // Test range widget endDurationOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 70, sliderColor: 'blue' });
+    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 70, sliderColor: 'green-yellow-red' });
 
     // Test number widget endTimeSpentAnswering
     testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '15' });
