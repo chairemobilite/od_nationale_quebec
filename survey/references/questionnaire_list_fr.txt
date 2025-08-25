@@ -170,11 +170,11 @@ Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
 
-Durant la dernière semaine, quand {{nickname}} s'est-{{gender:il/elle/iel/"il/elle"}} déplacé{{gender:/e/·e}} pour le travail?
+Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/"il/elle"}} déplacé{{gender:/e/·e}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
 
-Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/"il/elle"}} fait du télétravail?
+Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/"il/elle"}} fait du télétravail?
 
 
 Enregistrer et continuer

@@ -82,11 +82,11 @@ usualSchoolPlace.geography_one: >-
     located, you can move the marker for greater precision.<br />You can also search
     for the place on the map using the "Search location" button.</span>
 travelToWorkDays: >-
-    During the last <strong>week</strong>, when did {{nickname}} <strong>travel</strong>
+    During the <strong>last week</strong>, when did {{nickname}} <strong>travel</strong>
     for <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for
     any other reason concerning work.</span>
 travelToWorkDays_one: >-
-    During the last <strong>week</strong>, when did you <strong>travel</strong> for
+    During the <strong>last week</strong>, when did you <strong>travel</strong> for
     <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for any
     other reason concerning work.</span>
 remoteWorkDays: >-

@@ -109,44 +109,44 @@ usualSchoolPlace.geography_one: >-
     />Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher
     le lieu").</span>
 travelToWorkDays: >-
-    Durant la dernière <strong>semaine</strong>, quand {{nickname}} s'est-il/elle
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il/elle
     <strong>déplacé·e</strong> pour le <strong>travail</strong>?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_male: >-
-    Durant la dernière <strong>semaine</strong>, quand {{nickname}} s'est-il <strong>déplacé</strong>
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il <strong>déplacé</strong>
     pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
     au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_female: >-
-    Durant la dernière <strong>semaine</strong>, quand {{nickname}} s'est-elle <strong>déplacée</strong>
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-elle <strong>déplacée</strong>
     pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
     au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_custom: >-
-    Durant la dernière <strong>semaine</strong>, quand {{nickname}} s'est-iel <strong>déplacé·e</strong>
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-iel <strong>déplacé·e</strong>
     pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
     au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_one: >-
-    Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
+    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
     pour le <strong>travail</strong>?
 travelToWorkDays_male_one: >-
-    Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacé</strong>
+    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé</strong>
     pour le <strong>travail</strong>?
 travelToWorkDays_female_one: >-
-    Durant la dernière <strong>semaine</strong>, quand vous êtes-vous <strong>déplacée</strong>
+    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacée</strong>
     pour le <strong>travail</strong>?
 remoteWorkDays: >-
-    Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-il/elle fait
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il/elle fait
     du <strong>télétravail</strong>?
 remoteWorkDays_male: >-
-    Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-il fait du
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il fait du
     <strong>télétravail</strong>?
 remoteWorkDays_female: >-
-    Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-elle fait
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-elle fait
     du <strong>télétravail</strong>?
 remoteWorkDays_custom: >-
-    Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-iel fait du
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-iel fait du
     <strong>télétravail</strong>?
 remoteWorkDays_one: >-
-    Durant la <strong>dernière semaine</strong>, quand avez-vous fait du <strong>télétravail</strong>?
+    Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
 household.save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne
