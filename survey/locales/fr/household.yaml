@@ -135,18 +135,18 @@ travelToWorkDays_female_one: >-
     pour le <strong>travail</strong>?
 remoteWorkDays: >-
     Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-il/elle fait
-    du <strong>télé-travail</strong>?
+    du <strong>télétravail</strong>?
 remoteWorkDays_male: >-
     Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-il fait du
-    <strong>télé-travail</strong>?
+    <strong>télétravail</strong>?
 remoteWorkDays_female: >-
     Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-elle fait
-    du <strong>télé-travail</strong>?
+    du <strong>télétravail</strong>?
 remoteWorkDays_custom: >-
     Durant la <strong>dernière semaine</strong>, quand {{nickname}} a-t-iel fait du
-    <strong>télé-travail</strong>?
+    <strong>télétravail</strong>?
 remoteWorkDays_one: >-
-    Durant la <strong>dernière semaine</strong>, quand avez-vous fait du <strong>télé-travail</strong>?
+    Durant la <strong>dernière semaine</strong>, quand avez-vous fait du <strong>télétravail</strong>?
 household.save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne

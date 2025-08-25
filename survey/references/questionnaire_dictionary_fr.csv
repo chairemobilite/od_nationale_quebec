@@ -275,7 +275,7 @@ Pour se rendre au travail ou toute autre raison concernant le travail."
 Champ,remoteWorkDays
 Type de question,Case à cocher
 Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
-Question,"Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/""il/elle""}} fait du télé-travail?"
+Question,"Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/""il/elle""}} fait du télétravail?"
 ""
 ""
 ""
