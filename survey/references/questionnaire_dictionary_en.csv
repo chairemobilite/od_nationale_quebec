@@ -149,7 +149,8 @@ Question,School type
 Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
 primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
 secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school
-schoolAtHome : School at home
+schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : School at home
+atHome (ifAge5OrLessConditional : age <= 5) : At home
 collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / College / DEP / AEP
 other : Other (specify)"
 ""
