@@ -9,9 +9,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 2025 ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, 2025 ]
   schedule:
     # Run daily tests to catch issues that could arise on a specific day
     # * is a special character in YAML so you have to quote this string
