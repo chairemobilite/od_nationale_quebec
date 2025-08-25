@@ -269,13 +269,13 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 Champ,travelToWorkDays
 Type de question,Case à cocher
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,"Durant la dernière semaine, quand {{nickname}} s'est-{{gender:il/elle/iel/""il/elle""}} déplacé{{gender:/e/·e}} pour le travail?
+Question,"Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/""il/elle""}} déplacé{{gender:/e/·e}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail."
 ""
 Champ,remoteWorkDays
 Type de question,Case à cocher
 Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
-Question,"Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/""il/elle""}} fait du télétravail?"
+Question,"Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/""il/elle""}} fait du télétravail?"
 ""
 ""
 ""
