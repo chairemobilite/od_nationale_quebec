@@ -185,16 +185,16 @@ export const personCarSharingMember: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personTransitFares: WidgetConfig.InputCheckboxType = {
+export const personTransitPasses: WidgetConfig.InputCheckboxType = {
     ...defaultInputBase.inputCheckboxBase,
-    path: 'transitFares',
+    path: 'transitPasses',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = activePerson?.nickname || t('survey:noNickname');
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:transitFares', {
+        return t('household:transitPasses', {
             nickname,
             count: countPersons
         });

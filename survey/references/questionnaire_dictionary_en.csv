@@ -211,10 +211,10 @@ Values,"yes : Yes
 no : No
 dontKnow : I don't know"
 ""
-Field,transitFares
+Field,transitPasses
 Question type,Checkbox input
 Conditional,ifAge6OrMoreConditional : age >= 6
-Question,"Does {{nickname}} currently have a valid transit fare, pass or ticket?"
+Question,Does {{nickname}} currently have a valid transit pass or ticket?
 Values,"no : No
 transitPass : Monthly or annual pass
 tickets : Individual tickets or rides

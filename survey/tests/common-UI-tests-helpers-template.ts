@@ -201,11 +201,11 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', value: '?' });
 
-    // Test checkbox widget personTransitFares with conditional ifAge6OrMoreConditional with choices transitFareType
+    // Test checkbox widget personTransitPasses with conditional ifAge6OrMoreConditional with choices transitFareType
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitFares', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitFares', values: ['?'] });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitPasses', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitPasses', values: ['?'] });
 
     // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

@@ -40,9 +40,9 @@ drivingLicenseOwnership: >-
 carSharingMember: >-
     <strong>Carsharing</strong> member<br /><span class="_pale _oblique">Subscription
     or pass to a carsharing service (ex. Communauto)</span>
-transitFares: >-
-    Does {{nickname}} currently have a valid transit <strong>fare, pass or ticket</strong>?
-transitFares_one: Do you currently have a valid transit <strong>fare, pass or ticket</strong>?
+transitPasses: >-
+    Does {{nickname}} currently have a valid transit <strong>pass or ticket</strong>?
+transitPasses_one: Do you currently have a valid transit <strong>pass or ticket</strong>?
 workPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
 workPlaceType_one: Do you have a fixed <strong>work location</strong>?
 workPlaceTypeBeforeLeave: >-
