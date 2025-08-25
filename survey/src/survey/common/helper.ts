@@ -387,18 +387,6 @@ export const getHouseholdVisitedAndUsualPlacesArrayAndByPersonId = function (int
     const usualPlaces: VisitedPlacesArrayByPersonId['usualPlaces'] = [];
     const usualPlacesByPersonId: VisitedPlacesArrayByPersonId['usualPlacesByPersonId'] = {};
     for (const person of persons) {
-        const personJourney = odSurveyHelper.getJourneysArray({ person })[0];
-        if (_isBlank(personJourney)) {
-            continue; // Skip persons without journeys
-        }
-        const personVisitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey: personJourney });
-        const visitedPlacesWithJourney = personVisitedPlacesArray.map((visitedPlace) => ({
-            visitedPlace,
-            journey: personJourney
-        }));
-        visitedPlaces.push(...visitedPlacesWithJourney);
-        visitedPlacesByPersonId[person._uuid] = visitedPlacesWithJourney;
-
         // Get the person's usual places
         const personUsualPlaces = [];
         usualPlacesByPersonId[person._uuid] = personUsualPlaces;
@@ -410,6 +398,19 @@ export const getHouseholdVisitedAndUsualPlacesArrayAndByPersonId = function (int
         }
         usualPlaces.push(...personUsualPlaces);
         usualPlacesByPersonId[person._uuid] = personUsualPlaces;
+
+        // Get the person's visited places
+        const personJourney = odSurveyHelper.getJourneysArray({ person })[0];
+        if (_isBlank(personJourney)) {
+            continue; // Skip persons without journeys
+        }
+        const personVisitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey: personJourney });
+        const visitedPlacesWithJourney = personVisitedPlacesArray.map((visitedPlace) => ({
+            visitedPlace,
+            journey: personJourney
+        }));
+        visitedPlaces.push(...visitedPlacesWithJourney);
+        visitedPlacesByPersonId[person._uuid] = visitedPlacesWithJourney;
     }
     return {
         visitedPlaces,
