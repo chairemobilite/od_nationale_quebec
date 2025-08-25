@@ -6,6 +6,10 @@ on:
   push:
     branches: [ main ]
   # We are not running on Pull Request, since we need the Google API Key
+  schedule:
+    # Run daily tests to catch issues that could arise on a specific day
+    # * is a special character in YAML so you have to quote this string
+    - cron: '45 7 * * *'
 
 jobs:
   build-and-test-ui:
