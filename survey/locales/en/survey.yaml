@@ -109,26 +109,137 @@ homepage:
         target="_blank">Contact us</a></p>
     start: Start
 footer: >-
-    <div style="display: flex;justify-content: center;"><div style="font-size:
-    80%;max-width: 700px;margin: 15px;"><p><a
-    href="/dist/documents/od_nationale_saguenay_2025_consent_poly_en.pdf"
-    target="_blank">Consent Information</a> | <a
-    href="mailto:EOD@transports.gouv.qc.ca?subject=Origin-Destination%20Survey"
-    target="_blank">Contact us by email</a></p></div></div>
-    <details class="faq-container"><summary class="faq-title">Frequently Asked Questions
-    (FAQ)</summary><details><summary class="_h2">What is an Origin-Destination (OD) Survey?</summary><h3>Planning
-    for Tomorrow's Transport</h3><p>A large-scale survey aimed at collecting precise and factual information about the travel patterns of residents in the surveyed territory.</p><h3>Collecting Information</h3><p>This information is an essential resource for public organizations seeking to improve and develop current and future infrastructure and transport.</p><h3>Participation</h3><p>Household participation is fundamental to the success of this survey. The data collected will allow for the comparison and analysis of mobility trends over the years.</p></details><details><summary
-    class="_h2">Who is conducting the survey?</summary><p>The survey is conducted by the Ministère des Transports et de la Mobilité durable (MTMD) and its partners.</p></details><details><summary
-    class="_h2">How is the survey conducted?</summary><p>Households will receive an invitation in the mail to complete the online questionnaire.</p></details><details><summary
-    class="_h2">Why is the survey taking place in the fall?</summary><p>Travel habits are generally more stable in the fall or spring. For a survey of this scale, the fall period is long enough to achieve the desired number of interviews.</p></details><details><summary
-    class="_h2">Why does the survey span several weeks?</summary><p>The survey duration needs to be long enough to meet sampling objectives. This ensures that the diversity of daily travel patterns in the survey area is accurately represented. To maintain representativeness, days affected by certain events, such as public holidays, general elections, or public service strikes, are excluded.</p></details><details><summary class="_h2">Is the survey representative of reality?</summary><p>To ensure result representativeness, the survey area is divided into sectors, each with its own questionnaire completion goal. The resulting profile will be statistically representative of the behaviours of all households in the area.</p></details><details><summary class="_h2">Can everyone participate in the survey?</summary><p>To ensure the representativeness of the survey results, only households that are directly invited can participate.</p></details><details><summary class="_h2">What is the participant selection process?</summary><p>The only selection criterion for households is geographic. Households are randomly selected from the Adresses Québec and DGEQ (Directeur général des élections) lists.</p></details><details><summary class="_h2">Is participation in the survey mandatory?</summary><p>Invited households participate on a voluntary basis. A high response rate will ensure the success of the OD survey, an important tool to facilitate the planning of infrastructure and mobility services in the area.</p></details><details><summary
-    class="_h2">Is the information disclosed by residents confidential and protected?</summary><p>The confidentiality and protection of the information collected are ensured by highly restricted and secure access to the databases. Security certificates are installed on the server, and data transmitted is encrypted at each stage.</p><p>No personal information, such as phone numbers, will be kept in the final database. The collected data is analyzed then published in aggregated form (grouped data). It will be used solely for mobility analysis for transport and land use planning within public agencies and organizations. Any public disclosure of survey data is subject to the Act respecting Access to documents held by public bodies and the Protection of personal information.</p><p>Additionally, survey personnel are bound by professional secrecy. Firms contracted to collect data have signed confidentiality agreements regarding any personal and identifying information they access. These firms will lose access to the databases once their mandate is completed.</p></details><details><summary
-    class="_h2">Does the survey favour one mode of transportation over another?</summary><p>No, the survey aims to understand all travel habits of residents. The data will be used to identify transport needs, regardless of the mode of transportation used. There is no bias towards any particular mode of transportation, nor any value judgment. The goal is to obtain a profile that closely resembles the observed behaviours.</p></details><h2
-    style="margin-top: 2rem;">2025 Origin-Destination Surveys</h2><details><summary
-    class="_h2">How does data collection work?</summary><p>Information about each household will be collected through an online questionnaire. The administration of the online questionnaires will be managed via the Evolution platform, under an agreement with the École Polytechnique de Montréal.</p></details><details><summary
-    class="_h2">What is asked of participating households?</summary><p>The survey questions focus on three aspects:</p><ul><li>Household profile: location, number of people, number of available vehicles, income category, housing status, presence of individuals with mobility limitations due to permanent disability;</li><li>Profile of each household member: age, gender, whether they have a driver's licence, whether they have a public transit pass, whether they subscribe to a car-sharing service, occupation, where they work/study, remote work/study habits;</li><li>Travel profile of each household member (i.e., information about each trip made on the day prior to opening the questionnaire): purpose, departure time, origin and destination, modes of transportation used, and if applicable, public transit lines used, where they changed modes of transportation, and workplace parking.</li></ul></details><details><summary
-    class="_h2">In the questionnaire, I need to report my travel for a specific day, but this day is not representative of my daily travel.</summary><p>The goal of the survey is to understand the travel practices of the entire community during an average weekday. It is normal and statistically acceptable to have a subset of respondents whose travel on the surveyed day may be more or less representative of their usual travel. It is important to describe what you actually did.</p></details><details><summary class="_h2">I received an invitation in the mail to complete the online questionnaire. Can I get assistance?</summary><p>Yes, assistance is available. Residents invited to participate in the online survey can contact us by email at <a href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</p></details><details><summary
-    class="_h2">Why are you asking for so many details?</summary><p>The goal is to get an accurate description of the trips made. To do this, knowing the locations of origin and destination is necessary. The more precise the location, the more detailed the analysis can be. Details of each individual trip is needed to understand certain phenomena, such as which mode of transportation is chosen for a trip. However, all results are presented in aggregated data form.</p></details></details>'
+    <div style="display: flex;justify-content: center;">
+        <div style="font-size:
+        80%;max-width: 700px;margin: 15px;">
+            <p><a href="/dist/documents/od_nationale_saguenay_2025_consent_poly_en.pdf" target="_blank">Consent
+                    Information</a> | <a href="mailto:EOD@transports.gouv.qc.ca?subject=Origin-Destination%20Survey"
+                    target="_blank">Contact us by email</a></p>
+        </div>
+    </div>
+    <details class="faq-container">
+        <summary class="faq-title ornament_bottom">Frequently Asked Questions
+            (FAQ)</summary>
+        <details>
+            <summary class="_h2">What is an Origin-Destination (OD) Survey?</summary>
+            <h3>Planning
+                for Tomorrow's Transport</h3>
+            <p>A large-scale survey aimed at collecting precise and factual information about the travel patterns of
+                residents in the surveyed territory.</p>
+            <h3>Collecting Information</h3>
+            <p>This information is an essential resource for public organizations seeking to improve and develop current and
+                future infrastructure and transport.</p>
+            <h3>Participation</h3>
+            <p>Household participation is fundamental to the success of this survey. The data collected will allow for the
+                comparison and analysis of mobility trends over the years.</p>
+        </details>
+        <details>
+            <summary class="_h2">Who is conducting the survey?</summary>
+            <p>The survey is conducted by the Ministère des Transports et de la Mobilité durable (MTMD) and its partners.
+            </p>
+        </details>
+        <details>
+            <summary class="_h2">How is the survey conducted?</summary>
+            <p>Households will receive an invitation in the mail to complete the online questionnaire.</p>
+        </details>
+        <details>
+            <summary class="_h2">Why is the survey taking place in the fall?</summary>
+            <p>Travel habits are generally more stable in the fall or spring. For a survey of this scale, the fall period is
+                long enough to achieve the desired number of interviews.</p>
+        </details>
+        <details>
+            <summary class="_h2">Why does the survey span several weeks?</summary>
+            <p>The survey duration needs to be long enough to meet sampling objectives. This ensures that the diversity of
+                daily travel patterns in the survey area is accurately represented. To maintain representativeness, days
+                affected by certain events, such as public holidays, general elections, or public service strikes, are
+                excluded.</p>
+        </details>
+        <details>
+            <summary class="_h2">Is the survey representative of reality?</summary>
+            <p>To ensure result representativeness, the survey area is divided into sectors, each with its own questionnaire
+                completion goal. The resulting profile will be statistically representative of the behaviours of all
+                households in the area.</p>
+        </details>
+        <details>
+            <summary class="_h2">Can everyone participate in the survey?</summary>
+            <p>To ensure the representativeness of the survey results, only households that are directly invited can
+                participate.</p>
+        </details>
+        <details>
+            <summary class="_h2">What is the participant selection process?</summary>
+            <p>The only selection criterion for households is geographic. Households are randomly selected from the Adresses
+                Québec and DGEQ (Directeur général des élections) lists.</p>
+        </details>
+        <details>
+            <summary class="_h2">Is participation in the survey mandatory?</summary>
+            <p>Invited households participate on a voluntary basis. A high response rate will ensure the success of the OD
+                survey, an important tool to facilitate the planning of infrastructure and mobility services in the area.
+            </p>
+        </details>
+        <details>
+            <summary class="_h2">Is the information disclosed by residents confidential and protected?</summary>
+            <p>The confidentiality and protection of the information collected are ensured by highly restricted and secure
+                access to the databases. Security certificates are installed on the server, and data transmitted is
+                encrypted at each stage.</p>
+            <p>No personal information, such as phone numbers, will be kept in the final database. The collected data is
+                analyzed then published in aggregated form (grouped data). It will be used solely for mobility analysis for
+                transport and land use planning within public agencies and organizations. Any public disclosure of survey
+                data is subject to the Act respecting Access to documents held by public bodies and the Protection of
+                personal information.</p>
+            <p>Additionally, survey personnel are bound by professional secrecy. Firms contracted to collect data have
+                signed confidentiality agreements regarding any personal and identifying information they access. These
+                firms will lose access to the databases once their mandate is completed.</p>
+        </details>
+        <details>
+            <summary class="_h2">Does the survey favour one mode of transportation over another?</summary>
+            <p>No, the survey aims to understand all travel habits of residents. The data will be used to identify transport
+                needs, regardless of the mode of transportation used. There is no bias towards any particular mode of
+                transportation, nor any value judgment. The goal is to obtain a profile that closely resembles the observed
+                behaviours.</p>
+        </details>
+        <details>
+            <summary class="_h2">How does data collection work?</summary>
+            <p>Information about each household will be collected through an online questionnaire. The administration of the
+                online questionnaires will be managed via the Evolution platform, under an agreement with the École
+                Polytechnique de Montréal.</p>
+        </details>
+        <details>
+            <summary class="_h2">What is asked of participating households?</summary>
+            <p>The survey questions focus on three aspects:</p>
+            <ul>
+                <li>Household profile: location, number of people, number of available vehicles, income category, housing
+                    status, presence of individuals with mobility limitations due to permanent disability;</li>
+                <li>Profile of each household member: age, gender, whether they have a driver's licence, whether they have a
+                    public transit pass, whether they subscribe to a car-sharing service, occupation, where they work/study,
+                    remote work/study habits;</li>
+                <li>Travel profile of each household member (i.e., information about each trip made on the day prior to
+                    opening the questionnaire): purpose, departure time, origin and destination, modes of transportation
+                    used, and if applicable, public transit lines used, where they changed modes of transportation, and
+                    workplace parking.</li>
+            </ul>
+        </details>
+        <details>
+            <summary class="_h2">In the questionnaire, I need to report my travel for a specific day, but this day is not
+                representative of my daily travel.</summary>
+            <p>The goal of the survey is to understand the travel practices of the entire community during an average
+                weekday. It is normal and statistically acceptable to have a subset of respondents whose travel on the
+                surveyed day may be more or less representative of their usual travel. It is important to describe what you
+                actually did.</p>
+        </details>
+        <details>
+            <summary class="_h2">I received an invitation in the mail to complete the online questionnaire. Can I get
+                assistance?</summary>
+            <p>Yes, assistance is available. Residents invited to participate in the online survey can contact us by email
+                at <a href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</p>
+        </details>
+        <details>
+            <summary class="_h2">Why are you asking for so many details?</summary>
+            <p>The goal is to get an accurate description of the trips made. To do this, knowing the locations of origin and
+                destination is necessary. The more precise the location, the more detailed the analysis can be. Details of
+                each individual trip is needed to understand certain phenomena, such as which mode of transportation is
+                chosen for a trip. However, all results are presented in aggregated data form.</p>
+        </details>
+    </details>
 auth:
     EmailSubLabel: >-
         <br /><span class="_pale _oblique">In case of disconnection, you can

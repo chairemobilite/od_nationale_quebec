@@ -344,3 +344,15 @@ details summary {
 .survey-visited-place-item-icon-container  {
     margin: 0.1rem 0.5rem;
 }
+
+.faq-container {
+    h3 {
+       text-align: left !important;
+    }
+
+    h3::after {
+        content: none !important;
+        background: none !important;
+        height: 0 !important;
+    }
+}
