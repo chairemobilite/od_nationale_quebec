@@ -764,12 +764,11 @@ export const visitedPlaceShortcut: WidgetConfig.InputSelectType = {
             const choices = [];
             for (let i = 0, count = shortcuts.length; i < count; i++) {
                 const shortcut = shortcuts[i];
-                const shortcutStr = `${shortcut.personNickname ? shortcut.personNickname + ' • ' : ''}${shortcut.description}`;
                 choices.push({
                     value: shortcut.visitedPlaceId,
                     label: {
-                        fr: shortcutStr,
-                        en: shortcutStr
+                        fr: shortcut.description,
+                        en: shortcut.description
                     }
                 });
             }
