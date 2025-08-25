@@ -174,7 +174,7 @@ Durant la dernière semaine, quand {{nickname}} s'est-{{gender:il/elle/iel/"il/e
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
 
-Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/"il/elle"}} fait du télé-travail?
+Durant la dernière semaine, quand {{nickname}} a-t-{{gender:il/elle/iel/"il/elle"}} fait du télétravail?
 
 
 Enregistrer et continuer
