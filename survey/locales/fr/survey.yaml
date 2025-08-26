@@ -340,7 +340,7 @@ visitedPlace:
         fetchSomeone: Aller chercher quelqu'un
         home: Domicile
         leisureArtsMusicCulture: Arts, musique ou culture
-        leisureSports: Parc, sports, entraînement (destination fixe)
+        leisureSports: Parc, sports, gym, entraînement (destination fixe)
         leisureStroll: >-
             Promenade sans destination fixe (ex: aller courir/jogging, aller
             promener le chien, etc.)
