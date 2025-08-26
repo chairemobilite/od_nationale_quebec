@@ -2,7 +2,7 @@
 import moment from 'moment-business-days';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { ObjectReadableMock } from 'stream-mock';
-import updateCallbacks, { updateAssignedDayRates } from '../serverFieldUpdate';
+import updateCallbacks, * as serverFieldUpdateFct from '../serverFieldUpdate';
 import _cloneDeep from 'lodash/cloneDeep';
 import each from 'jest-each';
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
@@ -52,6 +52,7 @@ const baseInterview: InterviewAttributes = {
                         j1: {
                             _sequence: 1,
                             _uuid: 'j1',
+                            personDidTrips: 'yes',
                             visitedPlaces: {
                                 p1: {
                                     geography: { type: 'Feature', geometry: { type: 'Point', coordinates: [-73.1, 45.1] }, properties: { lastAction: 'shortcut' }},
@@ -257,7 +258,7 @@ describe('test survey day assignation', function () {
         getInterviewStreamMock.mockReturnValue(new ObjectReadableMock(interviews) as any);
 
         // Update the assigned day rates
-        await updateAssignedDayRates();
+        await serverFieldUpdateFct.updateAssignedDayRates();
 
         // Validate call to get assigned day rates, the filter should be with a completed at data, for completed and not invalid interviews
         expect(getInterviewStreamMock).toHaveBeenCalledTimes(1);
@@ -299,7 +300,7 @@ describe('test survey day assignation', function () {
         getInterviewStreamMock.mockReturnValue(new ObjectReadableMock(interviews) as any);
 
         // Update the assigned day rates
-        await updateAssignedDayRates();
+        await serverFieldUpdateFct.updateAssignedDayRates();
 
         randomMock.mockReturnValue(3);
 
@@ -552,3 +553,102 @@ describe('test transit summary generation', function () {
     });
 
 });
+
+describe('Update trip date when interview paused', () => {
+    const updateCallback = (updateCallbacks.find((callback) => callback.field === '_sections._actions') as any).callback;
+    let interview = _cloneDeep(baseInterview);
+
+    // Spy on the calculateAssignedDayFromPreviousDay function
+    let mockedCalculateAssignedDay: jest.SpyInstance;
+
+    // Reset the spy after tests
+    afterEach(() => {
+        mockedCalculateAssignedDay!.mockRestore();
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        interview = _cloneDeep(baseInterview);
+        mockedCalculateAssignedDay = jest.spyOn(
+            serverFieldUpdateFct, 
+            'calculateAssignedDayFromPreviousDay'
+        ).mockImplementation((previousDay: string) => {console.log('in mock'); return previousDay});
+    });
+
+    const getFormattedAssignedDay = (daysAgo: number) => {
+        const date = new Date();
+        date.setDate(date.getDate() - daysAgo);
+        return date.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+    }
+
+    const removeTripsFromInterview = (interview) => {
+        Object.keys((interview.response.household as any).persons).forEach(personId => {
+            interview.response.household.persons[personId].journeys = undefined;
+        });
+    }
+
+    test('Undefined updated field, _assignedDay more than 5 days ago, no trips => should update', async () => {
+        interview.updated_at = undefined;
+        interview.response._assignedDay = getFormattedAssignedDay(5);
+        removeTripsFromInterview(interview);
+        const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({ '_assignedDay': yesterday });
+        expect(mockedCalculateAssignedDay).toHaveBeenCalledWith(yesterday);
+    });
+
+    test('Undefined updated field, _assignedDay more than 5 days ago, with trips => no update', async () => {
+        interview.updated_at = undefined;
+        interview.response._assignedDay = getFormattedAssignedDay(5);
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({  });
+    });
+
+    test('Undefined updated field, _assignedDay less than 5 days ago => no update', async () => {
+        interview.updated_at = undefined;
+        interview.response._assignedDay = getFormattedAssignedDay(2);
+        removeTripsFromInterview(interview)
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({  });
+    });
+
+    test('Updated_at < 12 hours ago, _assignedDay more than 5 days ago, no trips => no update', async () => {
+        interview.updated_at = moment().subtract(5, 'minutes').format();
+        interview.response._assignedDay = getFormattedAssignedDay(10);
+        removeTripsFromInterview(interview);
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({});
+    });
+
+    test('Updated_at > 12 hours ago, _assignedDay less than 5 days ago => no update', async () => {
+        interview.updated_at = moment().subtract(15, 'hours').format();
+        interview.response._assignedDay = getFormattedAssignedDay(2);
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({ });
+    });
+
+    test('Updated_at > 12 hours ago, _assignedDay more than 5 days ago, no trips => should update', async () => {
+        interview.updated_at = moment().subtract(15, 'hours').format();
+        interview.response._assignedDay = getFormattedAssignedDay(5);
+        removeTripsFromInterview(interview);
+        const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({ '_assignedDay': yesterday });
+        expect(mockedCalculateAssignedDay).toHaveBeenCalledWith(yesterday);
+    });
+
+    test('Updated_at > 12 hours ago, _assignedDay more than 5 days ago, with trips => no update', async () => {
+        interview.updated_at = moment().subtract(15, 'hours').format();
+        interview.response._assignedDay = getFormattedAssignedDay(5);
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({ });
+    });
+
+    test('Updated_at > 12 hours ago, _assignedDay not set, no trips => no update', async () => {
+        interview.updated_at = moment().subtract(15, 'hours').format();
+        interview.response._assignedDay = undefined;
+        removeTripsFromInterview(interview);
+        expect(await updateCallback(interview, [], '_sections._actions'))
+            .toEqual({ });
+    });
+})
