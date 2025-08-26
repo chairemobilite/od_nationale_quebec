@@ -661,23 +661,23 @@ Question type,RadioNumber
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are electric vehicles?"
 ""
-Field,durationOfSurvey
-Question type,Range input
-Question,"Do you feel that the length of the survey was too short, about right, or too long?"
-Values,"0 : Too short
-50 : Just right
-100 : Too long"
-""
-Field,timeSpentAnswering
-Question type,Number input
-Question,How much time do you think you spent answering this survey (in minutes)?
-""
 Field,interestOfTheSurvey
 Question type,Range input
 Question,How interesting was this survey to you?
 Values,"0 : Not at all
 50 : Neutral
 100 : Very interesting"
+""
+Field,timeSpentAnswering
+Question type,Number input
+Question,How much time do you think you spent answering this survey (in minutes)?
+""
+Field,durationOfSurvey
+Question type,Range input
+Question,"Do you feel that the length of the survey was too short, about right, or too long?"
+Values,"0 : Too short
+50 : Just right
+100 : Too long"
 ""
 Field,difficultyOfTheSurvey
 Question type,Range input

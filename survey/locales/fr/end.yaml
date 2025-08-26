@@ -25,15 +25,15 @@ household.hybridCarNumber: >-
 household.electricCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
     électriques</strong>?
-durationOfSurvey: >-
-    Pensez-vous que la <strong>durée de l'enquête était trop courte, correcte ou trop
-    longue</strong>?
-timeSpentAnswering: >-
-    Combien de <strong>temps</strong> pensez-vous avoir passé <strong>à répondre</strong>
-    à cette enquête (<strong>en minutes</strong>)?
 interestOfTheSurvey: >-
     Dans quelle mesure cette enquête a-t-elle été <strong>intéressante</strong> pour
     vous?
+timeSpentAnswering: >-
+    Combien de <strong>temps</strong> pensez-vous avoir passé <strong>à répondre</strong>
+    à cette enquête (<strong>en minutes</strong>)?
+durationOfSurvey: >-
+    Pensez-vous que la <strong>durée de l'enquête était trop courte, correcte ou trop
+    longue</strong>?
 difficultyOfTheSurvey: >-
     Dans quelle mesure vous a-t-il été <strong>facile</strong> ou <strong>difficile</strong>
     de répondre aux questions de cette enquête?

@@ -427,11 +427,11 @@ Among the vehicles owned by your household, how many are plug-in hybrid vehicles
 
 Among the vehicles owned by your household, how many are electric vehicles?
 
-Do you feel that the length of the survey was too short, about right, or too long?
+How interesting was this survey to you?
 
 How much time do you think you spent answering this survey (in minutes)?
 
-How interesting was this survey to you?
+Do you feel that the length of the survey was too short, about right, or too long?
 
 How easy or difficult was it for you to answer the questions in this survey?
 

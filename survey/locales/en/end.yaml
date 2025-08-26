@@ -24,13 +24,13 @@ household.hybridCarNumber: >-
     vehicles</strong>?
 household.electricCarNumber: >-
     Among the vehicles owned by your household, how many are <strong>electric vehicles</strong>?
-durationOfSurvey: >-
-    Do you feel that the <strong>length of the survey was too short, about right,
-    or too long</strong>?
+interestOfTheSurvey: How <strong>interesting</strong> was this survey to you?
 timeSpentAnswering: >-
     How much <strong>time</strong> do you think you <strong>spent answering</strong>
     this survey (<strong>in minutes</strong>)?
-interestOfTheSurvey: How <strong>interesting</strong> was this survey to you?
+durationOfSurvey: >-
+    Do you feel that the <strong>length of the survey was too short, about right,
+    or too long</strong>?
 difficultyOfTheSurvey: >-
     How <strong>easy</strong> or <strong>difficult</strong> was it for you to answer
     the questions in this survey?

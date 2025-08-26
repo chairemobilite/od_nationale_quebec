@@ -663,23 +663,23 @@ Type de question,RadioNumber
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?"
 ""
-Champ,durationOfSurvey
-Type de question,Curseur de plage
-Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?"
-Valeurs,"0 : Trop court
-50 : Juste comme il faut
-100 : Trop long"
-""
-Champ,timeSpentAnswering
-Type de question,Champ numérique
-Question,Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
-""
 Champ,interestOfTheSurvey
 Type de question,Curseur de plage
 Question,Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
 Valeurs,"0 : Pas du tout
 50 : Neutre
 100 : Très intéressante"
+""
+Champ,timeSpentAnswering
+Type de question,Champ numérique
+Question,Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+""
+Champ,durationOfSurvey
+Type de question,Curseur de plage
+Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?"
+Valeurs,"0 : Trop court
+50 : Juste comme il faut
+100 : Trop long"
 ""
 Champ,difficultyOfTheSurvey
 Type de question,Curseur de plage

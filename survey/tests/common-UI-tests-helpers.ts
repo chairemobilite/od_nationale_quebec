@@ -1482,14 +1482,14 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputRadioTest({ context, path: 'household.electricCarNumber', value: '1' });
 
-    // Test range widget endDurationOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 70, sliderColor: 'green-yellow-red' });
+    // Test range widget endInterestOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 75, sliderColor: 'red-yellow-green' });
 
     // Test number widget endTimeSpentAnswering
     testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '15' });
 
-    // Test range widget endInterestOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 75, sliderColor: 'red-yellow-green' });
+    // Test range widget endDurationOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 70, sliderColor: 'green-yellow-red' });
 
     // Test range widget endDifficultyOfTheSurvey
     testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 40, sliderColor: 'green-yellow-red' });

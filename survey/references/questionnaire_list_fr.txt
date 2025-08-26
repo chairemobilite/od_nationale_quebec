@@ -429,11 +429,11 @@ Parmi les véhicules possédés par votre ménage, combien sont des véhicules h
 
 Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
 
-Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
 
 Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
 
-Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
 
 Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
 
