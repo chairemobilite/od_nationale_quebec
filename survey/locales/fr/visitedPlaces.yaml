@@ -30,7 +30,7 @@ onTheRoadDepartureType: >-
 onTheRoadDepartureType_one: Quel endroit était le point de départ de vos déplacements
     sur la route?
 onTheRoadArrivalType: >-
-    À quel endroit {{nickname}} a-t-il(elle) terminé ses déplacements sur la route?
+    À quel endroit {{nickname}} a-t-il(-elle) terminé ses déplacements sur la route?
 onTheRoadArrivalType_male: À quel endroit {{nickname}} a-t-il terminé ses déplacements
     sur la route?
 onTheRoadArrivalType_female: À quel endroit {{nickname}} a-t-elle terminé ses déplacements
@@ -58,7 +58,7 @@ geography: >-
     pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher
     le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.</span>
 _previousPreviousDepartureTime: >-
-    À quelle heure {{nickname}} a-t-il(elle) quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{visitedPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
 _previousPreviousDepartureTime_male: >-
     À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{visitedPlaceDescription}})
@@ -81,16 +81,16 @@ _previousPreviousDepartureTime_female_one: >-
 _previousPreviousDepartureTime_custom_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
-arrivalTime: '{{nickname}} est arrivé.e {{atPlace}} à:'
+arrivalTime: '{{nickname}} est arrivé(e) {{atPlace}} à:'
 arrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:'
 arrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:'
-arrivalTime_one: 'Vous êtes arrivé.e {{atPlace}} à:'
+arrivalTime_one: 'Vous êtes arrivé(e) {{atPlace}} à:'
 arrivalTime_male_one: 'Vous êtes arrivé {{atPlace}} à:'
 arrivalTime_female_one: 'Vous êtes arrivée {{atPlace}} à:'
 nextPlaceCategory: >-
     Après avoir été {{atPlace}}, {{nickname}} est…<br /><span class="_pale _oblique">Si
     {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer
-    pour l'enquête qu'il/elle y est resté.e jusqu'au lendemain et de sélectionner
+    pour l'enquête qu'il(-elle) y est resté(e) jusqu'au lendemain et de sélectionner
     la réponse adaptée.</span>
 nextPlaceCategory_male: >-
     Après avoir été {{atPlace}}, {{nickname}} est…<br /><span class="_pale _oblique">Si
@@ -105,12 +105,12 @@ nextPlaceCategory_female: >-
 nextPlaceCategory_custom: >-
     Après avoir été {{atPlace}}, {{nickname}} est…<br /><span class="_pale _oblique">Si
     {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer
-    pour l'enquête qu'iel y est resté.e jusqu'au lendemain et de sélectionner la réponse
-    adaptée.</span>
+    pour l'enquête qu'iel y est resté(e) jusqu'au lendemain et de sélectionner la
+    réponse adaptée.</span>
 nextPlaceCategory_one: >-
     Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si vous
     avez quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
-    que vous y êtes resté.e jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
+    que vous y êtes resté(e) jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
 nextPlaceCategory_male_one: >-
     Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si vous
     avez quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
@@ -122,7 +122,7 @@ nextPlaceCategory_female_one: >-
 nextPlaceCategory_custom_one: >-
     Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si vous
     avez quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
-    que vous y êtes resté.e jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
+    que vous y êtes resté(e) jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
 departureTime: '{{nickname}} a quitté {{place}} à:'
 departureTime_one: 'Vous avez quitté {{place}} à:'
 visitedPlacesSave: Confirmer

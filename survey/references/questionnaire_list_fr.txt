@@ -75,8 +75,8 @@ Je préfère donner le genre
 - Cette personne s'identifie comme:
 - Je préfère ne pas répondre
 
-Travaill{{gender:eur/euse/eur(euse)/eur(euse)}}
-Incluant travaill{{gender:eur/euse/eur(euse)/eur(euse)}} autonome, artiste, travaill{{gender:eur/euse/eur(euse)/eur(euse)}} en congé de maladie ou parental.
+Travaill{{gender:eur/euse/eur(-se)/eur(-se)}}
+Incluant travaill{{gender:eur/euse/eur(-se)/eur(-se)}} autonome, artiste, travaill{{gender:eur/euse/eur(-se)/eur(-se)}} en congé de maladie ou parental.
 - Oui, à temps plein (30h et plus/semaine)
 - Oui, à temps partiel (moins de 30h/semaine)
 - Non
@@ -126,7 +126,7 @@ En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus 
 - Je préfère ne pas répondre
 
 Permis de conduire
-Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(rice)/eur(rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
 - Oui
 - Non
 - Je ne sais pas
@@ -170,11 +170,11 @@ Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
 
-Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
+Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
 
-Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(elle)}} fait du télétravail?
+Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du télétravail?
 
 
 Enregistrer et continuer
@@ -245,7 +245,7 @@ Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
-À quel endroit {{nickname}} a-t-{{gender :il/elle/iel/il(elle)}} terminé ses déplacements sur la route?
+À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
 
 
 Avez-vous déjà localisé ce lieu?
@@ -258,12 +258,12 @@ Veuillez choisir le lieu dans la liste des lieux déjà localisés:
 Veuillez positionner le lieu sur la carte
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.
 
-À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 
-{{nickname}} est arriv{{gender :é/ée/é.e}} {{atPlace}} à:
+{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
 
 Après avoir été {{atPlace}}, {{nickname}} est…
-Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/"il/elle"}} y est rest{{gender :é/ée/é.e}} jusqu'au lendemain et de sélectionner la réponse adaptée.
+Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.
 
 {{nickname}} a quitté {{place}} à:
 
@@ -285,7 +285,7 @@ Veuillez indiquer tous les modes de transport utilisés pour effectuer ce dépla
 
 Mode de transport
 
-Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u.e}} à l'arrêt/station de transport collectif?
+Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
 Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.
 
 Stationnement payant?

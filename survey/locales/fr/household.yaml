@@ -22,9 +22,8 @@ sexAssignedAtBirth: >-
     à la naissance ou inscrit dans les documents légaux.</span>
 gender: Je préfère donner le <strong>genre</strong>
 workerType: >-
-    <strong>Travailleur(euse)</strong><br /><span class="_pale _oblique">Incluant
-    travailleur(euse) autonome, artiste, travailleur(euse) en congé de maladie ou
-    parental.</span>
+    <strong>Travailleur(-se)</strong><br /><span class="_pale _oblique">Incluant travailleur(-se)
+    autonome, artiste, travailleur(-se) en congé de maladie ou parental.</span>
 workerType_male: >-
     <strong>Travailleur</strong><br /><span class="_pale _oblique">Incluant travailleur
     autonome, artiste, travailleur en congé de maladie ou parental.</span>
@@ -46,7 +45,7 @@ educationalAttainment: >-
     votre parcours.</span>
 drivingLicenseOwnership: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
-    les permis d’apprenti conducteur(rice) et probatoires, mais ne pas inclure les
+    les permis d’apprenti conducteur(-rice) et probatoires, mais ne pas inclure les
     permis de cyclomoteur/scooter.</span>
 drivingLicenseOwnership_male: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
@@ -110,7 +109,7 @@ usualSchoolPlace.geography_one: >-
     />Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher
     le lieu").</span>
 travelToWorkDays: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il(elle)
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il(-elle)
     <strong>déplacé(e)</strong> pour le <strong>travail</strong>?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_male: >-
@@ -138,8 +137,8 @@ travelToWorkDays_custom_one: >-
     Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé(e)</strong>
     pour le <strong>travail</strong>?
 remoteWorkDays: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il(elle) fait
-    du <strong>télétravail</strong>?
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il(-elle)
+    fait du <strong>télétravail</strong>?
 remoteWorkDays_male: >-
     Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il fait du
     <strong>télétravail</strong>?
