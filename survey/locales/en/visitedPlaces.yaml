@@ -17,12 +17,14 @@ visitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
 onTheRoadDepartureType: What was the departure place of {{nickname}}’s work trip on
     the road?
 onTheRoadDepartureType_one: Where did you start your work trip on the road?
-onTheRoadArrivalType: Where did {{nickname}} end their work trip on the road?
+onTheRoadArrivalType: Where did {{nickname}} end his (her) work trip on the road?
 onTheRoadArrivalType_male: Where did {{nickname}} end his work trip on the road?
 onTheRoadArrivalType_female: Where did {{nickname}} end her work trip on the road?
+onTheRoadArrivalType_custom: Where did {{nickname}} end their work trip on the road?
 onTheRoadArrivalType_one: Where did you end your work trip on the road activity?
 onTheRoadArrivalType_male_one: Where did you end your work trip on the road activity?
 onTheRoadArrivalType_female_one: Where did you end your work trip on the road activity?
+onTheRoadArrivalType_custom_one: Where did you end your work trip on the road activity?
 alreadyVisitedBySelfOrAnotherHouseholdMember: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     {{nickname}}'s travel diary or that of another household member.</span>
@@ -37,13 +39,16 @@ geography: >-
     its name or address with the button below.</span>
 _previousPreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
-    before going to their usual work place?
+    before going to his (her) usual work place?
 _previousPreviousDepartureTime_male: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to his usual work place?
 _previousPreviousDepartureTime_female: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to her usual work place?
+_previousPreviousDepartureTime_custom: >-
+    At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
+    before going to their usual work place?
 _previousPreviousDepartureTime_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
@@ -51,6 +56,9 @@ _previousPreviousDepartureTime_male_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
 _previousPreviousDepartureTime_female_one: >-
+    At what time did you leave the previous location ({{visitedPlaceDescription}})
+    before going to your usual work place?
+_previousPreviousDepartureTime_custom_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
 arrivalTime: '{{nickname}} arrived {{atPlace}} at:'

@@ -75,13 +75,13 @@ Je préfère donner le genre
 - Cette personne s'identifie comme:
 - Je préfère ne pas répondre
 
-Travaill{{gender:eur/euse/eur·euse}}
-Incluant travaill{{gender:eur/euse/eur·euse}} autonome, artiste, travaill{{gender:eur/euse/eur·euse}} en congé de maladie ou parental.
+Travaill{{gender:eur/euse/eur(euse)/eur(euse)}}
+Incluant travaill{{gender:eur/euse/eur(euse)/eur(euse)}} autonome, artiste, travaill{{gender:eur/euse/eur(euse)/eur(euse)}} en congé de maladie ou parental.
 - Oui, à temps plein (30h et plus/semaine)
 - Oui, à temps partiel (moins de 30h/semaine)
 - Non
 
-Étudiant{{gender:/e/·e}}
+Étudiant{{gender:/e/(e)/(e)}}
 - Oui, à temps plein
 - Oui, à temps partiel
 - Non
@@ -126,7 +126,7 @@ En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus 
 - Je préfère ne pas répondre
 
 Permis de conduire
-Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur·rice}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(rice)/eur(rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
 - Oui
 - Non
 - Je ne sais pas
@@ -170,11 +170,11 @@ Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
 
-Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/"il/elle"}} déplacé{{gender:/e/·e}} pour le travail?
+Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
 
-Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/"il/elle"}} fait du télétravail?
+Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(elle)}} fait du télétravail?
 
 
 Enregistrer et continuer
@@ -201,19 +201,19 @@ L’ordre des personnes interviewées est aléatoire.
 
 Qui répond pour {{nickname}}?
 
-Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é.e}} le {{assignedDate}}?
+Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
 Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.
 
-Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é.e}} le {{formattedTripsDate}}?
+Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?
 
-Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
 
-<span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é.e}} chercher ou reconduire quelqu'un).
+<span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
 - Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
-<span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é.e}} reconduire ou chercher quelqu'un à cet endroit.</span>
+<span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>
 
 Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
-Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(-e)}} après 4h du matin (par ex.: travail de nuit).
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit).
 
 Où était {{nickname}} à 4h du matin?
 - Domicile de l'autre parent ou tuteur
@@ -238,14 +238,14 @@ Section: Déplacements
 
 Changer de personne
 
-Lieux où {{nickname}} est all{{gender:é/ée/é.e}} le {{assignedDate}}:
+Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{assignedDate}}:
 L'ordre chronologique doit être respecté.
 
 Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
-À quel endroit {{nickname}} a-t-{{gender :il/elle/iel/"il/elle"}} terminé ses déplacements sur la route?
+À quel endroit {{nickname}} a-t-{{gender :il/elle/iel/il(elle)}} terminé ses déplacements sur la route?
 
 
 Avez-vous déjà localisé ce lieu?
@@ -258,7 +258,7 @@ Veuillez choisir le lieu dans la liste des lieux déjà localisés:
 Veuillez positionner le lieu sur la carte
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.
 
-À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/"il/elle"}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 
 {{nickname}} est arriv{{gender :é/ée/é.e}} {{atPlace}} à:
 

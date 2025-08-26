@@ -7,7 +7,7 @@ activePersonTitle: >-
     class="_center _pale">•</p>
 buttonSwitchPerson: Changer de personne
 personVisitedPlacesTitle: >-
-    Lieux où {{nickname}} est allé.e le {{assignedDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allé(e) le {{assignedDate}}:<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_male: >-
     Lieux où {{nickname}} est allé le {{assignedDate}}:<br />L'ordre chronologique
@@ -16,7 +16,7 @@ personVisitedPlacesTitle_female: >-
     Lieux où {{nickname}} est allée le {{assignedDate}}:<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_one: >-
-    Lieux où vous êtes allé.e le {{assignedDate}}:<br />L'ordre chronologique doit
+    Lieux où vous êtes allé(e) le {{assignedDate}}:<br />L'ordre chronologique doit
     être respecté.
 personVisitedPlacesTitle_male_one: >-
     Lieux où vous êtes allé le {{assignedDate}}:<br />L'ordre chronologique doit être
@@ -30,7 +30,7 @@ onTheRoadDepartureType: >-
 onTheRoadDepartureType_one: Quel endroit était le point de départ de vos déplacements
     sur la route?
 onTheRoadArrivalType: >-
-    À quel endroit {{nickname}} a-t-il/elle terminé ses déplacements sur la route?
+    À quel endroit {{nickname}} a-t-il(elle) terminé ses déplacements sur la route?
 onTheRoadArrivalType_male: À quel endroit {{nickname}} a-t-il terminé ses déplacements
     sur la route?
 onTheRoadArrivalType_female: À quel endroit {{nickname}} a-t-elle terminé ses déplacements
@@ -58,7 +58,7 @@ geography: >-
     pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher
     le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.</span>
 _previousPreviousDepartureTime: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} a-t-il(elle) quitté le lieu précédent ({{visitedPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
 _previousPreviousDepartureTime_male: >-
     À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{visitedPlaceDescription}})
