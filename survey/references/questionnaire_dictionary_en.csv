@@ -145,7 +145,7 @@ no : No"
 Field,schoolType
 Question type,Unknown input
 Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
-Question,School type
+Question,Educational institution
 Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
 primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
 secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school

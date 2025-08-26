@@ -86,7 +86,7 @@ Incluant travaill{{gender:eur/euse/eur(euse)/eur(euse)}} autonome, artiste, trav
 - Oui, à temps partiel
 - Non
 
-Établissement d'enseignement / type d'école
+Établissement d'enseignement
 - Garderie/CPE
 - École primaire
 - École secondaire

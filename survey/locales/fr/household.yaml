@@ -34,7 +34,7 @@ workerType_female: >-
 studentType: <strong>Étudiant(e)</strong>
 studentType_male: <strong>Étudiant</strong>
 studentType_female: <strong>Étudiante</strong>
-schoolType: <strong>Établissement d'enseignement / type d'école</strong>
+schoolType: <strong>Établissement d'enseignement</strong>
 occupation: <strong>Occupation principale</strong>
 workerTypeBeforeLeave: <strong>Avant d’être en congé</strong>, est-ce que {{nickname}}
     travaillait?
@@ -178,6 +178,8 @@ popup.validateHouseholdAgesHelp: >-
     questionnaire. Veuillez vérifier les âges.
 popup.validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
     à ce questionnaire.
+schoolTypeLessThan4: <strong>Type de garde</strong>
+schoolTypeBetween4And15: <strong>Type d'école</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
     en présentiel en tout temps
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en

@@ -26,7 +26,7 @@ workerType: >-
     <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed,
     artist, on sick leave or parental leave.</span>
 studentType: <strong>Student</strong>
-schoolType: <strong>School type</strong>
+schoolType: <strong>Educational institution</strong>
 occupation: <strong>Main occupation</strong>
 workerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}} work?
 workerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work?
@@ -112,6 +112,8 @@ popup.validateHouseholdAgesHelp: >-
     to this survey. Please verify ages.
 popup.validateHouseholdAgesHelp_one: You must be at least 16 years old to respond
     to this survey.
+schoolTypeLessThan4: <strong>Childcare type</strong>
+schoolTypeBetween4And15: <strong>School type</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
     at fixed location
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Yes, I worked always on-site at fixed

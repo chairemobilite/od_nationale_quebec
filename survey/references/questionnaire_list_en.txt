@@ -86,7 +86,7 @@ Student
 - Yes, part time
 - No
 
-School type
+Educational institution
 - Kindergarten/Childcare/CPE
 - Primary school
 - Secondary school
