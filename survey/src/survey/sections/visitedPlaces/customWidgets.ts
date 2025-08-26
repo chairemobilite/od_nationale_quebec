@@ -1039,26 +1039,35 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
         ];
         return validations;
     },
+    showSearchPlaceButton: (interview, path) => {
+        // Do not show if the place is a shortcut
+        const visitedPlace: any = getResponse(interview, path, null, '../');
+        return _isBlank(visitedPlace.shortcut);
+    },
     conditional: function (interview, path) {
-        const activity: any = getResponse(interview, path, null, '../activity');
+        const visitedPlace: any = getResponse(interview, path, null, '../');
+        const activity = visitedPlace.activity;
         const person = odSurveyHelpers.getActivePerson({ interview });
-        if (
-            activity &&
-            activity === 'workUsual' &&
-            (person as any).usualWorkPlace &&
-            (person as any).usualWorkPlace.geography
-        ) {
+        if (activity === 'workUsual' && (person as any).usualWorkPlace && (person as any).usualWorkPlace.geography) {
             return [false, (person as any).usualWorkPlace.geography];
-        } else if (
-            activity &&
+        }
+        if (
             activity === 'schoolUsual' &&
             (person as any).usualSchoolPlace &&
             (person as any).usualSchoolPlace.geography
         ) {
             return [false, (person as any).usualSchoolPlace.geography];
         }
+        const visitedPlaceAlreadyVisited = getResponse(
+            interview,
+            path,
+            null,
+            '../alreadyVisitedBySelfOrAnotherHouseholdMember'
+        );
         return [
-            !_isBlank(activity) && ![...loopActivities, 'home'].includes(activity) && ![''].includes(activity),
+            !_isBlank(activity) &&
+                ![...loopActivities, 'home'].includes(activity) &&
+                !(visitedPlaceAlreadyVisited === 'yes' && _isBlank(visitedPlace.shortcut)),
             null
         ];
     }
