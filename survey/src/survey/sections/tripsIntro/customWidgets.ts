@@ -107,8 +107,8 @@ export const personDidTrips: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        const assignedDay = getResponse(interview, '_assignedDay');
-        const assignedDate = moment(assignedDay).locale(i18n.language).format('dddd LL');
+        const assignedDay = getResponse(interview, '_assignedDay') as string;
+        const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
         return t('tripsIntro:personDidTrips', {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             nickname,
