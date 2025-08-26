@@ -2,7 +2,6 @@ import _get from 'lodash/get';
 import _truncate from 'lodash/truncate';
 import _max from 'lodash/max';
 import _min from 'lodash/min';
-import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
@@ -38,13 +37,12 @@ import {
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
-// FIXME Find a way to parameterize the inaccessible zones
-import inaccessibleZones from '../../geojson/inaccessibleZones.json';
 import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { getShortcutVisitedPlaces } from '../../common/customFrontendHelper';
 import { buttonNextBase, inputTimeBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { personVisitedPlacesWidgetsNames } from './widgetsNames';
 import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
+import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
 
 const switchPersonWidgets = getSwitchPersonWidgets();
 
@@ -1016,15 +1014,7 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
                     geography.properties.zoom < 14,
                 errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotPreciseError')
             },
-            {
-                validation:
-                    geography &&
-                    turfBooleanPointInPolygon(
-                        geography,
-                        inaccessibleZones.features[0] as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
-                    ),
-                errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotAccessibleError')
-            },
+            ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path),
             {
                 validation: geography && geography.properties.isGeocodingImprecise,
                 errorMessage: {

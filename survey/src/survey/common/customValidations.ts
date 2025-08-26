@@ -1,9 +1,13 @@
+import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
 import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
 import { phoneValidation, emailValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import { TFunction } from 'i18next';
+// FIXME Find a way to parameterize the inaccessible zones
+import inaccessibleZones from '../geojson/inaccessibleZones.json';
+import quebecWaterWays from '../geojson/quebecWaterWaysSimplified.json';
 
 // Check if email or phone number is provided
 const emailOrPhoneNumberRequiredValidation = ({ contactEmail, phoneNumber }) => {
@@ -89,7 +93,8 @@ export const getGeographyCustomValidation = ({ value, interview, path }) => {
                     !_isBlank(geocodingTextInput) ? `("${geocodingTextInput}")` : ''
                 } is not specific enough.</strong> Please add more information or specify the location more precisely using the map.`
             }
-        }
+        },
+        ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path)
     ];
 };
 
@@ -165,6 +170,24 @@ export const rangeOptionalOrValidCustomValidation = (value) => {
             // Check if the value is set and less than 0
             validation: !_isBlank(value) && !(Number(value) >= 0),
             errorMessage: (t) => t('end:errors.inputRangeMustBePositiveOrZero')
+        }
+    ];
+};
+
+export const inaccessibleZoneGeographyCustomValidation: ValidationFunction = (geography) => {
+    return [
+        {
+            validation:
+                geography &&
+                (turfBooleanPointInPolygon(
+                    geography as any,
+                    inaccessibleZones.features[0] as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
+                ) ||
+                    turfBooleanPointInPolygon(
+                        geography as any,
+                        quebecWaterWays.features[0] as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
+                    )),
+            errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotAccessibleError')
         }
     ];
 };

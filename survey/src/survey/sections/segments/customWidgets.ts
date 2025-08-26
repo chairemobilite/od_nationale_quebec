@@ -39,6 +39,7 @@ import { personVisitedPlacesMap as visitedPlacesMap } from '../visitedPlaces/cus
 import { personTripsWidgetsNames, segmentsWidgetsNames } from './widgetsNames';
 import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
+import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
 
 let busRoutes = { type: 'FeatureCollection', features: [] };
 
@@ -959,7 +960,8 @@ export const tripJunctionGeography: WidgetConfig.InputMapFindPlaceType = {
                         fr: 'Cette réponse est requise.',
                         en: 'This field is required.'
                     }
-                }
+                },
+                ...inaccessibleZoneGeographyCustomValidation(value, undefined, interview, path)
             ];
         } else {
             // accept blank if proxy:

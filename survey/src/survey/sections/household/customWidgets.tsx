@@ -1,5 +1,4 @@
 import { TFunction } from 'i18next';
-import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
@@ -10,9 +9,9 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import * as conditionals from '../../common/conditionals';
 import { householdMembersWidgetsNames } from './widgetsNames';
-import inaccessibleZones from '../../geojson/inaccessibleZones.json';
 import * as customConditionals from '../../common/customConditionals';
 import * as choices from '../../common/choices';
+import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
 
 // TODO: Migrate most of these widgets in Evolution Frontend, not here.
 export const householdMembers: GroupConfig = {
@@ -140,15 +139,7 @@ export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
                     en: 'Location is not precise enough. Please use the + zoom and drag the icon marker to confirm the precise location.'
                 }
             },
-            {
-                validation:
-                    geography &&
-                    turfBooleanPointInPolygon(
-                        geography,
-                        inaccessibleZones.features[0] as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
-                    ),
-                errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotAccessibleError')
-            }
+            ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path)
         ];
     },
     conditional: conditionals.hasWorkingLocationConditional
@@ -224,15 +215,7 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
                     en: 'Location is not precise enough. Please use the + zoom and drag the icon marker to confirm the precise location.'
                 }
             },
-            {
-                validation:
-                    geography &&
-                    turfBooleanPointInPolygon(
-                        geography,
-                        inaccessibleZones.features[0] as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
-                    ),
-                errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotAccessibleError')
-            }
+            ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path)
         ];
     },
     conditional: customConditionals.personUsualSchoolPlaceNameCustomConditional
