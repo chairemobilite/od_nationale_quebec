@@ -101,6 +101,10 @@ try {
     console.error('Error at first calculation of assigned day rates: ', error);
 }
 
+// Minimal time between updates to check if the trip date was too far in the past
+const UPDATE_DELAY_FOR_TRIP_DATE_CHECK_MS = 12 * 60 * 60 * 1000; // 12 hours
+const DAYS_BEFORE_REVISING_DATE = 5;
+
 // Use the postal code validation to validate the postal code
 // FIXME We can't use the postal code validation from the widget directly here because it's in a .tsx file and the `checkValidation` function from which this functionw as copy-pasted also is in the evolution-frontend package, so we can't use it in the backend.
 const validatePostalCode = (postalCode: string, interview: InterviewAttributes): boolean => {
@@ -136,6 +140,45 @@ const getPostalCodeFromParticipant = async (interview: InterviewAttributes): Pro
     return undefined;
 };
 
+// Calculate the assigned day from the previous day, using the distribution of
+// assigned days so far to balance the assigned days. Exported for unit tests
+export const calculateAssignedDayFromPreviousDay = (previousDay: string): string => {
+    const prevDay = moment(previousDay);
+    const dow = prevDay.isoWeekday() - 1;
+    const currentDayRates = getAssignedDayRates();
+    if (currentDayRates === undefined && assignedDayTarget[dow] !== 0) {
+        return previousDay;
+    }
+    const probabilities = [];
+    // Divide target by current rate and put to the power of 3, then multiply by default probability.
+    // FIXME Fine-tune if necessary
+    for (let i = 0; i < 4; i++) {
+        const dow = !prevDay.isHoliday() ? prevDay.isoWeekday() - 1 : 6;
+        probabilities.push(
+            assignedDayTarget[dow] === 0
+                ? 0
+                : Math.max(
+                    0.01,
+                    Math.pow(
+                        assignedDayTarget[dow] /
+                              Math.max(0.005, currentDayRates === undefined ? 1 : currentDayRates[dow]),
+                        3
+                    )
+                ) *
+                      defaultProbabilityOfDaysBefore[i] *
+                      100
+        );
+        prevDay.subtract(1, 'days');
+    }
+
+    const totalProbability = probabilities.reduce((total, prob) => total + prob, 0);
+    const daysBeforePrevDay = randomFromDistribution(probabilities, undefined, totalProbability);
+    const formattedAssignedDay = (
+        daysBeforePrevDay > 0 ? moment(previousDay).subtract(daysBeforePrevDay, 'days') : moment(previousDay)
+    ).format('YYYY-MM-DD');
+    return formattedAssignedDay;
+};
+
 export default [
     {
         field: '_previousDay',
@@ -146,39 +189,7 @@ export default [
                 return {};
             }
             try {
-                const prevDay = moment(value);
-                const dow = prevDay.isoWeekday() - 1;
-                const currentDayRates = getAssignedDayRates();
-                if (currentDayRates === undefined && assignedDayTarget[dow] !== 0) {
-                    return { [assignedDayPath]: value, [originalAssignedDayPath]: value };
-                }
-                const probabilities = [];
-                // Divide target by current rate and put to the power of 3, then multiply by default probability.
-                // FIXME Fine-tune if necessary
-                for (let i = 0; i < 4; i++) {
-                    const dow = !prevDay.isHoliday() ? prevDay.isoWeekday() - 1 : 6;
-                    probabilities.push(
-                        assignedDayTarget[dow] === 0
-                            ? 0
-                            : Math.max(
-                                0.01,
-                                Math.pow(
-                                    assignedDayTarget[dow] /
-                                          Math.max(0.005, currentDayRates === undefined ? 1 : currentDayRates[dow]),
-                                    3
-                                )
-                            ) *
-                                  defaultProbabilityOfDaysBefore[i] *
-                                  100
-                    );
-                    prevDay.subtract(1, 'days');
-                }
-
-                const totalProbability = probabilities.reduce((total, prob) => total + prob, 0);
-                const daysBeforePrevDay = randomFromDistribution(probabilities, undefined, totalProbability);
-                const formattedAssignedDay = (
-                    daysBeforePrevDay > 0 ? moment(value).subtract(daysBeforePrevDay, 'days') : moment(value)
-                ).format('YYYY-MM-DD');
+                const formattedAssignedDay = calculateAssignedDayFromPreviousDay(value);
                 return {
                     [assignedDayPath]: formattedAssignedDay,
                     [originalAssignedDayPath]: formattedAssignedDay
@@ -233,6 +244,69 @@ export default [
                 return prefilledResponses;
             } catch (error) {
                 console.error('error getting server update fields for accessCode', error);
+                return {};
+            }
+        }
+    },
+    {
+        field: '_sections._actions',
+        runOnValidatedData: false, // make sure not to run in validation mode!
+        callback: async (interview: InterviewAttributes, value) => {
+            // FIXME When https://github.com/chairemobilite/evolution/issues/1138 is implemented, this should be done in that hook and not here, as it is a hack to hook on a field that is updated right after a new login/access
+            try {
+                const updatedAtDate = moment(interview.updated_at);
+                const now = moment();
+                const lastUpdateDelayMs = now.valueOf() - updatedAtDate.valueOf();
+
+                if (!(_isBlank(interview.updated_at) || lastUpdateDelayMs > UPDATE_DELAY_FOR_TRIP_DATE_CHECK_MS)) {
+                    // The interview was updated recently, do not check the trip date
+                    return {};
+                }
+                const assignedDayStr = getResponse(interview, assignedDayPath);
+                if (_isBlank(assignedDayStr)) {
+                    // No assigned day yet, cannot check
+                    return {};
+                }
+                const assignedDay = moment(assignedDayStr);
+                const assignedDayLimit = now.subtract(DAYS_BEFORE_REVISING_DATE, 'days');
+                if (assignedDay.isAfter(assignedDayLimit)) {
+                    // The assigned day is not too far in the past
+                    return {};
+                }
+
+                // See if there are trips already declared
+                const persons = odSurveyHelpers.getPersonsArray({ interview });
+                for (let i = 0, count = persons.length; i < count; i++) {
+                    const person = persons[i];
+                    const journey = odSurveyHelpers.getJourneysArray({ person })[0];
+                    if (journey !== undefined) {
+                        if (!_isBlank((journey as any).personDidTrips)) {
+                            // At least a person has trips, do not change the assigned day
+                            return {};
+                        }
+                    }
+                }
+
+                // The assigned day is too far in the past, calculate a new one from yesterday
+                const formattedAssignedDay = calculateAssignedDayFromPreviousDay(
+                    moment().subtract(1, 'days').format('YYYY-MM-DD')
+                );
+                // Adding logging to monitor how often this happens and make sure it works correctly
+                // FIXME Remove this logging once it is confirmed to work correctly
+                console.log(
+                    'serverFieldUpdate: Assigned day for interview ' +
+                        interview.id +
+                        ' was too far in the past (' +
+                        assignedDayStr +
+                        '), changing to ' +
+                        formattedAssignedDay
+                );
+                // Change the assigned day, but keep the original
+                return {
+                    [assignedDayPath]: formattedAssignedDay
+                };
+            } catch (error) {
+                console.error('error evaluating if the assigned day needs to be modified', error);
                 return {};
             }
         }
