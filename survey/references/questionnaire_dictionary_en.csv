@@ -197,7 +197,7 @@ Field,drivingLicenseOwnership
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16
 Question,"Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits."
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
 Values,"yes : Yes
 no : No
 dontKnow : I don't know"

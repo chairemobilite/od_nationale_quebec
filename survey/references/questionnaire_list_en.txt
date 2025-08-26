@@ -126,7 +126,7 @@ When in doubt, choose the level which seems to match best
 - I prefer not to answer
 
 Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits.
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits.
 - Yes
 - No
 - I don't know
