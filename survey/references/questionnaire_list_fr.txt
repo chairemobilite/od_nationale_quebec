@@ -75,8 +75,8 @@ Je préfère donner le genre
 - Cette personne s'identifie comme:
 - Je préfère ne pas répondre
 
-Travaill{{gender:eur/euse/eur(-se)/eur(-se)}}
-Incluant travaill{{gender:eur/euse/eur(-se)/eur(-se)}} autonome, artiste, travaill{{gender:eur/euse/eur(-se)/eur(-se)}} en congé de maladie ou parental.
+Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
+Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste, travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} en congé de maladie ou parental.
 - Oui, à temps plein (30h et plus/semaine)
 - Oui, à temps partiel (moins de 30h/semaine)
 - Non

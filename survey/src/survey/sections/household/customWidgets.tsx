@@ -71,7 +71,7 @@ export const personSchoolType: InputRadioType = {
         if (activePerson?.age < 4) {
             // For children under 4
             return t('household:schoolTypeLessThan4');
-        } else if (activePerson?.age >= 4 && activePerson?.age <= 15) {
+        } else if (activePerson?.age <= 15) {
             // For children between 4 and 15
             return t('household:schoolTypeBetween4And15');
         } else {
