@@ -5,6 +5,7 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 import i18n from 'chaire-lib-frontend/lib/config/i18n.config';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 // import { countPersons, getPersonsObject, selfResponseAge } from '../helperFunctions/helper';
 
 export const cityHelpPopup: HelpPopup = {
@@ -30,15 +31,15 @@ export const householdSizeHelpPopup: HelpPopup = {
         en: 'Who to include?'
     },
     containsHtml: true,
-    content: (t: TFunction, interview) =>
+    content: (t: TFunction, interview) => {
         // assigned date should be the day before the interview started:
-        t('customLabel:HomeHouseholdSizeHelpContent', {
-            assignedDate: moment
-                .unix(getResponse(interview, '_startedAt') as number)
-                .subtract(1, 'days')
-                .locale(i18n.language)
-                .format('LL')
-        })
+        const assignedDay = getResponse(interview, '_assignedDay') as string;
+        const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
+
+        return t('customLabel:HomeHouseholdSizeHelpContent', {
+            assignedDate
+        });
+    }
 };
 
 export const householdCarNumberHelpPopup: HelpPopup = {
