@@ -480,7 +480,7 @@ Question,Some bus line(s) seem invalid for this trip. Please validate the lines.
 ""
 Field,onDemandType
 Question type,Radio input
-Conditional,isTransitAndNotNationaleCustomConditional
+Conditional,shouldDisplayOnDemandTypeCustomConditional
 Question,Is this an on-demand service?
 ""
 Field,tripJunctionQueryString

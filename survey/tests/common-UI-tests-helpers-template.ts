@@ -478,7 +478,7 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     // Test custom widget segmentBusLinesWarning
     // Implement custom test
 
-    // Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandCustomChoices
+    // Test radio widget segmentOnDemandType with conditional shouldDisplayOnDemandTypeCustomConditional with choices onDemandCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.onDemandType', isVisible: true });

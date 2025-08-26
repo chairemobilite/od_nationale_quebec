@@ -74,7 +74,7 @@ export const segmentOnDemandType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction) => t('segments:onDemandType'),
     choices: customChoices.onDemandCustomChoices,
-    conditional: customConditionals.isTransitAndNotNationaleCustomConditional,
+    conditional: customConditionals.shouldDisplayOnDemandTypeCustomConditional,
     validations: validations.requiredValidation
 };
 
