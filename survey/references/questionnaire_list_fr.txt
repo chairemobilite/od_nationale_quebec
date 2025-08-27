@@ -76,7 +76,7 @@ Je préfère donner le genre
 - Je préfère ne pas répondre
 
 Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
-Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste, travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} en congé de maladie ou parental.
+Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste.
 - Oui, à temps plein (30h et plus/semaine)
 - Oui, à temps partiel (moins de 30h/semaine)
 - Non

@@ -23,14 +23,13 @@ sexAssignedAtBirth: >-
 gender: Je préfère donner le <strong>genre</strong>
 workerType: >-
     <strong>Travailleur(-euse)</strong><br /><span class="_pale _oblique">Incluant
-    travailleur(-euse) autonome, artiste, travailleur(-euse) en congé de maladie ou
-    parental.</span>
+    travailleur(-euse) autonome et artiste.</span>
 workerType_male: >-
     <strong>Travailleur</strong><br /><span class="_pale _oblique">Incluant travailleur
-    autonome, artiste, travailleur en congé de maladie ou parental.</span>
+    autonome et artiste.</span>
 workerType_female: >-
     <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
-    autonome, artiste, travailleuse en congé de maladie ou parental.</span>
+    autonome et artiste.</span>
 studentType: <strong>Étudiant(e)</strong>
 studentType_male: <strong>Étudiant</strong>
 studentType_female: <strong>Étudiante</strong>

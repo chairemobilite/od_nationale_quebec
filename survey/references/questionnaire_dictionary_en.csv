@@ -129,7 +129,7 @@ Field,workerType
 Question type,Radio input
 Conditional,ifAge14orMoreConditional : age >= 14
 Question,"Worker
-Including self-employed, artist, on sick leave or parental leave."
+Including self-employed and artist."
 Values,"fullTime : Yes, full time (30h and more/week)
 partTime : Yes, part time (less than 30h/week)
 no : No"
