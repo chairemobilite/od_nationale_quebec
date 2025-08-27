@@ -17,6 +17,14 @@ export const home_geography: inputTypes.InputMapFindPlaceType = {
         url: getActivityMarkerIcon('home'),
         size: [70, 70]
     },
+    placesIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle.svg',
+        size: [35, 35]
+    },
+    selectedIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle_selected.svg',
+        size: [35, 35]
+    },
     geocodingQueryString: (interview) => {
         // TODO: Add country and region to the geocoding query string
         const city = surveyHelperNew.getResponse(interview, 'home.city', null);
