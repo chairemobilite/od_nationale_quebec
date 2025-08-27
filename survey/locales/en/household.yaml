@@ -23,8 +23,8 @@ sexAssignedAtBirth: >-
     birth or that which appears on legal documents.</span>
 gender: I prefer to give the <strong>gender</strong>
 workerType: >-
-    <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed,
-    artist, on sick leave or parental leave.</span>
+    <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed
+    and artist.</span>
 studentType: <strong>Student</strong>
 schoolType: <strong>Educational institution</strong>
 occupation: <strong>Main occupation</strong>

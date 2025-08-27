@@ -76,7 +76,7 @@ I prefer to give the gender
 - I prefer not to answer
 
 Worker
-Including self-employed, artist, on sick leave or parental leave.
+Including self-employed and artist.
 - Yes, full time (30h and more/week)
 - Yes, part time (less than 30h/week)
 - No
