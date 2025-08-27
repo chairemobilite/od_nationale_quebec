@@ -63,7 +63,21 @@ export const personSchoolType: InputRadioType = {
     containsHtml: true,
     customPath: 'schoolTypeOther',
     customChoice: 'other',
-    label: (t: TFunction) => t('household:schoolType'),
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+
+        // Different label based on age
+        if (activePerson?.age < 4) {
+            // For children under 4
+            return t('household:schoolTypeLessThan4');
+        } else if (activePerson?.age <= 15) {
+            // For children between 4 and 15
+            return t('household:schoolTypeBetween4And15');
+        } else {
+            // For people over 15
+            return t('household:schoolType');
+        }
+    },
     choices: choices.schoolType,
     conditional: conditionals.ifAge15OrLessConditional,
     validations: validations.requiredValidation

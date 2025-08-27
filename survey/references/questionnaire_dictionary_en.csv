@@ -145,7 +145,7 @@ no : No"
 Field,schoolType
 Question type,Unknown input
 Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
-Question,School type
+Question,Educational institution
 Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
 primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
 secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school
@@ -197,7 +197,7 @@ Field,drivingLicenseOwnership
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16
 Question,"Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits."
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
 Values,"yes : Yes
 no : No
 dontKnow : I don't know"
@@ -376,7 +376,7 @@ Question,What was the departure place of {{nickname}}’s work trip on the road?
 Field,onTheRoadArrivalType
 Question type,Radio input
 Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
-Question,Where did {{nickname}} end {{gender:his/her/their}} work trip on the road?
+Question,Where did {{nickname}} end {{gender:his/her/their/his (her)}} work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Radio input
@@ -397,7 +397,7 @@ Pan, zoom and click on map. Once a pin icon has been dropped, you will be able t
 ""
 Field,_previousPreviousDepartureTime
 Question type,Unknown input
-Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their}} usual work place?
+Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/his (her)}} usual work place?
 ""
 Field,arrivalTime
 Question type,Unknown input
@@ -480,7 +480,7 @@ Question,Some bus line(s) seem invalid for this trip. Please validate the lines.
 ""
 Field,onDemandType
 Question type,Radio input
-Conditional,isTransitAndNotNationaleCustomConditional
+Conditional,shouldDisplayOnDemandTypeCustomConditional
 Question,Is this an on-demand service?
 ""
 Field,tripJunctionQueryString
@@ -661,23 +661,23 @@ Question type,RadioNumber
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are electric vehicles?"
 ""
-Field,durationOfSurvey
-Question type,Range input
-Question,"Do you feel that the length of the survey was too short, about right, or too long?"
-Values,"0 : Too short
-50 : Just right
-100 : Too long"
-""
-Field,timeSpentAnswering
-Question type,Number input
-Question,How much time do you think you spent answering this survey (in minutes)?
-""
 Field,interestOfTheSurvey
 Question type,Range input
 Question,How interesting was this survey to you?
 Values,"0 : Not at all
 50 : Neutral
 100 : Very interesting"
+""
+Field,timeSpentAnswering
+Question type,Number input
+Question,How much time do you think you spent answering this survey (in minutes)?
+""
+Field,durationOfSurvey
+Question type,Range input
+Question,"Do you feel that the length of the survey was too short, about right, or too long?"
+Values,"0 : Too short
+50 : Just right
+100 : Too long"
 ""
 Field,difficultyOfTheSurvey
 Question type,Range input

@@ -274,7 +274,7 @@ visitedPlace:
         fetchSomeone: Pick someone up
         home: Home
         leisureArtsMusicCulture: Arts, music or culture
-        leisureSports: Park, sports, training (fixed destination)
+        leisureSports: Park, sports, gym, training (fixed destination)
         leisureStroll: >-
             Stroll with no fixed destination (ex: go running/jogging, walk with
             pet, etc.)

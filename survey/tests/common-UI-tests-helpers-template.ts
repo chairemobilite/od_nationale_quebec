@@ -478,7 +478,7 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     // Test custom widget segmentBusLinesWarning
     // Implement custom test
 
-    // Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandCustomChoices
+    // Test radio widget segmentOnDemandType with conditional shouldDisplayOnDemandTypeCustomConditional with choices onDemandCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.onDemandType', isVisible: true });
@@ -646,14 +646,14 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
 
-    // Test range widget endDurationOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 0, sliderColor: '?' });
+    // Test range widget endInterestOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 0, sliderColor: '?' });
 
     // Test number widget endTimeSpentAnswering
     testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '?' });
 
-    // Test range widget endInterestOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 0, sliderColor: '?' });
+    // Test range widget endDurationOfTheSurvey
+    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 0, sliderColor: '?' });
 
     // Test range widget endDifficultyOfTheSurvey
     testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 0, sliderColor: '?' });

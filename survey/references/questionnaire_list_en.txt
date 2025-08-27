@@ -86,7 +86,7 @@ Student
 - Yes, part time
 - No
 
-School type
+Educational institution
 - Kindergarten/Childcare/CPE
 - Primary school
 - Secondary school
@@ -126,7 +126,7 @@ When in doubt, choose the level which seems to match best
 - I prefer not to answer
 
 Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter and moped) permits.
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits.
 - Yes
 - No
 - I don't know
@@ -245,7 +245,7 @@ Map of {{nickname}}’s trips on {{assignedDate}}:
 
 What was the departure place of {{nickname}}’s work trip on the road?
 
-Where did {{nickname}} end {{gender:his/her/their}} work trip on the road?
+Where did {{nickname}} end {{gender:his/her/their/his (her)}} work trip on the road?
 
 
 Did you previously locate this place on the map?
@@ -258,7 +258,7 @@ Please select this place from the list of previously located places:
 Please locate this place on the map
 Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
 
-At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their}} usual work place?
+At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/his (her)}} usual work place?
 
 {{nickname}} arrived {{atPlace}} at:
 
@@ -427,11 +427,11 @@ Among the vehicles owned by your household, how many are plug-in hybrid vehicles
 
 Among the vehicles owned by your household, how many are electric vehicles?
 
-Do you feel that the length of the survey was too short, about right, or too long?
+How interesting was this survey to you?
 
 How much time do you think you spent answering this survey (in minutes)?
 
-How interesting was this survey to you?
+Do you feel that the length of the survey was too short, about right, or too long?
 
 How easy or difficult was it for you to answer the questions in this survey?
 

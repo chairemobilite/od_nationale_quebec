@@ -108,13 +108,13 @@ export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
     validations: customValidations.householdElectricCarCountCustomValidation
 };
 
-export const endDurationOfTheSurvey: WidgetConfig.InputRangeType = {
+export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {
     ...defaultInputBase.inputRangeBase,
-    ...inputRange.sliderTooShortToTooLong,
-    path: 'durationOfSurvey',
+    ...inputRange.sliderNotAtAllToVeryInteresting,
+    path: 'interestOfTheSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:durationOfSurvey'),
+    label: (t: TFunction) => t('end:interestOfTheSurvey'),
     conditional: defaultConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
@@ -129,13 +129,13 @@ export const endTimeSpentAnswering: WidgetConfig.InputStringType = {
     validations: validations.optionalValidation
 };
 
-export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {
+export const endDurationOfTheSurvey: WidgetConfig.InputRangeType = {
     ...defaultInputBase.inputRangeBase,
-    ...inputRange.sliderNotAtAllToVeryInteresting,
-    path: 'interestOfTheSurvey',
+    ...inputRange.sliderTooShortToTooLong,
+    path: 'durationOfSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:interestOfTheSurvey'),
+    label: (t: TFunction) => t('end:durationOfSurvey'),
     conditional: defaultConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };

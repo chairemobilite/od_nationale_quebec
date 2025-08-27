@@ -162,9 +162,21 @@ export const isSelfDeclaredCarDriverCustomConditional: WidgetConditional = (inte
     ];
 };
 
-export const isTransitAndNotNationaleCustomConditional: WidgetConditional = (interview, path) => {
+// Show if mode is transitTaxi or transitBus, EV_VARIANT is not 'nationale', and busLines include 'dontKnow' or 'other'
+export const shouldDisplayOnDemandTypeCustomConditional: WidgetConditional = (interview, path) => {
     const mode = surveyHelper.getResponse(interview, path, null, '../mode');
-    return [(mode === 'transitTaxi' || mode === 'transitBus') && process.env.EV_VARIANT !== 'nationale', null];
+    const busLines = surveyHelper.getResponse(interview, path, [], '../busLines') as any[];
+    const isNotNationale = process.env.EV_VARIANT !== 'nationale'; // Check if EV_VARIANT is not 'nationale'
+
+    // Show if mode is transitTaxi or transitBus, EV_VARIANT is not 'nationale', and busLines include 'dontKnow' or 'other'
+    const shouldDisplay =
+        isNotNationale &&
+        (mode === 'transitTaxi' ||
+            (mode === 'transitBus' &&
+                busLines.length > 0 &&
+                (busLines.includes('dontKnow') || busLines.includes('other'))));
+
+    return [shouldDisplay, null];
 };
 
 export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interview, path) => {

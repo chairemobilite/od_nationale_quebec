@@ -22,18 +22,19 @@ sexAssignedAtBirth: >-
     à la naissance ou inscrit dans les documents légaux.</span>
 gender: Je préfère donner le <strong>genre</strong>
 workerType: >-
-    <strong>Travailleur·euse</strong><br /><span class="_pale _oblique">Incluant travailleur·euse
-    autonome, artiste, travailleur·euse en congé de maladie ou parental.</span>
+    <strong>Travailleur(-euse)</strong><br /><span class="_pale _oblique">Incluant
+    travailleur(-euse) autonome, artiste, travailleur(-euse) en congé de maladie ou
+    parental.</span>
 workerType_male: >-
     <strong>Travailleur</strong><br /><span class="_pale _oblique">Incluant travailleur
     autonome, artiste, travailleur en congé de maladie ou parental.</span>
 workerType_female: >-
     <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
     autonome, artiste, travailleuse en congé de maladie ou parental.</span>
-studentType: <strong>Étudiant·e</strong>
+studentType: <strong>Étudiant(e)</strong>
 studentType_male: <strong>Étudiant</strong>
 studentType_female: <strong>Étudiante</strong>
-schoolType: <strong>Établissement d'enseignement / type d'école</strong>
+schoolType: <strong>Établissement d'enseignement</strong>
 occupation: <strong>Occupation principale</strong>
 workerTypeBeforeLeave: <strong>Avant d’être en congé</strong>, est-ce que {{nickname}}
     travaillait?
@@ -45,7 +46,7 @@ educationalAttainment: >-
     votre parcours.</span>
 drivingLicenseOwnership: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
-    les permis d’apprenti conducteur·rice et probatoires, mais ne pas inclure les
+    les permis d’apprenti conducteur(-rice) et probatoires, mais ne pas inclure les
     permis de cyclomoteur/scooter.</span>
 drivingLicenseOwnership_male: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
@@ -109,8 +110,8 @@ usualSchoolPlace.geography_one: >-
     />Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher
     le lieu").</span>
 travelToWorkDays: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il/elle
-    <strong>déplacé·e</strong> pour le <strong>travail</strong>?<br /><span class="_pale
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il(-elle)
+    <strong>déplacé(e)</strong> pour le <strong>travail</strong>?<br /><span class="_pale
     _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_male: >-
     Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il <strong>déplacé</strong>
@@ -121,11 +122,11 @@ travelToWorkDays_female: >-
     pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
     au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_custom: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-iel <strong>déplacé·e</strong>
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-iel <strong>déplacé(e)</strong>
     pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
     au travail ou toute autre raison concernant le travail.</span>
 travelToWorkDays_one: >-
-    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
+    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé(e)</strong>
     pour le <strong>travail</strong>?
 travelToWorkDays_male_one: >-
     Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé</strong>
@@ -134,11 +135,11 @@ travelToWorkDays_female_one: >-
     Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacée</strong>
     pour le <strong>travail</strong>?
 travelToWorkDays_custom_one: >-
-    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé·e</strong>
+    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé(e)</strong>
     pour le <strong>travail</strong>?
 remoteWorkDays: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il/elle fait
-    du <strong>télétravail</strong>?
+    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il(-elle)
+    fait du <strong>télétravail</strong>?
 remoteWorkDays_male: >-
     Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il fait du
     <strong>télétravail</strong>?
@@ -177,6 +178,8 @@ popup.validateHouseholdAgesHelp: >-
     questionnaire. Veuillez vérifier les âges.
 popup.validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
     à ce questionnaire.
+schoolTypeLessThan4: <strong>Type de garde</strong>
+schoolTypeBetween4And15: <strong>Type d'école</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
     en présentiel en tout temps
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en
