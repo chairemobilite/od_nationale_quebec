@@ -72,7 +72,7 @@ export const hasPreferNotToAnswerToSexAssignedConditional: WidgetConditional = (
             {
                 path: `household.persons.${currentPersonId}.sexAssignedAtBirth`,
                 comparisonOperator: '===',
-                value: 'preferNoToAnswer'
+                value: 'preferNotToAnswer'
             }
         ]
     });
