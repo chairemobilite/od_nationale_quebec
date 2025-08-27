@@ -93,7 +93,8 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
     // Test custom widget home_geography
     // Implement custom test
 
-    // Test radionumber widget household_size
+    // Test custom widget household_size
+    // Implement custom test
 
     // Test radionumber widget household_carNumber
 

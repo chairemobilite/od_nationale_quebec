@@ -122,21 +122,7 @@ export const home_postalCode: WidgetConfig.InputStringType = {
 
 export const home_geography = customWidgets.home_geography;
 
-export const household_size: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.size',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('home:household.size'),
-    valueRange: {
-        min: 1,
-        max: 6
-    },
-    overMaxAllowed: true,
-    helpPopup: customHelpPopup.householdSizeHelpPopup,
-    conditional: defaultConditional,
-    validations: validations.householdSizeValidation
-};
+export const household_size = customWidgets.household_size;
 
 export const household_carNumber: WidgetConfig.InputRadioNumberType = {
     ...defaultInputBase.inputRadioNumberBase,
