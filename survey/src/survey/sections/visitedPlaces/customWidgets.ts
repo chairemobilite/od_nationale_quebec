@@ -847,12 +847,22 @@ export const visitedPlaceName: WidgetConfig.InputStringType = {
             null,
             '../alreadyVisitedBySelfOrAnotherHouseholdMember'
         );
-        return [
+        const shouldDisplay =
             !_isBlank(activity) &&
-                ![...loopActivities, 'home'].includes(activity) &&
-                visitedPlaceAlreadyVisited !== 'yes',
-            null
-        ];
+            ![...loopActivities, 'home'].includes(activity) &&
+            visitedPlaceAlreadyVisited !== 'yes';
+        if (!shouldDisplay) {
+            // Try to get the name from the shortcut if any
+            if (visitedPlace.shortcut) {
+                const shortcut = visitedPlace.shortcut;
+                const shortcutVisitedPlace: any = getResponse(interview, shortcut, null);
+                const shortcutVisitedPlaceName = shortcutVisitedPlace
+                    ? getShortcutVisitedPlaceName(shortcutVisitedPlace, interview)
+                    : null;
+                return [false, shortcutVisitedPlaceName];
+            }
+        }
+        return [shouldDisplay, null];
     },
     defaultValue: function (interview, path) {
         const visitedPlace: any = getResponse(interview, path, null, '../');
@@ -1794,7 +1804,7 @@ export const visitedPlaceArrivalTime: WidgetConfig.InputTimeType = {
             key = 'visitedPlaces:arrivalTimeStroll';
         }
         const place = !_isBlank(visitedPlaceName)
-            ? t('survey:atThisPlace', { placeName: visitedPlaceName })
+            ? t('survey:atPlace', { placeName: visitedPlaceName })
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
         return (
             t(key, {
