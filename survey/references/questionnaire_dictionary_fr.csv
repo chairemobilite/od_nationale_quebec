@@ -118,7 +118,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,gender
 Type de question,Bouton radio
-Conditionnel,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNoToAnswer
+Conditionnel,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNotToAnswer
 Question,Je préfère donner le genre
 Valeurs,"female : Femme
 male : Homme
