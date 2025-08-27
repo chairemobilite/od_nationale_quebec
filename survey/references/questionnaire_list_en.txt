@@ -29,7 +29,7 @@ Positioning your home
 Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.
 
 Persons living in your home
-Including yourself.
+Including yourself and children in shared custody if they were present on {{assignedDate}}.
 
 Cars, SUVs, light-duty trucks or vans, etc.
 Available to one or more members of your household.

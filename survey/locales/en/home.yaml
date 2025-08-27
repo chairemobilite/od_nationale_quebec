@@ -26,7 +26,7 @@ home.geography: >-
     you can move the point for greater precision.
 household.size: >-
     <strong>Persons living in your home</strong><br /><span class="_pale _oblique">Including
-    yourself.</span>
+    yourself and children in shared custody if they were present on {{assignedDate}}.</span>
 household.carNumber: >-
     <strong>Cars</strong>, SUVs, light-duty trucks or vans, etc.<br /><span class="_pale
     _oblique">Available to one or more members of your household.</span>

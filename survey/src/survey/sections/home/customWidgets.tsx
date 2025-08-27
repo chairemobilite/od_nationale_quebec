@@ -1,13 +1,40 @@
 import { TFunction } from 'i18next';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
-import * as inputTypes from 'evolution-common/lib/services/questionnaire/types';
+import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
+import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
+import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
+import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
+import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import * as customValidations from '../../common/customValidations';
 import { defaultInvalidGeocodingResultTypes } from '../../common/customGeoData';
-import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
+import * as customHelpPopup from '../../common/customHelpPopup';
 
-export const home_geography: inputTypes.InputMapFindPlaceType = {
+export const household_size: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.size',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview) => {
+        const assignedDay = surveyHelperNew.getResponse(interview, '_assignedDay') as string;
+        const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
+
+        return t('home:household.size', {
+            assignedDate
+        });
+    },
+    valueRange: {
+        min: 1,
+        max: 6
+    },
+    overMaxAllowed: true,
+    helpPopup: customHelpPopup.householdSizeHelpPopup,
+    conditional: defaultConditional,
+    validations: validations.householdSizeValidation
+};
+
+export const home_geography: WidgetConfig.InputMapFindPlaceType = {
     ...defaultInputBase.inputMapFindPlaceBase,
     path: 'home.geography',
     label: (t: TFunction, _interview, _path) => {
