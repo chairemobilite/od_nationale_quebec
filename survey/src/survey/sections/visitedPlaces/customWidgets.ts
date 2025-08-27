@@ -1011,7 +1011,7 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
                     geography.properties.lastAction &&
                     (geography.properties.lastAction === 'mapClicked' ||
                         geography.properties.lastAction === 'markerDragged') &&
-                    geography.properties.zoom < 14,
+                    geography.properties.zoom < 15,
                 errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotPreciseError')
             },
             ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path),
