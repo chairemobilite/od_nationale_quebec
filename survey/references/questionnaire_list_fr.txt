@@ -28,8 +28,8 @@ Code postal
 Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
 
-Personnes habitant votre domicile ou logement.
-Y compris vous-même et les enfants en garde partagée s'ils étaient présents le {{assignedDate}}.
+Personnes habitant votre domicile ou logement en date du {{assignedDate}}
+Y compris vous-même et les enfants en garde partagée.
 
 Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage.
