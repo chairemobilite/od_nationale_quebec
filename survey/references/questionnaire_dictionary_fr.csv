@@ -55,8 +55,8 @@ Recherchez votre domicile en utilisant son code postal ou son adresse en cliquan
 ""
 Champ,hh_size
 Type de question,Entrée inconnue
-Question,"Personnes habitant votre domicile ou logement en date du {{assignedDate}}
-Y compris vous-même et les enfants en garde partagée."
+Question,"Personnes habitant votre domicile ou logement
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}."
 ""
 Champ,hh_carNumber
 Type de question,RadioNumber

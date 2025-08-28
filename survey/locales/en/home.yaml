@@ -25,8 +25,8 @@ home.geography: >-
     on the map by navigating, zooming, and clicking. Once the location is located,
     you can move the point for greater precision.
 household.size: >-
-    <strong>Persons living in your home</strong> or accommodation as of {{assignedDate}}<br
-    /><span class="_pale _oblique">Including yourself and children in shared custody.</span>
+    <strong>Persons living in your home</strong><br /><span class="_pale _oblique">Including
+    yourself and children in shared custody if they were at your home on {{assignedDate}}.</span>
 household.carNumber: >-
     <strong>Cars</strong>, SUVs, light-duty trucks or vans, etc.<br /><span class="_pale
     _oblique">Available to one or more members of your household.</span>

@@ -27,8 +27,9 @@ home.geography: >-
     ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant.
     Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
 household.size: >-
-    <strong>Personnes habitant votre domicile</strong> ou logement en date du {{assignedDate}}<br
-    /><span class="_pale _oblique">Y compris vous-même et les enfants en garde partagée.</span>
+    <strong>Personnes habitant votre domicile</strong> ou logement<br /><span class="_pale
+    _oblique">Y compris vous-même et les enfants en garde partagée s'ils étaient à
+    votre domicile le {{assignedDate}}.</span>
 household.carNumber: >-
     <strong>Automobiles</strong>, VUS, camions légers ou fourgonnettes, etc.<br /><span
     class="_pale _oblique">À la disposition de votre ménage.</span>

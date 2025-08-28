@@ -55,8 +55,8 @@ Search for your home using its postal code or address by clicking the button bel
 ""
 Field,hh_size
 Question type,Unknown input
-Question,"Persons living in your home or accommodation as of {{assignedDate}}
-Including yourself and children in shared custody."
+Question,"Persons living in your home
+Including yourself and children in shared custody if they were at your home on {{assignedDate}}."
 ""
 Field,hh_carNumber
 Question type,RadioNumber
