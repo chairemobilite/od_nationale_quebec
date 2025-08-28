@@ -615,8 +615,9 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputRadioTest({ context, path: 'household.ownership', value: '?' });
 
-    // Test select widget householdIncome with choices householdIncomeChoices
+    // Test custom widget householdIncome with choices householdIncomeChoices
     /* @link file://./../src/survey/common/choices.tsx */
+    // Implement custom test
 
     // Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */

@@ -393,7 +393,7 @@ Does your household rent or own your home?
 - Other
 - I prefer not to respond
 
-What was your household's income range before taxes (gross income), in 2023?
+What was your household's income range before taxes (gross income), in {{lastYear}}?
 Not mandatory
 - Less than $10,000
 - $10,000 to $19,999
