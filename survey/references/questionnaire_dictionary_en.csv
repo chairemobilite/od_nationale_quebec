@@ -619,7 +619,7 @@ preferNotToAnswer : I prefer not to respond"
 Field,hh_income
 Question type,Unknown input
 Question,"What was your household's income range before taxes (gross income), in {{lastYear}}?
-Not mandatory"
+Optional"
 Values,"000000_009999 : Less than $10,000
 010000_019999 : $10,000 to $19,999
 020000_029999 : $20,000 to $29,999
@@ -636,66 +636,75 @@ Values,"000000_009999 : Less than $10,000
 dontKnow : I don't know
 refusal : I prefer not to respond"
 ""
-Field,wouldLikeToParticipateInOtherSurveysChaireMobilite
+Field,e_wouldLikeToParticipateInOtherSurveysChaireMobilite
 Question type,Radio input
 Question,Would you be interested in participating in other studies conducted by the Chaire Mobilite at Polytechnique Montreal?
 Values,"yes : Yes
 no : No"
 ""
-Field,wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
+Field,e_wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
 Question type,Text input
-Conditional,wantToParticipateInOtherSurveysChaireMobiliteConditional : wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
+Conditional,wantToParticipateInOtherSurveysChaireMobiliteConditional : e_wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
 Question,Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
 ""
-Field,commentsOnSurvey
+Field,e_commentsOnSurvey
 Question type,Text area input
-Question,Your comments and suggestions about the survey (optional)
+Question,"Your comments and suggestions about the survey
+Optional"
 ""
 Field,hh_hybridCarNumber
 Question type,RadioNumber
 Conditional,householdHasCars : hh_carNumber >= 1
-Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?"
+Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
+Optional"
 ""
 Field,hh_electricCarNumber
 Question type,RadioNumber
 Conditional,householdHasCars : hh_carNumber >= 1
-Question,"Among the vehicles owned by your household, how many are electric vehicles?"
+Question,"Among the vehicles owned by your household, how many are electric vehicles?
+Optional"
 ""
-Field,interestOfTheSurvey
+Field,e_interestOfTheSurvey
 Question type,Range input
-Question,How interesting was this survey to you?
+Question,"How interesting was this survey to you?
+Optional"
 Values,"0 : Not at all
 50 : Neutral
 100 : Very interesting"
 ""
-Field,timeSpentAnswering
+Field,e_timeSpentAnswering
 Question type,Number input
-Question,How much time do you think you spent answering this survey (in minutes)?
+Question,"How much time do you think you spent answering this survey (in minutes)?
+Optional"
 ""
-Field,durationOfSurvey
+Field,e_durationOfTheSurvey
 Question type,Range input
-Question,"Do you feel that the length of the survey was too short, about right, or too long?"
+Question,"Do you feel that the length of the survey was too short, about right, or too long?
+Optional"
 Values,"0 : Too short
 50 : Just right
 100 : Too long"
 ""
-Field,difficultyOfTheSurvey
+Field,e_difficultyOfTheSurvey
 Question type,Range input
-Question,How easy or difficult was it for you to answer the questions in this survey?
+Question,"How easy or difficult was it for you to answer the questions in this survey?
+Optional"
 Values,"0 : Very easy
 50 : Moderately difficult
 100 : Very difficult"
 ""
-Field,burdenOfTheSurvey
+Field,e_burdenOfTheSurvey
 Question type,Range input
-Question,How burdensome (demanding) did you find this survey to be?
+Question,"How burdensome (demanding) did you find this survey to be?
+Optional"
 Values,"0 : Not at all
 50 : Moderately burdensome
 100 : Very burdensome"
 ""
-Field,consideredAbandoningSurvey
+Field,e_consideredAbandoningSurvey
 Question type,Radio input
-Question,"Have you considered, at any point, abandoning the survey?"
+Question,"Have you considered, at any point, abandoning the survey?
+Optional"
 Values,"yes : Yes
 no : No
 dontKnow : I don't know"

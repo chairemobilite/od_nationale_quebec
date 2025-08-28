@@ -394,7 +394,7 @@ Does your household rent or own your home?
 - I prefer not to respond
 
 What was your household's income range before taxes (gross income), in {{lastYear}}?
-Not mandatory
+Optional
 - Less than $10,000
 - $10,000 to $19,999
 - $20,000 to $29,999
@@ -417,27 +417,34 @@ Would you be interested in participating in other studies conducted by the Chair
 
 Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
 
-Your comments and suggestions about the survey (optional)
+Your comments and suggestions about the survey
+Optional
 
 The next questions are optional and are added for research purposes. You can complete the interview without answering them.
 
-Skip optional questions and complete
-
 Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
+Optional
 
 Among the vehicles owned by your household, how many are electric vehicles?
+Optional
 
 How interesting was this survey to you?
+Optional
 
 How much time do you think you spent answering this survey (in minutes)?
+Optional
 
 Do you feel that the length of the survey was too short, about right, or too long?
+Optional
 
 How easy or difficult was it for you to answer the questions in this survey?
+Optional
 
 How burdensome (demanding) did you find this survey to be?
+Optional
 
 Have you considered, at any point, abandoning the survey?
+Optional
 - Yes
 - No
 - I don't know
