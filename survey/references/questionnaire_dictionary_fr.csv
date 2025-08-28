@@ -542,7 +542,7 @@ Type de question,Liste déroulante
 Conditionnel,shouldAskForNoSchoolTripReasonCustomConditional
 Question,Pour quelle raison?
 Valeurs,"distanceLearning : Cours à distance
-schoolWasClosedStrike : École fermée (grève)
+schoolWasClosed : École fermée
 leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
 noSchool : Pas de cours
 other : Autre

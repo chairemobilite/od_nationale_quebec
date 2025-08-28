@@ -338,7 +338,7 @@ You didn't report any school trips by {{nickname}} on {{assignedDate}}.
 
 Why?
 - Distance learning
-- School was closed (strike)
+- School was closed
 - Leave (sick, personal, other)
 - No classes
 - Other

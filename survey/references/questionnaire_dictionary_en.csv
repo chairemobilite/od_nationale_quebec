@@ -541,7 +541,7 @@ Question type,Select input
 Conditional,shouldAskForNoSchoolTripReasonCustomConditional
 Question,Why?
 Values,"distanceLearning : Distance learning
-schoolWasClosedStrike : School was closed (strike)
+schoolWasClosed : School was closed
 leaveSicknessPersonalReason : Leave (sick, personal, other)
 noSchool : No classes
 other : Other

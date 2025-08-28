@@ -339,7 +339,7 @@ Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {
 
 Pour quelle raison?
 - Cours à distance
-- École fermée (grève)
+- École fermée
 - Congé (maladie, personnel, autre)
 - Pas de cours
 - Autre
