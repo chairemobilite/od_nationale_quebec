@@ -3,6 +3,7 @@
 // Any changes made to this file will be overwritten.
 
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
