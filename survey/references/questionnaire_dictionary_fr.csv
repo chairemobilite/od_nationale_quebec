@@ -232,7 +232,7 @@ remote : Non, travail à partir du domicile ou à distance"
 ""
 Champ,workPlaceTypeBeforeLeave
 Type de question,Bouton radio
-Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime workerTypeBeforeLeave === partTime
+Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
 Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?"
 ""
 Champ,schoolPlaceType

@@ -232,7 +232,7 @@ remote : No, work from home or from elsewhere"
 ""
 Field,workPlaceTypeBeforeLeave
 Question type,Radio input
-Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime workerTypeBeforeLeave === partTime
+Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
 Question,"Before being on leave, did {{nickname}} have a fixed work location?"
 ""
 Field,schoolPlaceType
