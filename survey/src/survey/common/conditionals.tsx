@@ -498,6 +498,7 @@ export const wasWorkerBeforeLeaveConditional: WidgetConditional = (interview, pa
                 value: 'fullTime'
             },
             {
+                logicalOperator: '||',
                 path: `household.persons.${currentPersonId}.workerTypeBeforeLeave`,
                 comparisonOperator: '===',
                 value: 'partTime'
