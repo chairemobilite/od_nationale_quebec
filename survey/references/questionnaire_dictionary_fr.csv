@@ -619,8 +619,8 @@ other : Autre
 preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,hh_income
-Type de question,Entrée inconnue
-Question,"Tranche de revenu avant impôts (brut) du ménage, en {{lastYear}}?
+Type de question,Liste déroulante
+Question,"Tranche de revenu avant impôts (brut) du ménage, en 2024?
 Facultatif"
 Valeurs,"000000_009999 : Moins de 10 000 $
 010000_019999 : 10 000$ à 19 999$

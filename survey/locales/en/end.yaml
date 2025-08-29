@@ -4,7 +4,7 @@
 
 household.ownership: Does your household rent or own your home?
 household.income: >-
-    What was your household's income range before taxes (gross income), in {{lastYear}}?<br
+    What was your household's income range before taxes (gross income), in 2024?<br
     /><span class="_pale _oblique">Optional</span>
 end.wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
     Would you be interested in <strong>participating in other studies</strong> conducted

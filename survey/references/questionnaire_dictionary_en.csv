@@ -617,8 +617,8 @@ other : Other
 preferNotToAnswer : I prefer not to respond"
 ""
 Field,hh_income
-Question type,Unknown input
-Question,"What was your household's income range before taxes (gross income), in {{lastYear}}?
+Question type,Select input
+Question,"What was your household's income range before taxes (gross income), in 2024?
 Optional"
 Values,"000000_009999 : Less than $10,000
 010000_019999 : $10,000 to $19,999

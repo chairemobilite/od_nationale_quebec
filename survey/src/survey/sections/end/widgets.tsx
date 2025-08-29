@@ -11,7 +11,6 @@ import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as inputRange from '../../common/inputRange';
-import * as customWidgets from './customWidgets';
 import * as customValidations from '../../common/customValidations';
 
 export const householdOwnership: WidgetConfig.InputRadioType = {
@@ -25,7 +24,16 @@ export const householdOwnership: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const householdIncome = customWidgets.householdIncome;
+export const householdIncome: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'household.income',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('end:household.income'),
+    choices: choices.householdIncomeChoices,
+    conditional: defaultConditional,
+    validations: validations.requiredValidation
+};
 
 export const wouldLikeToParticipateInOtherSurveysChaireMobilite: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
