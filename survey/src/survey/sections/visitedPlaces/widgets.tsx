@@ -3,6 +3,7 @@
 // Any changes made to this file will be overwritten.
 
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
@@ -37,7 +38,7 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
     containsHtml: false,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('visitedPlaces:onTheRoadArrivalType', {
             nickname,
@@ -57,7 +58,7 @@ export const visitedPlaceAlreadyVisited: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('visitedPlaces:alreadyVisitedBySelfOrAnotherHouseholdMember', {
             nickname,

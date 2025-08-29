@@ -3,6 +3,7 @@
 // Any changes made to this file will be overwritten.
 
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
@@ -135,7 +136,7 @@ export const personWorkerTypeBeforeLeave: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:workerTypeBeforeLeave', {
             nickname,
@@ -192,7 +193,7 @@ export const personTransitPasses: WidgetConfig.InputCheckboxType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:transitPasses', {
             nickname,
@@ -211,7 +212,7 @@ export const personWorkPlaceType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:workPlaceType', {
             nickname,
@@ -230,7 +231,7 @@ export const personWorkPlaceTypeBeforeLeave: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:workPlaceTypeBeforeLeave', {
             nickname,
@@ -249,7 +250,7 @@ export const personSchoolPlaceType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:schoolPlaceType', {
             nickname,
@@ -268,7 +269,7 @@ export const personUsualWorkPlaceName: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:usualWorkPlace.name', {
             nickname,
@@ -288,7 +289,7 @@ export const personUsualSchoolPlaceName: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:usualSchoolPlace.name', {
             nickname,
@@ -308,7 +309,7 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:travelToWorkDays', {
             nickname,
@@ -328,7 +329,7 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:remoteWorkDays', {
             nickname,
