@@ -1,4 +1,5 @@
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import { faMale } from '@fortawesome/free-solid-svg-icons/faMale';
 import { faFemale } from '@fortawesome/free-solid-svg-icons/faFemale';
 import { faChild } from '@fortawesome/free-solid-svg-icons/faChild';
@@ -51,15 +52,16 @@ export const selectPerson: WidgetConfig.InputRadioType = {
                 ) {
                     icon = faFemale;
                 }
+                const nickname = _escape(person.nickname);
                 return {
                     value: person._uuid,
                     label: {
                         fr: `<div style={{display: 'flex', alignItems: 'center', fontSize: '150%', fontWeight: 300}}><FontAwesomeIcon icon={icon} className="faIconLeft" style={{width: '4rem', height: '4rem'}} />Personne ${
                             index + 1
-                        } • ${person.nickname} (${person.age} ans)</div>`,
+                        } • ${nickname} (${person.age} ans)</div>`,
                         en: `<div style={{display: 'flex', alignItems: 'center', fontSize: '150%', fontWeight: 300}}><FontAwesomeIcon icon={icon} className="faIconLeft" style={{width: '4rem', height: '4rem'}} />Person ${
                             index + 1
-                        } • ${person.nickname} (${person.age} years old)</div>`
+                        } • ${nickname} (${person.age} years old)</div>`
                     }
                 };
             })

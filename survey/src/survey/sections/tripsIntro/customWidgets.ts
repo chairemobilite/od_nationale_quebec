@@ -1,6 +1,7 @@
 import moment from 'moment';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
@@ -29,7 +30,7 @@ export const personNewPerson = {
     containsHtml: true,
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
-        const nickname = activePerson.nickname;
+        const nickname = _escape(activePerson.nickname);
         return t('tripsIntro:_showNewPersonPopupButton', {
             nickname
         });
@@ -106,7 +107,7 @@ export const personDidTrips: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const assignedDay = getResponse(interview, '_assignedDay') as string;
         const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
         return t('tripsIntro:personDidTrips', {
@@ -231,7 +232,7 @@ export const visitedPlacesIntro: WidgetConfig.TextWidgetConfig = {
     containsHtml: true,
     text: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const tripsDate = getResponse(interview, '_assignedDay', null);
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
         return t('tripsIntro:didTripsIntro', {
@@ -271,10 +272,10 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
     sameLine: false,
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const assignedDay = moment(getResponse(interview, '_assignedDay'));
         const dayBefore = moment(assignedDay).subtract(1, 'days');
-        const homeAddress = getHomeAddressOneLine(interview);
+        const homeAddress = _escape(getHomeAddressOneLine(interview));
         const dayBeforeStr = dayBefore
             .toDate()
             .toLocaleDateString(i18n.language, { weekday: 'long', month: 'long', day: 'numeric' });
