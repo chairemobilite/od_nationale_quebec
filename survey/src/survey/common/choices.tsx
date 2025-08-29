@@ -735,10 +735,10 @@ export const noSchoolTripReasonChoices: ChoiceType[] = [
         }
     },
     {
-        value: 'schoolWasClosedStrike',
+        value: 'schoolWasClosed',
         label: {
-            fr: 'École fermée (grève)',
-            en: 'School was closed (strike)'
+            fr: 'École fermée',
+            en: 'School was closed'
         }
     },
     {

@@ -5,42 +5,44 @@
 household.ownership: Est-ce que votre ménage est locataire ou propriétaire de votre
     logement?
 household.income: >-
-    Tranche de revenu avant impôts (brut) du ménage, en 2023?<br /><span class="_pale
+    Tranche de revenu avant impôts (brut) du ménage, en 2024?<br /><span class="_pale
     _oblique">Facultatif</span>
-wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
+end.wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
     Seriez-vous intéressés à <strong>participer à d'autres études</strong> menées
     par la <strong>Chaire Mobilité de Polytechnique Montréal</strong>?
-wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
+end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
     Veuillez fournir une <strong>adresse courriel</strong> de contact pour participer
     à d'autres études de la Chaire Mobilité.
-commentsOnSurvey: >-
-    Vos <strong>commentaires et suggestions</strong> sur le questionnaire (facultatif)
-optionalIntroText: >-
-    L'entrevue est maintenant terminée. Merci pour votre participation et votre patience!
-buttonCompleteInterviewWithCompleteSectionNoOptional: Ignorer les questions facultatives
-    et terminer
+end.commentsOnSurvey: >-
+    Vos <strong>commentaires et suggestions</strong> sur le questionnaire<br /><span
+    class="_pale _oblique">Facultatif</span>
+end.optionalIntroText: >-
+    Les <strong>questions suivantes sont facultatives</strong> et sont ajoutées à
+    des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
 household.hybridCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
-    hybrides rechargeables</strong>?
+    hybrides rechargeables</strong>?<br /><span class="_pale _oblique">Facultatif</span>
 household.electricCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
-    électriques</strong>?
-interestOfTheSurvey: >-
+    électriques</strong><br /><span class="_pale _oblique">Facultatif</span>
+end.interestOfTheSurvey: >-
     Dans quelle mesure cette enquête a-t-elle été <strong>intéressante</strong> pour
-    vous?
-timeSpentAnswering: >-
+    vous?<br /><span class="_pale _oblique">Facultatif</span>
+end.timeSpentAnswering: >-
     Combien de <strong>temps</strong> pensez-vous avoir passé <strong>à répondre</strong>
-    à cette enquête (<strong>en minutes</strong>)?
-durationOfSurvey: >-
+    à cette enquête (<strong>en minutes</strong>)?<br /><span class="_pale _oblique">Facultatif</span>
+end.durationOfTheSurvey: >-
     Pensez-vous que la <strong>durée de l'enquête était trop courte, correcte ou trop
-    longue</strong>?
-difficultyOfTheSurvey: >-
+    longue</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+end.difficultyOfTheSurvey: >-
     Dans quelle mesure vous a-t-il été <strong>facile</strong> ou <strong>difficile</strong>
-    de répondre aux questions de cette enquête?
-burdenOfTheSurvey: >-
-    Dans quelle mesure avez-vous trouvé cette enquête <strong>pénible (exigeante)</strong>?
-consideredAbandoningSurvey: >-
-    Avez-vous pensé, à un moment ou un autre, <strong>abandonner l'enquête</strong>?
+    de répondre aux questions de cette enquête?<br /><span class="_pale _oblique">Facultatif</span>
+end.burdenOfTheSurvey: >-
+    Dans quelle mesure avez-vous trouvé cette enquête <strong>pénible (exigeante)</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
+end.consideredAbandoningSurvey: >-
+    Avez-vous pensé, à un moment ou un autre, <strong>abandonner l'enquête</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 buttonCompleteInterviewWithCompleteSection: Terminer l’entrevue
 errors.inputRangeMustBePositiveOrZero: Veuillez placer le bouton à l'intérieur de
     la plage de réponse.

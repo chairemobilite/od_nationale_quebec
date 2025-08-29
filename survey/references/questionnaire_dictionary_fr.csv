@@ -55,8 +55,8 @@ Recherchez votre domicile en utilisant son code postal ou son adresse en cliquan
 ""
 Champ,hh_size
 Type de question,Entrée inconnue
-Question,"Personnes habitant votre domicile ou logement.
-Y compris vous-même et les enfants en garde partagée s'ils étaient présents le {{assignedDate}}."
+Question,"Personnes habitant votre domicile ou logement
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}."
 ""
 Champ,hh_carNumber
 Type de question,RadioNumber
@@ -542,7 +542,7 @@ Type de question,Liste déroulante
 Conditionnel,shouldAskForNoSchoolTripReasonCustomConditional
 Question,Pour quelle raison?
 Valeurs,"distanceLearning : Cours à distance
-schoolWasClosedStrike : École fermée (grève)
+schoolWasClosed : École fermée
 leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
 noSchool : Pas de cours
 other : Autre
@@ -620,7 +620,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,hh_income
 Type de question,Liste déroulante
-Question,"Tranche de revenu avant impôts (brut) du ménage, en 2023?
+Question,"Tranche de revenu avant impôts (brut) du ménage, en 2024?
 Facultatif"
 Valeurs,"000000_009999 : Moins de 10 000 $
 010000_019999 : 10 000$ à 19 999$
@@ -638,66 +638,75 @@ Valeurs,"000000_009999 : Moins de 10 000 $
 dontKnow : Je ne sais pas
 refusal : Je préfère ne pas répondre"
 ""
-Champ,wouldLikeToParticipateInOtherSurveysChaireMobilite
+Champ,e_wouldLikeToParticipateInOtherSurveysChaireMobilite
 Type de question,Bouton radio
 Question,Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal?
 Valeurs,"yes : Oui
 no : Non"
 ""
-Champ,wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
+Champ,e_wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
 Type de question,Champ de texte
-Conditionnel,wantToParticipateInOtherSurveysChaireMobiliteConditional : wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
+Conditionnel,wantToParticipateInOtherSurveysChaireMobiliteConditional : e_wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
 Question,Veuillez fournir une adresse courriel de contact pour participer à d'autres études de la Chaire Mobilité.
 ""
-Champ,commentsOnSurvey
+Champ,e_commentsOnSurvey
 Type de question,Zone de texte
-Question,Vos commentaires et suggestions sur le questionnaire (facultatif)
+Question,"Vos commentaires et suggestions sur le questionnaire
+Facultatif"
 ""
 Champ,hh_hybridCarNumber
 Type de question,RadioNumber
 Conditionnel,householdHasCars : hh_carNumber >= 1
-Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?"
+Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
+Facultatif"
 ""
 Champ,hh_electricCarNumber
 Type de question,RadioNumber
 Conditionnel,householdHasCars : hh_carNumber >= 1
-Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?"
+Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques
+Facultatif"
 ""
-Champ,interestOfTheSurvey
+Champ,e_interestOfTheSurvey
 Type de question,Curseur de plage
-Question,Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+Question,"Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+Facultatif"
 Valeurs,"0 : Pas du tout
 50 : Neutre
 100 : Très intéressante"
 ""
-Champ,timeSpentAnswering
+Champ,e_timeSpentAnswering
 Type de question,Champ numérique
-Question,Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+Question,"Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+Facultatif"
 ""
-Champ,durationOfSurvey
+Champ,e_durationOfTheSurvey
 Type de question,Curseur de plage
-Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?"
+Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+Facultatif"
 Valeurs,"0 : Trop court
 50 : Juste comme il faut
 100 : Trop long"
 ""
-Champ,difficultyOfTheSurvey
+Champ,e_difficultyOfTheSurvey
 Type de question,Curseur de plage
-Question,Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
+Question,"Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
+Facultatif"
 Valeurs,"0 : Très facile
 50 : Modérément difficile
 100 : Très difficile"
 ""
-Champ,burdenOfTheSurvey
+Champ,e_burdenOfTheSurvey
 Type de question,Curseur de plage
-Question,Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
+Question,"Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
+Facultatif"
 Valeurs,"0 : Pas du tout
 50 : Modérément pénible
 100 : Très pénible"
 ""
-Champ,consideredAbandoningSurvey
+Champ,e_consideredAbandoningSurvey
 Type de question,Bouton radio
-Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?"
+Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
+Facultatif"
 Valeurs,"yes : Oui
 no : Non
 dontKnow : Je ne sais pas"

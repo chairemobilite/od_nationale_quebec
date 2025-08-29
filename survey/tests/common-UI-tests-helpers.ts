@@ -1455,18 +1455,22 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
 
     // Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite', value: 'yes' });
+    testHelpers.inputRadioTest({
+        context,
+        path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobilite',
+        value: 'yes'
+    });
 
     // Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputStringTest({
         context,
-        path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
+        path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
         value: 'test@example.com'
     });
 
     // Test text widget householdCommentsOnSurvey
-    testHelpers.inputStringTest({ context, path: 'commentsOnSurvey', value: 'Test' });
+    testHelpers.inputStringTest({ context, path: 'end.commentsOnSurvey', value: 'Test' });
 
     // Test infotext widget optionalIntroText
     testHelpers.waitTextVisible({
@@ -1483,23 +1487,38 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
     testHelpers.inputRadioTest({ context, path: 'household.electricCarNumber', value: '1' });
 
     // Test range widget endInterestOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 75, sliderColor: 'red-yellow-green' });
+    testHelpers.inputRangeTest({
+        context,
+        path: 'end.interestOfTheSurvey',
+        value: 75,
+        sliderColor: 'red-yellow-green'
+    });
 
     // Test number widget endTimeSpentAnswering
-    testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '15' });
+    testHelpers.inputStringTest({ context, path: 'end.timeSpentAnswering', value: '15' });
 
     // Test range widget endDurationOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 70, sliderColor: 'green-yellow-red' });
+    testHelpers.inputRangeTest({
+        context,
+        path: 'end.durationOfTheSurvey',
+        value: 70,
+        sliderColor: 'green-yellow-red'
+    });
 
     // Test range widget endDifficultyOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 40, sliderColor: 'green-yellow-red' });
+    testHelpers.inputRangeTest({
+        context,
+        path: 'end.difficultyOfTheSurvey',
+        value: 40,
+        sliderColor: 'green-yellow-red'
+    });
 
     // Test range widget endBurdenOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'burdenOfTheSurvey', value: 30, sliderColor: 'green-yellow-red' });
+    testHelpers.inputRangeTest({ context, path: 'end.burdenOfTheSurvey', value: 30, sliderColor: 'green-yellow-red' });
 
     // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'consideredAbandoningSurvey', value: 'no' });
+    testHelpers.inputRadioTest({ context, path: 'end.consideredAbandoningSurvey', value: 'no' });
 
     // Test nextbutton widget buttonCompleteInterviewWithCompleteSection
     testHelpers.inputNextButtonTest({ context, text: 'Complete the interview', nextPageUrl: '/survey/completed' });

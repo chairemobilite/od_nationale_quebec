@@ -620,24 +620,18 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
 
     // Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite', value: '?' });
+    testHelpers.inputRadioTest({ context, path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobilite', value: '?' });
 
     // Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail', value: '?' });
 
     // Test text widget householdCommentsOnSurvey
-    testHelpers.inputStringTest({ context, path: 'commentsOnSurvey', value: '?' });
+    testHelpers.inputStringTest({ context, path: 'end.commentsOnSurvey', value: '?' });
 
     // Test infotext widget optionalIntroText
     testHelpers.waitTextVisible({ context, text: '?' });
-
-    // Test nextbutton widget buttonCompleteInterviewWithCompleteSectionNoOptional
-    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
-
-    // Verify the end navigation is completed
-    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'completed', isDisabled: false });
 
     // Test radionumber widget householdHybridCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -648,23 +642,23 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
 
     // Test range widget endInterestOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'interestOfTheSurvey', value: 0, sliderColor: '?' });
+    testHelpers.inputRangeTest({ context, path: 'end.interestOfTheSurvey', value: 0, sliderColor: '?' });
 
     // Test number widget endTimeSpentAnswering
-    testHelpers.inputStringTest({ context, path: 'timeSpentAnswering', value: '?' });
+    testHelpers.inputStringTest({ context, path: 'end.timeSpentAnswering', value: '?' });
 
     // Test range widget endDurationOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'durationOfSurvey', value: 0, sliderColor: '?' });
+    testHelpers.inputRangeTest({ context, path: 'end.durationOfTheSurvey', value: 0, sliderColor: '?' });
 
     // Test range widget endDifficultyOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'difficultyOfTheSurvey', value: 0, sliderColor: '?' });
+    testHelpers.inputRangeTest({ context, path: 'end.difficultyOfTheSurvey', value: 0, sliderColor: '?' });
 
     // Test range widget endBurdenOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'burdenOfTheSurvey', value: 0, sliderColor: '?' });
+    testHelpers.inputRangeTest({ context, path: 'end.burdenOfTheSurvey', value: 0, sliderColor: '?' });
 
     // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'consideredAbandoningSurvey', value: '?' });
+    testHelpers.inputRadioTest({ context, path: 'end.consideredAbandoningSurvey', value: '?' });
 
     // Test nextbutton widget buttonCompleteInterviewWithCompleteSection
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });

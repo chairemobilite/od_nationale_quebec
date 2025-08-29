@@ -418,7 +418,7 @@ export const wantToParticipateInOtherSurveysChaireMobiliteConditional: WidgetCon
         interview,
         conditionals: [
             {
-                path: 'wouldLikeToParticipateInOtherSurveysChaireMobilite',
+                path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobilite',
                 comparisonOperator: '===',
                 value: 'yes'
             }

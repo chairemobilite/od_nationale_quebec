@@ -28,8 +28,8 @@ Code postal
 Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
 
-Personnes habitant votre domicile ou logement.
-Y compris vous-même et les enfants en garde partagée s'ils étaient présents le {{assignedDate}}.
+Personnes habitant votre domicile ou logement
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}.
 
 Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage.
@@ -339,7 +339,7 @@ Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {
 
 Pour quelle raison?
 - Cours à distance
-- École fermée (grève)
+- École fermée
 - Congé (maladie, personnel, autre)
 - Pas de cours
 - Autre
@@ -395,7 +395,7 @@ Est-ce que votre ménage est locataire ou propriétaire de votre logement?
 - Autre
 - Je préfère ne pas répondre
 
-Tranche de revenu avant impôts (brut) du ménage, en 2023?
+Tranche de revenu avant impôts (brut) du ménage, en 2024?
 Facultatif
 - Moins de 10 000 $
 - 10 000$ à 19 999$
@@ -419,27 +419,34 @@ Seriez-vous intéressés à participer à d'autres études menées par la Chaire
 
 Veuillez fournir une adresse courriel de contact pour participer à d'autres études de la Chaire Mobilité.
 
-Vos commentaires et suggestions sur le questionnaire (facultatif)
+Vos commentaires et suggestions sur le questionnaire
+Facultatif
 
-L'entrevue est maintenant terminée. Merci pour votre participation et votre patience!
-
-Ignorer les questions facultatives et terminer
+Les questions suivantes sont facultatives et sont ajoutées à des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
 
 Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
+Facultatif
 
-Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
+Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques
+Facultatif
 
 Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+Facultatif
 
 Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+Facultatif
 
 Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+Facultatif
 
 Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
+Facultatif
 
 Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
+Facultatif
 
 Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
+Facultatif
 - Oui
 - Non
 - Je ne sais pas
