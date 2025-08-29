@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import _upperFirst from 'lodash/upperFirst';
+import _escape from 'lodash/escape';
 import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
@@ -738,7 +739,7 @@ export const segmentHowToBus: WidgetConfig.InputRadioType = {
         const person = odSurveyHelpers.getActivePerson({ interview });
         return t('segments:howToBus', {
             context: person?.gender || person?.sexAssignedAtBirth,
-            nickname: person.nickname,
+            nickname: _escape(person.nickname),
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
     },
@@ -1032,7 +1033,7 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
     },
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = person.nickname;
+        const nickname = _escape(person.nickname);
         return t('segments:busLines', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })

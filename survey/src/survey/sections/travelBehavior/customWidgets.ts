@@ -1,4 +1,5 @@
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
@@ -20,7 +21,7 @@ export const personNoWorkTripIntro: WidgetConfig.TextWidgetConfig = {
     containsHtml: true,
     text: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = person.nickname;
+        const nickname = _escape(person.nickname);
         const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
             withRelative: false,
             locale: i18n.language,
@@ -42,7 +43,7 @@ export const personNoWorkTripReasonSpecify: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
             withRelative: false,
             locale: i18n.language,
@@ -66,7 +67,7 @@ export const personNoSchoolTripIntro: WidgetConfig.TextWidgetConfig = {
     containsHtml: true,
     text: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = person.nickname;
+        const nickname = _escape(person.nickname);
         const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
             withRelative: false,
             locale: i18n.language,
@@ -88,7 +89,7 @@ export const personNoSchoolTripReasonSpecify: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
             withRelative: false,
             locale: i18n.language,

@@ -2,6 +2,7 @@ import _get from 'lodash/get';
 import _truncate from 'lodash/truncate';
 import _max from 'lodash/max';
 import _min from 'lodash/min';
+import _escape from 'lodash/escape';
 import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
@@ -65,7 +66,7 @@ export const personVisitedPlacesTitle = {
         const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
 
         return t('visitedPlaces:personVisitedPlacesTitle', {
-            nickname: person.nickname,
+            nickname: _escape(person.nickname),
             context: person?.gender || person?.sexAssignedAtBirth,
             assignedDate,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -611,7 +612,7 @@ export const visitedPlaceActivity: WidgetConfig.InputRadioType = {
     columns: 2,
     label: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
-        const nickname = person.nickname;
+        const nickname = _escape(person.nickname);
         return t('visitedPlaces:Activity', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -745,7 +746,7 @@ export const visitedPlaceShortcut: WidgetConfig.InputSelectType = {
     containsHtml: true,
     label: (t: TFunction, interview) => {
         const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = person.nickname;
+        const nickname = _escape(person.nickname);
         return t('visitedPlaces:shortcut', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -809,7 +810,7 @@ export const visitedPlaceName: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = person.nickname;
+        const nickname = _escape(person.nickname);
         let activity = getResponse(interview, path, null, '../activity');
 
         if (_booleish((person as any).workOnTheRoad) === true && activity === 'workUsual') {
@@ -922,11 +923,7 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
         'neighborhood',
         'route'
     ],
-    label: (t: TFunction, interview) => {
-        const person = odSurveyHelpers.getActivePerson({ interview });
-        const nickname = person.nickname;
-        return t('visitedPlaces:geography');
-    },
+    label: (t: TFunction, interview) => t('visitedPlaces:geography'),
     icon: {
         url: function (interview, path) {
             const activity: any = getResponse(interview, path, null, '../activity');
@@ -1235,12 +1232,12 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
             visitedPlaceId: activeVisitedPlace._uuid
         });
         const onTheRoadDepartureType = (activeVisitedPlace as any).onTheRoadDepartureType;
-        const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
+        const visitedPlaceDescription = _escape(getVisitedPlaceDescription(activeVisitedPlace, false, false));
 
         if (previousVisitedPlace.activity === 'home' && onTheRoadDepartureType === 'usualWorkPlace') {
             return t('visitedPlaces:_previousPreviousDepartureTimeHomeToUsualWorkplace', {
                 context: person?.gender || person?.sexAssignedAtBirth,
-                nickname: person.nickname,
+                nickname: _escape(person.nickname),
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
@@ -1251,7 +1248,7 @@ export const visitedPlacePreviousPreviousDepartureTime: WidgetConfig.InputTimeTy
         ) {
             return t('visitedPlaces:_previousPreviousDepartureTime', {
                 context: person?.gender || person?.sexAssignedAtBirth,
-                nickname: person.nickname,
+                nickname: _escape(person.nickname),
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
@@ -1406,25 +1403,26 @@ export const visitedPlacePreviousArrivalTime: WidgetConfig.InputTimeType = {
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
 
         const onTheRoadDepartureType = (activeVisitedPlace as any).onTheRoadDepartureType;
-        const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
+        const visitedPlaceDescription = _escape(getVisitedPlaceDescription(activeVisitedPlace, false, false));
+        const nickname = _escape(person.nickname);
         if (onTheRoadDepartureType === 'home') {
             return t('visitedPlaces:_previousArrivalTimeDepartureTypeHome', {
                 context: person?.gender || person?.sexAssignedAtBirth,
-                nickname: person.nickname,
+                nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
         } else if (onTheRoadDepartureType === 'usualWorkPlace') {
             return t('visitedPlaces:_previousArrivalTimeDepartureTypeUsualWorkPlace', {
                 context: person?.gender || person?.sexAssignedAtBirth,
-                nickname: person.nickname,
+                nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
         } else {
             return t('visitedPlaces:_previousArrivalTimeDepartureTypeOther', {
                 context: person?.gender || person?.sexAssignedAtBirth,
-                nickname: person.nickname,
+                nickname,
                 visitedPlaceDescription,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             });
@@ -1577,8 +1575,8 @@ export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
         });
 
         const onTheRoadDepartureType = (activeVisitedPlace as any).onTheRoadDepartureType;
-        const visitedPlaceDescription = getVisitedPlaceDescription(activeVisitedPlace, false, false);
-        const previousVisitedPlaceDescription = getVisitedPlaceDescription(previousVisitedPlace, false, false);
+        const visitedPlaceDescription = _escape(getVisitedPlaceDescription(activeVisitedPlace, false, false));
+        const previousVisitedPlaceDescription = _escape(getVisitedPlaceDescription(previousVisitedPlace, false, false));
 
         let key = 'visitedPlaces:PreviousDepartureTime';
         if (previousVisitedPlace.activity === 'home' && activeVisitedPlace.activity === 'workUsual') {
@@ -1598,7 +1596,7 @@ export const visitedPlacePreviousDepartureTime: WidgetConfig.InputTimeType = {
         }
         return t(key, {
             context: person?.gender || person?.sexAssignedAtBirth,
-            nickname: person.nickname,
+            nickname: _escape(person.nickname),
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person }),
             previousVisitedPlaceDescription,
             visitedPlaceDescription
@@ -1804,12 +1802,12 @@ export const visitedPlaceArrivalTime: WidgetConfig.InputTimeType = {
             key = 'visitedPlaces:arrivalTimeStroll';
         }
         const place = !_isBlank(visitedPlaceName)
-            ? t('survey:atPlace', { placeName: visitedPlaceName })
+            ? t('survey:atPlace', { placeName: _escape(visitedPlaceName) })
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
         return (
             t(key, {
                 context: person?.gender || person?.sexAssignedAtBirth,
-                nickname: person.nickname,
+                nickname: _escape(person.nickname),
                 atPlace: place,
                 count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
             }) + durationText
@@ -1831,11 +1829,11 @@ export const visitedPlaceNextPlaceCategory: WidgetConfig.InputRadioType = {
         const activeVisitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
         const visitedPlaceName = activeVisitedPlace?.name;
         const atPlace = !_isBlank(visitedPlaceName)
-            ? t('survey:atPlace', { placeName: visitedPlaceName })
+            ? t('survey:atPlace', { placeName: _escape(visitedPlaceName) })
             : t('survey:atThisPlace', { context: activeVisitedPlace.activity });
         return t('visitedPlaces:nextPlaceCategory', {
             context: person?.gender || person?.sexAssignedAtBirth,
-            nickname: person.nickname,
+            nickname: _escape(person.nickname),
             atPlace,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
@@ -2051,6 +2049,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
     },
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
+        const nickname = _escape(person.nickname);
         const journey = odSurveyHelpers.getActiveJourney({ interview });
         const visitedPlace = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
         const previousVisitedPlace = odSurveyHelpers.getPreviousVisitedPlace({
@@ -2081,7 +2080,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
             return (
                 t('visitedPlaces:departureTimeOnTheRoad', {
                     context: person?.gender || person?.sexAssignedAtBirth,
-                    nickname: person.nickname,
+                    nickname,
                     count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
                 }) + durationText
             );
@@ -2089,7 +2088,7 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
             return (
                 t('visitedPlaces:departureTimeStroll', {
                     context: person?.gender || person?.sexAssignedAtBirth,
-                    nickname: person.nickname,
+                    nickname,
                     count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
                 }) + durationText
             );
@@ -2100,11 +2099,11 @@ export const visitedPlaceDepartureTime: WidgetConfig.InputTimeType = {
             visitedPlace.activity === 'home' || visitedPlace.activityCategory === 'home'
                 ? t('survey:theHome')
                 : !_isBlank(visitedPlaceName)
-                    ? t('survey:place', { placeName: visitedPlaceName })
+                    ? t('survey:place', { placeName: _escape(visitedPlaceName) })
                     : t('survey:thisPlace', { context: visitedPlace.activity });
         return t('visitedPlaces:departureTime', {
             context: person?.gender || person?.sexAssignedAtBirth,
-            nickname: person.nickname,
+            nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person }),
             place: place
         });
