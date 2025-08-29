@@ -136,5 +136,6 @@ Avant d'exécuter les tests UI, assurez-vous également d'utiliser le bon fichie
 
 ```bash
 cp survey/playwright-example.config.ts survey/playwright.config.ts
-yarn test:ui
+yarn test:ui:chrome # Pour exécuter les tests dans Google Chrome
+yarn test:ui:firefox # Pour exécuter les tests dans Firefox
 ```

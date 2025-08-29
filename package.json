@@ -38,6 +38,8 @@
         "test:unit": "yarn workspace od_nationale_quebec run test:unit",
         "test:sequential": "yarn workspace od_nationale_quebec run test:sequential",
         "test:ui": "yarn workspace od_nationale_quebec run test:ui",
+        "test:ui:chrome": "yarn workspace od_nationale_quebec run test:ui --project 'chrome'",
+        "test:ui:firefox": "yarn workspace od_nationale_quebec run test:ui --project 'firefox'",
         "lint": "yarn workspace od_nationale_quebec run lint",
         "format": "yarn workspace od_nationale_quebec run format",
         "generate-migration": "knex migrate:make",
