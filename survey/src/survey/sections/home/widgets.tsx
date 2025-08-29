@@ -24,7 +24,7 @@ export const accessCode: WidgetConfig.InputStringType = {
     inputFilter: formatters.eightDigitsAccessCodeFormatter,
     label: (t: TFunction) => t('home:accessCode'),
     conditional: customConditionals.accessCodeIsSetCustomConditional,
-    validations: validations.requiredValidation
+    validations: validations.accessCodeValidation
 };
 
 export const acceptToBeContactedForHelp: WidgetConfig.InputRadioType = {
