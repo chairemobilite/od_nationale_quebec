@@ -663,7 +663,7 @@ export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
         value: 'stayedThereUntilTheNextDay',
         label: {
             fr: '{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain',
-            en: '{{nickname}} completed {{gender :his/her/their}} work on the road trips after 4AM the next day'
+            en: '{{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day'
         },
         conditional: customConditionals.isLastPlaceCustomConditional
     }
