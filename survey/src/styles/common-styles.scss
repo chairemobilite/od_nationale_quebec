@@ -119,16 +119,8 @@ $desktop-breakpoint: 50rem;
         align-items: center;
     }
 
-    .survey-trip-item-origin-description {
+    .survey-trip-item-origin-description, .survey-trip-item-destination-description {
         width: 45%;
-        overflow: hidden;
-        max-height: 8rem;
-    }
-
-    .survey-trip-item-destination-description {
-        width: 45%;
-        overflow: hidden;
-        max-height: 8rem;
     }
 
     &.survey-visited-place-item-selected {
