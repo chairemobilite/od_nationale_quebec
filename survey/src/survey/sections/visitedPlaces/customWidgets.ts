@@ -2,6 +2,7 @@ import _get from 'lodash/get';
 import _truncate from 'lodash/truncate';
 import _max from 'lodash/max';
 import _min from 'lodash/min';
+import _cloneDeep from 'lodash/cloneDeep';
 import _escape from 'lodash/escape';
 import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
@@ -976,14 +977,14 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
             (person as any).usualWorkPlace &&
             (person as any).usualWorkPlace.geography
         ) {
-            return (person as any).usualWorkPlace.geography;
+            return _cloneDeep((person as any).usualWorkPlace.geography);
         }
         if (
             visitedPlace.activity === 'schoolUsual' &&
             (person as any).usualSchoolPlace &&
             (person as any).usualSchoolPlace.geography
         ) {
-            return (person as any).usualSchoolPlace.geography;
+            return _cloneDeep((person as any).usualSchoolPlace.geography);
         }
         if (visitedPlace.shortcut) {
             const shortcut = visitedPlace.shortcut;
@@ -992,11 +993,15 @@ export const visitedPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
                 ? odSurveyHelpers.getVisitedPlaceGeography({ visitedPlace: shortcutVisitedPlace, interview, person })
                 : null;
             if (shortcutVisitedPlace && !_isBlank(geography)) {
-                if (geography.properties === undefined) {
-                    geography.properties = {};
+                /* clone the original shortcuted geography,
+                   otherwise it will change the lastAction of the
+                   previous geography, which is not correct. */
+                const clonedGeography = _cloneDeep(geography);
+                if (clonedGeography.properties === undefined) {
+                    clonedGeography.properties = {};
                 }
-                geography.properties.lastAction = 'shortcut';
-                return geography;
+                clonedGeography.properties.lastAction = 'shortcut';
+                return clonedGeography;
             }
         }
         return undefined;
