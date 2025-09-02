@@ -245,7 +245,7 @@ Map of {{nickname}}’s trips on {{assignedDate}}:
 
 What was the departure place of {{nickname}}’s work trip on the road?
 
-Where did {{nickname}} end {{gender:his/her/their/his (her)}} work trip on the road?
+Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
 
 
 Did you previously locate this place on the map?
@@ -258,7 +258,7 @@ Please select this place from the list of previously located places:
 Please locate this place on the map
 Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
 
-At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/his (her)}} usual work place?
+At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
 
 {{nickname}} arrived {{atPlace}} at:
 

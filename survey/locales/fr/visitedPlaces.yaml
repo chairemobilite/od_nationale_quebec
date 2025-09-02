@@ -128,7 +128,7 @@ departureTime_one: 'Vous avez quitté {{place}} à:'
 visitedPlacesSave: Confirmer
 visitedPlaces.save: Confirmer les lieux et continuer
 PreviousDepartureTime: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
 PreviousDepartureTime_male: >-
     À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
 PreviousDepartureTime_female: >-
@@ -144,7 +144,7 @@ PreviousDepartureTime_female_one: >-
 PreviousDepartureTime_custom_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
 PreviousDepartureTime_home_workUsual: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté le domicile pour aller au travail?
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le domicile pour aller au travail?
 PreviousDepartureTime_home_workUsual_male: À quelle heure {{nickname}} a-t-il quitté
     le domicile pour aller au travail?
 PreviousDepartureTime_home_workUsual_female: >-
@@ -160,7 +160,7 @@ PreviousDepartureTime_home_workUsual_female_one: À quelle heure avez-vous quitt
 PreviousDepartureTime_home_workUsual_custom_one: À quelle heure avez-vous quitté le
     domicile pour aller au travail?
 PreviousDepartureTime_home_schoolUsual: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté le domicile pour aller au lieu
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le domicile pour aller au lieu
     d'études/école?
 PreviousDepartureTime_home_schoolUsual_male: >-
     À quelle heure {{nickname}} a-t-il quitté le domicile pour aller au lieu d'études/école?
@@ -177,8 +177,8 @@ PreviousDepartureTime_home_schoolUsual_female_one: >-
 PreviousDepartureTime_home_schoolUsual_custom_one: >-
     À quelle heure avez-vous quitté le domicile pour aller au lieu d'études/école?
 PreviousDepartureTime_home_other: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté le domicile pour aller à cet endroit
-    ({{visitedPlaceDescription}})?
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le domicile pour aller à cet
+    endroit ({{visitedPlaceDescription}})?
 PreviousDepartureTime_home_other_male: >-
     À quelle heure {{nickname}} a-t-il quitté le domicile pour aller à cet endroit
     ({{visitedPlaceDescription}})?
@@ -197,8 +197,8 @@ PreviousDepartureTime_home_other_female_one: >-
 PreviousDepartureTime_home_other_custom_one: >-
     À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?
 PreviousDepartureTime_home_workOnTheRoad: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté le domicile avant de débuter ses
-    déplacements sur la route?
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le domicile avant de débuter
+    ses déplacements sur la route?
 PreviousDepartureTime_home_workOnTheRoad_male: >-
     À quelle heure {{nickname}} a-t-il quitté le domicile avant de débuter ses déplacements
     sur la route?
@@ -221,8 +221,8 @@ PreviousDepartureTime_home_workOnTheRoad_custom_one: >-
     À quelle heure avez-vous quitté le domicile avant de débuter vos déplacements
     sur la route?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad: >-
-    À quelle heure {{nickname}} a-t-il/elle quitté son lieu de travail habituel avant
-    de débuter ses déplacements sur la route?
+    À quelle heure {{nickname}} a-t-il(-elle) quitté son lieu de travail habituel
+    avant de débuter ses déplacements sur la route?
 PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male: >-
     À quelle heure {{nickname}} a-t-il quitté son lieu de travail habituel avant de
     débuter ses déplacements sur la route?
@@ -295,7 +295,7 @@ _previousPreviousDepartureTimeHomeToUsualWorkplace: >-
 _previousPreviousDepartureTimeHomeToUsualWorkplace_one: Vous avez quitté le domicile
     pour aller à votre lieu habituel de travail à?
 _previousArrivalTimeDepartureTypeHome: >-
-    À quelle heure {{nickname}} est-il/elle arrivé.e au domicile avant de débuter
+    À quelle heure {{nickname}} est-il(-elle) arrivé(e) au domicile avant de débuter
     ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeHome_male: >-
     À quelle heure {{nickname}} est-il arrivé au domicile avant de débuter ses déplacements
@@ -304,10 +304,10 @@ _previousArrivalTimeDepartureTypeHome_female: >-
     À quelle heure {{nickname}} est-elle arrivée au domicile avant de débuter ses
     déplacements sur la route?
 _previousArrivalTimeDepartureTypeHome_custom: >-
-    À quelle heure {{nickname}} est-iel arrivé.e au domicile avant de débuter ses
+    À quelle heure {{nickname}} est-iel arrivé(e) au domicile avant de débuter ses
     déplacements sur la route?
 _previousArrivalTimeDepartureTypeHome_one: >-
-    À quelle heure êtes-vous arrivé.e au domicile avant de débuter vos déplacements
+    À quelle heure êtes-vous arrivé(e) au domicile avant de débuter vos déplacements
     sur la route?
 _previousArrivalTimeDepartureTypeHome_male_one: >-
     À quelle heure êtes-vous arrivé au domicile avant de débuter vos déplacements
@@ -316,10 +316,10 @@ _previousArrivalTimeDepartureTypeHome_female_one: >-
     À quelle heure êtes-vous arrivée au domicile avant de débuter vos déplacements
     sur la route?
 _previousArrivalTimeDepartureTypeHome_custom_one: >-
-    À quelle heure êtes-vous arrivé.e au domicile avant de débuter vos déplacements
+    À quelle heure êtes-vous arrivé(e) au domicile avant de débuter vos déplacements
     sur la route?
 _previousArrivalTimeDepartureTypeUsualWorkPlace: >-
-    À quelle heure {{nickname}} est-il/elle arrivé.e à son lieu de travail habituel
+    À quelle heure {{nickname}} est-il(-elle) arrivé(e) à son lieu de travail habituel
     avant de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_male: >-
     À quelle heure {{nickname}} est-il arrivé à son lieu de travail habituel avant
@@ -328,10 +328,10 @@ _previousArrivalTimeDepartureTypeUsualWorkPlace_female: >-
     À quelle heure {{nickname}} est-elle arrivée à son lieu de travail habituel avant
     de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_custom: >-
-    À quelle heure {{nickname}} est-iel arrivé.e à son lieu de travail habituel avant
+    À quelle heure {{nickname}} est-iel arrivé(e) à son lieu de travail habituel avant
     de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_one: >-
-    À quelle heure êtes-vous arrivé.e à votre lieu de travail habituel avant de débuter
+    À quelle heure êtes-vous arrivé(e) à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_male_one: >-
     À quelle heure êtes-vous arrivé à votre lieu de travail habituel avant de débuter
@@ -340,10 +340,10 @@ _previousArrivalTimeDepartureTypeUsualWorkPlace_female_one: >-
     À quelle heure êtes-vous arrivée à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeUsualWorkPlace_custom_one: >-
-    À quelle heure êtes-vous arrivé.e à votre lieu de travail habituel avant de débuter
+    À quelle heure êtes-vous arrivé(e) à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther: >-
-    À quelle heure {{nickname}} est-il/elle arrivé.e au lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} est-il(-elle) arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_male: >-
     À quelle heure {{nickname}} est-il arrivé au lieu précédent ({{visitedPlaceDescription}})
@@ -352,10 +352,10 @@ _previousArrivalTimeDepartureTypeOther_female: >-
     À quelle heure {{nickname}} est-elle arrivée au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_custom: >-
-    À quelle heure {{nickname}} est-iel arrivé.e au lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} est-iel arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter ses déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_one: >-
-    À quelle heure êtes-vous arrivé.e au lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure êtes-vous arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_male_one: >-
     À quelle heure êtes-vous arrivé au lieu précédent ({{visitedPlaceDescription}})
@@ -364,7 +364,7 @@ _previousArrivalTimeDepartureTypeOther_female_one: >-
     À quelle heure êtes-vous arrivée au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter vos déplacements sur la route?
 _previousArrivalTimeDepartureTypeOther_custom_one: >-
-    À quelle heure êtes-vous arrivé.e au lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure êtes-vous arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
     avant de débuter vos déplacements sur la route?
 arrivalTimeOnTheRoad: '{{nickname}} a commencé ses déplacements sur la route à: '
 arrivalTimeOnTheRoad_one: 'Vous avez commencé vos déplacements sur la route à:'
@@ -381,18 +381,19 @@ onTheRoadArrivalTypeStayedThereUntilTheNextDay: >-
     {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain
 onTheRoadArrivalTypeStayedThereUntilTheNextDay_one: J'ai complété mes déplacements
     sur la route après 4:00 du matin le lendemain
-nextPlaceRadioChoices.stayedHomeUntilTheNextDay: Resté.e au domicile jusqu'au lendemain
+nextPlaceRadioChoices.stayedHomeUntilTheNextDay: Resté(e) au domicile jusqu'au lendemain
 nextPlaceRadioChoices.stayedHomeUntilTheNextDay_male: Resté au domicile jusqu'au lendemain
 nextPlaceRadioChoices.stayedHomeUntilTheNextDay_female: Restée au domicile jusqu'au
     lendemain
-nextPlaceRadioChoices.stayedThereUntilTheNextDay: Resté.e à cet endroit jusqu'au lendemain
+nextPlaceRadioChoices.stayedThereUntilTheNextDay: Resté(e) à cet endroit jusqu'au
+    lendemain
 nextPlaceRadioChoices.stayedThereUntilTheNextDay_male: Resté à cet endroit jusqu'au
     lendemain
 nextPlaceRadioChoices.stayedThereUntilTheNextDay_female: Restée à cet endroit jusqu'au
     lendemain
-nextPlaceRadioChoices.visitedAnotherPlace: Allé.e ou arrêté.e à un autre endroit
+nextPlaceRadioChoices.visitedAnotherPlace: Allé(e) ou arrêté(e) à un autre endroit
 nextPlaceRadioChoices.visitedAnotherPlace_male: Allé ou arrêté à un autre endroit
 nextPlaceRadioChoices.visitedAnotherPlace_female: Allée ou arrêtée à un autre endroit
-nextPlaceRadioChoices.wentBackHome: Retourné.e au domicile directement ({{address}})
+nextPlaceRadioChoices.wentBackHome: Retourné(e) au domicile directement ({{address}})
 nextPlaceRadioChoices.wentBackHome_male: Retourné au domicile directement ({{address}})
 nextPlaceRadioChoices.wentBackHome_female: Retournée au domicile directement ({{address}})

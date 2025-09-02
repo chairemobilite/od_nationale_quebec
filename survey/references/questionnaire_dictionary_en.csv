@@ -376,7 +376,7 @@ Question,What was the departure place of {{nickname}}’s work trip on the road?
 Field,onTheRoadArrivalType
 Question type,Radio input
 Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
-Question,Where did {{nickname}} end {{gender:his/her/their/his (her)}} work trip on the road?
+Question,Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Radio input
@@ -397,7 +397,7 @@ Pan, zoom and click on map. Once a pin icon has been dropped, you will be able t
 ""
 Field,_previousPreviousDepartureTime
 Question type,Unknown input
-Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/his (her)}} usual work place?
+Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
 ""
 Field,arrivalTime
 Question type,Unknown input
