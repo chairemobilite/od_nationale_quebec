@@ -154,7 +154,7 @@ LocationNameAddressExample_medical: >-
 LocationNameAddressExample_service: High class Hair saloon, Caisse Desjardins Limoilou
 LocationNameAddressExample_worship: >-
     Saint-Nicéphore church, de la Capitale mosque, Congregation Beth Israel Ohev Sholem
-LocationNameAddressExample_secondaryHome: Secondary home address, name of the chalet
+LocationNameAddressExample_secondaryHome: Secondary home or cottage address
 LocationNameAddressExample_schoolNotStudent: language centre, Tecnic driving school
 _previousPreviousDepartureTimeHomeToUsualWorkplace: '{{nickname}} left home to go
     to their usual work place?'

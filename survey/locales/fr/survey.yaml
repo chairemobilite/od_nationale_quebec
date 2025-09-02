@@ -533,7 +533,7 @@ visitedPlace:
         schoolNotStudent: Études
         schoolNotUsual: Études dans un autre lieu
         schoolUsual: École/Études au lieu principal
-        secondaryHome: Résidence secondaire
+        secondaryHome: Résidence secondaire ou chalet
         service: Service (coiffeur, réparations, avocat, banque, etc.)
         shopping: Magasinage (achats, station-service, épicerie, etc.)
         veterinarian: Vétérinaire
