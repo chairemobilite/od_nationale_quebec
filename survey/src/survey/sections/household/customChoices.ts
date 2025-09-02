@@ -61,7 +61,7 @@ export const lastWeekRemoteWorkDaysCustomChoices = (interview) => [
     {
         value: 'no',
         label: {
-            fr: 'Pas de télé-travail cette semaine.',
+            fr: 'Pas de télétravail cette semaine.',
             en: 'No remote work this week.'
         }
     },
