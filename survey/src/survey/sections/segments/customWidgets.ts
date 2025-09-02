@@ -242,7 +242,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
         iconPath: '/dist/icons/modes/bicycle/bicycle_without_rider_electric.svg'
     },
     {
-        value: 'scooterElectric',
+        value: 'kickScooterElectric',
         label: {
             fr: '<strong>Trottinette électrique</strong>',
             en: '<strong>E-Scooter</strong> (electric scooter)'
@@ -255,7 +255,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
                 (modePre === 'bicycle' || modePre === 'other') && person && !_isBlank(person.age) && person.age >= 14
             );
         },
-        iconPath: getModeIcon('scooterElectric')
+        iconPath: getModeIcon('kickScooterElectric')
     },
     {
         value: 'mobilityScooter',
@@ -674,12 +674,12 @@ const howToBusChoices = [
         iconPath: '/dist/icons/modes/bicycle/bicycle_without_rider_electric.svg'
     },
     {
-        value: 'scooterElectric',
+        value: 'kickScooterElectric',
         label: {
             fr: '<strong>Trottinette électrique</strong>',
             en: '<strong>E-Scooter</strong> (electric scooter)'
         },
-        iconPath: getModeIcon('scooterElectric')
+        iconPath: getModeIcon('kickScooterElectric')
     },
     {
         value: 'wheelchair',

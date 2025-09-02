@@ -686,7 +686,7 @@ export const shouldDisplayTripJunction = (previousSegment, currentSegment, activ
                 'motorcycle',
                 'bicycle',
                 'bicycleElectric',
-                'scooterElectric',
+                'kickScooterElectric',
                 'plane',
                 'other'
             ].includes(previousSegment.mode)) &&
@@ -704,7 +704,7 @@ export const shouldDisplayTripJunction = (previousSegment, currentSegment, activ
                 'motorcycle',
                 'bicycle',
                 'bicycleElectric',
-                'scooterElectric',
+                'kickScooterElectric',
                 'plane',
                 'other'
             ].includes(currentSegment.mode)) &&
