@@ -311,9 +311,8 @@ const visitedPlaceActivityChoices = [
                 return true;
             }
             return (
-                ['fullTimeWorker', 'partTimeWorker', 'fullTimeStudent', 'partTimeStudent', 'workerAndStudent'].includes(
-                    occupation
-                ) &&
+                (person as any).usualWorkPlace &&
+                ['fullTimeWorker', 'partTimeWorker', 'workerAndStudent'].includes(occupation) &&
                 activityCategory === 'work' &&
                 (!previousVisitedPlace || (previousVisitedPlace && previousVisitedPlace.activity !== 'workUsual')) &&
                 (!nextVisitedPlace || (nextVisitedPlace && nextVisitedPlace.activity !== 'workUsual'))
@@ -365,14 +364,9 @@ const visitedPlaceActivityChoices = [
             }
 
             return (
+                (person as any).usualSchoolPlace &&
                 activityCategory === 'school' &&
-                ([
-                    'fullTimeWorker',
-                    'partTimeWorker',
-                    'fullTimeStudent',
-                    'partTimeStudent',
-                    'workerAndStudent'
-                ].includes(occupation) ||
+                (['fullTimeStudent', 'partTimeStudent', 'workerAndStudent'].includes(occupation) ||
                     (person.age && person.age <= 15)) &&
                 (!previousVisitedPlace || (previousVisitedPlace && previousVisitedPlace.activity !== 'schoolUsual')) &&
                 (!nextVisitedPlace || (nextVisitedPlace && nextVisitedPlace.activity !== 'schoolUsual'))
