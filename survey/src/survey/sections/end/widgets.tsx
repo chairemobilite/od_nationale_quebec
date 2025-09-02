@@ -74,12 +74,12 @@ export const optionalIntroText: WidgetConfig.TextWidgetConfig = {
     conditional: defaultConditional
 };
 
-export const householdHybridCarNumber: WidgetConfig.InputRadioNumberType = {
+export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType = {
     ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.hybridCarNumber',
+    path: 'household.pluginHybridCarNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:household.hybridCarNumber'),
+    label: (t: TFunction) => t('end:household.pluginHybridCarNumber'),
     valueRange: {
         min: 0,
         max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any

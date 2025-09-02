@@ -19,7 +19,7 @@ end.commentsOnSurvey: >-
 end.optionalIntroText: >-
     Les <strong>questions suivantes sont facultatives</strong> et sont ajoutées à
     des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
-household.hybridCarNumber: >-
+household.pluginHybridCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
     hybrides rechargeables</strong>?<br /><span class="_pale _oblique">Facultatif</span>
 household.electricCarNumber: >-

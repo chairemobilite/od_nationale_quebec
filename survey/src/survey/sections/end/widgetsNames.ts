@@ -11,7 +11,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
     'householdCommentsOnSurvey',
     'optionalIntroText',
-    'householdHybridCarNumber',
+    'householdPluginHybridCarNumber',
     'householdElectricCarNumber',
     'endInterestOfTheSurvey',
     'endTimeSpentAnswering',
