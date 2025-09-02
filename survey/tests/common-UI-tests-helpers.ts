@@ -1478,9 +1478,9 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
         text: 'The next questions are optional and are added for research purposes. You can complete the interview without answering them.'
     });
 
-    // Test radionumber widget householdHybridCarNumber with conditional householdHasCars
+    // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.hybridCarNumber', value: '1' });
+    testHelpers.inputRadioTest({ context, path: 'household.pluginHybridCarNumber', value: '1' });
 
     // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */

@@ -652,7 +652,7 @@ Question type,Text area input
 Question,"Your comments and suggestions about the survey
 Optional"
 ""
-Field,hh_hybridCarNumber
+Field,hh_pluginHybridCarNumber
 Question type,RadioNumber
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?

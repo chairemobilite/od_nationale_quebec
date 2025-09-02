@@ -18,7 +18,7 @@ end.commentsOnSurvey: >-
 end.optionalIntroText: >-
     The <strong>next questions are optional</strong> and are added for research purposes.
     You can complete the interview without answering them.
-household.hybridCarNumber: >-
+household.pluginHybridCarNumber: >-
     Among the vehicles owned by your household, how many are <strong>plug-in hybrid
     vehicles</strong>?<br /><span class="_pale _oblique">Optional</span>
 household.electricCarNumber: >-

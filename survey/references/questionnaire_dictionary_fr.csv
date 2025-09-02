@@ -654,7 +654,7 @@ Type de question,Zone de texte
 Question,"Vos commentaires et suggestions sur le questionnaire
 Facultatif"
 ""
-Champ,hh_hybridCarNumber
+Champ,hh_pluginHybridCarNumber
 Type de question,RadioNumber
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?

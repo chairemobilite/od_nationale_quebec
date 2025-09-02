@@ -633,9 +633,9 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     // Test infotext widget optionalIntroText
     testHelpers.waitTextVisible({ context, text: '?' });
 
-    // Test radionumber widget householdHybridCarNumber with conditional householdHasCars
+    // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.hybridCarNumber', isVisible: true });
+    testHelpers.inputVisibleTest({ context, path: 'household.pluginHybridCarNumber', isVisible: true });
 
     // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */

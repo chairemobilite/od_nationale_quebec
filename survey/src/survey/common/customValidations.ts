@@ -100,12 +100,12 @@ export const getGeographyCustomValidation = ({ value, interview, path }) => {
 
 export const householdElectricCarCountCustomValidation: ValidationFunction = (value, _customValue, interview) => {
     const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as any;
-    const electricCarNumber = surveyHelperNew.getResponse(interview, 'household.hybridCarNumber', 0) as any;
+    const pluginHybridCarNumber = surveyHelperNew.getResponse(interview, 'household.pluginHybridCarNumber', 0) as any;
     return [
         {
             validation:
                 !_isBlank(value) &&
-                (typeof value === 'string' ? parseInt(value) : value) + electricCarNumber > carNumber,
+                (typeof value === 'string' ? parseInt(value) : value) + pluginHybridCarNumber > carNumber,
             errorMessage: (t: TFunction) => t('customLabel:HybridElectricExceedsTotal')
         }
     ];
