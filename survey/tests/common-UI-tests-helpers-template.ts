@@ -560,7 +560,7 @@ export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonT
     // Progress bar test for longDistance section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'longDistance', completionPercentage: 0 });
 
-    // Test radio widget householdMadeLongDistanceTripsInLastYear with choices yesNeverDontKnow
+    // Test radio widget householdMadeLongDistanceTripsInLastYear with choices yesNoDontKnow
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputRadioTest({ context, path: 'household.madeLongDistanceTripsInLastYear', value: '?' });
 

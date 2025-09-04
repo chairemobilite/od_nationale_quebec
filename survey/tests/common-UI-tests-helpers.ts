@@ -131,7 +131,7 @@ export const defaultTravelBehavior: TravelBehavior = {
 };
 
 export type LongDistanceSection = {
-    madeLongDistanceTrips: 'yes' | 'never' | 'dontKnow';
+    madeLongDistanceTrips: 'yes' | 'no' | 'dontKnow';
     frequencySeptemberDecember: string | null;
     frequencyJanuaryApril: string | null;
     frequencyMayAugust: string | null;
@@ -140,7 +140,7 @@ export type LongDistanceSection = {
 };
 
 export const defaultLongDistance: LongDistanceSection = {
-    madeLongDistanceTrips: 'never',
+    madeLongDistanceTrips: 'no',
     frequencySeptemberDecember: null,
     frequencyJanuaryApril: null,
     frequencyMayAugust: null,

@@ -563,7 +563,7 @@ Champ,hh_madeLongDistanceTripsInLastYear
 Type de question,Bouton radio
 Question,"Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?"
 Valeurs,"yes : Oui
-never : Jamais
+no : Non
 dontKnow : Je ne sais pas"
 ""
 Champ,hh_longDistanceTripsSeptemberDecember
