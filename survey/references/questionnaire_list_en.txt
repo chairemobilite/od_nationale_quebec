@@ -354,7 +354,7 @@ Section: Long distance trips
 
 In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?
 - Yes
-- Never
+- No
 - I don't know
 
 How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?

@@ -561,7 +561,7 @@ Field,hh_madeLongDistanceTripsInLastYear
 Question type,Radio input
 Question,"In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?"
 Values,"yes : Yes
-never : Never
+no : No
 dontKnow : I don't know"
 ""
 Field,hh_longDistanceTripsSeptemberDecember

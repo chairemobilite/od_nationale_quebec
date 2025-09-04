@@ -72,18 +72,6 @@ export const yesNoDontKnow: ChoiceType[] = [...yesNo, ...dontKnow];
 
 export const yesNoPreferNotToAnswer: ChoiceType[] = [...yes, ...no, ...preferNotToAnswer];
 
-export const yesNeverDontKnow: ChoiceType[] = [
-    ...yes,
-    {
-        value: 'never',
-        label: {
-            fr: 'Jamais',
-            en: 'Never'
-        }
-    },
-    ...dontKnow
-];
-
 export const maleFemalePreferNotAnswer: ChoiceType[] = [
     {
         value: 'female',

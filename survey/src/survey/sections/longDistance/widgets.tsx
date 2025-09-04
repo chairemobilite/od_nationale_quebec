@@ -23,7 +23,7 @@ export const householdMadeLongDistanceTripsInLastYear: WidgetConfig.InputRadioTy
             count: countPersons
         });
     },
-    choices: choices.yesNeverDontKnow,
+    choices: choices.yesNoDontKnow,
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
