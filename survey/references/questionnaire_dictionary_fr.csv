@@ -304,7 +304,9 @@ Champ,_showNewPersonPopupButton
 Type de question,Entrée inconnue
 Question,"Nous allons vous demander de spécifier les déplacements de {{nickname}}.
 
-L’ordre des personnes interviewées est aléatoire."
+L’ordre des personnes interviewées est aléatoire.
+
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>"
 ""
 Champ,whoAnswers
 Type de question,Entrée inconnue

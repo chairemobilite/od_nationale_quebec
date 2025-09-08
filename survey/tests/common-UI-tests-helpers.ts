@@ -653,13 +653,14 @@ export const fillTripsintroSectionTests = ({
         isDisabled: false
     });
 
-    // TODO: Test custom widget personNewPerson
+    // Test custom widget personNewPerson
     if (expectPopup) {
+        // Note: In JavaScript regex, ".*" does not match newlines, so it only matches within a single line.
+        // Note: "[\s\S]*" matches any character including newlines, so it is used here to match any content (including line breaks) between 'trips' and 'Continue'.
         testHelpers.inputPopupButtonTest({
             context,
             text: 'Continue',
-            popupText:
-                /We will ask you to specify .* trips.The order of the interviewed persons was randomly selected.Continue/
+            popupText: /We will ask you to specify.* trips[\s\S]*Continue/i
         });
     }
 

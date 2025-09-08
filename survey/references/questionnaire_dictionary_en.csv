@@ -304,7 +304,9 @@ Field,_showNewPersonPopupButton
 Question type,Unknown input
 Question,"We will ask you to specify {{nickname}}’s trips.
 
-The order of the interviewed persons was randomly selected."
+The order of the interviewed persons was randomly selected.
+
+<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>"
 ""
 Field,whoAnswers
 Question type,Unknown input

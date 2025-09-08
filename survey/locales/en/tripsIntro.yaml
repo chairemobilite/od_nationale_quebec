@@ -8,7 +8,10 @@ activePersonTitle: >-
 buttonSwitchPerson: Change person
 _showNewPersonPopupButton: >-
     We will ask you to specify <strong>{{nickname}}</strong>’s trips.<br /><br />The
-    order of the interviewed persons was randomly selected.
+    order of the interviewed persons was randomly selected.<br /><br /><details><summary>Why
+    might the order of persons have been changed?</summary>The order of persons for
+    whom we ask you to specify trips is randomized. This helps avoid any bias related
+    to the reporting sequence and ensures consistent data quality.</details>
 whoAnswers: Who is responding for {{nickname}}?
 personDidTrips: >-
     Did {{nickname}} make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include

@@ -199,6 +199,8 @@ We will ask you to specify {{nickname}}’s trips.
 
 The order of the interviewed persons was randomly selected.
 
+<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>
+
 Who is responding for {{nickname}}?
 
 Did {{nickname}} make any trips on {{assignedDate}}?

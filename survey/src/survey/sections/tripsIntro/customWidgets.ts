@@ -23,7 +23,7 @@ export const personNewPerson = {
     type: 'question',
     inputType: 'button',
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}._showNewPersonPopupButton',
-    align: 'center',
+    align: 'left',
     datatype: 'boolean',
     twoColumns: false,
     isModal: true,
