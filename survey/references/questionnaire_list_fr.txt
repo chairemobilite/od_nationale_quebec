@@ -199,6 +199,8 @@ Nous allons vous demander de spécifier les déplacements de {{nickname}}.
 
 L’ordre des personnes interviewées est aléatoire.
 
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>
+
 Qui répond pour {{nickname}}?
 
 Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
