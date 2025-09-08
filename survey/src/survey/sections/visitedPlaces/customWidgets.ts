@@ -319,18 +319,11 @@ const visitedPlaceActivityChoices = [
             const occupation = person.occupation;
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
 
-            // FIXME Taken from od_nationale_2024, but seems like this condition and the next should be merged somehow, no?
-            if (
-                activityCategory === 'work' &&
-                (person as any).usualWorkPlace &&
-                (person as any).usualWorkPlace.geography
-            ) {
-                return true;
-            }
             return (
-                (person as any).usualWorkPlace &&
-                ['fullTimeWorker', 'partTimeWorker', 'workerAndStudent'].includes(occupation) &&
                 activityCategory === 'work' &&
+                (person as any).usualWorkPlace &&
+                (person as any).usualWorkPlace.geography &&
+                ['fullTimeWorker', 'partTimeWorker', 'workerAndStudent'].includes(occupation) &&
                 validatePreviousNextPlaceIsNotActivities({ interview, incompatibleActivities: ['workUsual'] })
             );
         }
