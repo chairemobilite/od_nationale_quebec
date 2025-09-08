@@ -284,6 +284,31 @@ export const visitedPlaceActivityCategory: WidgetConfig.InputRadioType = {
     }
 };
 
+// Validate that the next or previous visited place are not in the incompatible activities list
+const validatePreviousNextPlaceIsNotActivities = ({
+    interview,
+    incompatibleActivities
+}: {
+    interview: WidgetConfig.UserInterviewAttributes;
+    incompatibleActivities: string[];
+}) => {
+    const journey = odSurveyHelpers.getActiveJourney({ interview });
+    const visitedPlace: any = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
+    const previousVisitedPlace = odSurveyHelpers.getPreviousVisitedPlace({
+        journey,
+        visitedPlaceId: visitedPlace._uuid
+    });
+    const nextVisitedPlace = odSurveyHelpers.getNextVisitedPlace({
+        journey,
+        visitedPlaceId: visitedPlace._uuid
+    });
+    return (
+        (!previousVisitedPlace ||
+            (previousVisitedPlace && !incompatibleActivities.includes(previousVisitedPlace.activity))) &&
+        (!nextVisitedPlace || (nextVisitedPlace && !incompatibleActivities.includes(nextVisitedPlace.activity)))
+    );
+};
+
 const visitedPlaceActivityChoices = [
     {
         value: 'workUsual',
@@ -291,18 +316,9 @@ const visitedPlaceActivityChoices = [
         iconPath: getActivityIcon('workUsual'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getActivePerson({ interview });
-            const journey = odSurveyHelpers.getActiveJourney({ interview });
             const occupation = person.occupation;
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
-            const visitedPlace: any = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
-            const previousVisitedPlace = odSurveyHelpers.getPreviousVisitedPlace({
-                journey,
-                visitedPlaceId: visitedPlace._uuid
-            });
-            const nextVisitedPlace = odSurveyHelpers.getNextVisitedPlace({
-                journey,
-                visitedPlaceId: visitedPlace._uuid
-            });
+
             // FIXME Taken from od_nationale_2024, but seems like this condition and the next should be merged somehow, no?
             if (
                 activityCategory === 'work' &&
@@ -315,8 +331,7 @@ const visitedPlaceActivityChoices = [
                 (person as any).usualWorkPlace &&
                 ['fullTimeWorker', 'partTimeWorker', 'workerAndStudent'].includes(occupation) &&
                 activityCategory === 'work' &&
-                (!previousVisitedPlace || (previousVisitedPlace && previousVisitedPlace.activity !== 'workUsual')) &&
-                (!nextVisitedPlace || (nextVisitedPlace && nextVisitedPlace.activity !== 'workUsual'))
+                validatePreviousNextPlaceIsNotActivities({ interview, incompatibleActivities: ['workUsual'] })
             );
         }
     },
@@ -334,7 +349,10 @@ const visitedPlaceActivityChoices = [
         label: (t: TFunction) => t('survey:visitedPlace:activities:workOnTheRoad'),
         conditional: function (interview, path) {
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
-            return activityCategory === 'work';
+            return (
+                activityCategory === 'work' &&
+                validatePreviousNextPlaceIsNotActivities({ interview, incompatibleActivities: loopActivities })
+            );
         },
         iconPath: getActivityIcon('workOnTheRoad')
     },
@@ -343,19 +361,9 @@ const visitedPlaceActivityChoices = [
         label: (t: TFunction) => t('survey:visitedPlace:activities:schoolUsual'),
         conditional: function (interview, path) {
             const person = odSurveyHelpers.getActivePerson({ interview });
-            const journey = odSurveyHelpers.getActiveJourney({ interview });
             const occupation = person.occupation;
 
             const activityCategory = getResponse(interview, path, null, '../activityCategory');
-            const visitedPlace: any = odSurveyHelpers.getActiveVisitedPlace({ interview, journey });
-            const previousVisitedPlace = odSurveyHelpers.getPreviousVisitedPlace({
-                journey,
-                visitedPlaceId: visitedPlace._uuid
-            });
-            const nextVisitedPlace = odSurveyHelpers.getNextVisitedPlace({
-                journey,
-                visitedPlaceId: visitedPlace._uuid
-            });
 
             if (
                 activityCategory === 'school' &&
@@ -369,8 +377,7 @@ const visitedPlaceActivityChoices = [
                 activityCategory === 'school' &&
                 (['fullTimeStudent', 'partTimeStudent', 'workerAndStudent'].includes(occupation) ||
                     (person.age && person.age <= 15)) &&
-                (!previousVisitedPlace || (previousVisitedPlace && previousVisitedPlace.activity !== 'schoolUsual')) &&
-                (!nextVisitedPlace || (nextVisitedPlace && nextVisitedPlace.activity !== 'schoolUsual'))
+                validatePreviousNextPlaceIsNotActivities({ interview, incompatibleActivities: ['schoolUsual'] })
             );
         },
         iconPath: getActivityIcon('schoolUsual')
@@ -447,7 +454,10 @@ const visitedPlaceActivityChoices = [
         label: (t: TFunction) => t('survey:visitedPlace:activities:leisureStroll'),
         conditional: function (interview, path) {
             const activityCategory: any = getResponse(interview, path, null, '../activityCategory');
-            return activityCategory === 'leisure' || activityCategory === 'other';
+            return (
+                (activityCategory === 'leisure' || activityCategory === 'other') &&
+                validatePreviousNextPlaceIsNotActivities({ interview, incompatibleActivities: loopActivities })
+            );
         },
         iconPath: getActivityIcon('leisureStroll')
     },
