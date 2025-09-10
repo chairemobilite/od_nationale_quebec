@@ -4,8 +4,9 @@ import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 // Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
 export const deleteParticipantInterview = async (accessCode: string) => {
     try {
-        // Delete the participant interview with the access code
+        // Add a timeout to the database operation
         await knex('sv_participants').del().whereILike('username', `${accessCode}-%`);
+        await new Promise((_, reject) => setTimeout(() => reject(new Error('Database operation timeout')), 10000));
     } catch (error) {
         console.error(`Error deleting participant with access code ${accessCode}`, error);
     }
