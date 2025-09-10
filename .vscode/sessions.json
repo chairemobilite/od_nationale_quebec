@@ -1,0 +1,103 @@
+{
+    "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v11/terminal-keeper.json",
+    "theme": "tribe",
+    "active": "od-nationale-dev",
+    "activateOnStartup": true,
+    "keepExistingTerminals": false,
+    "sessions": {
+        "od-nationale-dev": [
+            {
+                "name": "git_nationale",
+                "commands": [
+                    "git status"
+                ],
+                "icon": "source-control",
+                "color": "terminal.ansiBlue"
+            },
+            {
+                "name": "git_evolution",
+                "commands": [
+                    "cd evolution",
+                    "git status"
+                ],
+                "icon": "source-control",
+                "color": "terminal.ansiBlue"
+            },
+            {
+                "name": "compile-survey",
+                "commands": [
+                    "yarn compile"
+                ],
+                "icon": "gear",
+                "color": "terminal.ansiYellow"
+            },
+            {
+                "name": "build",
+                "commands": [
+                    "yarn build:dev"
+                ],
+                "icon": "package",
+                "color": "terminal.ansiGreen"
+            },
+            {
+                "name": "build-admin",
+                "commands": [
+                    "yarn build:admin:dev"
+                ],
+                "icon": "package",
+                "color": "terminal.ansiRed"
+            },
+            {
+                "name": "server",
+                "commands": [
+                    "yarn start"
+                ],
+                "icon": "server",
+                "color": "terminal.ansiGreen"
+            },
+            {
+                "name": "server-admin",
+                "commands": [
+                    "yarn start:admin"
+                ],
+                "icon": "server",
+                "color": "terminal.ansiRed"
+            },
+            {
+                "name": "test-nationale",
+                "commands": [
+                    "yarn test"
+                ],
+                "icon": "beaker",
+                "color": "terminal.ansiYellow"
+            },
+            {
+                "name": "test-evolution-common",
+                "commands": [
+                    "cd evolution/packages/evolution-common",
+                    "npx jest"
+                ],
+                "icon": "beaker",
+                "color": "terminal.ansiYellow"
+            },
+            {
+                "name": "test-evolution-backend",
+                "commands": [
+                    "cd evolution/packages/evolution-backend",
+                    "npx jest"
+                ],
+                "icon": "beaker",
+                "color": "terminal.ansiYellow"
+            },
+            {
+                "name": "test-evolution-frontend",
+                "commands": [
+                    "cd evolution/packages/evolution-frontend",
+                    "npx jest"
+                ],
+                "icon": "beaker",
+                "color": "terminal.ansiYellow"
+            }
+        ]
+    }
+}
