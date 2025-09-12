@@ -51,8 +51,7 @@ Save and continue
 
 Section: Household
 
-Age
-For babies under the age of 1, write "0"
+Age (in years)
 
 Name or nickname that will allow you to identify this person for the remainder of the interview
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').

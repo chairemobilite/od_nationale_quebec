@@ -51,8 +51,7 @@ Enregistrer et continuer
 
 Section: Ménage
 
-Âge
-Pour les bébés de moins de 1 an, inscrivez "0"
+Âge (en années)
 
 Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').

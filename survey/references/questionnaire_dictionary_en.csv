@@ -89,8 +89,7 @@ Abbreviation,hh_
 ""
 Field,age
 Question type,Number input
-Question,"Age
-For babies under the age of 1, write ""0"""
+Question,Age (in years)
 ""
 Field,nickname
 Question type,Text input
