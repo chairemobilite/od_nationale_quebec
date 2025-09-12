@@ -2,10 +2,8 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-age: >-
-    <strong>Age</strong><br /><span class="_pale _oblique">For babies under the age
-    of 1, write "0"</span>
-age_one: Your <strong>age</strong>
+age: <strong>Age</strong> (in years)
+age_one: Your <strong>age</strong> (in years)
 nickname: >-
     <strong>Name or nickname</strong> that will allow you to identify this person
     for the remainder of the interview<br /><span class="_pale _oblique">Can be a

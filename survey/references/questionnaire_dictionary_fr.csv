@@ -89,8 +89,7 @@ Abréviation,hh_
 ""
 Champ,age
 Type de question,Champ numérique
-Question,"Âge
-Pour les bébés de moins de 1 an, inscrivez ""0"""
+Question,Âge (en années)
 ""
 Champ,nickname
 Type de question,Champ de texte
