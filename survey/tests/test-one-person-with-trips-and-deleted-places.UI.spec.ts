@@ -26,7 +26,7 @@ test.afterAll(async () => {
     await commonUITestsHelpers.deleteParticipantInterview(accessCode);
 });
 
-// Define the visited places for this test scenario
+// Define the visited places for this test scenario, 3 additional places will be added after home, the restaurant will be deleted later.
 const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
@@ -40,8 +40,23 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM
         arrivalTime: 34200, // 9:30 AM
-        nextPlaceCategory: 'wentBackHome',
+        nextPlaceCategory: 'visitedAnotherPlace',
         departureTime: 39600 // 11:00 AM
+    },
+    {
+        activityCategory: 'shoppingServiceRestaurant',
+        activity: 'restaurant',
+        onTheRoadDepartureType: null, // Question won't show.
+        onTheRoadArrivalType: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: 'no',
+        shortcut: null, // Question won't show.
+        name: 'Tim Hortons Ste-Foy',
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
+        _previousDepartureTime: null, // Question won't show.
+        arrivalTime: 41400, // 11:30 AM
+        nextPlaceCategory: 'wentBackHome',
+        departureTime: 42300 // 11:45 AM
     },
     {
         activityCategory: null, // Question won't show.
@@ -54,13 +69,13 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: null, // Question won't show.
-        arrivalTime: 41400, // 11:30 AM
+        arrivalTime: 44100, // 12:15 PM
         nextPlaceCategory: 'stayedThereUntilTheNextDay',
         departureTime: null // Question won't show.
     }
 ];
 
-// Define the segments for this test scenario
+// Define the segments for this test scenario, when we fill them, there will be two trips remaining.
 const segments: commonUITestsHelpers.Segment[] = [
     {
         segmentIndex: 0,
@@ -98,7 +113,7 @@ const segments: commonUITestsHelpers.Segment[] = [
 // Start the survey using an access code and postal code combination that does not exist in the database.
 // The survey should still start a new interview with these credentials.
 const postalCode = 'G1R 5H1';
-const accessCode = '7357-1112';
+const accessCode = '7357-1113';
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
     title: 'Enquête Nationale Origine-Destination 2025',
@@ -131,7 +146,37 @@ commonUITestsHelpers.fillVisitedPlacesSectionTests({
     journeyStartsAtHome: true
 });
 
-/********** Tests segments section **********/
+// Now we're in the segments section, instead of filling the trips section, click on the "Trips" button to go back to 'tripsIntro' section
+testHelpers.changePageFromNavBar({ context, buttonText: 'Trips', nextPageUrl: '/survey/tripsIntro' });
+
+// Click on the "Continue" button to go to 'visitedPlaces' section
+testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/visitedPlaces' });
+
+// Click on the third delete button to delete the second visited place
+test('Click delete third visited place', async () => {
+    // Find all buttons with title 'Delete'
+    const deleteButtons = context.page.getByTitle('Delete');
+    // Get the third delete button (index 2 since it's zero-based)
+    const thirdDeleteButton = deleteButtons.nth(2);
+    await thirdDeleteButton.scrollIntoViewIfNeeded();
+    await thirdDeleteButton.click();
+
+    // Wait for any confirmation dialog that might appear and accept it
+    const confirmDialog = context.page.getByRole('dialog');
+    if (await confirmDialog.isVisible()) {
+        const confirmButton = confirmDialog.getByRole('button', { name: 'Confirm' });
+        await confirmButton.click();
+    }
+});
+
+// Click on the "Confirm locations and continue" button to go to segments section
+testHelpers.inputNextButtonTest({
+    context,
+    text: 'Confirm locations and continue',
+    nextPageUrl: '/survey/segments'
+});
+
+/********** Tests segments section, 2 trips remaining **********/
 commonUITestsHelpers.fillSegmentsSectionTests({
     context,
     householdSize: 1,
