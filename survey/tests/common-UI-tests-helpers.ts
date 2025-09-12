@@ -748,8 +748,9 @@ export const fillTripsintroSectionTests = ({
 export const fillVisitedPlacesSectionTests = ({
     context,
     householdSize = 1,
-    visitedPlaces
-}: CommonTestParametersModify & { visitedPlaces: VisitedPlace[] }) => {
+    visitedPlaces,
+    journeyStartsAtHome = true
+}: CommonTestParametersModify & { visitedPlaces: VisitedPlace[]; journeyStartsAtHome?: boolean }) => {
     // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
     // Test custom widget buttonSwitchPerson
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -777,6 +778,13 @@ export const fillVisitedPlacesSectionTests = ({
     // Add tests for each visited places
     visitedPlaces.forEach((place: VisitedPlace, index) => {
         fillOneVisitedPlace({ context, place }); // Fill a visited place from start to confirmation
+        // If it is not the last place, wait for the next place title to be displayed, otherwise, the next test will race with the update and may use the previous active visited place ID
+        if (index !== visitedPlaces.length - 1) {
+            // Wait for the next location to be visible, if journey starts at
+            // home, place at index 0 is location #2, so we wait for index + 3,
+            // otherwise, wait for index + 2
+            testHelpers.waitTextVisible({ context, text: `Location #${index + (journeyStartsAtHome ? 3 : 2)}` });
+        }
     });
 
     // Test custom widget buttonCancelVisitedPlace
