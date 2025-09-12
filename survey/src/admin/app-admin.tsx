@@ -12,6 +12,7 @@ import addInterviewerOptions from 'evolution-interviewer/lib/client/services/int
 
 import surveySections from '../survey/sections';
 import { widgets as widgetsConfig } from '../survey/widgetsConfigs';
+import monitoring from './components/Monitoring';
 
 // TODO This is a workaround to get the links to the user, until some more complete solution is implemented (see https://github.com/chairemobilite/transition/issues/1516)
 const pages = appConfig.pages;
@@ -23,6 +24,8 @@ setApplicationConfiguration<EvolutionApplicationConfiguration>(
         widgets: widgetsConfig as any,
         allowedUrlFields: ['source', 'accessCode'],
         templateMapping: { ...appConfig.templateMapping, visitedPlaces: VisitedPlaceSection },
+        // FIXME See why we need the cast, it does not compile otherwise
+        getAdminMonitoringComponents: () => monitoring as any[],
         pages
     }) as any
 );

@@ -1,0 +1,5 @@
+updateMonitoringCache: Mettre à jour le cache de suivi
+downloadTrackingData: Télécharger les données de suivi (CSV)
+actionSuccess: "Action réussie"
+actionError: "Erreur lors de l'action"
+interview_monitoring_cache_updated_successfully: "Cache de suivi mis à jour avec succès"
