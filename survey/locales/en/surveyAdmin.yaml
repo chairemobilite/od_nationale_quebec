@@ -1,0 +1,5 @@
+updateMonitoringCache: Update monitoring cache
+downloadTrackingData: Download tracking data (CSV)
+actionSuccess: "Action successful"
+actionError: "Action failed"  
+interview_monitoring_cache_updated_successfully: "Interview monitoring cache updated successfully"
