@@ -198,10 +198,10 @@ Each variant has specific:
 
 6. **Transit Integration**: Routing capabilities come from Transition submodule - routing scenarios are configured per variant.
 
-When providing assistance, consider the multi-layered architecture (survey → evolution → transition) and understand that functionality may be implemented at different levels of this stack.
+When providing assistance, consider the multi-layered architecture (survey → evolution → chaire-lib → transition) and understand that functionality may be implemented at different levels of this stack.
 
-# Coding:
+# Coding rules:
 
-- No trailing spaces, even in comments/doc
+- No trailing spaces, even in comments/doc, no line with spaces only, replace with blank line
 - Use parentheses for arrow function params
 - Document non trivial functions and attributes, using jsdoc or inline comments when short
