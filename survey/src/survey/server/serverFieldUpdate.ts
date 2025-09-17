@@ -335,7 +335,9 @@ export default [
         }
     },
     {
-        field: { regex: 'household.persons.*.journeys.*.trips.*.segments.*.modePre' },
+        field: {
+            regex: '^household\\.persons\\.[a-zA-Z0-9_-]+\\.journeys\\.[a-zA-Z0-9_-]+\\.trips\\.[a-zA-Z0-9_-]+\\.segments\\.[a-zA-Z0-9_-]+\\.modePre$'
+        },
         runOnValidatedData: true,
         callback: async (interview, value, path, registerUpdateOperation) => {
             const resultPath = getPath(path, '../trRoutingResult');

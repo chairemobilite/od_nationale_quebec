@@ -552,8 +552,90 @@ describe('test transit summary generation', function () {
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
     });
 
-});
+    describe('Test transit summary regex field matching', function () {
 
+        const regexToMatch = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined) as any).field.regex;
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        test('Valid modePre path should match regex', async () => {
+            expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).not.toBeNull();
+        });
+
+        test('Valid modePre path with different UUID-like IDs should match regex', async () => {
+            expect('household.persons.person_123.journeys.journey-456.trips.trip789.segments.segment_999.modePre'.match(regexToMatch)).not.toBeNull();
+        });
+        
+        test('Valid modePre path with actual UUID format should match regex ', async () => {
+            expect('household.persons.550e8400-e29b-41d4-a716-446655440000.journeys.550e8400-e29b-41d4-a716-446655440002.trips.550e8400-e29b-41d4-a716-446655440003.segments.550e8400-e29b-41d4-a716-446655440004.modePre'.match(regexToMatch)).not.toBeNull();
+        });
+
+        test('Invalid path with empty person ID should not match regex', async () => {
+            expect('household.persons..journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Invalid path with empty journey ID should not match regex', async () => {
+            expect('household.persons.a12345.journeys..trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Invalid path with empty trip ID should not match regex', async () => {
+            expect('household.persons.a12345.journeys.j1.trips..segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Invalid path with empty segment ID should not match regex', async () => {
+            expect('household.persons.a12345.journeys.j1.trips.t1.segments..modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Invalid path with wrong field name should not match regex', async () => {
+            expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePost'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Invalid path with special characters should not match regex', async () => {
+            expect('household.persons.a12345@domain.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Invalid path with spaces in UUID should not match regex', async () => {
+            expect('household.persons.a123 45.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Partial path should not match regex', async () => {
+            expect('household.persons.a12345.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Path with extra segments should not match regex', async () => {
+            expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.extra.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Path with extra response prefix should not match regex', async () => {
+            expect('responses.household.persons.a12345.journeys.j1.trips.t1.segments.s1.extra.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Path with extra suffixes should not match regex', async () => {
+            expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.extra.modePre.something'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Path with uppercase should not match regex', async () => {
+            expect('Household.persons.test.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        });
+
+        test('Path with single character IDs match regex', async () => {
+            // Single character IDs (minimum valid length)
+            expect('household.persons.a.journeys.b.trips.c.segments.d.modePre'.match(regexToMatch)).not.toBeNull();
+        });
+
+        // IDs starting with allowed special characters
+        test('Path with only special characters should match regex', async () => {
+            expect('household.persons._test.journeys.-test.trips.test_.segments.test-.modePre'.match(regexToMatch)).not.toBeNull();
+        });
+
+        // All numeric IDs
+        test('Path with only numeric ids should match regex', async () => {
+            expect('household.persons.123.journeys.456.trips.789.segments.012.modePre'.match(regexToMatch)).not.toBeNull();
+        });
+    });
+});
 describe('Update trip date when interview paused', () => {
     const updateCallback = (updateCallbacks.find((callback) => callback.field === '_sections._actions') as any).callback;
     let interview = _cloneDeep(baseInterview);
