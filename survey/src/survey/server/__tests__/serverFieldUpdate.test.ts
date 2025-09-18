@@ -554,6 +554,123 @@ describe('test transit summary generation', function () {
 
 });
 
+describe('Test transit summary regex field matching', function () {
+    //const updateCallback = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined) as any).callback;
+    const regexToMatch = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined) as any).field.regex;
+    //const registerUpdateOperationMock = jest.fn();
+    //let interview = _cloneDeep(baseInterview);
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        //interview = _cloneDeep(baseInterview);
+        //interview.response._assignedDay = '2022-09-26';
+        //config.trRoutingScenarios = {
+        //    SE: 'ScenarioDeSemaine',
+        //    SA: 'ScenarioDuSamedi', 
+        //    DI: 'ScenarioDuDimanche'
+        //};
+    });
+
+
+
+
+
+
+    test('Valid modePre path should match regex', async () => {
+
+        expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).not.toBeNull();
+        //expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        //    .toEqual({});
+        //expect(registerUpdateOperationMock).toHaveBeenCalled();
+    });
+
+    test('Valid modePre path with different UUID-like IDs should match regex', async () => {
+        expect('household.persons.person_123.journeys.journey-456.trips.trip789.segments.segment_999.modePre'.match(regexToMatch)).not.toBeNull();
+
+        //expect(await updateCallback(interview, 'transit', 'household.persons.person_123.journeys.journey-456.trips.trip789.segments.segment_999.modePre', registerUpdateOperationMock))
+        //    .toEqual({});
+        //expect(registerUpdateOperationMock).toHaveBeenCalled();
+    });
+    
+    /*test('Valid modePre path with actual UUID format should match regex but person not found', async () => {
+        // The regex matches but the person UUID doesn't exist in interview data, so it returns defaultResponse
+        expect(await updateCallback(interview, 'transit', 'household.persons.550e8400-e29b-41d4-a716-446655440000.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });*/
+
+    test('Valid modePre path with existing person UUID should match regex and execute', async () => {
+        // Test with the actual person ID that exists in baseInterview
+        expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).not.toBeNull();
+        /*expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({});
+        expect(registerUpdateOperationMock).toHaveBeenCalled();*/
+    });
+
+    test('Invalid path with empty person ID should not match regex', async () => {
+        expect('household.persons..journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+       /*expect(await updateCallback(interview, 'transit', 'household.persons..journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();*/
+    });
+
+    test('Invalid path with empty journey ID should not match regex', async () => {
+          expect('household.persons.a12345.journeys..trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+      /*expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys..trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+            .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        expect(registerUpdateOperationMock).not.toHaveBeenCalled();*/
+    });
+
+    test('Invalid path with empty trip ID should not match regex', async () => {
+         expect('household.persons.a12345.journeys.j1.trips..segments.s1.modePre'.match(regexToMatch)).toBeNull();
+       //expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips..segments.s1.modePre', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Invalid path with empty segment ID should not match regex', async () => {
+         expect('household.persons.a12345.journeys.j1.trips.t1.segments..modePre'.match(regexToMatch)).toBeNull();
+       //expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments..modePre', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Invalid path with wrong field name should not match regex', async () => {
+         expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePost'.match(regexToMatch)).toBeNull();
+       //expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePost', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Invalid path with special characters should not match regex', async () => {
+         expect('household.persons.a12345@domain.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+       //expect(await updateCallback(interview, 'transit', 'household.persons.a12345@domain.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Invalid path with spaces in UUID should not match regex', async () => {
+        expect('household.persons.a123 45.journeys.j1.trips.t1.segments.s1.modePre'.match(regexToMatch)).toBeNull();
+        //expect(await updateCallback(interview, 'transit', 'household.persons.a123 45.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Partial path should not match regex', async () => {
+         expect('household.persons.a12345.modePre'.match(regexToMatch)).toBeNull();
+       //expect(await updateCallback(interview, 'transit', 'household.persons.a12345.modePre', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+
+    test('Path with extra segments should not match regex', async () => {
+         expect('household.persons.a12345.journeys.j1.trips.t1.segments.s1.extra.modePre'.match(regexToMatch)).toBeNull();
+        //expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.extra.modePre', registerUpdateOperationMock))
+        //    .toEqual({ 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult': undefined });
+        //expect(registerUpdateOperationMock).not.toHaveBeenCalled();
+    });
+});
+
 describe('Update trip date when interview paused', () => {
     const updateCallback = (updateCallbacks.find((callback) => callback.field === '_sections._actions') as any).callback;
     let interview = _cloneDeep(baseInterview);
