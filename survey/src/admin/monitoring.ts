@@ -129,7 +129,7 @@ export const trackingData = async () => {
             .as('all_sections');
         const groupBySections = knex(innerQuery)
             .select(
-                'id',
+                'id as id_with_sections',
                 knex.raw('sum(home_started) as home_started'),
                 knex.raw('sum(home_completed) as home_completed'),
                 knex.raw('sum(hh_started) as hh_started'),
@@ -139,8 +139,9 @@ export const trackingData = async () => {
             .groupBy('id')
             .as('section_completed');
         const query = knex(monitoringViewName)
-            .leftJoin(groupBySections, `${monitoringViewName}.id`, 'section_completed.id')
-            .select('*');
+            .leftJoin(groupBySections, `${monitoringViewName}.id`, 'section_completed.id_with_sections')
+            .select('*')
+            .orderBy('started_at', 'asc');
         const results = await query;
         return results.map((res) => ({
             id: res.id,
