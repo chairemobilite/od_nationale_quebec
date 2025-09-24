@@ -179,3 +179,29 @@ export const trackingData = async () => {
         return [];
     }
 };
+
+/**
+ * Counts the started and completed interviews by the values of a specific
+ * attribute
+ *
+ * @param attribute The attribute to group by (e.g., 'strate', 'lot',
+ * 'language', etc.)
+ * @returns An object with two properties: 'started' and 'completed', each
+ * containing a mapping of attribute values to counts.
+ */
+export const getStartedCompletedByAttribute = async (
+    attribute: string
+): Promise<{ started: Record<string, number>; completed: Record<string, number> }> => {
+    const data = await adminViewQueries.countByView(monitoringViewName, [attribute, 'survey_completed']);
+    const result = { started: {}, completed: {} };
+    if (data !== false) {
+        data.forEach((oneData) => {
+            const key = (oneData[attribute] ?? 'null') as string;
+            if (oneData.survey_completed === 1) {
+                result.completed[key] = oneData.count;
+            }
+            result.started[key] = (result.started[key] || 0) + oneData.count;
+        });
+    }
+    return result;
+};
