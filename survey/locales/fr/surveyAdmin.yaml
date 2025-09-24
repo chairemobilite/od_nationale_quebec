@@ -3,3 +3,7 @@ downloadTrackingData: Télécharger les données de suivi (CSV)
 actionSuccess: "Action réussie"
 actionError: "Erreur lors de l'action"
 interview_monitoring_cache_updated_successfully: "Cache de suivi mis à jour avec succès"
+StartedAndCompletedInterviewsPer: "Entrevues débutées et complétées par {{attribute}}"
+CSV: "Télécharger en CSV"
+strateCategories:
+  null: "Non spécifié"
