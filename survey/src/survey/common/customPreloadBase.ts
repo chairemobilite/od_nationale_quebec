@@ -31,11 +31,8 @@ export default function (interview, sectionShortname) {
         }
     }
 
-    // Prepare the responses object with the current language, section start time, actions, and household persons count
+    // Prepare the responses object with the household persons count
     const responses = {
-        ['response._language']: i18n.language, // TODO: follow language changes during the interview
-        [`response._sections.${sectionShortname}._startedAt`]: moment().unix(),
-        // ['response._sections._actions']: odSurveyHelper.generateSectionAction(interview, sectionShortname, 'start'),
         ['response.household._personsCount']: odSurveyHelper.countPersons({ interview })
     };
 
