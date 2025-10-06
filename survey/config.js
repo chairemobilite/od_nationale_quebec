@@ -8,7 +8,7 @@ moment.updateLocale('fr', {
     holidays,
     holidayFormat: 'YYYY-MM-DD',
     longDateFormat: {
-        LL: "dddd Do MMMM YYYY",
+        LL: 'dddd Do MMMM YYYY',
     }
 });
 
@@ -16,7 +16,7 @@ moment.updateLocale('en', {
     holidays,
     holidayFormat: 'YYYY-MM-DD',
     longDateFormat: {
-        LL: "dddd, MMMM Do YYYY",
+        LL: 'dddd, MMMM Do YYYY',
     }
 });
 
@@ -27,6 +27,9 @@ module.exports = Object.assign({
         fr: `/dist/images/logo_od_${survey}_2025_fr.svg`,
         en: `/dist/images/logo_od_${survey}_2025_en.svg`
     },
+    countryCode: 'CA',
+    startDate: '2025-09-02', // tuesday after Labor day
+    endDate: '2025-12-16',
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
@@ -73,15 +76,16 @@ module.exports = Object.assign({
         lat: 46.81289,
         lon: -71.21461
     },
+    mapAerialTilesUrl: undefined, // aerial imagery usually requires permission to use. Feel free to add your own url to this file in your local environment.
     mapMaxGeocodingResultsBounds: [
-      {
-        lat: 47.033374,
-        lng: -70.8030445
-      },
-      {
-        lat: 46.518331,
-        lng: -71.671425
-    }],
+        {
+            lat: 47.033374,
+            lng: -70.8030445
+        },
+        {
+            lat: 46.518331,
+            lng: -71.671425
+        }],
     detectLanguage: false,
     detectLanguageFromUrl: true,
     languages: ['fr', 'en'],
@@ -90,13 +94,13 @@ module.exports = Object.assign({
         en: 'en-CA'
     },
     languageNames: {
-        fr: "Français",
-        en: "English"
+        fr: 'Français',
+        en: 'English'
     },
     title: {
-        fr: "Enquête Nationale Origine-Destination 2025",
-        en: "2025 National Origin-Destination Survey"
+        fr: 'Enquête Nationale Origine-Destination 2025',
+        en: '2025 National Origin-Destination Survey'
     },
-    defaultLocale: "fr",
+    defaultLocale: 'fr',
     timezone: 'America/Montreal',
 }, variantSpecificConfig);
