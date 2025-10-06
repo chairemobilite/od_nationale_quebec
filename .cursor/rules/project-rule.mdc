@@ -205,3 +205,8 @@ When providing assistance, consider the multi-layered architecture (survey → e
 - No trailing spaces, even in comments/doc, no line with spaces only, replace with blank line
 - Use parentheses for arrow function params
 - Document non trivial functions and attributes, using jsdoc or inline comments when short
+- When creating tests, favor parametric tests when more than one expect is used, to simplify debugging of failed tests.
+- indent using 4 spaces. Read these prettier config to know how to format code:
+  - evolution/configs/base.eslintrc.json
+  - evolution/configs/gts.eslintrc.json
+  - evolution/configs/react.eslintrc.json

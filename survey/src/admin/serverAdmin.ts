@@ -15,13 +15,15 @@ import serverValidations from '../survey/server/serverValidations';
 import roleDefinitions from './server/roleDefinitions';
 import { setupMonitoringView } from './monitoring';
 import adminRoutes from './routes/admin.routes';
+import { surveyObjectParsers } from './parsers';
 
 // TODO Add validation list filter if necessary
 const configureServer = () => {
     setProjectConfig({
         serverUpdateCallbacks,
         serverValidations,
-        roleDefinitions
+        roleDefinitions,
+        surveyObjectParsers
     });
 
     adminRoutes(router); // Load API admin routes
