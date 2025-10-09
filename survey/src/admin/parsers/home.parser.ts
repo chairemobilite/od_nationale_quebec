@@ -9,18 +9,20 @@ import { AddressAttributes } from 'evolution-common/lib/services/baseObjects/Add
 import { SurveyObjectParser } from 'evolution-backend/lib/services/audits/types';
 import { CorrectedResponse } from 'evolution-common/lib/services/questionnaire/types';
 import { ExtendedPlaceAttributes } from 'evolution-common/lib/services/baseObjects/Place';
+import _cloneDeep from 'lodash/cloneDeep';
 
 /**
- * @param homeAttributes - The home attributes to parse (modified in place)
+ * @param originalCorrectedHomeAttributes - The home attributes to parse
  * @param correctedResponse - The corrected response
  */
 export const parseHomeAttributes: SurveyObjectParser<ExtendedPlaceAttributes, CorrectedResponse> = (
-    homeAttributes: ExtendedPlaceAttributes,
-    _correctedResponse?: CorrectedResponse
-): void => {
-    // Handle missing or invalid homeAttributes
+    originalCorrectedHomeAttributes: Readonly<ExtendedPlaceAttributes>,
+    _correctedResponse?: Readonly<CorrectedResponse>
+): ExtendedPlaceAttributes => {
+    const homeAttributes = _cloneDeep(originalCorrectedHomeAttributes) as ExtendedPlaceAttributes;
+
     if (!homeAttributes || typeof homeAttributes !== 'object') {
-        return;
+        return homeAttributes;
     }
 
     // Check if we have address-related fields to convert
@@ -32,7 +34,7 @@ export const parseHomeAttributes: SurveyObjectParser<ExtendedPlaceAttributes, Co
         homeAttributes.postalCode;
 
     if (!hasAddressFields) {
-        return;
+        return homeAttributes;
     }
 
     // Create address object from flat fields
@@ -73,5 +75,7 @@ export const parseHomeAttributes: SurveyObjectParser<ExtendedPlaceAttributes, Co
 
         // Set the address object with the structured data
         homeAttributes.address = addressData;
+        return homeAttributes;
     }
+    return homeAttributes;
 };

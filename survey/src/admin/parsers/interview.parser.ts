@@ -7,15 +7,18 @@
 
 import { SurveyObjectParserInterview } from 'evolution-backend/lib/services/audits/types';
 import { CorrectedResponse } from 'evolution-common/lib/services/questionnaire/types';
+import _cloneDeep from 'lodash/cloneDeep';
 
 /**
- * @param correctedResponse - The corrected response
+ * @param originalCorrectedResponse - The corrected response
  */
 export const parseInterviewAttributes: SurveyObjectParserInterview<CorrectedResponse> = (
-    correctedResponse: CorrectedResponse
-): void => {
-    if (!correctedResponse) {
-        return;
+    originalCorrectedResponse: Readonly<CorrectedResponse>
+): CorrectedResponse => {
+    const correctedResponse = _cloneDeep(originalCorrectedResponse) as CorrectedResponse;
+
+    if (!correctedResponse || typeof correctedResponse !== 'object') {
+        return correctedResponse;
     }
 
     // Convert acceptToBeContactedForHelp from 'yes'/'no' string to boolean
@@ -53,7 +56,14 @@ export const parseInterviewAttributes: SurveyObjectParserInterview<CorrectedResp
     }
 
     // update the assignedDate attribute:
-    if (correctedResponse._assignedDay) {
+    if (correctedResponse._assignedDay !== undefined) {
         correctedResponse.assignedDate = correctedResponse._assignedDay;
     }
+
+    // update the languages attribute:
+    if (correctedResponse._language && ['fr', 'en'].includes(correctedResponse._language)) {
+        correctedResponse._languages = [correctedResponse._language];
+    }
+
+    return correctedResponse;
 };

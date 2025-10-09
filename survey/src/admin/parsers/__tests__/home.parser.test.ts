@@ -18,9 +18,9 @@ describe('parseHomeAttributes', () => {
             postalCode: 'H1A 1A1'
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             address: {
                 fullAddress: '123 Main Street',
                 municipalityName: 'Montreal',
@@ -38,9 +38,9 @@ describe('parseHomeAttributes', () => {
             // Missing region, country, postalCode
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             address: {
                 fullAddress: '456 Oak Avenue',
                 municipalityName: 'Toronto'
@@ -55,10 +55,10 @@ describe('parseHomeAttributes', () => {
             // Missing address and city (required fields)
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
         // Should remain unchanged since we don't have fullAddress and municipalityName
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             region: 'Quebec',
             country: 'Canada'
         });
@@ -80,9 +80,9 @@ describe('parseHomeAttributes', () => {
             anotherField: 42
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             someOtherField: 'value',
             anotherField: 42
         });
@@ -100,9 +100,9 @@ describe('parseHomeAttributes', () => {
             }
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             address: {
                 fullAddress: '789 Pine Street',
                 municipalityName: 'Vancouver',
@@ -128,8 +128,8 @@ describe('parseHomeAttributes', () => {
             { address: { municipalityName: 'Quebec City' } }
         ]
     ])('should handle %s', (description, homeAttributes, expected) => {
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
-        expect(homeAttributes).toEqual(expected);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        expect(result).toEqual(expected);
     });
 
     it('should handle only region, country, and postalCode without address or city', () => {
@@ -139,10 +139,10 @@ describe('parseHomeAttributes', () => {
             postalCode: 'K1A 0A6'
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
         // Should not create address object since no fullAddress or municipalityName
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             region: 'Ontario',
             country: 'Canada',
             postalCode: 'K1A 0A6'
@@ -183,8 +183,8 @@ describe('parseHomeAttributes', () => {
             }
         ]
     ])('should handle %s', (description, homeAttributes, expected) => {
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
-        expect(homeAttributes).toEqual(expected);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        expect(result).toEqual(expected);
     });
 
     it('should work with interview attributes parameter (though not used)', () => {
@@ -200,9 +200,9 @@ describe('parseHomeAttributes', () => {
             }
         } as any;
 
-        expect(() => parseHomeAttributes(homeAttributes, interviewAttributes)).not.toThrow();
+        const result = parseHomeAttributes(homeAttributes, interviewAttributes);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             address: {
                 fullAddress: '123 Test Street',
                 municipalityName: 'Montreal'
@@ -222,9 +222,9 @@ describe('parseHomeAttributes', () => {
             numberOfRooms: 4
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             address: {
                 fullAddress: '1234 Rue Sainte-Catherine Ouest, Apt 5B',
                 municipalityName: 'Montréal',
@@ -247,9 +247,9 @@ describe('parseHomeAttributes', () => {
             postalCode: ['H1A', '1A1'] // Array instead of string
         };
 
-        parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+        const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
 
-        expect(homeAttributes).toEqual({
+        expect(result).toEqual({
             address: {
                 fullAddress: 123,
                 municipalityName: 'Montreal',
@@ -257,6 +257,85 @@ describe('parseHomeAttributes', () => {
                 country: 'Canada',
                 postalCode: ['H1A', '1A1']
             }
+        });
+    });
+
+    // Immutability tests
+    describe('immutability', () => {
+        it('should not modify the original homeAttributes object', () => {
+            const originalHomeAttributes = {
+                address: '123 Main Street',
+                city: 'Montreal',
+                region: 'Quebec',
+                country: 'Canada',
+                postalCode: 'H1A 1A1',
+                someOtherField: 'preserved'
+            };
+
+            // Create a deep copy to compare against
+            const originalCopy = JSON.parse(JSON.stringify(originalHomeAttributes));
+
+            const result = parseHomeAttributes(originalHomeAttributes, { uuid: 'test' } as CorrectedResponse);
+
+            // Original should remain unchanged
+            expect(originalHomeAttributes).toEqual(originalCopy);
+
+            // Result should be different from original
+            expect(result).not.toEqual(originalHomeAttributes);
+            expect(result).toEqual({
+                address: {
+                    fullAddress: '123 Main Street',
+                    municipalityName: 'Montreal',
+                    region: 'Quebec',
+                    country: 'Canada',
+                    postalCode: 'H1A 1A1'
+                },
+                someOtherField: 'preserved'
+            });
+        });
+
+        it('should not modify the correctedResponse parameter', () => {
+            const homeAttributes = {
+                address: '456 Oak Avenue',
+                city: 'Toronto'
+            };
+
+            const originalCorrectedResponse = { uuid: 'test', someField: 'value' };
+            const correctedResponseCopy = JSON.parse(JSON.stringify(originalCorrectedResponse));
+
+            parseHomeAttributes(homeAttributes, originalCorrectedResponse as CorrectedResponse);
+
+            // correctedResponse should remain unchanged
+            expect(originalCorrectedResponse).toEqual(correctedResponseCopy);
+        });
+
+        it('should handle nested objects without modifying originals', () => {
+            const homeAttributes = {
+                address: '789 Pine Street',
+                city: 'Vancouver',
+                nestedObject: {
+                    property: 'value',
+                    deepNested: {
+                        level: 2
+                    }
+                }
+            };
+
+            const originalCopy = JSON.parse(JSON.stringify(homeAttributes));
+
+            const result = parseHomeAttributes(homeAttributes, { uuid: 'test' } as CorrectedResponse);
+
+            // Original should remain unchanged
+            expect(homeAttributes).toEqual(originalCopy);
+
+            // Result should have processed address but preserved nested structure
+            expect(result.nestedObject).toEqual({
+                property: 'value',
+                deepNested: {
+                    level: 2
+                }
+            });
+            expect(result.nestedObject).not.toBe(homeAttributes.nestedObject); // Different reference
         });
     });
 });

@@ -31,10 +31,10 @@ describe('parseVisitedPlaceAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
 
         Object.keys(expectedFields).forEach((key) => {
-            expect(visitedPlaceAttributes[key as keyof ExtendedVisitedPlaceAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
+            expect(result[key as keyof ExtendedVisitedPlaceAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
         });
     });
 
@@ -49,10 +49,10 @@ describe('parseVisitedPlaceAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
 
-        expect(visitedPlaceAttributes.startDate).toBe('2025-01-15');
-        expect(visitedPlaceAttributes.endDate).toBe('2025-01-15');
+        expect(result.startDate).toBe('2025-01-15');
+        expect(result.endDate).toBe('2025-01-15');
     });
 
     test.each([
@@ -76,10 +76,10 @@ describe('parseVisitedPlaceAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
 
         Object.keys(expectedFields).forEach((key) => {
-            expect(visitedPlaceAttributes[key as keyof ExtendedVisitedPlaceAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
+            expect(result[key as keyof ExtendedVisitedPlaceAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
         });
     });
 
@@ -105,8 +105,9 @@ describe('parseVisitedPlaceAttributes', () => {
 
         expect(() => parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse)).not.toThrow();
 
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
         Object.keys(expectedFields).forEach((key) => {
-            expect(visitedPlaceAttributes[key as keyof ExtendedVisitedPlaceAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
+            expect(result[key as keyof ExtendedVisitedPlaceAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
         });
     });
 
@@ -131,19 +132,19 @@ describe('parseVisitedPlaceAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
 
         // Should update time/date fields
-        expect(visitedPlaceAttributes.startTime).toBe(28800);
-        expect(visitedPlaceAttributes.endTime).toBe(32400);
-        expect(visitedPlaceAttributes.startDate).toBe('2025-01-15');
-        expect(visitedPlaceAttributes.endDate).toBe('2025-01-15');
+        expect(result.startTime).toBe(28800);
+        expect(result.endTime).toBe(32400);
+        expect(result.startDate).toBe('2025-01-15');
+        expect(result.endDate).toBe('2025-01-15');
 
         // Should preserve other attributes
-        expect(visitedPlaceAttributes._uuid).toBe('test-visited-place-uuid');
-        expect(visitedPlaceAttributes._sequence).toBe(1);
-        expect(visitedPlaceAttributes.activity).toBe('work');
-        expect(visitedPlaceAttributes.geography).toBeDefined();
+        expect(result._uuid).toBe('test-visited-place-uuid');
+        expect(result._sequence).toBe(1);
+        expect(result.activity).toBe('work');
+        expect(result.geography).toBeDefined();
     });
 
     it('should handle zero values for times correctly', () => {
@@ -157,10 +158,10 @@ describe('parseVisitedPlaceAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
 
-        expect(visitedPlaceAttributes.startTime).toBe(0);
-        expect(visitedPlaceAttributes.endTime).toBe(0);
+        expect(result.startTime).toBe(0);
+        expect(result.endTime).toBe(0);
     });
 
     it('should handle null corrected_response gracefully', () => {
@@ -174,9 +175,10 @@ describe('parseVisitedPlaceAttributes', () => {
 
         expect(() => parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse)).not.toThrow();
 
-        expect(visitedPlaceAttributes.startTime).toBe(28800);
-        expect(visitedPlaceAttributes.endTime).toBe(32400);
-        expect(visitedPlaceAttributes.startDate).toBeUndefined();
-        expect(visitedPlaceAttributes.endDate).toBeUndefined();
+        const result = parseVisitedPlaceAttributes(visitedPlaceAttributes, correctedResponse);
+        expect(result.startTime).toBe(28800);
+        expect(result.endTime).toBe(32400);
+        expect(result.startDate).toBeUndefined();
+        expect(result.endDate).toBeUndefined();
     });
 });

@@ -31,10 +31,10 @@ describe('parseTripAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseTripAttributes(tripAttributes, correctedResponse);
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
 
         Object.keys(expectedFields).forEach((key) => {
-            expect(tripAttributes[key as keyof ExtendedTripAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
+            expect(result[key as keyof ExtendedTripAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
         });
     });
 
@@ -49,10 +49,10 @@ describe('parseTripAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseTripAttributes(tripAttributes, correctedResponse);
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
 
-        expect(tripAttributes.startDate).toBe('2025-01-15');
-        expect(tripAttributes.endDate).toBe('2025-01-15');
+        expect(result.startDate).toBe('2025-01-15');
+        expect(result.endDate).toBe('2025-01-15');
     });
 
     test.each([
@@ -76,10 +76,10 @@ describe('parseTripAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseTripAttributes(tripAttributes, correctedResponse);
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
 
         Object.keys(expectedFields).forEach((key) => {
-            expect(tripAttributes[key as keyof ExtendedTripAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
+            expect(result[key as keyof ExtendedTripAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
         });
     });
 
@@ -105,8 +105,9 @@ describe('parseTripAttributes', () => {
 
         expect(() => parseTripAttributes(tripAttributes, correctedResponse)).not.toThrow();
 
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
         Object.keys(expectedFields).forEach((key) => {
-            expect(tripAttributes[key as keyof ExtendedTripAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
+            expect(result[key as keyof ExtendedTripAttributes]).toBe(expectedFields[key as keyof typeof expectedFields]);
         });
     });
 
@@ -140,21 +141,21 @@ describe('parseTripAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseTripAttributes(tripAttributes, correctedResponse);
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
 
         // Should update time/date fields
-        expect(tripAttributes.startTime).toBe(28800);
-        expect(tripAttributes.endTime).toBe(32400);
-        expect(tripAttributes.startDate).toBe('2025-01-15');
-        expect(tripAttributes.endDate).toBe('2025-01-15');
+        expect(result.startTime).toBe(28800);
+        expect(result.endTime).toBe(32400);
+        expect(result.startDate).toBe('2025-01-15');
+        expect(result.endDate).toBe('2025-01-15');
 
         // Should preserve other attributes
-        expect(tripAttributes._uuid).toBe('test-trip-uuid');
-        expect(tripAttributes._sequence).toBe(1);
-        expect(tripAttributes.mode).toBe('transit');
-        expect(tripAttributes.purpose).toBe('work');
-        expect(tripAttributes.origin_geography).toBeDefined();
-        expect(tripAttributes.destination_geography).toBeDefined();
+        expect(result._uuid).toBe('test-trip-uuid');
+        expect(result._sequence).toBe(1);
+        expect(result.mode).toBe('transit');
+        expect(result.purpose).toBe('work');
+        expect(result.origin_geography).toBeDefined();
+        expect(result.destination_geography).toBeDefined();
     });
 
     it('should handle zero values for times correctly', () => {
@@ -168,10 +169,10 @@ describe('parseTripAttributes', () => {
             _assignedDay: '2025-01-15'
         };
 
-        parseTripAttributes(tripAttributes, correctedResponse);
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
 
-        expect(tripAttributes.startTime).toBe(0);
-        expect(tripAttributes.endTime).toBe(0);
+        expect(result.startTime).toBe(0);
+        expect(result.endTime).toBe(0);
     });
 
     it('should handle null corrected_response gracefully', () => {
@@ -185,10 +186,11 @@ describe('parseTripAttributes', () => {
 
         expect(() => parseTripAttributes(tripAttributes, correctedResponse)).not.toThrow();
 
-        expect(tripAttributes.startTime).toBe(28800);
-        expect(tripAttributes.endTime).toBe(32400);
-        expect(tripAttributes.startDate).toBeUndefined();
-        expect(tripAttributes.endDate).toBeUndefined();
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
+        expect(result.startTime).toBe(28800);
+        expect(result.endTime).toBe(32400);
+        expect(result.startDate).toBeUndefined();
+        expect(result.endDate).toBeUndefined();
     });
 
     it('should handle complex trip scenarios', () => {
@@ -205,13 +207,13 @@ describe('parseTripAttributes', () => {
             _assignedDay: '2025-01-20',
         };
 
-        parseTripAttributes(tripAttributes, correctedResponse);
+        const result = parseTripAttributes(tripAttributes, correctedResponse);
 
-        expect(tripAttributes.startTime).toBe(61200);
-        expect(tripAttributes.endTime).toBe(63000);
-        expect(tripAttributes.startDate).toBe('2025-01-20');
-        expect(tripAttributes.endDate).toBe('2025-01-20');
-        expect(tripAttributes.mode).toBe('carDriver');
-        expect(tripAttributes.purpose).toBe('shopping');
+        expect(result.startTime).toBe(61200);
+        expect(result.endTime).toBe(63000);
+        expect(result.startDate).toBe('2025-01-20');
+        expect(result.endDate).toBe('2025-01-20');
+        expect(result.mode).toBe('carDriver');
+        expect(result.purpose).toBe('shopping');
     });
 });

@@ -19,21 +19,21 @@ describe('parseInterviewAttributes', () => {
                 acceptToBeContactedForHelp: input
             };
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
             if (expected === undefined) {
-                expect(correctedResponse.acceptToBeContactedForHelp).toBeUndefined();
+                expect(result.acceptToBeContactedForHelp).toBeUndefined();
             } else {
-                expect(correctedResponse.acceptToBeContactedForHelp).toBe(expected);
+                expect(result.acceptToBeContactedForHelp).toBe(expected);
             }
         });
 
         it('should handle undefined acceptToBeContactedForHelp', () => {
             const correctedResponse: CorrectedResponse = {};
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
-            expect(correctedResponse.acceptToBeContactedForHelp).toBeUndefined();
+            expect(result.acceptToBeContactedForHelp).toBeUndefined();
         });
     });
 
@@ -47,21 +47,21 @@ describe('parseInterviewAttributes', () => {
                 wouldLikeToParticipateInOtherSurveys: input
             };
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
             if (expected === undefined) {
-                expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBeUndefined();
+                expect(result.wouldLikeToParticipateInOtherSurveys).toBeUndefined();
             } else {
-                expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(expected);
+                expect(result.wouldLikeToParticipateInOtherSurveys).toBe(expected);
             }
         });
 
         it('should handle undefined wouldLikeToParticipateInOtherSurveys', () => {
             const correctedResponse: CorrectedResponse = {};
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBeUndefined();
+            expect(result.wouldLikeToParticipateInOtherSurveys).toBeUndefined();
         });
     });
 
@@ -71,18 +71,65 @@ describe('parseInterviewAttributes', () => {
                 _assignedDay: '2025-01-15'
             };
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
-            expect(correctedResponse.assignedDate).toBe('2025-01-15');
-            expect(correctedResponse._assignedDay).toBe('2025-01-15'); // Should preserve original
+            expect(result.assignedDate).toBe('2025-01-15');
+            expect(result._assignedDay).toBe('2025-01-15'); // Should preserve original
         });
 
         it('should handle missing _assignedDay', () => {
             const correctedResponse: CorrectedResponse = {};
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
-            expect(correctedResponse.assignedDate).toBeUndefined();
+            expect(result.assignedDate).toBeUndefined();
+        });
+    });
+
+    describe('languages conversion', () => {
+        test.each([
+            ['en', ['en']],
+            ['fr', ['fr']]
+        ])('should convert _language "%s" to languages array', (language, expected) => {
+            const correctedResponse: CorrectedResponse = {
+                _language: language
+            };
+
+            const result = parseInterviewAttributes(correctedResponse);
+
+            expect(result.languages).toEqual(expected);
+            expect(result._language).toBe(language); // Should preserve original
+        });
+
+        it('should handle missing _language', () => {
+            const correctedResponse: CorrectedResponse = {};
+
+            const result = parseInterviewAttributes(correctedResponse);
+
+            expect(result.languages).toBeUndefined();
+        });
+
+        it('should handle empty string _language', () => {
+            const correctedResponse: CorrectedResponse = {
+                _language: ''
+            };
+
+            const result = parseInterviewAttributes(correctedResponse);
+
+            // Empty string is falsy, so no languages array is created
+            expect(result._languages).toBeUndefined();
+        });
+
+        it('should ignore unsupported languages', () => {
+            const correctedResponse: CorrectedResponse = {
+                _language: 'es'
+            };
+
+            const result = parseInterviewAttributes(correctedResponse);
+
+            // Only 'fr' and 'en' are supported, so no languages array is created
+            expect(result._languages).toBeUndefined();
+            expect(result._language).toBe('es'); // Original value preserved
         });
     });
 
@@ -108,20 +155,22 @@ describe('parseInterviewAttributes', () => {
                 acceptToBeContactedForHelp: 'yes',
                 wouldLikeToParticipateInOtherSurveys: 'no',
                 _assignedDay: '2025-01-15',
+                _language: 'fr',
                 household: {
                     size: 3
                 }
             };
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
             // Should parse the target attributes
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(correctedResponse.assignedDate).toBe('2025-01-15');
+            expect(result.acceptToBeContactedForHelp).toBe(true);
+            expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result.assignedDate).toBe('2025-01-15');
+            expect(result._languages).toEqual(['fr']);
 
             // Should preserve other attributes
-            expect(correctedResponse.household?.size).toBe(3);
+            expect(result.household?.size).toBe(3);
         });
 
         it('should handle all conversions simultaneously', () => {
@@ -129,21 +178,23 @@ describe('parseInterviewAttributes', () => {
                 acceptToBeContactedForHelp: 'yes',
                 wouldLikeToParticipateInOtherSurveys: 'no',
                 _assignedDay: '2025-02-01',
+                _language: 'en',
                 household: {
                     size: 3
                 }
             };
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
             // Should parse the target attributes
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(correctedResponse.assignedDate).toBe('2025-02-01');
+            expect(result.acceptToBeContactedForHelp).toBe(true);
+            expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result.assignedDate).toBe('2025-02-01');
+            expect(result._languages).toEqual(['en']);
 
             // Should preserve other attributes
-            expect(correctedResponse._assignedDay).toBe('2025-02-01');
-            expect(correctedResponse.household?.size).toBe(3);
+            expect(result._assignedDay).toBe('2025-02-01');
+            expect(result.household?.size).toBe(3);
         });
     });
 
@@ -158,33 +209,37 @@ describe('parseInterviewAttributes', () => {
             };
 
             // Simulate concurrent parsing
-            parseInterviewAttributes(correctedResponse1);
-            parseInterviewAttributes(correctedResponse2);
+            const result1 = parseInterviewAttributes(correctedResponse1);
+            const result2 = parseInterviewAttributes(correctedResponse2);
 
-            expect(correctedResponse1.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse2.acceptToBeContactedForHelp).toBe(false);
+            expect(result1.acceptToBeContactedForHelp).toBe(true);
+            expect(result2.acceptToBeContactedForHelp).toBe(false);
         });
 
         it('should handle repeated parsing correctly', () => {
             const correctedResponse: CorrectedResponse = {
                 acceptToBeContactedForHelp: 'yes',
-                wouldLikeToParticipateInOtherSurveys: 'no'
+                wouldLikeToParticipateInOtherSurveys: 'no',
+                _language: 'fr'
             };
 
-            // First parsing should convert 'yes' to true and 'no' to false
-            parseInterviewAttributes(correctedResponse);
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            // First parsing should convert 'yes' to true, 'no' to false, and add languages array
+            const result1 = parseInterviewAttributes(correctedResponse);
+            expect(result1.acceptToBeContactedForHelp).toBe(true);
+            expect(result1.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result1._languages).toEqual(['fr']);
 
-            // Second parsing should leave boolean values unchanged (idempotent)
-            parseInterviewAttributes(correctedResponse);
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            // Second parsing should leave values unchanged (idempotent)
+            const result2 = parseInterviewAttributes(result1);
+            expect(result2.acceptToBeContactedForHelp).toBe(true);
+            expect(result2.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result2._languages).toEqual(['fr']);
 
-            // Third parsing should still leave boolean values unchanged
-            parseInterviewAttributes(correctedResponse);
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            // Third parsing should still leave values unchanged
+            const result3 = parseInterviewAttributes(result2);
+            expect(result3.acceptToBeContactedForHelp).toBe(true);
+            expect(result3.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result3._languages).toEqual(['fr']);
         });
 
         it('should not create memory leaks with large datasets', () => {
@@ -193,21 +248,23 @@ describe('parseInterviewAttributes', () => {
                 acceptToBeContactedForHelp: 'yes',
                 wouldLikeToParticipateInOtherSurveys: 'no',
                 _assignedDay: '2025-01-15',
+                _language: 'en',
                 household: {
                     persons: {}
                 }
             };
 
-            parseInterviewAttributes(correctedResponse);
+            const result = parseInterviewAttributes(correctedResponse);
 
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(correctedResponse.assignedDate).toBe('2025-01-15');
-            expect(correctedResponse.household?.persons).toEqual({});
+            expect(result.acceptToBeContactedForHelp).toBe(true);
+            expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result.assignedDate).toBe('2025-01-15');
+            expect(result._languages).toEqual(['en']);
+            expect(result.household?.persons).toEqual({});
 
             // Add many persons to test memory usage
             for (let i = 0; i < 100; i++) {
-                correctedResponse.household!.persons![`person-${i}`] = {
+                result.household!.persons![`person-${i}`] = {
                     _uuid: `person-${i}`,
                     _sequence: i,
                     age: 25 + i
@@ -216,10 +273,11 @@ describe('parseInterviewAttributes', () => {
 
             // Test that the parser works correctly even after adding large dataset
             // and that repeated parsing doesn't cause issues (idempotent)
-            expect(() => parseInterviewAttributes(correctedResponse)).not.toThrow();
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(correctedResponse.assignedDate).toBe('2025-01-15');
+            const result2 = parseInterviewAttributes(result);
+            expect(result2.acceptToBeContactedForHelp).toBe(true);
+            expect(result2.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result2.assignedDate).toBe('2025-01-15');
+            expect(result2._languages).toEqual(['en']);
         });
     });
 });

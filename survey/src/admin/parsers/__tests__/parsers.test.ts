@@ -46,12 +46,12 @@ describe('OD Nationale Quebec Survey Parsers', () => {
                 _assignedDay: '2025-01-15'
             };
 
-            surveyObjectParsers.interview!(correctedResponse);
+            const result = surveyObjectParsers.interview!(correctedResponse);
 
             // Verify OD Nationale Quebec specific conversions
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(correctedResponse.assignedDate).toBe('2025-01-15');
+            expect(result.acceptToBeContactedForHelp).toBe(true);
+            expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
+            expect(result.assignedDate).toBe('2025-01-15');
         });
 
         it('should handle Quebec address formats correctly', () => {
@@ -65,9 +65,9 @@ describe('OD Nationale Quebec Survey Parsers', () => {
 
             const correctedResponse: CorrectedResponse = {};
 
-            surveyObjectParsers.home!(homeAttributes, correctedResponse);
+            const result = surveyObjectParsers.home!(homeAttributes, correctedResponse);
 
-            expect(homeAttributes).toEqual({
+            expect(result).toEqual({
                 address: {
                     fullAddress: '1234 Rue Sainte-Catherine Ouest, Apt 5B',
                     municipalityName: 'Montréal',
@@ -96,19 +96,19 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             };
 
             // Parse objects as they would be in the survey
-            surveyObjectParsers.trip!(tripAttributes, correctedResponse);
-            surveyObjectParsers.visitedPlace!(visitedPlaceAttributes, correctedResponse);
+            const tripResult = surveyObjectParsers.trip!(tripAttributes, correctedResponse);
+            const visitedPlaceResult = surveyObjectParsers.visitedPlace!(visitedPlaceAttributes, correctedResponse);
 
             // Verify time assignments for travel survey
-            expect(tripAttributes.startTime).toBe(28800);
-            expect(tripAttributes.endTime).toBe(32400);
-            expect(tripAttributes.startDate).toBe('2025-01-15');
-            expect(tripAttributes.endDate).toBe('2025-01-15');
+            expect(tripResult.startTime).toBe(28800);
+            expect(tripResult.endTime).toBe(32400);
+            expect(tripResult.startDate).toBe('2025-01-15');
+            expect(tripResult.endDate).toBe('2025-01-15');
 
-            expect(visitedPlaceAttributes.startTime).toBe(32400);
-            expect(visitedPlaceAttributes.endTime).toBe(36000);
-            expect(visitedPlaceAttributes.startDate).toBe('2025-01-15');
-            expect(visitedPlaceAttributes.endDate).toBe('2025-01-15');
+            expect(visitedPlaceResult.startTime).toBe(32400);
+            expect(visitedPlaceResult.endTime).toBe(36000);
+            expect(visitedPlaceResult.startDate).toBe('2025-01-15');
+            expect(visitedPlaceResult.endDate).toBe('2025-01-15');
         });
     });
 
@@ -157,15 +157,15 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             };
 
             // Parse as would happen in the survey system
-            surveyObjectParsers.interview!(correctedResponse);
-            surveyObjectParsers.home!(homeAttributes, correctedResponse);
-            surveyObjectParsers.trip!(tripAttributes, correctedResponse);
+            const interviewResult = surveyObjectParsers.interview!(correctedResponse);
+            const homeResult = surveyObjectParsers.home!(homeAttributes, correctedResponse);
+            const tripResult = surveyObjectParsers.trip!(tripAttributes, correctedResponse);
 
             // Verify complete data flow
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
-            expect(correctedResponse.assignedDate).toBe('2025-01-15');
+            expect(interviewResult.acceptToBeContactedForHelp).toBe(true);
+            expect(interviewResult.assignedDate).toBe('2025-01-15');
 
-            expect(homeAttributes).toEqual({
+            expect(homeResult).toEqual({
                 address: {
                     fullAddress: '123 Rue de la Paix',
                     municipalityName: 'Québec',
@@ -174,11 +174,11 @@ describe('OD Nationale Quebec Survey Parsers', () => {
                 }
             });
 
-            expect(tripAttributes.startTime).toBe(25200);
-            expect(tripAttributes.endTime).toBe(27000);
-            expect(tripAttributes.startDate).toBe('2025-01-15');
-            expect(tripAttributes.mode).toBe('transit');
-            expect(tripAttributes.purpose).toBe('work');
+            expect(tripResult.startTime).toBe(25200);
+            expect(tripResult.endTime).toBe(27000);
+            expect(tripResult.startDate).toBe('2025-01-15');
+            expect(tripResult.mode).toBe('transit');
+            expect(tripResult.purpose).toBe('work');
         });
 
         it('should preserve survey-specific fields during parsing', () => {
@@ -195,15 +195,15 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             const originalDataCollectionMethod = correctedResponse.dataCollectionMethod;
             const originalCompletionTime = correctedResponse.completionTime;
 
-            surveyObjectParsers.interview!(correctedResponse);
+            const result = surveyObjectParsers.interview!(correctedResponse);
 
             // Verify survey-specific fields are preserved
-            expect(correctedResponse.surveyVersion).toBe(originalSurveyVersion);
-            expect(correctedResponse.dataCollectionMethod).toBe(originalDataCollectionMethod);
-            expect(correctedResponse.completionTime).toBe(originalCompletionTime);
+            expect(result.surveyVersion).toBe(originalSurveyVersion);
+            expect(result.dataCollectionMethod).toBe(originalDataCollectionMethod);
+            expect(result.completionTime).toBe(originalCompletionTime);
 
             // Verify parsing still worked
-            expect(correctedResponse.acceptToBeContactedForHelp).toBe(true);
+            expect(result.acceptToBeContactedForHelp).toBe(true);
         });
     });
 });
