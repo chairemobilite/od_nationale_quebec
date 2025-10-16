@@ -31,6 +31,8 @@ module.exports = Object.assign({
     startDate: '2025-09-02', // tuesday after Labor day
     endDate: '2025-12-16',
     hasAccessCode: true,
+    startDateTimeWithTimezoneOffset: '2025-09-02T00:00:00-04:00', // tuesday after Labor day
+    endDateTimeWithTimezoneOffset: '2025-12-16T23:59:59-05:00',
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
@@ -104,4 +106,22 @@ module.exports = Object.assign({
     },
     defaultLocale: 'fr',
     timezone: 'America/Montreal',
+    requiredFieldsBySurveyObject: {
+        interview: [],
+        household: [],
+        home: [],
+        organization: [],
+        vehicle: [],
+        person: [],
+        journey: [],
+        tripChain: [],
+        visitedPlace: [],
+        trip: [],
+        segment: [],
+        junction: [],
+        workPlace: [],
+        schoolPlace: []
+    },
+    auditChecksGroup: 'travelSurvey', // custom by default so older surveys work.
+    surveyBase: 'householdBased'
 }, variantSpecificConfig);
