@@ -30,6 +30,7 @@ module.exports = Object.assign({
     countryCode: 'CA',
     startDate: '2025-09-02', // tuesday after Labor day
     endDate: '2025-12-16',
+    hasAccessCode: true,
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
