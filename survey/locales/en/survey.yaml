@@ -490,3 +490,14 @@ thisPlace_workUsual: work
 theHome: home
 ConfirmDeleteLocation: Do you confirm that you want to remove this location?
 DeleteLocation: Delete this location
+surveyEnded:
+    thankYouMessage: >-
+        <p class="left"><span class="_strong">Thank you for your participation</span></p>
+        <p class="left">We sincerely thank you for taking the time to participate in the Origin-Destination Survey.</p><br/>
+        <p class="left">Thanks to your contribution, we now have essential data to better understand travel habits and support transportation planning that is sustainable and adapted to the needs of the population.</p><br/>
+        <p class="left"><span class="_strong">End of Data Collection</span></p>
+        <p class="left">The data collection period <span class="_strong">officially ended on December 16th</span>.</p>
+        <p class="left">The participation platform is now closed and it is no longer possible to submit new questionnaires.</p>
+        <p class="left">The information collected will be subject to in-depth analysis and will be used exclusively for the purposes intended as part of this survey, in accordance with confidentiality and data protection rules.</p><br/>
+        <p class="left">Thank you for your interest in the survey on people's mobility</p><br/>
+        <p class="left">For any additional information, we invite you to consult the page dedicated to the surveys: <a href="https://www.quebec.ca/transports/recherches-statistiques/planification/enquetes-origine-destination" target="_blank">About Origin-Destination Surveys | Government of Quebec</a></p>

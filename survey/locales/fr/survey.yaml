@@ -608,3 +608,14 @@ thisPlace_workUsual: le travail
 theHome: le domicile
 ConfirmDeleteLocation: Confirmez-vous que vous voulez retirer ce lieu?
 DeleteLocation: Supprimer ce lieu
+surveyEnded:
+    thankYouMessage: >-
+        <p class="left"><span class="_strong">Merci pour votre participation</span></p>
+        <p class="left">Nous vous remercions sincèrement d'avoir pris le temps de participer à l'enquête Origine-Destination.</p><br/>
+        <p class="left">Grâce à votre contribution, nous disposons désormais de données essentielles pour mieux comprendre les habitudes de déplacement et soutenir la planification des transports, durables et adaptées aux besoins de la population.</p><br/>
+        <p class="left"><span class="_strong">Clôture de la collecte</span></p>
+        <p class="left">La période de collecte des données est <span class="_strong">officiellement terminée depuis le 16 décembre</span>.</p>
+        <p class="left">La plateforme de participation est désormais fermée et il n'est plus possible de soumettre de nouveaux questionnaires.</p>
+        <p class="left">Les informations recueillies feront l'objet d'analyses approfondies et seront utilisées exclusivement aux fins prévues dans le cadre de cette enquête, dans le respect des règles de confidentialité et de protection des données.</p><br/>
+        <p class="left">Merci de l'intérêt que vous portez à l'enquête sur la mobilité des personnes</p><br/>
+        <p class="left">Pour toute information complémentaire, nous vous invitons à consulter la page dédiée aux enquêtes : <a href="https://www.quebec.ca/transports/recherches-statistiques/planification/enquetes-origine-destination" target="_blank">À propos des enquêtes origine-destination | Gouvernement du Québec</a></p>

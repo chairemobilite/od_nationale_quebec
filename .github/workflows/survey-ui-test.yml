@@ -34,7 +34,7 @@ jobs:
         browser: [chrome, firefox] # We test on both Chrome and Firefox
     env:
       # FIXME: We should normally put NODE_ENV=production here, but some of the install and compile steps are not working well
-      PROJECT_CONFIG: ${{ github.workspace }}/survey/config.js
+      PROJECT_CONFIG: ${{ github.workspace }}/survey/configForCi.js
       PG_CONNECTION_STRING_PREFIX: postgres://testuser:testpassword@localhost:5432/
       PG_DATABASE_PRODUCTION: testdb_${{ matrix.browser }} # Use a different DB for each browser to avoid conflicts
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
