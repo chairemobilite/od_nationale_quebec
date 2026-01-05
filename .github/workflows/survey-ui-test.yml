@@ -30,7 +30,7 @@ jobs:
           POSTGRES_DB: testdb
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [24.x]
         browser: [chrome, firefox] # We test on both Chrome and Firefox
     env:
       # FIXME: We should normally put NODE_ENV=production here, but some of the install and compile steps are not working well
