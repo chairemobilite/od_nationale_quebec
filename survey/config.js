@@ -28,11 +28,13 @@ module.exports = Object.assign({
         en: `/dist/images/logo_od_${survey}_2025_en.svg`
     },
     countryCode: 'CA',
-    startDate: '2025-09-02', // tuesday after Labor day
-    endDate: '2025-12-16',
+    // FIXME See if those dates are still useful or if startDateTimeWithTimezoneOffset supercedes them
+    startDate: '2026-09-08', // tuesday after Labor day
+    endDate: '2026-12-18',
     hasAccessCode: true,
-    startDateTimeWithTimezoneOffset: '2025-09-02T00:00:00-04:00', // tuesday after Labor day
-    endDateTimeWithTimezoneOffset: '2025-12-16T23:59:59-05:00',
+    // TODO Update with actual 2026 dates when available
+    startDateTimeWithTimezoneOffset: '2026-09-08T00:00:00-04:00', // tuesday after Labor day
+    endDateTimeWithTimezoneOffset: '2026-12-18T23:59:59-05:00',
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
