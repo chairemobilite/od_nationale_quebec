@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import _isEqual from 'lodash/isEqual';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment-business-days';
 import { distance as turfDistance } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
@@ -14,6 +15,26 @@ import {
 } from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
+import { WidgetFactoryOptions } from 'evolution-common/lib/services/questionnaire/sections/types';
+import {
+    getFormattedDate,
+    validateButtonAction,
+    validateButtonActionWithCompleteSection
+} from 'evolution-frontend/lib/services/display/frontendHelper';
+
+// FIXME Move elsewhere as we start using Evolution's builtin sections. It is
+// here to be available for widgets.ts, sections.ts and questionnaire.ts files.
+// Consider moving those defaults to evolution-frontend, all those functions
+// come from evolution-frontend or evolution-common anyway and it's copy-pasted
+// from other surveys.
+export const widgetFactoryOptions: WidgetFactoryOptions = {
+    getFormattedDate: getFormattedDate,
+    buttonActions: {
+        validateButtonActionWithCompleteSection: validateButtonActionWithCompleteSection,
+        validateButtonAction: validateButtonAction
+    },
+    iconMapper: { 'check-circle': faCheckCircle }
+};
 
 /**
  * Return the address as a one line string, including all the parts

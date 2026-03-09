@@ -5,16 +5,19 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
+import { SwitchPersonWidgetsFactory } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 import * as customConditionals from '../../common/customConditionals';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { widgetFactoryOptions } from '../../common/helper';
 
-const switchPersonWidgets = getSwitchPersonWidgets();
+// FIXME These widgets do not use the options to the constructors. Besides, as
+// more sections become builtin, this approach will be replaced
+const switchPersonWidgets = new SwitchPersonWidgetsFactory(widgetFactoryOptions).getWidgetConfigs();
 
-export const activePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
+export const activePersonTitle: WidgetConfig.WidgetConfig = switchPersonWidgets.activePersonTitle;
 
-export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonWidgets.buttonSwitchPerson;
+export const buttonSwitchPerson: WidgetConfig.WidgetConfig = switchPersonWidgets.buttonSwitchPerson;
 
 export const personNoWorkTripIntro: WidgetConfig.TextWidgetConfig = {
     type: 'text',

@@ -34,7 +34,7 @@ class FixTripsSequences {
             );
             if (this.confirm) {
                 await updateInterview(interview, {
-                    logUpdate: getParadataLoggingFunction(interview.id, 1),
+                    logUpdate: getParadataLoggingFunction({ interviewId: interview.id, userId: 1 }),
                     valuesByPath,
                     fieldsToUpdate: ['response']
                 });

@@ -34,7 +34,8 @@ import {
     formatTripDuration,
     getHomeAddressOneLine,
     selectNextIncompleteVisitedPlace,
-    deleteVisitedPlace
+    deleteVisitedPlace,
+    widgetFactoryOptions
 } from '../../common/helper';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
@@ -43,14 +44,16 @@ import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { getShortcutVisitedPlaces } from '../../common/customFrontendHelper';
 import { buttonNextBase, inputTimeBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { personVisitedPlacesWidgetsNames } from './widgetsNames';
-import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
+import { SwitchPersonWidgetsFactory } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
 
-const switchPersonWidgets = getSwitchPersonWidgets();
+// FIXME These widgets do not use the options to the constructors. Besides, as
+// more sections become builtin, this approach will be replaced
+const switchPersonWidgets = new SwitchPersonWidgetsFactory(widgetFactoryOptions).getWidgetConfigs();
 
-export const activePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
+export const activePersonTitle: WidgetConfig.WidgetConfig = switchPersonWidgets.activePersonTitle;
 
-export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonWidgets.buttonSwitchPerson;
+export const buttonSwitchPerson: WidgetConfig.WidgetConfig = switchPersonWidgets.buttonSwitchPerson;
 
 // FIXME Allow to configure the earliest and latest time
 const MIN_SECONDS_SINCE_MIDNIGHT = 4 * 60 * 60; // 4 AM
