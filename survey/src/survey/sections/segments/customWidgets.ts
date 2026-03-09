@@ -5,18 +5,13 @@ import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import { getSwitchPersonWidgets } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
+import { SwitchPersonWidgetsFactory } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 import { getPersonsTripsTitleWidgetConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetPersonTripsTitle';
 import { TFunction } from 'i18next';
 import { formatGeocodingQueryStringFromMultipleFields, getResponse } from 'evolution-common/lib/utils/helpers';
-import {
-    getFormattedDate,
-    validateButtonAction,
-    validateButtonActionWithCompleteSection
-} from 'evolution-frontend/lib/services/display/frontendHelper';
-import { getPersonsTripsGroupConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/groupPersonTrips';
+import { PersonTripsGroupConfigFactory } from 'evolution-common/lib/services/questionnaire/sections/segments/groupPersonTrips';
 import { getTripSegmentsIntro } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetTripSegmentsIntro';
-import { getSegmentsGroupConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/groupSegments';
+import { SegmentsGroupConfigFactory } from 'evolution-common/lib/services/questionnaire/sections/segments/groupSegments';
 import { getSameAsReverseTripWidgetConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetSameAsReverseTrip';
 import { getModePreWidgetConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetSegmentModePre';
 import { getModeWidgetConfig } from 'evolution-common/lib/services/questionnaire/sections/segments/widgetSegmentMode';
@@ -32,10 +27,10 @@ import {
     carsharingMembersCountInHousehold,
     getCurrentTripBirdDistanceMeters,
     getDrivers,
-    shouldDisplayTripJunction
+    shouldDisplayTripJunction,
+    widgetFactoryOptions
 } from '../../common/helper';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { personVisitedPlacesMap as visitedPlacesMap } from '../visitedPlaces/customWidgets';
 import { personTripsWidgetsNames, segmentsWidgetsNames } from './widgetsNames';
 import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
@@ -59,35 +54,54 @@ let busRoutes = { type: 'FeatureCollection', features: [] };
     }
 })();
 
-const switchPersonWidgets = getSwitchPersonWidgets();
+// FIXME The config and the whole segment section will use Evolution's builtin
+// section and widgets soon. This is just a quick config to make the section
+// work for now.
+const defaultSegmentConfig = {
+    type: 'segments' as const,
+    enabled: true
+};
 
-export const activePersonTitle: WidgetConfig.TextWidgetConfig = switchPersonWidgets.activePersonTitle;
+// FIXME These widgets do not use the options to the constructors. Besides, as
+// more sections become builtin, this approach will be replaced
+const switchPersonWidgets = new SwitchPersonWidgetsFactory(widgetFactoryOptions).getWidgetConfigs();
 
-export const buttonSwitchPerson: WidgetConfig.ButtonWidgetConfig = switchPersonWidgets.buttonSwitchPerson;
+export const activePersonTitle: WidgetConfig.WidgetConfig = switchPersonWidgets.activePersonTitle;
 
-export const segmentsPersonTripsTitle: WidgetConfig.TextWidgetConfig = getPersonsTripsTitleWidgetConfig({
-    getFormattedDate
-});
+export const buttonSwitchPerson: WidgetConfig.WidgetConfig = switchPersonWidgets.buttonSwitchPerson;
+
+export const segmentsPersonTripsTitle: WidgetConfig.TextWidgetConfig =
+    getPersonsTripsTitleWidgetConfig(widgetFactoryOptions);
 
 // FIXME This is the exact same widget, same name as the one in visitedPlaces, we should not have to duplicate it, but that's how the generator currently works
 export const personVisitedPlacesMap: WidgetConfig.InfoMapWidgetConfig = visitedPlacesMap;
 
+// FIXME The factory comes with mostly all widgets listed here, needs refactoring to use Evolution's builtin.
+const personTripsGroupWidgets = new PersonTripsGroupConfigFactory(
+    defaultSegmentConfig,
+    widgetFactoryOptions
+).getWidgetConfigs();
 export const personTrips: WidgetConfig.GroupConfig = {
-    ...getPersonsTripsGroupConfig(),
+    ...(personTripsGroupWidgets.personTrips as WidgetConfig.GroupConfig),
     widgets: personTripsWidgetsNames
 };
 
 export const segmentIntro: WidgetConfig.TextWidgetConfig = getTripSegmentsIntro();
 
+// FIXME Will be refactored soon to use Evolution's builtin.
+const segmentsGroupConfig = new SegmentsGroupConfigFactory(
+    defaultSegmentConfig,
+    widgetFactoryOptions
+).getWidgetConfigs();
 export const segments: WidgetConfig.GroupConfig = {
-    ...getSegmentsGroupConfig(),
+    ...(segmentsGroupConfig.segments as WidgetConfig.GroupConfig),
     widgets: segmentsWidgetsNames
 };
 
 export const segmentSameModeAsReverseTrip = getSameAsReverseTripWidgetConfig();
 
 export const segmentModePre = {
-    ...getModePreWidgetConfig(),
+    ...getModePreWidgetConfig(defaultSegmentConfig, widgetFactoryOptions),
     choices: [
         {
             value: 'carDriver',
@@ -608,7 +622,7 @@ const segmentModeChoices: WidgetConfig.RadioChoiceType[] = [
 // well, but if we could parameterize the choices, the main conditional would be
 // ok
 export const segmentMode = {
-    ...getModeWidgetConfig(),
+    ...getModeWidgetConfig(defaultSegmentConfig, widgetFactoryOptions),
     choices: segmentModeChoices,
     conditional: (interview, path) => {
         const segment = getResponse(interview, path, null, '../') as WidgetConfig.Segment;
@@ -1117,14 +1131,9 @@ export const segmentBusLinesWarning: WidgetConfig.InputButtonType = {
 
 export const segmentHasNextMode = getSegmentHasNextModeWidgetConfig();
 
-export const buttonSaveTrip = getButtonSaveTripSegmentsConfig({
-    iconMapper: { 'check-circle': faCheckCircle },
-    buttonActions: { validateButtonAction: validateButtonAction }
-});
+export const buttonSaveTrip = getButtonSaveTripSegmentsConfig(widgetFactoryOptions);
 
-export const buttonConfirmNextSection = getButtonValidateAndGotoNextSection('survey:ConfirmAndContinue', {
-    iconMapper: { 'check-circle': faCheckCircle },
-    buttonActions: {
-        validateButtonAction: validateButtonActionWithCompleteSection
-    }
-});
+export const buttonConfirmNextSection = getButtonValidateAndGotoNextSection(
+    'survey:ConfirmAndContinue',
+    widgetFactoryOptions
+);

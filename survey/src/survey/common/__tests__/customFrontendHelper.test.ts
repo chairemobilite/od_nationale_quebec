@@ -8,6 +8,10 @@
 import { getVisitedPlaceDescription, VisitedPlaceDescriptionOptions } from '../customFrontendHelper';
 import { Person, VisitedPlace } from 'evolution-common/lib/services/questionnaire/types';
 
+jest.mock('evolution-frontend/lib/services/display/frontendHelper', () => ({
+    /** No need to return anything (currently), it's just to avoid mocking functions called by it. FIXME Can be removed when the code using this import in the helper is removed from there (when refactoring to use evolution's builtin sections) */
+}));
+
 // Mock i18next
 jest.mock('i18next', () => ({
     t: jest.fn((key: string) => {
