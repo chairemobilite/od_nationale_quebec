@@ -4,6 +4,8 @@ references/
 runtime/
 assets/images
 assets/documents
+# Ignore the empty index.js file in the locales repository, which is used to export all locale files as a single module. This file is intentionally left empty and should not be linted.
+locales/index.js
 **/__tests__
 jest.config.js
 config.js

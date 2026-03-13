@@ -1,12 +1,10 @@
-const fs = require('fs');
 const path = require('path');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+const { createParticipantWebpackConfig } = require('evolution-frontend/lib/utils/dev/webpackParticipant');
 
+// Ensure server config is found regardless of cwd (fixes serve:dev when run from any directory)
+if (!process.env.PROJECT_CONFIG) {
+    process.env.PROJECT_CONFIG = path.join(__dirname, 'config.js');
+}
 require('chaire-lib-backend/lib/config/dotenv.config');
 
 if (!process.env.NODE_ENV) {
@@ -18,24 +16,14 @@ const config = configuration.default ? configuration.default : configuration;
 
 // Public directory from which files are served
 const publicDirectory = path.join(__dirname, '..', 'evolution', 'public');
-const bundleOutputPath = path.join(publicDirectory, 'dist', config.projectShortname, 'survey');
-
-const appIncludeName = 'survey';
 
 module.exports = (env) => {
-    console.log(`building js for project ${config.projectShortname}`);
 
-    const isProduction = process.env.NODE_ENV === 'production';
-    console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-
-    const languages = config.languages || ['fr', 'en'];
-    const momentLanguagesFilter = `/${languages.join('|')}/`;
-
+    const evolutionFrontendRoot = path.dirname(require.resolve('evolution-frontend/package.json'));
     const customStylesFilePath = `${__dirname}/lib/styles/participant-app-styles.scss`;
     const customLocalesFilePath = `${__dirname}/locales`;
     const includeDirectories = [
         path.join(__dirname, 'lib', 'survey'),
-
         path.join(__dirname, 'locales'),
         path.join(__dirname, 'assets')
     ];
@@ -44,181 +32,34 @@ module.exports = (env) => {
     const defaultLanguage = config.languages && config.languages.length > 0 ? config.languages[0] : 'fr';
     const defaultAppTitle = config.title && config.title[defaultLanguage] ? config.title[defaultLanguage] : process.env.DEFAULT_TITLE || 'Evolution';
 
-    return {
-        // Controls which information to display (see https://webpack.js.org/configuration/stats/)
-        stats: {
-            errorDetails: true,
-            children: true
-        },
-        node: {
-            // global will be deprecated at next major release, see where it is being used
-            global: 'warn'
-        },
-        mode: process.env.NODE_ENV,
-        // Multiple entry points for different apps
-        entry: {
-            survey: ['./lib/app-survey.js', customStylesFilePath],
-            'survey-ended': [path.join(__dirname, '..', 'node_modules', 'evolution-frontend', 'lib', 'apps', 'participant', 'app-survey-ended.js'), customStylesFilePath]
-        },
-        output: {
-            path: bundleOutputPath,
-            filename: isProduction
-                ? `[name]-${config.projectShortname}-bundle-${process.env.NODE_ENV}.[contenthash].js`
-                : `[name]-${config.projectShortname}-bundle-${process.env.NODE_ENV}.dev.js`,
-            publicPath: '/dist/'
-        },
-        watchOptions: {
-            ignored: ['node_modules/**'],
-            aggregateTimeout: 600
-        },
-        module: {
-            rules: [
-                {
-                    use: 'json-loader',
-                    test: /\.geojson$/,
-                    include: includeDirectories
-                },
-                {
-                    test: /\.(ttf|woff2|woff|eot|svg)$/,
-                    type: 'asset'
-                },
-                {
-                    test: /\.glsl$/,
-                    use: 'ts-shader-loader'
-                },
-                {
-                    test: /\.s?css$/,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ]
-                },
-                {
-                    test: /locales/,
-                    loader: '@alienfast/i18next-loader',
-                    options: {
-                        basenameAsNamespace: true,
-                        overrides: fs.existsSync(customLocalesFilePath) ? [customLocalesFilePath] : []
-                    }
-                },
-                {
-                    test: /\.js$/,
-                    enforce: 'pre',
-                    loader: 'source-map-loader',
-                    include: includeDirectories
-                },
-                {
-                    test: /\.tsx?$/,
-                    use: 'ts-loader',
-                    exclude: /node_modules/,
-                    include: [
-                        path.resolve(__dirname, '../node_modules/evolution-frontend/src'),
-                        path.resolve(__dirname, '../node_modules/evolution-common/src')
-                    ]
-                }
-            ]
-        },
-        plugins: [
-            new CleanWebpackPlugin({
-                dry: !isProduction,
-                verbose: true,
-                cleanAfterEveryBuildPatterns: ['**/*', '!images/**', '!icons/**', '!documents/**', '!*.html']
-            }),
-            // HTML plugin for main survey app
-            new HtmlWebpackPlugin({
-                title: defaultAppTitle,
-                filename: path.join(`index-survey-${config.projectShortname}.html`),
-                template: path.join(publicDirectory, 'index.html'),
-                chunks: ['survey']
-            }),
-            // HTML plugin for survey ended app
-            new HtmlWebpackPlugin({
-                title: defaultAppTitle,
-                noindex: process.env.NOINDEX === 'true',
-                filename: path.join(`index-survey-ended-${config.projectShortname}.html`),
-                template: path.join(publicDirectory, 'index.html'),
-                chunks: ['survey-ended']
-            }),
-            new MiniCssExtractPlugin({
-                filename: isProduction
-                    ? `[name]-${config.projectShortname}-styles.[contenthash].css`
-                    : `[name]-${config.projectShortname}-styles.dev.css` //,
-            }),
-            new webpack.DefinePlugin({
-                'process.env': {
-                    IS_BROWSER: JSON.stringify(true),
-                    HOST: JSON.stringify(process.env.HOST),
-                    APP_NAME: JSON.stringify(appIncludeName),
-                    IS_TESTING: JSON.stringify(env === 'test'),
-                    GOOGLE_API_KEY: JSON.stringify(process.env.GOOGLE_API_KEY),
-                    EV_VARIANT: JSON.stringify(process.env.EV_VARIANT)
-                },
-                __CONFIG__: JSON.stringify({
-                    ...config
-                })
-            }),
-            new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
-            new CompressionPlugin({
-                filename: '[path][base].gz[query]',
-                algorithm: 'gzip',
-                test: /\.js$|\.css$/,
-                threshold: 0,
-                minRatio: 0.8
-            }),
-            new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, new RegExp(momentLanguagesFilter)),
-            new CopyWebpackPlugin({
-                patterns: [
-                    {
-                        context: path.join(__dirname, '..', 'node_modules', 'chaire-lib-frontend', 'lib', 'assets'),
-                        from: "**/*",
-                        to: "",
-                        noErrorOnMissing: true
-                    },
-                    {
-                        context: path.join(__dirname, '..', 'node_modules', 'evolution-frontend', 'lib', 'assets'),
-                        from: '**/*',
-                        to: '',
-                        noErrorOnMissing: true
-                    },
-                    {
-                        context: path.join(__dirname, 'lib', 'assets'),
-                        from: '**/*',
-                        to: '',
-                        noErrorOnMissing: true,
-                        force: true
-                    },
-                    {
-                        context: path.join(__dirname, 'assets'),
-                        from: '**/*',
-                        to: '',
-                        noErrorOnMissing: true
-                    }
-                ]
-            })
-        ],
-        resolve: {
-            mainFields: ['browser', 'main', 'module'],
-            modules: ['node_modules'],
-            extensions: ['.json', '.js', '.ts', '.tsx'],
-            // These modules are not used in the frontend, don't try to resolve them as they are nodejs only and don't have a browser counterpart (but they may be used in transition-legacy which is still not cleanly separated)
-            fallback: { path: false, buffer: false }
-        },
-        devtool: isProduction ? 'cheap-source-map' : 'eval-source-map',
-        devServer: {
-            contentBase: publicDirectory,
-            historyApiFallback: true,
-            publicPath: '/dist/' + config.projectShortname
+    const htmlPages = [{
+        title: defaultAppTitle,
+        noindex: process.env.NOINDEX === 'true',
+        filename: path.join(`index-survey-${config.projectShortname}.html`),
+        template: path.join(publicDirectory, 'index.html'),
+        chunks: ['survey']
+    }, {
+        title: defaultAppTitle,
+        noindex: process.env.NOINDEX === 'true',
+        filename: path.join(`index-survey-ended-${config.projectShortname}.html`),
+        template: path.join(publicDirectory, 'index.html'),
+        chunks: ['survey-ended']
+    }];
+
+    return createParticipantWebpackConfig({
+        env: env,
+        projectSrcDir: __dirname,
+        publicDirectory: publicDirectory,
+        config: config,
+        participantEntryFile: path.join(__dirname, 'lib', 'app-survey.js'),
+        surveyEndedEntryFile: path.join(evolutionFrontendRoot, 'lib', 'apps', 'participant', 'app-survey-ended.js'),
+        includeDirectories: includeDirectories,
+        htmlPages,
+        customStylesFilePath: customStylesFilePath,
+        projectLocalesFilePath: customLocalesFilePath,
+        extraEnvVars: {
+            EV_VARIANT: process.env.EV_VARIANT
         }
-    };
+    });
+
 };
