@@ -7,9 +7,7 @@
 import runClientApp from 'evolution-frontend/lib/apps/admin';
 import { setApplicationConfiguration } from 'chaire-lib-frontend/lib/config/application.config';
 import appConfig, { EvolutionApplicationConfiguration } from 'evolution-frontend/lib/config/application.config';
-import VisitedPlaceSection from '../survey/sections/visitedPlaces/template';
 import addInterviewerOptions from 'evolution-interviewer/lib/client/services/interviewers/interviewerSupport';
-
 import surveySections from '../survey/sections';
 import { widgets as widgetsConfig } from '../survey/widgetsConfigs';
 import monitoring from './components/Monitoring';
@@ -23,7 +21,6 @@ setApplicationConfiguration<EvolutionApplicationConfiguration>(
         sections: surveySections,
         widgets: widgetsConfig as any,
         allowedUrlFields: ['source', 'accessCode'],
-        templateMapping: { ...appConfig.templateMapping, visitedPlaces: VisitedPlaceSection },
         // FIXME See why we need the cast, it does not compile otherwise
         getAdminMonitoringComponents: () => monitoring as any[],
         pages

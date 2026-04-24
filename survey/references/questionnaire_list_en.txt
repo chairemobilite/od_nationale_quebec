@@ -71,7 +71,7 @@ Sex assigned at birth or that which appears on legal documents.
 I prefer to give the gender
 - Woman
 - Man
-- This person identifies  as:
+- This person identifies as:
 - I prefer not to answer
 
 Worker
@@ -223,7 +223,7 @@ Where was {{nickname}} at 4 AM?
 - Stayed at a friend’s, partner’s or family’s home
 - Was at or was coming back from a restaurant or bar
 - Hotel or other venue for a conference / work
-- Hôtel or other on vacation
+- Hotel or other on vacation
 - School / place of study: studied or slept there
 - Other
 

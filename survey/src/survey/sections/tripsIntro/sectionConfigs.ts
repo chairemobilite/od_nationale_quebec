@@ -30,7 +30,7 @@ export const sectionConfig: SectionConfig = {
 
         // If the person has no journeys, we need to initialize a journey for them and make it the active one
         if (journeys.length === 0) {
-            const newJourneysValuesByPath = addGroupedObjects(
+            const { valuesByPath: newJourneysValuesByPath } = addGroupedObjects(
                 interview,
                 1,
                 1,

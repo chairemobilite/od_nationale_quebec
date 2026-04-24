@@ -121,7 +121,7 @@ Conditional,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth ==
 Question,I prefer to give the gender
 Values,"female : Woman
 male : Man
-custom : This person identifies  as:
+custom : This person identifies as:
 preferNotToAnswer : I prefer not to answer"
 ""
 Field,workerType
@@ -343,7 +343,7 @@ secondaryHome : Secondary residence (cottage or other)
 sleptAtFriends : Stayed at a friend’s, partner’s or family’s home
 restaurant : Was at or was coming back from a restaurant or bar
 hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hotel or other venue for a conference / work
-hotelForVacation : Hôtel or other on vacation
+hotelForVacation : Hotel or other on vacation
 studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
 other : Other"
 ""

@@ -42,7 +42,7 @@ export const sectionConfig: SectionConfig = {
         // Add home as first visited place an add a second one
         if (visitedPlaces.length === 0 && (journey as any).departurePlaceIsHome === 'yes') {
             // Add 2 places: home and the next one
-            const newVisitedPlacesValuesByPath = addGroupedObjects(
+            const { valuesByPath: newVisitedPlacesValuesByPath } = addGroupedObjects(
                 interview,
                 2,
                 1,
@@ -98,7 +98,7 @@ export const sectionConfig: SectionConfig = {
                 }
             }
 
-            const addValuesByPath = addGroupedObjects(
+            const { valuesByPath: addValuesByPath } = addGroupedObjects(
                 interview,
                 1,
                 1,

@@ -2277,7 +2277,7 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
         }
 
         if (addedGroupedObjectBefore && addedGroupedObjectAfter) {
-            const addValuesByPathForBefore = addGroupedObjects(
+            const { valuesByPath: addValuesByPathForBefore } = addGroupedObjects(
                 interview,
                 1,
                 addedGroupedObjectBefore.sequence,
@@ -2288,7 +2288,7 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
             callbacks.startUpdateInterview(
                 { sectionShortname: 'visitedPlaces', valuesByPath: addValuesByPathForBefore },
                 (_interview) => {
-                    const addValuesByPathForAfter = addGroupedObjects(
+                    const { valuesByPath: addValuesByPathForAfter } = addGroupedObjects(
                         _interview,
                         1,
                         addedGroupedObjectAfter.sequence + 1,
@@ -2330,7 +2330,7 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
             );
             return null;
         } else if (addedGroupedObjectBefore) {
-            const addValuesByPathForBefore = addGroupedObjects(
+            const { valuesByPath: addValuesByPathForBefore } = addGroupedObjects(
                 interview,
                 1,
                 addedGroupedObjectBefore.sequence,
@@ -2370,7 +2370,7 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
             );
             return null;
         } else if (addedGroupedObjectAfter) {
-            const addValuesByPathForAfter = addGroupedObjects(
+            const { valuesByPath: addValuesByPathForAfter } = addGroupedObjects(
                 interview,
                 1,
                 addedGroupedObjectAfter.sequence,

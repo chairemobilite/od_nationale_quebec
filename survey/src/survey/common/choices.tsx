@@ -2,67 +2,52 @@
 // The Evolution Generator is used to automate the creation of consistent, reliable code.
 // Any changes made to this file will be overwritten.
 
+import { TFunction } from 'i18next';
 import { type ChoiceType } from 'evolution-common/lib/services/questionnaire/types';
+import _escape from 'lodash/escape';
+import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as conditionals from './conditionals';
 import * as customConditionals from './customConditionals';
 
 export const yes: ChoiceType[] = [
     {
         value: 'yes',
-        label: {
-            fr: 'Oui',
-            en: 'Yes'
-        }
+        label: (t: TFunction) => t('choices:yes.yes')
     }
 ];
 
 export const no: ChoiceType[] = [
     {
         value: 'no',
-        label: {
-            fr: 'Non',
-            en: 'No'
-        }
+        label: (t: TFunction) => t('choices:no.no')
     }
 ];
 
 export const other: ChoiceType[] = [
     {
         value: 'other',
-        label: {
-            fr: 'Autre (spécifiez)',
-            en: 'Other (specify)'
-        }
+        label: (t: TFunction) => t('choices:other.other')
     }
 ];
 
 export const otherWithoutSpecify: ChoiceType[] = [
     {
         value: 'other',
-        label: {
-            fr: 'Autre',
-            en: 'Other'
-        }
+        label: (t: TFunction) => t('choices:otherWithoutSpecify.other')
     }
 ];
 
 export const dontKnow: ChoiceType[] = [
     {
         value: 'dontKnow',
-        label: {
-            fr: 'Je ne sais pas',
-            en: 'I don\'t know'
-        }
+        label: (t: TFunction) => t('choices:dontKnow.dontKnow')
     }
 ];
 
 export const preferNotToAnswer: ChoiceType[] = [
     {
         value: 'preferNotToAnswer',
-        label: {
-            fr: 'Je préfère ne pas répondre',
-            en: 'I prefer not to answer'
-        }
+        label: (t: TFunction) => t('choices:preferNotToAnswer.preferNotToAnswer')
     }
 ];
 
@@ -75,17 +60,11 @@ export const yesNoPreferNotToAnswer: ChoiceType[] = [...yes, ...no, ...preferNot
 export const maleFemalePreferNotAnswer: ChoiceType[] = [
     {
         value: 'female',
-        label: {
-            fr: 'Femme',
-            en: 'Female'
-        }
+        label: (t: TFunction) => t('choices:maleFemalePreferNotAnswer.female')
     },
     {
         value: 'male',
-        label: {
-            fr: 'Homme',
-            en: 'Male'
-        }
+        label: (t: TFunction) => t('choices:maleFemalePreferNotAnswer.male')
     },
     ...preferNotToAnswer
 ];
@@ -93,24 +72,15 @@ export const maleFemalePreferNotAnswer: ChoiceType[] = [
 export const maleFemaleCustomPreferNotToAnswer: ChoiceType[] = [
     {
         value: 'female',
-        label: {
-            fr: 'Femme',
-            en: 'Woman'
-        }
+        label: (t: TFunction) => t('choices:maleFemaleCustomPreferNotToAnswer.female')
     },
     {
         value: 'male',
-        label: {
-            fr: 'Homme',
-            en: 'Man'
-        }
+        label: (t: TFunction) => t('choices:maleFemaleCustomPreferNotToAnswer.male')
     },
     {
         value: 'custom',
-        label: {
-            fr: 'Cette personne s\'identifie comme:',
-            en: 'This person identifies  as:'
-        }
+        label: (t: TFunction) => t('choices:maleFemaleCustomPreferNotToAnswer.custom')
     },
     ...preferNotToAnswer
 ];
@@ -118,17 +88,11 @@ export const maleFemaleCustomPreferNotToAnswer: ChoiceType[] = [
 export const participationStatusWorker: ChoiceType[] = [
     {
         value: 'fullTime',
-        label: {
-            fr: 'Oui, à temps plein (30h et plus/semaine)',
-            en: 'Yes, full time (30h and more/week)'
-        }
+        label: (t: TFunction) => t('choices:participationStatusWorker.fullTime')
     },
     {
         value: 'partTime',
-        label: {
-            fr: 'Oui, à temps partiel (moins de 30h/semaine)',
-            en: 'Yes, part time (less than 30h/week)'
-        }
+        label: (t: TFunction) => t('choices:participationStatusWorker.partTime')
     },
     ...no
 ];
@@ -136,17 +100,11 @@ export const participationStatusWorker: ChoiceType[] = [
 export const participationStatusStudent: ChoiceType[] = [
     {
         value: 'fullTime',
-        label: {
-            fr: 'Oui, à temps plein',
-            en: 'Yes, full time'
-        }
+        label: (t: TFunction) => t('choices:participationStatusStudent.fullTime')
     },
     {
         value: 'partTime',
-        label: {
-            fr: 'Oui, à temps partiel',
-            en: 'Yes, part time'
-        }
+        label: (t: TFunction) => t('choices:participationStatusStudent.partTime')
     },
     ...no
 ];
@@ -154,50 +112,32 @@ export const participationStatusStudent: ChoiceType[] = [
 export const schoolType: ChoiceType[] = [
     {
         value: 'kindergarten',
-        label: {
-            fr: 'Garderie/CPE',
-            en: 'Kindergarten/Childcare/CPE'
-        },
+        label: (t: TFunction) => t('choices:schoolType.kindergarten'),
         conditional: conditionals.ifAge5OrLessConditional
     },
     {
         value: 'primarySchool',
-        label: {
-            fr: 'École primaire',
-            en: 'Primary school'
-        },
+        label: (t: TFunction) => t('choices:schoolType.primarySchool'),
         conditional: conditionals.ifAge4to13Conditional
     },
     {
         value: 'secondarySchool',
-        label: {
-            fr: 'École secondaire',
-            en: 'Secondary school'
-        },
+        label: (t: TFunction) => t('choices:schoolType.secondarySchool'),
         conditional: conditionals.ifAge11OrMoreConditional
     },
     {
         value: 'schoolAtHome',
-        label: {
-            fr: 'École à la maison',
-            en: 'School at home'
-        },
+        label: (t: TFunction) => t('choices:schoolType.schoolAtHome'),
         conditional: conditionals.ifAge4to15Conditional
     },
     {
         value: 'atHome',
-        label: {
-            fr: 'À la maison',
-            en: 'At home'
-        },
+        label: (t: TFunction) => t('choices:schoolType.atHome'),
         conditional: conditionals.ifAge5OrLessConditional
     },
     {
         value: 'collegeCegepDepAep',
-        label: {
-            fr: 'CEGEP / Collège / DEP / AEP',
-            en: 'CEGEP / College / DEP / AEP'
-        },
+        label: (t: TFunction) => t('choices:schoolType.collegeCegepDepAep'),
         conditional: conditionals.ifAge15OrMoreConditional
     },
     ...other
@@ -206,100 +146,61 @@ export const schoolType: ChoiceType[] = [
 export const personOccupation: ChoiceType[] = [
     {
         value: 'fullTimeWorker',
-        label: {
-            fr: 'Travail à temps plein (30h et plus/semaine)',
-            en: 'Employed full-time (30h and more/week)'
-        },
+        label: (t: TFunction) => t('choices:personOccupation.fullTimeWorker'),
         hidden: true
     },
     {
         value: 'partTimeWorker',
-        label: {
-            fr: 'Travail à temps partiel (moins de 30h/semaine)',
-            en: 'Employed part-time (less than 30h/week)'
-        },
+        label: (t: TFunction) => t('choices:personOccupation.partTimeWorker'),
         hidden: true
     },
     {
         value: 'workerAndStudent',
-        label: {
-            fr: 'Travail et études',
-            en: 'Work and studies'
-        },
+        label: (t: TFunction) => t('choices:personOccupation.workerAndStudent'),
         hidden: true
     },
     {
         value: 'fullTimeStudent',
-        label: {
-            fr: 'Études à temps plein',
-            en: 'Full-time student'
-        },
+        label: (t: TFunction) => t('choices:personOccupation.fullTimeStudent'),
         hidden: true
     },
     {
         value: 'partTimeStudent',
-        label: {
-            fr: 'Études à temps partiel',
-            en: 'Part-time student'
-        },
+        label: (t: TFunction) => t('choices:personOccupation.partTimeStudent'),
         hidden: true
     },
     {
         value: 'retired',
-        label: {
-            fr: 'À la retraite',
-            en: 'Retired'
-        },
+        label: (t: TFunction) => t('choices:personOccupation.retired'),
         conditional: conditionals.ifAge40OrMoreConditional
     },
     {
         value: 'atHome',
-        label: {
-            fr: 'À la maison',
-            en: 'At home'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.atHome')
     },
     {
         value: 'unemployed',
-        label: {
-            fr: 'En chômage / en recherche d\'emploi',
-            en: 'Unemployed / searching for a job'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.unemployed')
     },
     {
         value: 'parentalOrSickLeave',
-        label: {
-            fr: 'Congé de maladie ou congé parental',
-            en: 'Sick leave or parental leave'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.parentalOrSickLeave')
     },
     {
         value: 'longTermDisability',
-        label: {
-            fr: 'Invalidité de longue durée',
-            en: 'Long-term disability'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.longTermDisability')
     },
     {
         value: 'volunteer',
-        label: {
-            fr: 'Bénévole',
-            en: 'Volunteer'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.volunteer')
     },
     {
         value: 'other',
-        label: {
-            fr: 'Autre',
-            en: 'Other'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.other')
     },
     {
         value: 'preferNotToAnswer',
-        label: {
-            fr: 'Préfère ne pas répondre',
-            en: 'Prefer not to answer'
-        }
+        label: (t: TFunction) => t('choices:personOccupation.preferNotToAnswer')
     }
 ];
 
@@ -307,17 +208,11 @@ export const transitFareType: ChoiceType[] = [
     ...no,
     {
         value: 'transitPass',
-        label: {
-            fr: 'Passe ou titre mensuel ou annuel',
-            en: 'Monthly or annual pass'
-        }
+        label: (t: TFunction) => t('choices:transitFareType.transitPass')
     },
     {
         value: 'tickets',
-        label: {
-            fr: 'Titres ou billets individuels',
-            en: 'Individual tickets or rides'
-        }
+        label: (t: TFunction) => t('choices:transitFareType.tickets')
     },
     ...dontKnow
 ];
@@ -325,333 +220,210 @@ export const transitFareType: ChoiceType[] = [
 export const workPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
-        label: {
-            fr: 'Oui, travail au lieu fixe en présentiel en tout temps',
-            en: 'Yes, always on-site at fixed location'
-        }
+        label: (t: TFunction) => t('choices:workPlaceTypeChoices.onLocation')
     },
     {
         value: 'hybrid',
-        label: {
-            fr: 'Oui, travail en mode hybride (télétravail et en présentiel)',
-            en: 'Yes, hybrid work (remote and on-site)'
-        }
+        label: (t: TFunction) => t('choices:workPlaceTypeChoices.hybrid')
     },
     {
         value: 'onTheRoadWithUsualPlace',
-        label: {
-            fr: 'Oui, travail sur la route avec départ d\'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)',
-            en: 'Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)'
-        }
+        label: (t: TFunction) => t('choices:workPlaceTypeChoices.onTheRoadWithUsualPlace')
     },
     {
         value: 'onTheRoadWithoutUsualPlace',
-        label: {
-            fr: 'Non, travail sur la route avec départ du domicile',
-            en: 'No, work on the road departing from home'
-        }
+        label: (t: TFunction) => t('choices:workPlaceTypeChoices.onTheRoadWithoutUsualPlace')
     },
     {
         value: 'remote',
-        label: {
-            fr: 'Non, travail à partir du domicile ou à distance',
-            en: 'No, work from home or from elsewhere'
-        }
+        label: (t: TFunction) => t('choices:workPlaceTypeChoices.remote')
     }
 ];
 
 export const schoolPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
-        label: {
-            fr: 'Oui, études au lieu fixe en présentiel en tout temps',
-            en: 'Yes, always on-site at fixed location'
-        }
+        label: (t: TFunction) => t('choices:schoolPlaceTypeChoices.onLocation')
     },
     {
         value: 'hybrid',
-        label: {
-            fr: 'Oui, études en mode hybride (télé-études et en présentiel)',
-            en: 'Yes, hybrid studies (remote and on-site)'
-        }
+        label: (t: TFunction) => t('choices:schoolPlaceTypeChoices.hybrid')
     },
     {
         value: 'remote',
-        label: {
-            fr: 'Non, études à partir du domicile ou à distance',
-            en: 'No, remote studies from home or from elsewhere'
-        }
+        label: (t: TFunction) => t('choices:schoolPlaceTypeChoices.remote')
     }
 ];
 
 export const longDistanceFrequencyChoices: ChoiceType[] = [
     {
         value: '00_00',
-        label: {
-            fr: 'Jamais (0)',
-            en: 'Never (0)'
-        }
+        label: (t: TFunction) => t('choices:longDistanceFrequencyChoices.00_00')
     },
     {
         value: '01_03',
-        label: {
-            fr: 'Quelques fois durant la période (1 à 3)',
-            en: 'A few times during the period (1 to 3)'
-        }
+        label: (t: TFunction) => t('choices:longDistanceFrequencyChoices.01_03')
     },
     {
         value: '04_12',
-        label: {
-            fr: 'Quelques fois par mois (4 à 12)',
-            en: 'A few times a month (4 to 12)'
-        }
+        label: (t: TFunction) => t('choices:longDistanceFrequencyChoices.04_12')
     },
     {
         value: '13_99',
-        label: {
-            fr: 'Une à plusieurs fois par semaine (13 ou plus)',
-            en: 'One to several times a week (13 or more)'
-        }
+        label: (t: TFunction) => t('choices:longDistanceFrequencyChoices.13_99')
     }
 ];
 
 export const householdIncomeChoices: ChoiceType[] = [
     {
         value: '000000_009999',
-        label: {
-            fr: 'Moins de 10 000 $',
-            en: 'Less than $10,000'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.000000_009999')
     },
     {
         value: '010000_019999',
-        label: {
-            fr: '10 000$ à 19 999$',
-            en: '$10,000 to $19,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.010000_019999')
     },
     {
         value: '020000_029999',
-        label: {
-            fr: '20 000$ à 29 999$',
-            en: '$20,000 to $29,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.020000_029999')
     },
     {
         value: '030000_039999',
-        label: {
-            fr: '30 000$ à 39 999$',
-            en: '$30,000 to $39,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.030000_039999')
     },
     {
         value: '040000_049999',
-        label: {
-            fr: '40 000$ à 49 999$',
-            en: '$40,000 to $49,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.040000_049999')
     },
     {
         value: '050000_059999',
-        label: {
-            fr: '50 000$ à 59 999$',
-            en: '$50,000 to $59,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.050000_059999')
     },
     {
         value: '060000_069999',
-        label: {
-            fr: '60 000$ à 69 999$',
-            en: '$60,000 to $69,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.060000_069999')
     },
     {
         value: '070000_079999',
-        label: {
-            fr: '70 000$ à 79 999$',
-            en: '$70,000 to $79,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.070000_079999')
     },
     {
         value: '080000_089999',
-        label: {
-            fr: '80 000$ à 89 999$',
-            en: '$80,000 to $89,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.080000_089999')
     },
     {
         value: '090000_099999',
-        label: {
-            fr: '90 000$ à 99 999$',
-            en: '$90,000 to $99,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.090000_099999')
     },
     {
         value: '100000_149999',
-        label: {
-            fr: '100 000$ à 149 999$',
-            en: '$100,000 to $149,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.100000_149999')
     },
     {
         value: '150000_199999',
-        label: {
-            fr: '150 000$ à 199 999$',
-            en: '$150,000 to $199,999'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.150000_199999')
     },
     {
         value: '200000_999999',
-        label: {
-            fr: '200 000 $ et plus',
-            en: '$200,000 and more'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.200000_999999')
     },
     {
         value: 'dontKnow',
-        label: {
-            fr: 'Je ne sais pas',
-            en: 'I don\'t know'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.dontKnow')
     },
     {
         value: 'refusal',
-        label: {
-            fr: 'Je préfère ne pas répondre',
-            en: 'I prefer not to respond'
-        }
+        label: (t: TFunction) => t('choices:householdIncomeChoices.refusal')
     }
 ];
 
 export const householdOwnershipChoices: ChoiceType[] = [
     {
         value: 'tenant',
-        label: {
-            fr: 'Locataire',
-            en: 'Tenant'
-        }
+        label: (t: TFunction) => t('choices:householdOwnershipChoices.tenant')
     },
     {
         value: 'owner',
-        label: {
-            fr: 'Propriétaire',
-            en: 'Owner'
-        }
+        label: (t: TFunction) => t('choices:householdOwnershipChoices.owner')
     },
     {
         value: 'other',
-        label: {
-            fr: 'Autre',
-            en: 'Other'
-        }
+        label: (t: TFunction) => t('choices:householdOwnershipChoices.other')
     },
     {
         value: 'preferNotToAnswer',
-        label: {
-            fr: 'Je préfère ne pas répondre',
-            en: 'I prefer not to respond'
-        }
+        label: (t: TFunction) => t('choices:householdOwnershipChoices.preferNotToAnswer')
     }
 ];
 
 export const departurePlaceOtherChoices: ChoiceType[] = [
     {
         value: 'otherParentHome',
-        label: {
-            fr: '<strong>Domicile de l\'autre parent ou tuteur</strong>',
-            en: '<strong>Home of the other parent or guardian</strong>'
-        },
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.otherParentHome'),
         conditional: conditionals.ifAge16OrLessConditional
     },
     {
         value: 'workedOvernight',
-        label: {
-            fr: '<strong>Travaillait de nuit</strong>',
-            en: '<strong>Worked overnight</strong>'
-        },
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.workedOvernight'),
         conditional: conditionals.isWorkerConditional
     },
     {
         value: 'secondaryHome',
-        label: {
-            fr: '<strong>Résidence secondaire</strong> (chalet ou autre)',
-            en: '<strong>Secondary residence</strong> (cottage or other)'
-        }
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.secondaryHome')
     },
     {
         value: 'sleptAtFriends',
-        label: {
-            fr: 'Passait la nuit chez <strong>ami, copine/copain ou famille</strong>',
-            en: 'Stayed at a <strong>friend’s, partner’s or family’s home</strong>'
-        }
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.sleptAtFriends')
     },
     {
         value: 'restaurant',
-        label: {
-            fr: 'Était à un ou revenait d\'un <strong>restaurant ou bar</strong>',
-            en: 'Was at or was coming back from a <strong>restaurant or bar</strong>'
-        }
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.restaurant')
     },
     {
         value: 'hotelForWork',
-        label: {
-            fr: 'Hôtel ou autre lieu pour une <strong>conférence / travail</strong>',
-            en: 'Hotel or other venue for <strong>a conference / work</strong>'
-        },
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.hotelForWork'),
         conditional: conditionals.isWorkerConditional
     },
     {
         value: 'hotelForVacation',
-        label: {
-            fr: 'Hôtel ou autre lieu en <strong>vacances</strong>',
-            en: 'Hôtel or other on <strong>vacation</strong>'
-        }
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.hotelForVacation')
     },
     {
         value: 'studying',
-        label: {
-            fr: '<strong>Écoles / lieu d’études</strong>: terminait des travaux ou y couchait',
-            en: '<strong>School / place of study</strong>: studied or slept there'
-        },
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.studying'),
         conditional: conditionals.isStudentConditional
     },
     {
         value: 'other',
-        label: {
-            fr: 'Autre',
-            en: 'Other'
-        }
+        label: (t: TFunction) => t('choices:departurePlaceOtherChoices.other')
     }
 ];
 
 export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
     {
         value: 'home',
-        label: {
-            fr: 'Domicile',
-            en: 'Home'
-        }
+        label: (t: TFunction) => t('choices:onTheRoadArrivalTypeChoices.home')
     },
     {
         value: 'usualWorkPlace',
-        label: {
-            fr: 'Lieu de travail habituel',
-            en: 'Usual work place'
-        },
+        label: (t: TFunction) => t('choices:onTheRoadArrivalTypeChoices.usualWorkPlace'),
         conditional: conditionals.onTheRoadUsualWorkplace
     },
     {
         value: 'other',
-        label: {
-            fr: 'Autre lieu',
-            en: 'Other location'
-        }
+        label: (t: TFunction) => t('choices:onTheRoadArrivalTypeChoices.other')
     },
     {
         value: 'stayedThereUntilTheNextDay',
-        label: {
-            fr: '{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain',
-            en: '{{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:onTheRoadArrivalTypeChoices.stayedThereUntilTheNextDay', {
+                nickname,
+                count: countPersons,
+                context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+            });
         },
         conditional: customConditionals.isLastPlaceCustomConditional
     }
@@ -660,55 +432,50 @@ export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
 export const onDemandChoices: ChoiceType[] = [
     {
         value: 'pickupAtOrigin',
-        label: {
-            fr: 'Oui, il est venu chercher {{nickname}} à son lieu de départ',
-            en: 'Yes, it picked {{nickname}} up at their departure location'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:onDemandChoices.pickupAtOrigin', {
+                nickname,
+                count: countPersons
+            });
         }
     },
     {
         value: 'joinedStop',
-        label: {
-            fr: 'Oui, {{nickname}} a rejoint un arrêt',
-            en: 'Yes, {{nickname}} went to a stop'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:onDemandChoices.joinedStop', {
+                nickname,
+                count: countPersons
+            });
         }
     },
     {
         value: 'no',
-        label: {
-            fr: 'Non',
-            en: 'No'
-        }
+        label: (t: TFunction) => t('choices:onDemandChoices.no')
     }
 ];
 
 export const noWorkTripReasonChoices: ChoiceType[] = [
     {
         value: 'remoteWorkOrWorkAtHome',
-        label: {
-            fr: 'Télétravail / travail à la maison',
-            en: 'Remote work / work from home'
-        }
+        label: (t: TFunction) => t('choices:noWorkTripReasonChoices.remoteWorkOrWorkAtHome')
     },
     {
         value: 'onStrike',
-        label: {
-            fr: 'En grève',
-            en: 'On strike'
-        }
+        label: (t: TFunction) => t('choices:noWorkTripReasonChoices.onStrike')
     },
     {
         value: 'leaveSicknessPersonalReason',
-        label: {
-            fr: 'Congé (maladie, personnel, autre)',
-            en: 'Leave (sick, personal, other)'
-        }
+        label: (t: TFunction) => t('choices:noWorkTripReasonChoices.leaveSicknessPersonalReason')
     },
     {
         value: 'noWork',
-        label: {
-            fr: 'Pas de travail prévu',
-            en: 'No work planned'
-        }
+        label: (t: TFunction) => t('choices:noWorkTripReasonChoices.noWork')
     },
     ...otherWithoutSpecify,
     ...dontKnow
@@ -717,31 +484,19 @@ export const noWorkTripReasonChoices: ChoiceType[] = [
 export const noSchoolTripReasonChoices: ChoiceType[] = [
     {
         value: 'distanceLearning',
-        label: {
-            fr: 'Cours à distance',
-            en: 'Distance learning'
-        }
+        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.distanceLearning')
     },
     {
         value: 'schoolWasClosed',
-        label: {
-            fr: 'École fermée',
-            en: 'School was closed'
-        }
+        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.schoolWasClosed')
     },
     {
         value: 'leaveSicknessPersonalReason',
-        label: {
-            fr: 'Congé (maladie, personnel, autre)',
-            en: 'Leave (sick, personal, other)'
-        }
+        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.leaveSicknessPersonalReason')
     },
     {
         value: 'noSchool',
-        label: {
-            fr: 'Pas de cours',
-            en: 'No classes'
-        }
+        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.noSchool')
     },
     ...otherWithoutSpecify,
     ...dontKnow
@@ -750,45 +505,27 @@ export const noSchoolTripReasonChoices: ChoiceType[] = [
 export const educationalAttainment: ChoiceType[] = [
     {
         value: 'noneOrPrimaryEducation',
-        label: {
-            fr: 'Aucun certificat, diplôme ou degré',
-            en: 'No certificate, diploma or degree'
-        }
+        label: (t: TFunction) => t('choices:educationalAttainment.noneOrPrimaryEducation')
     },
     {
         value: 'secondaryEducation',
-        label: {
-            fr: 'Diplôme d\'études secondaires ou attestation d\'équivalence',
-            en: 'High school (secondary) diploma or equivalency certificate'
-        }
+        label: (t: TFunction) => t('choices:educationalAttainment.secondaryEducation')
     },
     {
         value: 'postSecondaryNonTertiaryEducation',
-        label: {
-            fr: 'Diplôme d\'apprenti ou d\'une école de métiers',
-            en: 'Apprenticeship or trades certificate or diploma'
-        }
+        label: (t: TFunction) => t('choices:educationalAttainment.postSecondaryNonTertiaryEducation')
     },
     {
         value: 'shortCycleTertiaryEducation',
-        label: {
-            fr: 'Diplôme d\'un cégep ou collège',
-            en: 'College, CEGEP or other non-university certificate or diploma'
-        }
+        label: (t: TFunction) => t('choices:educationalAttainment.shortCycleTertiaryEducation')
     },
     {
         value: 'diplomaBelowBachelor',
-        label: {
-            fr: 'Certificat ou diplôme universitaire inférieur au baccalauréat',
-            en: 'University certificate or diploma below bachelor level'
-        }
+        label: (t: TFunction) => t('choices:educationalAttainment.diplomaBelowBachelor')
     },
     {
         value: 'bachelorOrHigher',
-        label: {
-            fr: 'Certificat ou diplôme universitaire niveau baccalauréat ou supérieur',
-            en: 'Bachelor\'s degree or higher'
-        }
+        label: (t: TFunction) => t('choices:educationalAttainment.bachelorOrHigher')
     },
     ...preferNotToAnswer
 ];
@@ -796,37 +533,62 @@ export const educationalAttainment: ChoiceType[] = [
 export const workPlaceBeforeLeaveTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
-        label: {
-            fr: 'Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps',
-            en: 'Yes, {{nickname}} worked always on-site at fixed location'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.onLocation', {
+                nickname,
+                count: countPersons
+            });
         }
     },
     {
         value: 'hybrid',
-        label: {
-            fr: 'Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)',
-            en: 'Yes, {{nickname}} did hybrid work (remote and on-site)'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.hybrid', {
+                nickname,
+                count: countPersons
+            });
         }
     },
     {
         value: 'onTheRoadWithUsualPlace',
-        label: {
-            fr: 'Oui, {{nickname}} travaillait sur la route avec départ d\'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)',
-            en: 'Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.onTheRoadWithUsualPlace', {
+                nickname,
+                count: countPersons
+            });
         }
     },
     {
         value: 'onTheRoadWithoutUsualPlace',
-        label: {
-            fr: 'Non, {{nickname}} travaillait sur la route avec départ du domicile',
-            en: 'No, {{nickname}} worked on the road departing from home'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.onTheRoadWithoutUsualPlace', {
+                nickname,
+                count: countPersons
+            });
         }
     },
     {
         value: 'remote',
-        label: {
-            fr: 'Non, {{nickname}} travaillait à partir du domicile ou à distance',
-            en: 'No, {{nickname}} worked from home or from elsewhere'
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.remote', {
+                nickname,
+                count: countPersons
+            });
         }
     }
 ];

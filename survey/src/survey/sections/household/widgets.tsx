@@ -313,8 +313,8 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:travelToWorkDays', {
             nickname,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
-            count: countPersons
+            count: countPersons,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
     choices: customChoices.lastWeekTravelToWorkDaysCustomChoices,
@@ -333,8 +333,8 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
         const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:remoteWorkDays', {
             nickname,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
-            count: countPersons
+            count: countPersons,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
     choices: customChoices.lastWeekRemoteWorkDaysCustomChoices,
@@ -346,5 +346,6 @@ export const household_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'household.save',
     confirmPopup: customHelpPopup.validateHouseholdAgesHelpPopup,
-    label: (t: TFunction) => t('household:household.save')
+    label: (t: TFunction) => t('household:household.save'),
+    conditional: defaultConditional
 };
