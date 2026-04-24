@@ -88,3 +88,34 @@ busLinesDontKnow: Ligne(s) inconnue(s)
 busLinesAreCorrect: Les lignes de bus sont correctes
 busLinesWarningRequired: >-
     Veuillez valider les lignes de bus ou confirmer que ce sont les bonnes lignes.
+mode.Walk: <strong>Marche</strong>
+mode.Bicycle: <strong>Vélo</strong>
+mode.BicycleElectric: <strong>Vélo électrique</strong>
+mode.KickScooterElectric: <strong>Trottinette électrique</strong>
+mode.Wheelchair: <strong>Chaise roulante</strong>
+mode.MobilityScooter: <strong>Quadriporteur/triporteur</strong>
+mode.TransitRRT: <strong>Métro</strong>
+mode.TransitLRRT: <strong>REM</strong>
+mode.TransitRegionalRail: <strong>Train de banlieue</strong> (exo)
+mode.TransitStreetCar: <strong>Tramway</strong>
+mode.TransitBus: <strong>Bus</strong> (transport collectif)
+mode.TransitTaxi: <strong>Taxi collectif</strong> / Transport à la demande
+mode.IntercityBus: <strong>Bus interurbain</strong> (Orléans, Kéolis, etc.)
+mode.SchoolBus: <strong>Autobus scolaire</strong> (jaune)
+mode.OtherBus: <strong>Bus nolisé</strong> ou privé
+mode.CarDriverRental: <strong>Voiture louée</strong> (Hertz, Enterprise, Budget, Avis,
+    etc.)
+mode.CarDriver: >-
+    <strong>Voiture personnelle</strong> (appartenant à soi, un.e ami.e, la famille,
+    etc.)
+mode.CarDriverCarsharing: <strong>Autopartage</strong> (ex. Communauto)
+mode.Motorcycle: <strong>Moto</strong> (ou scooter)
+mode.TransitFerry: <strong>Traversier ou navette fluviale</strong> sans véhicule
+mode.FerryWithCar: <strong>Traversier avec véhicule</strong>
+mode.IntercityTrain: <strong>Train interurbain</strong> (VIA Rail)
+mode.CarPassenger: <strong>Passager</strong> (voiture/moto/scooter)
+mode.Paratransit: <strong>Transport adapté</strong>
+mode.Plane: <strong>Avion</strong>
+mode.Other: <strong>Autre</strong>
+mode.Taxi: <strong>Taxi</strong> ou équivalent (ex. Uber)
+mode.DontKnow: <strong>Je ne sais pas</strong> / Préfère ne pas répondre

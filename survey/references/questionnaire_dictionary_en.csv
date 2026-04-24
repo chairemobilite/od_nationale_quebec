@@ -291,12 +291,12 @@ Section,Trips introduction
 Abbreviation,ti_
 ""
 Field,activePersonTitle
-Question type,Unknown input
+Question type,Builtin
 Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
 Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
 ""
 Field,buttonSwitchPerson
-Question type,Unknown input
+Question type,Builtin
 Question,Change person
 ""
 Field,_showNewPersonPopupButton
@@ -353,21 +353,21 @@ Section,Déplacements
 Abbreviation,vp_
 ""
 Field,activePersonTitle
-Question type,Unknown input
+Question type,Builtin
 Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
 Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
 ""
 Field,buttonSwitchPerson
-Question type,Unknown input
+Question type,Builtin
 Question,Change person
 ""
 Field,personVisitedPlacesTitle
-Question type,Unknown input
+Question type,Builtin
 Question,"Places {{nickname}} went on {{assignedDate}}:
 Chronological order must be respected (i.e. sequence matters)."
 ""
 Field,visitedPlacesMap
-Question type,Unknown input
+Question type,Builtin
 Question,Map of {{nickname}}’s trips on {{assignedDate}}:
 ""
 Field,onTheRoadDepartureType
@@ -405,7 +405,7 @@ Question type,Unknown input
 Question,{{nickname}} arrived {{atPlace}} at:
 ""
 Field,nextPlaceCategory
-Question type,Unknown input
+Question type,Builtin
 Question,"After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
 ""
@@ -418,7 +418,7 @@ Question type,Unknown input
 Question,Confirm
 ""
 Field,vp_save
-Question type,Unknown input
+Question type,Builtin
 Conditional,lastPlaceEnteredCustomConditional
 Question,Confirm locations and continue
 ""
@@ -428,23 +428,23 @@ Section,Modes of transport
 Abbreviation,s_
 ""
 Field,buttonSwitchPerson
-Question type,Unknown input
+Question type,Builtin
 Question,Change person
 ""
 Field,personTripsTitle
-Question type,Unknown input
+Question type,Builtin
 Question,Trips made by {{nickname}} on {{assignedDate}}
 ""
 Field,segmentsMap
-Question type,Unknown input
+Question type,Builtin
 Question,Map of {{nickname}}’s trips on {{assignedDate}}:
 ""
 Field,segmentsIntro
-Question type,Unknown input
+Question type,Builtin
 Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:"
 ""
 Field,segments
-Question type,Unknown input
+Question type,Builtin
 Question,Mode of transport
 ""
 Field,howToBus
@@ -467,7 +467,7 @@ Question,"Persons in the vehicle
 Including the driver."
 ""
 Field,driver
-Question type,Unknown input
+Question type,Builtin
 Question,Who drove?
 ""
 Field,busLines
@@ -496,11 +496,11 @@ Navigate, zoom, and click on the map to identify the location. Once located, you
 You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button)."
 ""
 Field,save
-Question type,Unknown input
+Question type,Builtin
 Question,Confirm this trip
 ""
 Field,s_save
-Question type,Unknown input
+Question type,Builtin
 Conditional,lastPlaceEnteredCustomConditional
 Question,Confirm locations and continue
 ""

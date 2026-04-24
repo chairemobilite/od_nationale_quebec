@@ -14,29 +14,11 @@ const segmentSectionConfig = new SegmentsSectionFactory(
     widgetFactoryOptions
 ).getSectionConfig();
 // Config for the section
+// FIXME Now using the builtin config for this section. Kept to make sure there's a section available for now. Remove when https://github.com/chairemobilite/evolution/issues/1531 is fixed
 export const sectionConfig: SectionConfig = {
     ...segmentSectionConfig,
     // FIXME Remove this line when the next section becomes travelBehavior
-    nextSection: nextSectionName,
-    isSectionVisible: function (interview, iterationContext) {
-        // FIXME: This is the same visibility logic as the visited places. It
-        // should be configurable in some kind of helper called by the main
-        // component.
-        const person = odSurveyHelper.getPerson({
-            interview,
-            personId: iterationContext[iterationContext.length - 1]
-        }) as any;
-        const journey = person ? odSurveyHelper.getJourneysArray({ person })[0] : undefined;
-        return journey && (journey as any).personDidTrips === 'yes';
-    },
-    onSectionEntry: function (interview, iterationContext) {
-        const segmentValuesToUpdate = segmentSectionConfig.onSectionEntry!(interview, iterationContext);
-        const needUpdateHouseholdSizeValues = updateHouseholdSizeFromPersonCount(interview);
-        return !segmentValuesToUpdate && !needUpdateHouseholdSizeValues
-            ? undefined
-            : _merge(segmentValuesToUpdate || {}, needUpdateHouseholdSizeValues || {});
-    },
-    widgets: widgetsNames
+    nextSection: nextSectionName
 };
 
 export default sectionConfig;

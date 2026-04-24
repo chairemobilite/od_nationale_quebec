@@ -65,3 +65,33 @@ busLinesOther: Other bus line(s)
 busLinesDontKnow: Unknown line(s)
 busLinesAreCorrect: Bus lines are correct
 busLinesWarningRequired: Please validate the bus lines or confirm that lines are correct.
+mode.Walk: <strong>Walking</strong>
+mode.Bicycle: <strong>Bicycle</strong>
+mode.BicycleElectric: <strong>E-Bike</strong> (electric bicycle)
+mode.KickScooterElectric: <strong>E-Scooter</strong> (electric scooter)
+mode.Wheelchair: <strong>Wheelchair</strong>
+mode.MobilityScooter: <strong>Mobility scooter</strong>
+mode.TransitRRT: <strong>Metro</strong> (subway)
+mode.TransitLRRT: <strong>REM</strong>
+mode.TransitRegionalRail: <strong>Commuter train</strong> (exo)
+mode.TransitStreetCar: <strong>Tram</strong>
+mode.TransitBus: <strong>Bus</strong> (public transit)
+mode.TransitTaxi: <strong>Taxibus</strong> / On-demand transport
+mode.IntercityBus: <strong>Intercity bus</strong> (Orleans, Keolis, etc.)
+mode.SchoolBus: <strong>School bus</strong> (yellow)
+mode.OtherBus: <strong>Chartered</strong> or private <strong>bus</strong>
+mode.CarDriverRental: <strong>Rental car</strong> (Hertz, Enterprise, Budget, Avis,
+    etc.)
+mode.CarDriver: <strong>Personal car</strong> (can belong to self, friend, family,
+    etc)
+mode.CarDriverCarsharing: <strong>Carsharing</strong> (ex. Communauto)
+mode.Motorcycle: <strong>Motorcycle</strong> (or motorized scooter/moped)
+mode.TransitFerry: <strong>Ferry or river shuttle</strong> without vehicle
+mode.FerryWithCar: <strong>Ferry with vehicles</strong>
+mode.IntercityTrain: <strong>Intercity train</strong> (VIA Rail)
+mode.CarPassenger: <strong>Passenger</strong> (car/motorcycle/moped)
+mode.Paratransit: <strong>Paratransit</strong>
+mode.Plane: <strong>Airplane</strong>
+mode.Other: <strong>Other</strong>
+mode.Taxi: <strong>Taxi</strong> or equivalent (eg. Uber)
+mode.DontKnow: <strong>I don't know</strong> / Prefer not to answer

@@ -14,26 +14,27 @@ import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customChoices from './customChoices';
 
-export const activePersonTitle = customWidgets.activePersonTitle;
+// activePersonTitle
 
-export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
+// buttonSwitchPerson
 
-export const segmentsPersonTripsTitle = customWidgets.segmentsPersonTripsTitle;
+// personTripsTitle
 
-export const personVisitedPlacesMap = customWidgets.personVisitedPlacesMap;
+// personVisitedPlacesMap
 
-export const personTrips = customWidgets.personTrips;
+// personTrips
 
-export const segmentIntro = customWidgets.segmentIntro;
+// segmentIntro
 
-export const segments = customWidgets.segments;
+// segments
 
-export const segmentSameModeAsReverseTrip = customWidgets.segmentSameModeAsReverseTrip;
+// segmentSameModeAsReverseTrip
 
-export const segmentModePre = customWidgets.segmentModePre;
+// segmentModePre
 
-export const segmentMode = customWidgets.segmentMode;
+// segmentMode
 
+// Custom because of the icons in the choices
 export const segmentHowToBus = customWidgets.segmentHowToBus;
 
 export const segmentPaidForParking: WidgetConfig.InputRadioType = {
@@ -62,10 +63,12 @@ export const segmentVehicleOccupancy: WidgetConfig.InputRadioNumberType = {
     validations: validations.requiredValidation
 };
 
-export const segmentDriver = customWidgets.segmentDriver;
+// segmentDriver
 
+// Custom because of the choices that include available bus routes
 export const segmentBusLines = customWidgets.segmentBusLines;
 
+// Custom because of the color and size of the choices
 export const segmentBusLinesWarning = customWidgets.segmentBusLinesWarning;
 
 export const segmentOnDemandType: WidgetConfig.InputRadioType = {
@@ -89,10 +92,11 @@ export const tripJunctionQueryString: WidgetConfig.InputStringType = {
     validations: validations.optionalValidation
 };
 
+// Custom because it is a map
 export const tripJunctionGeography = customWidgets.tripJunctionGeography;
 
-export const segmentHasNextMode = customWidgets.segmentHasNextMode;
+// segmentHasNextMode
 
-export const buttonSaveTrip = customWidgets.buttonSaveTrip;
+// buttonSaveTrip
 
-export const buttonConfirmNextSection = customWidgets.buttonConfirmNextSection;
+// buttonConfirmNextSection

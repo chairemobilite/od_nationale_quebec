@@ -28,6 +28,7 @@ export const householdMadeLongDistanceTripsInLastYear: WidgetConfig.InputRadioTy
     validations: validations.requiredValidation
 };
 
+// Custom because it is a map around the home
 export const householdLongDistanceIntroMap = customWidgets.householdLongDistanceIntroMap;
 
 export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRadioType = {

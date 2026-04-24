@@ -7,8 +7,7 @@
 import runClientApp from 'evolution-frontend/lib/apps/participant';
 import { setApplicationConfiguration } from 'chaire-lib-frontend/lib/config/application.config';
 
-import surveySections from './survey/sections';
-import { widgets as widgetsConfig } from './survey/widgetsConfigs';
+import { surveySections, widgetsConfig } from './survey/questionnaire';
 
 setApplicationConfiguration({
     sections: surveySections,

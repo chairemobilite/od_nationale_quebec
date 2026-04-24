@@ -9,16 +9,8 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'evolution-common/lib/config/project.config';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
-import { getHomeAddressOneLine, widgetFactoryOptions } from '../../common/helper';
-import { SwitchPersonWidgetsFactory } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
+import { getHomeAddressOneLine } from '../../common/helper';
 
-// FIXME These widgets do not use the options to the constructors. Besides, as
-// more sections become builtin, this approach will be replaced
-const switchPersonWidgets = new SwitchPersonWidgetsFactory(widgetFactoryOptions).getWidgetConfigs();
-
-export const activePersonTitle: WidgetConfig.WidgetConfig = switchPersonWidgets.activePersonTitle;
-
-export const buttonSwitchPerson: WidgetConfig.WidgetConfig = switchPersonWidgets.buttonSwitchPerson;
 // FIXME This widget is custom because of the choices, conditional and label, it is also in the tripsSelectPeron
 export const personNewPerson = {
     type: 'question',

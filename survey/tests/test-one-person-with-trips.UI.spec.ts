@@ -66,7 +66,7 @@ const segments: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'taxi',
-        mode: null, // Question won't show.
+        mode: 'taxi',
         howToBus: null, // Question won't show.
         paidForParking: null, // Question won't show.
         vehicleOccupancy: null, // Question won't show.
