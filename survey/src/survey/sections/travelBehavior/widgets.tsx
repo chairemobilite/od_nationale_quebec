@@ -13,10 +13,13 @@ import * as choices from '../../common/choices';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 
+// Custom because it uses the builtin widget
 export const activePersonTitle = customWidgets.activePersonTitle;
 
+// Same as the one from tripsIntro
 export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
 
+// Custom because of the label
 export const personNoWorkTripIntro = customWidgets.personNoWorkTripIntro;
 
 export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
@@ -31,8 +34,10 @@ export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
     validations: validations.requiredValidation
 };
 
+// Using custom conditional because it involves currentJourney and custom widget because of the label
 export const personNoWorkTripReasonSpecify = customWidgets.personNoWorkTripReasonSpecify;
 
+// Custom because of the label
 export const personNoSchoolTripIntro = customWidgets.personNoSchoolTripIntro;
 
 export const personNoSchoolTripReason: WidgetConfig.InputSelectType = {
@@ -47,6 +52,7 @@ export const personNoSchoolTripReason: WidgetConfig.InputSelectType = {
     validations: validations.requiredValidation
 };
 
+// Using custom conditional because it involves currentJourney and custom widget because of the label
 export const personNoSchoolTripReasonSpecify = customWidgets.personNoSchoolTripReasonSpecify;
 
 export const buttonTravelBehaviorConfirmNextSection: WidgetConfig.ButtonWidgetConfig = {

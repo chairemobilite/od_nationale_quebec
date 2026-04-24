@@ -291,12 +291,12 @@ Section,Introduction aux déplacements
 Abréviation,ti_
 ""
 Champ,activePersonTitle
-Type de question,Entrée inconnue
+Type de question,Builtin
 Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
 Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de {{nickname}}</p><p class=""_center _pale"">•</p>"
 ""
 Champ,buttonSwitchPerson
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Changer de personne
 ""
 Champ,_showNewPersonPopupButton
@@ -353,21 +353,21 @@ Section,Déplacements
 Abréviation,vp_
 ""
 Champ,activePersonTitle
-Type de question,Entrée inconnue
+Type de question,Builtin
 Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
 Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de {{nickname}}</p><p class=""_center _pale"">•</p>"
 ""
 Champ,buttonSwitchPerson
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Changer de personne
 ""
 Champ,personVisitedPlacesTitle
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{assignedDate}}:
 L'ordre chronologique doit être respecté."
 ""
 Champ,visitedPlacesMap
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
 ""
 Champ,onTheRoadDepartureType
@@ -405,7 +405,7 @@ Type de question,Entrée inconnue
 Question,{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
 ""
 Champ,nextPlaceCategory
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,"Après avoir été {{atPlace}}, {{nickname}} est…
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée."
 ""
@@ -418,7 +418,7 @@ Type de question,Entrée inconnue
 Question,Confirmer
 ""
 Champ,vp_save
-Type de question,Entrée inconnue
+Type de question,Builtin
 Conditionnel,lastPlaceEnteredCustomConditional
 Question,Confirmer les lieux et continuer
 ""
@@ -428,23 +428,23 @@ Section,Modes de transport
 Abréviation,s_
 ""
 Champ,buttonSwitchPerson
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Changer de personne
 ""
 Champ,personTripsTitle
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Déplacements de {{nickname}} le {{assignedDate}}
 ""
 Champ,segmentsMap
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
 ""
 Champ,segmentsIntro
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:"
 ""
 Champ,segments
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Mode de transport
 ""
 Champ,howToBus
@@ -467,7 +467,7 @@ Question,"Personne(s) dans le véhicule
 Conducteur ou conductrice inclus(e)."
 ""
 Champ,driver
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Qui conduisait ?
 ""
 Champ,busLines
@@ -496,11 +496,11 @@ Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois local
 Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"")."
 ""
 Champ,save
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Confirmer ce déplacement
 ""
 Champ,s_save
-Type de question,Entrée inconnue
+Type de question,Builtin
 Conditionnel,lastPlaceEnteredCustomConditional
 Question,Confirmer les lieux et continuer
 ""

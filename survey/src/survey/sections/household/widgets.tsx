@@ -71,6 +71,7 @@ export const personSexAssignedAtBirth: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
+// If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender
 export const personGender: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'gender',

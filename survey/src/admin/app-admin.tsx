@@ -8,8 +8,7 @@ import runClientApp from 'evolution-frontend/lib/apps/admin';
 import { setApplicationConfiguration } from 'chaire-lib-frontend/lib/config/application.config';
 import appConfig, { EvolutionApplicationConfiguration } from 'evolution-frontend/lib/config/application.config';
 import addInterviewerOptions from 'evolution-interviewer/lib/client/services/interviewers/interviewerSupport';
-import surveySections from '../survey/sections';
-import { widgets as widgetsConfig } from '../survey/widgetsConfigs';
+import { surveySections, widgetsConfig } from '../survey/questionnaire';
 import monitoring from './components/Monitoring';
 
 // TODO This is a workaround to get the links to the user, until some more complete solution is implemented (see https://github.com/chairemobilite/transition/issues/1516)

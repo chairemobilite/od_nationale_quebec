@@ -14,9 +14,9 @@ import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 
-export const activePersonTitle = customWidgets.activePersonTitle;
+// activePersonTitle
 
-export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
+// buttonSwitchPerson
 
 export const personNewPerson = customWidgets.personNewPerson;
 

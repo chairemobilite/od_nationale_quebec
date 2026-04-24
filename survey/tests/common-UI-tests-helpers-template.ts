@@ -289,13 +289,11 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     // Progress bar test for tripsIntro section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'tripsIntro', completionPercentage: 0 });
 
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
+    // Test builtin widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-    // Implement custom test
 
-    // Test custom widget buttonSwitchPerson
-    // Implement custom test
+    // Test builtin widget buttonSwitchPerson
 
     // Test custom widget personNewPerson
     // Implement custom test
@@ -339,28 +337,21 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
     // Progress bar test for visitedPlaces section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'visitedPlaces', completionPercentage: 0 });
 
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
+    // Test builtin widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-    // Implement custom test
 
-    // Test custom widget buttonSwitchPerson
-    // Implement custom test
+    // Test builtin widget buttonSwitchPerson
 
-    // Test custom widget personVisitedPlacesTitle
-    // Implement custom test
+    // Test builtin widget personVisitedPlacesTitle
 
-    // Test custom widget personVisitedPlacesMap
-    // Implement custom test
+    // Test builtin widget personVisitedPlacesMap
 
-    // Test custom widget personVisitedPlaces
-    // Implement custom test
+    // Test builtin widget personVisitedPlaces
 
-    // Test custom widget visitedPlaceActivityCategory
-    // Implement custom test
+    // Test builtin widget visitedPlaceActivityCategory
 
-    // Test custom widget visitedPlaceActivity
-    // Implement custom test
+    // Test builtin widget visitedPlaceActivity
 
     // Test custom widget visitedPlaceOnTheRoadDepartureType
     // Implement custom test
@@ -398,8 +389,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
     // Test custom widget visitedPlaceArrivalTime
     // Implement custom test
 
-    // Test custom widget visitedPlaceNextPlaceCategory
-    // Implement custom test
+    // Test builtin widget visitedPlaceNextPlaceCategory
 
     // Test custom widget visitedPlaceDepartureTime
     // Implement custom test
@@ -413,10 +403,9 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
     // Test custom widget buttonDeleteVisitedPlace
     // Implement custom test
 
-    // Test custom widget buttonVisitedPlacesConfirmNextSection with conditional lastPlaceEnteredCustomConditional
+    // Test builtin widget buttonVisitedPlacesConfirmNextSection with conditional lastPlaceEnteredCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'visitedPlaces.save', isVisible: true });
-    // Implement custom test
 };
 
 /********** Tests Segments section **********/
@@ -427,35 +416,25 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     // Progress bar test for segments section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'segments', completionPercentage: 0 });
 
-    // Test custom widget activePersonTitle
-    // Implement custom test
+    // Test builtin widget activePersonTitle
 
-    // Test custom widget buttonSwitchPerson
-    // Implement custom test
+    // Test builtin widget buttonSwitchPerson
 
-    // Test custom widget segmentsPersonTripsTitle
-    // Implement custom test
+    // Test builtin widget personTripsTitle
 
-    // Test custom widget personVisitedPlacesMap
-    // Implement custom test
+    // Test builtin widget personVisitedPlacesMap
 
-    // Test custom widget personTrips
-    // Implement custom test
+    // Test builtin widget personTrips
 
-    // Test custom widget segmentIntro
-    // Implement custom test
+    // Test builtin widget segmentIntro
 
-    // Test custom widget segments
-    // Implement custom test
+    // Test builtin widget segments
 
-    // Test custom widget segmentSameModeAsReverseTrip
-    // Implement custom test
+    // Test builtin widget segmentSameModeAsReverseTrip
 
-    // Test custom widget segmentModePre
-    // Implement custom test
+    // Test builtin widget segmentModePre
 
-    // Test custom widget segmentMode
-    // Implement custom test
+    // Test builtin widget segmentMode
 
     // Test custom widget segmentHowToBus
     // Implement custom test
@@ -470,8 +449,7 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.vehicleOccupancy', isVisible: true });
 
-    // Test custom widget segmentDriver
-    // Implement custom test
+    // Test builtin widget segmentDriver
 
     // Test custom widget segmentBusLines
     // Implement custom test
@@ -493,16 +471,13 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     // Test custom widget tripJunctionGeography
     // Implement custom test
 
-    // Test custom widget segmentHasNextMode
-    // Implement custom test
+    // Test builtin widget segmentHasNextMode
 
-    // Test custom widget buttonSaveTrip
-    // Implement custom test
+    // Test builtin widget buttonSaveTrip
 
-    // Test custom widget buttonConfirmNextSection with conditional lastPlaceEnteredCustomConditional
+    // Test builtin widget buttonConfirmNextSection with conditional lastPlaceEnteredCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'segments.save', isVisible: true });
-    // Implement custom test
 };
 
 /********** Tests Travelbehavior section **********/
