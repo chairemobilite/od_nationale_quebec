@@ -14,5 +14,6 @@ export const selectPerson = customWidgets.selectPerson;
 export const buttonSelectPersonConfirm: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'buttonSelectPersonConfirm',
-    label: (t: TFunction) => t('selectPerson:buttonSelectPersonConfirm')
+    label: (t: TFunction) => t('selectPerson:buttonSelectPersonConfirm'),
+    conditional: defaultConditional
 };

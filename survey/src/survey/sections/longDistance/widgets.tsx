@@ -102,5 +102,6 @@ export const wouldLikeToParticipateToLongDistanceSurveyContactEmail: WidgetConfi
 export const buttonCompleteLongDistanceSection: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'buttonCompleteLongDistanceSection',
-    label: (t: TFunction) => t('longDistance:buttonCompleteLongDistanceSection')
+    label: (t: TFunction) => t('longDistance:buttonCompleteLongDistanceSection'),
+    conditional: defaultConditional
 };

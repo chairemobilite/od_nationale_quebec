@@ -52,7 +52,8 @@ export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
 export const tripsIntro_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'tripsIntro.save',
-    label: (t: TFunction) => t('tripsIntro:tripsIntro.save')
+    label: (t: TFunction) => t('tripsIntro:tripsIntro.save'),
+    conditional: defaultConditional
 };
 
 export const tripsIntroOutro: WidgetConfig.TextWidgetConfig = {

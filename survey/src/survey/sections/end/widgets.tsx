@@ -170,5 +170,6 @@ export const endConsideredAbandoningSurvey: WidgetConfig.InputRadioType = {
 export const buttonCompleteInterviewWithCompleteSection: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'buttonCompleteInterviewWithCompleteSection',
-    label: (t: TFunction) => t('end:buttonCompleteInterviewWithCompleteSection')
+    label: (t: TFunction) => t('end:buttonCompleteInterviewWithCompleteSection'),
+    conditional: defaultConditional
 };

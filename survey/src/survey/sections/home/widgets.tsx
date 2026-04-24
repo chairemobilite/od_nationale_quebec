@@ -183,5 +183,6 @@ export const household_atLeastOnePersonWithDisability: WidgetConfig.InputRadioTy
 export const home_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'home.save',
-    label: (t: TFunction) => t('home:home.save')
+    label: (t: TFunction) => t('home:home.save'),
+    conditional: defaultConditional
 };

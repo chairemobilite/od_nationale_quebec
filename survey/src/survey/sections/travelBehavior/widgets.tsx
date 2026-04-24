@@ -52,5 +52,6 @@ export const personNoSchoolTripReasonSpecify = customWidgets.personNoSchoolTripR
 export const buttonTravelBehaviorConfirmNextSection: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'travelBehavior.save',
-    label: (t: TFunction) => t('travelBehavior:travelBehavior.save')
+    label: (t: TFunction) => t('travelBehavior:travelBehavior.save'),
+    conditional: defaultConditional
 };
