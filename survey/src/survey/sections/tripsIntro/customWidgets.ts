@@ -9,7 +9,6 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'evolution-common/lib/config/project.config';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
-import { getHomeAddressOneLine } from '../../common/helper';
 
 // FIXME This widget is custom because of the choices, conditional and label, it is also in the tripsSelectPeron
 export const personNewPerson = {
@@ -268,7 +267,7 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const assignedDay = moment(getResponse(interview, '_assignedDay'));
         const dayBefore = moment(assignedDay).subtract(1, 'days');
-        const homeAddress = _escape(getHomeAddressOneLine(interview));
+        const homeAddress = _escape(odSurveyHelper.getHomeAddressOneLine({ interview }));
         const dayBeforeStr = dayBefore
             .toDate()
             .toLocaleDateString(i18n.language, { weekday: 'long', month: 'long', day: 'numeric' });
