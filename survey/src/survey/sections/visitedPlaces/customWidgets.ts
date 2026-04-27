@@ -20,13 +20,7 @@ import {
     validateButtonAction
 } from 'evolution-frontend/lib/services/display/frontendHelper';
 import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
-import {
-    getShortcutVisitedPlaceName,
-    getShortcutVisitedPlacePerson,
-    formatTripDuration,
-    selectNextIncompleteVisitedPlace,
-    deleteVisitedPlace
-} from '../../common/helper';
+import { getShortcutVisitedPlaceName, getShortcutVisitedPlacePerson, formatTripDuration } from '../../common/helper';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
@@ -1577,9 +1571,8 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
                                         interview: _interview2,
                                         person: _person
                                     });
-                                    const _visitedPlaces = odSurveyHelpers.getVisitedPlacesArray({ journey: _journey });
-                                    const nextIncompletePlace = selectNextIncompleteVisitedPlace({
-                                        visitedPlaces: _visitedPlaces,
+                                    const nextIncompletePlace = odSurveyHelpers.getFirstIncompleteVisitedPlace({
+                                        journey: _journey,
                                         person: _person,
                                         interview: _interview2
                                     });
@@ -1619,9 +1612,8 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
                                 interview: _interview,
                                 person: _person
                             });
-                            const _visitedPlaces = odSurveyHelpers.getVisitedPlacesArray({ journey: _journey });
-                            const nextIncompletePlace = selectNextIncompleteVisitedPlace({
-                                visitedPlaces: _visitedPlaces,
+                            const nextIncompletePlace = odSurveyHelpers.getFirstIncompleteVisitedPlace({
+                                journey: _journey,
                                 person: _person,
                                 interview: _interview
                             });
@@ -1659,9 +1651,8 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
                                 interview: _interview,
                                 person: _person
                             });
-                            const _visitedPlaces = odSurveyHelpers.getVisitedPlacesArray({ journey: _journey });
-                            const nextIncompletePlace = selectNextIncompleteVisitedPlace({
-                                visitedPlaces: _visitedPlaces,
+                            const nextIncompletePlace = odSurveyHelpers.getFirstIncompleteVisitedPlace({
+                                journey: _journey,
                                 person: _person,
                                 interview: _interview
                             });
@@ -1686,9 +1677,8 @@ export const buttonSaveVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
                 (_interview) => {
                     const _person = odSurveyHelpers.getPerson({ interview: _interview });
                     const _journey = odSurveyHelpers.getActiveJourney({ interview: _interview, person: _person });
-                    const _visitedPlaces = odSurveyHelpers.getVisitedPlacesArray({ journey: _journey });
-                    const nextIncompletePlace = selectNextIncompleteVisitedPlace({
-                        visitedPlaces: _visitedPlaces,
+                    const nextIncompletePlace = odSurveyHelpers.getFirstIncompleteVisitedPlace({
+                        journey: _journey,
                         person: _person,
                         interview: _interview
                     });
@@ -1735,12 +1725,17 @@ export const buttonCancelVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
         saveCallback
     ) {
         const visitedPlacePath = getPath(path, '../');
-        deleteVisitedPlace(
-            visitedPlacePath,
+        const visitedPlace = getResponse(interview, visitedPlacePath) as WidgetConfig.VisitedPlace;
+        const person = odSurveyHelpers.getPerson({ interview, path: visitedPlacePath }) as any;
+        const journey = odSurveyHelpers.getActiveJourney({ interview, person }) as any;
+        odSurveyHelpers.deleteVisitedPlace({
             interview,
-            callbacks.startRemoveGroupedObjects,
-            callbacks.startUpdateInterview
-        );
+            person,
+            journey,
+            visitedPlace: visitedPlace,
+            startRemoveGroupedObjects: callbacks.startRemoveGroupedObjects,
+            startUpdateInterview: callbacks.startUpdateInterview
+        });
     }
 };
 
@@ -1774,11 +1769,16 @@ export const buttonDeleteVisitedPlace: WidgetConfig.ButtonWidgetConfig = {
         saveCallback
     ) {
         const visitedPlacePath = getPath(path, '../');
-        deleteVisitedPlace(
-            visitedPlacePath,
+        const visitedPlace = getResponse(interview, visitedPlacePath) as WidgetConfig.VisitedPlace;
+        const person = odSurveyHelpers.getPerson({ interview, path: visitedPlacePath }) as any;
+        const journey = odSurveyHelpers.getActiveJourney({ interview, person }) as any;
+        odSurveyHelpers.deleteVisitedPlace({
             interview,
-            callbacks.startRemoveGroupedObjects,
-            callbacks.startUpdateInterview
-        );
+            person,
+            journey,
+            visitedPlace: visitedPlace,
+            startRemoveGroupedObjects: callbacks.startRemoveGroupedObjects,
+            startUpdateInterview: callbacks.startUpdateInterview
+        });
     }
 };
