@@ -17,6 +17,10 @@ export type CommonTestParametersModify = testHelpers.CommonTestParameters & {
     addressIsFilled?: boolean;
 };
 
+export type HouseholdTestParameters = testHelpers.CommonTestParameters & {
+    householdMembers: HouseholdMember[];
+};
+
 // Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
 export const generateRandomAccessCode = () =>
     `${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
@@ -43,12 +47,12 @@ export type HouseholdMember = {
     schoolPlaceType: string | null;
     usualWorkPlace: {
         name: string;
-    };
+    } | null;
     usualSchoolPlace: {
         name: string;
-    };
-    travelToWorkDays: string[];
-    remoteWorkDays: string[];
+    } | null;
+    travelToWorkDays: string[] | null;
+    remoteWorkDays: string[] | null;
 };
 
 export type Segment = {
@@ -57,9 +61,9 @@ export type Segment = {
     modePre: string | null;
     mode: string | null;
     howToBus: string | null;
-    paidForParking: boolean | null;
+    paidForParking: string | null;
     vehicleOccupancy: number | null;
-    driver: boolean | null;
+    driver: string | null;
     busLines: string[] | null;
     busLinesWarning: boolean | null;
     onDemandType: string | null;
@@ -68,37 +72,68 @@ export type Segment = {
 };
 
 // TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
-const householdMembers: HouseholdMember[] = [
-    {
-        personIndex: 0,
-        nickname: 'Martha',
-        age: 30,
-        sexAssignedAtBirth: 'female',
-        gender: null,
-        genderCustom: null,
-        workerType: 'fullTime',
-        studentType: 'partTime',
-        schoolType: null, // Question won't show.
-        occupation: null, // Question won't show.
-        workerTypeBeforeLeave: null, // Question won't show.
-        educationalAttainment: 'postSecondaryNonTertiaryEducation',
-        drivingLicenseOwnership: 'yes',
-        carSharingMember: 'yes',
-        transitPasses: ['transitPass'],
-        hasDisability: 'no',
-        workPlaceType: 'hybrid',
-        workPlaceTypeBeforeLeave: null,
-        schoolPlaceType: 'hybrid',
-        usualWorkPlace: {
-            name: 'Bombardier'
-        },
-        usualSchoolPlace: {
-            name: 'Université de Montréal, Campus de la Montagne'
-        },
-        travelToWorkDays: ['no'],
-        remoteWorkDays: ['no']
-    }
-];
+/** Female, full time worker, part time student, carsharing member with transitPass, hybrid work and school places */
+export const defaultPerson1: HouseholdMember = {
+    personIndex: 0,
+    nickname: 'Martha',
+    age: 30,
+    sexAssignedAtBirth: 'female',
+    gender: null,
+    genderCustom: null,
+    workerType: 'fullTime',
+    studentType: 'partTime',
+    schoolType: null, // Question won't show.
+    occupation: null, // Question won't show.
+    workerTypeBeforeLeave: null, // Question won't show.
+    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    drivingLicenseOwnership: 'yes',
+    carSharingMember: 'yes',
+    transitPasses: ['transitPass'],
+    hasDisability: 'no',
+    workPlaceType: 'hybrid',
+    workPlaceTypeBeforeLeave: null,
+    schoolPlaceType: 'hybrid',
+    usualWorkPlace: {
+        name: 'Bombardier'
+    },
+    usualSchoolPlace: {
+        name: 'Université de Montréal, Campus de la Montagne'
+    },
+    travelToWorkDays: ['no'],
+    remoteWorkDays: ['no']
+};
+/**
+ * Male, part time worker, full time student, no driving license, with transitPass, hybrid work and school places
+ */
+export const defaultPerson2: HouseholdMember = {
+    personIndex: 1,
+    nickname: 'John',
+    age: 35,
+    sexAssignedAtBirth: 'male',
+    gender: null,
+    genderCustom: null,
+    workerType: 'partTime',
+    studentType: 'fullTime',
+    schoolType: null, // Question won't show.
+    occupation: null, // Question won't show.
+    workerTypeBeforeLeave: null, // Question won't show.
+    educationalAttainment: 'bachelorOrHigher',
+    drivingLicenseOwnership: 'no',
+    carSharingMember: null, // Question won't show.
+    transitPasses: ['transitPass'],
+    hasDisability: 'yes',
+    workPlaceType: 'hybrid',
+    workPlaceTypeBeforeLeave: null,
+    schoolPlaceType: 'hybrid',
+    usualWorkPlace: {
+        name: 'Bombardier'
+    },
+    usualSchoolPlace: {
+        name: 'Université de Montréal, Campus de la Montagne'
+    },
+    travelToWorkDays: ['no'],
+    remoteWorkDays: ['no']
+};
 
 export type VisitedPlace = {
     activityCategory: string | null;
@@ -258,39 +293,18 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
     // Test custom widget householdMembers
     testHelpers.waitTextVisible({ context, text: 'Household members' });
 
-    // Add additional household members based on householdSize
-    if (householdSize >= 2) {
-        householdMembers.push({
-            personIndex: 1,
-            nickname: 'John',
-            age: 35,
-            sexAssignedAtBirth: 'male',
-            gender: null,
-            genderCustom: null,
-            workerType: 'partTime',
-            studentType: 'fullTime',
-            schoolType: null, // Question won't show.
-            occupation: null, // Question won't show.
-            workerTypeBeforeLeave: null, // Question won't show.
-            educationalAttainment: 'bachelorOrHigher',
-            drivingLicenseOwnership: 'no',
-            carSharingMember: null, // Question won't show.
-            transitPasses: ['transitPass'],
-            hasDisability: 'yes',
-            workPlaceType: 'hybrid',
-            workPlaceTypeBeforeLeave: null,
-            schoolPlaceType: 'hybrid',
-            usualWorkPlace: {
-                name: 'Bombardier'
-            },
-            usualSchoolPlace: {
-                name: 'Université de Montréal, Campus de la Montagne'
-            },
-            travelToWorkDays: ['no'],
-            remoteWorkDays: ['no']
-        });
-    }
+    const householdMembersData = [defaultPerson1];
 
+    // Add additional household members based on householdSize, only if the data
+    // is not set. This is for legacy tests that were not providing household
+    // members
+    if (householdSize >= 2) {
+        householdMembersData.push(defaultPerson2);
+    }
+    fillHouseholdSectionWithMembersTests({ context, householdMembers: householdMembersData });
+};
+
+export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers }: HouseholdTestParameters) => {
     // Add tests for each household member
     householdMembers.forEach((person: HouseholdMember, index) => {
         // Build a string for personId (e.g., "${personId[0]}") using a template literal to avoid immediate interpolation
@@ -305,7 +319,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
 
         // Test string widget personNickname with conditional hasHouseholdSize2OrMoreConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
-        if (householdSize === 1) {
+        if (householdMembers.length === 1) {
             testHelpers.inputVisibleTest({
                 context,
                 path: `household.persons.${personIdString}.nickname`,
@@ -527,52 +541,96 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
             });
         }
 
-        // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputStringTest({
-            context,
-            path: `household.persons.${personIdString}.usualWorkPlace.name`,
-            value: person.usualWorkPlace.name
-        });
+        // Test the usual workplace, or its absence
+        if (person.usualWorkPlace === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.usualWorkPlace.name`,
+                isVisible: false
+            });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.usualWorkPlace.geography`,
+                isVisible: false
+            });
+        } else {
+            // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
+            /* @link file://./../src/survey/common/conditionals.tsx */
+            testHelpers.inputStringTest({
+                context,
+                path: `household.persons.${personIdString}.usualWorkPlace.name`,
+                value: person.usualWorkPlace.name
+            });
 
-        // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputMapFindPlaceTest({
-            context,
-            path: `household.persons.${personIdString}.usualWorkPlace.geography`
-        });
+            // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
+            /* @link file://./../src/survey/common/conditionals.tsx */
+            testHelpers.inputMapFindPlaceTest({
+                context,
+                path: `household.persons.${personIdString}.usualWorkPlace.geography`
+            });
+        }
 
-        // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputStringTest({
-            context,
-            path: `household.persons.${personIdString}.usualSchoolPlace.name`,
-            value: person.usualSchoolPlace.name
-        });
+        // Test the usual school place, or its absence
+        if (person.usualSchoolPlace === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.usualSchoolPlace.name`,
+                isVisible: false
+            });
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.usualSchoolPlace.geography`,
+                isVisible: false
+            });
+        } else {
+            // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
+            /* @link file://./../src/survey/common/conditionals.tsx */
+            testHelpers.inputStringTest({
+                context,
+                path: `household.persons.${personIdString}.usualSchoolPlace.name`,
+                value: person.usualSchoolPlace.name
+            });
 
-        // Test custom widget personUsualSchoolPlaceGeography
-        testHelpers.inputMapFindPlaceTest({
-            context,
-            path: `household.persons.${personIdString}.usualSchoolPlace.geography`
-        });
+            // Test custom widget personUsualSchoolPlaceGeography
+            testHelpers.inputMapFindPlaceTest({
+                context,
+                path: `household.persons.${personIdString}.usualSchoolPlace.geography`
+            });
+        }
 
-        // Test checkbox widget personTravelToWorkDays with conditional personTravelToWorkDaysConditional with choices lastWeekTravelToWorkDaysCustomChoices
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputCheckboxTest({
-            context,
-            path: `household.persons.${personIdString}.travelToWorkDays`,
-            values: person.travelToWorkDays
-        });
+        if (person.travelToWorkDays === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.travelToWorkDays`,
+                isVisible: false
+            });
+        } else {
+            // Test checkbox widget personTravelToWorkDays with conditional personTravelToWorkDaysConditional with choices lastWeekTravelToWorkDaysCustomChoices
+            /* @link file://./../src/survey/common/conditionals.tsx */
+            /* @link file://./../src/survey/common/choices.tsx */
+            testHelpers.inputCheckboxTest({
+                context,
+                path: `household.persons.${personIdString}.travelToWorkDays`,
+                values: person.travelToWorkDays
+            });
+        }
 
-        // Test checkbox widget personRemoteWorkDays with conditional personRemoteWorkDaysConditional with choices lastWeekRemoteWorkDaysCustomChoices
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        testHelpers.inputCheckboxTest({
-            context,
-            path: `household.persons.${personIdString}.remoteWorkDays`,
-            values: person.remoteWorkDays
-        });
+        if (person.remoteWorkDays === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.remoteWorkDays`,
+                isVisible: false
+            });
+        } else {
+            // Test checkbox widget personRemoteWorkDays with conditional personRemoteWorkDaysConditional with choices lastWeekRemoteWorkDaysCustomChoices
+            /* @link file://./../src/survey/common/conditionals.tsx */
+            /* @link file://./../src/survey/common/choices.tsx */
+            testHelpers.inputCheckboxTest({
+                context,
+                path: `household.persons.${personIdString}.remoteWorkDays`,
+                values: person.remoteWorkDays
+            });
+        }
     });
 
     // Test nextbutton widget household_save
@@ -589,6 +647,20 @@ export const fillHouseholdSectionTests = ({ context, householdSize = 1 }: Common
         buttonStatus: 'completed',
         isDisabled: false
     });
+};
+
+const testTripDiaryHeaderVisibility = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
+    // Test custom widget buttonSwitchPerson
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (householdSize === 1) {
+        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: false });
+    } else {
+        testHelpers.waitTextVisible({ context, text: '\'s interview' });
+        // FIXME: The following visibility tests for 'buttonSwitchPerson' fails because it is not an input. It is not a button and we should support button visibility tests
+        // testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: true });
+    }
 };
 
 /********** Tests selectPerson section **********/
@@ -664,19 +736,7 @@ export const fillTripsintroSectionTests = ({
         });
     }
 
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
-    // Test custom widget buttonSwitchPerson
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (householdSize === 1) {
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
-        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: false });
-    } else {
-        // FIXME: The following visibility tests for 'activePersonTitle' and 'buttonSwitchPerson' fail for some reason...
-        // FIXME: But these widgets are visible in the UI, so we assume they are working correctly.
-        // FIXME: The visibility test may be failing due to an incorrect 'path' or a bug in inputVisibleTest.
-        // testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-        // testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: true });
-    }
+    testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget personWhoWillAnswerForThisPerson
     if (householdSize >= 2) {
@@ -751,23 +811,15 @@ export const fillVisitedPlacesSectionTests = ({
     visitedPlaces,
     journeyStartsAtHome = true
 }: CommonTestParametersModify & { visitedPlaces: VisitedPlace[]; journeyStartsAtHome?: boolean }) => {
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
-    // Test custom widget buttonSwitchPerson
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (householdSize === 1) {
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
-        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: false });
-    } else {
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: true });
-    }
+    testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget personVisitedPlacesTitle
-    if (householdSize === 1) {
-        testHelpers.waitTextVisible({ context, text: 'Places you went on' });
-    } else {
-        testHelpers.waitTextVisible({ context, text: `Places ${householdMembers[0].nickname} went on` });
-    }
+    // FIXME Currently, every is self-respondent and should be asked at second person time, but support also proxy respondents
+    // if (householdSize === 1) {
+    testHelpers.waitTextVisible({ context, text: 'Places you went on' });
+    // } else {
+    //    testHelpers.waitTextVisible({ context, text: `Places ${householdMembers[0].nickname} went on` });
+    // }
 
     // Test custom widget personVisitedPlaces
     // Implement custom test
@@ -808,6 +860,7 @@ export const fillVisitedPlacesSectionTests = ({
 };
 
 // Fill a visited place from start to confirmation
+// Return the active place ID to be used for next tests if needed
 const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedPlace }) => {
     // Test custom widget visitedPlaceActivityCategory
     if (place.activityCategory === null) {
@@ -882,6 +935,12 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.shortcut',
             isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.shortcut',
+            value: place.shortcut
         });
     }
 
@@ -1003,16 +1062,7 @@ export const fillSegmentsSectionTests = ({
     segments,
     expectedNextSection = 'end'
 }: CommonTestParametersModify & { segments: Segment[]; expectedNextSection?: string }) => {
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
-    // Test custom widget buttonSwitchPerson
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (householdSize === 1) {
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
-        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: false });
-    } else {
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: true });
-    }
+    testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget segmentsPersonTripsTitle
     // Implement custom test
@@ -1162,7 +1212,7 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputRadioTest({
+        testHelpers.inputSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.driver`,
             value: String(segment.driver)
@@ -1257,19 +1307,7 @@ export const fillTravelBehaviorSectionTests = ({
     travelBehavior,
     nextSection: expectedNextSection = 'end'
 }: CommonTestParametersModify & { travelBehavior: TravelBehavior; nextSection: string }) => {
-    // Test custom widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
-    // Test custom widget buttonSwitchPerson
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (householdSize === 1) {
-        testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
-        testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: false });
-    } else {
-        // FIXME: The following visibility tests for 'activePersonTitle' and 'buttonSwitchPerson' fail for some reason...
-        // FIXME: But these widgets are visible in the UI, so we assume they are working correctly.
-        // FIXME: The visibility test may be failing due to an incorrect 'path' or a bug in inputVisibleTest.
-        // testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
-        // testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: true });
-    }
+    testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget personNoWorkTripIntro
     // Implement custom test
