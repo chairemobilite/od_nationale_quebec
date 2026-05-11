@@ -6,23 +6,31 @@ buttonSwitchPerson: Changer de personne
 personNoWorkTripIntro: >-
     <strong>Vous n'avez déclaré aucun déplacement pour le travail</strong> pour {{nickname}}
     le {{assignedDate}}
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason: Pour
-    quelle raison?
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify: >-
-    Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement
-    pour le travail le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify_one: >-
-    Veuillez préciser la raison pour laquelle vous n'avez effectué aucun déplacement
-    pour le travail le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
+household:
+    persons:
+        '{_activePersonId}':
+            journeys:
+                '{_activeJourneyId}':
+                    noWorkTripReason: Pour quelle raison?
+                    noWorkTripReasonSpecify: >-
+                        Veuillez préciser la raison pour laquelle {{nickname}} n'a
+                        effectué aucun déplacement pour le travail le {{assignedDate}}?<br
+                        /><span class="_pale _oblique">(Facultatif)</span>
+                    noWorkTripReasonSpecify_one: >-
+                        Veuillez préciser la raison pour laquelle vous n'avez effectué
+                        aucun déplacement pour le travail le {{assignedDate}}?<br
+                        /><span class="_pale _oblique">(Facultatif)</span>
+                    noSchoolTripReason: Pour quelle raison?
+                    noSchoolTripReasonSpecify: >-
+                        Veuillez préciser la raison pour laquelle {{nickname}} n'a
+                        effectué aucun déplacement pour les études le {{assignedDate}}?<br
+                        /><span class="_pale _oblique">(Facultatif)</span>
+                    noSchoolTripReasonSpecify_one: >-
+                        Veuillez préciser la raison pour laquelle vous n'avez effectué
+                        aucun déplacement pour les études le {{assignedDate}}?<br
+                        /><span class="_pale _oblique">(Facultatif)</span>
 personNoSchoolTripIntro: >-
     <strong>Vous n'avez déclaré aucun déplacement pour les études</strong> pour {{nickname}}
     le {{assignedDate}}.
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason: Pour
-    quelle raison?
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify: >-
-    Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement
-    pour les études le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify_one: >-
-    Veuillez préciser la raison pour laquelle vous n'avez effectué aucun déplacement
-    pour les études le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
-travelBehavior.save: Continuer
+travelBehavior:
+    save: Continuer

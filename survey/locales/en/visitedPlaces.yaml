@@ -67,7 +67,8 @@ nextPlaceCategory_one: >-
 departureTime: '{{nickname}} left {{place}} at:'
 departureTime_one: 'You left {{place}} at:'
 visitedPlacesSave: Confirm
-visitedPlaces.save: Confirm locations and continue
+visitedPlaces:
+    save: Confirm locations and continue
 PreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
 PreviousDepartureTime_one: >-
@@ -239,8 +240,8 @@ onTheRoadArrivalTypeStayedThereUntilTheNextDay_male_one: I completed my work on 
     road trips after 4AM the next day
 onTheRoadArrivalTypeStayedThereUntilTheNextDay_female_one: I completed my work on
     the road trips after 4AM the next day
-nextPlaceRadioChoices.stayedHomeUntilTheNextDay: Stayed home until the next day
-nextPlaceRadioChoices.stayedThereUntilTheNextDay: Stayed at this place until the next
-    day
-nextPlaceRadioChoices.visitedAnotherPlace: Went or stopped elsewhere
-nextPlaceRadioChoices.wentBackHome: Returned home directly ({{address}})
+nextPlaceRadioChoices:
+    stayedHomeUntilTheNextDay: Stayed home until the next day
+    stayedThereUntilTheNextDay: Stayed at this place until the next day
+    visitedAnotherPlace: Went or stopped elsewhere
+    wentBackHome: Returned home directly ({{address}})

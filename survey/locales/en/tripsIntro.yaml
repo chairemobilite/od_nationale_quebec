@@ -56,11 +56,15 @@ departurePlaceIsHome_one: >-
     Did you <strong>start your day at home</strong> ({{address}})?<br /><span class="_pale
     _oblique">Answer 'No' only if you did not sleep at home (nuit du {{dayOne}} au
     {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).</span>
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther: Where
-    was {{nickname}} at 4 AM?
-household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther_one: Where
-    were you at 4 AM?
-tripsIntro.save: Continue
+household:
+    persons:
+        '{_activePersonId}':
+            journeys:
+                '{_activeJourneyId}':
+                    departurePlaceOther: Where was {{nickname}} at 4 AM?
+                    departurePlaceOther_one: Where were you at 4 AM?
+tripsIntro:
+    save: Continue
 tripsIntroOutro: >-
     <span class="_pale _oblique">Your answers will be used to assess the use and traffic
     of the road and public transit networks and will remain entirely confidential</span>

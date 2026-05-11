@@ -126,7 +126,8 @@ nextPlaceCategory_custom_one: >-
 departureTime: '{{nickname}} a quitté {{place}} à:'
 departureTime_one: 'Vous avez quitté {{place}} à:'
 visitedPlacesSave: Confirmer
-visitedPlaces.save: Confirmer les lieux et continuer
+visitedPlaces:
+    save: Confirmer les lieux et continuer
 PreviousDepartureTime: >-
     À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
 PreviousDepartureTime_male: >-
@@ -381,19 +382,16 @@ onTheRoadArrivalTypeStayedThereUntilTheNextDay: >-
     {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain
 onTheRoadArrivalTypeStayedThereUntilTheNextDay_one: J'ai complété mes déplacements
     sur la route après 4:00 du matin le lendemain
-nextPlaceRadioChoices.stayedHomeUntilTheNextDay: Resté(e) au domicile jusqu'au lendemain
-nextPlaceRadioChoices.stayedHomeUntilTheNextDay_male: Resté au domicile jusqu'au lendemain
-nextPlaceRadioChoices.stayedHomeUntilTheNextDay_female: Restée au domicile jusqu'au
-    lendemain
-nextPlaceRadioChoices.stayedThereUntilTheNextDay: Resté(e) à cet endroit jusqu'au
-    lendemain
-nextPlaceRadioChoices.stayedThereUntilTheNextDay_male: Resté à cet endroit jusqu'au
-    lendemain
-nextPlaceRadioChoices.stayedThereUntilTheNextDay_female: Restée à cet endroit jusqu'au
-    lendemain
-nextPlaceRadioChoices.visitedAnotherPlace: Allé(e) ou arrêté(e) à un autre endroit
-nextPlaceRadioChoices.visitedAnotherPlace_male: Allé ou arrêté à un autre endroit
-nextPlaceRadioChoices.visitedAnotherPlace_female: Allée ou arrêtée à un autre endroit
-nextPlaceRadioChoices.wentBackHome: Retourné(e) au domicile directement ({{address}})
-nextPlaceRadioChoices.wentBackHome_male: Retourné au domicile directement ({{address}})
-nextPlaceRadioChoices.wentBackHome_female: Retournée au domicile directement ({{address}})
+nextPlaceRadioChoices:
+    stayedHomeUntilTheNextDay: Resté(e) au domicile jusqu'au lendemain
+    stayedHomeUntilTheNextDay_male: Resté au domicile jusqu'au lendemain
+    stayedHomeUntilTheNextDay_female: Restée au domicile jusqu'au lendemain
+    stayedThereUntilTheNextDay: Resté(e) à cet endroit jusqu'au lendemain
+    stayedThereUntilTheNextDay_male: Resté à cet endroit jusqu'au lendemain
+    stayedThereUntilTheNextDay_female: Restée à cet endroit jusqu'au lendemain
+    visitedAnotherPlace: Allé(e) ou arrêté(e) à un autre endroit
+    visitedAnotherPlace_male: Allé ou arrêté à un autre endroit
+    visitedAnotherPlace_female: Allée ou arrêtée à un autre endroit
+    wentBackHome: Retourné(e) au domicile directement ({{address}})
+    wentBackHome_male: Retourné au domicile directement ({{address}})
+    wentBackHome_female: Retournée au domicile directement ({{address}})

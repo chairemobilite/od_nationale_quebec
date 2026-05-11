@@ -133,7 +133,7 @@ export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
     defaultValue: function (interview, path) {
         return undefined;
     },
-    updateDefaultValueWhenResponded: true,
+    resetToDefaultUnlessUserInteracted: true,
     validations: function (value, _customValue, interview, path, _customPath) {
         const geography: any = surveyHelperNew.getResponse(interview, path, null, '../geography');
         return [
@@ -209,7 +209,7 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
     defaultValue: function (interview, path) {
         return undefined;
     },
-    updateDefaultValueWhenResponded: true,
+    resetToDefaultUnlessUserInteracted: true,
     validations: function (value, _customValue, interview, path, _customPath) {
         const geography: any = surveyHelperNew.getResponse(interview, path, null, '../geography');
         return [

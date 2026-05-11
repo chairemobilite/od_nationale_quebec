@@ -49,35 +49,40 @@ workPlaceTypeBeforeLeave_one: >-
     <strong>Before being on leave</strong>, did you have a fixed <strong>work location</strong>?
 schoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
 schoolPlaceType_one: Do you have a fixed <strong>study location</strong>?
-usualWorkPlace.name: >-
-    <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
-usualWorkPlace.name_one: >-
-    <strong>Name or address</strong> of your <strong>usual place of work</strong>
-usualWorkPlace.geography: >-
-    Please locate the <strong>usual place of work</strong> for {{nickname}}<br /><span
-    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
-    Once located, you can move the marker for greater precision.<br />You can also
-    search for the place on the map using the "Search location" button.</span>
-usualWorkPlace.geography_one: >-
-    Please locate your <strong>usual place of work</strong>.<br /><span class="_pale
-    _oblique">Navigate, zoom, and click on the map to identify the location. Once
-    located, you can move the marker for greater precision.<br />You can also search
-    for the place on the map using the "Search location" button.</span>
-usualSchoolPlace.name: >-
-    <strong>Name or address</strong> of {{nickname}}'s school or <strong>main study
-    location</strong>
-usualSchoolPlace.name_one: >-
-    <strong>Name or address</strong> of your school or <strong>main study location</strong>
-usualSchoolPlace.geography: >-
-    Please locate the <strong>usual place of study</strong> for {{nickname}}.<br /><span
-    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
-    Once located, you can move the marker for greater precision.<br />You can also
-    search for the place on the map using the "Search location" button.</span>
-usualSchoolPlace.geography_one: >-
-    Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
-    _oblique">Navigate, zoom, and click on the map to identify the location. Once
-    located, you can move the marker for greater precision.<br />You can also search
-    for the place on the map using the "Search location" button.</span>
+usualWorkPlace:
+    name: >-
+        <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of
+        work</strong>
+    name_one: >-
+        <strong>Name or address</strong> of your <strong>usual place of work</strong>
+    geography: >-
+        Please locate the <strong>usual place of work</strong> for {{nickname}}<br
+        /><span class="_pale _oblique">Navigate, zoom, and click on the map to identify
+        the location. Once located, you can move the marker for greater precision.<br
+        />You can also search for the place on the map using the "Search location"
+        button.</span>
+    geography_one: >-
+        Please locate your <strong>usual place of work</strong>.<br /><span class="_pale
+        _oblique">Navigate, zoom, and click on the map to identify the location. Once
+        located, you can move the marker for greater precision.<br />You can also
+        search for the place on the map using the "Search location" button.</span>
+usualSchoolPlace:
+    name: >-
+        <strong>Name or address</strong> of {{nickname}}'s school or <strong>main
+        study location</strong>
+    name_one: >-
+        <strong>Name or address</strong> of your school or <strong>main study location</strong>
+    geography: >-
+        Please locate the <strong>usual place of study</strong> for {{nickname}}.<br
+        /><span class="_pale _oblique">Navigate, zoom, and click on the map to identify
+        the location. Once located, you can move the marker for greater precision.<br
+        />You can also search for the place on the map using the "Search location"
+        button.</span>
+    geography_one: >-
+        Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
+        _oblique">Navigate, zoom, and click on the map to identify the location. Once
+        located, you can move the marker for greater precision.<br />You can also
+        search for the place on the map using the "Search location" button.</span>
 travelToWorkDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>travel</strong>
     for <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for
@@ -90,26 +95,29 @@ remoteWorkDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>work remotely</strong>?
 remoteWorkDays_one: >-
     During the <strong>last week</strong>, when did you <strong>work remotely</strong>?
-household.save: Save and continue
+household:
+    save: Save and continue
 addGroupedObject: Add a missing person
 deleteThisGroupedObject: Delete this person
-errors.selectDontKnowWhenNoOtherChoiceSelected: Select "I don't know" only if no other
-    choice is selected.
-errors.selectNoWhenNoOtherChoiceSelected: Select "no" only if no other choice is selected.
-errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected: Select "Prefer not to answer"
-    only if no other choice is selected.
-errors.selectNoTravelWhenNoOtherChoiceSelected: Select "No Travel" only if no other
-    choice is selected.
-errors.selectOneOrMoreAnswer: Select one or multiple choices.
-errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: Select "No remote work" only if
-    no other choice is selected.
-errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only
-    if no other choice is selected.
-popup.validateHouseholdAgesHelp: >-
-    At least one member of your household must be 16 years old or older to respond
-    to this survey. Please verify ages.
-popup.validateHouseholdAgesHelp_one: You must be at least 16 years old to respond
-    to this survey.
+errors:
+    selectDontKnowWhenNoOtherChoiceSelected: Select "I don't know" only if no other
+        choice is selected.
+    selectNoWhenNoOtherChoiceSelected: Select "no" only if no other choice is selected.
+    selectPreferNotToAnswerWhenNoOtherChoiceSelected: Select "Prefer not to answer"
+        only if no other choice is selected.
+    selectNoTravelWhenNoOtherChoiceSelected: Select "No Travel" only if no other choice
+        is selected.
+    selectOneOrMoreAnswer: Select one or multiple choices.
+    selectNoRemoteWorkWhenNoOtherChoiceSelected: Select "No remote work" only if no
+        other choice is selected.
+    selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only
+        if no other choice is selected.
+popup:
+    validateHouseholdAgesHelp: >-
+        At least one member of your household must be 16 years old or older to respond
+        to this survey. Please verify ages.
+    validateHouseholdAgesHelp_one: You must be at least 16 years old to respond to
+        this survey.
 schoolTypeLessThan4: <strong>Childcare type</strong>
 schoolTypeBetween4And15: <strong>School type</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
