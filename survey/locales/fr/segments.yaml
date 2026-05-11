@@ -59,8 +59,8 @@ junctionGeography: >-
     pourrez déplacer le point sur la carte pour davantage de précision.<br />Vous
     pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse
     (bouton "Chercher le lieu à partir du nom").</span>
-trip.save: Confirmer ce déplacement
-segments.save: Confirmer les lieux et continuer
+trip:
+    save: Confirmer ce déplacement
 segmentsIntroOnTheRoad: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer les déplacements
     sur la route, dans l'ordre chronologique:
@@ -88,34 +88,35 @@ busLinesDontKnow: Ligne(s) inconnue(s)
 busLinesAreCorrect: Les lignes de bus sont correctes
 busLinesWarningRequired: >-
     Veuillez valider les lignes de bus ou confirmer que ce sont les bonnes lignes.
-mode.Walk: <strong>Marche</strong>
-mode.Bicycle: <strong>Vélo</strong>
-mode.BicycleElectric: <strong>Vélo électrique</strong>
-mode.KickScooterElectric: <strong>Trottinette électrique</strong>
-mode.Wheelchair: <strong>Chaise roulante</strong>
-mode.MobilityScooter: <strong>Quadriporteur/triporteur</strong>
-mode.TransitRRT: <strong>Métro</strong>
-mode.TransitLRRT: <strong>REM</strong>
-mode.TransitRegionalRail: <strong>Train de banlieue</strong> (exo)
-mode.TransitStreetCar: <strong>Tramway</strong>
-mode.TransitBus: <strong>Bus</strong> (transport collectif)
-mode.TransitTaxi: <strong>Taxi collectif</strong> / Transport à la demande
-mode.IntercityBus: <strong>Bus interurbain</strong> (Orléans, Kéolis, etc.)
-mode.SchoolBus: <strong>Autobus scolaire</strong> (jaune)
-mode.OtherBus: <strong>Bus nolisé</strong> ou privé
-mode.CarDriverRental: <strong>Voiture louée</strong> (Hertz, Enterprise, Budget, Avis,
-    etc.)
-mode.CarDriver: >-
-    <strong>Voiture personnelle</strong> (appartenant à soi, un.e ami.e, la famille,
-    etc.)
-mode.CarDriverCarsharing: <strong>Autopartage</strong> (ex. Communauto)
-mode.Motorcycle: <strong>Moto</strong> (ou scooter)
-mode.TransitFerry: <strong>Traversier ou navette fluviale</strong> sans véhicule
-mode.FerryWithCar: <strong>Traversier avec véhicule</strong>
-mode.IntercityTrain: <strong>Train interurbain</strong> (VIA Rail)
-mode.CarPassenger: <strong>Passager</strong> (voiture/moto/scooter)
-mode.Paratransit: <strong>Transport adapté</strong>
-mode.Plane: <strong>Avion</strong>
-mode.Other: <strong>Autre</strong>
-mode.Taxi: <strong>Taxi</strong> ou équivalent (ex. Uber)
-mode.DontKnow: <strong>Je ne sais pas</strong> / Préfère ne pas répondre
+mode:
+    Walk: <strong>Marche</strong>
+    Bicycle: <strong>Vélo</strong>
+    BicycleElectric: <strong>Vélo électrique</strong>
+    KickScooterElectric: <strong>Trottinette électrique</strong>
+    Wheelchair: <strong>Chaise roulante</strong>
+    MobilityScooter: <strong>Quadriporteur/triporteur</strong>
+    TransitRRT: <strong>Métro</strong>
+    TransitLRRT: <strong>REM</strong>
+    TransitRegionalRail: <strong>Train de banlieue</strong> (exo)
+    TransitStreetCar: <strong>Tramway</strong>
+    TransitBus: <strong>Bus</strong> (transport collectif)
+    TransitTaxi: <strong>Taxi collectif</strong> / Transport à la demande
+    IntercityBus: <strong>Bus interurbain</strong> (Orléans, Kéolis, etc.)
+    SchoolBus: <strong>Autobus scolaire</strong> (jaune)
+    OtherBus: <strong>Bus nolisé</strong> ou privé
+    CarDriverRental: <strong>Voiture louée</strong> (Hertz, Enterprise, Budget, Avis,
+        etc.)
+    CarDriver: >-
+        <strong>Voiture personnelle</strong> (appartenant à soi, un.e ami.e, la famille,
+        etc.)
+    CarDriverCarsharing: <strong>Autopartage</strong> (ex. Communauto)
+    Motorcycle: <strong>Moto</strong> (ou scooter)
+    TransitFerry: <strong>Traversier ou navette fluviale</strong> sans véhicule
+    FerryWithCar: <strong>Traversier avec véhicule</strong>
+    IntercityTrain: <strong>Train interurbain</strong> (VIA Rail)
+    CarPassenger: <strong>Passager</strong> (voiture/moto/scooter)
+    Paratransit: <strong>Transport adapté</strong>
+    Plane: <strong>Avion</strong>
+    Other: <strong>Autre</strong>
+    Taxi: <strong>Taxi</strong> ou équivalent (ex. Uber)
+    DontKnow: <strong>Je ne sais pas</strong> / Préfère ne pas répondre

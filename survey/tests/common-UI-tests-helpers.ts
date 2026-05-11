@@ -105,7 +105,7 @@ export type VisitedPlace = {
     activity: string | null;
     onTheRoadDepartureType: string | null;
     onTheRoadArrivalType: string | null;
-    alreadyVisitedBySelfOrAnotherHouseholdMember: string | null;
+    alreadyVisitedBySelfOrAnotherHouseholdMember: boolean | null;
     shortcut: string | null;
     name: string | null;
     _previousPreviousDepartureTime: number | null;

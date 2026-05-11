@@ -72,40 +72,42 @@ workPlaceTypeBeforeLeave_one: >-
     fixe?
 schoolPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'études</strong> fixe?
 schoolPlaceType_one: Avez-vous un <strong>lieu d'études</strong> fixe?
-usualWorkPlace.name: >-
-    <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong> de
-    {{nickname}}
-usualWorkPlace.name_one: >-
-    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel de travail</strong>
-usualWorkPlace.geography: >-
-    Veuillez localiser le <strong>lieu de travail habituel</strong> de {{nickname}}<br
-    /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
-    localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte
-    pour davantage de précision.<br />Vous pouvez également chercher le lieu sur la
-    carte en utilisant le bouton "Chercher le lieu".</span>
-usualWorkPlace.geography_one: >-
-    Veuillez localiser votre <strong>lieu de travail habituel</strong>.<br /><span
-    class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser
-    le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage
-    de précision.<br />Vous pouvez également chercher le lieu sur la carte en utilisant
-    le bouton "Chercher le lieu".</span>
-usualSchoolPlace.name: >-
-    <strong>Nom ou adresse</strong> du <strong>lieu habituel d’études</strong> de
-    {{nickname}}
-usualSchoolPlace.name_one: >-
-    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel d’études</strong>
-usualSchoolPlace.geography: >-
-    Veuillez localiser le <strong>lieu habituel d’études</strong> de {{nickname}}.<br
-    /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
-    localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte
-    pour davantage de précision.<br />Vous pouvez également chercher le lieu sur la
-    carte en utilisant le bouton "Chercher le lieu").</span>
-usualSchoolPlace.geography_one: >-
-    Veuillez localiser votre <strong>lieu habituel d’études</strong>.<br /><span class="_pale
-    _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une
-    fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.<br
-    />Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher
-    le lieu").</span>
+usualWorkPlace:
+    name: >-
+        <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong>
+        de {{nickname}}
+    name_one: >-
+        <strong>Nom ou adresse</strong> de votre <strong>lieu habituel de travail</strong>
+    geography: >-
+        Veuillez localiser le <strong>lieu de travail habituel</strong> de {{nickname}}<br
+        /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
+        localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la
+        carte pour davantage de précision.<br />Vous pouvez également chercher le
+        lieu sur la carte en utilisant le bouton "Chercher le lieu".</span>
+    geography_one: >-
+        Veuillez localiser votre <strong>lieu de travail habituel</strong>.<br /><span
+        class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser
+        le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour
+        davantage de précision.<br />Vous pouvez également chercher le lieu sur la
+        carte en utilisant le bouton "Chercher le lieu".</span>
+usualSchoolPlace:
+    name: >-
+        <strong>Nom ou adresse</strong> du <strong>lieu habituel d’études</strong>
+        de {{nickname}}
+    name_one: >-
+        <strong>Nom ou adresse</strong> de votre <strong>lieu habituel d’études</strong>
+    geography: >-
+        Veuillez localiser le <strong>lieu habituel d’études</strong> de {{nickname}}.<br
+        /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
+        localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la
+        carte pour davantage de précision.<br />Vous pouvez également chercher le
+        lieu sur la carte en utilisant le bouton "Chercher le lieu").</span>
+    geography_one: >-
+        Veuillez localiser votre <strong>lieu habituel d’études</strong>.<br /><span
+        class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser
+        le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour
+        davantage de précision.<br />Vous pouvez également chercher le lieu sur la
+        carte en utilisant le bouton "Chercher le lieu").</span>
 travelToWorkDays: >-
     Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il(-elle)
     <strong>déplacé(e)</strong> pour le <strong>travail</strong>?<br /><span class="_pale
@@ -154,27 +156,31 @@ remoteWorkDays_female_one: >-
     Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
 remoteWorkDays_custom_one: >-
     Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
-household.save: Enregistrer et continuer
+household:
+    save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne
-errors.selectDontKnowWhenNoOtherChoiceSelected: >-
-    Sélectionnez "Je ne sais pas" seulement si aucun autre choix n'est sélectionné.
-errors.selectNoWhenNoOtherChoiceSelected: Sélectionnez "Non" seulement si aucun autre
-    choix n'est sélectionné.
-errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected: >-
-    Sélectionnez "Préfère ne pas répondre" seulement si aucun autre choix n'est sélectionné.
-errors.selectNoTravelWhenNoOtherChoiceSelected: >-
-    Sélectionnez "Pas de déplacement" seulement si aucun autre choix n'est sélectionné.
-errors.selectOneOrMoreAnswer: Sélectionnez une ou des réponses.
-errors.selectNoRemoteWorkWhenNoOtherChoiceSelected: >-
-    Sélectionnez "Pas de télé-travail" seulement si aucun autre choix n'est sélectionné.
-errors.selectNoRemoteStudyWhenNoOtherChoiceSelected: >-
-    Sélectionnez "Pas de télé-études" seulement si aucun autre choix n'est sélectionné.
-popup.validateHouseholdAgesHelp: >-
-    Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre à ce
-    questionnaire. Veuillez vérifier les âges.
-popup.validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
-    à ce questionnaire.
+errors:
+    selectDontKnowWhenNoOtherChoiceSelected: >-
+        Sélectionnez "Je ne sais pas" seulement si aucun autre choix n'est sélectionné.
+    selectNoWhenNoOtherChoiceSelected: Sélectionnez "Non" seulement si aucun autre
+        choix n'est sélectionné.
+    selectPreferNotToAnswerWhenNoOtherChoiceSelected: >-
+        Sélectionnez "Préfère ne pas répondre" seulement si aucun autre choix n'est
+        sélectionné.
+    selectNoTravelWhenNoOtherChoiceSelected: >-
+        Sélectionnez "Pas de déplacement" seulement si aucun autre choix n'est sélectionné.
+    selectOneOrMoreAnswer: Sélectionnez une ou des réponses.
+    selectNoRemoteWorkWhenNoOtherChoiceSelected: >-
+        Sélectionnez "Pas de télé-travail" seulement si aucun autre choix n'est sélectionné.
+    selectNoRemoteStudyWhenNoOtherChoiceSelected: >-
+        Sélectionnez "Pas de télé-études" seulement si aucun autre choix n'est sélectionné.
+popup:
+    validateHouseholdAgesHelp: >-
+        Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre
+        à ce questionnaire. Veuillez vérifier les âges.
+    validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
+        à ce questionnaire.
 schoolTypeLessThan4: <strong>Type de garde</strong>
 schoolTypeBetween4And15: <strong>Type d'école</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe

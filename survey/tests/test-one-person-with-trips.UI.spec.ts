@@ -33,7 +33,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'shopping',
         onTheRoadDepartureType: null, // Question won't show.
         onTheRoadArrivalType: null, // Question won't show.
-        alreadyVisitedBySelfOrAnotherHouseholdMember: 'no',
+        alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
         name: 'Sports Expert place Ste-Foy',
         _previousPreviousDepartureTime: null, // Question won't show.

@@ -222,7 +222,7 @@ export const ifAge15OrLessConditional: WidgetConditional = (interview, path) => 
                 logicalOperator: '&&',
                 path: `household.persons.${currentPersonId}.age`,
                 comparisonOperator: '!==',
-                value: 'null'
+                value: null
             }
         ]
     });
@@ -270,7 +270,7 @@ export const ifAge16OrLessConditional: WidgetConditional = (interview, path) => 
                 logicalOperator: '&&',
                 path: `household.persons.${currentPersonId}.age`,
                 comparisonOperator: '!==',
-                value: 'null'
+                value: null
             }
         ]
     });

@@ -2,36 +2,37 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-household.madeLongDistanceTripsInLastYear: >-
-    In the <strong>last 12 months</strong>, did you or a member of your household
-    make any trips other than to your usual place of work or study, <strong>beyond
-    the limits of the grey area</strong> (more than 40 km from home)?
-household.madeLongDistanceTripsInLastYear_one: >-
-    In the <strong>last 12 months</strong>, did you make any trips other than to your
-    usual place of work or study, <strong>beyond the limits of the grey area</strong>(more
-    than 40 km from home)?
-household.longDistanceTripsSeptemberDecember: >-
-    How often did you or a member of your household make long-distance trips (more
-    than 40 km) between <strong>September and December 2024</strong>?
-household.longDistanceTripsSeptemberDecember_one: >-
-    How often did you make long-distance trips (more than 40 km) between <strong>September
-    and December 2024</strong>?
-household.longDistanceTripsJanuaryApril: >-
-    How often did you or a member of your household make long-distance trips (more
-    than 40 km) between <strong>January and April 2025</strong>?
-household.longDistanceTripsJanuaryApril_one: >-
-    How often did you make long-distance trips (more than 40 km) between <strong>January
-    and April 2025</strong>?
-household.longDistanceTripsMayAugust: >-
-    How often did you or a member of your household make long-distance trips (more
-    than 40 km) between <strong>May and August 2025</strong>?
-household.longDistanceTripsMayAugust_one: >-
-    How often did you make long-distance trips (more than 40 km) between <strong>May
-    and August 2025</strong>?
-household.wouldLikeToParticipateToLongDistanceSurvey: >-
-    Would you be interested in <strong>being contacted again</strong> for a more in-depth
-    survey on <strong>interurban travel</strong>?
-household.wouldLikeToParticipateToLongDistanceSurveyContactEmail: >-
-    Please provide the <strong>email address</strong> where you can be reached to
-    participate in a survey on <strong>interurban travel</strong>
+household:
+    madeLongDistanceTripsInLastYear: >-
+        In the <strong>last 12 months</strong>, did you or a member of your household
+        make any trips other than to your usual place of work or study, <strong>beyond
+        the limits of the grey area</strong> (more than 40 km from home)?
+    madeLongDistanceTripsInLastYear_one: >-
+        In the <strong>last 12 months</strong>, did you make any trips other than
+        to your usual place of work or study, <strong>beyond the limits of the grey
+        area</strong>(more than 40 km from home)?
+    longDistanceTripsSeptemberDecember: >-
+        How often did you or a member of your household make long-distance trips (more
+        than 40 km) between <strong>September and December 2024</strong>?
+    longDistanceTripsSeptemberDecember_one: >-
+        How often did you make long-distance trips (more than 40 km) between <strong>September
+        and December 2024</strong>?
+    longDistanceTripsJanuaryApril: >-
+        How often did you or a member of your household make long-distance trips (more
+        than 40 km) between <strong>January and April 2025</strong>?
+    longDistanceTripsJanuaryApril_one: >-
+        How often did you make long-distance trips (more than 40 km) between <strong>January
+        and April 2025</strong>?
+    longDistanceTripsMayAugust: >-
+        How often did you or a member of your household make long-distance trips (more
+        than 40 km) between <strong>May and August 2025</strong>?
+    longDistanceTripsMayAugust_one: >-
+        How often did you make long-distance trips (more than 40 km) between <strong>May
+        and August 2025</strong>?
+    wouldLikeToParticipateToLongDistanceSurvey: >-
+        Would you be interested in <strong>being contacted again</strong> for a more
+        in-depth survey on <strong>interurban travel</strong>?
+    wouldLikeToParticipateToLongDistanceSurveyContactEmail: >-
+        Please provide the <strong>email address</strong> where you can be reached
+        to participate in a survey on <strong>interurban travel</strong>
 buttonCompleteLongDistanceSection: Continue

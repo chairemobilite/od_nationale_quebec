@@ -51,58 +51,30 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const visitedPlaceAlreadyVisited: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'alreadyVisitedBySelfOrAnotherHouseholdMember',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('visitedPlaces:alreadyVisitedBySelfOrAnotherHouseholdMember', {
-            nickname,
-            count: countPersons
-        });
-    },
-    choices: choices.yesNo,
-    conditional: customConditionals.alreadyVisitedPlaceCustomConditional,
-    validations: validations.requiredValidation
-};
+// visitedPlaceAlreadyVisited
 
-// Custom because of the choices
-export const visitedPlaceShortcut = customWidgets.visitedPlaceShortcut;
+// visitedPlaceShortcut
 
-// Custom until Evolution supports shortcuts
-export const visitedPlaceName = customWidgets.visitedPlaceName;
+// visitedPlaceName
 
-// Custom until Evolution supports shortcuts
-export const visitedPlaceGeography = customWidgets.visitedPlaceGeography;
+// visitedPlaceGeography
 
-// Custom because of the complexity of the widget, implying moving activities
-export const visitedPlacePreviousPreviousDepartureTime = customWidgets.visitedPlacePreviousPreviousDepartureTime;
+// visitedPlacePreviousPreviousDepartureTime
 
-// Custom because of the complexity of the widget, implying moving activities
-export const visitedPlacePreviousArrivalTime = customWidgets.visitedPlacePreviousArrivalTime;
+// visitedPlacePreviousArrivalTime
 
-// Custom because of the complexity of the widget, implying moving activities
-export const visitedPlacePreviousDepartureTime = customWidgets.visitedPlacePreviousDepartureTime;
+// visitedPlacePreviousDepartureTime
 
-// Custom because it’s a time widget, not supported by generator
-export const visitedPlaceArrivalTime = customWidgets.visitedPlaceArrivalTime;
+// visitedPlaceArrivalTime
 
 // visitedPlaceNextPlaceCategory
 
-// Custom because it’s a time widget, not supported by generator
-export const visitedPlaceDepartureTime = customWidgets.visitedPlaceDepartureTime;
+// visitedPlaceDepartureTime
 
-// Custom because they are action button, but not to go to next section
-export const buttonSaveVisitedPlace = customWidgets.buttonSaveVisitedPlace;
+// buttonSaveVisitedPlace
 
-// Custom because they are action button, but not to go to next section
-export const buttonCancelVisitedPlace = customWidgets.buttonCancelVisitedPlace;
+// buttonCancelVisitedPlace
 
-// Custom because they are action button, but not to go to next section
-export const buttonDeleteVisitedPlace = customWidgets.buttonDeleteVisitedPlace;
+// buttonDeleteVisitedPlace
 
 // buttonVisitedPlacesConfirmNextSection

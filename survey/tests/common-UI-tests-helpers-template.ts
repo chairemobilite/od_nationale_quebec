@@ -362,46 +362,34 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
     testHelpers.inputVisibleTest({ context, path: '?.onTheRoadArrivalType', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.onTheRoadArrivalType', value: '?' });
 
-    // Test radio widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
+    // Test builtin widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', value: '?' });
 
-    // Test custom widget visitedPlaceShortcut
-    // Implement custom test
+    // Test builtin widget visitedPlaceShortcut
 
-    // Test custom widget visitedPlaceName
-    // Implement custom test
+    // Test builtin widget visitedPlaceName
 
-    // Test custom widget visitedPlaceGeography
-    // Implement custom test
+    // Test builtin widget visitedPlaceGeography
 
-    // Test custom widget visitedPlacePreviousPreviousDepartureTime
-    // Implement custom test
+    // Test builtin widget visitedPlacePreviousPreviousDepartureTime
 
-    // Test custom widget visitedPlacePreviousArrivalTime
-    // Implement custom test
+    // Test builtin widget visitedPlacePreviousArrivalTime
 
-    // Test custom widget visitedPlacePreviousDepartureTime
-    // Implement custom test
+    // Test builtin widget visitedPlacePreviousDepartureTime
 
-    // Test custom widget visitedPlaceArrivalTime
-    // Implement custom test
+    // Test builtin widget visitedPlaceArrivalTime
 
     // Test builtin widget visitedPlaceNextPlaceCategory
 
-    // Test custom widget visitedPlaceDepartureTime
-    // Implement custom test
+    // Test builtin widget visitedPlaceDepartureTime
 
-    // Test custom widget buttonSaveVisitedPlace
-    // Implement custom test
+    // Test builtin widget buttonSaveVisitedPlace
 
-    // Test custom widget buttonCancelVisitedPlace
-    // Implement custom test
+    // Test builtin widget buttonCancelVisitedPlace
 
-    // Test custom widget buttonDeleteVisitedPlace
-    // Implement custom test
+    // Test builtin widget buttonDeleteVisitedPlace
 
     // Test builtin widget buttonVisitedPlacesConfirmNextSection with conditional lastPlaceEnteredCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */

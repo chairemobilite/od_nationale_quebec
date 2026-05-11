@@ -206,7 +206,7 @@ export const tripJunctionGeography: WidgetConfig.InputMapFindPlaceType = {
     defaultValue: function (interview, path) {
         return undefined;
     },
-    updateDefaultValueWhenResponded: true,
+    resetToDefaultUnlessUserInteracted: true,
     conditional: function (interview, path) {
         const trip = odSurveyHelpers.getActiveTrip({ interview });
         if (trip) {
