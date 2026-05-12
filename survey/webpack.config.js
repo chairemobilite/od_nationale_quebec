@@ -57,7 +57,7 @@ module.exports = (env) => {
         htmlPages,
         customStylesFilePath: customStylesFilePath,
         projectLocalesFilePath: customLocalesFilePath,
-        extraEnvVars: {
+        extraEnvs: {
             EV_VARIANT: process.env.EV_VARIANT
         }
     });
