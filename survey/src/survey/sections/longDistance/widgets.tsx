@@ -19,7 +19,7 @@ export const householdMadeLongDistanceTripsInLastYear: WidgetConfig.InputRadioTy
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('longDistance:household.madeLongDistanceTripsInLastYear', {
+        return t('longDistance:householdMadeLongDistanceTripsInLastYear', {
             count: countPersons
         });
     },
@@ -38,7 +38,7 @@ export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRadi
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('longDistance:household.longDistanceTripsSeptemberDecember', {
+        return t('longDistance:householdLongDistanceTripsSeptemberDecember', {
             count: countPersons
         });
     },
@@ -54,7 +54,7 @@ export const householdLongDistanceTripsJanuaryApril: WidgetConfig.InputRadioType
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('longDistance:household.longDistanceTripsJanuaryApril', {
+        return t('longDistance:householdLongDistanceTripsJanuaryApril', {
             count: countPersons
         });
     },
@@ -70,7 +70,7 @@ export const householdLongDistanceTripsMayAugust: WidgetConfig.InputRadioType = 
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('longDistance:household.longDistanceTripsMayAugust', {
+        return t('longDistance:householdLongDistanceTripsMayAugust', {
             count: countPersons
         });
     },
@@ -84,7 +84,7 @@ export const wouldLikeToParticipateToLongDistanceSurvey: WidgetConfig.InputRadio
     path: 'household.wouldLikeToParticipateToLongDistanceSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('longDistance:household.wouldLikeToParticipateToLongDistanceSurvey'),
+    label: (t: TFunction) => t('longDistance:wouldLikeToParticipateToLongDistanceSurvey'),
     choices: choices.yesNo,
     conditional: conditionals.madeLongDistanceTripsConditional,
     validations: validations.requiredValidation
@@ -95,7 +95,7 @@ export const wouldLikeToParticipateToLongDistanceSurveyContactEmail: WidgetConfi
     path: 'household.wouldLikeToParticipateToLongDistanceSurveyContactEmail',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('longDistance:household.wouldLikeToParticipateToLongDistanceSurveyContactEmail'),
+    label: (t: TFunction) => t('longDistance:wouldLikeToParticipateToLongDistanceSurveyContactEmail'),
     conditional: conditionals.wantToParticipateInLongDistanceSurveyConditional,
     validations: validations.emailValidation
 };

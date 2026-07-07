@@ -26,7 +26,7 @@ export const personAge: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:age', {
+        return t('household:personAge', {
             count: countPersons
         });
     },
@@ -39,7 +39,7 @@ export const personNickname: WidgetConfig.InputStringType = {
     path: 'nickname',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:nickname'),
+    label: (t: TFunction) => t('household:personNickname'),
     conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
     validations: validations.requiredValidation
 };
@@ -51,7 +51,7 @@ export const personHasDisability: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:hasDisability', {
+        return t('household:personHasDisability', {
             count: countPersons
         });
     },
@@ -65,7 +65,7 @@ export const personSexAssignedAtBirth: WidgetConfig.InputRadioType = {
     path: 'sexAssignedAtBirth',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:sexAssignedAtBirth'),
+    label: (t: TFunction) => t('household:personSexAssignedAtBirth'),
     choices: choices.maleFemalePreferNotAnswer,
     conditional: conditionals.ifAge5orMoreConditional,
     validations: validations.requiredValidation
@@ -79,7 +79,7 @@ export const personGender: WidgetConfig.InputRadioType = {
     containsHtml: true,
     customPath: 'genderCustom',
     customChoice: 'custom',
-    label: (t: TFunction) => t('household:gender'),
+    label: (t: TFunction) => t('household:personGender'),
     choices: choices.maleFemaleCustomPreferNotToAnswer,
     conditional: conditionals.hasPreferNotToAnswerToSexAssignedConditional,
     validations: validations.requiredValidation
@@ -92,7 +92,7 @@ export const personWorkerType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        return t('household:workerType', {
+        return t('household:personWorkerType', {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
@@ -108,7 +108,7 @@ export const personStudentType: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        return t('household:studentType', {
+        return t('household:personStudentType', {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
@@ -124,7 +124,7 @@ export const personOccupation: WidgetConfig.InputRadioType = {
     path: 'occupation',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:occupation'),
+    label: (t: TFunction) => t('household:personOccupation'),
     choices: choices.personOccupation,
     conditional: customConditionals.personOccupationCustomConditional,
     validations: validations.requiredValidation
@@ -139,7 +139,7 @@ export const personWorkerTypeBeforeLeave: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:workerTypeBeforeLeave', {
+        return t('household:personWorkerTypeBeforeLeave', {
             nickname,
             count: countPersons
         });
@@ -154,7 +154,7 @@ export const personEducationalAttainment: WidgetConfig.InputRadioType = {
     path: 'educationalAttainment',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:educationalAttainment'),
+    label: (t: TFunction) => t('household:personEducationalAttainment'),
     choices: choices.educationalAttainment,
     conditional: conditionals.ifAge15OrMoreConditional,
     validations: validations.requiredValidation
@@ -167,7 +167,7 @@ export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        return t('household:drivingLicenseOwnership', {
+        return t('household:personDrivingLicenseOwnership', {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
@@ -181,7 +181,7 @@ export const personCarSharingMember: WidgetConfig.InputRadioType = {
     path: 'carSharingMember',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:carSharingMember'),
+    label: (t: TFunction) => t('household:personCarSharingMember'),
     choices: choices.yesNoDontKnow,
     conditional: conditionals.hasDrivingLicenseConditional,
     validations: validations.requiredValidation
@@ -196,7 +196,7 @@ export const personTransitPasses: WidgetConfig.InputCheckboxType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:transitPasses', {
+        return t('household:personTransitPasses', {
             nickname,
             count: countPersons
         });
@@ -215,7 +215,7 @@ export const personWorkPlaceType: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:workPlaceType', {
+        return t('household:personWorkPlaceType', {
             nickname,
             count: countPersons
         });
@@ -234,7 +234,7 @@ export const personWorkPlaceTypeBeforeLeave: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:workPlaceTypeBeforeLeave', {
+        return t('household:personWorkPlaceTypeBeforeLeave', {
             nickname,
             count: countPersons
         });
@@ -253,7 +253,7 @@ export const personSchoolPlaceType: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:schoolPlaceType', {
+        return t('household:personSchoolPlaceType', {
             nickname,
             count: countPersons
         });
@@ -268,11 +268,12 @@ export const personUsualWorkPlaceName: WidgetConfig.InputStringType = {
     path: 'usualWorkPlace.name',
     twoColumns: false,
     containsHtml: true,
+    joinWith: 'personUsualWorkPlaceGeography',
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:usualWorkPlace.name', {
+        return t('household:personUsualWorkPlaceName', {
             nickname,
             count: countPersons
         });
@@ -288,11 +289,12 @@ export const personUsualSchoolPlaceName: WidgetConfig.InputStringType = {
     path: 'usualSchoolPlace.name',
     twoColumns: false,
     containsHtml: true,
+    joinWith: 'personUsualSchoolPlaceGeography',
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:usualSchoolPlace.name', {
+        return t('household:personUsualSchoolPlaceName', {
             nickname,
             count: countPersons
         });
@@ -312,7 +314,7 @@ export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:travelToWorkDays', {
+        return t('household:personTravelToWorkDays', {
             nickname,
             count: countPersons,
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
@@ -332,7 +334,7 @@ export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:remoteWorkDays', {
+        return t('household:personRemoteWorkDays', {
             nickname,
             count: countPersons,
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
@@ -347,6 +349,6 @@ export const household_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'household.save',
     confirmPopup: customHelpPopup.validateHouseholdAgesHelpPopup,
-    label: (t: TFunction) => t('household:household.save'),
+    label: (t: TFunction) => t('household:household_save'),
     conditional: defaultConditional
 };

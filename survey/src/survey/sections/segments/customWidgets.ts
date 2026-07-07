@@ -120,7 +120,7 @@ export const segmentHowToBus: WidgetConfig.InputRadioType = {
     choices: howToBusChoices,
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getActivePerson({ interview });
-        return t('segments:howToBus', {
+        return t('segments:segmentHowToBus', {
             context: person?.gender || person?.sexAssignedAtBirth,
             nickname: _escape(person.nickname),
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
@@ -163,7 +163,7 @@ export const tripJunctionGeography: WidgetConfig.InputMapFindPlaceType = {
         en: 'Search the junction location using the place name or address'
     },
     autoConfirmIfSingleResult: true,
-    label: (t: TFunction) => t('segments:junctionGeography'),
+    label: (t: TFunction) => t('segments:tripJunctionGeography'),
     icon: {
         url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle_selected.svg',
         size: [35, 35]
@@ -308,7 +308,7 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getPerson({ interview });
         const nickname = _escape(person.nickname);
-        return t('segments:busLines', {
+        return t('segments:segmentBusLines', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
@@ -352,7 +352,7 @@ export const segmentBusLinesWarning: WidgetConfig.InputButtonType = {
             }
         ];
     },
-    label: (t) => t('segments:busLinesWarning'),
+    label: (t) => t('segments:segmentBusLinesWarning'),
     conditional: function (interview, path) {
         const segmentMode = getResponse(interview, path, undefined, '../mode');
         const segmentBuses: any = getResponse(interview, path, undefined, `../${segmentBusLines.path}`);

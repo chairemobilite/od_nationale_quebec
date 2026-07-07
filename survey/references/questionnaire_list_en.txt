@@ -190,7 +190,7 @@ Select this person and continue
 
 Section: Trips introduction
 
-<p class="_center _em" style="margin-bottom: 0;">{{nickname}}’s interview</p><p class="_center _pale">•</p>
+<p class="_center _em" style="margin-bottom: 0;">{{nickname}}'s interview</p><p class="_center _pale">•</p>
 
 Change person
 
@@ -214,7 +214,7 @@ Please specify the places {{nickname}} went on {{assignedDate}} (include all pla
 <span class="_red">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
 
 Did {{nickname}} start their day at home ({{address}})?
-Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
+Answer 'No' only if {{nickname}} did not sleep at home (night from {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
 
 Where was {{nickname}} at 4 AM?
 - Home of the other parent or guardian
@@ -235,19 +235,16 @@ Your answers will be used to assess the use and traffic of the road and public t
 
 Section: Déplacements
 
-<p class="_center _em" style="margin-bottom: 0;">{{nickname}}’s interview</p><p class="_center _pale">•</p>
+<p class="_center _em" style="margin-bottom: 0;">{{nickname}}'s interview</p><p class="_center _pale">•</p>
 
 Change person
 
-Places {{nickname}} went on {{assignedDate}}:
+Places {{nickname}} went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters).
 
-Map of {{nickname}}’s trips on {{assignedDate}}:
+Map of {{nickname}}’s trips on {{journeyDate}}:
 
 What was the departure place of {{nickname}}’s work trip on the road?
-
-Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
-
 
 Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member.
@@ -259,12 +256,19 @@ Please select this place from the list of previously located places:
 Please locate this place on the map
 Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
 
-At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+
+At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} work on the road trips?
+
+At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
 
 {{nickname}} arrived {{atPlace}} at:
 
 After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
+
+Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?
+
 
 {{nickname}} left {{place}} at:
 
@@ -278,9 +282,9 @@ Section: Modes of transport
 
 Change person
 
-Trips made by {{nickname}} on {{assignedDate}}
+Trips made by {{nickname}} on {{journeyDate}}
 
-Map of {{nickname}}’s trips on {{assignedDate}}:
+Map of {{nickname}}’s trips on {{journeyDate}}:
 
 Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
 
@@ -307,7 +311,7 @@ Some bus line(s) seem invalid for this trip. Please validate the lines.
 Is this an on-demand service?
 
 
-Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map
+Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on the map
 
 Please locate the junction point (location where the change in mode of transport occurred).
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.

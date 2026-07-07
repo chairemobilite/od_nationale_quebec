@@ -39,7 +39,7 @@ export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('tripsIntro:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', {
+        return t('tripsIntro:personDeparturePlaceOther', {
             nickname,
             count: countPersons
         });
@@ -52,7 +52,7 @@ export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
 export const tripsIntro_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'tripsIntro.save',
-    label: (t: TFunction) => t('tripsIntro:tripsIntro.save'),
+    label: (t: TFunction) => t('tripsIntro:tripsIntro_save'),
     conditional: defaultConditional
 };
 

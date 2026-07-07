@@ -2,101 +2,96 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-age: <strong>Age</strong> (in years)
-age_one: Your <strong>age</strong> (in years)
-nickname: >-
+personAge: <strong>Age</strong> (in years)
+personAge_one: Your <strong>age</strong> (in years)
+personNickname: >-
     <strong>Name or nickname</strong> that will allow you to identify this person
     for the remainder of the interview<br /><span class="_pale _oblique">Can be a
     nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').<br
     />The name is only used to simplify the response process and will be removed from
     the final dataset.</span>
-hasDisability: >-
+personHasDisability: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
     or limits their daily mobility?
-hasDisability_one: >-
+personHasDisability_one: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
     or limits your daily mobility?
-sexAssignedAtBirth: >-
+personSexAssignedAtBirth: >-
     <strong>Sex at birth</strong><br /><span class="_pale _oblique">Sex assigned at
     birth or that which appears on legal documents.</span>
-gender: I prefer to give the <strong>gender</strong>
-workerType: >-
+personGender: I prefer to give the <strong>gender</strong>
+personWorkerType: >-
     <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed
     and artist.</span>
-studentType: <strong>Student</strong>
-schoolType: <strong>Educational institution</strong>
-occupation: <strong>Main occupation</strong>
-workerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}} work?
-workerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work?
-educationalAttainment: >-
+personStudentType: <strong>Student</strong>
+personSchoolType: <strong>Educational institution</strong>
+personOccupation: <strong>Main occupation</strong>
+personWorkerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}}
+    work?
+personWorkerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work?
+personEducationalAttainment: >-
     Highest level of <strong>educational attainment</strong><br /><span class="_pale
     _oblique">When in doubt, choose the level which seems to match best</span>
-drivingLicenseOwnership: >-
+personDrivingLicenseOwnership: >-
     <strong>Driver's licence</strong><br /><span class="_pale _oblique">Include learner's
     and probationary permits, but do not include moped (motorized scooter) permits.</span>
-carSharingMember: >-
+personCarSharingMember: >-
     <strong>Carsharing</strong> member<br /><span class="_pale _oblique">Subscription
     or pass to a carsharing service (ex. Communauto)</span>
-transitPasses: >-
+personTransitPasses: >-
     Does {{nickname}} currently have a valid transit <strong>pass or ticket</strong>?
-transitPasses_one: Do you currently have a valid transit <strong>pass or ticket</strong>?
-workPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
-workPlaceType_one: Do you have a fixed <strong>work location</strong>?
-workPlaceTypeBeforeLeave: >-
+personTransitPasses_one: Do you currently have a valid transit <strong>pass or ticket</strong>?
+personWorkPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
+personWorkPlaceType_one: Do you have a fixed <strong>work location</strong>?
+personWorkPlaceTypeBeforeLeave: >-
     <strong>Before being on leave</strong>, did {{nickname}} have a fixed <strong>work
     location</strong>?
-workPlaceTypeBeforeLeave_one: >-
+personWorkPlaceTypeBeforeLeave_one: >-
     <strong>Before being on leave</strong>, did you have a fixed <strong>work location</strong>?
-schoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
-schoolPlaceType_one: Do you have a fixed <strong>study location</strong>?
-usualWorkPlace:
-    name: >-
-        <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of
-        work</strong>
-    name_one: >-
-        <strong>Name or address</strong> of your <strong>usual place of work</strong>
-    geography: >-
-        Please locate the <strong>usual place of work</strong> for {{nickname}}<br
-        /><span class="_pale _oblique">Navigate, zoom, and click on the map to identify
-        the location. Once located, you can move the marker for greater precision.<br
-        />You can also search for the place on the map using the "Search location"
-        button.</span>
-    geography_one: >-
-        Please locate your <strong>usual place of work</strong>.<br /><span class="_pale
-        _oblique">Navigate, zoom, and click on the map to identify the location. Once
-        located, you can move the marker for greater precision.<br />You can also
-        search for the place on the map using the "Search location" button.</span>
-usualSchoolPlace:
-    name: >-
-        <strong>Name or address</strong> of {{nickname}}'s school or <strong>main
-        study location</strong>
-    name_one: >-
-        <strong>Name or address</strong> of your school or <strong>main study location</strong>
-    geography: >-
-        Please locate the <strong>usual place of study</strong> for {{nickname}}.<br
-        /><span class="_pale _oblique">Navigate, zoom, and click on the map to identify
-        the location. Once located, you can move the marker for greater precision.<br
-        />You can also search for the place on the map using the "Search location"
-        button.</span>
-    geography_one: >-
-        Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
-        _oblique">Navigate, zoom, and click on the map to identify the location. Once
-        located, you can move the marker for greater precision.<br />You can also
-        search for the place on the map using the "Search location" button.</span>
-travelToWorkDays: >-
+personSchoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
+personSchoolPlaceType_one: Do you have a fixed <strong>study location</strong>?
+personUsualWorkPlaceName: >-
+    <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
+personUsualWorkPlaceName_one: >-
+    <strong>Name or address</strong> of your <strong>usual place of work</strong>
+personUsualWorkPlaceGeography: >-
+    Please locate the <strong>usual place of work</strong> for {{nickname}}<br /><span
+    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
+    Once located, you can move the marker for greater precision.<br />You can also
+    search for the place on the map using the "Search location" button.</span>
+personUsualWorkPlaceGeography_one: >-
+    Please locate your <strong>usual place of work</strong>.<br /><span class="_pale
+    _oblique">Navigate, zoom, and click on the map to identify the location. Once
+    located, you can move the marker for greater precision.<br />You can also search
+    for the place on the map using the "Search location" button.</span>
+personUsualSchoolPlaceName: >-
+    <strong>Name or address</strong> of {{nickname}}'s school or <strong>main study
+    location</strong>
+personUsualSchoolPlaceName_one: >-
+    <strong>Name or address</strong> of your school or <strong>main study location</strong>
+personUsualSchoolPlaceGeography: >-
+    Please locate the <strong>usual place of study</strong> for {{nickname}}.<br /><span
+    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
+    Once located, you can move the marker for greater precision.<br />You can also
+    search for the place on the map using the "Search location" button.</span>
+personUsualSchoolPlaceGeography_one: >-
+    Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
+    _oblique">Navigate, zoom, and click on the map to identify the location. Once
+    located, you can move the marker for greater precision.<br />You can also search
+    for the place on the map using the "Search location" button.</span>
+personTravelToWorkDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>travel</strong>
     for <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for
     any other reason concerning work.</span>
-travelToWorkDays_one: >-
+personTravelToWorkDays_one: >-
     During the <strong>last week</strong>, when did you <strong>travel</strong> for
     <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for any
     other reason concerning work.</span>
-remoteWorkDays: >-
+personRemoteWorkDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>work remotely</strong>?
-remoteWorkDays_one: >-
+personRemoteWorkDays_one: >-
     During the <strong>last week</strong>, when did you <strong>work remotely</strong>?
-household:
-    save: Save and continue
+household_save: Save and continue
 addGroupedObject: Add a missing person
 deleteThisGroupedObject: Delete this person
 errors:

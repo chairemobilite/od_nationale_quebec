@@ -75,7 +75,7 @@ export const personSchoolType: InputRadioType = {
             return t('household:schoolTypeBetween4And15');
         } else {
             // For people over 15
-            return t('household:schoolType');
+            return t('household:personSchoolType');
         }
     },
     choices: choices.schoolType,
@@ -99,8 +99,8 @@ export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('household:usualWorkPlace.geography', {
+        const nickname = odSurveyHelpers.getPersonIdentificationString({ person: activePerson, t });
+        return t('household:personUsualWorkPlaceGeography', {
             nickname,
             count: countPersons
         });
@@ -175,8 +175,8 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('household:usualSchoolPlace.geography', {
+        const nickname = odSurveyHelpers.getPersonIdentificationString({ person: activePerson, t });
+        return t('household:personUsualSchoolPlaceGeography', {
             nickname,
             count: countPersons
         });

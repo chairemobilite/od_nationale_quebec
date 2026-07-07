@@ -293,7 +293,7 @@ Abbreviation,ti_
 Field,activePersonTitle
 Question type,Builtin
 Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
-Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}'s interview</p><p class=""_center _pale"">•</p>"
 ""
 Field,buttonSwitchPerson
 Question type,Builtin
@@ -331,7 +331,7 @@ Question,"Please specify the places {{nickname}} went on {{assignedDate}} (inclu
 Field,departurePlaceIsHome
 Question type,Unknown input
 Question,"Did {{nickname}} start their day at home ({{address}})?
-Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
+Answer 'No' only if {{nickname}} did not sleep at home (night from {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
 Question type,Radio input
@@ -355,7 +355,7 @@ Abbreviation,vp_
 Field,activePersonTitle
 Question type,Builtin
 Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
-Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}'s interview</p><p class=""_center _pale"">•</p>"
 ""
 Field,buttonSwitchPerson
 Question type,Builtin
@@ -363,21 +363,16 @@ Question,Change person
 ""
 Field,personVisitedPlacesTitle
 Question type,Builtin
-Question,"Places {{nickname}} went on {{assignedDate}}:
+Question,"Places {{nickname}} went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters)."
 ""
 Field,visitedPlacesMap
 Question type,Builtin
-Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+Question,Map of {{nickname}}’s trips on {{journeyDate}}:
 ""
-Field,onTheRoadDepartureType
-Question type,Unknown input
+Field,onTheRoadPreviousPlaceActivity
+Question type,Builtin
 Question,What was the departure place of {{nickname}}’s work trip on the road?
-""
-Field,onTheRoadArrivalType
-Question type,Radio input
-Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
-Question,Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Builtin
@@ -398,7 +393,15 @@ Pan, zoom and click on map. Once a pin icon has been dropped, you will be able t
 ""
 Field,_previousPreviousDepartureTime
 Question type,Builtin
-Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+Question,At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+""
+Field,_previousArrivalTime
+Question type,Builtin
+Question,At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} work on the road trips?
+""
+Field,_previousDepartureTime
+Question type,Builtin
+Question,At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
 ""
 Field,arrivalTime
 Question type,Builtin
@@ -408,6 +411,11 @@ Field,nextPlaceCategory
 Question type,Builtin
 Question,"After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
+""
+Field,onTheRoadNextPlaceCategory
+Question type,Builtin
+Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Question,Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?
 ""
 Field,departureTime
 Question type,Builtin
@@ -433,11 +441,11 @@ Question,Change person
 ""
 Field,personTripsTitle
 Question type,Builtin
-Question,Trips made by {{nickname}} on {{assignedDate}}
+Question,Trips made by {{nickname}} on {{journeyDate}}
 ""
 Field,segmentsMap
 Question type,Builtin
-Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+Question,Map of {{nickname}}’s trips on {{journeyDate}}:
 ""
 Field,segmentsIntro
 Question type,Builtin
@@ -487,7 +495,7 @@ Question,Is this an on-demand service?
 Field,tripJunctionQueryString
 Question type,Text input
 Conditional,shouldAskTripJunctionCustomConditional
-Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map"
+Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on the map"
 ""
 Field,junctionGeography
 Question type,Unknown input

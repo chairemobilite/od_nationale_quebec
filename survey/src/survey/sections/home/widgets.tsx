@@ -72,7 +72,7 @@ export const home_address: WidgetConfig.InputStringType = {
     path: 'home.address',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:home.address'),
+    label: (t: TFunction) => t('home:home_address'),
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
@@ -82,7 +82,7 @@ export const home_city: WidgetConfig.InputStringType = {
     path: 'home.city',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:home.city'),
+    label: (t: TFunction) => t('home:home_city'),
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
@@ -93,7 +93,7 @@ export const home_region: WidgetConfig.InputStringType = {
     twoColumns: false,
     containsHtml: true,
     defaultValue: 'Québec',
-    label: (t: TFunction) => t('home:home.region'),
+    label: (t: TFunction) => t('home:home_region'),
     conditional: customConditionals.hiddenWithQuebecAsDefaultValueCustomConditional,
     validations: validations.requiredValidation
 };
@@ -104,7 +104,7 @@ export const home_country: WidgetConfig.InputStringType = {
     twoColumns: false,
     containsHtml: true,
     defaultValue: 'Canada',
-    label: (t: TFunction) => t('home:home.country'),
+    label: (t: TFunction) => t('home:home_country'),
     conditional: customConditionals.hiddenWithCanadaAsDefaultValueCustomConditional,
     validations: validations.requiredValidation
 };
@@ -115,7 +115,7 @@ export const home_postalCode: WidgetConfig.InputStringType = {
     twoColumns: false,
     containsHtml: true,
     inputFilter: formatters.canadianPostalCodeFormatter,
-    label: (t: TFunction) => t('home:home.postalCode'),
+    label: (t: TFunction) => t('home:home_postalCode'),
     conditional: defaultConditional,
     validations: validations.postalCodeValidation
 };
@@ -129,7 +129,7 @@ export const household_carNumber: WidgetConfig.InputRadioNumberType = {
     path: 'household.carNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household.carNumber'),
+    label: (t: TFunction) => t('home:household_carNumber'),
     valueRange: {
         min: 0,
         max: 5
@@ -145,7 +145,7 @@ export const household_bicycleNumber: WidgetConfig.InputRadioNumberType = {
     path: 'household.bicycleNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household.bicycleNumber'),
+    label: (t: TFunction) => t('home:household_bicycleNumber'),
     valueRange: {
         min: 0,
         max: 5
@@ -160,7 +160,7 @@ export const household_electricBicycleNumber: WidgetConfig.InputRadioNumberType 
     path: 'household.electricBicycleNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household.electricBicycleNumber'),
+    label: (t: TFunction) => t('home:household_electricBicycleNumber'),
     valueRange: {
         min: 0,
         max: (interview) => surveyHelper.getResponse(interview, 'household.bicycleNumber', 0) as any
@@ -174,7 +174,7 @@ export const household_atLeastOnePersonWithDisability: WidgetConfig.InputRadioTy
     path: 'household.atLeastOnePersonWithDisability',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household.atLeastOnePersonWithDisability'),
+    label: (t: TFunction) => t('home:household_atLeastOnePersonWithDisability'),
     choices: choices.yesNoPreferNotToAnswer,
     conditional: conditionals.hasHouseholdSize2OrMoreConditional,
     validations: validations.requiredValidation
@@ -183,6 +183,6 @@ export const household_atLeastOnePersonWithDisability: WidgetConfig.InputRadioTy
 export const home_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'home.save',
-    label: (t: TFunction) => t('home:home.save'),
+    label: (t: TFunction) => t('home:home_save'),
     conditional: defaultConditional
 };

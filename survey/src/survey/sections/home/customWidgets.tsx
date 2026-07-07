@@ -20,7 +20,7 @@ export const household_size: WidgetConfig.InputRadioNumberType = {
         const assignedDay = surveyHelperNew.getResponse(interview, '_assignedDay') as string;
         const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
 
-        return t('home:household.size', {
+        return t('home:household_size', {
             assignedDate
         });
     },
@@ -38,7 +38,7 @@ export const home_geography: WidgetConfig.InputMapFindPlaceType = {
     ...defaultInputBase.inputMapFindPlaceBase,
     path: 'home.geography',
     label: (t: TFunction, _interview, _path) => {
-        return t('home:home.geography');
+        return t('home:home_geography');
     },
     icon: {
         url: getActivityMarkerIcon('home'),

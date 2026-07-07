@@ -2,5 +2,5 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-_activePersonId: Who do you want to continue the interview for?
+selectPerson: Who do you want to continue the interview for?
 buttonSelectPersonConfirm: Select this person and continue

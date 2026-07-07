@@ -52,14 +52,11 @@ export const personNoWorkTripReasonSpecify: WidgetConfig.InputStringType = {
             locale: i18n.language,
             withDayOfWeek: false
         });
-        return t(
-            'travelBehavior:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify',
-            {
-                nickname,
-                assignedDate,
-                count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person: activePerson })
-            }
-        );
+        return t('travelBehavior:personNoWorkTripReasonSpecify', {
+            nickname,
+            assignedDate,
+            count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person: activePerson })
+        });
     },
     conditional: customConditionals.shouldAskPersonNoWorkTripSpecifyCustomConditional,
     validations: validations.optionalValidation
@@ -98,14 +95,11 @@ export const personNoSchoolTripReasonSpecify: WidgetConfig.InputStringType = {
             locale: i18n.language,
             withDayOfWeek: false
         });
-        return t(
-            'travelBehavior:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify',
-            {
-                nickname,
-                assignedDate,
-                count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person: activePerson })
-            }
-        );
+        return t('travelBehavior:personNoSchoolTripReasonSpecify', {
+            nickname,
+            assignedDate,
+            count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person: activePerson })
+        });
     },
     conditional: customConditionals.shouldAskForNoSchoolTripSpecifyCustomConditional,
     validations: validations.optionalValidation
