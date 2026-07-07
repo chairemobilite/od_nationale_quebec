@@ -136,7 +136,7 @@ export const defaultPerson2: HouseholdMember = {
 };
 
 export type VisitedPlace = {
-    activityCategory: string | null;
+    activityCategory?: string | null;
     activity: string | null;
     onTheRoadDepartureType: string | null;
     onTheRoadArrivalType: string | null;
@@ -870,11 +870,19 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
             isVisible: false
         });
     } else {
-        testHelpers.inputRadioTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
-            value: place.activityCategory
-        });
+        if (place.activityCategory !== undefined) {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+                value: place.activityCategory
+            });
+        } else {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+                isVisible: true
+            });
+        }
     }
 
     // Test custom widget visitedPlaceActivity
@@ -1091,7 +1099,7 @@ export const fillSegmentsSectionTests = ({
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputNextButtonTest({
         context,
-        text: 'Confirm and continue',
+        text: 'Confirm locations and continue',
         nextPageUrl: `/survey/${expectedNextSection}`
     });
 };

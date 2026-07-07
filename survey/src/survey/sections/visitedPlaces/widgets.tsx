@@ -12,7 +12,6 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
-import * as customWidgets from './customWidgets';
 import * as customChoices from './customChoices';
 
 // activePersonTitle
@@ -29,27 +28,7 @@ import * as customChoices from './customChoices';
 
 // visitedPlaceActivity
 
-export const visitedPlaceOnTheRoadDepartureType = customWidgets.visitedPlaceOnTheRoadDepartureType;
-
-export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'onTheRoadArrivalType',
-    twoColumns: false,
-    containsHtml: false,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('visitedPlaces:onTheRoadArrivalType', {
-            nickname,
-            count: countPersons,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
-        });
-    },
-    choices: customChoices.onTheRoadArrivalTypeCustomChoices,
-    conditional: customConditionals.currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional,
-    validations: validations.requiredValidation
-};
+// visitedPlaceOnTheRoadPreviousPlaceActivity
 
 // visitedPlaceAlreadyVisited
 
@@ -68,6 +47,8 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
 // visitedPlaceArrivalTime
 
 // visitedPlaceNextPlaceCategory
+
+// visitedPlaceOnTheRoadNextPlaceCategory
 
 // visitedPlaceDepartureTime
 

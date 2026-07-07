@@ -55,6 +55,7 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
             visitedPlaces: {
                 type: 'visitedPlaces' as const,
                 enabled: true,
+                inlineUsualPlacesEntry: false,
                 tripDiaryMaxTimeOfDay: 28 * 60 * 60, // 28h in seconds (i.e. 4h the next day)
                 tripDiaryMinTimeOfDay: 4 * 60 * 60, // 4h in seconds
                 additionalVisitedPlacesWidgetNames: personVisitedPlacesWidgetsNames

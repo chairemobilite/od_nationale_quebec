@@ -16,34 +16,32 @@ contactEmail: <strong>Adresse courriel</strong>
 phoneNumber: >-
     <strong>Numéro de téléphone</strong><br /><span class="_pale _oblique">Format:
     123-456-7890</span>
-home:
-    address: <strong>Adresse</strong>
-    city: <strong>Ville</strong> ou <strong>municipalité</strong>
-    region: <strong>Province</strong>
-    country: <strong>Pays</strong>
-    postalCode: <strong>Code postal</strong>
-    geography: >-
-        <strong>Positionnement de votre domicile</strong><br />Recherchez votre domicile
-        en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous,
-        ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant.
-        Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
-    save: Enregistrer et continuer
-household:
-    size: >-
-        <strong>Personnes habitant votre domicile</strong> ou logement<br /><span
-        class="_pale _oblique">Y compris vous-même et les enfants en garde partagée
-        s'ils étaient à votre domicile le {{assignedDate}}.</span>
-    carNumber: >-
-        <strong>Automobiles</strong>, VUS, camions légers ou fourgonnettes, etc.<br
-        /><span class="_pale _oblique">À la disposition de votre ménage.</span>
-    bicycleNumber: >-
-        <strong>Vélos</strong>, vélos électriques ou trottinettes électriques possédés
-        par les membres du ménage<br /><span class="_pale _oblique">Inclure seulement
-        les vélos utilisables en bon état.</span>
-    electricBicycleNumber: >-
-        Parmi ces vélos, combien sont des <strong>vélos électriques</strong> ou à
-        assistance électrique?
-    atLeastOnePersonWithDisability: >-
-        Y a-t-il au moins une personne dans votre ménage avec une <strong>incapacité
-        permanente qui limite ses déplacements quotidiens</strong>?<br /><span class="_pale
-        _oblique">Y compris vous-même</span>
+home_address: <strong>Adresse</strong>
+home_city: <strong>Ville</strong> ou <strong>municipalité</strong>
+home_region: <strong>Province</strong>
+home_country: <strong>Pays</strong>
+home_postalCode: <strong>Code postal</strong>
+home_geography: >-
+    <strong>Positionnement de votre domicile</strong><br />Recherchez votre domicile
+    en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous,
+    ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant.
+    Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
+household_size: >-
+    <strong>Personnes habitant votre domicile</strong> ou logement<br /><span class="_pale
+    _oblique">Y compris vous-même et les enfants en garde partagée s'ils étaient à
+    votre domicile le {{assignedDate}}.</span>
+household_carNumber: >-
+    <strong>Automobiles</strong>, VUS, camions légers ou fourgonnettes, etc.<br /><span
+    class="_pale _oblique">À la disposition de votre ménage.</span>
+household_bicycleNumber: >-
+    <strong>Vélos</strong>, vélos électriques ou trottinettes électriques possédés
+    par les membres du ménage<br /><span class="_pale _oblique">Inclure seulement
+    les vélos utilisables en bon état.</span>
+household_electricBicycleNumber: >-
+    Parmi ces vélos, combien sont des <strong>vélos électriques</strong> ou à assistance
+    électrique?
+household_atLeastOnePersonWithDisability: >-
+    Y a-t-il au moins une personne dans votre ménage avec une <strong>incapacité permanente
+    qui limite ses déplacements quotidiens</strong>?<br /><span class="_pale _oblique">Y
+    compris vous-même</span>
+home_save: Enregistrer et continuer

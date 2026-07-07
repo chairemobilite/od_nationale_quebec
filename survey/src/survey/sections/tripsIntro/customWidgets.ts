@@ -23,7 +23,7 @@ export const personNewPerson = {
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
         const nickname = _escape(activePerson.nickname);
-        return t('tripsIntro:_showNewPersonPopupButton', {
+        return t('tripsIntro:personNewPerson', {
             nickname
         });
     },
@@ -77,7 +77,7 @@ export const personWhoWillAnswerForThisPerson: WidgetConfig.InputRadioType = {
     sameLine: false,
     label: (t: TFunction, interview) => {
         const activePerson = odSurveyHelper.getActivePerson({ interview });
-        return t('tripsIntro:whoAnswers', {
+        return t('tripsIntro:personWhoWillAnswerForThisPerson', {
             nickname: activePerson.nickname
         });
     },
@@ -227,7 +227,7 @@ export const visitedPlacesIntro: WidgetConfig.TextWidgetConfig = {
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const tripsDate = getResponse(interview, '_assignedDay', null);
         const formattedTripsDate = getFormattedDate(tripsDate as string, { withRelative: true, locale: i18n.language });
-        return t('tripsIntro:didTripsIntro', {
+        return t('tripsIntro:visitedPlacesIntro', {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             nickname,
             assignedDate: formattedTripsDate,
@@ -275,7 +275,7 @@ export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
             .toDate()
             .toLocaleDateString(i18n.language, { weekday: 'long', month: 'long', day: 'numeric' });
 
-        return t('tripsIntro:departurePlaceIsHome', {
+        return t('tripsIntro:personDeparturePlaceIsHome', {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth,
             nickname,
             dayOne: dayBeforeStr,

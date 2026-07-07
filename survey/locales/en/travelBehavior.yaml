@@ -5,26 +5,18 @@
 buttonSwitchPerson: Change person
 personNoWorkTripIntro: >-
     <strong>You didn't report any work trips</strong> by {{nickname}} on {{assignedDate}}
-household:
-    persons:
-        '{_activePersonId}':
-            journeys:
-                '{_activeJourneyId}':
-                    noWorkTripReason: Why?
-                    noWorkTripReasonSpecify: >-
-                        Please specify the reason why {{nickname}} made no trip for
-                        work on {{assignedDate}}?
-                    noWorkTripReasonSpecify_one: >-
-                        Please specify the reason why you made no trip for work on
-                        {{assignedDate}}?<br /><span class="_pale _oblique">(Optional)</span>
-                    noSchoolTripReason: Why?
-                    noSchoolTripReasonSpecify: >-
-                        Please specify the reason why {{nickname}} made no trip for
-                        school on {{assignedDate}}?
-                    noSchoolTripReasonSpecify_one: >-
-                        Please specify the reason why you made no trip for school
-                        on {{assignedDate}}?<br /><span class="_pale _oblique">(Optional)</span>
+personNoWorkTripReason: Why?
+personNoWorkTripReasonSpecify: >-
+    Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
+personNoWorkTripReasonSpecify_one: >-
+    Please specify the reason why you made no trip for work on {{assignedDate}}?<br
+    /><span class="_pale _oblique">(Optional)</span>
 personNoSchoolTripIntro: >-
     <strong>You didn't report any school trips</strong> by {{nickname}} on {{assignedDate}}.
-travelBehavior:
-    save: Continue
+personNoSchoolTripReason: Why?
+personNoSchoolTripReasonSpecify: >-
+    Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
+personNoSchoolTripReasonSpecify_one: >-
+    Please specify the reason why you made no trip for school on {{assignedDate}}?<br
+    /><span class="_pale _oblique">(Optional)</span>
+buttonTravelBehaviorConfirmNextSection: Continue

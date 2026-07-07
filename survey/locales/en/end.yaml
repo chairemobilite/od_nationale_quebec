@@ -2,48 +2,46 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-household:
-    ownership: Does your household rent or own your home?
-    income: >-
-        What was your household's income range before taxes (gross income), in 2024?<br
-        /><span class="_pale _oblique">Optional</span>
-    pluginHybridCarNumber: >-
-        Among the vehicles owned by your household, how many are <strong>plug-in hybrid
-        vehicles</strong>?<br /><span class="_pale _oblique">Optional</span>
-    electricCarNumber: >-
-        Among the vehicles owned by your household, how many are <strong>electric
-        vehicles</strong>?<br /><span class="_pale _oblique">Optional</span>
-end:
-    wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
-        Would you be interested in <strong>participating in other studies</strong>
-        conducted by the <strong>Chaire Mobilite at Polytechnique Montreal</strong>?
-    wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
-        Please provide the <strong>email address</strong> where you can be reached
-        to participate in other studies by the Chaire Mobilite.
-    commentsOnSurvey: >-
-        Your <strong>comments and suggestions</strong> about the survey<br /><span
-        class="_pale _oblique">Optional</span>
-    optionalIntroText: >-
-        The <strong>next questions are optional</strong> and are added for research
-        purposes. You can complete the interview without answering them.
-    interestOfTheSurvey: >-
-        How <strong>interesting</strong> was this survey to you?<br /><span class="_pale
-        _oblique">Optional</span>
-    timeSpentAnswering: >-
-        How much <strong>time</strong> do you think you <strong>spent answering</strong>
-        this survey (<strong>in minutes</strong>)?<br /><span class="_pale _oblique">Optional</span>
-    durationOfTheSurvey: >-
-        Do you feel that the <strong>length of the survey was too short, about right,
-        or too long</strong>?<br /><span class="_pale _oblique">Optional</span>
-    difficultyOfTheSurvey: >-
-        How <strong>easy</strong> or <strong>difficult</strong> was it for you to
-        answer the questions in this survey?<br /><span class="_pale _oblique">Optional</span>
-    burdenOfTheSurvey: >-
-        How <strong>burdensome (demanding)</strong> did you find this survey to be?<br
-        /><span class="_pale _oblique">Optional</span>
-    consideredAbandoningSurvey: >-
-        Have you considered, at any point, <strong>abandoning the survey</strong>?<br
-        /><span class="_pale _oblique">Optional</span>
+householdOwnership: Does your household rent or own your home?
+householdIncome: >-
+    What was your household's income range before taxes (gross income), in 2024?<br
+    /><span class="_pale _oblique">Optional</span>
+wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
+    Would you be interested in <strong>participating in other studies</strong> conducted
+    by the <strong>Chaire Mobilite at Polytechnique Montreal</strong>?
+wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
+    Please provide the <strong>email address</strong> where you can be reached to
+    participate in other studies by the Chaire Mobilite.
+householdCommentsOnSurvey: >-
+    Your <strong>comments and suggestions</strong> about the survey<br /><span class="_pale
+    _oblique">Optional</span>
+optionalIntroText: >-
+    The <strong>next questions are optional</strong> and are added for research purposes.
+    You can complete the interview without answering them.
+householdPluginHybridCarNumber: >-
+    Among the vehicles owned by your household, how many are <strong>plug-in hybrid
+    vehicles</strong>?<br /><span class="_pale _oblique">Optional</span>
+householdElectricCarNumber: >-
+    Among the vehicles owned by your household, how many are <strong>electric vehicles</strong>?<br
+    /><span class="_pale _oblique">Optional</span>
+endInterestOfTheSurvey: >-
+    How <strong>interesting</strong> was this survey to you?<br /><span class="_pale
+    _oblique">Optional</span>
+endTimeSpentAnswering: >-
+    How much <strong>time</strong> do you think you <strong>spent answering</strong>
+    this survey (<strong>in minutes</strong>)?<br /><span class="_pale _oblique">Optional</span>
+endDurationOfTheSurvey: >-
+    Do you feel that the <strong>length of the survey was too short, about right,
+    or too long</strong>?<br /><span class="_pale _oblique">Optional</span>
+endDifficultyOfTheSurvey: >-
+    How <strong>easy</strong> or <strong>difficult</strong> was it for you to answer
+    the questions in this survey?<br /><span class="_pale _oblique">Optional</span>
+endBurdenOfTheSurvey: >-
+    How <strong>burdensome (demanding)</strong> did you find this survey to be?<br
+    /><span class="_pale _oblique">Optional</span>
+endConsideredAbandoningSurvey: >-
+    Have you considered, at any point, <strong>abandoning the survey</strong>?<br
+    /><span class="_pale _oblique">Optional</span>
 buttonCompleteInterviewWithCompleteSection: Complete the interview
 errors:
     inputRangeMustBePositiveOrZero: Make sure your slider button is inside the range.

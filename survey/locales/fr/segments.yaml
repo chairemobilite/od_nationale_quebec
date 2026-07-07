@@ -3,64 +3,65 @@
 # Any changes made to this file will be overwritten.
 
 buttonSwitchPerson: Changer de personne
-personTripsTitle: Déplacements de {{nickname}} le {{assignedDate}}
-personTripsTitle_one: Vos déplacements le {{assignedDate}}
-segmentsMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le {{assignedDate}}:'
-segmentsMap_one: 'Carte de vos déplacements le {{assignedDate}}:'
-segmentsIntro: >-
+personTripsTitle: Déplacements de {{nickname}} le {{journeyDate}}
+personTripsTitle_one: Vos déplacements le {{journeyDate}}
+personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le
+    {{journeyDate}}:'
+personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDate}}:'
+segmentIntro: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement
     (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
 segments: Mode de transport
-howToBus: >-
+segmentHowToBus: >-
     Comment est-ce que {{nickname}} s'est rendu(e) à l'arrêt/station de transport
     collectif?<br /><span class="_pale _oblique">Si le mode de déplacement n'est pas
     présent, créer un premier mode de transport avant le transport collectif.</span>
-howToBus_male: >-
+segmentHowToBus_male: >-
     Comment est-ce que {{nickname}} s'est rendu à l'arrêt/station de transport collectif?<br
     /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
     un premier mode de transport avant le transport collectif.</span>
-howToBus_female: >-
+segmentHowToBus_female: >-
     Comment est-ce que {{nickname}} s'est rendue à l'arrêt/station de transport collectif?<br
     /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
     un premier mode de transport avant le transport collectif.</span>
-howToBus_one: >-
+segmentHowToBus_one: >-
     Comment vous êtes-vous rendu(e) à l'arrêt/station de transport collectif?<br /><span
     class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
     mode de transport avant le transport collectif.</span>
-howToBus_male_one: >-
+segmentHowToBus_male_one: >-
     Comment vous êtes-vous rendu à l'arrêt/station de transport collectif?<br /><span
     class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
     mode de transport avant le transport collectif.</span>
-howToBus_female_one: >-
+segmentHowToBus_female_one: >-
     Comment vous êtes-vous rendue à l'arrêt/station de transport collectif?<br /><span
     class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
     mode de transport avant le transport collectif.</span>
-paidForParking: Stationnement payant?
-vehicleOccupancy: >-
+segmentPaidForParking: Stationnement payant?
+segmentVehicleOccupancy: >-
     Personne(s) dans le véhicule<br /><span class="_pale _oblique">Conducteur ou conductrice
     inclus(e).</span>
-driver: Qui conduisait ?
-busLines: >-
+segmentDriver: Qui conduisait ?
+segmentBusLines: >-
     <strong>Ligne(s) de bus utilisée(s)</strong> (dans l'ordre chronologique)<br /><span
     class="_pale _oblique">Pour chaque ligne utilisée, inscrivez le numéro de la ligne
     ou son nom puis sélectionnez-la dans la liste des résultats.</span>
-busLinesWarning: >-
-    Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures
+segmentBusLinesWarning: >-
+    Certaines lignes de bus sélectionnées semblent invalides pour ce trajet aux heures
     mentionnées. Veuillez valider les lignes.
-onDemandType: Est-ce un transport sur demande?
+segmentOnDemandType: Est-ce un transport sur demande?
 tripJunctionQueryString: >-
     Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de
     transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la
     carte
-junctionGeography: >-
+tripJunctionGeography: >-
     Veuillez localiser <strong>le point de jonction</strong> (lieu où s'est effectué
     le changement de mode de transport):<br /><span class="_pale _oblique">Naviguez,
     zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous
     pourrez déplacer le point sur la carte pour davantage de précision.<br />Vous
     pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse
     (bouton "Chercher le lieu à partir du nom").</span>
-trip:
-    save: Confirmer ce déplacement
+buttonSaveTrip: Confirmer ce déplacement
+buttonConfirmNextSection: Confirmer les lieux et continuer
 segmentsIntroOnTheRoad: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer les déplacements
     sur la route, dans l'ordre chronologique:
@@ -120,3 +121,33 @@ mode:
     Other: <strong>Autre</strong>
     Taxi: <strong>Taxi</strong> ou équivalent (ex. Uber)
     DontKnow: <strong>Je ne sais pas</strong> / Préfère ne pas répondre
+    short:
+        Walk: Marche
+        Bicycle: Vélo
+        BicycleElectric: Vélo électrique
+        KickScooterElectric: Trottinette électrique
+        Wheelchair: Chaise roulante
+        MobilityScooter: Quadriporteur/triporteur
+        TransitRRT: Métro
+        TransitLRRT: REM
+        TransitRegionalRail: Train de banlieue (exo)
+        TransitStreetCar: Tramway
+        TransitBus: Bus (transport collectif)
+        TransitTaxi: Taxi collectif / Transport à la demande
+        IntercityBus: Bus interurbain
+        SchoolBus: Autobus scolaire (jaune)
+        OtherBus: Bus nolisé ou privé
+        CarDriverRental: Voiture louée
+        CarDriver: Voiture personnelle
+        CarDriverCarsharing: Autopartage
+        Motorcycle: Moto ou scooter
+        TransitFerry: Traversier ou navette fluviale sans véhicule
+        FerryWithCar: Traversier avec véhicule
+        IntercityTrain: Train interurbain
+        CarPassenger: Passager (voiture/moto/scooter)
+        OtherActiveMode: Autre mobilité active (course, trottinette, skateboard)
+        Paratransit: Transport adapté
+        Plane: Avion
+        Other: Autre
+        Taxi: Taxi ou équivalent (ex. Uber)
+        DontKnow: Je ne sais pas / Préfère ne pas répondre

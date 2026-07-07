@@ -6,14 +6,14 @@ activePersonTitle: >-
     <p class="_center _em" style="margin-bottom: 0;">Entrevue de <strong>{{nickname}}</strong></p><p
     class="_center _pale">•</p>
 buttonSwitchPerson: Changer de personne
-_showNewPersonPopupButton: >-
+personNewPerson: >-
     Nous allons vous demander de spécifier les déplacements de <strong>{{nickname}}</strong>.<br
     /><br />L’ordre des personnes interviewées est aléatoire.<br /><br /><details><summary>Pourquoi
     l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour
     lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort).
     Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer
     des données de qualité homogène.</details>
-whoAnswers: Qui répond pour {{nickname}}?
+personWhoWillAnswerForThisPerson: Qui répond pour {{nickname}}?
 personDidTrips: >-
     Est-ce que {{nickname}} s'est déplacé(e) le {{assignedDate}}?<br /><span class="_pale
     _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
@@ -59,7 +59,7 @@ personDidTripsConfirm_male_one: >-
 personDidTripsConfirm_female_one: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
     que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?
-didTripsIntro: >-
+visitedPlacesIntro: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé(e) le
     {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br
     /><br /><span class="_green">- <strong>Inclure même les petits arrêts</strong>
@@ -70,7 +70,7 @@ didTripsIntro: >-
     <strong>Ne pas inclure les lieux de transfert</strong> en cours de déplacement
     (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}}
     est allé(e) reconduire ou chercher quelqu'un à cet endroit.</span>
-didTripsIntro_male: >-
+visitedPlacesIntro_male: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé le {{assignedDate}}
     (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
     <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
@@ -81,7 +81,7 @@ didTripsIntro_male: >-
     de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
     lieux de stationnement, etc.) sauf si {{nickname}} est allé reconduire ou chercher
     quelqu'un à cet endroit.</span>
-didTripsIntro_female: >-
+visitedPlacesIntro_female: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allée le {{assignedDate}}
     (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
     <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
@@ -92,7 +92,7 @@ didTripsIntro_female: >-
     de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
     lieux de stationnement, etc.) sauf si {{nickname}} est allée reconduire ou chercher
     quelqu'un à cet endroit.</span>
-didTripsIntro_one: >-
+visitedPlacesIntro_one: >-
     Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allé(e) le
     {{assignedDate}}</strong> (inclure les lieux visités jusqu'à 4:00 le lendemain
     matin)<br /><br /><span class="_green">- <strong>Inclure même les petits arrêts</strong>
@@ -103,7 +103,7 @@ didTripsIntro_one: >-
     <strong>Ne pas inclure les lieux de transfert</strong> en cours de déplacement
     (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si vous êtes
     allé(e) reconduire ou chercher quelqu'un à cet endroit.</span>
-didTripsIntro_male_one: >-
+visitedPlacesIntro_male_one: >-
     Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allé le {{assignedDate}}</strong>
     (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
     <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
@@ -114,7 +114,7 @@ didTripsIntro_male_one: >-
     de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
     lieux de stationnement, etc.) sauf si vous êtes allé reconduire ou chercher quelqu'un
     à cet endroit.</span>
-didTripsIntro_female_one: >-
+visitedPlacesIntro_female_one: >-
     Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allée le {{assignedDate}}</strong>
     (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
     <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
@@ -125,45 +125,39 @@ didTripsIntro_female_one: >-
     de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
     lieux de stationnement, etc.) sauf si vous êtes allée reconduire ou chercher quelqu'un
     à cet endroit.</span>
-departurePlaceIsHome: >-
+personDeparturePlaceIsHome: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si {{nickname}} n'a pas
     dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré(e) après
     4h du matin (par ex.: travail de nuit).</span>
-departurePlaceIsHome_male: >-
+personDeparturePlaceIsHome_male: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si {{nickname}} n'a pas
     dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré après 4h
     du matin (par ex.: travail de nuit).</span>
-departurePlaceIsHome_female: >-
+personDeparturePlaceIsHome_female: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si {{nickname}} n'a pas
     dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentrée après 4h
     du matin (par ex.: travail de nuit).</span>
-departurePlaceIsHome_one: >-
+personDeparturePlaceIsHome_one: >-
     Avez-vous <strong>commencé votre journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si vous n'avez pas dormi
     au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentré(e) après 4h du
     matin (par ex.: travail de nuit).</span>
-departurePlaceIsHome_male_one: >-
+personDeparturePlaceIsHome_male_one: >-
     Avez-vous <strong>commencé votre journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si vous n'avez pas dormi
     au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentré après 4h du matin
     (par ex.: travail de nuit).</span>
-departurePlaceIsHome_female_one: >-
+personDeparturePlaceIsHome_female_one: >-
     Avez-vous <strong>commencé votre journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si vous n'avez pas dormi
     au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentrée après 4h du
     matin (par ex.: travail de nuit).</span>
-household:
-    persons:
-        '{_activePersonId}':
-            journeys:
-                '{_activeJourneyId}':
-                    departurePlaceOther: Où était {{nickname}} à 4h du matin?
-                    departurePlaceOther_one: Où étiez-vous à 4h du matin?
-tripsIntro:
-    save: Continuer
+personDeparturePlaceOther: Où était {{nickname}} à 4h du matin?
+personDeparturePlaceOther_one: Où étiez-vous à 4h du matin?
+tripsIntro_save: Continuer
 tripsIntroOutro: >-
     <span class="_pale _oblique">Vos réponses serviront à évaluer l'usage et l'achalandage
     des réseaux routiers et de transport collectif et demeureront entièrement confidentielles</span>

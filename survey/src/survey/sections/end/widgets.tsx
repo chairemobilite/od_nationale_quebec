@@ -18,7 +18,7 @@ export const householdOwnership: WidgetConfig.InputRadioType = {
     path: 'household.ownership',
     twoColumns: false,
     containsHtml: false,
-    label: (t: TFunction) => t('end:household.ownership'),
+    label: (t: TFunction) => t('end:householdOwnership'),
     choices: choices.householdOwnershipChoices,
     conditional: defaultConditional,
     validations: validations.requiredValidation
@@ -29,7 +29,7 @@ export const householdIncome: WidgetConfig.InputSelectType = {
     path: 'household.income',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:household.income'),
+    label: (t: TFunction) => t('end:householdIncome'),
     choices: choices.householdIncomeChoices,
     conditional: defaultConditional,
     validations: validations.requiredValidation
@@ -40,7 +40,7 @@ export const wouldLikeToParticipateInOtherSurveysChaireMobilite: WidgetConfig.In
     path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobilite',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.wouldLikeToParticipateInOtherSurveysChaireMobilite'),
+    label: (t: TFunction) => t('end:wouldLikeToParticipateInOtherSurveysChaireMobilite'),
     choices: choices.yesNo,
     conditional: defaultConditional,
     validations: validations.requiredValidation
@@ -51,7 +51,7 @@ export const wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: Wid
     path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail'),
+    label: (t: TFunction) => t('end:wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail'),
     conditional: conditionals.wantToParticipateInOtherSurveysChaireMobiliteConditional,
     validations: validations.emailValidation
 };
@@ -61,7 +61,7 @@ export const householdCommentsOnSurvey: WidgetConfig.InputTextType = {
     path: 'end.commentsOnSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.commentsOnSurvey'),
+    label: (t: TFunction) => t('end:householdCommentsOnSurvey'),
     conditional: defaultConditional,
     validations: validations.optionalValidation
 };
@@ -70,7 +70,7 @@ export const optionalIntroText: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'end.optionalIntroText',
     containsHtml: true,
-    text: (t: TFunction) => t('end:end.optionalIntroText'),
+    text: (t: TFunction) => t('end:optionalIntroText'),
     conditional: defaultConditional
 };
 
@@ -79,7 +79,7 @@ export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType =
     path: 'household.pluginHybridCarNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:household.pluginHybridCarNumber'),
+    label: (t: TFunction) => t('end:householdPluginHybridCarNumber'),
     valueRange: {
         min: 0,
         max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
@@ -93,7 +93,7 @@ export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
     path: 'household.electricCarNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:household.electricCarNumber'),
+    label: (t: TFunction) => t('end:householdElectricCarNumber'),
     valueRange: {
         min: 0,
         max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
@@ -108,7 +108,7 @@ export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {
     path: 'end.interestOfTheSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.interestOfTheSurvey'),
+    label: (t: TFunction) => t('end:endInterestOfTheSurvey'),
     conditional: defaultConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
@@ -118,7 +118,7 @@ export const endTimeSpentAnswering: WidgetConfig.InputStringType = {
     path: 'end.timeSpentAnswering',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.timeSpentAnswering'),
+    label: (t: TFunction) => t('end:endTimeSpentAnswering'),
     conditional: defaultConditional,
     validations: validations.optionalValidation
 };
@@ -129,7 +129,7 @@ export const endDurationOfTheSurvey: WidgetConfig.InputRangeType = {
     path: 'end.durationOfTheSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.durationOfTheSurvey'),
+    label: (t: TFunction) => t('end:endDurationOfTheSurvey'),
     conditional: defaultConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
@@ -140,7 +140,7 @@ export const endDifficultyOfTheSurvey: WidgetConfig.InputRangeType = {
     path: 'end.difficultyOfTheSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.difficultyOfTheSurvey'),
+    label: (t: TFunction) => t('end:endDifficultyOfTheSurvey'),
     conditional: defaultConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
@@ -151,7 +151,7 @@ export const endBurdenOfTheSurvey: WidgetConfig.InputRangeType = {
     path: 'end.burdenOfTheSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.burdenOfTheSurvey'),
+    label: (t: TFunction) => t('end:endBurdenOfTheSurvey'),
     conditional: defaultConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
@@ -161,7 +161,7 @@ export const endConsideredAbandoningSurvey: WidgetConfig.InputRadioType = {
     path: 'end.consideredAbandoningSurvey',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('end:end.consideredAbandoningSurvey'),
+    label: (t: TFunction) => t('end:endConsideredAbandoningSurvey'),
     choices: choices.yesNoDontKnow,
     conditional: defaultConditional,
     validations: validations.optionalValidation

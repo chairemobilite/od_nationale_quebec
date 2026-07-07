@@ -3,43 +3,43 @@
 # Any changes made to this file will be overwritten.
 
 buttonSwitchPerson: Change person
-personTripsTitle: Trips made by {{nickname}} on {{assignedDate}}
-personTripsTitle_one: Trips you made on {{assignedDate}}
-segmentsMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
-segmentsMap_one: 'Map of your trips on {{assignedDate}}:'
-segmentsIntro: >-
+personTripsTitle: Trips made by {{nickname}} on {{journeyDate}}
+personTripsTitle_one: Trips you made on {{journeyDate}}
+personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDate}}:'
+personVisitedPlacesMap_one: 'Map of your trips on {{journeyDate}}:'
+segmentIntro: >-
     Please indicate all modes of transport used for this trip (from {{originName}}
     to {{destinationName}}), in chronological order:
 segments: Mode of transport
-howToBus: >-
+segmentHowToBus: >-
     How did {{nickname}} reach the transit stop?<br /><span class="_pale _oblique">If
     the mode used is not present, create a first mode before the transit mode.</span>
-howToBus_one: >-
+segmentHowToBus_one: >-
     How did you reach the transit stop?<br /><span class="_pale _oblique">If the mode
     used is not present, create a first mode before the transit mode.</span>
-paidForParking: Paid parking
-vehicleOccupancy: >-
+segmentPaidForParking: Paid parking
+segmentVehicleOccupancy: >-
     Persons in the vehicle<br /><span class="_pale _oblique">Including the driver.</span>
-driver: Who drove?
-busLines: >-
+segmentDriver: Who drove?
+segmentBusLines: >-
     <strong>Bus line(s) taken</strong> (in chronological order)<br /><span class="_pale
     _oblique">For each line, begin by typing the number or name, then select it from
     the results shown.</span>
-busLinesWarning: Some bus line(s) seem invalid for this trip. Please validate the
-    lines.
-onDemandType: Is this an on-demand service?
+segmentBusLinesWarning: Some bus line(s) seem invalid for this trip. Please validate
+    the lines.
+segmentOnDemandType: Is this an on-demand service?
 tripJunctionQueryString: >-
     Please specify the address or the name of the location where the change in mode
     of transport occurred (terminal, transit stop, parking lot, etc.) or click directly
-    on map
-junctionGeography: >-
+    on the map
+tripJunctionGeography: >-
     Please locate the <strong>junction point</strong> (location where the change in
     mode of transport occurred).<br /><span class="_pale _oblique">Navigate, zoom,
     and click on the map to identify the location. Once located, you can move the
     marker for greater precision.<br />You can also search for the place on the map
     using the name or address indicated above ("Find the place from the name" button).</span>
-trip:
-    save: Confirm this trip
+buttonSaveTrip: Confirm this trip
+buttonConfirmNextSection: Confirm locations and continue
 segmentsIntroOnTheRoad: >-
     Please indicate all modes of transport used to complete work trip on the road,
     in chronological order:
@@ -96,3 +96,33 @@ mode:
     Other: <strong>Other</strong>
     Taxi: <strong>Taxi</strong> or equivalent (eg. Uber)
     DontKnow: <strong>I don't know</strong> / Prefer not to answer
+    short:
+        Walk: Walking
+        Bicycle: Bicycle
+        BicycleElectric: E-Bike (electric bicycle)
+        KickScooterElectric: E-Scooter (electric scooter)
+        Wheelchair: Wheelchair
+        MobilityScooter: Mobility scooter
+        TransitRRT: Metro (subway)
+        TransitLRRT: REM
+        TransitRegionalRail: Commuter train (exo)
+        TransitStreetCar: Tram
+        TransitBus: Bus (public transit)
+        TransitTaxi: Taxibus / On-demand transport
+        IntercityBus: Intercity bus
+        SchoolBus: School bus (yellow)
+        OtherBus: Chartered or private bus
+        CarDriverRental: Rental car
+        CarDriver: Personal car
+        CarDriverCarsharing: Carsharing
+        Motorcycle: Motorcycle or moped
+        TransitFerry: Ferry or river shuttle without vehicle
+        FerryWithCar: Ferry with vehicles
+        IntercityTrain: Intercity train
+        CarPassenger: Passenger (car/motorcycle/moped)
+        OtherActiveMode: Other active modes (running, scooter, skateboard)
+        Paratransit: Paratransit
+        Plane: Airplane
+        Other: Other
+        Taxi: Taxi or equivalent (eg. Uber)
+        DontKnow: I don't know / Prefer not to answer

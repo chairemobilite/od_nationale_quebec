@@ -27,8 +27,7 @@ export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason',
     twoColumns: false,
     containsHtml: false,
-    label: (t: TFunction) =>
-        t('travelBehavior:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason'),
+    label: (t: TFunction) => t('travelBehavior:personNoWorkTripReason'),
     choices: choices.noWorkTripReasonChoices,
     conditional: customConditionals.shouldAskForNoWorkTripReasonCustomConditional,
     validations: validations.requiredValidation
@@ -45,8 +44,7 @@ export const personNoSchoolTripReason: WidgetConfig.InputSelectType = {
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason',
     twoColumns: false,
     containsHtml: false,
-    label: (t: TFunction) =>
-        t('travelBehavior:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason'),
+    label: (t: TFunction) => t('travelBehavior:personNoSchoolTripReason'),
     choices: choices.noSchoolTripReasonChoices,
     conditional: customConditionals.shouldAskForNoSchoolTripReasonCustomConditional,
     validations: validations.requiredValidation
@@ -58,6 +56,6 @@ export const personNoSchoolTripReasonSpecify = customWidgets.personNoSchoolTripR
 export const buttonTravelBehaviorConfirmNextSection: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'travelBehavior.save',
-    label: (t: TFunction) => t('travelBehavior:travelBehavior.save'),
+    label: (t: TFunction) => t('travelBehavior:buttonTravelBehaviorConfirmNextSection'),
     conditional: defaultConditional
 };

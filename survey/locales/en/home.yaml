@@ -14,32 +14,30 @@ contactInformationIntro: Please enter the email <strong>or</strong> phone number
 contactEmail: <strong>Email address</strong>
 phoneNumber: >-
     <strong>Phone number</strong><br /><span class="_pale _oblique">Format: 123-456-7890</span>
-home:
-    address: <strong>Address</strong>
-    city: <strong>City</strong> or <strong>municipality</strong>
-    region: <strong>Province</strong>
-    country: <strong>Country</strong>
-    postalCode: <strong>Postal Code</strong>
-    geography: >-
-        <strong>Positioning your home</strong><br />Search for your home using its
-        postal code or address by clicking the button below, or please position the
-        location on the map by navigating, zooming, and clicking. Once the location
-        is located, you can move the point for greater precision.
-    save: Save and continue
-household:
-    size: >-
-        <strong>Persons living in your home</strong><br /><span class="_pale _oblique">Including
-        yourself and children in shared custody if they were at your home on {{assignedDate}}.</span>
-    carNumber: >-
-        <strong>Cars</strong>, SUVs, light-duty trucks or vans, etc.<br /><span class="_pale
-        _oblique">Available to one or more members of your household.</span>
-    bicycleNumber: >-
-        <strong>Bicycles</strong>, electric bicycles (e-bikes), or electric scooters
-        owned by household members<br /><span class="_pale _oblique">Include only
-        usable bicycles in good condition.</span>
-    electricBicycleNumber: >-
-        Among these bicycles, how many are <strong>electric bicycles</strong> (e-bikes)?
-    atLeastOnePersonWithDisability: >-
-        Is there at least one person in your household having a <strong>permanent
-        disability that limits their daily travel?</strong><br /><span class="_pale
-        _oblique">Including yourself</span>
+home_address: <strong>Address</strong>
+home_city: <strong>City</strong> or <strong>municipality</strong>
+home_region: <strong>Province</strong>
+home_country: <strong>Country</strong>
+home_postalCode: <strong>Postal Code</strong>
+home_geography: >-
+    <strong>Positioning your home</strong><br />Search for your home using its postal
+    code or address by clicking the button below, or please position the location
+    on the map by navigating, zooming, and clicking. Once the location is located,
+    you can move the point for greater precision.
+household_size: >-
+    <strong>Persons living in your home</strong><br /><span class="_pale _oblique">Including
+    yourself and children in shared custody if they were at your home on {{assignedDate}}.</span>
+household_carNumber: >-
+    <strong>Cars</strong>, SUVs, light-duty trucks or vans, etc.<br /><span class="_pale
+    _oblique">Available to one or more members of your household.</span>
+household_bicycleNumber: >-
+    <strong>Bicycles</strong>, electric bicycles (e-bikes), or electric scooters owned
+    by household members<br /><span class="_pale _oblique">Include only usable bicycles
+    in good condition.</span>
+household_electricBicycleNumber: >-
+    Among these bicycles, how many are <strong>electric bicycles</strong> (e-bikes)?
+household_atLeastOnePersonWithDisability: >-
+    Is there at least one person in your household having a <strong>permanent disability
+    that limits their daily travel?</strong><br /><span class="_pale _oblique">Including
+    yourself</span>
+home_save: Save and continue

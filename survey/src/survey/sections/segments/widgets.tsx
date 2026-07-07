@@ -42,7 +42,7 @@ export const segmentPaidForParking: WidgetConfig.InputRadioType = {
     path: 'paidForParking',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('segments:paidForParking'),
+    label: (t: TFunction) => t('segments:segmentPaidForParking'),
     choices: choices.yesNoDontKnow,
     conditional: customConditionals.isCarDriverAndDestinationWorkCustomConditional,
     validations: validations.requiredValidation
@@ -53,7 +53,7 @@ export const segmentVehicleOccupancy: WidgetConfig.InputRadioNumberType = {
     path: 'vehicleOccupancy',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('segments:vehicleOccupancy'),
+    label: (t: TFunction) => t('segments:segmentVehicleOccupancy'),
     valueRange: {
         min: 1,
         max: 5
@@ -76,7 +76,7 @@ export const segmentOnDemandType: WidgetConfig.InputRadioType = {
     path: 'onDemandType',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('segments:onDemandType'),
+    label: (t: TFunction) => t('segments:segmentOnDemandType'),
     choices: customChoices.onDemandCustomChoices,
     conditional: customConditionals.shouldDisplayOnDemandTypeCustomConditional,
     validations: validations.requiredValidation

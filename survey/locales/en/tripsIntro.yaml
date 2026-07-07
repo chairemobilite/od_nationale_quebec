@@ -3,16 +3,16 @@
 # Any changes made to this file will be overwritten.
 
 activePersonTitle: >-
-    <p class="_center _em" style="margin-bottom: 0;"><strong>{{nickname}}</strong>’s
+    <p class="_center _em" style="margin-bottom: 0;"><strong>{{nickname}}</strong>'s
     interview</p><p class="_center _pale">•</p>
 buttonSwitchPerson: Change person
-_showNewPersonPopupButton: >-
+personNewPerson: >-
     We will ask you to specify <strong>{{nickname}}</strong>’s trips.<br /><br />The
     order of the interviewed persons was randomly selected.<br /><br /><details><summary>Why
     might the order of persons have been changed?</summary>The order of persons for
     whom we ask you to specify trips is randomized. This helps avoid any bias related
     to the reporting sequence and ensures consistent data quality.</details>
-whoAnswers: Who is responding for {{nickname}}?
+personWhoWillAnswerForThisPerson: Who is responding for {{nickname}}?
 personDidTrips: >-
     Did {{nickname}} make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
     all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
@@ -27,7 +27,7 @@ personDidTripsConfirm: >-
 personDidTripsConfirm_one: >-
     You already declared trips. Do you confirm they are erroneous and that you did
     not make any trips on {{formattedTripsDate}}?
-didTripsIntro: >-
+visitedPlacesIntro: >-
     Please specify the <strong>places {{nickname}} went on {{assignedDate}}</strong>
     (include all places visited until 4 AM the following morning)<br /><br /><span
     class="_green">- <strong>Include short stops and errands</strong> (gas station,
@@ -37,7 +37,7 @@ didTripsIntro: >-
     taxi, plane, boat, etc.).</span><br /><span class="_red">- <strong>Do not include
     transfer locations</strong> (bus stops, train stations, terminals, parking lots,
     etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
-didTripsIntro_one: >-
+visitedPlacesIntro_one: >-
     Please specify the <strong>places you went on {{assignedDate}}</strong> (include
     all places visited until 4 AM the following morning)<br /><br /><span class="_green">-
     <strong>Include short stops and errands</strong> (gas station, daycare/school,
@@ -47,24 +47,18 @@ didTripsIntro_one: >-
     /><span class="_red">- <strong>Do not include transfer locations</strong> (bus
     stops, train stations, terminals, parking lots, etc.) unless you went there to
     drop someone off or pick someone up.</span>
-departurePlaceIsHome: >-
+personDeparturePlaceIsHome: >-
     Did {{nickname}} <strong>start their day at home</strong> ({{address}})?<br /><span
     class="_pale _oblique">Answer 'No' only if {{nickname}} did not sleep at home
-    (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work
+    (night from {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work
     shift).</span>
-departurePlaceIsHome_one: >-
+personDeparturePlaceIsHome_one: >-
     Did you <strong>start your day at home</strong> ({{address}})?<br /><span class="_pale
-    _oblique">Answer 'No' only if you did not sleep at home (nuit du {{dayOne}} au
-    {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).</span>
-household:
-    persons:
-        '{_activePersonId}':
-            journeys:
-                '{_activeJourneyId}':
-                    departurePlaceOther: Where was {{nickname}} at 4 AM?
-                    departurePlaceOther_one: Where were you at 4 AM?
-tripsIntro:
-    save: Continue
+    _oblique">Answer 'No' only if you did not sleep at home (night from {{dayOne}}
+    to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).</span>
+personDeparturePlaceOther: Where was {{nickname}} at 4 AM?
+personDeparturePlaceOther_one: Where were you at 4 AM?
+tripsIntro_save: Continue
 tripsIntroOutro: >-
     <span class="_pale _oblique">Your answers will be used to assess the use and traffic
     of the road and public transit networks and will remain entirely confidential</span>
