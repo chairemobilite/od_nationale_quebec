@@ -1,0 +1,282 @@
+questionName,inputType,active,section,group,path,label::fr,label::en,label_one::fr,label_one::en,parameters,appearance,conditional,validation,choices,help_popup,inputRange,confirm_popup,containsHtml,customPath,customChoice,defaultValue,includeNotApplicable,comments
+accessCode,String,True,home,,accessCode,"**Code d'accès**
+__Inscrit dans la lettre reçue.__","**Access code**
+__Printed on the letter you received.__",,,formatter=eightDigitsAccessCodeFormatter,,accessCodeIsSetCustomConditional,accessCodeValidation,,,,,True,,,,,
+acceptToBeContactedForHelp,Radio,True,home,,acceptToBeContactedForHelp,"Je consens à être contacté(e) pour **continuer ou préciser le questionnaire**. 
+__Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.__","I consent to be contacted to **continue the survey**.
+__If I do not complete it or if some of the information provided is incoherent.__",,,,,,,yesNo,,,,True,,,,,
+contactInformationIntro,InfoText,True,home,,contactInformationIntro,Veuillez saisir le courriel **ou** le numéro de téléphone pour vous recontacter.,Please enter the email **or** phone number to get in contact,,,,,acceptsToBeContactedForHelp,,,,,,True,,,,,
+contactEmail,String,True,home,,contactEmail,**Adresse courriel**,**Email address**,,,,,acceptsToBeContactedForHelp,emailOptionalCustomValidation,,,,,True,,,,,
+phoneNumber,String,True,home,,phoneNumber,"**Numéro de téléphone**
+__Format: 123-456-7890__","**Phone number**
+__Format: 123-456-7890__",,,,join_with=${contactEmail},acceptsToBeContactedForHelp,phoneOptionalCustomValidation,,,,,True,,,,,
+home_address,String,True,home,,home.address,**Adresse**,**Address**,,,,,,,,,,,True,,,,,
+home_city,String,True,home,,home.city,**Ville** ou **municipalité**,**City** or **municipality**,,,,,,,,,,,True,,,,,
+home_region,String,True,home,,home.region,**Province**,**Province**,,,,,hiddenWithQuebecAsDefaultValueCustomConditional,,,,,,True,,,Québec,,
+home_country,String,True,home,,home.country,**Pays**,**Country**,,,,,hiddenWithCanadaAsDefaultValueCustomConditional,,,,,,True,,,Canada,,
+home_postalCode,String,True,home,,home.postalCode,**Code postal**,**Postal Code**,,,formatter=canadianPostalCodeFormatter,,,postalCodeValidation,,,,,True,,,,,
+home_geography,Custom,True,home,,home.geography,"**Positionnement de votre domicile**
+Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.","**Positioning your home**
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.",,,,,,,,,,,True,,,,,
+household_size,Custom,True,home,,household.size,"**Personnes habitant votre domicile** ou logement
+__Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}.__","**Persons living in your home**
+__Including yourself and children in shared custody if they were at your home on {{assignedDate}}.__",,,"min=1
+max=6
+overMaxAllowed",,,householdSizeValidation,,householdSizeHelpPopup,,,True,,,,,
+household_carNumber,RadioNumber,True,home,,household.carNumber,"**Automobiles**, VUS, camions légers ou fourgonnettes, etc.
+__À la disposition de votre ménage.__","**Cars**, SUVs, light-duty trucks or vans, etc.
+__Available to one or more members of your household.__",,,"min=0
+max=5
+overMaxAllowed",,,carNumberValidation,,householdCarNumberHelpPopup,,,True,,,,,
+household_bicycleNumber,RadioNumber,True,home,,household.bicycleNumber,"**Vélos**, vélos électriques ou trottinettes électriques possédés par les membres du ménage
+__Inclure seulement les vélos utilisables en bon état.__","**Bicycles**, electric bicycles (e-bikes), or electric scooters owned by household members
+__Include only usable bicycles in good condition.__",,,"min=0
+max=5
+overMaxAllowed",,,bicycleNumberValidation,,,,,True,,,,,
+household_electricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos électriques** ou à assistance électrique?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
+max=household.bicycleNumber",,hasHouseholdBicycleConditional,bicycleNumberValidation,,,,,True,,,,,
+household_atLeastOnePersonWithDisability,Radio,True,home,,household.atLeastOnePersonWithDisability,"Y a-t-il au moins une personne dans votre ménage avec une **incapacité permanente qui limite ses déplacements quotidiens**?
+__Y compris vous-même__","Is there at least one person in your household having a **permanent disability that limits their daily travel?**
+__Including yourself__",,,,,hasHouseholdSize2OrMoreConditional,,yesNoPreferNotToAnswer,,,,True,,,,,
+home_save,NextButton,True,home,,home.save,Enregistrer et continuer,Save and continue,,,,,,,,,,,True,,,,,
+householdMembers,Custom,True,household,,,,,,,,,,,,,,,True,,,,,
+personAge,Number,True,household,householdMembers,age,**Âge** (en années),**Age** (in years),Votre **âge** (en années),Your **age** (in years),,,,ageValidation,,,,,True,,,,,
+personNickname,String,True,household,householdMembers,nickname,"**Nom ou surnom** pour identifier cette personne pour la suite de l'entrevue
+__Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.__","**Name or nickname** that will allow you to identify this person for the remainder of the interview
+__Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+The name is only used to simplify the response process and will be removed from the final dataset.__",,,,,hasPersonCount2OrMoreCustomConditional,,,,,,True,,,,,
+personHasDisability,Radio,True,household,householdMembers,hasDisability,"**Incapacité permanente d'ordre physique, intellectuelle ou autre** qui influence ou limite ses déplacements quotidiens?","**Permanent physical, intellectual or other disability** which influences or limits their daily mobility?","**Incapacité permanente d'ordre physique, intellectuelle ou autre** qui influence ou limite vos déplacements quotidiens?","**Permanent physical, intellectual or other disability** which influences or limits your daily mobility?",,,hasOnePersonWithDisabilityOrHhSize1Conditional,,yesNoPreferNotToAnswer,,,,True,,,,,
+personSexAssignedAtBirth,Radio,True,household,householdMembers,sexAssignedAtBirth,"**Sexe à la naissance**
+__Sexe assigné à la naissance ou inscrit dans les documents légaux.__","**Sex at birth**
+__Sex assigned at birth or that which appears on legal documents.__",,,,,ifAge5orMoreConditional,,maleFemalePreferNotAnswer,,,,True,,,,,
+personGender,Radio,True,household,householdMembers,gender,Je préfère donner le **genre**,I prefer to give the **gender**,,,,,hasPreferNotToAnswerToSexAssignedConditional,,maleFemaleCustomPreferNotToAnswer,,,,True,genderCustom,custom,,,"If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender"
+personWorkerType,Radio,True,household,householdMembers,workerType,"**Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}**
+__Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste.__","**Worker**
+__Including self-employed and artist.__",,,,,ifAge14orMoreConditional,,participationStatusWorker,,,,True,,,,,
+personStudentType,Radio,True,household,householdMembers,studentType,**Étudiant{{gender:/e/(e)/(e)}}**,**Student**,,,,,ifAge16OrMoreConditional,,participationStatusStudent,,,,True,,,,,
+personSchoolType,Custom,True,household,householdMembers,schoolType,**Établissement d'enseignement**,**Educational institution**,,,,,ifAge15OrLessConditional,,schoolType,,,,True,schoolTypeOther,other,,,
+personOccupation,Radio,True,household,householdMembers,occupation,**Occupation principale**,**Main occupation**,,,,,personOccupationCustomConditional,,personOccupation,,,,True,,,,,
+personWorkerTypeBeforeLeave,Radio,True,household,householdMembers,workerTypeBeforeLeave,"**Avant d’être en congé**, est-ce que {{nickname}} travaillait?","**Before being on leave**, did {{nickname}} work?","**Avant d’être en congé**, est-ce que vous travailliez?","**Before being on leave**, did you work?",,,parentalOrSickLeaveConditional,,participationStatusWorker,,,,True,,,,,
+personEducationalAttainment,Radio,True,household,householdMembers,educationalAttainment,"Plus haut **niveau de scolarité**
+__En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours.__","Highest level of **educational attainment**
+__When in doubt, choose the level which seems to match best__",,,,,ifAge15OrMoreConditional,,educationalAttainment,,,,True,,,,,
+personDrivingLicenseOwnership,Radio,True,household,householdMembers,drivingLicenseOwnership,"**Permis de conduire**
+__Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.__","**Driver's licence**
+__Include learner's and probationary permits, but do not include moped (motorized scooter) permits.__",,,,,ifAge16OrMoreConditional,,yesNoDontKnow,,,,True,,,,,
+personCarSharingMember,Radio,True,household,householdMembers,carSharingMember,"Membre **Autopartage**
+__Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)__","**Carsharing** member
+__Subscription or pass to a carsharing service (ex. Communauto)__",,,,,hasDrivingLicenseConditional,,yesNoDontKnow,,,,True,,,,,
+personTransitPasses,Checkbox,True,household,householdMembers,transitPasses,Est-ce que {{nickname}} détient présentement **un laissez-passer ou un abonnement** de transport en commun valide?,Does {{nickname}} currently have a valid transit **pass or ticket**?,Détenez-vous présentement **un laissez-passer ou un abonnement** de transport en commun valide?,Do you currently have a valid transit **pass or ticket**?,,,ifAge6OrMoreConditional,transitFareCustomValidation,transitFareType,,,,True,,,,,
+personWorkPlaceType,Radio,True,household,householdMembers,workPlaceType,Est-ce que {{nickname}} a un **lieu d'emploi** fixe?,Does {{nickname}} have a fixed **work location**?,Avez-vous un **lieu d'emploi** fixe?,Do you have a fixed **work location**?,,,isWorkerConditional,,workPlaceTypeChoices,,,,True,,,,,
+personWorkPlaceTypeBeforeLeave,Radio,True,household,householdMembers,workPlaceTypeBeforeLeave,"**Avant d’être en congé**, est-ce que {{nickname}} avait un **lieu d'emploi** fixe?","**Before being on leave**, did {{nickname}} have a fixed **work location**?","**Avant d’être en congé**, aviez-vous un **lieu d'emploi** fixe?","**Before being on leave**, did you have a fixed **work location**?",,,wasWorkerBeforeLeaveConditional,,workPlaceBeforeLeaveTypeCustomChoices,,,,True,,,,,
+personSchoolPlaceType,Radio,True,household,householdMembers,schoolPlaceType,Est-ce que {{nickname}} a un **lieu d'études** fixe?,Does {{nickname}} have a fixed **study location**?,Avez-vous un **lieu d'études** fixe?,Do you have a fixed **study location**?,,,isStudentConditional,,schoolPlaceTypeChoices,,,,True,,,,,
+personUsualWorkPlaceName,String,True,household,householdMembers,usualWorkPlace.name,**Nom ou adresse** du **lieu habituel de travail** de {{nickname}},**Name or address** of {{nickname}}'s **usual place of work**,**Nom ou adresse** de votre **lieu habituel de travail**,**Name or address** of your **usual place of work**,,join_with=${personUsualWorkPlaceGeography},hasWorkingLocationConditional,,,,,,True,,,,,
+personUsualWorkPlaceGeography,Custom,True,household,householdMembers,usualWorkPlace.geography,"Veuillez localiser le **lieu de travail habituel** de {{nickname}}
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"".__","Please locate the **usual place of work** for {{nickname}}
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button.__","Veuillez localiser votre **lieu de travail habituel**.
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"".__","Please locate your **usual place of work**.
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button.__",,,hasWorkingLocationConditional,,,,,,True,,,,,
+personUsualSchoolPlaceName,String,True,household,householdMembers,usualSchoolPlace.name,**Nom ou adresse** du **lieu habituel d’études** de {{nickname}},**Name or address** of {{nickname}}'s school or **main study location**,**Nom ou adresse** de votre **lieu habituel d’études**,**Name or address** of your school or **main study location**,,join_with=${personUsualSchoolPlaceGeography},personUsualSchoolPlaceNameCustomConditional,,,,,,True,,,,,
+personUsualSchoolPlaceGeography,Custom,True,household,householdMembers,usualSchoolPlace.geography,"Veuillez localiser le **lieu habituel d’études** de {{nickname}}.
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"".__","Please locate the **usual place of study** for {{nickname}}.
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button.__","Veuillez localiser votre **lieu habituel d’études**.
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"".__","Please locate your **usual place of study**.
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button.__",,,,,,,,,True,,,,,
+personTravelToWorkDays,Checkbox,1,household,householdMembers,travelToWorkDays,"Durant la **semaine dernière**, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} **déplacé{{gender:/e/(e)/(e)}}** pour le **travail**?
+__Pour se rendre au travail ou toute autre raison concernant le travail.__","During the **last week**, when did {{nickname}} **travel** for **work**?
+__To get to or for any other reason concerning work.__","Durant la **semaine dernière**, quand vous êtes-vous **déplacé{{gender:/e/(e)/(e)}}** pour le **travail**?","During the **last week**, when did you **travel** for **work**?
+__To get to or for any other reason concerning work.__",,,isWorkerConditional,travelToPlaceCustomValidation,lastWeekTravelToWorkDaysCustomChoices,,,,True,,,,,
+personRemoteWorkDays,Checkbox,1,household,householdMembers,remoteWorkDays,"Durant la **semaine dernière**, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du **télétravail**?","During the **last week**, when did {{nickname}} **work remotely**?","Durant la **semaine dernière**, quand avez-vous fait du **télétravail**?","During the **last week**, when did you **work remotely**?",,,personRemoteWorkDaysConditional,remoteWorkDaysCustomValidation,lastWeekRemoteWorkDaysCustomChoices,,,,True,,,,,
+household_save,NextButton,1,household,,household.save,Enregistrer et continuer,Save and continue,,,,,,,,,,validateHouseholdAgesHelpPopup,True,,,,,
+selectPerson,Custom,1,selectPerson,,_activePersonId,Pour quelle personne désirez-vous poursuivre l'entrevue?,Who do you want to continue the interview for?,,,,,,,,,,,,,,,,
+buttonSelectPersonConfirm,NextButton,1,selectPerson,,buttonSelectPersonConfirm,Sélectionner cette personne et continuer,Select this person and continue,,,,,,,,,,,,,,,,
+activePersonTitle,Builtin,1,tripsIntro,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**'s interview</p><p class=""_center _pale"">•</p>",,,,,hasHouseholdSize2OrMoreConditional,,,,,,True,,,,,
+buttonSwitchPerson,Builtin,1,tripsIntro,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
+personNewPerson,Custom,1,tripsIntro,,_showNewPersonPopupButton,"Nous allons vous demander de spécifier les déplacements de **{{nickname}}**.
+
+L’ordre des personnes interviewées est aléatoire.
+
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>","We will ask you to specify **{{nickname}}**’s trips.
+
+The order of the interviewed persons was randomly selected.
+
+<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>",,,,,,,,,,,,,,,,
+personWhoWillAnswerForThisPerson,Custom,1,tripsIntro,,whoAnswers,Qui répond pour {{nickname}}?,Who is responding for {{nickname}}?,,,,,,,,,,,,,,,,
+personDidTrips,Custom,1,tripsIntro,,personDidTrips,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
+__Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.__","Did {{nickname}} make any trips on {{assignedDate}}?
+__Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.__","Vous êtes-vous déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
+__Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.__","Did you make any trips on {{assignedDate}}?
+__Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.__",,,,,,,,,,,,,,
+personDidTripsConfirm,Custom,1,tripsIntro,,personDidTripsConfirm,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?,You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que vous n'avez fait aucun déplacement le {{formattedTripsDate}}?,You already declared trips. Do you confirm they are erroneous and that you did not make any trips on {{formattedTripsDate}}?,,,,,,,,,,,,,,
+visitedPlacesIntro,Custom,1,tripsIntro,,didTripsIntro,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+
+<span class=""_green"">- **Inclure même les petits arrêts** (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
+- **Inclure tous les lieux** peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
+<span class=""_red"">- **Ne pas inclure les lieux de transfert** en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>","Please specify the **places {{nickname}} went on {{assignedDate}}** (include all places visited until 4 AM the following morning)
+
+<span class=""_green"">- **Include short stops and errands** (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- **Include all places** regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+<span class=""_red"">- **Do not include transfer locations** (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>","Nous allons vous demander d'indiquer les **lieux où vous êtes all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}** (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+
+<span class=""_green"">- **Inclure même les petits arrêts** (station-service, garderie/école, dépanneur ou tout lieu où vous êtes all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
+- **Inclure tous les lieux** peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
+<span class=""_red"">- **Ne pas inclure les lieux de transfert** en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si vous êtes all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>","Please specify the **places you went on {{assignedDate}}** (include all places visited until 4 AM the following morning)
+
+<span class=""_green"">- **Include short stops and errands** (gas station, daycare/school, convenience store or any place where you picked someone up or dropped someone off).
+- **Include all places** regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+<span class=""_red"">- **Do not include transfer locations** (bus stops, train stations, terminals, parking lots, etc.) unless you went there to drop someone off or pick someone up.</span>",,,,,,,,,,,,,,
+personDeparturePlaceIsHome,Custom,1,tripsIntro,,departurePlaceIsHome,"Est-ce que {{nickname}} a **commencé sa journée au domicile** ({{address}})?
+__Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit).__","Did {{nickname}} **start their day at home** ({{address}})?
+__Answer 'No' only if {{nickname}} did not sleep at home (night from {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).__","Avez-vous **commencé votre journée au domicile** ({{address}})?
+__Répondre 'Non' uniquement si vous n'avez pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y êtes rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit).__","Did you **start your day at home** ({{address}})?
+__Answer 'No' only if you did not sleep at home (night from {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).__",,,,,,,,,,,,,,
+personDeparturePlaceOther,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther,Où était {{nickname}} à 4h du matin?,Where was {{nickname}} at 4 AM?,Où étiez-vous à 4h du matin?,Where were you at 4 AM?,,,departurePlaceOtherCustomConditional,,departurePlaceOtherChoices,,,,True,,,,,
+tripsIntro_save,NextButton,1,tripsIntro,,tripsIntro.save,Continuer,Continue,,,,,,,,,,,,,,,,
+tripsIntroOutro,InfoText,1,tripsIntro,,tripsIntroOutro,__Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles__,__Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential__,,,,,,,,,,,1,,,,,
+activePersonTitle,Builtin,1,visitedPlaces,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**'s interview</p><p class=""_center _pale"">•</p>",,,,,hasHouseholdSize2OrMoreConditional,,,,,,1,,,,,
+buttonSwitchPerson,Builtin,1,visitedPlaces,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
+personVisitedPlacesTitle,Builtin,1,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
+L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDate}}:
+Chronological order must be respected (i.e. sequence matters).","Lieux où vous êtes allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
+L'ordre chronologique doit être respecté.","Places you went on {{journeyDate}}:
+Chronological order must be respected (i.e. sequence matters).",,,,,,,,,True,,,,,
+personVisitedPlacesMap,Builtin,1,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{journeyDate}}:,Map of **{{nickname}}**’s trips on {{journeyDate}}:,Carte de vos déplacements le {{journeyDate}}:,Map of your trips on {{journeyDate}}:,,,,,,,,,,,,,,
+personVisitedPlaces,Builtin,1,visitedPlaces,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlaces,,,,,,,,,,,,,,,,,,
+visitedPlaceActivityCategory,Builtin,1,visitedPlaces,personVisitedPlaces,activityCategory,,,,,,,,,,,,,,,,,,
+visitedPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,activity,,,,,,,,,,,,,,,,,,
+visitedPlaceOnTheRoadPreviousPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadPreviousPlaceActivity,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?,What was the departure place of {{nickname}}’s work trip on the road?,Quel endroit était le point de départ de vos déplacements sur la route?,Where did you start your work trip on the road?,,,,,,,,,,,,,,
+visitedPlaceAlreadyVisited,Builtin,1,visitedPlaces,personVisitedPlaces,alreadyVisitedBySelfOrAnotherHouseholdMember,"Avez-vous déjà localisé ce lieu?
+__Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.__","Did you previously locate this place on the map?
+__In {{nickname}}'s travel diary or that of another household member.__","Avez-vous déjà localisé ce lieu?
+Dans votre entrevue ou dans celles des autres membres du ménage.","Did you previously locate this place on the map?
+__In your travel diary or that of another household member.__",,,alreadyVisitedPlaceCustomConditional,,yesNo,,,,True,,,,,
+visitedPlaceShortcut,Builtin,1,visitedPlaces,personVisitedPlaces,shortcut,Veuillez choisir le lieu dans la liste des lieux déjà localisés:,Please select this place from the list of previously located places:,,,,,,,,,,,,,,,,
+visitedPlaceName,Builtin,1,visitedPlaces,personVisitedPlaces,name,,,,,,,,,,,,,,,,,,
+visitedPlaceGeography,Builtin,1,visitedPlaces,personVisitedPlaces,geography,"Veuillez positionner le lieu sur la carte
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.__","Please locate this place on the map
+__Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.__",,,,,,,,,,,,,,,,
+visitedPlacePreviousPreviousDepartureTime,Builtin,1,visitedPlaces,personVisitedPlaces,_previousPreviousDepartureTime,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousPlaceDescription}}) avant de se rendre à son lieu habituel de travail?,At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?,À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}}) avant de vous rendre à votre lieu habituel de travail?,At what time did you leave the previous location ({{previousPlaceDescription}}) before going to your usual work place?,,,,,,,,,,,,,,
+visitedPlacePreviousArrivalTime,Builtin,1,visitedPlaces,personVisitedPlaces,_previousArrivalTime,À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender :é/ée/é(e)/é(e)}} au lieu précédent avant de débuter ses déplacements sur la route?,At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} work on the road trips?,À quelle heure êtes-vous arriv{{gender:é/ée/é(e)/é(e)}} au lieu précédent avant de débuter vos déplacements sur la route?,At what time did you arrive at the previous location before starting your work on the road trips?,,,,,,,,,,,,,,
+visitedPlacePreviousDepartureTime,Builtin,1,visitedPlaces,personVisitedPlaces,_previousDepartureTime,À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?,At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?,À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?,At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?,,,,,,,,,,,,,,
+visitedPlaceArrivalTime,Builtin,1,visitedPlaces,personVisitedPlaces,arrivalTime,{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:,{{nickname}} arrived {{atPlace}} at:,Vous êtes arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:,You arrived {{atPlace}} at:,,,,,,,,,,,,,,
+visitedPlaceNextPlaceCategory,Builtin,1,visitedPlaces,personVisitedPlaces,nextPlaceCategory,"Après avoir été {{atPlace}}, {{nickname}} est…
+__Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.__","After being {{atPlace}}, {{nickname}}…
+__If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.__","Après avoir été {{atPlace}}, vous êtes…
+__Si vous avez quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête que vous y êtes rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.__","After being {{atPlace}}, you…
+__If you left this place after 4 AM the following day, please consider for the purposes of the survey that you stayed there until the next day and select the appropriate answer.__",,,,,,,,,,,,,,
+visitedPlaceOnTheRoadNextPlaceCategory,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadNextPlaceCategory,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?,Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?,À quel endroit avez-vous terminé vos déplacements sur la route?,Where did you end your work on the road trips?,,,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional,,onTheRoadArrivalTypeCustomChoices,,,,,,,,,
+visitedPlaceDepartureTime,Builtin,1,visitedPlaces,personVisitedPlaces,departureTime,{{nickname}} a quitté {{place}} à:,{{nickname}} left {{place}} at:,Vous avez quitté {{place}} à:,You left {{place}} at:,,,,,,,,,,,,,,
+buttonSaveVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,visitedPlacesSave,Confirmer,Confirm,,,,,,,,,,,,,,,,
+buttonCancelVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,,,,,,,,,,,,,,,,,,,
+buttonDeleteVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,,,,,,,,,,,,,,,,,,,
+buttonVisitedPlacesConfirmNextSection,Builtin,1,visitedPlaces,,visitedPlaces.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,lastPlaceEnteredCustomConditional,,,,,,,,,,,
+activePersonTitle,Builtin,1,segments,,,,,,,,,,,,,,,True,,,,,
+buttonSwitchPerson,Builtin,1,segments,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
+personTripsTitle,Builtin,1,segments,,personTripsTitle,Déplacements de {{nickname}} le {{journeyDate}},Trips made by {{nickname}} on {{journeyDate}},Vos déplacements le {{journeyDate}},Trips you made on {{journeyDate}},,,,,,,,,True,,,,,
+personVisitedPlacesMap,Builtin,1,segments,,segmentsMap,Carte des déplacements de **{{nickname}}** le {{journeyDate}}:,Map of **{{nickname}}**’s trips on {{journeyDate}}:,Carte de vos déplacements le {{journeyDate}}:,Map of your trips on {{journeyDate}}:,,,,,,,,,,,,,,
+personTrips,Builtin,1,segments,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.trips,,,,,,,,,,,,,,,,,,
+segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:","Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:",,,,,,,,,,,,,,,,
+segments,Builtin,1,segments,personTrips,segments,Mode de transport,Mode of transport,,,,,,,,,,,,,,,,
+segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,,,,,,,,,,,,,,,,,,
+segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,
+segmentMode,Builtin,1,segments,segments,mode,,,,,,,,,,,,,,,,,,
+segmentHowToBus,Custom,1,segments,segments,howToBus,"Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
+__Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.__","How did {{nickname}} reach the transit stop?
+__If the mode used is not present, create a first mode before the transit mode.__","Comment vous êtes-vous rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
+__Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.__","How did you reach the transit stop?
+__If the mode used is not present, create a first mode before the transit mode.__",,,,,,,,,,,,,,Custom because of the icons in the choices
+segmentPaidForParking,Radio,1,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndDestinationWorkCustomConditional,,yesNoDontKnow,,,,1,,,,,
+segmentVehicleOccupancy,RadioNumber,1,segments,segments,vehicleOccupancy,"Personne(s) dans le véhicule
+__Conducteur ou conductrice inclus(e).__","Persons in the vehicle
+__Including the driver.__",,,"min=1
+max=5
+overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,1,,,,,
+segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,1,,,,,
+segmentBusLines,Custom,1,segments,segments,busLines,"**Ligne(s) de bus utilisée(s)** (dans l'ordre chronologique)
+__Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats.__","**Bus line(s) taken** (in chronological order)
+__For each line, begin by typing the number or name, then select it from the results shown.__",,,,,,,,,,,1,,,,,Custom because of the choices that include available bus routes
+segmentBusLinesWarning,Custom,1,segments,segments,busLinesWarning,Certaines lignes de bus sélectionnées semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.,Some bus line(s) seem invalid for this trip. Please validate the lines.,,,,,,,,,,,1,,,,,Custom because of the color and size of the choices
+segmentOnDemandType,Radio,1,segments,segments,onDemandType,Est-ce un transport sur demande?,Is this an on-demand service?,,,,,shouldDisplayOnDemandTypeCustomConditional,,onDemandCustomChoices,,,,1,,,,,
+tripJunctionQueryString,String,1,segments,segments,tripJunctionQueryString,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte","Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on the map",,,,,shouldAskTripJunctionCustomConditional,optionalValidation,,,,,1,,,,,
+tripJunctionGeography,Custom,1,segments,segments,junctionGeography,"Veuillez localiser **le point de jonction** (lieu où s'est effectué le changement de mode de transport):
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"").__","Please locate the **junction point** (location where the change in mode of transport occurred).
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button).__",,,,,,,,,,,,,,,,Custom because it is a map
+segmentHasNextMode,Builtin,1,segments,segments,,,,,,,,,,,,,,,,,,,
+buttonSaveTrip,Builtin,1,segments,personTrips,trip.save,Confirmer ce déplacement,Confirm this trip,,,,,,,,,,,,,,,,
+buttonConfirmNextSection,Builtin,1,segments,,segments.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,lastPlaceEnteredCustomConditional,,,,,,,,,,,
+activePersonTitle,Custom,1,travelBehavior,,,,,,,,,,,,,,,True,,,,,Custom because it uses the builtin widget
+buttonSwitchPerson,Custom,1,travelBehavior,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,Same as the one from tripsIntro
+personNoWorkTripIntro,Custom,1,travelBehavior,,personNoWorkTripIntro,**Vous n'avez déclaré aucun déplacement pour le travail** pour {{nickname}} le {{assignedDate}},**You didn't report any work trips** by {{nickname}} on {{assignedDate}},,,,,,,,,,,True,,,,,Custom because of the label
+personNoWorkTripReason,Select,1,travelBehavior,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason,Pour quelle raison?,Why?,,,,,shouldAskForNoWorkTripReasonCustomConditional,requiredValidation,noWorkTripReasonChoices,,,,,,,,,
+personNoWorkTripReasonSpecify,Custom,1,travelBehavior,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
+__(Facultatif)__",Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?,"Veuillez préciser la raison pour laquelle vous n'avez effectué aucun déplacement pour le travail le {{assignedDate}}?
+__(Facultatif)__","Please specify the reason why you made no trip for work on {{assignedDate}}?
+__(Optional)__",,,shouldAskPersonNoWorkTripSpecifyCustomConditional,optionalValidation,,,,,1,,,,,Using custom conditional because it involves currentJourney and custom widget because of the label
+personNoSchoolTripIntro,Custom,1,travelBehavior,,personNoSchoolTripIntro,**Vous n'avez déclaré aucun déplacement pour les études** pour {{nickname}} le {{assignedDate}}.,**You didn't report any school trips** by {{nickname}} on {{assignedDate}}.,,,,,,,,,,,1,,,,,Custom because of the label
+personNoSchoolTripReason,Select,1,travelBehavior,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason,Pour quelle raison?,Why?,,,,,shouldAskForNoSchoolTripReasonCustomConditional,requiredValidation,noSchoolTripReasonChoices,,,,,,,,,
+personNoSchoolTripReasonSpecify,Custom,1,travelBehavior,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
+__(Facultatif)__",Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?,"Veuillez préciser la raison pour laquelle vous n'avez effectué aucun déplacement pour les études le {{assignedDate}}?
+__(Facultatif)__","Please specify the reason why you made no trip for school on {{assignedDate}}?
+__(Optional)__",,,shouldAskForNoSchoolTripSpecifyCustomConditional,optionalValidation,,,,,True,,,,,Using custom conditional because it involves currentJourney and custom widget because of the label
+buttonTravelBehaviorConfirmNextSection,NextButton,1,travelBehavior,,travelBehavior.save,Continuer,Continue,,,,,,,,,,,,,,,,
+householdMadeLongDistanceTripsInLastYear,Radio,1,longDistance,,household.madeLongDistanceTripsInLastYear,"Au cours des **12 derniers mois**, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui **a franchi les limites de cette zone grise** (plus de 40 km du domicile)?","In the **last 12 months**, did you or a member of your household make any trips other than to your usual place of work or study, **beyond the limits of the grey area** (more than 40 km from home)?","Au cours des **12 derniers mois**, avez-vous effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui **a franchi les limites de cette zone grise** (plus de 40 km du domicile)?","In the **last 12 months**, did you make any trips other than to your usual place of work or study, **beyond the limits of the grey area** (more than 40 km from home)?",,,,,yesNoDontKnow,,,,True,,,,,
+householdLongDistanceIntroMap,Custom,1,longDistance,,householdLongDistanceIntroMap,,,,,,,,,,,,,True,,,,,Custom because it is a map around the home
+householdLongDistanceTripsSeptemberDecember,Radio,1,longDistance,,household.longDistanceTripsSeptemberDecember,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de **septembre à décembre 2024**?,How often did you or a member of your household make long-distance trips (more than 40 km) between **September and December 2024**?,À quelle fréquence avez-vous effectué des déplacements longue distance (plus de 40 km) de **septembre à décembre 2024**?,How often did you make long-distance trips (more than 40 km) between **September and December 2024**?,,,madeLongDistanceTripsConditional,,longDistanceFrequencyChoices,,,,True,,,,,
+householdLongDistanceTripsJanuaryApril,Radio,1,longDistance,,household.longDistanceTripsJanuaryApril,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de **janvier à avril 2025**?,How often did you or a member of your household make long-distance trips (more than 40 km) between **January and April 2025**?,À quelle fréquence avez-vous effectué des déplacements longue distance (plus de 40 km) de **janvier à avril 2025**?,How often did you make long-distance trips (more than 40 km) between **January and April 2025**?,,,madeLongDistanceTripsConditional,,longDistanceFrequencyChoices,,,,True,,,,,
+householdLongDistanceTripsMayAugust,Radio,1,longDistance,,household.longDistanceTripsMayAugust,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de **mai à août 2025**?,How often did you or a member of your household make long-distance trips (more than 40 km) between **May and August 2025**?,À quelle fréquence avez-vous effectué des déplacements longue distance (plus de 40 km) de **mai à août 2025**?,How often did you make long-distance trips (more than 40 km) between **May and August 2025**?,,,madeLongDistanceTripsConditional,,longDistanceFrequencyChoices,,,,True,,,,,
+wouldLikeToParticipateToLongDistanceSurvey,Radio,1,longDistance,,household.wouldLikeToParticipateToLongDistanceSurvey,Seriez-vous intéressés à **être recontactés** pour une enquête plus approfondie sur les **déplacements interurbains**?,Would you be interested in **being contacted again** for a more in-depth survey on **interurban travel**?,,,,,madeLongDistanceTripsConditional,,yesNo,,,,1,,,,,
+wouldLikeToParticipateToLongDistanceSurveyContactEmail,String,1,longDistance,,household.wouldLikeToParticipateToLongDistanceSurveyContactEmail,Veuillez fournir une **adresse courriel** de contact pour participer à une enquête sur les **déplacements interurbains**,Please provide the **email address** where you can be reached to participate in a survey on **interurban travel**,,,,,wantToParticipateInLongDistanceSurveyConditional,emailValidation,,,,,1,,,,,
+buttonCompleteLongDistanceSection,NextButton,1,longDistance,,buttonCompleteLongDistanceSection,Continuer,Continue,,,,,,,,,,,,,,,,
+householdOwnership,Radio,1,end,,household.ownership,Est-ce que votre ménage est locataire ou propriétaire de votre logement?,Does your household rent or own your home?,,,,,,,householdOwnershipChoices,,,,,,,,,
+householdIncome,Select,1,end,,household.income,"Tranche de revenu avant impôts (brut) du ménage, en 2024?
+__Facultatif__","What was your household's income range before taxes (gross income), in 2024?
+__Optional__",,,,,,,householdIncomeChoices,,,,1,,,,,
+wouldLikeToParticipateInOtherSurveysChaireMobilite,Radio,1,end,,end.wouldLikeToParticipateInOtherSurveysChaireMobilite,Seriez-vous intéressés à **participer à d'autres études** menées par la **Chaire Mobilité de Polytechnique Montréal**?,Would you be interested in **participating in other studies** conducted by the **Chaire Mobilite at Polytechnique Montreal**?,,,,,,,yesNo,,,,1,,,,,
+wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail,String,1,end,,end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail,Veuillez fournir une **adresse courriel** de contact pour participer à d'autres études de la Chaire Mobilité.,Please provide the **email address** where you can be reached to participate in other studies by the Chaire Mobilite.,,,,,wantToParticipateInOtherSurveysChaireMobiliteConditional,emailValidation,,,,,1,,,,,
+householdCommentsOnSurvey,Text,1,end,,end.commentsOnSurvey,"Vos **commentaires et suggestions** sur le questionnaire
+__Facultatif__","Your **comments and suggestions** about the survey
+__Optional__",,,,,,optionalValidation,,,,,1,,,,,
+optionalIntroText,InfoText,1,end,,end.optionalIntroText,Les **questions suivantes sont facultatives** et sont ajoutées à des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.,The **next questions are optional** and are added for research purposes. You can complete the interview without answering them.,,,,,,,,,,,1,,,,,
+householdPluginHybridCarNumber,RadioNumber,1,end,,household.pluginHybridCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules hybrides rechargeables**?
+__Facultatif__","Among the vehicles owned by your household, how many are **plug-in hybrid vehicles**?
+__Optional__",,,"min=0
+max=household.carNumber",,householdHasCars,householdHybridCarCountCustomValidation,,,,,1,,,,,
+householdElectricCarNumber,RadioNumber,1,end,,household.electricCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules électriques**?
+__Facultatif__","Among the vehicles owned by your household, how many are **electric vehicles**?
+__Optional__",,,"min=0
+max=household.carNumber",,householdHasCars,householdElectricCarCountCustomValidation,,,,,True,,,,,
+endInterestOfTheSurvey,Range,1,end,,end.interestOfTheSurvey,"Dans quelle mesure cette enquête a-t-elle été **intéressante** pour vous?
+__Facultatif__","How **interesting** was this survey to you?
+__Optional__",,,,,,rangeOptionalOrValidCustomValidation,,,sliderNotAtAllToVeryInteresting,,True,,,,,
+endTimeSpentAnswering,Number,1,end,,end.timeSpentAnswering,"Combien de **temps** pensez-vous avoir passé **à répondre** à cette enquête (**en minutes**)?
+__Facultatif__","How much **time** do you think you **spent answering** this survey (**in minutes**)?
+__Optional__",,,,,,optionalValidation,,,,,True,,,,,
+endDurationOfTheSurvey,Range,1,end,,end.durationOfTheSurvey,"Pensez-vous que la **durée de l'enquête était trop courte, correcte ou trop longue**?
+__Facultatif__","Do you feel that the **length of the survey was too short, about right, or too long**?
+__Optional__",,,,,,rangeOptionalOrValidCustomValidation,,,sliderTooShortToTooLong,,True,,,,,
+endDifficultyOfTheSurvey,Range,1,end,,end.difficultyOfTheSurvey,"Dans quelle mesure vous a-t-il été **facile** ou **difficile** de répondre aux questions de cette enquête?
+__Facultatif__","How **easy** or **difficult** was it for you to answer the questions in this survey?
+__Optional__",,,,,,rangeOptionalOrValidCustomValidation,,,sliderVeryEasyToVeryDifficult,,1,,,,,
+endBurdenOfTheSurvey,Range,1,end,,end.burdenOfTheSurvey,"Dans quelle mesure avez-vous trouvé cette enquête **pénible (exigeante)**?
+__Facultatif__","How **burdensome (demanding)** did you find this survey to be?
+__Optional__",,,,,,rangeOptionalOrValidCustomValidation,,,sliderNotAtAllToVeryBurdensome,,1,,,,,
+endConsideredAbandoningSurvey,Radio,1,end,,end.consideredAbandoningSurvey,"Avez-vous pensé, à un moment ou un autre, **abandonner l'enquête**?
+__Facultatif__","Have you considered, at any point, **abandoning the survey**?
+__Optional__",,,,,,optionalValidation,yesNoDontKnow,,,,True,,,,,
+buttonCompleteInterviewWithCompleteSection,NextButton,1,end,,buttonCompleteInterviewWithCompleteSection,Terminer l’entrevue,Complete the interview,,,,,,,,,,,,,,,,
+completedText,InfoText,1,completed,,completedText,"**Merci pour votre participation!**
+
+Nous vous remercions d'avoir pris le temps de remplir cette enquête. Vos réponses ont été enregistrées avec succès. Vous pouvez modifier vos réponses en cliquant sur les sections dans le menu ci-dessus.","**Thank you for your participation!**
+
+We thank you for taking the time to fill out this survey. Your answers have been recorded. You can edit your answers by clicking on any of the sections in the menu at the top of the page.",,,,,,,,,,,True,,,,,
