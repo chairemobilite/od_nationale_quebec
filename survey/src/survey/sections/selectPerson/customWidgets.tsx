@@ -18,7 +18,7 @@ export const selectPerson: WidgetConfig.InputRadioType = {
     inputType: 'radio',
     datatype: 'string',
     containsHtml: true,
-    label: (t: TFunction) => t('selectPerson:_activePersonId'),
+    label: (t: TFunction) => t('selectPerson:selectPerson'),
     choices: function (interview) {
         const persons = odSurveyHelper.getPersons({ interview });
         let personsRandomSequence = getResponse(interview, '_personRandomSequence') as string[] | null;
