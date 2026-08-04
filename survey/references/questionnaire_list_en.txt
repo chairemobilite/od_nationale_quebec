@@ -400,21 +400,17 @@ Does your household rent or own your home?
 
 What was your household's income range before taxes (gross income), in 2024?
 Optional
-- Less than $10,000
-- $10,000 to $19,999
-- $20,000 to $29,999
-- $30,000 to $39,999
-- $40,000 to $49,999
-- $50,000 to $59,999
-- $60,000 to $69,999
-- $70,000 to $79,999
-- $80,000 to $89,999
-- $90,000 to $99,999
+- Less than $15,000
+- $15,000 to $29,999
+- $30,000 to $44,999
+- $45,000 to $59,999
+- $60,000 to $79,999
+- $80,000 to $99,999
 - $100,000 to $149,999
 - $150,000 to $199,999
 - $200,000 and more
-- I don't know
-- I prefer not to respond
+- I don’t know
+- I prefer not to answer
 
 Would you be interested in participating in other studies conducted by the Chaire Mobilite at Polytechnique Montreal?
 - Yes

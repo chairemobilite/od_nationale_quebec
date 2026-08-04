@@ -629,21 +629,17 @@ Field,hh_income
 Question type,Select input
 Question,"What was your household's income range before taxes (gross income), in 2024?
 Optional"
-Values,"000000_009999 : Less than $10,000
-010000_019999 : $10,000 to $19,999
-020000_029999 : $20,000 to $29,999
-030000_039999 : $30,000 to $39,999
-040000_049999 : $40,000 to $49,999
-050000_059999 : $50,000 to $59,999
-060000_069999 : $60,000 to $69,999
-070000_079999 : $70,000 to $79,999
-080000_089999 : $80,000 to $89,999
-090000_099999 : $90,000 to $99,999
+Values,"000000_014999 : Less than $15,000
+015000_029999 : $15,000 to $29,999
+030000_044999 : $30,000 to $44,999
+045000_059999 : $45,000 to $59,999
+060000_079999 : $60,000 to $79,999
+080000_099999 : $80,000 to $99,999
 100000_149999 : $100,000 to $149,999
 150000_199999 : $150,000 to $199,999
 200000_999999 : $200,000 and more
-dontKnow : I don't know
-refusal : I prefer not to respond"
+dontKnow : I don’t know
+refusal : I prefer not to answer"
 ""
 Field,e_wouldLikeToParticipateInOtherSurveysChaireMobilite
 Question type,Radio input

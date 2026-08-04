@@ -276,44 +276,28 @@ export const longDistanceFrequencyChoices: ChoiceType[] = [
 
 export const householdIncomeChoices: ChoiceType[] = [
     {
-        value: '000000_009999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.000000_009999')
+        value: '000000_014999',
+        label: (t: TFunction) => t('choices:householdIncomeChoices.000000_014999')
     },
     {
-        value: '010000_019999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.010000_019999')
+        value: '015000_029999',
+        label: (t: TFunction) => t('choices:householdIncomeChoices.015000_029999')
     },
     {
-        value: '020000_029999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.020000_029999')
+        value: '030000_044999',
+        label: (t: TFunction) => t('choices:householdIncomeChoices.030000_044999')
     },
     {
-        value: '030000_039999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.030000_039999')
+        value: '045000_059999',
+        label: (t: TFunction) => t('choices:householdIncomeChoices.045000_059999')
     },
     {
-        value: '040000_049999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.040000_049999')
+        value: '060000_079999',
+        label: (t: TFunction) => t('choices:householdIncomeChoices.060000_079999')
     },
     {
-        value: '050000_059999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.050000_059999')
-    },
-    {
-        value: '060000_069999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.060000_069999')
-    },
-    {
-        value: '070000_079999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.070000_079999')
-    },
-    {
-        value: '080000_089999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.080000_089999')
-    },
-    {
-        value: '090000_099999',
-        label: (t: TFunction) => t('choices:householdIncomeChoices.090000_099999')
+        value: '080000_099999',
+        label: (t: TFunction) => t('choices:householdIncomeChoices.080000_099999')
     },
     {
         value: '100000_149999',
