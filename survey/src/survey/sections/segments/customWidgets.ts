@@ -12,6 +12,7 @@ import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtension
 import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
+import { shouldAskTripJunctionCustomConditional } from '../../common/customConditionals';
 
 let busRoutes = { type: 'FeatureCollection', features: [] };
 
@@ -207,24 +208,7 @@ export const tripJunctionGeography: WidgetConfig.InputMapFindPlaceType = {
         return undefined;
     },
     resetToDefaultUnlessUserInteracted: true,
-    conditional: function (interview, path) {
-        const trip = odSurveyHelpers.getActiveTrip({ interview });
-        if (trip) {
-            const journey = odSurveyHelpers.getActiveJourney({ interview });
-            const visitedPlaces = odSurveyHelpers.getVisitedPlaces({ journey });
-            const destination = odSurveyHelpers.getDestination({ trip, visitedPlaces });
-            const activity = destination ? destination.activity : null;
-            const segments = odSurveyHelpers.getSegmentsArray({ trip });
-            const currentSegment: any = getResponse(interview, path, undefined, '../');
-            const segmentIndex = segments.findIndex((segment) => segment._sequence === currentSegment?._sequence);
-            if (segmentIndex === undefined || segmentIndex === 0) {
-                return [false, null];
-            }
-            const previousSegment = segments[segmentIndex - 1];
-            return [shouldDisplayTripJunction(previousSegment, currentSegment, activity), null];
-        }
-        return [false, null];
-    },
+    conditional: shouldAskTripJunctionCustomConditional,
     validations: function (value, customValue, interview, path, customPath) {
         const person = odSurveyHelpers.getActivePerson({ interview });
         if (odSurveyHelpers.isSelfDeclared({ person, interview })) {

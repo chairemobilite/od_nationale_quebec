@@ -8,6 +8,7 @@ import config from 'evolution-common/lib/config/project.config';
 import {
     Journey,
     Person,
+    Segment,
     StartRemoveGroupedObjects,
     StartUpdateInterview,
     UserInterviewAttributes,
@@ -474,47 +475,48 @@ export const getCurrentTripBirdDistanceMeters = ({ interview }) => {
     return getBirdDistanceMeters({ trip, visitedPlaces, person, interview });
 };
 
+const publicModesForJunctions = [
+    'transitBus',
+    'transitRRT',
+    'transitLRRT',
+    'transitRegionalRail',
+    'transitStreetCar',
+    'transitTaxi',
+    'transitFerry',
+    'train',
+    'intercityBus'
+];
+// Walking is excluded from private modes
+const privateModesForJunctions = [
+    'taxi',
+    'ferryWithCar',
+    'motorcycle',
+    'bicycle',
+    'bicycleElectric',
+    'kickScooterElectric',
+    'plane',
+    'other',
+    'wheelchair',
+    'carDriver',
+    'carDriverRental',
+    'carDriverCarsharing',
+    'motorcycle',
+    'carPassenger',
+    'paratransit'
+];
+
 /**
- * TODO Move to Evolution
- * TODO Parameterize the modes here, this function is copy-pasted as is from 2024
+ * Display if previous mode is private mode and current is public, or vice versa
  */
-export const shouldDisplayTripJunction = (previousSegment, currentSegment, activity) => {
-    //tripJunction needed when changing from private to public modes (private modes: car driver, car passenger, moto, taxi - walking is excluded )
+export const shouldDisplayTripJunction = (previousSegment: Segment, currentSegment: Segment) => {
+    // tripJunction needed when changing from private to public modes (private modes: car driver, car passenger, moto, taxi - walking is excluded )
     if (
-        !_isBlank(previousSegment) &&
-        (['carDriver', 'carPassenger', 'bicycle', 'taxi', 'train', 'paratransit'].includes(previousSegment.modePre) ||
-            [
-                'taxi',
-                'ferryWithCar',
-                'motorcycle',
-                'bicycle',
-                'bicycleElectric',
-                'kickScooterElectric',
-                'plane',
-                'other'
-            ].includes(previousSegment.mode)) &&
-        (currentSegment.modePre === 'transit' ||
-            ['ferryNoCar', 'ferryNoCar', 'train', 'intercityBus', 'taxi'].includes(currentSegment.mode))
+        (privateModesForJunctions.includes(previousSegment.mode) &&
+            publicModesForJunctions.includes(currentSegment.mode)) ||
+        (publicModesForJunctions.includes(previousSegment.mode) &&
+            privateModesForJunctions.includes(currentSegment.mode))
     ) {
-        return activity !== 'workOnTheRoad';
-    }
-    if (
-        !_isBlank(previousSegment) &&
-        (['carDriver', 'carPassenger', 'bicycle', 'taxi', 'train', 'paratransit'].includes(currentSegment.modePre) ||
-            [
-                'taxi',
-                'ferryWithCar',
-                'motorcycle',
-                'bicycle',
-                'bicycleElectric',
-                'kickScooterElectric',
-                'plane',
-                'other'
-            ].includes(currentSegment.mode)) &&
-        (previousSegment.modePre === 'transit' ||
-            ['transitBus', 'ferryNoCar', 'train', 'intercityBus', 'taxi'].includes(previousSegment.mode))
-    ) {
-        return activity !== 'workOnTheRoad';
+        return true;
     }
     return false;
 };
