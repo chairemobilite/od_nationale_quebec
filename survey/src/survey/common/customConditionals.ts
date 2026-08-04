@@ -194,7 +194,11 @@ export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interv
     if (segmentIndex <= 0 || odSurveyHelper.isLoopActivity({ visitedPlace: destination })) {
         return [false, null];
     }
-    const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
+    // Get previous segments (lower sequences) and ignore walking only segments
+    // (as they are ignored at analysis time and not considered for junction
+    // context)
+    const previousSegments = segments.filter((s) => s._sequence < segment._sequence && s.mode !== 'walk');
+    const previousSegment = previousSegments.length > 0 ? previousSegments[previousSegments.length - 1] : undefined;
     if (previousSegment === undefined) {
         return [false, null];
     }
