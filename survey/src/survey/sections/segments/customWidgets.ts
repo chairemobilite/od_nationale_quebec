@@ -109,6 +109,18 @@ const howToBusChoices = [
     }
 ];
 
+// These modes are transit modes that require to ask for the access mode to stop
+const transitModesForAccessMode = [
+    'transitBus',
+    'transitRRT',
+    'transitLRRT',
+    'transitRegionalRail',
+    'transitStreetCar',
+    'transitTaxi',
+    'transitFerry',
+    'train',
+    'intercityBus'
+];
 export const segmentHowToBus: WidgetConfig.InputRadioType = {
     type: 'question',
     path: 'howToBus',
@@ -129,7 +141,6 @@ export const segmentHowToBus: WidgetConfig.InputRadioType = {
     },
     conditional: function (interview, path) {
         const segment: any = getResponse(interview, path, null, '../');
-        const modePre = segment ? segment.modePre : null;
         const mode = segment ? segment.mode : null;
 
         const trip = odSurveyHelpers.getActiveTrip({ interview });
@@ -137,7 +148,7 @@ export const segmentHowToBus: WidgetConfig.InputRadioType = {
 
         const isFirst: boolean = segmentsArray[0] === segment;
 
-        return [modePre === 'transit' && isFirst && mode !== 'paratransit', modePre];
+        return [isFirst && transitModesForAccessMode.includes(mode), null];
     },
     validations: function (value, customValue, interview, path, customPath) {
         return [
