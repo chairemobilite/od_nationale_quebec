@@ -180,23 +180,25 @@ export const shouldDisplayOnDemandTypeCustomConditional: WidgetConditional = (in
 };
 
 export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview });
-    const trip = odSurveyHelper.getActiveTrip({ interview });
-    if (trip) {
-        const journey = odSurveyHelper.getActiveJourney({ interview, person });
-        const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
-        const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
-        const activity = destination ? destination.activity : null;
-        const segments = odSurveyHelper.getSegmentsArray({ trip });
-        const currentSegment: any = surveyHelper.getResponse(interview, path, undefined, '../');
-        const segmentIndex = segments.findIndex((segment) => segment._sequence === currentSegment?._sequence);
-        if (segmentIndex === undefined || segmentIndex === 0) {
-            return [false, null];
-        }
-        const previousSegment = segments[segmentIndex - 1];
-        return [shouldDisplayTripJunction(previousSegment, currentSegment, activity), null];
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('shouldAskTripJunctionCustomConditional label: Segment context not found');
     }
-    return [false, null];
+    const { journey, trip, segment } = segmentContext;
+
+    const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
+    const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const segmentIndex = segments.findIndex((seg) => seg._sequence === segment._sequence);
+    // Ignore if it is the first segment, or if the activity at destination is a loop activity
+    if (segmentIndex <= 0 || odSurveyHelper.isLoopActivity({ visitedPlace: destination })) {
+        return [false, null];
+    }
+    const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
+    if (previousSegment === undefined) {
+        return [false, null];
+    }
+    return [shouldDisplayTripJunction(previousSegment, segment), null];
 };
 
 export const shouldAskForNoWorkTripReasonCustomConditional: WidgetConditional = (interview, path) => {
