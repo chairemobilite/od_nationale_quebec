@@ -239,10 +239,10 @@ Section: Déplacements
 
 Change person
 
-Places {{nickname}} went on {{journeyDate}}:
+Places {{nickname}} went on {{journeyDates}}:
 Chronological order must be respected (i.e. sequence matters).
 
-Map of {{nickname}}’s trips on {{journeyDate}}:
+Map of {{nickname}}’s trips on {{journeyDates}}:
 
 What was the departure place of {{nickname}}’s work trip on the road?
 
@@ -282,9 +282,9 @@ Section: Modes of transport
 
 Change person
 
-Trips made by {{nickname}} on {{journeyDate}}
+Trips made by {{nickname}} on {{journeyDates}}
 
-Map of {{nickname}}’s trips on {{journeyDate}}:
+Map of {{nickname}}’s trips on {{journeyDates}}:
 
 Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
 

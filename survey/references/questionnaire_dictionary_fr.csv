@@ -363,12 +363,12 @@ Question,Changer de personne
 ""
 Champ,personVisitedPlacesTitle
 Type de question,Builtin
-Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
+Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}}:
 L'ordre chronologique doit être respecté."
 ""
 Champ,visitedPlacesMap
 Type de question,Builtin
-Question,Carte des déplacements de {{nickname}} le {{journeyDate}}:
+Question,Carte des déplacements de {{nickname}} le {{journeyDates}}:
 ""
 Champ,onTheRoadPreviousPlaceActivity
 Type de question,Builtin
@@ -441,11 +441,11 @@ Question,Changer de personne
 ""
 Champ,personTripsTitle
 Type de question,Builtin
-Question,Déplacements de {{nickname}} le {{journeyDate}}
+Question,Déplacements de {{nickname}} le {{journeyDates}}
 ""
 Champ,segmentsMap
 Type de question,Builtin
-Question,Carte des déplacements de {{nickname}} le {{journeyDate}}:
+Question,Carte des déplacements de {{nickname}} le {{journeyDates}}:
 ""
 Champ,segmentsIntro
 Type de question,Builtin

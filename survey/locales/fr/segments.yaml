@@ -3,11 +3,11 @@
 # Any changes made to this file will be overwritten.
 
 buttonSwitchPerson: Changer de personne
-personTripsTitle: Déplacements de {{nickname}} le {{journeyDate}}
-personTripsTitle_one: Vos déplacements le {{journeyDate}}
+personTripsTitle: Déplacements de {{nickname}} le {{journeyDates}}
+personTripsTitle_one: Vos déplacements le {{journeyDates}}
 personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le
-    {{journeyDate}}:'
-personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDate}}:'
+    {{journeyDates}}:'
+personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDates}}:'
 segmentIntro: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement
     (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:

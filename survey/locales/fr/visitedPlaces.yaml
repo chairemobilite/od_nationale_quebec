@@ -7,26 +7,26 @@ activePersonTitle: >-
     class="_center _pale">•</p>
 buttonSwitchPerson: Changer de personne
 personVisitedPlacesTitle: >-
-    Lieux où {{nickname}} est allé(e) le {{journeyDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allé(e) le {{journeyDates}}:<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_male: >-
-    Lieux où {{nickname}} est allé le {{journeyDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allé le {{journeyDates}}:<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_female: >-
-    Lieux où {{nickname}} est allée le {{journeyDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allée le {{journeyDates}}:<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_one: >-
-    Lieux où vous êtes allé(e) le {{journeyDate}}:<br />L'ordre chronologique doit
+    Lieux où vous êtes allé(e) le {{journeyDates}}:<br />L'ordre chronologique doit
     être respecté.
 personVisitedPlacesTitle_male_one: >-
-    Lieux où vous êtes allé le {{journeyDate}}:<br />L'ordre chronologique doit être
+    Lieux où vous êtes allé le {{journeyDates}}:<br />L'ordre chronologique doit être
     respecté.
 personVisitedPlacesTitle_female_one: >-
-    Lieux où vous êtes allée le {{journeyDate}}:<br />L'ordre chronologique doit être
-    respecté.
+    Lieux où vous êtes allée le {{journeyDates}}:<br />L'ordre chronologique doit
+    être respecté.
 personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le
-    {{journeyDate}}:'
-personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDate}}:'
+    {{journeyDates}}:'
+personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDates}}:'
 visitedPlaceOnTheRoadPreviousPlaceActivity: >-
     Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 visitedPlaceOnTheRoadPreviousPlaceActivity_one: Quel endroit était le point de départ

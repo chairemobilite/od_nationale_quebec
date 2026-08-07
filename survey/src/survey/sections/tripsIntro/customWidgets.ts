@@ -68,7 +68,7 @@ export const personWhoWillAnswerForThisPerson: WidgetConfig.InputRadioType = {
     choices: function (interview) {
         const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
         return interviewablePersons
-            .filter((person) => person.age >= config.selfResponseMinimumAge)
+            .filter((person) => person.age >= config.ages.selfResponseMinimumAge)
             .map((person) => ({
                 value: person._uuid,
                 label: person.nickname
@@ -83,7 +83,9 @@ export const personWhoWillAnswerForThisPerson: WidgetConfig.InputRadioType = {
     },
     conditional: function (interview, path) {
         const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
-        const canRespondPersons = interviewablePersons.filter((person) => person.age >= config.selfResponseMinimumAge);
+        const canRespondPersons = interviewablePersons.filter(
+            (person) => person.age >= config.ages.selfResponseMinimumAge
+        );
         return [canRespondPersons.length > 1, canRespondPersons.length === 1 ? canRespondPersons[0]._uuid : null];
     },
     validations: validations.requiredValidation

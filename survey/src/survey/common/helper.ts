@@ -94,7 +94,7 @@ const basicInfoForPersonComplete = function (person: Person, householdSize) {
         _isBlank(person.age) ||
         (_isBlank(person.sexAssignedAtBirth) && _isBlank(person.gender) && person.age >= 5) ||
         (householdSize > 1 && _isBlank(person.nickname)) ||
-        (_isBlank(person.drivingLicenseOwnership) && person.age >= config.drivingLicenseAge)
+        (_isBlank(person.drivingLicenseOwnership) && person.age >= config.ages.drivingLicenseAge)
     );
 };
 

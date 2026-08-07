@@ -144,12 +144,12 @@ tripsIntro_save,NextButton,1,tripsIntro,,tripsIntro.save,Continuer,Continue,,,,,
 tripsIntroOutro,InfoText,1,tripsIntro,,tripsIntroOutro,__Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles__,__Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential__,,,,,,,,,,,1,,,,,
 activePersonTitle,Builtin,1,visitedPlaces,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**'s interview</p><p class=""_center _pale"">•</p>",,,,,hasHouseholdSize2OrMoreConditional,,,,,,1,,,,,
 buttonSwitchPerson,Builtin,1,visitedPlaces,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
-personVisitedPlacesTitle,Builtin,1,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
-L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDate}}:
-Chronological order must be respected (i.e. sequence matters).","Lieux où vous êtes allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
-L'ordre chronologique doit être respecté.","Places you went on {{journeyDate}}:
+personVisitedPlacesTitle,Builtin,1,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}}:
+L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDates}}:
+Chronological order must be respected (i.e. sequence matters).","Lieux où vous êtes allé{{gender:/e/(e)/(e)}} le {{journeyDates}}:
+L'ordre chronologique doit être respecté.","Places you went on {{journeyDates}}:
 Chronological order must be respected (i.e. sequence matters).",,,,,,,,,True,,,,,
-personVisitedPlacesMap,Builtin,1,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{journeyDate}}:,Map of **{{nickname}}**’s trips on {{journeyDate}}:,Carte de vos déplacements le {{journeyDate}}:,Map of your trips on {{journeyDate}}:,,,,,,,,,,,,,,
+personVisitedPlacesMap,Builtin,1,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{journeyDates}}:,Map of **{{nickname}}**’s trips on {{journeyDates}}:,Carte de vos déplacements le {{journeyDates}}:,Map of your trips on {{journeyDates}}:,,,,,,,,,,,,,,
 personVisitedPlaces,Builtin,1,visitedPlaces,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlaces,,,,,,,,,,,,,,,,,,
 visitedPlaceActivityCategory,Builtin,1,visitedPlaces,personVisitedPlaces,activityCategory,,,,,,,,,,,,,,,,,,
 visitedPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,activity,,,,,,,,,,,,,,,,,,
@@ -181,8 +181,8 @@ buttonDeleteVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,,,,,,,,,,,,
 buttonVisitedPlacesConfirmNextSection,Builtin,1,visitedPlaces,,visitedPlaces.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,lastPlaceEnteredCustomConditional,,,,,,,,,,,
 activePersonTitle,Builtin,1,segments,,,,,,,,,,,,,,,True,,,,,
 buttonSwitchPerson,Builtin,1,segments,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
-personTripsTitle,Builtin,1,segments,,personTripsTitle,Déplacements de {{nickname}} le {{journeyDate}},Trips made by {{nickname}} on {{journeyDate}},Vos déplacements le {{journeyDate}},Trips you made on {{journeyDate}},,,,,,,,,True,,,,,
-personVisitedPlacesMap,Builtin,1,segments,,segmentsMap,Carte des déplacements de **{{nickname}}** le {{journeyDate}}:,Map of **{{nickname}}**’s trips on {{journeyDate}}:,Carte de vos déplacements le {{journeyDate}}:,Map of your trips on {{journeyDate}}:,,,,,,,,,,,,,,
+personTripsTitle,Builtin,1,segments,,personTripsTitle,Déplacements de {{nickname}} le {{journeyDates}},Trips made by {{nickname}} on {{journeyDates}},Vos déplacements le {{journeyDates}},Trips you made on {{journeyDates}},,,,,,,,,True,,,,,
+personVisitedPlacesMap,Builtin,1,segments,,segmentsMap,Carte des déplacements de **{{nickname}}** le {{journeyDates}}:,Map of **{{nickname}}**’s trips on {{journeyDates}}:,Carte de vos déplacements le {{journeyDates}}:,Map of your trips on {{journeyDates}}:,,,,,,,,,,,,,,
 personTrips,Builtin,1,segments,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.trips,,,,,,,,,,,,,,,,,,
 segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:","Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:",,,,,,,,,,,,,,,,
 segments,Builtin,1,segments,personTrips,segments,Mode de transport,Mode of transport,,,,,,,,,,,,,,,,

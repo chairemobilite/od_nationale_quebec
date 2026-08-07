@@ -239,10 +239,10 @@ Section: Déplacements
 
 Changer de personne
 
-Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
+Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}}:
 L'ordre chronologique doit être respecté.
 
-Carte des déplacements de {{nickname}} le {{journeyDate}}:
+Carte des déplacements de {{nickname}} le {{journeyDates}}:
 
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
@@ -282,9 +282,9 @@ Section: Modes de transport
 
 Changer de personne
 
-Déplacements de {{nickname}} le {{journeyDate}}
+Déplacements de {{nickname}} le {{journeyDates}}
 
-Carte des déplacements de {{nickname}} le {{journeyDate}}:
+Carte des déplacements de {{nickname}} le {{journeyDates}}:
 
 Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
 

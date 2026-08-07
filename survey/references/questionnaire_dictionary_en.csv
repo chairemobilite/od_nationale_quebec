@@ -363,12 +363,12 @@ Question,Change person
 ""
 Field,personVisitedPlacesTitle
 Question type,Builtin
-Question,"Places {{nickname}} went on {{journeyDate}}:
+Question,"Places {{nickname}} went on {{journeyDates}}:
 Chronological order must be respected (i.e. sequence matters)."
 ""
 Field,visitedPlacesMap
 Question type,Builtin
-Question,Map of {{nickname}}’s trips on {{journeyDate}}:
+Question,Map of {{nickname}}’s trips on {{journeyDates}}:
 ""
 Field,onTheRoadPreviousPlaceActivity
 Question type,Builtin
@@ -441,11 +441,11 @@ Question,Change person
 ""
 Field,personTripsTitle
 Question type,Builtin
-Question,Trips made by {{nickname}} on {{journeyDate}}
+Question,Trips made by {{nickname}} on {{journeyDates}}
 ""
 Field,segmentsMap
 Question type,Builtin
-Question,Map of {{nickname}}’s trips on {{journeyDate}}:
+Question,Map of {{nickname}}’s trips on {{journeyDates}}:
 ""
 Field,segmentsIntro
 Question type,Builtin

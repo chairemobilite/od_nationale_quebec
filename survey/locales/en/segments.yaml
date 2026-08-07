@@ -3,10 +3,10 @@
 # Any changes made to this file will be overwritten.
 
 buttonSwitchPerson: Change person
-personTripsTitle: Trips made by {{nickname}} on {{journeyDate}}
-personTripsTitle_one: Trips you made on {{journeyDate}}
-personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDate}}:'
-personVisitedPlacesMap_one: 'Map of your trips on {{journeyDate}}:'
+personTripsTitle: Trips made by {{nickname}} on {{journeyDates}}
+personTripsTitle_one: Trips you made on {{journeyDates}}
+personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDates}}:'
+personVisitedPlacesMap_one: 'Map of your trips on {{journeyDates}}:'
 segmentIntro: >-
     Please indicate all modes of transport used for this trip (from {{originName}}
     to {{destinationName}}), in chronological order:
