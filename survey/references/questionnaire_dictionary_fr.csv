@@ -629,7 +629,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,hh_income
 Type de question,Liste déroulante
-Question,"Tranche de revenu avant impôts (brut) du ménage, en 2024?
+Question,"Tranche de revenu avant impôts (brut) du ménage, en 2025?
 Facultatif"
 Valeurs,"000000_014999 : Moins de 15 000 $
 015000_029999 : 15 000 $ à 29 999 $

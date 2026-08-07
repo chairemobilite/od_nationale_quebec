@@ -400,7 +400,7 @@ Est-ce que votre ménage est locataire ou propriétaire de votre logement?
 - Autre
 - Je préfère ne pas répondre
 
-Tranche de revenu avant impôts (brut) du ménage, en 2024?
+Tranche de revenu avant impôts (brut) du ménage, en 2025?
 Facultatif
 - Moins de 15 000 $
 - 15 000 $ à 29 999 $

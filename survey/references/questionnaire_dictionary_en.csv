@@ -627,7 +627,7 @@ preferNotToAnswer : I prefer not to respond"
 ""
 Field,hh_income
 Question type,Select input
-Question,"What was your household's income range before taxes (gross income), in 2024?
+Question,"What was your household's income range before taxes (gross income), in 2025?
 Optional"
 Values,"000000_014999 : Less than $15,000
 015000_029999 : $15,000 to $29,999
