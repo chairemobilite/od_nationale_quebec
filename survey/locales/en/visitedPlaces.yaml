@@ -7,13 +7,13 @@ activePersonTitle: >-
     interview</p><p class="_center _pale">•</p>
 buttonSwitchPerson: Change person
 personVisitedPlacesTitle: >-
-    Places {{nickname}} went on {{journeyDate}}:<br />Chronological order must be
+    Places {{nickname}} went on {{journeyDates}}:<br />Chronological order must be
     respected (i.e. sequence matters).
 personVisitedPlacesTitle_one: >-
-    Places you went on {{journeyDate}}:<br />Chronological order must be respected
+    Places you went on {{journeyDates}}:<br />Chronological order must be respected
     (i.e. sequence matters).
-personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDate}}:'
-personVisitedPlacesMap_one: 'Map of your trips on {{journeyDate}}:'
+personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDates}}:'
+personVisitedPlacesMap_one: 'Map of your trips on {{journeyDates}}:'
 visitedPlaceOnTheRoadPreviousPlaceActivity: What was the departure place of {{nickname}}’s
     work trip on the road?
 visitedPlaceOnTheRoadPreviousPlaceActivity_one: Where did you start your work trip
