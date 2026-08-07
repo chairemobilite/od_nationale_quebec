@@ -2,7 +2,7 @@ const moment = require('moment');
 const survey = process.env.EV_VARIANT;
 const variantSpecificConfig = require('./configVariantSpecific')[survey];
 
-const holidays = ['2025-09-01', '2025-10-13', '2025-12-25', '2026-01-01'];
+const holidays = ['2026-09-07', '2026-10-12', '2026-12-25', '2027-01-01'];
 
 moment.updateLocale('fr', {
     holidays,
