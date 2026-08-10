@@ -575,10 +575,10 @@ Valeurs,"yes : Oui
 no : Non
 dontKnow : Je ne sais pas"
 ""
-Champ,hh_longDistanceTripsSeptemberDecember
+Champ,hh_longDistanceTripsMayAugust
 Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2026?
 Valeurs,"00_00 : Jamais (0)
 01_03 : Quelques fois durant la période (1 à 3)
 04_12 : Quelques fois par mois (4 à 12)
@@ -587,16 +587,16 @@ Valeurs,"00_00 : Jamais (0)
 Champ,hh_longDistanceTripsJanuaryApril
 Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2026?
 Valeurs,"00_00 : Jamais (0)
 01_03 : Quelques fois durant la période (1 à 3)
 04_12 : Quelques fois par mois (4 à 12)
 13_99 : Une à plusieurs fois par semaine (13 ou plus)"
 ""
-Champ,hh_longDistanceTripsMayAugust
+Champ,hh_longDistanceTripsSeptemberDecember
 Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2025?
 Valeurs,"00_00 : Jamais (0)
 01_03 : Quelques fois durant la période (1 à 3)
 04_12 : Quelques fois par mois (4 à 12)

@@ -10,24 +10,24 @@ householdMadeLongDistanceTripsInLastYear_one: >-
     In the <strong>last 12 months</strong>, did you make any trips other than to your
     usual place of work or study, <strong>beyond the limits of the grey area</strong>
     (more than 40 km from home)?
-householdLongDistanceTripsSeptemberDecember: >-
-    How often did you or a member of your household make long-distance trips (more
-    than 40 km) between <strong>September and December 2024</strong>?
-householdLongDistanceTripsSeptemberDecember_one: >-
-    How often did you make long-distance trips (more than 40 km) between <strong>September
-    and December 2024</strong>?
-householdLongDistanceTripsJanuaryApril: >-
-    How often did you or a member of your household make long-distance trips (more
-    than 40 km) between <strong>January and April 2025</strong>?
-householdLongDistanceTripsJanuaryApril_one: >-
-    How often did you make long-distance trips (more than 40 km) between <strong>January
-    and April 2025</strong>?
 householdLongDistanceTripsMayAugust: >-
     How often did you or a member of your household make long-distance trips (more
-    than 40 km) between <strong>May and August 2025</strong>?
+    than 40 km) between <strong>May and August 2026</strong>?
 householdLongDistanceTripsMayAugust_one: >-
     How often did you make long-distance trips (more than 40 km) between <strong>May
-    and August 2025</strong>?
+    and August 2026</strong>?
+householdLongDistanceTripsJanuaryApril: >-
+    How often did you or a member of your household make long-distance trips (more
+    than 40 km) between <strong>January and April 2026</strong>?
+householdLongDistanceTripsJanuaryApril_one: >-
+    How often did you make long-distance trips (more than 40 km) between <strong>January
+    and April 2026</strong>?
+householdLongDistanceTripsSeptemberDecember: >-
+    How often did you or a member of your household make long-distance trips (more
+    than 40 km) between <strong>September and December 2025</strong>?
+householdLongDistanceTripsSeptemberDecember_one: >-
+    How often did you make long-distance trips (more than 40 km) between <strong>September
+    and December 2025</strong>?
 wouldLikeToParticipateToLongDistanceSurvey: >-
     Would you be interested in <strong>being contacted again</strong> for a more in-depth
     survey on <strong>interurban travel</strong>?

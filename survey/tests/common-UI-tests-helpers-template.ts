@@ -528,11 +528,11 @@ export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonT
     // Test custom widget householdLongDistanceIntroMap
     // Implement custom test
 
-    // Test radio widget householdLongDistanceTripsSeptemberDecember with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
+    // Test radio widget householdLongDistanceTripsMayAugust with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsSeptemberDecember', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsSeptemberDecember', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsMayAugust', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsMayAugust', value: '?' });
 
     // Test radio widget householdLongDistanceTripsJanuaryApril with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -540,11 +540,11 @@ export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonT
     testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsJanuaryApril', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsJanuaryApril', value: '?' });
 
-    // Test radio widget householdLongDistanceTripsMayAugust with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
+    // Test radio widget householdLongDistanceTripsSeptemberDecember with conditional madeLongDistanceTripsConditional with choices longDistanceFrequencyChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsMayAugust', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsMayAugust', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: 'household.longDistanceTripsSeptemberDecember', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.longDistanceTripsSeptemberDecember', value: '?' });
 
     // Test radio widget wouldLikeToParticipateToLongDistanceSurvey with conditional madeLongDistanceTripsConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */

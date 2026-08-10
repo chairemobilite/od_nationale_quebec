@@ -573,10 +573,10 @@ Values,"yes : Yes
 no : No
 dontKnow : I don't know"
 ""
-Field,hh_longDistanceTripsSeptemberDecember
+Field,hh_longDistanceTripsMayAugust
 Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2026?
 Values,"00_00 : Never (0)
 01_03 : A few times during the period (1 to 3)
 04_12 : A few times a month (4 to 12)
@@ -585,16 +585,16 @@ Values,"00_00 : Never (0)
 Field,hh_longDistanceTripsJanuaryApril
 Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2025?
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2026?
 Values,"00_00 : Never (0)
 01_03 : A few times during the period (1 to 3)
 04_12 : A few times a month (4 to 12)
 13_99 : One to several times a week (13 or more)"
 ""
-Field,hh_longDistanceTripsMayAugust
+Field,hh_longDistanceTripsSeptemberDecember
 Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2025?
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2025?
 Values,"00_00 : Never (0)
 01_03 : A few times during the period (1 to 3)
 04_12 : A few times a month (4 to 12)

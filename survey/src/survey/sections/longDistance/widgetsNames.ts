@@ -7,9 +7,9 @@ import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types
 export const widgetsNames: SectionConfig['widgets'] = [
     'householdMadeLongDistanceTripsInLastYear',
     'householdLongDistanceIntroMap',
-    'householdLongDistanceTripsSeptemberDecember',
-    'householdLongDistanceTripsJanuaryApril',
     'householdLongDistanceTripsMayAugust',
+    'householdLongDistanceTripsJanuaryApril',
+    'householdLongDistanceTripsSeptemberDecember',
     'wouldLikeToParticipateToLongDistanceSurvey',
     'wouldLikeToParticipateToLongDistanceSurveyContactEmail',
     'buttonCompleteLongDistanceSection'

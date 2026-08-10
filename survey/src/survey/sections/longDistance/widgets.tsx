@@ -31,14 +31,14 @@ export const householdMadeLongDistanceTripsInLastYear: WidgetConfig.InputRadioTy
 // Custom because it is a map around the home
 export const householdLongDistanceIntroMap = customWidgets.householdLongDistanceIntroMap;
 
-export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRadioType = {
+export const householdLongDistanceTripsMayAugust: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'household.longDistanceTripsSeptemberDecember',
+    path: 'household.longDistanceTripsMayAugust',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('longDistance:householdLongDistanceTripsSeptemberDecember', {
+        return t('longDistance:householdLongDistanceTripsMayAugust', {
             count: countPersons
         });
     },
@@ -63,14 +63,14 @@ export const householdLongDistanceTripsJanuaryApril: WidgetConfig.InputRadioType
     validations: validations.requiredValidation
 };
 
-export const householdLongDistanceTripsMayAugust: WidgetConfig.InputRadioType = {
+export const householdLongDistanceTripsSeptemberDecember: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'household.longDistanceTripsMayAugust',
+    path: 'household.longDistanceTripsSeptemberDecember',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('longDistance:householdLongDistanceTripsMayAugust', {
+        return t('longDistance:householdLongDistanceTripsSeptemberDecember', {
             count: countPersons
         });
     },
