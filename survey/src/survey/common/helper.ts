@@ -22,6 +22,7 @@ import {
     validateButtonAction,
     validateButtonActionWithCompleteSection
 } from 'evolution-frontend/lib/services/display/frontendHelper';
+import { Mode } from 'evolution-common/lib/services/odSurvey/types';
 
 // FIXME Move elsewhere as we start using Evolution's builtin sections. It is
 // here to be available for widgets.ts, sections.ts and questionnaire.ts files.
@@ -508,13 +509,13 @@ const privateModesForJunctions = [
 /**
  * Display if previous mode is private mode and current is public, or vice versa
  */
-export const shouldDisplayTripJunction = (previousSegment: Segment, currentSegment: Segment) => {
+export const shouldDisplayTripJunction = (previous: Segment | Mode, current: Segment | Mode) => {
+    const previousMode = typeof previous === 'string' ? previous : previous.mode;
+    const currentMode = typeof current === 'string' ? current : current.mode;
     // tripJunction needed when changing from private to public modes (private modes: car driver, car passenger, moto, taxi - walking is excluded )
     if (
-        (privateModesForJunctions.includes(previousSegment.mode) &&
-            publicModesForJunctions.includes(currentSegment.mode)) ||
-        (publicModesForJunctions.includes(previousSegment.mode) &&
-            privateModesForJunctions.includes(currentSegment.mode))
+        (privateModesForJunctions.includes(previousMode) && publicModesForJunctions.includes(currentMode)) ||
+        (publicModesForJunctions.includes(previousMode) && privateModesForJunctions.includes(currentMode))
     ) {
         return true;
     }

@@ -190,6 +190,17 @@ export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interv
     const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
     const segments = odSurveyHelper.getSegmentsArray({ trip });
     const segmentIndex = segments.findIndex((seg) => seg._sequence === segment._sequence);
+    // Mode has to be set
+    if (_isBlank(segment.mode)) {
+        return [false, null];
+    }
+    // Check if the `howToBus` field is set to a private mode that requires a junction.
+    const firstSegmentHasPrivateAccessMode = !_isBlank((segment as any).howToBus)
+        ? shouldDisplayTripJunction((segment as any).howToBus, segment.mode)
+        : false;
+    if (firstSegmentHasPrivateAccessMode) {
+        return [true, null];
+    }
     // Ignore if it is the first segment, or if the activity at destination is a loop activity
     if (segmentIndex <= 0 || odSurveyHelper.isLoopActivity({ visitedPlace: destination })) {
         return [false, null];
