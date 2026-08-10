@@ -140,13 +140,16 @@ export const segmentHowToBus: WidgetConfig.InputRadioType = {
         });
     },
     conditional: function (interview, path) {
-        const segment: any = getResponse(interview, path, null, '../');
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error(`segmentHowToBus conditional: cannot get segment context from path ${path}`);
+        }
+        const { segment, trip } = segmentContext;
         const mode = segment ? segment.mode : null;
 
-        const trip = odSurveyHelpers.getActiveTrip({ interview });
         const segmentsArray = odSurveyHelpers.getSegmentsArray({ trip });
 
-        const isFirst: boolean = segmentsArray[0] === segment;
+        const isFirst: boolean = segmentsArray[0]._uuid === segment._uuid;
 
         return [isFirst && transitModesForAccessMode.includes(mode), null];
     },
