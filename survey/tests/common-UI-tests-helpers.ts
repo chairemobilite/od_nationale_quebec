@@ -1113,12 +1113,14 @@ const fillOneSegmentTests = ({
     // Build a string for segmentId (e.g., "${segmentId[0]}") using a template literal to avoid immediate interpolation
     const segmentIdString = `\${segmentId[${index}]}`;
 
-    // Test the group object button
-    testHelpers.inputNextButtonTest({
-        context,
-        text: 'Select the first (or only) mode of transport used during this trip',
-        nextPageUrl: '/survey/segments'
-    });
+    // Test the group object button, if it is not the first segment
+    if (segment.segmentIndex > 0) {
+        testHelpers.inputNextButtonTest({
+            context,
+            text: 'Select the next mode of transport',
+            nextPageUrl: '/survey/segments'
+        });
+    }
 
     // Test custom widget segmentSameModeAsReverseTrip
     if (segment.sameModeAsReverseTrip === null) {
