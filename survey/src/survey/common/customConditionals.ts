@@ -4,6 +4,7 @@ import { Journey, Person, WidgetConditional } from 'evolution-common/lib/service
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
+import { checkConditionals } from 'evolution-common/lib/services/widgets/conditionals/checkConditionals';
 import { getShortcutVisitedPlaces } from './customFrontendHelper';
 import { shouldAskForNoSchoolTripReason, shouldAskForNoWorkTripReason, shouldDisplayTripJunction } from './helper';
 import { isStudentFromEnrolled } from './customHelpers';
@@ -25,6 +26,31 @@ export const hiddenWithQuebecAsDefaultValueCustomConditional: WidgetConditional 
 // Don't show Question and give 'Canada' as default value
 export const hiddenWithCanadaAsDefaultValueCustomConditional: WidgetConditional = (_interview) => {
     return [false, 'Canada'];
+};
+
+// Custom conditional, because it sets the hidden value to the household's
+// response. Can be a generator conditional when
+// https://github.com/chairemobilite/evolution/issues/1880 is fixed
+export const hasOnePersonWithDisabilityOrHhSize1CustomConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.atLeastOnePersonWithDisability',
+                comparisonOperator: '===',
+                value: 'yes'
+            },
+            {
+                logicalOperator: '||',
+                path: 'household.size',
+                comparisonOperator: '===',
+                value: 1
+            }
+        ],
+        valueWhenHidden: surveyHelper.getResponse(interview, 'household.atLeastOnePersonWithDisability', null) as
+            | string
+            | null
+    });
 };
 
 // Stay hidden and put some default value if the person is a student or a worker

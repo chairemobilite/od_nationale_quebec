@@ -100,7 +100,7 @@ Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprim�
 ""
 Champ,hasDisability
 Type de question,Bouton radio
-Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Conditionnel,hasOnePersonWithDisabilityOrHhSize1CustomConditional
 Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?"
 Valeurs,"yes : Oui
 no : Non

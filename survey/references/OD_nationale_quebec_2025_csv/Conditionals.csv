@@ -1,8 +1,6 @@
 conditional_name,logical_operator,path,comparison_operator,value,parentheses
 hasHouseholdSize1Conditional,,household.size,===,1,
 hasHouseholdSize2OrMoreConditional,,household.size,>=,2,
-hasOnePersonWithDisabilityOrHhSize1Conditional,,household.atLeastOnePersonWithDisability,===,yes,
-hasOnePersonWithDisabilityOrHhSize1Conditional,||,household.size,===,1,
 hasHouseholdBicycleConditional,,household.bicycleNumber,>=,1,
 hasPreferNotToAnswerToSexAssignedConditional,,${currentPerson}.sexAssignedAtBirth,===,preferNotToAnswer,
 ifAge3to5Conditional,,${currentPerson}.age,>=,3,

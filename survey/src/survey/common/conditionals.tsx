@@ -32,25 +32,6 @@ export const hasHouseholdSize2OrMoreConditional: WidgetConditional = (interview)
     });
 };
 
-export const hasOnePersonWithDisabilityOrHhSize1Conditional: WidgetConditional = (interview) => {
-    return checkConditionals({
-        interview,
-        conditionals: [
-            {
-                path: 'household.atLeastOnePersonWithDisability',
-                comparisonOperator: '===',
-                value: 'yes'
-            },
-            {
-                logicalOperator: '||',
-                path: 'household.size',
-                comparisonOperator: '===',
-                value: 1
-            }
-        ]
-    });
-};
-
 export const hasHouseholdBicycleConditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,

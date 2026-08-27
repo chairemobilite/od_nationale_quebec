@@ -45,6 +45,7 @@ export const personNickname: WidgetConfig.InputStringType = {
     validations: validations.requiredValidation
 };
 
+// Custom conditional because the generator does not support values when hidden that can be paths in the interview
 export const personHasDisability: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'hasDisability',
@@ -57,7 +58,7 @@ export const personHasDisability: WidgetConfig.InputRadioType = {
         });
     },
     choices: choices.yesNoPreferNotToAnswer,
-    conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
+    conditional: customConditionals.hasOnePersonWithDisabilityOrHhSize1CustomConditional,
     validations: validations.requiredValidation
 };
 

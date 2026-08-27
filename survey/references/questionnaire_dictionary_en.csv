@@ -100,7 +100,7 @@ The name is only used to simplify the response process and will be removed from 
 ""
 Field,hasDisability
 Question type,Radio input
-Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Conditional,hasOnePersonWithDisabilityOrHhSize1CustomConditional
 Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
 Values,"yes : Yes
 no : No
