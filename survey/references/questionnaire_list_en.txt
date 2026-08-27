@@ -203,7 +203,7 @@ The order of the interviewed persons was randomly selected.
 Who is responding for {{nickname}}?
 
 Did {{nickname}} make any trips on {{assignedDate}}?
-Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.
+Include all trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.
 
 You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?
 

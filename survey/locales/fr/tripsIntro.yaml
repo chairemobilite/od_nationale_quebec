@@ -16,31 +16,37 @@ personNewPerson: >-
 personWhoWillAnswerForThisPerson: Qui répond pour {{nickname}}?
 personDidTrips: >-
     Est-ce que {{nickname}} s'est déplacé(e) le {{assignedDate}}?<br /><span class="_pale
-    _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
-    (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
+    _oblique">Inclure tous les déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, qu'ils soient pour des motifs personnels (achats,
+    sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
     quelqu'un.</span>
 personDidTrips_male: >-
     Est-ce que {{nickname}} s'est déplacé le {{assignedDate}}?<br /><span class="_pale
-    _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
-    (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
+    _oblique">Inclure tous les déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, qu'ils soient pour des motifs personnels (achats,
+    sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
     quelqu'un.</span>
 personDidTrips_female: >-
     Est-ce que {{nickname}} s'est déplacée le {{assignedDate}}?<br /><span class="_pale
-    _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
-    (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
+    _oblique">Inclure tous les déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, qu'ils soient pour des motifs personnels (achats,
+    sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
     quelqu'un.</span>
 personDidTrips_one: >-
     Vous êtes-vous déplacé(e) le {{assignedDate}}?<br /><span class="_pale _oblique">Inclure
-    tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties,
-    loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
+    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
+    utilisé, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.),
+    pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
 personDidTrips_male_one: >-
     Vous êtes-vous déplacé le {{assignedDate}}?<br /><span class="_pale _oblique">Inclure
-    tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties,
-    loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
+    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
+    utilisé, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.),
+    pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
 personDidTrips_female_one: >-
     Vous êtes-vous déplacée le {{assignedDate}}?<br /><span class="_pale _oblique">Inclure
-    tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties,
-    loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
+    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
+    utilisé, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.),
+    pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
 personDidTripsConfirm: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
     que {{nickname}} ne s'est pas déplacé(e) le {{formattedTripsDate}}?

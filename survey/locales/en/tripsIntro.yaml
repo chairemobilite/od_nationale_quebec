@@ -15,12 +15,14 @@ personNewPerson: >-
 personWhoWillAnswerForThisPerson: Who is responding for {{nickname}}?
 personDidTrips: >-
     Did {{nickname}} make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
-    all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
-    work, or to pick up or drop someone off.</span>
+    all trips, regardless of the distance travelled or mode of transportation used,
+    whether for personal reasons (shopping, outings, leisure, etc.), for work, or
+    to pick up or drop someone off.</span>
 personDidTrips_one: >-
     Did you make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
-    all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
-    work, or to pick up or drop someone off.</span>
+    all trips, regardless of the distance travelled or mode of transportation used,
+    whether for personal reasons (shopping, outings, leisure, etc.), for work, or
+    to pick up or drop someone off.</span>
 personDidTripsConfirm: >-
     You already declared trip. Do you confirm they are erroneous and that {{nickname}}
     did not make any trips on {{formattedTripsDate}}?

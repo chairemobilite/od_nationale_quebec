@@ -314,7 +314,7 @@ Question,Who is responding for {{nickname}}?
 Field,personDidTrips
 Question type,Unknown input
 Question,"Did {{nickname}} make any trips on {{assignedDate}}?
-Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
+Include all trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
 ""
 Field,personDidTripsConfirm
 Question type,Unknown input

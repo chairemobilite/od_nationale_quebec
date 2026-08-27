@@ -314,7 +314,7 @@ Question,Qui répond pour {{nickname}}?
 Champ,personDidTrips
 Type de question,Entrée inconnue
 Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
-Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
+Inclure tous les déplacements, peu importe la distance parcourue ou le mode de transport utilisé, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
 ""
 Champ,personDidTripsConfirm
 Type de question,Entrée inconnue
