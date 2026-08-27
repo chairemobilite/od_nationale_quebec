@@ -163,7 +163,20 @@ const longDistance: commonUITestsHelpers.LongDistanceSection = {
 commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1, longDistanceSection: longDistance });
 
 /********** Tests end section **********/
-commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
+const endSection = _cloneDeep(commonUITestsHelpers.defaultEnd);
+const endSectionWithAllValues = {
+    ...endSection,
+    householdCommentsOnSurvey: 'Test comment',
+    householdPluginHybridCarNumber: '1',
+    householdElectricCarNumber: '1',
+    endInterestOfTheSurvey: 75,
+    endTimeSpentAnswering: '2',
+    endDurationOfTheSurvey: 70,
+    endDifficultyOfTheSurvey: 40,
+    endBurdenOfTheSurvey: 30,
+    endConsideredAbandoningSurvey: 'no' as const
+};
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1, endSection: endSectionWithAllValues });
 
 /********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });

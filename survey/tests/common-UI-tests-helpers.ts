@@ -1503,36 +1503,80 @@ export const fillLongDistanceSectionTests = ({
 };
 
 /********** Tests end section **********/
-export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+export type EndSection = {
+    householdOwnership: string;
+    householdIncome: string;
+    wouldLikeToParticipateInOtherSurveysChaireMobilite: 'yes' | 'no';
+    wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: string | null;
+    householdCommentsOnSurvey?: string;
+    householdPluginHybridCarNumber?: string;
+    householdElectricCarNumber?: string;
+    endInterestOfTheSurvey?: number;
+    endTimeSpentAnswering?: string;
+    endDurationOfTheSurvey?: number;
+    endDifficultyOfTheSurvey?: number;
+    endBurdenOfTheSurvey?: number;
+    endConsideredAbandoningSurvey?: 'yes' | 'no' | 'dontKnow';
+};
+
+export const defaultEnd: EndSection = {
+    householdOwnership: 'tenant',
+    householdIncome: '100000_149999',
+    wouldLikeToParticipateInOtherSurveysChaireMobilite: 'no',
+    wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: null // Question is hidden
+    // Other answers are optional, keep them unanswered by default
+};
+
+export type EndTestParameters = CommonTestParametersModify & {
+    endSection?: EndSection;
+};
+
+export const fillEndSectionTests = ({ context, endSection = defaultEnd }: EndTestParameters) => {
     // Verify the end navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'active', isDisabled: false });
 
     // Test radio widget householdOwnership with choices householdOwnershipChoices
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: 'tenant' });
+    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: endSection.householdOwnership });
 
     // Test select widget householdIncome with choices householdIncomeChoices
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputSelectTest({ context, path: 'household.income', value: '100000_149999' });
+    testHelpers.inputSelectTest({ context, path: 'household.income', value: endSection.householdIncome });
 
     // Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputRadioTest({
         context,
         path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobilite',
-        value: 'yes'
+        value: endSection.wouldLikeToParticipateInOtherSurveysChaireMobilite
     });
 
     // Test string widget wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail with conditional wantToParticipateInOtherSurveysChaireMobiliteConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputStringTest({
-        context,
-        path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
-        value: 'test@example.com'
-    });
+    if (endSection.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'end.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail',
+            value: endSection.wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
+        });
+    }
 
     // Test text widget householdCommentsOnSurvey
-    testHelpers.inputStringTest({ context, path: 'end.commentsOnSurvey', value: 'Test' });
+    if (endSection.householdCommentsOnSurvey === undefined) {
+        testHelpers.inputVisibleTest({ context, path: 'end.commentsOnSurvey', isVisible: true });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'end.commentsOnSurvey',
+            value: endSection.householdCommentsOnSurvey
+        });
+    }
 
     // Test infotext widget optionalIntroText
     testHelpers.waitTextVisible({
@@ -1542,45 +1586,102 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
 
     // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.pluginHybridCarNumber', value: '1' });
+    if (endSection.householdPluginHybridCarNumber === undefined) {
+        testHelpers.inputVisibleTest({ context, path: 'household.pluginHybridCarNumber', isVisible: true });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.pluginHybridCarNumber',
+            value: endSection.householdPluginHybridCarNumber
+        });
+    }
 
     // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.electricCarNumber', value: '1' });
+    if (endSection.householdElectricCarNumber === undefined) {
+        testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.electricCarNumber',
+            value: endSection.householdElectricCarNumber
+        });
+    }
 
     // Test range widget endInterestOfTheSurvey
-    testHelpers.inputRangeTest({
-        context,
-        path: 'end.interestOfTheSurvey',
-        value: 75,
-        sliderColor: 'red-yellow-green'
-    });
+    if (endSection.endInterestOfTheSurvey === undefined) {
+        // FIXME Check visibility of widget when https://github.com/chairemobilite/evolution/issues/1710 is fixed
+        // testHelpers.inputVisibleTest({ context, path: 'end.interestOfTheSurvey', isVisible: true });
+    } else {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'end.interestOfTheSurvey',
+            value: endSection.endInterestOfTheSurvey,
+            sliderColor: 'red-yellow-green'
+        });
+    }
 
     // Test number widget endTimeSpentAnswering
-    testHelpers.inputStringTest({ context, path: 'end.timeSpentAnswering', value: '15' });
+    if (endSection.endTimeSpentAnswering === undefined) {
+        testHelpers.inputVisibleTest({ context, path: 'end.timeSpentAnswering', isVisible: true });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'end.timeSpentAnswering',
+            value: endSection.endTimeSpentAnswering
+        });
+    }
 
     // Test range widget endDurationOfTheSurvey
-    testHelpers.inputRangeTest({
-        context,
-        path: 'end.durationOfTheSurvey',
-        value: 70,
-        sliderColor: 'green-yellow-red'
-    });
+    if (endSection.endDurationOfTheSurvey === undefined) {
+        // FIXME Check visibility of widget when https://github.com/chairemobilite/evolution/issues/1710 is fixed
+        // testHelpers.inputVisibleTest({ context, path: 'end.durationOfTheSurvey', isVisible: true });
+    } else {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'end.durationOfTheSurvey',
+            value: endSection.endDurationOfTheSurvey,
+            sliderColor: 'green-yellow-red'
+        });
+    }
 
     // Test range widget endDifficultyOfTheSurvey
-    testHelpers.inputRangeTest({
-        context,
-        path: 'end.difficultyOfTheSurvey',
-        value: 40,
-        sliderColor: 'green-yellow-red'
-    });
+    if (endSection.endDifficultyOfTheSurvey === undefined) {
+        // FIXME Check visibility of widget when https://github.com/chairemobilite/evolution/issues/1710 is fixed
+        // testHelpers.inputVisibleTest({ context, path: 'end.difficultyOfTheSurvey', isVisible: true });
+    } else {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'end.difficultyOfTheSurvey',
+            value: endSection.endDifficultyOfTheSurvey,
+            sliderColor: 'green-yellow-red'
+        });
+    }
 
     // Test range widget endBurdenOfTheSurvey
-    testHelpers.inputRangeTest({ context, path: 'end.burdenOfTheSurvey', value: 30, sliderColor: 'green-yellow-red' });
+    if (endSection.endBurdenOfTheSurvey === undefined) {
+        // FIXME Check visibility of widget when https://github.com/chairemobilite/evolution/issues/1710 is fixed
+        // testHelpers.inputVisibleTest({ context, path: 'end.burdenOfTheSurvey', isVisible: true });
+    } else {
+        testHelpers.inputRangeTest({
+            context,
+            path: 'end.burdenOfTheSurvey',
+            value: endSection.endBurdenOfTheSurvey,
+            sliderColor: 'green-yellow-red'
+        });
+    }
 
     // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'end.consideredAbandoningSurvey', value: 'no' });
+    if (endSection.endConsideredAbandoningSurvey === undefined) {
+        testHelpers.inputVisibleTest({ context, path: 'end.consideredAbandoningSurvey', isVisible: true });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'end.consideredAbandoningSurvey',
+            value: endSection.endConsideredAbandoningSurvey
+        });
+    }
 
     // Test nextbutton widget buttonCompleteInterviewWithCompleteSection
     testHelpers.inputNextButtonTest({ context, text: 'Complete the interview', nextPageUrl: '/survey/completed' });
