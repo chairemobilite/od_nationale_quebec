@@ -30,6 +30,7 @@ export const personAge: WidgetConfig.InputStringType = {
             count: countPersons
         });
     },
+    suffixLabel: (t: TFunction) => t('household:ageSuffix'),
     conditional: defaultConditional,
     validations: validations.ageValidation
 };

@@ -115,6 +115,7 @@ popup:
         this survey.
 schoolTypeLessThan4: <strong>Childcare type</strong>
 schoolTypeBetween4And15: <strong>School type</strong>
+ageSuffix: year(s) old
 workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
     at fixed location
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Yes, I worked always on-site at fixed

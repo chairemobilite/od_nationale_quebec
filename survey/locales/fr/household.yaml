@@ -181,6 +181,7 @@ popup:
         à ce questionnaire.
 schoolTypeLessThan4: <strong>Type de garde</strong>
 schoolTypeBetween4And15: <strong>Type d'école</strong>
+ageSuffix: an(s)
 workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
     en présentiel en tout temps
 workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en

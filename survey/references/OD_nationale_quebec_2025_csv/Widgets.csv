@@ -40,7 +40,7 @@ __Y compris vous-même__","Is there at least one person in your household having
 __Including yourself__",,,,,hasHouseholdSize2OrMoreConditional,,yesNoPreferNotToAnswer,,,,True,,,,,
 home_save,NextButton,True,home,,home.save,Enregistrer et continuer,Save and continue,,,,,,,,,,,True,,,,,
 householdMembers,Custom,True,household,,,,,,,,,,,,,,,True,,,,,
-personAge,Number,True,household,householdMembers,age,**Âge** (en années),**Age** (in years),Votre **âge** (en années),Your **age** (in years),,,,ageValidation,,,,,True,,,,,
+personAge,Number,True,household,householdMembers,age,**Âge** (en années),**Age** (in years),Votre **âge** (en années),Your **age** (in years),suffixLabel=household:ageSuffix,,,ageValidation,,,,,True,,,,,
 personNickname,String,True,household,householdMembers,nickname,"**Nom ou surnom** pour identifier cette personne pour la suite de l'entrevue
 __Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.__","**Name or nickname** that will allow you to identify this person for the remainder of the interview
