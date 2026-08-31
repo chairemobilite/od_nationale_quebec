@@ -41,6 +41,7 @@ module.exports = Object.assign({
     ages: {
         interviewableMinimumAge: 5,
         selfResponseMinimumAge: 14,
+        householdMinimumAge: 16
     },
     singlePersonInterview: false,
     allowChangeSectionWithoutValidation: true,
