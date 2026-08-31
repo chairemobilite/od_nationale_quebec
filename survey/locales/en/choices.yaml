@@ -151,3 +151,5 @@ workPlaceBeforeLeaveTypeChoices:
     onTheRoadWithoutUsualPlace_one: No, I worked on the road departing from home
     remote: No, {{nickname}} worked from home or from elsewhere
     remote_one: No, I worked from home or from elsewhere
+vehicleOccupancyExtraChoices:
+    dontKnow: I don’t know

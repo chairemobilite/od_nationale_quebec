@@ -470,9 +470,10 @@ dontKnow : Je ne sais pas"
 ""
 Champ,vehicleOccupancy
 Type de question,RadioNumber
-Conditionnel,isSelfDeclaredCarDriverCustomConditional
+Conditionnel,isCarDriverCustomConditional
 Question,"Personne(s) dans le véhicule
 Conducteur ou conductrice inclus(e)."
+Valeurs,dontKnow (isProxyCustomConditional): Je ne sais pas
 ""
 Champ,driver
 Type de question,Builtin

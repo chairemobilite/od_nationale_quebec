@@ -59,7 +59,8 @@ export const segmentVehicleOccupancy: WidgetConfig.InputRadioNumberType = {
         max: 5
     },
     overMaxAllowed: true,
-    conditional: customConditionals.isSelfDeclaredCarDriverCustomConditional,
+    additionalChoices: choices.vehicleOccupancyExtraChoices,
+    conditional: customConditionals.isCarDriverCustomConditional,
     validations: validations.requiredValidation
 };
 

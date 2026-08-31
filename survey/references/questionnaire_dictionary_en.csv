@@ -470,9 +470,10 @@ dontKnow : I don't know"
 ""
 Field,vehicleOccupancy
 Question type,RadioNumber
-Conditional,isSelfDeclaredCarDriverCustomConditional
+Conditional,isCarDriverCustomConditional
 Question,"Persons in the vehicle
 Including the driver."
+Values,dontKnow (isProxyCustomConditional): I don’t know
 ""
 Field,driver
 Question type,Builtin

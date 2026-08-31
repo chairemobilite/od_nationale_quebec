@@ -576,3 +576,11 @@ export const workPlaceBeforeLeaveTypeChoices: ChoiceType[] = [
         }
     }
 ];
+
+export const vehicleOccupancyExtraChoices: ChoiceType[] = [
+    {
+        value: 'dontKnow',
+        label: (t: TFunction) => t('choices:vehicleOccupancyExtraChoices.dontKnow'),
+        conditional: customConditionals.isProxyCustomConditional
+    }
+];

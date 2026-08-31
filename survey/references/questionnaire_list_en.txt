@@ -300,6 +300,7 @@ Paid parking
 
 Persons in the vehicle
 Including the driver.
+- I don’t know
 
 Who drove?
 

@@ -199,7 +199,7 @@ segmentVehicleOccupancy,RadioNumber,1,segments,segments,vehicleOccupancy,"Person
 __Conducteur ou conductrice inclus(e).__","Persons in the vehicle
 __Including the driver.__",,,"min=1
 max=5
-overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,1,,,,,
+overMaxAllowed",,isCarDriverCustomConditional,,vehicleOccupancyExtraChoices,,,,1,,,,,
 segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,1,,,,,
 segmentBusLines,Custom,1,segments,segments,busLines,"**Ligne(s) de bus utilisée(s)** (dans l'ordre chronologique)
 __Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats.__","**Bus line(s) taken** (in chronological order)

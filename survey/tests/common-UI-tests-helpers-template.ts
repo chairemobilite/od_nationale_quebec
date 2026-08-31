@@ -431,8 +431,9 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputVisibleTest({ context, path: '?.paidForParking', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.paidForParking', value: '?' });
 
-    // Test radionumber widget segmentVehicleOccupancy with conditional isSelfDeclaredCarDriverCustomConditional
+    // Test radionumber widget segmentVehicleOccupancy with conditional isCarDriverCustomConditional with choices vehicleOccupancyExtraChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.vehicleOccupancy', isVisible: true });
 
     // Test builtin widget segmentDriver
