@@ -62,7 +62,7 @@ export type Segment = {
     mode: string | null;
     howToBus: string | null;
     paidForParking: string | null;
-    vehicleOccupancy: number | null;
+    vehicleOccupancy: number | string | null;
     driver: string | null;
     busLines: string[] | null;
     busLinesWarning: boolean | null;
