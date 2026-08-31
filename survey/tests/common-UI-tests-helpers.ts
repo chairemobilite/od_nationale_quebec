@@ -708,12 +708,18 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
 export type TripsIntroTestParameters = CommonTestParametersModify & {
     hasTrips: boolean;
     expectPopup?: boolean;
+    whoAnswersFor?: string;
+    departurePlaceIsHome?: 'yes' | 'no';
+    departurePlaceOther?: string | null;
     expectedNextSection: string;
 };
 export const fillTripsintroSectionTests = ({
     context,
     householdSize = 1,
     hasTrips,
+    whoAnswersFor,
+    departurePlaceIsHome = 'yes',
+    departurePlaceOther = null,
     expectPopup = false,
     expectedNextSection
 }: TripsIntroTestParameters) => {
@@ -738,12 +744,12 @@ export const fillTripsintroSectionTests = ({
 
     testTripDiaryHeaderVisibility({ context, householdSize });
 
-    // Test custom widget personWhoWillAnswerForThisPerson
+    // Test custom widget personWhoWillAnswerForThisPerson, self-declared by default
     if (householdSize >= 2) {
         testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.whoWillAnswerForThisPerson',
-            value: '${activePersonId}' // Select the current person
+            value: whoAnswersFor !== undefined ? whoAnswersFor : '${activePersonId}'
         });
     }
 
@@ -765,7 +771,7 @@ export const fillTripsintroSectionTests = ({
         testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceIsHome',
-            value: 'yes'
+            value: departurePlaceIsHome
         });
     } else {
         testHelpers.inputVisibleTest({
@@ -778,11 +784,19 @@ export const fillTripsintroSectionTests = ({
     // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
-        isVisible: false
-    });
+    if (!hasTrips || departurePlaceOther === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
+            value: departurePlaceOther
+        });
+    }
 
     // Test infotext widget tripsIntroOutro
     testHelpers.waitTextVisible({
@@ -809,17 +823,22 @@ export const fillVisitedPlacesSectionTests = ({
     context,
     householdSize = 1,
     visitedPlaces,
+    isSelfDeclared = true,
     journeyStartsAtHome = true
-}: CommonTestParametersModify & { visitedPlaces: VisitedPlace[]; journeyStartsAtHome?: boolean }) => {
+}: CommonTestParametersModify & {
+    visitedPlaces: VisitedPlace[];
+    journeyStartsAtHome?: boolean;
+    isSelfDeclared?: boolean;
+}) => {
     testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget personVisitedPlacesTitle
-    // FIXME Currently, every is self-respondent and should be asked at second person time, but support also proxy respondents
-    // if (householdSize === 1) {
-    testHelpers.waitTextVisible({ context, text: 'Places you went on' });
-    // } else {
-    //    testHelpers.waitTextVisible({ context, text: `Places ${householdMembers[0].nickname} went on` });
-    // }
+    if (householdSize === 1 || isSelfDeclared) {
+        testHelpers.waitTextVisible({ context, text: 'Places you went on' });
+    } else {
+        // FIXME Support regexes for texts to check that the nickname is there (https://github.com/chairemobilite/evolution/issues/1894)
+        // testHelpers.waitTextVisible({ context, text: /Places .* went on/i });
+    }
 
     // Test custom widget personVisitedPlaces
     // Implement custom test
