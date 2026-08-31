@@ -252,8 +252,6 @@ Quel endroit était le point de départ des déplacements sur la route de {{nick
 
 Avez-vous déjà localisé ce lieu?
 Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
-- Oui
-- Non
 
 Veuillez choisir le lieu dans la liste des lieux déjà localisés:
 
@@ -272,7 +270,6 @@ Après avoir été {{atPlace}}, {{nickname}} est…
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.
 
 À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
-
 
 {{nickname}} a quitté {{place}} à:
 

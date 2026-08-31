@@ -3,9 +3,7 @@ import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtension
 import { Journey, Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
-import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { checkConditionals } from 'evolution-common/lib/services/widgets/conditionals/checkConditionals';
-import { getShortcutVisitedPlaces } from './customFrontendHelper';
 import { shouldAskForNoSchoolTripReason, shouldAskForNoWorkTripReason, shouldDisplayTripJunction } from './helper';
 import { isStudentFromEnrolled } from './customHelpers';
 
@@ -109,56 +107,6 @@ export const departurePlaceOtherCustomConditional: WidgetConditional = (intervie
             _booleish((journey as any).departurePlaceIsHome) === false,
         null
     ];
-};
-
-export const currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview });
-    const journey = odSurveyHelper.getActiveJourney({ interview, person });
-    const visitedPlace: any = surveyHelper.getResponse(interview, path, null, '../');
-    const visitedPlaceActivity = visitedPlace.activity;
-    const nextVisitedPlace = odSurveyHelper.getNextVisitedPlace({ journey, visitedPlaceId: visitedPlace._uuid });
-    return [!nextVisitedPlace && visitedPlaceActivity === 'workOnTheRoad', null];
-};
-
-export const isLastPlaceCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview });
-    const journey = odSurveyHelper.getActiveJourney({ interview, person });
-    const visitedPlace: any = odSurveyHelper.getActiveVisitedPlace({ interview, journey });
-    const visitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey });
-    return (
-        visitedPlacesArray.length > 1 && visitedPlacesArray[visitedPlacesArray.length - 1]._uuid === visitedPlace._uuid
-    );
-};
-
-export const alreadyVisitedPlaceCustomConditional: WidgetConditional = (interview, path) => {
-    const activity: any = surveyHelper.getResponse(interview, path, null, '../activity');
-    // Do not display if no activity
-    if (_isBlank(activity)) {
-        return [false, null];
-    }
-    // Do not display if it is an incompatible activity
-    const incompatibleActivity = [...loopActivities, 'home'].includes(activity);
-    if (incompatibleActivity) {
-        return [false, null];
-    }
-
-    // Do not display if usual place is already set
-    const person = odSurveyHelper.getPerson({ interview });
-    if (
-        (activity === 'workUsual' && (person as any).usualWorkPlace && (person as any).usualWorkPlace.geography) ||
-        (activity === 'schoolUsual' && (person as any).usualSchoolPlace && (person as any).usualSchoolPlace.geography)
-    ) {
-        return [false, null];
-    }
-
-    // Display if there are possible shortcuts
-    const geography: any = surveyHelper.getResponse(interview, path, null, '../geography');
-    let lastAction = null;
-    if (geography) {
-        lastAction = _get(geography, 'properties.lastAction', null);
-    }
-    const shortcuts = getShortcutVisitedPlaces(interview);
-    return [(lastAction === null || lastAction === 'shortcut') && shortcuts.length > 0, null];
 };
 
 export const isCarDriverAndDestinationWorkCustomConditional: WidgetConditional = (interview, path) => {

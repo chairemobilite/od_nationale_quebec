@@ -446,36 +446,6 @@ export const departurePlaceOtherChoices: ChoiceType[] = [
     }
 ];
 
-export const onTheRoadArrivalTypeChoices: ChoiceType[] = [
-    {
-        value: 'home',
-        label: (t: TFunction) => t('choices:onTheRoadArrivalTypeChoices.home')
-    },
-    {
-        value: 'usualWorkPlace',
-        label: (t: TFunction) => t('choices:onTheRoadArrivalTypeChoices.usualWorkPlace'),
-        conditional: conditionals.onTheRoadUsualWorkplace
-    },
-    {
-        value: 'other',
-        label: (t: TFunction) => t('choices:onTheRoadArrivalTypeChoices.other')
-    },
-    {
-        value: 'stayedThereUntilTheNextDay',
-        label: (t: TFunction, interview, path) => {
-            const activePerson = odSurveyHelpers.getPerson({ interview, path });
-            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-            const countPersons = odSurveyHelpers.countPersons({ interview });
-            return t('choices:onTheRoadArrivalTypeChoices.stayedThereUntilTheNextDay', {
-                nickname,
-                count: countPersons,
-                context: activePerson?.gender || activePerson?.sexAssignedAtBirth
-            });
-        },
-        conditional: customConditionals.isLastPlaceCustomConditional
-    }
-];
-
 export const onDemandChoices: ChoiceType[] = [
     {
         value: 'pickupAtOrigin',

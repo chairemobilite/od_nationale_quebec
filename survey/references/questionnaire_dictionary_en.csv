@@ -359,7 +359,6 @@ Abbreviation,vp_
 ""
 Field,activePersonTitle
 Question type,Builtin
-Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
 Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}'s interview</p><p class=""_center _pale"">•</p>"
 ""
 Field,buttonSwitchPerson
@@ -381,11 +380,8 @@ Question,What was the departure place of {{nickname}}’s work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Builtin
-Conditional,alreadyVisitedPlaceCustomConditional
 Question,"Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member."
-Values,"yes : Yes
-no : No"
 ""
 Field,shortcut
 Question type,Builtin
@@ -419,7 +415,6 @@ If {{nickname}} left this place after 4 AM the following day, please consider fo
 ""
 Field,onTheRoadNextPlaceCategory
 Question type,Builtin
-Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
 Question,Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?
 ""
 Field,departureTime
@@ -432,7 +427,6 @@ Question,Confirm
 ""
 Field,vp_save
 Question type,Builtin
-Conditional,lastPlaceEnteredCustomConditional
 Question,Confirm locations and continue
 ""
 ""

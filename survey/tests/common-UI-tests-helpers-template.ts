@@ -337,9 +337,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
     // Progress bar test for visitedPlaces section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'visitedPlaces', completionPercentage: 0 });
 
-    // Test builtin widget activePersonTitle with conditional hasHouseholdSize2OrMoreConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: true });
+    // Test builtin widget activePersonTitle
 
     // Test builtin widget buttonSwitchPerson
 
@@ -355,10 +353,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget visitedPlaceOnTheRoadPreviousPlaceActivity
 
-    // Test builtin widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.alreadyVisitedBySelfOrAnotherHouseholdMember', isVisible: true });
+    // Test builtin widget visitedPlaceAlreadyVisited
 
     // Test builtin widget visitedPlaceShortcut
 
@@ -376,10 +371,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget visitedPlaceNextPlaceCategory
 
-    // Test builtin widget visitedPlaceOnTheRoadNextPlaceCategory with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeCustomChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.onTheRoadNextPlaceCategory', isVisible: true });
+    // Test builtin widget visitedPlaceOnTheRoadNextPlaceCategory
 
     // Test builtin widget visitedPlaceDepartureTime
 
@@ -389,9 +381,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget buttonDeleteVisitedPlace
 
-    // Test builtin widget buttonVisitedPlacesConfirmNextSection with conditional lastPlaceEnteredCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'visitedPlaces.save', isVisible: true });
+    // Test builtin widget buttonVisitedPlacesConfirmNextSection
 };
 
 /********** Tests Segments section **********/

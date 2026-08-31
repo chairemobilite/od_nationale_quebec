@@ -107,12 +107,6 @@ errors:
         other choice is selected.
     selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only
         if no other choice is selected.
-popup:
-    validateHouseholdAgesHelp: >-
-        At least one member of your household must be 16 years old or older to respond
-        to this survey. Please verify ages.
-    validateHouseholdAgesHelp_one: You must be at least 16 years old to respond to
-        this survey.
 schoolTypeLessThan4: <strong>Childcare type</strong>
 schoolTypeBetween4And15: <strong>School type</strong>
 ageSuffix: year(s) old

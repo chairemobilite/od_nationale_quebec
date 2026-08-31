@@ -252,8 +252,6 @@ What was the departure place of {{nickname}}’s work trip on the road?
 
 Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member.
-- Yes
-- No
 
 Please select this place from the list of previously located places:
 
@@ -272,7 +270,6 @@ After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
 
 Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?
-
 
 {{nickname}} left {{place}} at:
 

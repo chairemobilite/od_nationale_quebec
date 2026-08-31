@@ -112,22 +112,6 @@ departurePlaceOtherChoices:
     hotelForVacation: Hotel or other on <strong>vacation</strong>
     studying: '<strong>School / place of study</strong>: studied or slept there'
     other: Other
-onTheRoadArrivalTypeChoices:
-    home: Home
-    usualWorkPlace: Usual work place
-    other: Other location
-    stayedThereUntilTheNextDay: '{{nickname}} completed their work on the road trips
-        after 4AM the next day'
-    stayedThereUntilTheNextDay_male: '{{nickname}} completed his work on the road
-        trips after 4AM the next day'
-    stayedThereUntilTheNextDay_female: '{{nickname}} completed her work on the road
-        trips after 4AM the next day'
-    stayedThereUntilTheNextDay_one: I completed my work on the road trips after 4AM
-        the next day
-    stayedThereUntilTheNextDay_male_one: I completed my work on the road trips after
-        4AM the next day
-    stayedThereUntilTheNextDay_female_one: I completed my work on the road trips after
-        4AM the next day
 onDemandChoices:
     pickupAtOrigin: Yes, it picked {{nickname}} up at their departure location
     pickupAtOrigin_one: Yes, it picked me up at my departure location

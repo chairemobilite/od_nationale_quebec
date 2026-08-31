@@ -1,8 +1,3 @@
-import config from 'chaire-lib-common/lib/config/shared/project.config';
-
-type CenterPoint = { lat: number; lon: number };
-type GetCenterPointFromRegion = (params: { interview: any; regionPath: string }) => CenterPoint;
-
 export const defaultInvalidGeocodingResultTypes = [
     'political',
     'country',
@@ -24,8 +19,3 @@ export const defaultInvalidGeocodingResultTypes = [
     'neighborhood',
     'route'
 ];
-
-// Return the center point of Quebec
-export const getCenterPointFromRegion: GetCenterPointFromRegion = ({ interview, regionPath }) => {
-    return config.mapDefaultCenter;
-};

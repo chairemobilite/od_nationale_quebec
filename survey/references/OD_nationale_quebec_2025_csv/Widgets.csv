@@ -142,7 +142,7 @@ __Answer 'No' only if you did not sleep at home (night from {{dayOne}} to {{dayT
 personDeparturePlaceOther,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther,Où était {{nickname}} à 4h du matin?,Where was {{nickname}} at 4 AM?,Où étiez-vous à 4h du matin?,Where were you at 4 AM?,,,departurePlaceOtherCustomConditional,,departurePlaceOtherChoices,,,,True,,,,,
 tripsIntro_save,NextButton,1,tripsIntro,,tripsIntro.save,Continuer,Continue,,,,,,,,,,,,,,,,
 tripsIntroOutro,InfoText,1,tripsIntro,,tripsIntroOutro,__Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles__,__Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential__,,,,,,,,,,,1,,,,,
-activePersonTitle,Builtin,1,visitedPlaces,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**'s interview</p><p class=""_center _pale"">•</p>",,,,,hasHouseholdSize2OrMoreConditional,,,,,,1,,,,,
+activePersonTitle,Builtin,1,visitedPlaces,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**'s interview</p><p class=""_center _pale"">•</p>",,,,,,,,,,,1,,,,,
 buttonSwitchPerson,Builtin,1,visitedPlaces,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
 personVisitedPlacesTitle,Builtin,1,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}}:
 L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDates}}:
@@ -158,7 +158,7 @@ visitedPlaceAlreadyVisited,Builtin,1,visitedPlaces,personVisitedPlaces,alreadyVi
 __Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.__","Did you previously locate this place on the map?
 __In {{nickname}}'s travel diary or that of another household member.__","Avez-vous déjà localisé ce lieu?
 Dans votre entrevue ou dans celles des autres membres du ménage.","Did you previously locate this place on the map?
-__In your travel diary or that of another household member.__",,,alreadyVisitedPlaceCustomConditional,,yesNo,,,,True,,,,,
+__In your travel diary or that of another household member.__",,,,,,,,,True,,,,,
 visitedPlaceShortcut,Builtin,1,visitedPlaces,personVisitedPlaces,shortcut,Veuillez choisir le lieu dans la liste des lieux déjà localisés:,Please select this place from the list of previously located places:,,,,,,,,,,,,,,,,
 visitedPlaceName,Builtin,1,visitedPlaces,personVisitedPlaces,name,,,,,,,,,,,,,,,,,,
 visitedPlaceGeography,Builtin,1,visitedPlaces,personVisitedPlaces,geography,"Veuillez positionner le lieu sur la carte
@@ -173,12 +173,12 @@ __Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de co
 __If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.__","Après avoir été {{atPlace}}, vous êtes…
 __Si vous avez quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête que vous y êtes rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.__","After being {{atPlace}}, you…
 __If you left this place after 4 AM the following day, please consider for the purposes of the survey that you stayed there until the next day and select the appropriate answer.__",,,,,,,,,,,,,,
-visitedPlaceOnTheRoadNextPlaceCategory,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadNextPlaceCategory,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?,Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?,À quel endroit avez-vous terminé vos déplacements sur la route?,Where did you end your work on the road trips?,,,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional,,onTheRoadArrivalTypeCustomChoices,,,,,,,,,
+visitedPlaceOnTheRoadNextPlaceCategory,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadNextPlaceCategory,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?,Where did {{nickname}} end {{gender:his/her/their/their}} work on the road trips?,À quel endroit avez-vous terminé vos déplacements sur la route?,Where did you end your work on the road trips?,,,,,,,,,,,,,,
 visitedPlaceDepartureTime,Builtin,1,visitedPlaces,personVisitedPlaces,departureTime,{{nickname}} a quitté {{place}} à:,{{nickname}} left {{place}} at:,Vous avez quitté {{place}} à:,You left {{place}} at:,,,,,,,,,,,,,,
 buttonSaveVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,visitedPlacesSave,Confirmer,Confirm,,,,,,,,,,,,,,,,
 buttonCancelVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,,,,,,,,,,,,,,,,,,,
 buttonDeleteVisitedPlace,Builtin,1,visitedPlaces,personVisitedPlaces,,,,,,,,,,,,,,,,,,,
-buttonVisitedPlacesConfirmNextSection,Builtin,1,visitedPlaces,,visitedPlaces.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,lastPlaceEnteredCustomConditional,,,,,,,,,,,
+buttonVisitedPlacesConfirmNextSection,Builtin,1,visitedPlaces,,visitedPlaces.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,,,,,,,,,,,,
 activePersonTitle,Builtin,1,segments,,,,,,,,,,,,,,,True,,,,,
 buttonSwitchPerson,Builtin,1,segments,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
 personTripsTitle,Builtin,1,segments,,personTripsTitle,Déplacements de {{nickname}} le {{journeyDates}},Trips made by {{nickname}} on {{journeyDates}},Vos déplacements le {{journeyDates}},Trips you made on {{journeyDates}},,,,,,,,,True,,,,,

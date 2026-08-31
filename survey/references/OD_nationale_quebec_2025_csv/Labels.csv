@@ -58,7 +58,6 @@ household,errors.selectNoTravelWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de
 household,errors.selectOneOrMoreAnswer,Sélectionnez une ou des réponses.,Select one or multiple choices.,,
 household,errors.selectNoRemoteWorkWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de télé-travail"" seulement si aucun autre choix n'est sélectionné.","Select ""No remote work"" only if no other choice is selected.",,
 household,errors.selectNoRemoteStudyWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de télé-études"" seulement si aucun autre choix n'est sélectionné.","Select ""No remote studies"" only if no other choice is selected.",,
-household,popup.validateHouseholdAgesHelp,Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre à ce questionnaire. Veuillez vérifier les âges.,At least one member of your household must be 16 years old or older to respond to this survey. Please verify ages.,Vous devez avoir au moins 16 ans pour répondre à ce questionnaire.,You must be at least 16 years old to respond to this survey.
 household,schoolTypeLessThan4,**Type de garde**,**Childcare type**,,
 household,schoolTypeBetween4And15,**Type d'école**,**School type**,,
 household,ageSuffix,an(s),year(s) old,,

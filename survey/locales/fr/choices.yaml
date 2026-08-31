@@ -116,15 +116,6 @@ departurePlaceOtherChoices:
     studying: '<strong>Écoles / lieu d’études</strong>: terminait des travaux ou y
         couchait'
     other: Autre
-onTheRoadArrivalTypeChoices:
-    home: Domicile
-    usualWorkPlace: Lieu de travail habituel
-    other: Autre lieu
-    stayedThereUntilTheNextDay: >-
-        {{nickname}} a complété ses déplacements sur la route après 4:00 du matin
-        le lendemain
-    stayedThereUntilTheNextDay_one: J'ai complété mes déplacements sur la route après
-        4:00 du matin le lendemain
 onDemandChoices:
     pickupAtOrigin: Oui, il est venu chercher {{nickname}} à son lieu de départ
     pickupAtOrigin_one: Oui, il est venu me chercher à mon lieu de départ
