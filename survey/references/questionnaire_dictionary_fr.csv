@@ -223,7 +223,7 @@ Champ,workPlaceType
 Type de question,Bouton radio
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
 Question,Est-ce que {{nickname}} a un lieu d'emploi fixe?
-Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps
+Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps (hors domicile)
 hybrid : Oui, travail en mode hybride (télétravail et en présentiel)
 onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
 onTheRoadWithoutUsualPlace : Non, travail sur la route avec départ du domicile
@@ -233,6 +233,11 @@ Champ,workPlaceTypeBeforeLeave
 Type de question,Bouton radio
 Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
 Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?"
+Valeurs,"onLocation : Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps (hors domicile)
+hybrid : Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)
+onTheRoadWithUsualPlace : Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+onTheRoadWithoutUsualPlace : Non, {{nickname}} travaillait sur la route avec départ du domicile
+remote : Non, {{nickname}} travaillait à partir du domicile ou à distance"
 ""
 Champ,schoolPlaceType
 Type de question,Bouton radio

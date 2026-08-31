@@ -143,14 +143,18 @@ Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnemen
 - Je ne sais pas
 
 Est-ce que {{nickname}} a un lieu d'emploi fixe?
-- Oui, travail au lieu fixe en présentiel en tout temps
+- Oui, travail au lieu fixe en présentiel en tout temps (hors domicile)
 - Oui, travail en mode hybride (télétravail et en présentiel)
 - Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
 - Non, travail sur la route avec départ du domicile
 - Non, travail à partir du domicile ou à distance
 
 Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?
-
+- Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps (hors domicile)
+- Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)
+- Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+- Non, {{nickname}} travaillait sur la route avec départ du domicile
+- Non, {{nickname}} travaillait à partir du domicile ou à distance
 
 Est-ce que {{nickname}} a un lieu d'études fixe?
 - Oui, études au lieu fixe en présentiel en tout temps

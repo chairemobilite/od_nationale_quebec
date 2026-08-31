@@ -223,7 +223,7 @@ Field,workPlaceType
 Question type,Radio input
 Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
 Question,Does {{nickname}} have a fixed work location?
-Values,"onLocation : Yes, always on-site at fixed location
+Values,"onLocation : Yes, always on-site at fixed location (not from home)
 hybrid : Yes, hybrid work (remote and on-site)
 onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
 onTheRoadWithoutUsualPlace : No, work on the road departing from home
@@ -233,6 +233,11 @@ Field,workPlaceTypeBeforeLeave
 Question type,Radio input
 Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
 Question,"Before being on leave, did {{nickname}} have a fixed work location?"
+Values,"onLocation : Yes, {{nickname}} worked always on-site at fixed location (not from home)
+hybrid : Yes, {{nickname}} did hybrid work (remote and on-site)
+onTheRoadWithUsualPlace : Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+onTheRoadWithoutUsualPlace : No, {{nickname}} worked on the road departing from home
+remote : No, {{nickname}} worked from home or from elsewhere"
 ""
 Field,schoolPlaceType
 Question type,Radio input

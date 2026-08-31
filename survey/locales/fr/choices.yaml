@@ -52,13 +52,33 @@ transitFareType:
     transitPass: Passe ou titre mensuel ou annuel
     tickets: Titres ou billets individuels
 workPlaceTypeChoices:
-    onLocation: Oui, travail au lieu fixe en présentiel en tout temps
+    onLocation: Oui, travail au lieu fixe en présentiel en tout temps (hors domicile)
     hybrid: Oui, travail en mode hybride (télétravail et en présentiel)
     onTheRoadWithUsualPlace: >-
         Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau,
         poste, restaurant, etc.)
     onTheRoadWithoutUsualPlace: Non, travail sur la route avec départ du domicile
     remote: Non, travail à partir du domicile ou à distance
+workPlaceBeforeLeaveTypeChoices:
+    onLocation: >-
+        Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps (hors
+        domicile)
+    onLocation_one: Oui, je travaillais au lieu fixe en présentiel en tout temps (hors
+        domicile)
+    hybrid: Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)
+    hybrid_one: Oui, je travaillais en mode hybride (télétravail et en présentiel)
+    onTheRoadWithUsualPlace: >-
+        Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex:
+        garage, bureau, poste, restaurant, etc.)
+    onTheRoadWithUsualPlace_one: >-
+        Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau,
+        poste, restaurant, etc.)
+    onTheRoadWithoutUsualPlace: Non, {{nickname}} travaillait sur la route avec départ
+        du domicile
+    onTheRoadWithoutUsualPlace_one: Non, je travaillais sur la route avec départ du
+        domicile
+    remote: Non, {{nickname}} travaillait à partir du domicile ou à distance
+    remote_one: Non, je travaillais à partir du domicile ou à distance
 schoolPlaceTypeChoices:
     onLocation: Oui, études au lieu fixe en présentiel en tout temps
     hybrid: Oui, études en mode hybride (télé-études et en présentiel)
@@ -128,22 +148,5 @@ educationalAttainment:
     shortCycleTertiaryEducation: Diplôme d'un cégep ou collège
     diplomaBelowBachelor: Certificat ou diplôme universitaire inférieur au baccalauréat
     bachelorOrHigher: Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
-workPlaceBeforeLeaveTypeChoices:
-    onLocation: Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps
-    onLocation_one: Oui, je travaillais au lieu fixe en présentiel en tout temps
-    hybrid: Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)
-    hybrid_one: Oui, je travaillais en mode hybride (télétravail et en présentiel)
-    onTheRoadWithUsualPlace: >-
-        Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex:
-        garage, bureau, poste, restaurant, etc.)
-    onTheRoadWithUsualPlace_one: >-
-        Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau,
-        poste, restaurant, etc.)
-    onTheRoadWithoutUsualPlace: Non, {{nickname}} travaillait sur la route avec départ
-        du domicile
-    onTheRoadWithoutUsualPlace_one: Non, je travaillais sur la route avec départ du
-        domicile
-    remote: Non, {{nickname}} travaillait à partir du domicile ou à distance
-    remote_one: Non, je travaillais à partir du domicile ou à distance
 vehicleOccupancyExtraChoices:
     dontKnow: Je ne sais pas

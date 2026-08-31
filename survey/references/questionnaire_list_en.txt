@@ -143,14 +143,18 @@ Does {{nickname}} currently have a valid transit pass or ticket?
 - I don't know
 
 Does {{nickname}} have a fixed work location?
-- Yes, always on-site at fixed location
+- Yes, always on-site at fixed location (not from home)
 - Yes, hybrid work (remote and on-site)
 - Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
 - No, work on the road departing from home
 - No, work from home or from elsewhere
 
 Before being on leave, did {{nickname}} have a fixed work location?
-
+- Yes, {{nickname}} worked always on-site at fixed location (not from home)
+- Yes, {{nickname}} did hybrid work (remote and on-site)
+- Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+- No, {{nickname}} worked on the road departing from home
+- No, {{nickname}} worked from home or from elsewhere
 
 Does {{nickname}} have a fixed study location?
 - Yes, always on-site at fixed location

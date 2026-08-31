@@ -182,25 +182,3 @@ popup:
 schoolTypeLessThan4: <strong>Type de garde</strong>
 schoolTypeBetween4And15: <strong>Type d'école</strong>
 ageSuffix: an(s)
-workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
-    en présentiel en tout temps
-workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en
-    présentiel en tout temps
-workPlaceBeforeLeaveTypeChoicesHybrid: Oui, {{nickname}} travaillait en mode hybride
-    (télétravail et en présentiel)
-workPlaceBeforeLeaveTypeChoicesHybrid_one: Oui, je travaillais en mode hybride (télétravail
-    et en présentiel)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace: >-
-    Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage,
-    bureau, poste, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
-    Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau,
-    poste, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: Non, {{nickname}} travaillait
-    sur la route avec départ du domicile
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: Non, je travaillais
-    sur la route avec départ du domicile
-workPlaceBeforeLeaveTypeChoicesRemote: Non, {{nickname}} travaillait à partir du domicile
-    ou à distance
-workPlaceBeforeLeaveTypeChoicesRemote_one: Non, je travaillais à partir du domicile
-    ou à distance

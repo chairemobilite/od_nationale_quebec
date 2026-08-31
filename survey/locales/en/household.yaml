@@ -116,22 +116,3 @@ popup:
 schoolTypeLessThan4: <strong>Childcare type</strong>
 schoolTypeBetween4And15: <strong>School type</strong>
 ageSuffix: year(s) old
-workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
-    at fixed location
-workPlaceBeforeLeaveTypeChoicesOnLocation_one: Yes, I worked always on-site at fixed
-    location
-workPlaceBeforeLeaveTypeChoicesHybrid: Yes, {{nickname}} did hybrid work (remote and
-    on-site)
-workPlaceBeforeLeaveTypeChoicesHybrid_one: Yes, I did hybrid work (remote and on-site)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace: >-
-    Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage,
-    office, station, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
-    Yes, I worked on the road departing from a fixed location (ex: garage, office,
-    station, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: No, {{nickname}} worked
-    on the road departing from home
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: No, I worked on the
-    road departing from home
-workPlaceBeforeLeaveTypeChoicesRemote: No, {{nickname}} worked from home or from elsewhere
-workPlaceBeforeLeaveTypeChoicesRemote_one: No, I worked from home or from elsewhere

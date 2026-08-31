@@ -52,13 +52,30 @@ transitFareType:
     transitPass: Monthly or annual pass
     tickets: Individual tickets or rides
 workPlaceTypeChoices:
-    onLocation: Yes, always on-site at fixed location
+    onLocation: Yes, always on-site at fixed location (not from home)
     hybrid: Yes, hybrid work (remote and on-site)
     onTheRoadWithUsualPlace: >-
         Yes, work on the road departing from a fixed location (ex: garage, office,
         station, restaurant, etc.)
     onTheRoadWithoutUsualPlace: No, work on the road departing from home
     remote: No, work from home or from elsewhere
+workPlaceBeforeLeaveTypeChoices:
+    onLocation: Yes, {{nickname}} worked always on-site at fixed location (not from
+        home)
+    onLocation_one: Yes, I worked always on-site at fixed location (not from home)
+    hybrid: Yes, {{nickname}} did hybrid work (remote and on-site)
+    hybrid_one: Yes, I did hybrid work (remote and on-site)
+    onTheRoadWithUsualPlace: >-
+        Yes, {{nickname}} worked on the road departing from a fixed location (ex:
+        garage, office, station, restaurant, etc.)
+    onTheRoadWithUsualPlace_one: >-
+        Yes, I worked on the road departing from a fixed location (ex: garage, office,
+        station, restaurant, etc.)
+    onTheRoadWithoutUsualPlace: No, {{nickname}} worked on the road departing from
+        home
+    onTheRoadWithoutUsualPlace_one: No, I worked on the road departing from home
+    remote: No, {{nickname}} worked from home or from elsewhere
+    remote_one: No, I worked from home or from elsewhere
 schoolPlaceTypeChoices:
     onLocation: Yes, always on-site at fixed location
     hybrid: Yes, hybrid studies (remote and on-site)
@@ -135,21 +152,5 @@ educationalAttainment:
         or diploma
     diplomaBelowBachelor: University certificate or diploma below bachelor level
     bachelorOrHigher: Bachelor's degree or higher
-workPlaceBeforeLeaveTypeChoices:
-    onLocation: Yes, {{nickname}} worked always on-site at fixed location
-    onLocation_one: Yes, I worked always on-site at fixed location
-    hybrid: Yes, {{nickname}} did hybrid work (remote and on-site)
-    hybrid_one: Yes, I did hybrid work (remote and on-site)
-    onTheRoadWithUsualPlace: >-
-        Yes, {{nickname}} worked on the road departing from a fixed location (ex:
-        garage, office, station, restaurant, etc.)
-    onTheRoadWithUsualPlace_one: >-
-        Yes, I worked on the road departing from a fixed location (ex: garage, office,
-        station, restaurant, etc.)
-    onTheRoadWithoutUsualPlace: No, {{nickname}} worked on the road departing from
-        home
-    onTheRoadWithoutUsualPlace_one: No, I worked on the road departing from home
-    remote: No, {{nickname}} worked from home or from elsewhere
-    remote_one: No, I worked from home or from elsewhere
 vehicleOccupancyExtraChoices:
     dontKnow: I don’t know

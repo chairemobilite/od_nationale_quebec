@@ -240,6 +240,69 @@ export const workPlaceTypeChoices: ChoiceType[] = [
     }
 ];
 
+export const workPlaceBeforeLeaveTypeChoices: ChoiceType[] = [
+    {
+        value: 'onLocation',
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.onLocation', {
+                nickname,
+                count: countPersons
+            });
+        }
+    },
+    {
+        value: 'hybrid',
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.hybrid', {
+                nickname,
+                count: countPersons
+            });
+        }
+    },
+    {
+        value: 'onTheRoadWithUsualPlace',
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.onTheRoadWithUsualPlace', {
+                nickname,
+                count: countPersons
+            });
+        }
+    },
+    {
+        value: 'onTheRoadWithoutUsualPlace',
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.onTheRoadWithoutUsualPlace', {
+                nickname,
+                count: countPersons
+            });
+        }
+    },
+    {
+        value: 'remote',
+        label: (t: TFunction, interview, path) => {
+            const activePerson = odSurveyHelpers.getPerson({ interview, path });
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceBeforeLeaveTypeChoices.remote', {
+                nickname,
+                count: countPersons
+            });
+        }
+    }
+];
+
 export const schoolPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
@@ -512,69 +575,6 @@ export const educationalAttainment: ChoiceType[] = [
         label: (t: TFunction) => t('choices:educationalAttainment.bachelorOrHigher')
     },
     ...preferNotToAnswer
-];
-
-export const workPlaceBeforeLeaveTypeChoices: ChoiceType[] = [
-    {
-        value: 'onLocation',
-        label: (t: TFunction, interview, path) => {
-            const activePerson = odSurveyHelpers.getPerson({ interview, path });
-            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-            const countPersons = odSurveyHelpers.countPersons({ interview });
-            return t('choices:workPlaceBeforeLeaveTypeChoices.onLocation', {
-                nickname,
-                count: countPersons
-            });
-        }
-    },
-    {
-        value: 'hybrid',
-        label: (t: TFunction, interview, path) => {
-            const activePerson = odSurveyHelpers.getPerson({ interview, path });
-            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-            const countPersons = odSurveyHelpers.countPersons({ interview });
-            return t('choices:workPlaceBeforeLeaveTypeChoices.hybrid', {
-                nickname,
-                count: countPersons
-            });
-        }
-    },
-    {
-        value: 'onTheRoadWithUsualPlace',
-        label: (t: TFunction, interview, path) => {
-            const activePerson = odSurveyHelpers.getPerson({ interview, path });
-            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-            const countPersons = odSurveyHelpers.countPersons({ interview });
-            return t('choices:workPlaceBeforeLeaveTypeChoices.onTheRoadWithUsualPlace', {
-                nickname,
-                count: countPersons
-            });
-        }
-    },
-    {
-        value: 'onTheRoadWithoutUsualPlace',
-        label: (t: TFunction, interview, path) => {
-            const activePerson = odSurveyHelpers.getPerson({ interview, path });
-            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-            const countPersons = odSurveyHelpers.countPersons({ interview });
-            return t('choices:workPlaceBeforeLeaveTypeChoices.onTheRoadWithoutUsualPlace', {
-                nickname,
-                count: countPersons
-            });
-        }
-    },
-    {
-        value: 'remote',
-        label: (t: TFunction, interview, path) => {
-            const activePerson = odSurveyHelpers.getPerson({ interview, path });
-            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-            const countPersons = odSurveyHelpers.countPersons({ interview });
-            return t('choices:workPlaceBeforeLeaveTypeChoices.remote', {
-                nickname,
-                count: countPersons
-            });
-        }
-    }
 ];
 
 export const vehicleOccupancyExtraChoices: ChoiceType[] = [

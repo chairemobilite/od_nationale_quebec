@@ -241,7 +241,7 @@ export const personWorkPlaceTypeBeforeLeave: WidgetConfig.InputRadioType = {
             count: countPersons
         });
     },
-    choices: customChoices.workPlaceBeforeLeaveTypeCustomChoices,
+    choices: choices.workPlaceBeforeLeaveTypeChoices,
     conditional: conditionals.wasWorkerBeforeLeaveConditional,
     validations: validations.requiredValidation
 };
