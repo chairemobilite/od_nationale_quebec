@@ -20,7 +20,8 @@ const publicDirectory = path.join(__dirname, '..', 'evolution', 'public');
 module.exports = (env) => {
 
     const evolutionFrontendRoot = path.dirname(require.resolve('evolution-frontend/package.json'));
-    const customStylesFilePath = `${__dirname}/lib/styles/participant-app-styles.scss`;
+    // Use Evolution's default scss files. This can be removed when https://github.com/chairemobilite/evolution/issues/1895 is fixed
+    const customStylesFilePath = `${path.dirname(require.resolve('evolution-frontend/package.json'))}/lib/styles/survey/styles-participant-survey.scss`;
     const customLocalesFilePath = `${__dirname}/locales`;
     const includeDirectories = [
         path.join(__dirname, 'lib', 'survey'),

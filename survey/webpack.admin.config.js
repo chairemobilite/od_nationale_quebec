@@ -18,7 +18,8 @@ const config = configuration.default ? configuration.default : configuration;
 const publicDirectory = path.join(__dirname, '..', 'evolution', 'public');
 
 module.exports = (env) => {
-    const customStylesFilePath = `${__dirname}/lib/styles/admin-app-styles.scss`;
+    // Use Evolution's default scss files. This can be removed when https://github.com/chairemobilite/evolution/issues/1895 is fixed
+    const customStylesFilePath = `${path.dirname(require.resolve('evolution-frontend/package.json'))}/lib/styles/survey/styles-admin-survey.scss`;
     const customLocalesFilePath = `${__dirname}/locales`;
     const includeDirectories = [
         path.join(__dirname, 'lib', 'admin'),
@@ -26,7 +27,7 @@ module.exports = (env) => {
         path.join(__dirname, 'locales'),
         path.join(__dirname, 'assets')
     ];
-  
+
     // Get the default title from the config or use a fallback
     const defaultLanguage = config.languages && config.languages.length > 0 ? config.languages[0] : 'fr';
     const defaultAppTitle = config.title && config.title[defaultLanguage] ? config.title[defaultLanguage] : process.env.DEFAULT_TITLE || 'Evolution - Admin';
