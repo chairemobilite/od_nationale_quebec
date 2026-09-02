@@ -80,28 +80,29 @@ footer: >-
             <summary class="_h2">What is an Origin-Destination (OD) Survey?</summary>
             <h3>Planning
                 for Tomorrow's Transport</h3>
-            <p>A large-scale survey aimed at collecting precise and factual information about the travel patterns of
-                residents in the surveyed territory.</p>
+            <p>An Origin-Destination (OD) Survey is an essential resource for public organizations seeking to improve and
+                develop current and future infrastructure and transport.</p>
             <h3>Collecting Information</h3>
-            <p>This information is an essential resource for public organizations seeking to improve and develop current and
-                future infrastructure and transport.</p>
+            <p>This survey is designed to collect accurate, factual information about the travel patterns of residents in
+                the surveyed territory.</p>
             <h3>Participation</h3>
             <p>Household participation is fundamental to the success of this survey. The data collected will allow for the
                 comparison and analysis of mobility trends over the years.</p>
         </details>
         <details>
             <summary class="_h2">Who is conducting the survey?</summary>
-            <p>The survey is conducted by the Ministère des Transports et de la Mobilité durable (MTMD) and its partners.
+            <p>The survey is conducted by the Ministère des Transports et de la Mobilité durable (MTMD).
             </p>
         </details>
         <details>
             <summary class="_h2">How is the survey conducted?</summary>
-            <p>Households will receive an invitation in the mail to complete the online questionnaire.</p>
+            <p>Selected households will receive an invitation in the mail to complete the online questionnaire.</p>
         </details>
         <details>
             <summary class="_h2">Why is the survey taking place in the fall?</summary>
-            <p>Travel habits are generally more stable in the fall or spring. For a survey of this scale, the fall period is
-                long enough to achieve the desired number of interviews.</p>
+            <p>Travel patterns tend to be more stable in the fall and spring. For a survey of this scale, only the fall
+                provides suitable conditions over a sufficiently long period to achieve the target number of completed
+                questionnaires.</p>
         </details>
         <details>
             <summary class="_h2">Why does the survey span several weeks?</summary>
@@ -113,7 +114,7 @@ footer: >-
         <details>
             <summary class="_h2">Is the survey representative of reality?</summary>
             <p>To ensure result representativeness, the survey area is divided into sectors, each with its own questionnaire
-                completion goal. The resulting profile will be statistically representative of the behaviours of all
+                completion goal. The resulting profile will be statistically representative of the patterns of all
                 households in the area.</p>
         </details>
         <details>
@@ -124,7 +125,7 @@ footer: >-
         <details>
             <summary class="_h2">What is the participant selection process?</summary>
             <p>The only selection criterion for households is geographic. Households are randomly selected from the Adresses
-                Québec and DGEQ (Directeur général des élections) lists.</p>
+                Québec list.</p>
         </details>
         <details>
             <summary class="_h2">Is participation in the survey mandatory?</summary>
@@ -151,7 +152,7 @@ footer: >-
             <p>No, the survey aims to understand all travel habits of residents. The data will be used to identify transport
                 needs, regardless of the mode of transportation used. There is no bias towards any particular mode of
                 transportation, nor any value judgment. The goal is to obtain a profile that closely resembles the observed
-                behaviours.</p>
+                patterns.</p>
         </details>
         <details>
             <summary class="_h2">How does data collection work?</summary>
@@ -181,6 +182,12 @@ footer: >-
                 weekday. It is normal and statistically acceptable to have a subset of respondents whose travel on the
                 surveyed day may be more or less representative of their usual travel. It is important to describe what you
                 actually did.</p>
+        </details>
+        <details>
+            <summary class="_h2">Does this survey apply only to people who travelled?</summary>
+            <p>No. Non-travel is just as important an indicator as travel itself. Whether you stayed at home that day or
+                did not make any trips, your participation is important and helps us build a complete and representative
+                picture of residents' travel patterns.</p>
         </details>
         <details>
             <summary class="_h2">I received an invitation in the mail to complete the online questionnaire. Can I get

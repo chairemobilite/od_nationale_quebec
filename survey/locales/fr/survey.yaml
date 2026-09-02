@@ -92,14 +92,14 @@ footer: >-
             <summary class="_h2">Qu'est-ce qu'une Enquête Origine-Destination (EOD)?</summary>
             <h3>Planifier
                 le transport de demain</h3>
-            <p>Enquête d'envergure qui vise à recueillir des renseignements
-                précis et factuels sur les déplacements des résidents des territoires d'enquêtes
-                concernés.</p>
-            <h3>Recueillir l'information</h3>
-            <p>Ces renseignements constituent
+            <p>Une enquête origine-destination (EOD) permet de constituer
                 une source d'information indispensable pour les organismes publics travaillant
                 à l'amélioration et au développement du territoire et des transports actuels et
                 futurs.</p>
+            <h3>Recueillir l'information</h3>
+            <p>Il s'agit d'une démarche visant à recueillir des renseignements
+                précis et factuels sur les déplacements des résidents des territoires d'enquête
+                concernés.</p>
             <h3>La participation</h3>
             <p>La participation des citoyens est fondamentale
                 pour la réussite de cette enquête. Les données ainsi recueillies permettront de
@@ -108,19 +108,20 @@ footer: >-
         <details>
             <summary class="_h2">Qui réalise cette enquête?</summary>
             <p>Cette enquête est réalisée par
-                le ministère des Transports et de la Mobilité durable (MTMD) et ses partenaires.</p>
+                le ministère des Transports et de la Mobilité durable (MTMD).</p>
         </details>
         <details>
             <summary class="_h2">Comment cette enquête est-elle réalisée?</summary>
-            <p>Les ménages recevront
+            <p>Les ménages sélectionnés recevront
                 une invitation postale pour remplir le questionnaire en ligne.</p>
         </details>
         <details>
             <summary class="_h2">Pourquoi l'enquête a-t-elle lieu à l'automne?</summary>
             <p>Les habitudes
                 de déplacement de la population sont généralement plus stables à l'automne ou au
-                printemps. Pour une enquête de l'envergure de celle-ci, seule la période de l'automne
-                est suffisamment longue pour réaliser le nombre d'entrevues visé.</p>
+                printemps. Pour une enquête de l'envergure de celle-ci, seul l'automne présente les
+                conditions propices pendant une période suffisamment longue pour permettre d'atteindre
+                le nombre de questionnaires visé.</p>
         </details>
         <details>
             <summary class="_h2">Pourquoi l'enquête s'échelonne-t-elle sur plusieurs semaines?</summary>
@@ -153,7 +154,7 @@ footer: >-
                 sélection des participants?</summary>
             <p>Le seul critère de sélection des ménages
                 est d'ordre géographique. Les ménages sont sélectionnés de façon aléatoire à partir
-                des listes d'Adresses Québec et du DGEQ (Directeur général des élections).</p>
+                de la liste d'Adresses Québec.</p>
         </details>
         <details>
             <summary class="_h2">Est-ce
@@ -214,7 +215,7 @@ footer: >-
                 <li>le profil de chacune des personnes composant le ménage
                     - âge, sexe, possession d'un permis de conduire, possession d'un laissez-passer
                     de transport en commun, abonnement à un service d'autopartage, l'occupation, localisation
-                    du lieu de travail ou d'études, habitudes de télétravail ou de téléétudes;</li>
+                    du lieu de travail ou d'études, habitudes de télétravail ou de télé-études;</li>
                 <li>le
                     profil des déplacements de chacune des personnes du ménage (renseignements sur chacun
                     des déplacements effectués une journée précédant le jour de l'ouverture du questionnaire)
@@ -228,11 +229,20 @@ footer: >-
                 particulière, mais cette journée n'est pas représentative de mes déplacements quotidiens.</summary>
             <p>L'objectif
                 de l'enquête est de connaître les pratiques de déplacement de l'ensemble de la
-                communauté pendant un jour moyen de semaine. Il est normal et tout à fait acceptable,
+                population pendant un jour moyen de semaine. Il est normal et tout à fait acceptable,
                 sur le plan statistique, d'avoir un sous-ensemble de répondants dont les déplacements
                 effectués lors de la journée ciblée ont été plus ou moins représentatifs de leurs
                 déplacements habituels. Il est important de décrire ce que vous avez réellement
                 fait.</p>
+        </details>
+        <details>
+            <summary class="_h2">Cette enquête concerne-t-elle uniquement les personnes qui se sont
+                déplacées?</summary>
+            <p>Non. La non-mobilité constitue un indicateur tout aussi important que les
+                déplacements eux-mêmes. Que vous n'ayez pas quitté votre domicile ce jour-là ou que
+                vous n'ayez effectué aucun déplacement, votre participation est précieuse et
+                contribue à brosser un portrait complet et représentatif des comportements de la
+                population.</p>
         </details>
         <details>
             <summary class="_h2">J'ai été sollicité par la poste
@@ -249,7 +259,7 @@ footer: >-
                 des lieux d'origine et de destination est nécessaire. Plus cette localisation est
                 précise, plus l'analyse produite est fine. La précision des déplacements de chaque
                 individu est nécessaire pour bien comprendre certains phénomènes comme, notamment,
-                le choix modal retenu pour réaliser le déplacement. Lors de la diffusion cependant,
+                le choix modal retenu pour réaliser le déplacement. Lors de la diffusion, cependant,
                 le résultat est présenté sous forme de données agrégées.</p>
         </details>
     </details>
