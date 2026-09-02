@@ -34,7 +34,7 @@ test.afterAll(async () => {
 // Start the survey using an access code and postal code combination
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
-    title: 'Enquête Nationale Origine-Destination 2025',
+    title: 'Enquête Nationale Origine-Destination 2026',
     accessCode,
     postalCode,
     expectedToExist: true,

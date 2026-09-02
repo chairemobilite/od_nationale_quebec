@@ -35,8 +35,8 @@ module.exports = {
             lng: -75.591833
         }],
         title: {
-            fr: "Enquête Nationale Origine-Destination 2025",
-            en: "2025 National Origin-Destination Survey "
+            fr: "Enquête Nationale Origine-Destination 2026",
+            en: "2026 National Origin-Destination Survey"
         }
     }
 }

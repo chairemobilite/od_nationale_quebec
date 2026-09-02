@@ -101,7 +101,7 @@ const postalCode = 'G1R 5H1';
 const accessCode = '7357-1112';
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
-    title: 'Enquête Nationale Origine-Destination 2025',
+    title: 'Enquête Nationale Origine-Destination 2026',
     accessCode,
     postalCode,
     expectedToExist: true,
