@@ -2,67 +2,10 @@ import _merge from 'lodash/merge';
 import customSurveySections from './sections';
 import { widgets } from './widgetsConfigs';
 import { widgetFactoryOptions } from './common/helper';
-import {
-    getAndValidateSurveySections,
-    SectionConfig,
-    QuestionnaireConfiguration
-} from 'evolution-common/lib/services/questionnaire/types';
+import { getAndValidateSurveySections, SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { QuestionnaireFactory } from 'evolution-common/lib/services/questionnaire';
-import { personVisitedPlacesWidgetsNames } from './sections/visitedPlaces/widgetsNames';
-import { segmentsWidgetsNames } from './sections/segments/widgetsNames';
-import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
 import { updateHouseholdSizeFromPersonCount } from './common/customHelpers';
-
-const questionnaireConfiguration: QuestionnaireConfiguration = {
-    tripDiary: {
-        sections: {
-            segments: {
-                type: 'segments' as const,
-                enabled: true,
-                askSegmentDriver: true,
-                additionalSegmentWidgetNames: segmentsWidgetsNames,
-                modesIncludeOnly: [
-                    'walk',
-                    'bicycle',
-                    'bicycleElectric',
-                    'kickScooterElectric',
-                    'wheelchair',
-                    'mobilityScooter',
-                    'transitBus',
-                    'transitRRT',
-                    'transitLRRT',
-                    'transitRegionalRail',
-                    'transitStreetCar',
-                    'transitTaxi',
-                    'intercityBus',
-                    'schoolBus',
-                    'otherBus',
-                    'carDriver',
-                    'carDriverCarsharing',
-                    'carDriverRental',
-                    'motorcycle',
-                    'transitFerry',
-                    'ferryWithCar',
-                    'intercityTrain',
-                    'carPassenger',
-                    'paratransit',
-                    'plane',
-                    'other',
-                    'taxi',
-                    'dontKnow'
-                ] as Mode[]
-            },
-            visitedPlaces: {
-                type: 'visitedPlaces' as const,
-                enabled: true,
-                inlineUsualPlacesEntry: false,
-                tripDiaryMaxTimeOfDay: 28 * 60 * 60, // 28h in seconds (i.e. 4h the next day)
-                tripDiaryMinTimeOfDay: 4 * 60 * 60, // 4h in seconds
-                additionalVisitedPlacesWidgetNames: personVisitedPlacesWidgetsNames
-            }
-        }
-    }
-};
+import { questionnaireConfiguration } from './questionnaireConfigBase';
 
 const questionnaireFactory = new QuestionnaireFactory(questionnaireConfiguration, widgetFactoryOptions);
 const { surveySections, widgetsConfig } = questionnaireFactory.buildSectionsAndWidgets();

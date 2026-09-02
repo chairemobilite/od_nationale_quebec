@@ -12,6 +12,7 @@ import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
+import { getActualPreviousDay } from './serverHelpers';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -189,8 +190,12 @@ export default [
                 return {};
             }
             try {
-                const formattedAssignedDay = calculateAssignedDayFromPreviousDay(value);
+                // Do not trust the previous day from browser, recalculate it
+                // for timezone, with trip diary max time rollover
+                const previousDay = getActualPreviousDay();
+                const formattedAssignedDay = calculateAssignedDayFromPreviousDay(previousDay);
                 return {
+                    _previousDay: previousDay,
                     [assignedDayPath]: formattedAssignedDay,
                     [originalAssignedDayPath]: formattedAssignedDay
                 };

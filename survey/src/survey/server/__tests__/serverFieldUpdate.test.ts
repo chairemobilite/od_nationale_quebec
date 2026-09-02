@@ -12,8 +12,14 @@ import participantsDbQueries from 'evolution-backend/lib/models/participants.db.
 import RandomUtils from 'chaire-lib-common/lib/utils/RandomUtils';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 import '../serverValidations'; // Make sure access code format validation is registered
+import { getActualPreviousDay } from '../serverHelpers';
 
 jest.useFakeTimers();
+
+jest.mock('../serverHelpers', () => ({
+    getActualPreviousDay: jest.fn().mockReturnValue('2026-09-02')
+}));
+const mockGetActualPreviousDay = getActualPreviousDay as jest.MockedFunction<typeof getActualPreviousDay>;
 
 jest.mock('evolution-backend/lib/models/interviews.db.queries', () => ({
     getInterviewsStream: jest.fn().mockImplementation(() => new ObjectReadableMock([]))
@@ -269,8 +275,10 @@ describe('test survey day assignation', function () {
         
         // Do the update callback with those data
         const interview = _cloneDeep(baseInterview);
-        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': interview.response._previousDay, '_originalAssignedDay': interview.response._previousDay });
+        mockGetActualPreviousDay.mockReturnValueOnce(interview.response._previousDay as string);
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_previousDay': interview.response._previousDay, '_assignedDay': interview.response._previousDay, '_originalAssignedDay': interview.response._previousDay });
         expect(randomMock).not.toHaveBeenCalled();
+        expect(mockGetActualPreviousDay).toHaveBeenCalled();
     });
 
     test('No data for days, but previous days is weekend', async () => {
@@ -278,7 +286,8 @@ describe('test survey day assignation', function () {
 
         const interview = _cloneDeep(baseInterview);
         // Previous day is sunday
-        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_assignedDay': '2022-09-09', '_originalAssignedDay': '2022-09-09' });
+        mockGetActualPreviousDay.mockReturnValueOnce('2022-09-11');
+        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_previousDay': '2022-09-11', '_assignedDay': '2022-09-09', '_originalAssignedDay': '2022-09-09' });
         expect(randomMock).toHaveBeenCalledTimes(1);
     });
 
@@ -307,7 +316,8 @@ describe('test survey day assignation', function () {
         // Use a previous day of monday
         const interview = _cloneDeep(baseInterview);
         interview.response._previousDay = '2024-09-23';
-        expect(await updateCallback(interview, '2024-09-23')).toEqual({ '_assignedDay': '2024-09-20', '_originalAssignedDay': '2024-09-20' });
+        mockGetActualPreviousDay.mockReturnValueOnce('2024-09-23');
+        expect(await updateCallback(interview, '2024-09-23')).toEqual({ '_previousDay': '2024-09-23', '_assignedDay': '2024-09-20', '_originalAssignedDay': '2024-09-20' });
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
         // Weekend should have 0 probability, but day before (monday) should have one
@@ -348,7 +358,8 @@ describe('test survey day assignation', function () {
         // Use a holiday as previous day
         const interview = _cloneDeep(baseInterview);
         interview.response._previousDay = '2022-10-10';
-        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': '2022-10-07', '_originalAssignedDay': '2022-10-07' });
+        mockGetActualPreviousDay.mockReturnValueOnce('2022-10-10');
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_previousDay': '2022-10-10', '_assignedDay': '2022-10-07', '_originalAssignedDay': '2022-10-07' });
        
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
