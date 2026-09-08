@@ -103,6 +103,7 @@ errors:
     selectNoTravelWhenNoOtherChoiceSelected: Select "No Travel" only if no other choice
         is selected.
     selectOneOrMoreAnswer: Select one or multiple choices.
+    nicknameMustBeUnique: The name or nickname must be unique
     selectNoRemoteWorkWhenNoOtherChoiceSelected: Select "No remote work" only if no
         other choice is selected.
     selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only

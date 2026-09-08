@@ -169,6 +169,7 @@ errors:
     selectNoTravelWhenNoOtherChoiceSelected: >-
         Sélectionnez "Pas de déplacement" seulement si aucun autre choix n'est sélectionné.
     selectOneOrMoreAnswer: Sélectionnez une ou des réponses.
+    nicknameMustBeUnique: Le nom ou surnom doit être unique
     selectNoRemoteWorkWhenNoOtherChoiceSelected: >-
         Sélectionnez "Pas de télé-travail" seulement si aucun autre choix n'est sélectionné.
     selectNoRemoteStudyWhenNoOtherChoiceSelected: >-

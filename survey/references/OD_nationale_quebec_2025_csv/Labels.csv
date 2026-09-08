@@ -56,6 +56,7 @@ household,errors.selectNoWhenNoOtherChoiceSelected,"Sélectionnez ""Non"" seulem
 household,errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected,"Sélectionnez ""Préfère ne pas répondre"" seulement si aucun autre choix n'est sélectionné.","Select ""Prefer not to answer"" only if no other choice is selected.",,
 household,errors.selectNoTravelWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de déplacement"" seulement si aucun autre choix n'est sélectionné.","Select ""No Travel"" only if no other choice is selected.",,
 household,errors.selectOneOrMoreAnswer,Sélectionnez une ou des réponses.,Select one or multiple choices.,,
+household,errors.nicknameMustBeUnique,Le nom ou surnom doit être unique,The name or nickname must be unique,,
 household,errors.selectNoRemoteWorkWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de télé-travail"" seulement si aucun autre choix n'est sélectionné.","Select ""No remote work"" only if no other choice is selected.",,
 household,errors.selectNoRemoteStudyWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de télé-études"" seulement si aucun autre choix n'est sélectionné.","Select ""No remote studies"" only if no other choice is selected.",,
 household,schoolTypeLessThan4,**Type de garde**,**Childcare type**,,

@@ -2,6 +2,7 @@ import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
 import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
+import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
 import { phoneValidation, emailValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import { TFunction } from 'i18next';
@@ -188,6 +189,23 @@ export const inaccessibleZoneGeographyCustomValidation: ValidationFunction = (ge
                         quebecWaterWays.features[0] as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
                     )),
             errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsNotAccessibleError')
+        }
+    ];
+};
+
+// TODO: This should probably be moved to Evolution.
+// Make sure there is only one person with the nickname the same as the current value.
+export const uniqueNicknameCustomValidation: ValidationFunction = (value, _customValue, interview, path) => {
+    const sameNickname = odSurveyHelpers
+        .getPersonsArray({ interview })
+        .filter((person) => typeof person.nickname === 'string')
+        .map((person) => person.nickname as string);
+
+    return [
+        ...requiredValidation(value, _customValue, interview, path),
+        {
+            validation: typeof value === 'string' && sameNickname.filter((nickname) => nickname === value).length > 1,
+            errorMessage: (t: TFunction) => t('household:errors.nicknameMustBeUnique')
         }
     ];
 };

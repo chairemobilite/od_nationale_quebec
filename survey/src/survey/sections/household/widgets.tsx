@@ -42,7 +42,7 @@ export const personNickname: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction) => t('household:personNickname'),
     conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
-    validations: validations.requiredValidation
+    validations: customValidations.uniqueNicknameCustomValidation
 };
 
 // Custom conditional because the generator does not support values when hidden that can be paths in the interview
