@@ -222,6 +222,10 @@ auth:
         back to the survey if your session expires.
     Login: Confirm
     AuthMainIntroduction: ''
+support:
+    submitError: >-
+        There was an error sending your message. Please try again later or
+        contact us by email at EOD@transports.gouv.qc.ca
 visitedPlace:
     activities:
         accompanySomeone: Accompany someone

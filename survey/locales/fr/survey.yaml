@@ -286,6 +286,11 @@ auth:
         navigateur.
     Login: Confirmer
     AuthMainIntroduction: ''
+support:
+    submitError: >-
+        Une erreur est survenue lors de l'envoi de votre message. Veuillez
+        réessayer plus tard ou nous contacter par courriel à l'adresse
+        EOD@transports.gouv.qc.ca
 visitedPlace:
     departurePlaceIsRequiredError: Le point de départ est requis.
     activities:
