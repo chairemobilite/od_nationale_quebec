@@ -128,5 +128,6 @@ module.exports = Object.assign({
         schoolPlace: []
     },
     auditChecksGroup: 'travelSurvey', // custom by default so older surveys work.
+    reviewableSurveyObjects: ['interview', 'home', 'household', 'person', 'journey', 'trip'],
     surveyBase: 'householdBased'
 }, variantSpecificConfig);
