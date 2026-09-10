@@ -10,6 +10,7 @@ import { parseInterviewAttributes } from './interview.parser';
 import { parseHomeAttributes } from './home.parser';
 import { parseVisitedPlaceAttributes } from './visitedPlace.parser';
 import { parseTripAttributes } from './trip.parser';
+import { parseSegmentAttributes } from './segment.parser';
 
 /**
  * Survey object parsers configuration.
@@ -22,6 +23,6 @@ export const surveyObjectParsers: SurveyObjectParsers = {
     // person: parsePersonAttributes,
     // journey: parseJourneyAttributes,
     visitedPlace: parseVisitedPlaceAttributes,
-    trip: parseTripAttributes
-    // segment: parseSegmentAttributes
+    trip: parseTripAttributes,
+    segment: parseSegmentAttributes
 };
