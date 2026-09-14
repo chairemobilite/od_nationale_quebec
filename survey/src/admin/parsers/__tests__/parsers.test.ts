@@ -42,7 +42,9 @@ describe('OD Nationale Quebec Survey Parsers', () => {
         it('should handle OD Nationale Quebec interview fields correctly', () => {
             const correctedResponse: CorrectedResponse = {
                 acceptToBeContactedForHelp: 'yes',
-                wouldLikeToParticipateInOtherSurveys: 'no',
+                end: {
+                    wouldLikeToParticipateInOtherSurveysChaireMobilite: 'no'
+                },
                 _assignedDay: '2025-01-15'
             };
 
