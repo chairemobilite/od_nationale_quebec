@@ -28,20 +28,34 @@ export const parseInterviewAttributes: SurveyObjectParserInterview<CorrectedResp
         correctedResponse.acceptToBeContactedForHelp = booleishValue === null ? undefined : booleishValue;
     }
 
-    // Also convert wouldLikeToParticipateInOtherSurveys if it exists
-    if (correctedResponse.wouldLikeToParticipateInOtherSurveys !== undefined) {
-        const booleishValue = _booleish(correctedResponse.wouldLikeToParticipateInOtherSurveys);
-        correctedResponse.wouldLikeToParticipateInOtherSurveys = booleishValue === null ? undefined : booleishValue;
-    }
-
     // update the assignedDate attribute:
     if (correctedResponse._assignedDay !== undefined) {
         correctedResponse.assignedDate = correctedResponse._assignedDay;
+        delete correctedResponse._assignedDay;
     }
 
     // update the languages attribute:
     if (correctedResponse._language && ['fr', 'en'].includes(correctedResponse._language)) {
         correctedResponse._languages = [correctedResponse._language];
+        delete correctedResponse._language;
+    }
+
+    const end =
+        correctedResponse.end && typeof correctedResponse.end === 'object'
+            ? (correctedResponse.end as Record<string, unknown>)
+            : undefined;
+
+    // End-section widgets are stored under `end`, not at the interview root
+    if (end?.commentsOnSurvey !== undefined) {
+        correctedResponse.respondentComments = end.commentsOnSurvey as string;
+        delete end.commentsOnSurvey;
+    }
+
+    const otherSurveysChoice = end?.wouldLikeToParticipateInOtherSurveysChaireMobilite;
+    if (otherSurveysChoice !== undefined) {
+        const booleishValue = _booleish(otherSurveysChoice);
+        correctedResponse.wouldLikeToParticipateInOtherSurveys = booleishValue === null ? undefined : booleishValue;
+        delete end.wouldLikeToParticipateInOtherSurveysChaireMobilite;
     }
 
     return correctedResponse;
