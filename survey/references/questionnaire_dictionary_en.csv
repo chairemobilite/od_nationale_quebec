@@ -49,29 +49,45 @@ Question type,Text input
 Question,Postal Code
 ""
 Field,h_geography
-Question type,Unknown input
+Question type,Custom input
 Question,"Positioning your home
 Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision."
 ""
 Field,hh_size
-Question type,Unknown input
+Question type,Custom input
 Question,"Persons living in your home
 Including yourself and children in shared custody if they were at your home on {{assignedDate}}."
 ""
 Field,hh_carNumber
-Question type,RadioNumber
+Question type,Radio number input
 Question,"Cars, SUVs, light-duty trucks or vans, etc.
 Available to one or more members of your household."
+Values,"0
+1
+2
+3
+4
+5
+6+"
 ""
 Field,hh_bicycleNumber
-Question type,RadioNumber
+Question type,Radio number input
 Question,"Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
 Include only usable bicycles in good condition."
+Values,"0
+1
+2
+3
+4
+5
+6+"
 ""
 Field,hh_electricBicycleNumber
-Question type,RadioNumber
+Question type,Radio number input
 Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
+Values,"Min : 0
+Max : household.bicycleNumber"
 ""
 Field,hh_atLeastOnePersonWithDisability
 Question type,Radio input
@@ -142,7 +158,7 @@ partTime : Yes, part time
 no : No"
 ""
 Field,schoolType
-Question type,Unknown input
+Question type,Custom input
 Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
 Question,Educational institution
 Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
@@ -253,7 +269,7 @@ Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || work
 Question,Name or address of {{nickname}}'s usual place of work
 ""
 Field,geography
-Question type,Unknown input
+Question type,Custom input
 Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,"Please locate the usual place of work for {{nickname}}
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
@@ -265,7 +281,7 @@ Conditional,personUsualSchoolPlaceNameCustomConditional
 Question,Name or address of {{nickname}}'s school or main study location
 ""
 Field,geography
-Question type,Unknown input
+Question type,Custom input
 Question,"Please locate the usual place of study for {{nickname}}.
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the ""Search location"" button."
@@ -287,7 +303,7 @@ Section,Household member selection
 Abbreviation,sp_
 ""
 Field,_activePersonId
-Question type,Unknown input
+Question type,Custom input
 Question,Who do you want to continue the interview for?
 ""
 ""
@@ -305,7 +321,7 @@ Question type,Builtin
 Question,Change person
 ""
 Field,_showNewPersonPopupButton
-Question type,Unknown input
+Question type,Custom input
 Question,"We will ask you to specify {{nickname}}’s trips.
 
 The order of the interviewed persons was randomly selected.
@@ -313,20 +329,20 @@ The order of the interviewed persons was randomly selected.
 <details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>"
 ""
 Field,whoAnswers
-Question type,Unknown input
+Question type,Custom input
 Question,Who is responding for {{nickname}}?
 ""
 Field,personDidTrips
-Question type,Unknown input
+Question type,Custom input
 Question,"Did {{nickname}} make any trips on {{assignedDate}}?
 Include all trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
 ""
 Field,personDidTripsConfirm
-Question type,Unknown input
+Question type,Custom input
 Question,You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?
 ""
 Field,didTripsIntro
-Question type,Unknown input
+Question type,Custom input
 Question,"Please specify the places {{nickname}} went on {{assignedDate}} (include all places visited until 4 AM the following morning)
 
 <span class=""_green"">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
@@ -334,7 +350,7 @@ Question,"Please specify the places {{nickname}} went on {{assignedDate}} (inclu
 <span class=""_red"">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>"
 ""
 Field,departurePlaceIsHome
-Question type,Unknown input
+Question type,Custom input
 Question,"Did {{nickname}} start their day at home ({{address}})?
 Answer 'No' only if {{nickname}} did not sleep at home (night from {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
 ""
@@ -455,7 +471,7 @@ Question type,Builtin
 Question,Mode of transport
 ""
 Field,howToBus
-Question type,Unknown input
+Question type,Custom input
 Question,"How did {{nickname}} reach the transit stop?
 If the mode used is not present, create a first mode before the transit mode."
 ""
@@ -468,23 +484,29 @@ no : No
 dontKnow : I don't know"
 ""
 Field,vehicleOccupancy
-Question type,RadioNumber
+Question type,Radio number input
 Conditional,isCarDriverCustomConditional
 Question,"Persons in the vehicle
 Including the driver."
-Values,dontKnow (isProxyCustomConditional): I don’t know
+Values,"1
+2
+3
+4
+5
+6+
+dontKnow (isProxyCustomConditional): I don’t know"
 ""
 Field,driver
 Question type,Builtin
 Question,Who drove?
 ""
 Field,busLines
-Question type,Unknown input
+Question type,Custom input
 Question,"Bus line(s) taken (in chronological order)
 For each line, begin by typing the number or name, then select it from the results shown."
 ""
 Field,busLinesWarning
-Question type,Unknown input
+Question type,Custom input
 Question,Some bus line(s) seem invalid for this trip. Please validate the lines.
 ""
 Field,onDemandType
@@ -498,7 +520,7 @@ Conditional,shouldAskTripJunctionCustomConditional
 Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on the map"
 ""
 Field,junctionGeography
-Question type,Unknown input
+Question type,Custom input
 Question,"Please locate the junction point (location where the change in mode of transport occurred).
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button)."
@@ -518,11 +540,11 @@ Section,Travel behavior
 Abbreviation,tb_
 ""
 Field,buttonSwitchPerson
-Question type,Unknown input
+Question type,Custom input
 Question,Change person
 ""
 Field,personNoWorkTripIntro
-Question type,Unknown input
+Question type,Custom input
 Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
@@ -537,12 +559,12 @@ other : Other
 dontKnow : I don't know"
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
-Question type,Unknown input
+Question type,Custom input
 Conditional,shouldAskPersonNoWorkTripSpecifyCustomConditional
 Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
 ""
 Field,personNoSchoolTripIntro
-Question type,Unknown input
+Question type,Custom input
 Question,You didn't report any school trips by {{nickname}} on {{assignedDate}}.
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
@@ -557,7 +579,7 @@ other : Other
 dontKnow : I don't know"
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
-Question type,Unknown input
+Question type,Custom input
 Conditional,shouldAskForNoSchoolTripSpecifyCustomConditional
 Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
 ""
@@ -658,16 +680,20 @@ Question,"Your comments and suggestions about the survey
 Optional"
 ""
 Field,hh_pluginHybridCarNumber
-Question type,RadioNumber
+Question type,Radio number input
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
 Optional"
+Values,"Min : 0
+Max : household.carNumber"
 ""
 Field,hh_electricCarNumber
-Question type,RadioNumber
+Question type,Radio number input
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are electric vehicles?
 Optional"
+Values,"Min : 0
+Max : household.carNumber"
 ""
 Field,e_interestOfTheSurvey
 Question type,Range input
