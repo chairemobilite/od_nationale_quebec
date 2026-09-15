@@ -49,29 +49,45 @@ Type de question,Champ de texte
 Question,Code postal
 ""
 Champ,h_geography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision."
 ""
 Champ,hh_size
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Personnes habitant votre domicile ou logement
 Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}."
 ""
 Champ,hh_carNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage."
+Valeurs,"0
+1
+2
+3
+4
+5
+6+"
 ""
 Champ,hh_bicycleNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Question,"Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
 Inclure seulement les vélos utilisables en bon état."
+Valeurs,"0
+1
+2
+3
+4
+5
+6+"
 ""
 Champ,hh_electricBicycleNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?"
+Valeurs,"Min : 0
+Max : household.bicycleNumber"
 ""
 Champ,hh_atLeastOnePersonWithDisability
 Type de question,Bouton radio
@@ -142,7 +158,7 @@ partTime : Oui, à temps partiel
 no : Non"
 ""
 Champ,schoolType
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,ifAge15OrLessConditional : age <= 15 && age !== null
 Question,Établissement d'enseignement
 Valeurs,"kindergarten (ifAge5OrLessConditional : age <= 5) : Garderie/CPE
@@ -253,7 +269,7 @@ Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || wor
 Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 ""
 Champ,geography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
@@ -265,7 +281,7 @@ Conditionnel,personUsualSchoolPlaceNameCustomConditional
 Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
 ""
 Champ,geography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu""."
@@ -287,7 +303,7 @@ Section,Sélection du membre du ménage
 Abréviation,sp_
 ""
 Champ,_activePersonId
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Pour quelle personne désirez-vous poursuivre l'entrevue?
 ""
 ""
@@ -305,7 +321,7 @@ Type de question,Builtin
 Question,Changer de personne
 ""
 Champ,_showNewPersonPopupButton
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Nous allons vous demander de spécifier les déplacements de {{nickname}}.
 
 L’ordre des personnes interviewées est aléatoire.
@@ -313,20 +329,20 @@ L’ordre des personnes interviewées est aléatoire.
 <details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>"
 ""
 Champ,whoAnswers
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Qui répond pour {{nickname}}?
 ""
 Champ,personDidTrips
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
 Inclure tous les déplacements, peu importe la distance parcourue ou le mode de transport utilisé, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
 ""
 Champ,personDidTripsConfirm
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?
 ""
 Champ,didTripsIntro
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
 
 <span class=""_green"">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
@@ -334,7 +350,7 @@ Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est al
 <span class=""_red"">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>"
 ""
 Champ,departurePlaceIsHome
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
 Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit)."
 ""
@@ -455,7 +471,7 @@ Type de question,Builtin
 Question,Mode de transport
 ""
 Champ,howToBus
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
 Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif."
 ""
@@ -468,23 +484,29 @@ no : Non
 dontKnow : Je ne sais pas"
 ""
 Champ,vehicleOccupancy
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Conditionnel,isCarDriverCustomConditional
 Question,"Personne(s) dans le véhicule
 Conducteur ou conductrice inclus(e)."
-Valeurs,dontKnow (isProxyCustomConditional): Je ne sais pas
+Valeurs,"1
+2
+3
+4
+5
+6+
+dontKnow (isProxyCustomConditional): Je ne sais pas"
 ""
 Champ,driver
 Type de question,Builtin
 Question,Qui conduisait ?
 ""
 Champ,busLines
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
 Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats."
 ""
 Champ,busLinesWarning
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Certaines lignes de bus sélectionnées semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.
 ""
 Champ,onDemandType
@@ -498,7 +520,7 @@ Conditionnel,shouldAskTripJunctionCustomConditional
 Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte"
 ""
 Champ,junctionGeography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"")."
@@ -518,11 +540,11 @@ Section,Mobilité
 Abréviation,tb_
 ""
 Champ,buttonSwitchPerson
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Changer de personne
 ""
 Champ,personNoWorkTripIntro
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
@@ -537,13 +559,13 @@ other : Autre
 dontKnow : Je ne sais pas"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,shouldAskPersonNoWorkTripSpecifyCustomConditional
 Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
 (Facultatif)"
 ""
 Champ,personNoSchoolTripIntro
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
@@ -558,7 +580,7 @@ other : Autre
 dontKnow : Je ne sais pas"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,shouldAskForNoSchoolTripSpecifyCustomConditional
 Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
 (Facultatif)"
@@ -660,16 +682,20 @@ Question,"Vos commentaires et suggestions sur le questionnaire
 Facultatif"
 ""
 Champ,hh_pluginHybridCarNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 Facultatif"
+Valeurs,"Min : 0
+Max : household.carNumber"
 ""
 Champ,hh_electricCarNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
 Facultatif"
+Valeurs,"Min : 0
+Max : household.carNumber"
 ""
 Champ,e_interestOfTheSurvey
 Type de question,Curseur de plage
