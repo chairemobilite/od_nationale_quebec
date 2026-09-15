@@ -836,8 +836,7 @@ export const fillVisitedPlacesSectionTests = ({
     if (householdSize === 1 || isSelfDeclared) {
         testHelpers.waitTextVisible({ context, text: 'Places you went on' });
     } else {
-        // FIXME Support regexes for texts to check that the nickname is there (https://github.com/chairemobilite/evolution/issues/1894)
-        // testHelpers.waitTextVisible({ context, text: /Places .* went on/i });
+        testHelpers.waitTextVisible({ context, text: /Places .* went on/i });
     }
 
     // Test custom widget personVisitedPlaces
