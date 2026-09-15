@@ -25,3 +25,5 @@ export const surveyObjectParsers: SurveyObjectParsers = {
     trip: parseTripAttributes
     // segment: parseSegmentAttributes
 };
+
+export default surveyObjectParsers;
