@@ -39,7 +39,8 @@ export const parseInterviewAttributes: SurveyObjectParserInterview<CorrectedResp
         correctedResponse.assignedDate = correctedResponse._assignedDay;
     }
 
-    // update the languages attribute:
+    // Copy the last questionnaire language to the legacy `_languages` array.
+    // Keep `_language`: Evolution paradata still reads it.
     if (correctedResponse._language && ['fr', 'en'].includes(correctedResponse._language)) {
         correctedResponse._languages = [correctedResponse._language];
     }

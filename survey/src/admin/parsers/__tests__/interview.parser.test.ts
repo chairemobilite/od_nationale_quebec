@@ -121,6 +121,7 @@ describe('parseInterviewAttributes', () => {
             expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result.assignedDate).toBe('2025-01-15');
             expect(result._languages).toEqual(['fr']);
+            expect(result._language).toBe('fr');
 
             // Should preserve other attributes
             expect(result.household?.size).toBe(3);
@@ -144,6 +145,7 @@ describe('parseInterviewAttributes', () => {
             expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result.assignedDate).toBe('2025-02-01');
             expect(result._languages).toEqual(['en']);
+            expect(result._language).toBe('en');
 
             // Should preserve other attributes
             expect(result._assignedDay).toBe('2025-02-01');
@@ -193,6 +195,7 @@ describe('parseInterviewAttributes', () => {
             expect(result3.acceptToBeContactedForHelp).toBe(true);
             expect(result3.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result3._languages).toEqual(['fr']);
+            expect(result3._language).toBe('fr');
         });
 
         it('should not create memory leaks with large datasets', () => {
@@ -231,6 +234,7 @@ describe('parseInterviewAttributes', () => {
             expect(result2.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result2.assignedDate).toBe('2025-01-15');
             expect(result2._languages).toEqual(['en']);
+            expect(result2._language).toBe('en');
         });
     });
 });
