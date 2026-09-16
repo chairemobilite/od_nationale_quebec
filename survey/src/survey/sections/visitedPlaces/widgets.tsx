@@ -24,6 +24,8 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 
 // visitedPlaceActivity
 
+// visitedPlaceActivityOtherSpecify
+
 // visitedPlaceOnTheRoadPreviousPlaceActivity
 
 // visitedPlaceAlreadyVisited
