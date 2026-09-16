@@ -16,6 +16,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
 export const personVisitedPlacesWidgetsNames: SectionConfig['widgets'] = [
     'visitedPlaceActivityCategory',
     'visitedPlaceActivity',
+    'visitedPlaceActivityOtherSpecify',
     'visitedPlaceOnTheRoadPreviousPlaceActivity',
     'visitedPlaceAlreadyVisited',
     'visitedPlaceShortcut',

@@ -153,6 +153,7 @@ personVisitedPlacesMap,Builtin,1,visitedPlaces,,visitedPlacesMap,Carte des dépl
 personVisitedPlaces,Builtin,1,visitedPlaces,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlaces,,,,,,,,,,,,,,,,,,
 visitedPlaceActivityCategory,Builtin,1,visitedPlaces,personVisitedPlaces,activityCategory,,,,,,,,,,,,,,,,,,
 visitedPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,activity,,,,,,,,,,,,,,,,,,
+visitedPlaceActivityOtherSpecify,Builtin,1,visitedPlaces,personVisitedPlaces,activityOtherSpecify,,,,,,,,,,,,,,,,,,
 visitedPlaceOnTheRoadPreviousPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadPreviousPlaceActivity,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?,What was the departure place of {{nickname}}’s work trip on the road?,Quel endroit était le point de départ de vos déplacements sur la route?,Where did you start your work trip on the road?,,,,,,,,,,,,,,
 visitedPlaceAlreadyVisited,Builtin,1,visitedPlaces,personVisitedPlaces,alreadyVisitedBySelfOrAnotherHouseholdMember,"Avez-vous déjà localisé ce lieu?
 __Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.__","Did you previously locate this place on the map?
