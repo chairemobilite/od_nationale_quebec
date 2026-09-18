@@ -8,6 +8,7 @@
 import { parseInterviewAttributes } from '../interview.parser';
 import { parseHomeAttributes } from '../home.parser';
 import { parseTripAttributes } from '../trip.parser';
+import { parseSegmentAttributes } from '../segment.parser';
 import { parseVisitedPlaceAttributes } from '../visitedPlace.parser';
 import { surveyObjectParsers } from '../index';
 import { CorrectedResponse } from 'evolution-common/lib/services/questionnaire/types';
@@ -21,7 +22,8 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             ['interview', parseInterviewAttributes],
             ['home', parseHomeAttributes],
             ['trip', parseTripAttributes],
-            ['visitedPlace', parseVisitedPlaceAttributes]
+            ['visitedPlace', parseVisitedPlaceAttributes],
+            ['segment', parseSegmentAttributes]
         ])('should have %s parser configured correctly', (parserName, expectedFunction) => {
             expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBeDefined();
             expect(typeof surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBe('function');
@@ -31,8 +33,7 @@ describe('OD Nationale Quebec Survey Parsers', () => {
         test.each([
             'household',
             'person',
-            'journey',
-            'segment'
+            'journey'
         ])('should not have %s parser (unused in this survey)', (parserName) => {
             expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBeUndefined();
         });
@@ -117,14 +118,15 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             ['interview', parseInterviewAttributes],
             ['home', parseHomeAttributes],
             ['trip', parseTripAttributes],
-            ['visitedPlace', parseVisitedPlaceAttributes]
+            ['visitedPlace', parseVisitedPlaceAttributes],
+            ['segment', parseSegmentAttributes]
         ])('should use correct parser implementation for %s', (parserName, expectedFunction) => {
             expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBe(expectedFunction);
         });
 
         it('should have correct parser configuration for OD Nationale Quebec survey', () => {
             // Verify we have exactly the parsers we need for this survey
-            const expectedParsers = ['interview', 'home', 'trip', 'visitedPlace'];
+            const expectedParsers = ['interview', 'home', 'trip', 'visitedPlace', 'segment'];
             const actualParsers = Object.keys(surveyObjectParsers).filter((key) =>
                 surveyObjectParsers[key as keyof typeof surveyObjectParsers] !== undefined
             );
