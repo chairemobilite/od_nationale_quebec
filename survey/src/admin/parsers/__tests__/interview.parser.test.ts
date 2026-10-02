@@ -42,9 +42,11 @@ describe('parseInterviewAttributes', () => {
             ['yes', true],
             ['no', false],
             ['toaster', undefined] // anything else should revert to undefined
-        ])('should convert wouldLikeToParticipateInOtherSurveys from "%s" to %s', (input, expected) => {
+        ])('should convert end.wouldLikeToParticipateInOtherSurveysChaireMobilite from "%s" to %s', (input, expected) => {
             const correctedResponse: CorrectedResponse = {
-                wouldLikeToParticipateInOtherSurveys: input
+                end: {
+                    wouldLikeToParticipateInOtherSurveysChaireMobilite: input
+                }
             };
 
             const result = parseInterviewAttributes(correctedResponse);
@@ -54,14 +56,40 @@ describe('parseInterviewAttributes', () => {
             } else {
                 expect(result.wouldLikeToParticipateInOtherSurveys).toBe(expected);
             }
+            expect(result.end?.wouldLikeToParticipateInOtherSurveysChaireMobilite).toBeUndefined();
         });
 
-        it('should handle undefined wouldLikeToParticipateInOtherSurveys', () => {
+        it('should handle missing end section', () => {
             const correctedResponse: CorrectedResponse = {};
 
             const result = parseInterviewAttributes(correctedResponse);
 
             expect(result.wouldLikeToParticipateInOtherSurveys).toBeUndefined();
+        });
+    });
+
+    describe('respondentComments conversion', () => {
+        it('should map end.commentsOnSurvey to respondentComments', () => {
+            const correctedResponse: CorrectedResponse = {
+                end: {
+                    commentsOnSurvey: 'This is a test comment'
+                }
+            };
+
+            const result = parseInterviewAttributes(correctedResponse);
+
+            expect(result.respondentComments).toBe('This is a test comment');
+            expect(result.end?.commentsOnSurvey).toBeUndefined();
+        });
+
+        it('should leave respondentComments unchanged when end.commentsOnSurvey is missing', () => {
+            const correctedResponse: CorrectedResponse = {
+                respondentComments: 'Already parsed'
+            };
+
+            const result = parseInterviewAttributes(correctedResponse);
+
+            expect(result.respondentComments).toBe('Already parsed');
         });
     });
 
@@ -74,7 +102,7 @@ describe('parseInterviewAttributes', () => {
             const result = parseInterviewAttributes(correctedResponse);
 
             expect(result.assignedDate).toBe('2025-01-15');
-            expect(result._assignedDay).toBe('2025-01-15'); // Should preserve original
+            expect(result._assignedDay).toBeUndefined();
         });
 
         it('should handle missing _assignedDay', () => {
@@ -93,7 +121,6 @@ describe('parseInterviewAttributes', () => {
         ])('should handle %s corrected_response gracefully', (description, correctedResponse) => {
             expect(() => parseInterviewAttributes(correctedResponse as any)).not.toThrow();
 
-            // Should not crash and leave attributes unchanged
             if (description === 'null') {
                 expect(correctedResponse).toBeNull();
             } else {
@@ -103,12 +130,15 @@ describe('parseInterviewAttributes', () => {
     });
 
     describe('comprehensive parsing', () => {
-        it('should preserve other attributes when parsing', () => {
+        it('should parse interview and end-section fields from a corrected response', () => {
             const correctedResponse: CorrectedResponse = {
                 acceptToBeContactedForHelp: 'yes',
-                wouldLikeToParticipateInOtherSurveys: 'no',
                 _assignedDay: '2025-01-15',
                 _language: 'fr',
+                end: {
+                    wouldLikeToParticipateInOtherSurveysChaireMobilite: 'no',
+                    commentsOnSurvey: 'This is a test comment'
+                },
                 household: {
                     size: 3
                 }
@@ -116,92 +146,48 @@ describe('parseInterviewAttributes', () => {
 
             const result = parseInterviewAttributes(correctedResponse);
 
-            // Should parse the target attributes
             expect(result.acceptToBeContactedForHelp).toBe(true);
             expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result.assignedDate).toBe('2025-01-15');
-            expect(result._languages).toEqual(['fr']);
-
-            // Should preserve other attributes
-            expect(result.household?.size).toBe(3);
-        });
-
-        it('should handle all conversions simultaneously', () => {
-            const correctedResponse: CorrectedResponse = {
-                acceptToBeContactedForHelp: 'yes',
-                wouldLikeToParticipateInOtherSurveys: 'no',
-                _assignedDay: '2025-02-01',
-                _language: 'en',
-                household: {
-                    size: 3
-                }
-            };
-
-            const result = parseInterviewAttributes(correctedResponse);
-
-            // Should parse the target attributes
-            expect(result.acceptToBeContactedForHelp).toBe(true);
-            expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(result.assignedDate).toBe('2025-02-01');
-            expect(result._languages).toEqual(['en']);
-
-            // Should preserve other attributes
-            expect(result._assignedDay).toBe('2025-02-01');
+            expect(result._language).toBe('fr');
+            expect(result.respondentComments).toBe('This is a test comment');
+            expect(result._assignedDay).toBeUndefined();
+            expect(result.end?.commentsOnSurvey).toBeUndefined();
+            expect(result.end?.wouldLikeToParticipateInOtherSurveysChaireMobilite).toBeUndefined();
             expect(result.household?.size).toBe(3);
         });
     });
 
     describe('edge cases and performance', () => {
-        it('should handle concurrent parser calls', () => {
-            const correctedResponse1: CorrectedResponse = {
-                acceptToBeContactedForHelp: 'yes'
-            };
-
-            const correctedResponse2: CorrectedResponse = {
-                acceptToBeContactedForHelp: 'no'
-            };
-
-            // Simulate concurrent parsing
-            const result1 = parseInterviewAttributes(correctedResponse1);
-            const result2 = parseInterviewAttributes(correctedResponse2);
-
-            expect(result1.acceptToBeContactedForHelp).toBe(true);
-            expect(result2.acceptToBeContactedForHelp).toBe(false);
-        });
-
         it('should handle repeated parsing correctly', () => {
             const correctedResponse: CorrectedResponse = {
                 acceptToBeContactedForHelp: 'yes',
-                wouldLikeToParticipateInOtherSurveys: 'no',
-                _language: 'fr'
+                _language: 'fr',
+                end: {
+                    wouldLikeToParticipateInOtherSurveysChaireMobilite: 'no',
+                    commentsOnSurvey: 'This is a test comment'
+                }
             };
 
-            // First parsing should convert 'yes' to true, 'no' to false, and add languages array
             const result1 = parseInterviewAttributes(correctedResponse);
-            expect(result1.acceptToBeContactedForHelp).toBe(true);
-            expect(result1.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(result1._languages).toEqual(['fr']);
-
-            // Second parsing should leave values unchanged (idempotent)
             const result2 = parseInterviewAttributes(result1);
-            expect(result2.acceptToBeContactedForHelp).toBe(true);
-            expect(result2.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(result2._languages).toEqual(['fr']);
-
-            // Third parsing should still leave values unchanged
             const result3 = parseInterviewAttributes(result2);
+
             expect(result3.acceptToBeContactedForHelp).toBe(true);
             expect(result3.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(result3._languages).toEqual(['fr']);
+            expect(result3._language).toBe('fr');
+            expect(result3.respondentComments).toBe('This is a test comment');
         });
 
         it('should not create memory leaks with large datasets', () => {
-            // Create a large interview structure
             const correctedResponse: CorrectedResponse = {
                 acceptToBeContactedForHelp: 'yes',
-                wouldLikeToParticipateInOtherSurveys: 'no',
                 _assignedDay: '2025-01-15',
                 _language: 'en',
+                end: {
+                    wouldLikeToParticipateInOtherSurveysChaireMobilite: 'no',
+                    commentsOnSurvey: 'This is a test comment'
+                },
                 household: {
                     persons: {}
                 }
@@ -209,13 +195,6 @@ describe('parseInterviewAttributes', () => {
 
             const result = parseInterviewAttributes(correctedResponse);
 
-            expect(result.acceptToBeContactedForHelp).toBe(true);
-            expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(result.assignedDate).toBe('2025-01-15');
-            expect(result._languages).toEqual(['en']);
-            expect(result.household?.persons).toEqual({});
-
-            // Add many persons to test memory usage
             for (let i = 0; i < 100; i++) {
                 result.household!.persons![`person-${i}`] = {
                     _uuid: `person-${i}`,
@@ -224,13 +203,15 @@ describe('parseInterviewAttributes', () => {
                 };
             }
 
-            // Test that the parser works correctly even after adding large dataset
-            // and that repeated parsing doesn't cause issues (idempotent)
             const result2 = parseInterviewAttributes(result);
+
             expect(result2.acceptToBeContactedForHelp).toBe(true);
             expect(result2.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result2.assignedDate).toBe('2025-01-15');
-            expect(result2._languages).toEqual(['en']);
+            expect(result2._language).toBe('en');
+            expect(result2.respondentComments).toBe('This is a test comment');
+            expect(result2._assignedDay).toBeUndefined();
+            expect(result2.end?.commentsOnSurvey).toBeUndefined();
         });
     });
 });
