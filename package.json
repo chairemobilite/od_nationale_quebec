@@ -55,5 +55,6 @@
     },
     "resolutions": {
         "kdbush": "^3.0.0"
-    }
+    },
+    "packageManager": "yarn@1.22.22"
 }
