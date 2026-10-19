@@ -37,6 +37,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Enable Corepack
+      # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
+      run: npm install -g corepack
     - name: Install
       run: yarn
     - name: Compile
@@ -56,6 +59,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: latest
+    - name: Enable Corepack
+      # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
+      run: npm install -g corepack
     - name: Install
       run: yarn install
     - name: Compile
@@ -73,6 +79,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 24.x
+    - name: Enable Corepack
+      # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
+      run: npm install -g corepack
     - name: Install
       run: yarn install --frozen-lockfile
     - name: Yarn format
@@ -106,6 +115,9 @@ jobs:
     - name: Run Poetry
       working-directory: evolution/packages/evolution-generator
       run: poetry install
+    - name: Enable Corepack
+      # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
+      run: npm install -g corepack
     - name: Install
       run: yarn
     - name: Generate survey
