@@ -122,6 +122,12 @@ export const tripsForPersonComplete = function ({
     if (!_isBlank((journey as any).personDidTrips) && (journey as any).personDidTrips !== 'yes') {
         return true;
     }
+    // The persons made trips. Make sure there are trips and visited places,
+    // they would be initialised when entering their respective sections, but if
+    // the section was not entered, they would be undefined.
+    if (journey.visitedPlaces === undefined || journey.trips === undefined) {
+        return false;
+    }
     // Complete if there is no next trip or visited place to edit
     const nextPlace = odSurveyHelper.getFirstIncompleteVisitedPlace({ interview, journey, person });
     const nextTrip = odSurveyHelper.selectNextIncompleteTrip({ journey });
