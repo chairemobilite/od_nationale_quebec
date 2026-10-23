@@ -71,6 +71,23 @@ export type Segment = {
     hasNextMode: boolean | null;
 };
 
+// Default all values to null
+export const defaultSegmentNullValues: Segment = {
+    segmentIndex: 0,
+    sameModeAsReverseTrip: null,
+    modePre: null,
+    mode: null,
+    howToBus: null,
+    paidForParking: null,
+    vehicleOccupancy: null,
+    driver: null,
+    busLines: null,
+    busLinesWarning: null,
+    onDemandType: null,
+    tripJunctionQueryString: null,
+    hasNextMode: null
+};
+
 // TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
 /** Female, full time worker, part time student, carsharing member with transitPass, hybrid work and school places */
 export const defaultPerson1: HouseholdMember = {
@@ -414,6 +431,12 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 path: `household.persons.${personIdString}.occupation`,
                 isVisible: false
             });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.occupation`,
+                value: person.occupation
+            });
         }
 
         // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatusWorker
@@ -664,26 +687,28 @@ const testTripDiaryHeaderVisibility = ({ context, householdSize = 1 }: CommonTes
 };
 
 /********** Tests selectPerson section **********/
-export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+type SelectPersonParameters = {
+    selectedPerson?: string | null;
+};
+export const fillSelectPersonSectionTests = ({
+    context,
+    householdSize = 1,
+    selectedPerson
+}: CommonTestParametersModify & SelectPersonParameters) => {
     if (householdSize === 1) {
         // If household size is 1, skip the selectPerson section
         return;
     }
 
-    // Verify the selectPerson navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'selectPerson',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
-
-    // Test custom widget selectPerson
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.persons.${activePersonId}.selected',
-        value: '${personId[0]}' // Select the first person value
-    });
+    // If the person is null, it means there should be a person selected and we don't change it
+    if (selectedPerson !== null) {
+        // Test custom widget selectPerson
+        testHelpers.inputRadioTest({
+            context,
+            path: '_activePersonId',
+            value: selectedPerson ?? '${personId[0]}' // Select the first person value if not set
+        });
+    }
 
     // TODO: Test custom widget personNewPerson
     // Implement custom test
@@ -713,16 +738,16 @@ export type TripsIntroTestParameters = CommonTestParametersModify & {
     departurePlaceOther?: string | null;
     expectedNextSection: string;
 };
-export const fillTripsintroSectionTests = ({
+
+export const fillTripsintroSectionTestsNoNextClick = ({
     context,
     householdSize = 1,
     hasTrips,
     whoAnswersFor,
     departurePlaceIsHome = 'yes',
     departurePlaceOther = null,
-    expectPopup = false,
-    expectedNextSection
-}: TripsIntroTestParameters) => {
+    expectPopup = false
+}: Omit<TripsIntroTestParameters, 'expectedNextSection'>) => {
     // Verify the tripsIntro navigation is active
     testHelpers.verifyNavBarButtonStatus({
         context,
@@ -804,6 +829,11 @@ export const fillTripsintroSectionTests = ({
         text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential'
     });
 
+};
+
+export const fillTripsintroSectionTests = ({ context, expectedNextSection, ...options }: TripsIntroTestParameters) => {
+    fillTripsintroSectionTestsNoNextClick({ context, ...options });
+
     // Test nextbutton widget tripsIntro_save
     testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: `/survey/${expectedNextSection}` });
 
@@ -819,7 +849,7 @@ export const fillTripsintroSectionTests = ({
 // TODO: We should use interviewablePersonCount and not householdSize
 // TODO: Because we can only get visited places of interviawablePerson.
 /********** Tests visitedPlaces section **********/
-export const fillVisitedPlacesSectionTests = ({
+export const fillVisitedPlacesSectionTestsNoNextClick = ({
     context,
     householdSize = 1,
     visitedPlaces,
@@ -860,6 +890,26 @@ export const fillVisitedPlacesSectionTests = ({
             const nextLocationSequence = journeyStartsAtHome ? index + 3 : index + 2;
             testHelpers.waitTextVisible({ context, text: `Location #${nextLocationSequence}` });
         }
+    });
+};
+
+export const fillVisitedPlacesSectionTests = ({
+    context,
+    householdSize = 1,
+    visitedPlaces,
+    isSelfDeclared = true,
+    journeyStartsAtHome = true
+}: CommonTestParametersModify & {
+    visitedPlaces: VisitedPlace[];
+    journeyStartsAtHome?: boolean;
+    isSelfDeclared?: boolean;
+}) => {
+    fillVisitedPlacesSectionTestsNoNextClick({
+        context,
+        householdSize,
+        visitedPlaces,
+        isSelfDeclared,
+        journeyStartsAtHome
     });
 
     // Test custom widget buttonCancelVisitedPlace
