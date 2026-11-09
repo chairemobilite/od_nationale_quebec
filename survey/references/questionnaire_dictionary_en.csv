@@ -124,7 +124,7 @@ preferNotToAnswer : I prefer not to answer"
 ""
 Field,sexAssignedAtBirth
 Question type,Radio input
-Conditional,ifAge5orMoreConditional : age >= 5
+Conditional,ifAge5orMoreConditional : ${currentPerson}.age >= 5
 Question,"Sex at birth
 Sex assigned at birth or that which appears on legal documents."
 Values,"female : Female
@@ -133,7 +133,7 @@ preferNotToAnswer : I prefer not to answer"
 ""
 Field,gender
 Question type,Radio input
-Conditional,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNotToAnswer
+Conditional,hasPreferNotToAnswerToSexAssignedConditional : ${currentPerson}.sexAssignedAtBirth === preferNotToAnswer
 Question,I prefer to give the gender
 Values,"female : Woman
 male : Man
@@ -142,7 +142,7 @@ preferNotToAnswer : I prefer not to answer"
 ""
 Field,workerType
 Question type,Radio input
-Conditional,ifAge14orMoreConditional : age >= 14
+Conditional,ifAge14orMoreConditional : ${currentPerson}.age >= 14
 Question,"Worker
 Including self-employed and artist."
 Values,"fullTime : Yes, full time (30h and more/week)
@@ -151,7 +151,7 @@ no : No"
 ""
 Field,studentType
 Question type,Radio input
-Conditional,ifAge16OrMoreConditional : age >= 16
+Conditional,ifAge16OrMoreConditional : ${currentPerson}.age >= 16
 Question,Student
 Values,"fullTime : Yes, full time
 partTime : Yes, part time
@@ -159,14 +159,14 @@ no : No"
 ""
 Field,schoolType
 Question type,Custom input
-Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
+Conditional,ifAge15OrLessConditional : ${currentPerson}.age <= 15 && ${currentPerson}.age !== null
 Question,Educational institution
-Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
-primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
-secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school
-schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : School at home
-atHome (ifAge5OrLessConditional : age <= 5) : At home
-collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / College / DEP / AEP
+Values,"kindergarten (ifAge5OrLessConditional : ${currentPerson}.age <= 5) : Kindergarten/Childcare/CPE
+primarySchool (ifAge4to13Conditional : ${currentPerson}.age >= 4 && ${currentPerson}.age <= 13) : Primary school
+secondarySchool (ifAge11OrMoreConditional : ${currentPerson}.age >= 11) : Secondary school
+schoolAtHome (ifAge4to15Conditional : ${currentPerson}.age >= 4 && ${currentPerson}.age <= 15) : School at home
+atHome (ifAge5OrLessConditional : ${currentPerson}.age <= 5) : At home
+collegeCegepDepAep (ifAge15OrMoreConditional : ${currentPerson}.age >= 15) : CEGEP / College / DEP / AEP
 other : Other (specify)"
 ""
 Field,occupation
@@ -178,7 +178,7 @@ partTimeWorker : Employed part-time (less than 30h/week)
 workerAndStudent : Work and studies
 fullTimeStudent : Full-time student
 partTimeStudent : Part-time student
-retired (ifAge40OrMoreConditional : age >= 40) : Retired
+retired (ifAge40OrMoreConditional : ${currentPerson}.age >= 40) : Retired
 atHome : At home
 unemployed : Unemployed / searching for a job
 parentalOrSickLeave : Sick leave or parental leave
@@ -189,7 +189,7 @@ preferNotToAnswer : Prefer not to answer"
 ""
 Field,workerTypeBeforeLeave
 Question type,Radio input
-Conditional,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
+Conditional,parentalOrSickLeaveConditional : ${currentPerson}.occupation === parentalOrSickLeave
 Question,"Before being on leave, did {{nickname}} work?"
 Values,"fullTime : Yes, full time (30h and more/week)
 partTime : Yes, part time (less than 30h/week)
@@ -197,7 +197,7 @@ no : No"
 ""
 Field,educationalAttainment
 Question type,Radio input
-Conditional,ifAge15OrMoreConditional : age >= 15
+Conditional,ifAge15OrMoreConditional : ${currentPerson}.age >= 15
 Question,"Highest level of educational attainment
 When in doubt, choose the level which seems to match best"
 Values,"noneOrPrimaryEducation : No certificate, diploma or degree
@@ -210,7 +210,7 @@ preferNotToAnswer : I prefer not to answer"
 ""
 Field,drivingLicenseOwnership
 Question type,Radio input
-Conditional,ifAge16OrMoreConditional : age >= 16
+Conditional,ifAge16OrMoreConditional : ${currentPerson}.age >= 16
 Question,"Driver's licence
 Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
 Values,"yes : Yes
@@ -219,7 +219,7 @@ dontKnow : I don't know"
 ""
 Field,carSharingMember
 Question type,Radio input
-Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Conditional,hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes
 Question,"Carsharing member
 Subscription or pass to a carsharing service (ex. Communauto)"
 Values,"yes : Yes
@@ -228,7 +228,7 @@ dontKnow : I don't know"
 ""
 Field,transitPasses
 Question type,Checkbox input
-Conditional,ifAge6OrMoreConditional : age >= 6
+Conditional,ifAge6OrMoreConditional : ${currentPerson}.age >= 6
 Question,Does {{nickname}} currently have a valid transit pass or ticket?
 Values,"no : No
 transitPass : Monthly or annual pass
@@ -237,7 +237,7 @@ dontKnow : I don't know"
 ""
 Field,workPlaceType
 Question type,Radio input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Conditional,isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent
 Question,Does {{nickname}} have a fixed work location?
 Values,"onLocation : Yes, always on-site at fixed location (not from home)
 hybrid : Yes, hybrid work (remote and on-site)
@@ -247,7 +247,7 @@ remote : No, work from home or from elsewhere"
 ""
 Field,workPlaceTypeBeforeLeave
 Question type,Radio input
-Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
+Conditional,wasWorkerBeforeLeaveConditional : ${currentPerson}.workerTypeBeforeLeave === fullTime || ${currentPerson}.workerTypeBeforeLeave === partTime
 Question,"Before being on leave, did {{nickname}} have a fixed work location?"
 Values,"onLocation : Yes, {{nickname}} worked always on-site at fixed location (not from home)
 hybrid : Yes, {{nickname}} did hybrid work (remote and on-site)
@@ -257,30 +257,30 @@ remote : No, {{nickname}} worked from home or from elsewhere"
 ""
 Field,schoolPlaceType
 Question type,Radio input
-Conditional,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
+Conditional,isStudentConditional : ${currentPerson}.occupation === fullTimeStudent || ${currentPerson}.occupation === partTimeStudent || ${currentPerson}.occupation === workerAndStudent
 Question,Does {{nickname}} have a fixed study location?
 Values,"onLocation : Yes, always on-site at fixed location
 hybrid : Yes, hybrid studies (remote and on-site)
 remote : No, remote studies from home or from elsewhere"
 ""
-Field,name
+Field,usualWorkPlace.name
 Question type,Text input
-Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Conditional,hasWorkingLocationConditional : ${currentPerson}.workPlaceType === onLocation || ${currentPerson}.workPlaceType === hybrid || ${currentPerson}.workPlaceType === onTheRoadWithUsualPlace || ${currentPerson}.workPlaceTypeBeforeLeave === onLocation || ${currentPerson}.workPlaceTypeBeforeLeave === hybrid || ${currentPerson}.workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,Name or address of {{nickname}}'s usual place of work
 ""
-Field,geography
+Field,usualWorkPlace.geography
 Question type,Custom input
-Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Conditional,hasWorkingLocationConditional : ${currentPerson}.workPlaceType === onLocation || ${currentPerson}.workPlaceType === hybrid || ${currentPerson}.workPlaceType === onTheRoadWithUsualPlace || ${currentPerson}.workPlaceTypeBeforeLeave === onLocation || ${currentPerson}.workPlaceTypeBeforeLeave === hybrid || ${currentPerson}.workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,"Please locate the usual place of work for {{nickname}}
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the ""Search location"" button."
 ""
-Field,name
+Field,usualSchoolPlace.name
 Question type,Text input
 Conditional,personUsualSchoolPlaceNameCustomConditional
 Question,Name or address of {{nickname}}'s school or main study location
 ""
-Field,geography
+Field,usualSchoolPlace.geography
 Question type,Custom input
 Question,"Please locate the usual place of study for {{nickname}}.
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
@@ -288,13 +288,13 @@ You can also search for the place on the map using the ""Search location"" butto
 ""
 Field,travelToWorkDays
 Question type,Checkbox input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Conditional,isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent
 Question,"During the last week, when did {{nickname}} travel for work?
 To get to or for any other reason concerning work."
 ""
 Field,remoteWorkDays
 Question type,Checkbox input
-Conditional,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Conditional,personRemoteWorkDaysConditional : ${currentPerson}.workPlaceType === remote || ${currentPerson}.workPlaceType === hybrid
 Question,"During the last week, when did {{nickname}} work remotely?"
 ""
 ""
@@ -358,14 +358,14 @@ Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOth
 Question type,Radio input
 Conditional,departurePlaceOtherCustomConditional
 Question,Where was {{nickname}} at 4 AM?
-Values,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Home of the other parent or guardian
-workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Worked overnight
+Values,"otherParentHome (ifAge16OrLessConditional : ${currentPerson}.age <= 16 && ${currentPerson}.age !== null) : Home of the other parent or guardian
+workedOvernight (isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent) : Worked overnight
 secondaryHome : Secondary residence (cottage or other)
 sleptAtFriends : Stayed at a friend’s, partner’s or family’s home
 restaurant : Was at or was coming back from a restaurant or bar
-hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hotel or other venue for a conference / work
+hotelForWork (isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent) : Hotel or other venue for a conference / work
 hotelForVacation : Hotel or other on vacation
-studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
+studying (isStudentConditional : ${currentPerson}.occupation === fullTimeStudent || ${currentPerson}.occupation === partTimeStudent || ${currentPerson}.occupation === workerAndStudent) : School / place of study: studied or slept there
 other : Other"
 ""
 ""
@@ -525,7 +525,7 @@ Question,"Please locate the junction point (location where the change in mode of
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
 You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button)."
 ""
-Field,save
+Field,trip.save
 Question type,Builtin
 Question,Confirm this trip
 ""
