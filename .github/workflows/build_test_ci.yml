@@ -94,7 +94,7 @@ jobs:
           git diff
           exit 1
         fi
-  
+
   check-generator:
     runs-on: ubuntu-latest
     strategy:
@@ -110,11 +110,15 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Use Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
     - name: Install poetry
       run: pipx install poetry
     - name: Run Poetry
       working-directory: evolution/packages/evolution-generator
-      run: poetry install
+      run: poetry env use 3.12 && poetry install
     - name: Enable Corepack
       # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
       run: npm install -g corepack
