@@ -124,7 +124,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,sexAssignedAtBirth
 Type de question,Bouton radio
-Conditionnel,ifAge5orMoreConditional : age >= 5
+Conditionnel,ifAge5orMoreConditional : ${currentPerson}.age >= 5
 Question,"Sexe à la naissance
 Sexe assigné à la naissance ou inscrit dans les documents légaux."
 Valeurs,"female : Femme
@@ -133,7 +133,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,gender
 Type de question,Bouton radio
-Conditionnel,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNotToAnswer
+Conditionnel,hasPreferNotToAnswerToSexAssignedConditional : ${currentPerson}.sexAssignedAtBirth === preferNotToAnswer
 Question,Je préfère donner le genre
 Valeurs,"female : Femme
 male : Homme
@@ -142,7 +142,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,workerType
 Type de question,Bouton radio
-Conditionnel,ifAge14orMoreConditional : age >= 14
+Conditionnel,ifAge14orMoreConditional : ${currentPerson}.age >= 14
 Question,"Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
 Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste."
 Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
@@ -151,7 +151,7 @@ no : Non"
 ""
 Champ,studentType
 Type de question,Bouton radio
-Conditionnel,ifAge16OrMoreConditional : age >= 16
+Conditionnel,ifAge16OrMoreConditional : ${currentPerson}.age >= 16
 Question,Étudiant{{gender:/e/(e)/(e)}}
 Valeurs,"fullTime : Oui, à temps plein
 partTime : Oui, à temps partiel
@@ -159,14 +159,14 @@ no : Non"
 ""
 Champ,schoolType
 Type de question,Champ personnalisé
-Conditionnel,ifAge15OrLessConditional : age <= 15 && age !== null
+Conditionnel,ifAge15OrLessConditional : ${currentPerson}.age <= 15 && ${currentPerson}.age !== null
 Question,Établissement d'enseignement
-Valeurs,"kindergarten (ifAge5OrLessConditional : age <= 5) : Garderie/CPE
-primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : École primaire
-secondarySchool (ifAge11OrMoreConditional : age >= 11) : École secondaire
-schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : École à la maison
-atHome (ifAge5OrLessConditional : age <= 5) : À la maison
-collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / Collège / DEP / AEP
+Valeurs,"kindergarten (ifAge5OrLessConditional : ${currentPerson}.age <= 5) : Garderie/CPE
+primarySchool (ifAge4to13Conditional : ${currentPerson}.age >= 4 && ${currentPerson}.age <= 13) : École primaire
+secondarySchool (ifAge11OrMoreConditional : ${currentPerson}.age >= 11) : École secondaire
+schoolAtHome (ifAge4to15Conditional : ${currentPerson}.age >= 4 && ${currentPerson}.age <= 15) : École à la maison
+atHome (ifAge5OrLessConditional : ${currentPerson}.age <= 5) : À la maison
+collegeCegepDepAep (ifAge15OrMoreConditional : ${currentPerson}.age >= 15) : CEGEP / Collège / DEP / AEP
 other : Autre (spécifiez)"
 ""
 Champ,occupation
@@ -178,7 +178,7 @@ partTimeWorker : Travail à temps partiel (moins de 30h/semaine)
 workerAndStudent : Travail et études
 fullTimeStudent : Études à temps plein
 partTimeStudent : Études à temps partiel
-retired (ifAge40OrMoreConditional : age >= 40) : À la retraite
+retired (ifAge40OrMoreConditional : ${currentPerson}.age >= 40) : À la retraite
 atHome : À la maison
 unemployed : En chômage / en recherche d'emploi
 parentalOrSickLeave : Congé de maladie ou congé parental
@@ -189,7 +189,7 @@ preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,workerTypeBeforeLeave
 Type de question,Bouton radio
-Conditionnel,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
+Conditionnel,parentalOrSickLeaveConditional : ${currentPerson}.occupation === parentalOrSickLeave
 Question,"Avant d’être en congé, est-ce que {{nickname}} travaillait?"
 Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
 partTime : Oui, à temps partiel (moins de 30h/semaine)
@@ -197,7 +197,7 @@ no : Non"
 ""
 Champ,educationalAttainment
 Type de question,Bouton radio
-Conditionnel,ifAge15OrMoreConditional : age >= 15
+Conditionnel,ifAge15OrMoreConditional : ${currentPerson}.age >= 15
 Question,"Plus haut niveau de scolarité
 En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours."
 Valeurs,"noneOrPrimaryEducation : Aucun certificat, diplôme ou degré
@@ -210,7 +210,7 @@ preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,drivingLicenseOwnership
 Type de question,Bouton radio
-Conditionnel,ifAge16OrMoreConditional : age >= 16
+Conditionnel,ifAge16OrMoreConditional : ${currentPerson}.age >= 16
 Question,"Permis de conduire
 Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter."
 Valeurs,"yes : Oui
@@ -219,7 +219,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,carSharingMember
 Type de question,Bouton radio
-Conditionnel,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Conditionnel,hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes
 Question,"Membre Autopartage
 Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)"
 Valeurs,"yes : Oui
@@ -228,7 +228,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,transitPasses
 Type de question,Case à cocher
-Conditionnel,ifAge6OrMoreConditional : age >= 6
+Conditionnel,ifAge6OrMoreConditional : ${currentPerson}.age >= 6
 Question,Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?
 Valeurs,"no : Non
 transitPass : Passe ou titre mensuel ou annuel
@@ -237,7 +237,7 @@ dontKnow : Je ne sais pas"
 ""
 Champ,workPlaceType
 Type de question,Bouton radio
-Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Conditionnel,isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent
 Question,Est-ce que {{nickname}} a un lieu d'emploi fixe?
 Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps (hors domicile)
 hybrid : Oui, travail en mode hybride (télétravail et en présentiel)
@@ -247,7 +247,7 @@ remote : Non, travail à partir du domicile ou à distance"
 ""
 Champ,workPlaceTypeBeforeLeave
 Type de question,Bouton radio
-Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
+Conditionnel,wasWorkerBeforeLeaveConditional : ${currentPerson}.workerTypeBeforeLeave === fullTime || ${currentPerson}.workerTypeBeforeLeave === partTime
 Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?"
 Valeurs,"onLocation : Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps (hors domicile)
 hybrid : Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)
@@ -257,30 +257,30 @@ remote : Non, {{nickname}} travaillait à partir du domicile ou à distance"
 ""
 Champ,schoolPlaceType
 Type de question,Bouton radio
-Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
+Conditionnel,isStudentConditional : ${currentPerson}.occupation === fullTimeStudent || ${currentPerson}.occupation === partTimeStudent || ${currentPerson}.occupation === workerAndStudent
 Question,Est-ce que {{nickname}} a un lieu d'études fixe?
 Valeurs,"onLocation : Oui, études au lieu fixe en présentiel en tout temps
 hybrid : Oui, études en mode hybride (télé-études et en présentiel)
 remote : Non, études à partir du domicile ou à distance"
 ""
-Champ,name
+Champ,usualWorkPlace.name
 Type de question,Champ de texte
-Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Conditionnel,hasWorkingLocationConditional : ${currentPerson}.workPlaceType === onLocation || ${currentPerson}.workPlaceType === hybrid || ${currentPerson}.workPlaceType === onTheRoadWithUsualPlace || ${currentPerson}.workPlaceTypeBeforeLeave === onLocation || ${currentPerson}.workPlaceTypeBeforeLeave === hybrid || ${currentPerson}.workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 ""
-Champ,geography
+Champ,usualWorkPlace.geography
 Type de question,Champ personnalisé
-Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Conditionnel,hasWorkingLocationConditional : ${currentPerson}.workPlaceType === onLocation || ${currentPerson}.workPlaceType === hybrid || ${currentPerson}.workPlaceType === onTheRoadWithUsualPlace || ${currentPerson}.workPlaceTypeBeforeLeave === onLocation || ${currentPerson}.workPlaceTypeBeforeLeave === hybrid || ${currentPerson}.workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
 Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu""."
 ""
-Champ,name
+Champ,usualSchoolPlace.name
 Type de question,Champ de texte
 Conditionnel,personUsualSchoolPlaceNameCustomConditional
 Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
 ""
-Champ,geography
+Champ,usualSchoolPlace.geography
 Type de question,Champ personnalisé
 Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
@@ -288,13 +288,13 @@ Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Ch
 ""
 Champ,travelToWorkDays
 Type de question,Case à cocher
-Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Conditionnel,isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent
 Question,"Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail."
 ""
 Champ,remoteWorkDays
 Type de question,Case à cocher
-Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Conditionnel,personRemoteWorkDaysConditional : ${currentPerson}.workPlaceType === remote || ${currentPerson}.workPlaceType === hybrid
 Question,"Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du télétravail?"
 ""
 ""
@@ -358,14 +358,14 @@ Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOth
 Type de question,Bouton radio
 Conditionnel,departurePlaceOtherCustomConditional
 Question,Où était {{nickname}} à 4h du matin?
-Valeurs,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Domicile de l'autre parent ou tuteur
-workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Travaillait de nuit
+Valeurs,"otherParentHome (ifAge16OrLessConditional : ${currentPerson}.age <= 16 && ${currentPerson}.age !== null) : Domicile de l'autre parent ou tuteur
+workedOvernight (isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent) : Travaillait de nuit
 secondaryHome : Résidence secondaire (chalet ou autre)
 sleptAtFriends : Passait la nuit chez ami, copine/copain ou famille
 restaurant : Était à un ou revenait d'un restaurant ou bar
-hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hôtel ou autre lieu pour une conférence / travail
+hotelForWork (isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent) : Hôtel ou autre lieu pour une conférence / travail
 hotelForVacation : Hôtel ou autre lieu en vacances
-studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
+studying (isStudentConditional : ${currentPerson}.occupation === fullTimeStudent || ${currentPerson}.occupation === partTimeStudent || ${currentPerson}.occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
 other : Autre"
 ""
 ""
@@ -525,7 +525,7 @@ Question,"Veuillez localiser le point de jonction (lieu où s'est effectué le c
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
 Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"")."
 ""
-Champ,save
+Champ,trip.save
 Type de question,Builtin
 Question,Confirmer ce déplacement
 ""

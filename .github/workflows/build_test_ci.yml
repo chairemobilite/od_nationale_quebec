@@ -7,6 +7,10 @@
 
 name: CI
 
+# Node version to use for task that only require a single node version
+env:
+  NODE_VERSION: 24.x
+
 on:
   push:
     branches: [ main, 2025, 2026 ]
@@ -55,10 +59,10 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: recursive
-    - name: Use latest Node.js
+    - name: Use Node.js version ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v4
       with:
-        node-version: latest
+        node-version: ${{ env.NODE_VERSION }}
     - name: Enable Corepack
       # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
       run: npm install -g corepack
@@ -75,10 +79,10 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: recursive
-    - name: Use latest Node.js
+    - name: Use Node.js version ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v4
       with:
-        node-version: 24.x
+        node-version: ${{ env.NODE_VERSION }}
     - name: Enable Corepack
       # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
       run: npm install -g corepack
@@ -94,27 +98,28 @@ jobs:
           git diff
           exit 1
         fi
-  
+
   check-generator:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [24.x]
     steps:
     - uses: actions/checkout@v4
       with:
         submodules: recursive
-    - name: copy env file
-      run: cp .env.example .env
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js version ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ env.NODE_VERSION }}
+    - name: copy env file
+      run: cp .env.example .env
+    - name: Use Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
     - name: Install poetry
       run: pipx install poetry
     - name: Run Poetry
       working-directory: evolution/packages/evolution-generator
-      run: poetry install
+      run: poetry env use 3.12 && poetry install
     - name: Enable Corepack
       # Corepack runs the Yarn version set in package.json. Node.js 25+ no longer bundles it.
       run: npm install -g corepack
