@@ -8,3 +8,4 @@
 jest.config.js
 webpack.config.js
 webpack.admin.config.js
+config.js

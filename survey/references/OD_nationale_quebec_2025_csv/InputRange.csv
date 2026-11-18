@@ -1,4 +1,4 @@
-inputRangeName,labelFrMin,labelFrMiddle,labelFrMax,labelEnMin,labelEnMiddle,labelEnMax,minValue,maxValue,unitFr,unitEn,input_color
+input_range_name,label_min::fr,label_middle::fr,label_max::fr,label_min::en,label_middle::en,label_max::en,min_value,max_value,unit::fr,unit::en,input_color
 sliderTooShortToTooLong,Trop court,Juste comme il faut,Trop long,Too short,Just right,Too long,-10,100,%,%,green-yellow-red
 sliderNotAtAllToVeryInteresting,Pas du tout,Neutre,Très intéressante,Not at all,Neutral,Very interesting,-10,100,%,%,red-yellow-green
 sliderVeryEasyToVeryDifficult,Très facile,Modérément difficile,Très difficile,Very easy,Moderately difficult,Very difficult,-10,100,%,%,green-yellow-red

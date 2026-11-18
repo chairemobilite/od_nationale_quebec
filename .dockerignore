@@ -1,0 +1,7 @@
+# The submodule's lockfile would make Yarn take evolution/ and evolution/transition as a separate project.
+# Outside docker, the postinstall hides them with a sparse-checkout.
+# Also, the submodules' .git directories are not required.
+evolution/yarn.lock
+evolution/transition/yarn.lock
+evolution/.git
+evolution/transition/.git

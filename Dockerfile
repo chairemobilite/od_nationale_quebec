@@ -6,7 +6,7 @@ RUN npm install -g corepack
 WORKDIR /app
 # Install all the json package dependencies in an intermediary image. To do so, we copy each package.json files
 # and run yarn install which will download all the listed packages in the image.
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .yarnrc.yml ./
 COPY survey/package.json survey/package.json
 # As an optimisation we would only copy the package.json first before the yarn install, but we need the
 # local packages in evolution for yarn install to work

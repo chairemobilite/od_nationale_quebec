@@ -46,8 +46,7 @@ export const hasOnePersonWithDisabilityOrHhSize1CustomConditional: WidgetConditi
             }
         ],
         valueWhenHidden: surveyHelper.getResponse(interview, 'household.atLeastOnePersonWithDisability', null) as
-            | string
-            | null
+            string | null
     });
 };
 
