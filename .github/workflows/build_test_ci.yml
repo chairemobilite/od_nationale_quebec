@@ -32,13 +32,13 @@ jobs:
       PROJECT_CONFIG: ${{ github.workspace }}/survey/config.js
       EV_VARIANT: ${{ matrix.ev-variant }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         submodules: recursive
     - name: copy env file
       run: cp .env.example .env
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
     - name: Enable Corepack
@@ -56,11 +56,11 @@ jobs:
   code-lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         submodules: recursive
     - name: Use Node.js version ${{ env.DEFAULT_NODE_VERSION }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ env.DEFAULT_NODE_VERSION }}
     - name: Enable Corepack
@@ -76,11 +76,11 @@ jobs:
   check-format:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         submodules: recursive
     - name: Use Node.js version ${{ env.DEFAULT_NODE_VERSION }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ env.DEFAULT_NODE_VERSION }}
     - name: Enable Corepack
@@ -102,18 +102,18 @@ jobs:
   check-generator:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         submodules: recursive
     - name: Use Node.js version ${{ env.DEFAULT_NODE_VERSION }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ env.DEFAULT_NODE_VERSION }}
     - name: copy env file
       run: cp .env.example .env
     - name: Use Python 3.12
       # FIXME Temporary step until the Evolution generator updates their dependencies to correctly supports 3.14 version of python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: '3.12'
     - name: Install poetry
