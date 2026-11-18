@@ -236,8 +236,7 @@ export default [
                     prefilledResponsesForAccessCode['home.postalCode'] !== postalCode
                         ? {
                             _postalCodeMismatch: true,
-                            _userPostalCode: postalCode,
-                            _prefilledPostalCode: prefilledResponsesForAccessCode['home.postalCode']
+                            _userPostalCode: postalCode
                         }
                         : prefilledResponsesForAccessCode;
 
