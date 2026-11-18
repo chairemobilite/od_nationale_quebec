@@ -50,12 +50,8 @@ module.exports = Object.assign({
     includeWorkerAndStudentOccupation: true,
     acceptUnknownDidTrips: false,
     logDatabaseUpdates: true,
-    allowRegistration: true,
-    registerWithPassword: true,
-    registerWithEmailOnly: true,
     askForAccessCode: true,
     isPartTwo: false,
-    forgotPasswordPage: true,
     primaryAuthMethod: 'byField',
     adminAuth: {
         localLogin: {

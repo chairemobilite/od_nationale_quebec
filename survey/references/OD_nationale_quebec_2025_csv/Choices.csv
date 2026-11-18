@@ -32,11 +32,11 @@ schoolType,schoolAtHome,École à la maison,School at home,,,,ifAge4to15Conditio
 schoolType,atHome,À la maison,At home,,,,ifAge5OrLessConditional,
 schoolType,collegeCegepDepAep,CEGEP / Collège / DEP / AEP,CEGEP / College / DEP / AEP,,,,ifAge15OrMoreConditional,
 schoolType,,,,,,other,,
-personOccupation,fullTimeWorker,Travail à temps plein (30h et plus/semaine),Employed full-time (30h and more/week),,,,,True
-personOccupation,partTimeWorker,Travail à temps partiel (moins de 30h/semaine),Employed part-time (less than 30h/week),,,,,True
-personOccupation,workerAndStudent,Travail et études,Work and studies,,,,,True
-personOccupation,fullTimeStudent,Études à temps plein,Full-time student,,,,,True
-personOccupation,partTimeStudent,Études à temps partiel,Part-time student,,,,,True
+personOccupation,fullTimeWorker,Travail à temps plein (30h et plus/semaine),Employed full-time (30h and more/week),,,,,TRUE
+personOccupation,partTimeWorker,Travail à temps partiel (moins de 30h/semaine),Employed part-time (less than 30h/week),,,,,TRUE
+personOccupation,workerAndStudent,Travail et études,Work and studies,,,,,TRUE
+personOccupation,fullTimeStudent,Études à temps plein,Full-time student,,,,,TRUE
+personOccupation,partTimeStudent,Études à temps partiel,Part-time student,,,,,TRUE
 personOccupation,retired,À la retraite,Retired,,,,ifAge40OrMoreConditional,
 personOccupation,atHome,À la maison,At home,,,,,
 personOccupation,unemployed,En chômage / en recherche d'emploi,Unemployed / searching for a job,,,,,
